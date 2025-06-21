@@ -3,8 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "GroupXam",
-  description: "Created with v0",
-  generator: "v0.dev",
+  description: "Study Platform",
 };
 
 export default function RootLayout({
