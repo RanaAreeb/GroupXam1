@@ -57,9 +57,9 @@ export default function HomePage() {
             <span className="text-gray-800">with Confidence</span>
           </h1>
           <p className="text-base sm:text-xl text-gray-600 mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed px-4">
-            The most comprehensive study platform for WAEC/WASSCE preparation.
-            Practice with thousands of questions, master concepts with
-            flashcards, and track your progress.
+            The most comprehensive study platform for WAEC/WASSCE/ACT/SAT
+            preparation. Practice with thousands of questions, master concepts
+            with flashcards, and track your progress.
           </p>
 
           {/* Main Action Buttons */}
