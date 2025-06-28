@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Test</title>
+</head>
+<body>
+    <h1>API Test</h1>
+    
+    <h2>Test Signup</h2>
+    <button onclick="testSignup()">Test Signup</button>
+    <div id="signup-result"></div>
+    
+    <h2>Test Login</h2>
+    <button onclick="testLogin()">Test Login</button>
+    <div id="login-result"></div>
+    
+    <h2>Test Discussions</h2>
+    <button onclick="testDiscussions()">Test Discussions</button>
+    <div id="discussions-result"></div>
+
+    <script>
+        async function testSignup() {
+            try {
+                const response = await fetch('/api/auth/signup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        name: 'Test User',
+                        email: 'test@example.com',
+                        password: 'password123',
+                        selectedSubjects: ['physics', 'chemistry', 'biology']
+                    })
+                });
+                
+                const data = await response.json();
+                document.getElementById('signup-result').innerHTML = 
+                    `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+            } catch (error) {
+                document.getElementById('signup-result').innerHTML = 
+                    `<pre>Error: ${error.message}</pre>`;
+            }
+        }
+
+        async function testLogin() {
+            try {
+                const response = await fetch('/api/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: 'test@example.com',
+                        password: 'password123'
+                    })
+                });
+                
+                const data = await response.json();
+                document.getElementById('login-result').innerHTML = 
+                    `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+            } catch (error) {
+                document.getElementById('login-result').innerHTML = 
+                    `<pre>Error: ${error.message}</pre>`;
+            }
+        }
+
+        async function testDiscussions() {
+            try {
+                const response = await fetch('/api/discussions');
+                const data = await response.json();
+                document.getElementById('discussions-result').innerHTML = 
+                    `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+            } catch (error) {
+                document.getElementById('discussions-result').innerHTML = 
+                    `<pre>Error: ${error.message}</pre>`;
+            }
+        }
+    </script>
+</body>
+</html> 

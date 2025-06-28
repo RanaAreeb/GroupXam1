@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
@@ -23,133 +23,134 @@ import {
   Clock,
   BookOpen,
 } from "lucide-react";
+import AppHeader from "@/components/ui/app-header";
 
-const discussions = [
-  {
-    id: 1,
-    title: "Help with Organic Chemistry Mechanisms",
-    subject: "Chemistry",
-    author: "Sarah M.",
-    authorInitials: "SM",
-    timeAgo: "2 hours ago",
-    replies: 8,
-    likes: 12,
-    content:
-      "I'm struggling with understanding SN1 and SN2 reaction mechanisms. Can someone explain the key differences?",
-    tags: ["organic-chemistry", "mechanisms", "help"],
-  },
-  {
-    id: 2,
-    title: "Physics Problem: Projectile Motion",
-    subject: "Physics",
-    author: "John D.",
-    authorInitials: "JD",
-    timeAgo: "4 hours ago",
-    replies: 15,
-    likes: 23,
-    content:
-      "Working on a projectile motion problem where a ball is thrown at 45° angle. Need help with finding maximum height.",
-    tags: ["physics", "projectile-motion", "problem-solving"],
-  },
-  {
-    id: 3,
-    title: "WAEC Mathematics Past Questions Discussion",
-    subject: "Mathematics",
-    author: "Emma K.",
-    authorInitials: "EK",
-    timeAgo: "1 day ago",
-    replies: 32,
-    likes: 45,
-    content:
-      "Let's discuss the 2023 WAEC Mathematics questions. I found question 15 particularly challenging.",
-    tags: ["waec", "mathematics", "past-questions"],
-  },
-  {
-    id: 4,
-    title: "Biology: Photosynthesis vs Cellular Respiration",
-    subject: "Biology",
-    author: "Mike R.",
-    authorInitials: "MR",
-    timeAgo: "2 days ago",
-    replies: 19,
-    likes: 31,
-    content:
-      "Can someone help me create a comparison table between photosynthesis and cellular respiration?",
-    tags: ["biology", "photosynthesis", "cellular-respiration"],
-  },
-];
-
-const subjects = [
+const SUBJECTS = [
   "All",
   "Physics",
   "Chemistry",
+  "Organic Chemistry",
+  "Microbiology",
+  "Anatomy",
+  "Physiology",
   "Biology",
-  "Mathematics",
-  "Economics",
+  "Biochemistry",
+  "Pharmacology",
+  "Ecology",
+  "Psychology",
+  "Economic",
+  "Micro economics",
+  "Macro economics",
+  "Accounting",
+  "Finance",
+  "Political science",
 ];
 
-export default function DiscussionsPage() {
-  const [selectedSubject, setSelectedSubject] = useState("All");
-  const [searchQuery, setSearchQuery] = useState("");
-  const [showNewPost, setShowNewPost] = useState(false);
+interface Reply {
+  author: string;
+  authorInitials: string;
+  content: string;
+  createdAt?: string;
+}
 
-  const filteredDiscussions = discussions.filter((discussion) => {
-    const matchesSubject =
-      selectedSubject === "All" || discussion.subject === selectedSubject;
-    const matchesSearch =
-      discussion.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      discussion.content.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesSubject && matchesSearch;
-  });
+interface Discussion {
+  _id: string;
+  title: string;
+  subject: string;
+  author: string;
+  authorInitials: string;
+  content: string;
+  tags: string[];
+  replies: Reply[];
+  likes: number;
+  createdAt?: string;
+}
+
+export default function DiscussionsPage() {
+  const [selectedSubject, setSelectedSubject] = useState<string>("All");
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [showNewPost, setShowNewPost] = useState<boolean>(false);
+  const [discussions, setDiscussions] = useState<Discussion[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [newPost, setNewPost] = useState<{
+    title: string;
+    subject: string;
+    content: string;
+  }>({ title: "", subject: "", content: "" });
+  const [replying, setReplying] = useState<Record<string, string>>({}); // { [discussionId]: replyText }
+  const [replyLoading, setReplyLoading] = useState<Record<string, boolean>>({});
+
+  // Fetch discussions from API
+  useEffect(() => {
+    setLoading(true);
+    const params = new URLSearchParams();
+    if (selectedSubject && selectedSubject !== "All")
+      params.append("subject", selectedSubject);
+    if (searchQuery) params.append("search", searchQuery);
+    fetch(`/api/discussions?${params.toString()}`)
+      .then((res) => res.json())
+      .then((data: Discussion[]) =>
+        setDiscussions(Array.isArray(data) ? data : [])
+      )
+      .finally(() => setLoading(false));
+  }, [selectedSubject, searchQuery, showNewPost]);
+
+  // Handle new post form
+  const handleNewPost = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!newPost.title || !newPost.subject || !newPost.content) return;
+    setLoading(true);
+    await fetch("/api/discussions", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        ...newPost,
+        author: "Anonymous", // Replace with user info if available
+        authorInitials: "AN",
+      }),
+    });
+    setShowNewPost(false);
+    setNewPost({ title: "", subject: "", content: "" });
+    setLoading(false);
+  };
+
+  // Handle reply
+  const handleReply = async (discussionId: string) => {
+    if (!replying[discussionId]) return;
+    setReplyLoading((prev) => ({ ...prev, [discussionId]: true }));
+    await fetch("/api/discussions", {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        discussionId,
+        reply: {
+          author: "Anonymous",
+          authorInitials: "AN",
+          content: replying[discussionId],
+        },
+      }),
+    });
+    setReplying((prev) => ({ ...prev, [discussionId]: "" }));
+    setReplyLoading((prev) => ({ ...prev, [discussionId]: false }));
+    // Refetch discussions
+    setLoading(true);
+    const params = new URLSearchParams();
+    if (selectedSubject && selectedSubject !== "All")
+      params.append("subject", selectedSubject);
+    if (searchQuery) params.append("search", searchQuery);
+    fetch(`/api/discussions?${params.toString()}`)
+      .then((res) => res.json())
+      .then((data: Discussion[]) =>
+        setDiscussions(Array.isArray(data) ? data : [])
+      )
+      .finally(() => setLoading(false));
+  };
+
+  const filteredDiscussions = discussions;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50">
-      {/* Header */}
-      <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-lg flex items-center justify-center">
-              <BookOpen className="w-5 h-5 text-white" />
-            </div>
-            <Link
-              href="/"
-              className="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent"
-            >
-              groupXam
-            </Link>
-          </div>
-          <nav className="flex items-center space-x-6">
-            <Link
-              href="/dashboard"
-              className="text-gray-600 hover:text-emerald-600 transition-colors"
-            >
-              Dashboard
-            </Link>
-            <Link
-              href="/quiz"
-              className="text-gray-600 hover:text-emerald-600 transition-colors"
-            >
-              Quizzes
-            </Link>
-            <Link
-              href="/exams"
-              className="text-gray-600 hover:text-emerald-600 transition-colors"
-            >
-              Exams
-            </Link>
-            <Link
-              href="/flashcards"
-              className="text-gray-600 hover:text-emerald-600 transition-colors"
-            >
-              Flashcards
-            </Link>
-            <Link href="/discussions" className="text-emerald-600 font-medium">
-              Discussions
-            </Link>
-          </nav>
-        </div>
-      </header>
-
+      <AppHeader active="Discussions" />
       <div className="container mx-auto py-8 px-4">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
@@ -165,11 +166,9 @@ export default function DiscussionsPage() {
             onClick={() => setShowNewPost(true)}
             className="bg-gradient-to-r from-emerald-500 to-blue-500"
           >
-            <Plus className="w-4 h-4 mr-2" />
-            New Discussion
+            <Plus className="w-4 h-4 mr-2" /> New Discussion
           </Button>
         </div>
-
         {/* Search and Filters */}
         <div className="flex flex-col md:flex-row gap-4 mb-8">
           <div className="relative flex-1">
@@ -182,7 +181,7 @@ export default function DiscussionsPage() {
             />
           </div>
           <div className="flex gap-2 overflow-x-auto">
-            {subjects.map((subject) => (
+            {SUBJECTS.map((subject) => (
               <Button
                 key={subject}
                 variant={selectedSubject === subject ? "default" : "outline"}
@@ -199,7 +198,6 @@ export default function DiscussionsPage() {
             ))}
           </div>
         </div>
-
         {/* New Post Form */}
         {showNewPost && (
           <Card className="border-0 shadow-lg mb-8">
@@ -210,110 +208,171 @@ export default function DiscussionsPage() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="space-y-4">
-                <Input placeholder="Discussion title..." />
-                <select className="w-full p-2 border rounded-md">
-                  <option>Select Subject</option>
-                  <option>Physics</option>
-                  <option>Chemistry</option>
-                  <option>Biology</option>
-                  <option>Mathematics</option>
-                  <option>Economics</option>
+              <form className="space-y-4" onSubmit={handleNewPost}>
+                <Input
+                  placeholder="Discussion title..."
+                  value={newPost.title}
+                  onChange={(e) =>
+                    setNewPost((p) => ({ ...p, title: e.target.value }))
+                  }
+                  required
+                />
+                <select
+                  className="w-full p-2 border rounded-md"
+                  value={newPost.subject}
+                  onChange={(e) =>
+                    setNewPost((p) => ({ ...p, subject: e.target.value }))
+                  }
+                  required
+                >
+                  <option value="">Select Subject</option>
+                  {SUBJECTS.filter((s) => s !== "All").map((subject) => (
+                    <option key={subject} value={subject}>
+                      {subject}
+                    </option>
+                  ))}
                 </select>
                 <Textarea
                   placeholder="What would you like to discuss?"
                   rows={4}
+                  value={newPost.content}
+                  onChange={(e) =>
+                    setNewPost((p) => ({ ...p, content: e.target.value }))
+                  }
+                  required
                 />
                 <div className="flex gap-2">
-                  <Button className="bg-gradient-to-r from-emerald-500 to-blue-500">
+                  <Button
+                    type="submit"
+                    className="bg-gradient-to-r from-emerald-500 to-blue-500"
+                  >
                     Post Discussion
                   </Button>
                   <Button
                     variant="outline"
+                    type="button"
                     onClick={() => setShowNewPost(false)}
                   >
                     Cancel
                   </Button>
                 </div>
-              </div>
+              </form>
             </CardContent>
           </Card>
         )}
-
         {/* Discussions List */}
-        <div className="space-y-6">
-          {filteredDiscussions.map((discussion) => (
-            <Card
-              key={discussion.id}
-              className="border-0 shadow-lg hover:shadow-xl transition-shadow cursor-pointer"
-            >
-              <CardContent className="p-6">
-                <div className="flex items-start space-x-4">
-                  <Avatar>
-                    <AvatarFallback className="bg-emerald-100 text-emerald-700">
-                      {discussion.authorInitials}
-                    </AvatarFallback>
-                  </Avatar>
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-2">
-                      <Badge className="bg-emerald-100 text-emerald-700">
-                        {discussion.subject}
-                      </Badge>
-                      <span className="text-sm text-gray-500">•</span>
-                      <span className="text-sm text-gray-500">
-                        {discussion.timeAgo}
-                      </span>
-                    </div>
-                    <h3 className="text-lg font-semibold text-gray-800 mb-2 hover:text-emerald-600 transition-colors">
-                      {discussion.title}
-                    </h3>
-                    <p className="text-gray-600 mb-3 line-clamp-2">
-                      {discussion.content}
-                    </p>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {discussion.tags.map((tag) => (
-                        <Badge
-                          key={tag}
-                          variant="secondary"
-                          className="text-xs"
-                        >
-                          #{tag}
+        {loading ? (
+          <div className="text-center py-12">Loading...</div>
+        ) : (
+          <div className="space-y-6">
+            {filteredDiscussions.map((discussion) => (
+              <Card
+                key={discussion._id}
+                className="border-0 shadow-lg hover:shadow-xl transition-shadow cursor-pointer"
+              >
+                <CardContent className="p-6">
+                  <div className="flex items-start space-x-4">
+                    <Avatar>
+                      <AvatarFallback className="bg-emerald-100 text-emerald-700">
+                        {discussion.authorInitials}
+                      </AvatarFallback>
+                    </Avatar>
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 mb-2">
+                        <Badge className="bg-emerald-100 text-emerald-700">
+                          {discussion.subject}
                         </Badge>
-                      ))}
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-4 text-sm text-gray-500">
-                        <div className="flex items-center space-x-1">
-                          <MessageSquare className="w-4 h-4" />
-                          <span>{discussion.replies} replies</span>
-                        </div>
-                        <div className="flex items-center space-x-1">
-                          <ThumbsUp className="w-4 h-4" />
-                          <span>{discussion.likes} likes</span>
-                        </div>
-                        <div className="flex items-center space-x-1">
-                          <Clock className="w-4 h-4" />
-                          <span>by {discussion.author}</span>
-                        </div>
+                        <span className="text-sm text-gray-500">•</span>
+                        <span className="text-sm text-gray-500">
+                          {discussion.createdAt
+                            ? new Date(discussion.createdAt).toLocaleString()
+                            : ""}
+                        </span>
                       </div>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        className="text-emerald-600 hover:text-emerald-700"
-                      >
-                        <Reply className="w-4 h-4 mr-1" />
-                        Reply
-                      </Button>
+                      <h3 className="text-lg font-semibold text-gray-800 mb-2 hover:text-emerald-600 transition-colors">
+                        {discussion.title}
+                      </h3>
+                      <p className="text-gray-600 mb-3 line-clamp-2">
+                        {discussion.content}
+                      </p>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {discussion.tags &&
+                          discussion.tags.map((tag) => (
+                            <Badge
+                              key={tag}
+                              variant="secondary"
+                              className="text-xs"
+                            >
+                              #{tag}
+                            </Badge>
+                          ))}
+                      </div>
+                      {/* Replies */}
+                      {discussion.replies && discussion.replies.length > 0 && (
+                        <div className="bg-gray-50 rounded-lg p-3 mb-3">
+                          <div className="font-semibold mb-2 text-emerald-700">
+                            Replies:
+                          </div>
+                          <div className="space-y-2">
+                            {discussion.replies.map((reply, idx) => (
+                              <div key={idx} className="flex items-start gap-2">
+                                <Avatar>
+                                  <AvatarFallback className="bg-blue-100 text-blue-700">
+                                    {reply.authorInitials || "AN"}
+                                  </AvatarFallback>
+                                </Avatar>
+                                <div>
+                                  <div className="font-medium text-sm text-gray-800">
+                                    {reply.author || "Anonymous"}
+                                    <span className="ml-2 text-xs text-gray-400">
+                                      {reply.createdAt
+                                        ? new Date(
+                                            reply.createdAt
+                                          ).toLocaleString()
+                                        : ""}
+                                    </span>
+                                  </div>
+                                  <div className="text-gray-600 text-sm">
+                                    {reply.content}
+                                  </div>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                      {/* Reply Form */}
+                      <div className="flex items-center gap-2 mt-2">
+                        <Input
+                          placeholder="Write a reply..."
+                          value={replying[discussion._id] || ""}
+                          onChange={(e) =>
+                            setReplying((prev) => ({
+                              ...prev,
+                              [discussion._id]: e.target.value,
+                            }))
+                          }
+                          className="flex-1"
+                        />
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          className="text-emerald-600 hover:text-emerald-700"
+                          disabled={replyLoading[discussion._id]}
+                          onClick={() => handleReply(discussion._id)}
+                        >
+                          <Reply className="w-4 h-4 mr-1" /> Reply
+                        </Button>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        )}
         {/* Empty State */}
-        {filteredDiscussions.length === 0 && (
+        {!loading && filteredDiscussions.length === 0 && (
           <div className="text-center py-12">
             <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
               <MessageSquare className="w-8 h-8 text-white" />
@@ -330,8 +389,7 @@ export default function DiscussionsPage() {
               onClick={() => setShowNewPost(true)}
               className="bg-gradient-to-r from-emerald-500 to-blue-500"
             >
-              <Plus className="w-4 h-4 mr-2" />
-              Start Discussion
+              <Plus className="w-4 h-4 mr-2" /> Start Discussion
             </Button>
           </div>
         )}

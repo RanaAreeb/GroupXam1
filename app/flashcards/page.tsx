@@ -19,6 +19,7 @@ import {
   Plus,
   BookOpen,
 } from "lucide-react";
+import AppHeader from "@/components/ui/app-header";
 
 interface Flashcard {
   front: string;
@@ -131,51 +132,7 @@ export default function FlashcardsPage() {
   if (studyMode && selectedSet) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50">
-        {/* Header */}
-        <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
-          <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-lg flex items-center justify-center">
-                <BookOpen className="w-5 h-5 text-white" />
-              </div>
-              <Link
-                href="/"
-                className="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent"
-              >
-                groupXam
-              </Link>
-            </div>
-            <nav className="flex items-center space-x-6">
-              <Link
-                href="/dashboard"
-                className="text-gray-600 hover:text-emerald-600 transition-colors"
-              >
-                Dashboard
-              </Link>
-              <Link
-                href="/quiz"
-                className="text-gray-600 hover:text-emerald-600 transition-colors"
-              >
-                Quizzes
-              </Link>
-              <Link
-                href="/exams"
-                className="text-gray-600 hover:text-emerald-600 transition-colors"
-              >
-                Exams
-              </Link>
-              <Link href="/flashcards" className="text-emerald-600 font-medium">
-                Flashcards
-              </Link>
-              <Link
-                href="/discussions"
-                className="text-gray-600 hover:text-emerald-600 transition-colors"
-              >
-                Discussions
-              </Link>
-            </nav>
-          </div>
-        </header>
+        <AppHeader userInitial="J" active="Flashcards" />
 
         <div className="container mx-auto max-w-2xl py-8 px-4">
           {/* Study Header */}
@@ -268,51 +225,7 @@ export default function FlashcardsPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50">
-      {/* Header */}
-      <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-lg flex items-center justify-center">
-              <BookOpen className="w-5 h-5 text-white" />
-            </div>
-            <Link
-              href="/"
-              className="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent"
-            >
-              groupXam
-            </Link>
-          </div>
-          <nav className="flex items-center space-x-6">
-            <Link
-              href="/dashboard"
-              className="text-gray-600 hover:text-emerald-600 transition-colors"
-            >
-              Dashboard
-            </Link>
-            <Link
-              href="/quiz"
-              className="text-gray-600 hover:text-emerald-600 transition-colors"
-            >
-              Quizzes
-            </Link>
-            <Link
-              href="/exams"
-              className="text-gray-600 hover:text-emerald-600 transition-colors"
-            >
-              Exams
-            </Link>
-            <Link href="/flashcards" className="text-emerald-600 font-medium">
-              Flashcards
-            </Link>
-            <Link
-              href="/discussions"
-              className="text-gray-600 hover:text-emerald-600 transition-colors"
-            >
-              Discussions
-            </Link>
-          </nav>
-        </div>
-      </header>
+      <AppHeader userInitial="J" active="Flashcards" />
 
       <div className="container mx-auto py-8 px-4">
         {/* Header */}

@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -13,30 +11,15 @@ import {
   Star,
   ArrowRight,
   BookOpen,
-  Menu,
-  X,
 } from "lucide-react";
-import { useState } from "react";
+import Header from "@/components/ui/header";
 
 export default function HomePage() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="border-b bg-white/95 backdrop-blur-sm sticky top-0 z-50 shadow-sm">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-xl flex items-center justify-center shadow-lg">
-              <BookOpen className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
-            </div>
-            <span className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">
-              groupXam
-            </span>
-          </div>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+      <Header
+        navLinks={
+          <>
             <Link
               href="#features"
               className="text-gray-600 hover:text-emerald-600 transition-colors font-medium"
@@ -55,64 +38,9 @@ export default function HomePage() {
             >
               Login
             </Link>
-            <Button
-              asChild
-              className="bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 shadow-lg"
-            >
-              <Link href="/signup">Get Started Free</Link>
-            </Button>
-          </nav>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? (
-              <X className="w-6 h-6 text-gray-600" />
-            ) : (
-              <Menu className="w-6 h-6 text-gray-600" />
-            )}
-          </button>
-        </div>
-
-        {/* Mobile Navigation */}
-        {mobileMenuOpen && (
-          <div className="md:hidden border-t bg-white">
-            <div className="px-4 py-4 space-y-4">
-              <Link
-                href="#features"
-                className="block text-gray-600 hover:text-emerald-600 transition-colors font-medium py-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Features
-              </Link>
-              <Link
-                href="#how-it-works"
-                className="block text-gray-600 hover:text-emerald-600 transition-colors font-medium py-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                How it Works
-              </Link>
-              <Link
-                href="/login"
-                className="block text-gray-600 hover:text-emerald-600 transition-colors font-medium py-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Login
-              </Link>
-              <Button
-                asChild
-                className="w-full bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 shadow-lg"
-              >
-                <Link href="/signup" onClick={() => setMobileMenuOpen(false)}>
-                  Get Started Free
-                </Link>
-              </Button>
-            </div>
-          </div>
-        )}
-      </header>
+          </>
+        }
+      />
 
       {/* Hero Section */}
       <section className="relative py-12 sm:py-20 px-4 bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50 overflow-hidden">
@@ -123,7 +51,7 @@ export default function HomePage() {
           </Badge>
           <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6 leading-tight px-2">
             <span className="bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Ace Your WAEC/WASSCE
+              Ace Your Exams
             </span>
             <br />
             <span className="text-gray-800">with Confidence</span>
@@ -136,16 +64,6 @@ export default function HomePage() {
 
           {/* Main Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-12 sm:mb-16 px-4">
-            <Button
-              size="lg"
-              asChild
-              className="bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 shadow-xl hover:shadow-2xl transition-all duration-300"
-            >
-              <Link href="/signup" className="flex items-center justify-center">
-                Start Learning Free
-                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
-              </Link>
-            </Button>
             <Button
               size="lg"
               variant="outline"
@@ -474,13 +392,6 @@ export default function HomePage() {
             groupXam. Start your journey to academic excellence today.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
-            <Button
-              size="lg"
-              asChild
-              className="bg-white text-emerald-600 hover:bg-gray-100 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 shadow-xl"
-            >
-              <Link href="/signup">Start Free Trial</Link>
-            </Button>
             <Button
               size="lg"
               variant="outline"

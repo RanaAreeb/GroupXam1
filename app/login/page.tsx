@@ -14,6 +14,7 @@ import {
   Lock,
   ArrowRight,
   CheckCircle,
+  AlertCircle,
 } from "lucide-react";
 
 interface FormData {
@@ -28,16 +29,40 @@ export default function LoginPage() {
   });
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
-    console.log("Login data:", formData);
-    // Simulate loading
-    setTimeout(() => {
+    setError("");
+    setSuccess("");
+
+    try {
+      const response = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSuccess("Login successful! Redirecting...");
+        // Redirect to dashboard after successful login
+        setTimeout(() => {
+          window.location.href = "/";
+        }, 1500);
+      } else {
+        setError(data.error || "Login failed. Please try again.");
+      }
+    } catch (err) {
+      setError("Network error. Please check your connection and try again.");
+    } finally {
       setIsLoading(false);
-      window.location.href = "/dashboard";
-    }, 1500);
+    }
   };
 
   const benefits = [
@@ -71,6 +96,21 @@ export default function LoginPage() {
             </p>
           </div>
 
+          {/* Error/Success Messages */}
+          {error && (
+            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-center space-x-2">
+              <AlertCircle className="w-5 h-5 text-red-500" />
+              <span className="text-red-700 text-sm">{error}</span>
+            </div>
+          )}
+
+          {success && (
+            <div className="mb-6 p-4 bg-emerald-50 border border-emerald-200 rounded-lg flex items-center space-x-2">
+              <CheckCircle className="w-5 h-5 text-emerald-500" />
+              <span className="text-emerald-700 text-sm">{success}</span>
+            </div>
+          )}
+
           {/* Login Form */}
           <Card className="border-0 shadow-xl bg-white/80 backdrop-blur-sm">
             <CardContent className="p-8">
@@ -97,6 +137,7 @@ export default function LoginPage() {
                       }
                       className="pl-11 h-12 border-gray-200 focus:border-emerald-500 focus:ring-emerald-500"
                       required
+                      disabled={isLoading}
                     />
                   </div>
                 </div>
@@ -123,11 +164,13 @@ export default function LoginPage() {
                       }
                       className="pl-11 pr-11 h-12 border-gray-200 focus:border-emerald-500 focus:ring-emerald-500"
                       required
+                      disabled={isLoading}
                     />
                     <button
                       type="button"
                       onClick={() => setShowPassword(!showPassword)}
                       className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                      disabled={isLoading}
                     >
                       {showPassword ? (
                         <EyeOff className="w-5 h-5" />
@@ -143,6 +186,7 @@ export default function LoginPage() {
                     <input
                       type="checkbox"
                       className="rounded border-gray-300 text-emerald-600 focus:ring-emerald-500"
+                      disabled={isLoading}
                     />
                     <span className="ml-2 text-sm text-gray-600">
                       Remember me

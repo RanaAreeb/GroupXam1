@@ -18,6 +18,7 @@ import {
   EyeOff,
   CheckCircle,
   Target,
+  AlertCircle,
 } from "lucide-react";
 
 interface Subject {
@@ -37,31 +38,64 @@ interface FormData {
 const subjects: Subject[] = [
   { id: "physics", name: "Physics", category: "Sciences", icon: "⚛️" },
   { id: "chemistry", name: "Chemistry", category: "Sciences", icon: "🧪" },
+  {
+    id: "organic-chemistry",
+    name: "Organic Chemistry",
+    category: "Sciences",
+    icon: "🔬",
+  },
+  {
+    id: "microbiology",
+    name: "Microbiology",
+    category: "Sciences",
+    icon: "🦠",
+  },
+  { id: "anatomy", name: "Anatomy", category: "Sciences", icon: "🫀" },
+  { id: "physiology", name: "Physiology", category: "Sciences", icon: "🫁" },
   { id: "biology", name: "Biology", category: "Sciences", icon: "🧬" },
+  {
+    id: "biochemistry",
+    name: "Biochemistry",
+    category: "Sciences",
+    icon: "🧬",
+  },
+  {
+    id: "pharmacology",
+    name: "Pharmacology",
+    category: "Sciences",
+    icon: "💊",
+  },
+  { id: "ecology", name: "Ecology", category: "Sciences", icon: "🌿" },
+  {
+    id: "psychology",
+    name: "Psychology",
+    category: "Social Sciences",
+    icon: "🧠",
+  },
   {
     id: "mathematics",
     name: "Mathematics",
     category: "Mathematics",
     icon: "📐",
   },
-  { id: "economics", name: "Economics", category: "Economics", icon: "📊" },
+  { id: "economic", name: "Economic", category: "Economics", icon: "📊" },
   {
-    id: "english",
-    name: "English Language",
-    category: "Languages",
-    icon: "📚",
+    id: "micro-economics",
+    name: "Micro Economics",
+    category: "Economics",
+    icon: "📈",
   },
   {
-    id: "geography",
-    name: "Geography",
-    category: "Social Sciences",
-    icon: "🌍",
+    id: "macro-economics",
+    name: "Macro Economics",
+    category: "Economics",
+    icon: "📉",
   },
-  { id: "history", name: "History", category: "Social Sciences", icon: "📜" },
   { id: "accounting", name: "Accounting", category: "Economics", icon: "💰" },
+  { id: "finance", name: "Finance", category: "Economics", icon: "💳" },
   {
-    id: "government",
-    name: "Government",
+    id: "political-science",
+    name: "Political Science",
     category: "Social Sciences",
     icon: "🏛️",
   },
@@ -71,6 +105,8 @@ export default function SignupPage() {
   const [step, setStep] = useState(1);
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -93,12 +129,35 @@ export default function SignupPage() {
       setStep(2);
     } else {
       setIsLoading(true);
-      console.log("Signup data:", formData);
-      // Simulate loading
-      setTimeout(() => {
+      setError("");
+      setSuccess("");
+
+      try {
+        const response = await fetch("/api/auth/signup", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          setSuccess(
+            "Account created successfully! Redirecting to dashboard..."
+          );
+          setTimeout(() => {
+            window.location.href = "/";
+          }, 2000);
+        } else {
+          setError(data.error || "Signup failed. Please try again.");
+        }
+      } catch (err) {
+        setError("Network error. Please check your connection and try again.");
+      } finally {
         setIsLoading(false);
-        window.location.href = "/dashboard";
-      }, 2000);
+      }
     }
   };
 
@@ -134,6 +193,21 @@ export default function SignupPage() {
                 : "Select 3-5 subjects you want to focus on"}
             </p>
           </div>
+
+          {/* Error/Success Messages */}
+          {error && (
+            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-center space-x-2">
+              <AlertCircle className="w-5 h-5 text-red-500" />
+              <span className="text-red-700 text-sm">{error}</span>
+            </div>
+          )}
+
+          {success && (
+            <div className="mb-6 p-4 bg-emerald-50 border border-emerald-200 rounded-lg flex items-center space-x-2">
+              <CheckCircle className="w-5 h-5 text-emerald-500" />
+              <span className="text-emerald-700 text-sm">{success}</span>
+            </div>
+          )}
 
           {/* Progress Indicator */}
           <div className="flex items-center justify-center mb-8">
@@ -192,6 +266,7 @@ export default function SignupPage() {
                           }
                           className="pl-11 h-12 border-gray-200 focus:border-emerald-500 focus:ring-emerald-500"
                           required
+                          disabled={isLoading}
                         />
                       </div>
                     </div>
@@ -218,6 +293,7 @@ export default function SignupPage() {
                           }
                           className="pl-11 h-12 border-gray-200 focus:border-emerald-500 focus:ring-emerald-500"
                           required
+                          disabled={isLoading}
                         />
                       </div>
                     </div>
@@ -244,11 +320,13 @@ export default function SignupPage() {
                           }
                           className="pl-11 pr-11 h-12 border-gray-200 focus:border-emerald-500 focus:ring-emerald-500"
                           required
+                          disabled={isLoading}
                         />
                         <button
                           type="button"
                           onClick={() => setShowPassword(!showPassword)}
                           className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                          disabled={isLoading}
                         >
                           {showPassword ? (
                             <EyeOff className="w-5 h-5" />
@@ -260,7 +338,7 @@ export default function SignupPage() {
                     </div>
 
                     <div className="flex items-center space-x-2">
-                      <Checkbox id="terms" />
+                      <Checkbox id="terms" required disabled={isLoading} />
                       <Label htmlFor="terms" className="text-sm text-gray-600">
                         I agree to the{" "}
                         <Link
@@ -282,6 +360,7 @@ export default function SignupPage() {
                     <Button
                       type="submit"
                       className="w-full h-12 bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300"
+                      disabled={isLoading}
                     >
                       Continue
                       <ArrowRight className="w-5 h-5 ml-2" />
@@ -299,14 +378,16 @@ export default function SignupPage() {
                                 ? "border-emerald-500 bg-emerald-50"
                                 : "border-gray-200 hover:border-gray-300"
                             }`}
-                            onClick={() => handleSubjectToggle(subject.id)}
                           >
                             <Checkbox
                               id={subject.id}
                               checked={formData.selectedSubjects.includes(
                                 subject.id
                               )}
-                              onChange={() => handleSubjectToggle(subject.id)}
+                              onCheckedChange={() =>
+                                handleSubjectToggle(subject.id)
+                              }
+                              disabled={isLoading}
                             />
                             <div className="text-2xl">{subject.icon}</div>
                             <div className="flex-1">
@@ -340,6 +421,7 @@ export default function SignupPage() {
                         variant="outline"
                         onClick={() => setStep(1)}
                         className="flex-1 h-12 border-gray-200"
+                        disabled={isLoading}
                       >
                         <ArrowLeft className="w-5 h-5 mr-2" />
                         Back

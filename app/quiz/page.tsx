@@ -20,6 +20,7 @@ import {
   BarChart3,
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
+import AppHeader from "@/components/ui/app-header";
 
 const quizCategories = [
   {
@@ -158,51 +159,7 @@ export default function QuizPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50">
-      {/* Header */}
-      <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-lg flex items-center justify-center">
-              <BookOpen className="w-5 h-5 text-white" />
-            </div>
-            <Link
-              href="/"
-              className="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent"
-            >
-              groupXam
-            </Link>
-          </div>
-          <nav className="flex items-center space-x-6">
-            <Link
-              href="/dashboard"
-              className="text-gray-600 hover:text-emerald-600 transition-colors"
-            >
-              Dashboard
-            </Link>
-            <Link href="/quiz" className="text-emerald-600 font-medium">
-              Quizzes
-            </Link>
-            <Link
-              href="/exams"
-              className="text-gray-600 hover:text-emerald-600 transition-colors"
-            >
-              Exams
-            </Link>
-            <Link
-              href="/flashcards"
-              className="text-gray-600 hover:text-emerald-600 transition-colors"
-            >
-              Flashcards
-            </Link>
-            <Link
-              href="/discussions"
-              className="text-gray-600 hover:text-emerald-600 transition-colors"
-            >
-              Discussions
-            </Link>
-          </nav>
-        </div>
-      </header>
+      <AppHeader userInitial="J" active="Quizzes" />
 
       <div className="container mx-auto px-4 py-8">
         {/* Page Header */}
