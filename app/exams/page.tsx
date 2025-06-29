@@ -79,15 +79,6 @@ const examTypes = [
     count: 22,
     difficulty: "Advanced",
   },
-  {
-    id: "liberia",
-    title: "Liberia University Entrance",
-    description: "Liberia University Entrance Examination",
-    icon: Globe,
-    color: "red",
-    count: 15,
-    difficulty: "Advanced",
-  },
 ];
 
 // Subject Categories
@@ -495,11 +486,19 @@ const recentExams = [
 const difficulties = ["All Levels", "Beginner", "Intermediate", "Advanced"];
 
 export default function ExamsPage() {
-  const [selectedCategory, setSelectedCategory] = useState("all");
-  const [selectedSubject, setSelectedSubject] = useState("all");
-  const [selectedDifficulty, setSelectedDifficulty] = useState("All Levels");
-  const [selectedExamType, setSelectedExamType] = useState("all");
+  const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
+  const [expandedSubject, setExpandedSubject] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
+
+  // Filter categories/subjects by search
+  const filteredCategories = subjectCategories
+    .map((cat) => ({
+      ...cat,
+      subjects: cat.subjects.filter((subj) =>
+        subj.name.toLowerCase().includes(searchQuery.toLowerCase())
+      ),
+    }))
+    .filter((cat) => cat.subjects.length > 0);
 
   const getColorClasses = (color: string) => {
     const colors = {
@@ -604,21 +603,119 @@ export default function ExamsPage() {
 
       <div className="container mx-auto px-4 py-8">
         {/* Page Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+        <div className="text-center mb-10">
+          <h1 className="text-4xl md:text-5xl font-bold mb-2">
             <span className="bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">
               Practice Exams
             </span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Comprehensive exam preparation for High School & College students.
-            Practice with WAEC, WASSCE, SAT, ACT, Liberia University Entrance,
-            and more.
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            All subjects are organized by category. Click to explore
+            subcategories and start practicing!
           </p>
         </div>
 
+        {/* Search Bar */}
+        <div className="mb-8 flex justify-center">
+          <div className="relative w-full max-w-md">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+            <Input
+              placeholder="Search subjects..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="pl-10"
+            />
+          </div>
+        </div>
+
+        {/* Categories Accordion */}
+        <div className="space-y-6">
+          {filteredCategories.map((category) => {
+            const Icon = category.icon;
+            const isCatOpen = expandedCategory === category.id;
+            return (
+              <Card key={category.id} className="border-0 shadow-lg">
+                <CardContent className="p-6">
+                  <button
+                    className="flex items-center w-full text-left focus:outline-none"
+                    onClick={() =>
+                      setExpandedCategory(isCatOpen ? null : category.id)
+                    }
+                  >
+                    <div
+                      className={`w-10 h-10 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-xl flex items-center justify-center mr-4`}
+                    >
+                      <Icon className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h2 className="text-2xl font-bold text-gray-800">
+                        {category.title}
+                      </h2>
+                      <p className="text-sm text-gray-600">
+                        {category.description}
+                      </p>
+                    </div>
+                    <span className="ml-auto text-xs text-gray-500">
+                      {category.subjects.length} subjects
+                    </span>
+                  </button>
+                  {isCatOpen && (
+                    <div className="mt-6 space-y-4">
+                      {category.subjects.map((subject) => {
+                        const SubjIcon = subject.icon;
+                        const isSubjOpen = expandedSubject === subject.name;
+                        return (
+                          <div
+                            key={subject.name}
+                            className="bg-gray-50 rounded-lg p-4"
+                          >
+                            <button
+                              className="flex items-center w-full text-left focus:outline-none"
+                              onClick={() =>
+                                setExpandedSubject(
+                                  isSubjOpen ? null : subject.name
+                                )
+                              }
+                            >
+                              <SubjIcon className="w-5 h-5 text-gray-600 mr-3" />
+                              <span className="font-medium text-gray-800">
+                                {subject.name}
+                              </span>
+                              <Badge
+                                variant="secondary"
+                                className="ml-2 text-xs"
+                              >
+                                {subject.examCount} exams
+                              </Badge>
+                              <span className="ml-auto text-xs text-gray-500">
+                                {isSubjOpen ? "▲" : "▼"}
+                              </span>
+                            </button>
+                            {isSubjOpen && (
+                              <div className="mt-3 ml-8">
+                                <div className="text-sm text-gray-700 font-semibold mb-1">
+                                  Subcategories:
+                                </div>
+                                <ul className="list-disc ml-5 text-gray-600 text-sm space-y-1">
+                                  {subject.subcategories.map((subcat) => (
+                                    <li key={subcat}>{subcat}</li>
+                                  ))}
+                                </ul>
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
+
         {/* Quick Stats */}
-        <div className="grid md:grid-cols-4 gap-6 mb-12">
+        <div className="grid md:grid-cols-4 gap-6 mb-12 mt-4">
           <Card className="border-0 shadow-lg bg-gradient-to-br from-emerald-50 to-emerald-100">
             <CardContent className="p-6 text-center">
               <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center mx-auto mb-4">
@@ -669,7 +766,7 @@ export default function ExamsPage() {
           <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
             Choose Your Exam Type
           </h2>
-          <div className="grid md:grid-cols-5 gap-6">
+          <div className="grid md:grid-cols-4 gap-6">
             {examTypes.map((examType) => {
               const Icon = examType.icon;
               const colors = getColorClasses(examType.color);
@@ -702,211 +799,6 @@ export default function ExamsPage() {
                     >
                       Browse {examType.title}
                     </Button>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Subject Categories */}
-        <div className="mb-12">
-          <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
-            Subject Categories
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {subjectCategories.map((category) => {
-              const Icon = category.icon;
-              const colors = getColorClasses(category.color);
-
-              return (
-                <Card
-                  key={category.id}
-                  className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2"
-                >
-                  <CardContent className="p-8">
-                    <div className="flex items-center mb-6">
-                      <div
-                        className={`w-12 h-12 bg-gradient-to-r ${colors.bg} rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300 shadow-lg`}
-                      >
-                        <Icon className="w-6 h-6 text-white" />
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-bold text-gray-800">
-                          {category.title}
-                        </h3>
-                        <p className="text-sm text-gray-600">
-                          {category.subjects.length} subjects
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="space-y-3 mb-6">
-                      {category.subjects.slice(0, 4).map((subject) => (
-                        <div
-                          key={subject.name}
-                          className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
-                        >
-                          <div className="flex items-center">
-                            <subject.icon className="w-4 h-4 mr-3 text-gray-600" />
-                            <span className="text-sm font-medium text-gray-700">
-                              {subject.name}
-                            </span>
-                          </div>
-                          <Badge variant="secondary" className="text-xs">
-                            {subject.examCount}
-                          </Badge>
-                        </div>
-                      ))}
-                      {category.subjects.length > 4 && (
-                        <div className="text-center">
-                          <Badge variant="outline" className="text-xs">
-                            +{category.subjects.length - 4} more subjects
-                          </Badge>
-                        </div>
-                      )}
-                    </div>
-
-                    <Button className={`w-full ${colors.button} shadow-md`}>
-                      View All {category.title}
-                    </Button>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Search and Filters */}
-        <div className="mb-8">
-          <div className="flex flex-col lg:flex-row gap-4 items-center">
-            <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-              <Input
-                placeholder="Search exams, subjects, or topics..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10"
-              />
-            </div>
-            <div className="flex gap-2 flex-wrap">
-              <select
-                value={selectedExamType}
-                onChange={(e) => setSelectedExamType(e.target.value)}
-                className="px-4 py-2 border rounded-lg bg-white text-sm"
-              >
-                <option value="all">All Exam Types</option>
-                {examTypes.map((type) => (
-                  <option key={type.id} value={type.id}>
-                    {type.title}
-                  </option>
-                ))}
-              </select>
-              <select
-                value={selectedCategory}
-                onChange={(e) => setSelectedCategory(e.target.value)}
-                className="px-4 py-2 border rounded-lg bg-white text-sm"
-              >
-                <option value="all">All Categories</option>
-                {subjectCategories.map((cat) => (
-                  <option key={cat.id} value={cat.id}>
-                    {cat.title}
-                  </option>
-                ))}
-              </select>
-              <select
-                value={selectedDifficulty}
-                onChange={(e) => setSelectedDifficulty(e.target.value)}
-                className="px-4 py-2 border rounded-lg bg-white text-sm"
-              >
-                {difficulties.map((difficulty) => (
-                  <option key={difficulty} value={difficulty}>
-                    {difficulty}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
-        </div>
-
-        {/* Popular Exams */}
-        <div className="mb-12">
-          <h2 className="text-3xl font-bold text-gray-800 mb-8">
-            Popular Practice Exams
-          </h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {recentExams.map((exam) => {
-              const colors = getColorClasses(exam.color);
-
-              return (
-                <Card
-                  key={exam.id}
-                  className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 group"
-                >
-                  <CardContent className="p-6">
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-2">
-                          <Badge
-                            className={`${colors.light} ${colors.text} border-0`}
-                          >
-                            {exam.subject}
-                          </Badge>
-                          <Badge variant="outline" className="text-xs">
-                            {exam.examType}
-                          </Badge>
-                          <Badge variant="outline" className="text-xs">
-                            {exam.difficulty}
-                          </Badge>
-                        </div>
-                        <h3 className="text-lg font-bold text-gray-800 mb-2 group-hover:text-emerald-600 transition-colors">
-                          {exam.title}
-                        </h3>
-                      </div>
-                      <div className="flex items-center gap-1 text-sm text-gray-500">
-                        <Star className="w-4 h-4 text-yellow-400 fill-current" />
-                        <span>{exam.rating}</span>
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-4 mb-4 text-sm text-gray-600">
-                      <div className="flex items-center gap-2">
-                        <Clock className="w-4 h-4" />
-                        <span>{exam.duration}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Target className="w-4 h-4" />
-                        <span>{exam.questions} questions</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Users className="w-4 h-4" />
-                        <span>{exam.participants.toLocaleString()} taken</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Trophy className="w-4 h-4" />
-                        <span>Best: {exam.bestScore}%</span>
-                      </div>
-                    </div>
-
-                    {exam.bestScore && (
-                      <div className="mb-4">
-                        <div className="flex justify-between text-sm mb-1">
-                          <span className="text-gray-600">Your Best Score</span>
-                          <span className="font-medium">{exam.bestScore}%</span>
-                        </div>
-                        <Progress value={exam.bestScore} className="h-2" />
-                      </div>
-                    )}
-
-                    <div className="flex gap-3">
-                      <Button className={`flex-1 ${colors.button}`}>
-                        <Play className="w-4 h-4 mr-2" />
-                        Start Exam
-                      </Button>
-                      <Button variant="outline" size="sm">
-                        Preview
-                      </Button>
-                    </div>
                   </CardContent>
                 </Card>
               );

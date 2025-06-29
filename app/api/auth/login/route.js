@@ -1,43 +1,73 @@
 import { NextResponse } from "next/server"
-import { MongoClient } from "mongodb"
 import bcrypt from "bcryptjs"
 import jwt from "jsonwebtoken"
+import { getDatabase } from "@/lib/db"
 
-const uri = process.env.MONGODB_URI || "mongodb://localhost:27017/groupxam"
 const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key"
 
 export async function POST(request) {
+  const startTime = Date.now()
+
   try {
     const { email, password } = await request.json()
 
-    // Connect to MongoDB
-    const client = new MongoClient(uri)
-    await client.connect()
-    const db = client.db("groupxam")
+    // Input validation
+    if (!email || !password) {
+      return NextResponse.json(
+        { error: "Email and password are required" },
+        { status: 400 }
+      )
+    }
+
+    // Get database
+    const db = await getDatabase()
     const users = db.collection("users")
 
-    // Find user
-    const user = await users.findOne({ email })
+    // Find user with projection to only get needed fields
+    const user = await users.findOne(
+      { email: email.toLowerCase() },
+      { projection: { _id: 1, email: 1, password: 1, name: 1 } }
+    )
+
     if (!user) {
-      await client.close()
-      return NextResponse.json({ error: "Invalid credentials" }, { status: 401 })
+      console.log(`Login failed: User not found for email ${email}`)
+      return NextResponse.json(
+        { error: "Invalid credentials" },
+        { status: 401 }
+      )
     }
 
     // Check password
     const isValidPassword = await bcrypt.compare(password, user.password)
     if (!isValidPassword) {
-      await client.close()
-      return NextResponse.json({ error: "Invalid credentials" }, { status: 401 })
+      console.log(`Login failed: Invalid password for email ${email}`)
+      return NextResponse.json(
+        { error: "Invalid credentials" },
+        { status: 401 }
+      )
     }
 
-    // Generate JWT token
-    const token = jwt.sign({ userId: user._id, email: user.email }, JWT_SECRET, { expiresIn: "7d" })
+    // Generate JWT token with name
+    const token = jwt.sign(
+      { userId: user._id, email: user.email, name: user.name },
+      JWT_SECRET,
+      { expiresIn: "7d" }
+    )
 
-    await client.close()
+    const responseTime = Date.now() - startTime
+    console.log(`Login successful for ${email} in ${responseTime}ms`)
 
     const response = NextResponse.json(
-      { message: "Login successful", user: { id: user._id, name: user.name, email: user.email } },
-      { status: 200 },
+      {
+        message: "Login successful",
+        user: {
+          id: user._id,
+          name: user.name,
+          email: user.email
+        },
+        responseTime: `${responseTime}ms`
+      },
+      { status: 200 }
     )
 
     // Set HTTP-only cookie
@@ -49,8 +79,14 @@ export async function POST(request) {
     })
 
     return response
+
   } catch (error) {
-    console.error("Login error:", error)
-    return NextResponse.json({ error: "Internal server error" }, { status: 500 })
+    const responseTime = Date.now() - startTime
+    console.error(`Login error after ${responseTime}ms:`, error)
+
+    return NextResponse.json(
+      { error: "Internal server error" },
+      { status: 500 }
+    )
   }
 }

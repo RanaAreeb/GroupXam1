@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { useAuth } from "@/hooks/use-auth";
 
 export default function AppHeader({
   userInitial,
@@ -13,6 +14,7 @@ export default function AppHeader({
   active?: string;
 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { isLoggedIn, logout } = useAuth();
 
   const navLinks = [
     { href: "/quiz", label: "Quizzes" },
@@ -43,6 +45,14 @@ export default function AppHeader({
               {link.label}
             </Link>
           ))}
+          {isLoggedIn && (
+            <button
+              onClick={logout}
+              className="text-gray-600 hover:text-red-600 transition-colors font-medium ml-4"
+            >
+              Logout
+            </button>
+          )}
         </nav>
         {/* Mobile Burger Button */}
         <button
@@ -79,6 +89,14 @@ export default function AppHeader({
                 </Link>
               </div>
             ))}
+            {isLoggedIn && (
+              <button
+                onClick={logout}
+                className="w-full text-lg text-center py-2 rounded hover:bg-red-50 text-red-600 font-medium"
+              >
+                Logout
+              </button>
+            )}
           </div>
         </div>
       )}

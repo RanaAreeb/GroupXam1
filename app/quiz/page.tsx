@@ -18,440 +18,280 @@ import {
   Search,
   Shuffle,
   BarChart3,
+  AlertCircle,
+  GraduationCap,
+  School,
+  BookMarked,
+  TestTube,
+  Atom,
+  FlaskConical,
+  Heart,
+  Leaf,
+  Microscope,
+  Pill,
+  DollarSign,
+  TrendingUp,
+  TrendingDown,
+  Calculator,
+  Vote,
+  Dna,
+  Leaf as EcologyIcon,
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import AppHeader from "@/components/ui/app-header";
 
-const quizCategories = [
+// Exam Types (copied from Exams page)
+const examTypes = [
   {
-    id: "quick",
-    title: "Quick Practice",
-    description: "5-10 minute quizzes for quick review sessions",
-    icon: Zap,
+    id: "waec",
+    title: "WAEC",
+    description: "West African Examinations Council",
+    icon: GraduationCap,
     color: "emerald",
-    count: 150,
-    avgTime: "7 min",
-    difficulty: "Mixed",
   },
   {
-    id: "subject-focus",
-    title: "Subject Focus",
-    description: "Deep dive into specific subjects with targeted questions",
-    icon: Target,
+    id: "wassce",
+    title: "WASSCE",
+    description: "West African Senior School Certificate Examination",
+    icon: School,
     color: "blue",
-    count: 85,
-    avgTime: "15 min",
-    difficulty: "Intermediate",
   },
   {
-    id: "brain-training",
-    title: "Brain Training",
-    description: "Challenge yourself with advanced problem-solving quizzes",
-    icon: Brain,
+    id: "sat",
+    title: "SAT",
+    description: "Scholastic Assessment Test",
+    icon: BookMarked,
     color: "purple",
-    count: 45,
-    avgTime: "20 min",
-    difficulty: "Advanced",
+  },
+  {
+    id: "act",
+    title: "ACT",
+    description: "American College Testing",
+    icon: TestTube,
+    color: "orange",
   },
 ];
 
-const featuredQuizzes = [
+// Subject Categories (copied from Exams page, shortened for brevity)
+const subjectCategories = [
   {
-    id: 1,
-    title: "Mathematics Fundamentals",
-    subject: "Mathematics",
-    questions: 15,
-    duration: "12 min",
-    difficulty: "Beginner",
-    participants: 2340,
-    rating: 4.8,
-    completed: true,
-    bestScore: 92,
+    id: "sciences",
+    title: "Sciences",
+    icon: Atom,
     color: "emerald",
-    topics: ["Algebra", "Geometry", "Statistics"],
+    subjects: [
+      { name: "Physics", icon: Atom, color: "emerald" },
+      { name: "Chemistry", icon: FlaskConical, color: "blue" },
+      { name: "Biology", icon: Leaf, color: "green" },
+      { name: "Anatomy", icon: Heart, color: "red" },
+      { name: "Physiology", icon: Brain, color: "pink" },
+      { name: "Microbiology", icon: Microscope, color: "orange" },
+      { name: "Biochemistry", icon: Dna, color: "indigo" },
+      { name: "Pharmacology", icon: Pill, color: "violet" },
+      { name: "Ecology", icon: EcologyIcon, color: "teal" },
+      { name: "Psychology", icon: Brain, color: "amber" },
+    ],
   },
   {
-    id: 2,
-    title: "Physics: Motion & Forces",
-    subject: "Physics",
-    questions: 20,
-    duration: "18 min",
-    difficulty: "Intermediate",
-    participants: 1890,
-    rating: 4.6,
-    completed: false,
-    bestScore: null,
+    id: "economics",
+    title: "Economics & Business",
+    icon: DollarSign,
     color: "blue",
-    topics: ["Mechanics", "Forces", "Energy"],
+    subjects: [
+      { name: "Economics", icon: DollarSign, color: "blue" },
+      { name: "Micro Economics", icon: TrendingDown, color: "cyan" },
+      { name: "Macro Economics", icon: TrendingUp, color: "sky" },
+      { name: "Accounting", icon: Calculator, color: "emerald" },
+      { name: "Finance", icon: Calculator, color: "purple" },
+      { name: "Political Science", icon: Vote, color: "red" },
+    ],
   },
   {
-    id: 3,
-    title: "Chemistry Bonding",
-    subject: "Chemistry",
-    questions: 12,
-    duration: "10 min",
-    difficulty: "Intermediate",
-    participants: 1560,
-    rating: 4.9,
-    completed: true,
-    bestScore: 85,
+    id: "mathematics",
+    title: "Mathematics",
+    icon: Calculator,
     color: "purple",
-    topics: ["Ionic Bonds", "Covalent Bonds", "Metallic Bonds"],
-  },
-  {
-    id: 4,
-    title: "Biology: Cell Structure",
-    subject: "Biology",
-    questions: 18,
-    duration: "15 min",
-    difficulty: "Beginner",
-    participants: 2100,
-    rating: 4.7,
-    completed: false,
-    bestScore: null,
-    color: "emerald",
-    topics: ["Cell Organelles", "Cell Membrane", "Nucleus"],
+    subjects: [
+      { name: "Statistics", icon: Calculator, color: "purple" },
+      { name: "Calculus", icon: Calculator, color: "indigo" },
+      { name: "Algebra", icon: Calculator, color: "blue" },
+      { name: "Arithmetic", icon: Calculator, color: "emerald" },
+      { name: "Geometry", icon: Calculator, color: "teal" },
+      { name: "Trigonometry", icon: Calculator, color: "cyan" },
+      { name: "Pythagorean Theorem", icon: Calculator, color: "orange" },
+    ],
   },
 ];
 
-const subjects = [
-  "All Subjects",
-  "Mathematics",
-  "Physics",
-  "Chemistry",
-  "Biology",
-  "Economics",
-  "English",
-];
-const difficulties = ["All Levels", "Beginner", "Intermediate", "Advanced"];
+// Mock quizzes per subject
+const getMockQuizzes = (subject: string) =>
+  Array.from({ length: 5 }).map((_, i) => ({
+    id: `${subject}-quiz-${i + 1}`,
+    title: `${subject} Quiz ${i + 1}`,
+    questions: 10 + i * 2,
+    difficulty: ["Beginner", "Intermediate", "Advanced"][i % 3],
+  }));
 
 export default function QuizPage() {
-  const [selectedSubject, setSelectedSubject] = useState("All Subjects");
-  const [selectedDifficulty, setSelectedDifficulty] = useState("All Levels");
+  const [selectedExam, setSelectedExam] = useState<string>(examTypes[0].id);
+  const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
+  const [expandedSubject, setExpandedSubject] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
 
-  const getColorClasses = (color: string) => {
-    const colors = {
-      emerald: {
-        bg: "from-emerald-500 to-emerald-600",
-        light: "bg-emerald-50",
-        text: "text-emerald-600",
-        border: "border-emerald-200",
-        button: "bg-emerald-600 hover:bg-emerald-700",
-      },
-      blue: {
-        bg: "from-blue-500 to-blue-600",
-        light: "bg-blue-50",
-        text: "text-blue-600",
-        border: "border-blue-200",
-        button: "bg-blue-600 hover:bg-blue-700",
-      },
-      purple: {
-        bg: "from-purple-500 to-purple-600",
-        light: "bg-purple-50",
-        text: "text-purple-600",
-        border: "border-purple-200",
-        button: "bg-purple-600 hover:bg-purple-700",
-      },
-    };
-    return colors[color as keyof typeof colors] || colors.emerald;
-  };
+  // Filter categories/subjects by search
+  const filteredCategories = subjectCategories
+    .map((cat) => ({
+      ...cat,
+      subjects: cat.subjects.filter((subj) =>
+        subj.name.toLowerCase().includes(searchQuery.toLowerCase())
+      ),
+    }))
+    .filter((cat) => cat.subjects.length > 0);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50">
       <AppHeader userInitial="J" active="Quizzes" />
-
       <div className="container mx-auto px-4 py-8">
-        {/* Page Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+        {/* Header */}
+        <div className="text-center mb-10">
+          <h1 className="text-4xl md:text-5xl font-bold mb-2">
             <span className="bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">
-              Practice Quizzes
+              Exam Preparation Quizzes
             </span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Test your knowledge with interactive quizzes. Get instant feedback
-            and track your progress across all subjects.
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Practice quizzes for every subject and exam type. Select your exam,
+            pick a subject, and start mastering your prep!
           </p>
         </div>
-
-        {/* Quick Actions */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-          <Button
-            size="lg"
-            className="bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 shadow-lg"
-          >
-            <Shuffle className="w-5 h-5 mr-2" />
-            Random Quiz
-          </Button>
-          <Button
-            size="lg"
-            variant="outline"
-            className="border-2 hover:border-emerald-600 hover:text-emerald-600"
-          >
-            <BarChart3 className="w-5 h-5 mr-2" />
-            View Progress
-          </Button>
+        {/* Exam Type Selector */}
+        <div className="mb-8 flex flex-wrap justify-center gap-4">
+          {examTypes.map((exam) => {
+            const Icon = exam.icon;
+            return (
+              <Button
+                key={exam.id}
+                variant={selectedExam === exam.id ? "default" : "outline"}
+                className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-base shadow-md ${
+                  selectedExam === exam.id
+                    ? "bg-gradient-to-r from-emerald-500 to-blue-500 text-white"
+                    : ""
+                }`}
+                onClick={() => setSelectedExam(exam.id)}
+              >
+                <Icon className="w-5 h-5" />
+                {exam.title}
+              </Button>
+            );
+          })}
         </div>
-
-        {/* Stats Cards */}
-        <div className="grid md:grid-cols-4 gap-6 mb-12">
-          <Card className="border-0 shadow-lg bg-gradient-to-br from-emerald-50 to-emerald-100">
-            <CardContent className="p-6 text-center">
-              <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Target className="w-6 h-6 text-white" />
-              </div>
-              <div className="text-2xl font-bold text-emerald-600 mb-1">
-                280
-              </div>
-              <div className="text-sm text-gray-600">Quizzes Available</div>
-            </CardContent>
-          </Card>
-
-          <Card className="border-0 shadow-lg bg-gradient-to-br from-blue-50 to-blue-100">
-            <CardContent className="p-6 text-center">
-              <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <CheckCircle className="w-6 h-6 text-white" />
-              </div>
-              <div className="text-2xl font-bold text-blue-600 mb-1">45</div>
-              <div className="text-sm text-gray-600">Completed</div>
-            </CardContent>
-          </Card>
-
-          <Card className="border-0 shadow-lg bg-gradient-to-br from-purple-50 to-purple-100">
-            <CardContent className="p-6 text-center">
-              <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Trophy className="w-6 h-6 text-white" />
-              </div>
-              <div className="text-2xl font-bold text-purple-600 mb-1">87%</div>
-              <div className="text-sm text-gray-600">Average Score</div>
-            </CardContent>
-          </Card>
-
-          <Card className="border-0 shadow-lg bg-gradient-to-br from-emerald-50 to-blue-50">
-            <CardContent className="p-6 text-center">
-              <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Zap className="w-6 h-6 text-white" />
-              </div>
-              <div className="text-2xl font-bold text-emerald-600 mb-1">12</div>
-              <div className="text-sm text-gray-600">Day Streak</div>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Quiz Categories */}
-        <div className="mb-12">
-          <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
-            Choose Your Quiz Style
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {quizCategories.map((category) => {
-              const Icon = category.icon;
-              const colors = getColorClasses(category.color);
-
-              return (
-                <Card
-                  key={category.id}
-                  className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2"
-                >
-                  <CardContent className="p-8 text-center">
-                    <div
-                      className={`w-16 h-16 bg-gradient-to-r ${colors.bg} rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}
-                    >
-                      <Icon className="w-8 h-8 text-white" />
-                    </div>
-                    <h3 className="text-xl font-bold text-gray-800 mb-3">
-                      {category.title}
-                    </h3>
-                    <p className="text-gray-600 mb-4 text-sm leading-relaxed">
-                      {category.description}
-                    </p>
-                    <div className="grid grid-cols-2 gap-2 mb-6 text-sm">
-                      <div className="text-center">
-                        <div className="font-semibold text-gray-800">
-                          {category.count}
-                        </div>
-                        <div className="text-gray-500">Quizzes</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="font-semibold text-gray-800">
-                          {category.avgTime}
-                        </div>
-                        <div className="text-gray-500">Avg Time</div>
-                      </div>
-                    </div>
-                    <Button className={`w-full ${colors.button} shadow-md`}>
-                      Start Quiz
-                    </Button>
-                  </CardContent>
-                </Card>
-              );
-            })}
+        {/* Search Bar */}
+        <div className="mb-8 flex justify-center">
+          <div className="relative w-full max-w-md">
+            <Input
+              placeholder="Search subjects..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="pl-10"
+            />
           </div>
         </div>
-
-        {/* Search and Filters */}
-        <div className="mb-8">
-          <div className="flex flex-col md:flex-row gap-4 items-center">
-            <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-              <Input
-                placeholder="Search quizzes..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10"
-              />
-            </div>
-            <div className="flex gap-2">
-              <select
-                value={selectedSubject}
-                onChange={(e) => setSelectedSubject(e.target.value)}
-                className="px-4 py-2 border rounded-lg bg-white"
-              >
-                {subjects.map((subject) => (
-                  <option key={subject} value={subject}>
-                    {subject}
-                  </option>
-                ))}
-              </select>
-              <select
-                value={selectedDifficulty}
-                onChange={(e) => setSelectedDifficulty(e.target.value)}
-                className="px-4 py-2 border rounded-lg bg-white"
-              >
-                {difficulties.map((difficulty) => (
-                  <option key={difficulty} value={difficulty}>
-                    {difficulty}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
-        </div>
-
-        {/* Featured Quizzes */}
-        <div className="mb-12">
-          <h2 className="text-3xl font-bold text-gray-800 mb-8">
-            Featured Quizzes
-          </h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {featuredQuizzes.map((quiz) => {
-              const colors = getColorClasses(quiz.color);
-
-              return (
-                <Card
-                  key={quiz.id}
-                  className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 group"
-                >
-                  <CardContent className="p-6">
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-2">
-                          <Badge
-                            className={`${colors.light} ${colors.text} border-0`}
+        {/* Categories Accordion */}
+        <div className="space-y-6">
+          {filteredCategories.map((category) => {
+            const Icon = category.icon;
+            const isCatOpen = expandedCategory === category.id;
+            return (
+              <Card key={category.id} className="border-0 shadow-lg">
+                <CardContent className="p-6">
+                  <button
+                    className="flex items-center w-full text-left focus:outline-none"
+                    onClick={() =>
+                      setExpandedCategory(isCatOpen ? null : category.id)
+                    }
+                  >
+                    <div className="w-10 h-10 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-xl flex items-center justify-center mr-4">
+                      <Icon className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h2 className="text-2xl font-bold text-gray-800">
+                        {category.title}
+                      </h2>
+                    </div>
+                    <span className="ml-auto text-xs text-gray-500">
+                      {category.subjects.length} subjects
+                    </span>
+                  </button>
+                  {isCatOpen && (
+                    <div className="mt-6 space-y-4">
+                      {category.subjects.map((subject) => {
+                        const SubjIcon = subject.icon;
+                        const isSubjOpen = expandedSubject === subject.name;
+                        return (
+                          <div
+                            key={subject.name}
+                            className="bg-gray-50 rounded-lg p-4"
                           >
-                            {quiz.subject}
-                          </Badge>
-                          <Badge variant="outline" className="text-xs">
-                            {quiz.difficulty}
-                          </Badge>
-                          {quiz.completed && (
-                            <Badge className="bg-green-100 text-green-700 border-0">
-                              <CheckCircle className="w-3 h-3 mr-1" />
-                              Completed
-                            </Badge>
-                          )}
-                        </div>
-                        <h3 className="text-lg font-bold text-gray-800 mb-2 group-hover:text-emerald-600 transition-colors">
-                          {quiz.title}
-                        </h3>
-                      </div>
-                      <div className="flex items-center gap-1 text-sm text-gray-500">
-                        <Star className="w-4 h-4 text-yellow-400 fill-current" />
-                        <span>{quiz.rating}</span>
-                      </div>
+                            <button
+                              className="flex items-center w-full text-left focus:outline-none"
+                              onClick={() =>
+                                setExpandedSubject(
+                                  isSubjOpen ? null : subject.name
+                                )
+                              }
+                            >
+                              <SubjIcon className="w-5 h-5 text-gray-600 mr-3" />
+                              <span className="font-medium text-gray-800">
+                                {subject.name}
+                              </span>
+                              <span className="ml-auto text-xs text-gray-500">
+                                {isSubjOpen ? "▲" : "▼"}
+                              </span>
+                            </button>
+                            {isSubjOpen && (
+                              <div className="mt-3 ml-8">
+                                <div className="text-sm text-gray-700 font-semibold mb-1">
+                                  Available Quizzes:
+                                </div>
+                                <ul className="space-y-2">
+                                  {getMockQuizzes(subject.name).map((quiz) => (
+                                    <li
+                                      key={quiz.id}
+                                      className="flex items-center gap-3 bg-white rounded-md p-3 shadow-sm"
+                                    >
+                                      <Badge
+                                        variant="secondary"
+                                        className="text-xs"
+                                      >
+                                        {quiz.difficulty}
+                                      </Badge>
+                                      <span className="font-medium text-gray-800">
+                                        {quiz.title}
+                                      </span>
+                                      <span className="ml-auto text-xs text-gray-500">
+                                        {quiz.questions} questions
+                                      </span>
+                                      <Button
+                                        size="sm"
+                                        className="ml-4 bg-emerald-600 hover:bg-emerald-700 text-white"
+                                      >
+                                        Start
+                                      </Button>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })}
                     </div>
-
-                    <div className="flex flex-wrap gap-1 mb-4">
-                      {quiz.topics.map((topic, index) => (
-                        <Badge
-                          key={index}
-                          variant="secondary"
-                          className="text-xs"
-                        >
-                          {topic}
-                        </Badge>
-                      ))}
-                    </div>
-
-                    <div className="grid grid-cols-3 gap-4 mb-4 text-sm text-gray-600">
-                      <div className="text-center">
-                        <div className="font-semibold text-gray-800">
-                          {quiz.questions}
-                        </div>
-                        <div>Questions</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="font-semibold text-gray-800">
-                          {quiz.duration}
-                        </div>
-                        <div>Duration</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="font-semibold text-gray-800">
-                          {quiz.participants.toLocaleString()}
-                        </div>
-                        <div>Taken</div>
-                      </div>
-                    </div>
-
-                    {quiz.bestScore && (
-                      <div className="mb-4">
-                        <div className="flex justify-between text-sm mb-1">
-                          <span className="text-gray-600">Your Best Score</span>
-                          <span className="font-medium">{quiz.bestScore}%</span>
-                        </div>
-                        <Progress value={quiz.bestScore} className="h-2" />
-                      </div>
-                    )}
-
-                    <div className="flex gap-3">
-                      <Button className={`flex-1 ${colors.button}`}>
-                        <Play className="w-4 h-4 mr-2" />
-                        {quiz.completed ? "Retake Quiz" : "Start Quiz"}
-                      </Button>
-                      <Button variant="outline" size="sm">
-                        Preview
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
+                  )}
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
-
-        {/* Study Tips */}
-        <Card className="border-0 shadow-lg bg-gradient-to-r from-emerald-500 to-blue-500 text-white">
-          <CardContent className="p-8">
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                <Brain className="w-6 h-6" />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold mb-2">
-                  Quiz Tips for Success
-                </h3>
-                <ul className="space-y-2 text-emerald-100">
-                  <li>• Take quizzes regularly to reinforce learning</li>
-                  <li>• Review explanations for wrong answers</li>
-                  <li>• Focus on your weak subjects more</li>
-                  <li>• Use quick quizzes for daily practice</li>
-                </ul>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
       </div>
     </div>
   );

@@ -9,9 +9,13 @@ import React from "react";
 export default function Header({
   navLinks,
   userInitial,
+  onLogout,
+  isLoggedIn,
 }: {
   navLinks?: React.ReactNode;
   userInitial?: string;
+  onLogout?: () => void;
+  isLoggedIn?: boolean;
 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -24,6 +28,14 @@ export default function Header({
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center space-x-6">
           {navLinks}
+          {isLoggedIn && onLogout && (
+            <button
+              onClick={onLogout}
+              className="text-gray-600 hover:text-red-600 transition-colors font-medium"
+            >
+              Logout
+            </button>
+          )}
           {userInitial && (
             <div className="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center text-white font-medium">
               {userInitial}
@@ -55,6 +67,14 @@ export default function Header({
                 {child}
               </div>
             ))}
+            {isLoggedIn && onLogout && (
+              <button
+                onClick={onLogout}
+                className="w-full text-lg text-center py-2 rounded hover:bg-red-50 text-red-600 font-medium"
+              >
+                Logout
+              </button>
+            )}
             {userInitial && (
               <div className="flex items-center justify-center mt-2">
                 <div className="w-10 h-10 bg-emerald-500 rounded-full flex items-center justify-center text-white font-medium text-lg">

@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -13,8 +15,11 @@ import {
   BookOpen,
 } from "lucide-react";
 import Header from "@/components/ui/header";
+import Image from "next/image";
+import { useAuth } from "@/hooks/use-auth";
 
 export default function HomePage() {
+  const { isLoggedIn, loading, logout } = useAuth();
   return (
     <div className="min-h-screen bg-white">
       <Header
@@ -32,12 +37,23 @@ export default function HomePage() {
             >
               How it Works
             </Link>
-            <Link
-              href="/login"
-              className="text-gray-600 hover:text-emerald-600 transition-colors font-medium"
-            >
-              Login
-            </Link>
+            {loading ? (
+              <span className="text-gray-400 font-medium">...</span>
+            ) : isLoggedIn ? (
+              <button
+                onClick={logout}
+                className="text-gray-600 hover:text-red-600 transition-colors font-medium"
+              >
+                Logout
+              </button>
+            ) : (
+              <Link
+                href="/login"
+                className="text-gray-600 hover:text-emerald-600 transition-colors font-medium"
+              >
+                Login
+              </Link>
+            )}
           </>
         }
       />

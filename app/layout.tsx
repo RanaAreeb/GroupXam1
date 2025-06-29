@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -72,15 +72,12 @@ export const metadata: Metadata = {
     shortcut: ["/favicon.ico"],
   },
   manifest: "/manifest.json",
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-  },
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#10b981" },
-    { media: "(prefers-color-scheme: dark)", color: "#059669" },
-  ],
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
 };
 
 export default function RootLayout({
