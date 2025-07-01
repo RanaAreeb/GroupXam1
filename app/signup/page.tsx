@@ -102,6 +102,7 @@ const subjects: Subject[] = [
 ];
 
 export default function SignupPage() {
+  const [role, setRole] = useState<"student" | "university">("student");
   const [step, setStep] = useState(1);
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -112,6 +113,13 @@ export default function SignupPage() {
     email: "",
     password: "",
     selectedSubjects: [],
+  });
+  const [universityData, setUniversityData] = useState({
+    universityName: "",
+    adminName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
   });
 
   const handleSubjectToggle = (subjectId: string) => {
@@ -161,6 +169,48 @@ export default function SignupPage() {
     }
   };
 
+  const handleUniversitySubmit = async (
+    e: React.FormEvent<HTMLFormElement>
+  ) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setError("");
+    setSuccess("");
+    if (universityData.password !== universityData.confirmPassword) {
+      setError("Passwords do not match.");
+      setIsLoading(false);
+      return;
+    }
+    try {
+      const response = await fetch("/api/auth/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          role: "university",
+          universityName: universityData.universityName,
+          adminName: universityData.adminName,
+          email: universityData.email,
+          password: universityData.password,
+        }),
+      });
+      const data = await response.json();
+      if (response.ok) {
+        setSuccess("University account created! Redirecting to dashboard...");
+        setTimeout(() => {
+          window.location.href = "/university/dashboard";
+        }, 2000);
+      } else {
+        setError(data.error || "Signup failed. Please try again.");
+      }
+    } catch (err) {
+      setError("Network error. Please check your connection and try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   const benefits = [
     "50,000+ WAEC practice questions",
     "Personalized study recommendations",
@@ -185,13 +235,45 @@ export default function SignupPage() {
               </span>
             </div>
             <h1 className="text-3xl font-bold text-gray-800 mb-2">
-              {step === 1 ? "Create Your Account" : "Choose Your Subjects"}
+              {role === "student"
+                ? step === 1
+                  ? "Create Your Account"
+                  : "Choose Your Subjects"
+                : "University Signup"}
             </h1>
             <p className="text-gray-600">
-              {step === 1
-                ? "Start your journey to academic excellence"
-                : "Select 3-5 subjects you want to focus on"}
+              {role === "student"
+                ? step === 1
+                  ? "Start your journey to academic excellence"
+                  : "Select 3-5 subjects you want to focus on"
+                : "Register your university to schedule exams and manage students"}
             </p>
+          </div>
+
+          {/* Role Tabs */}
+          <div className="flex mb-6 rounded-lg overflow-hidden border border-gray-200">
+            <button
+              className={`flex-1 py-2 px-4 font-semibold transition-colors ${
+                role === "student"
+                  ? "bg-emerald-100 text-emerald-700"
+                  : "bg-white text-gray-600 hover:bg-gray-50"
+              }`}
+              onClick={() => setRole("student")}
+              type="button"
+            >
+              Student
+            </button>
+            <button
+              className={`flex-1 py-2 px-4 font-semibold transition-colors ${
+                role === "university"
+                  ? "bg-emerald-100 text-emerald-700"
+                  : "bg-white text-gray-600 hover:bg-gray-50"
+              }`}
+              onClick={() => setRole("university")}
+              type="button"
+            >
+              University
+            </button>
           </div>
 
           {/* Error/Success Messages */}
@@ -201,11 +283,10 @@ export default function SignupPage() {
               <span className="text-red-700 text-sm">{error}</span>
             </div>
           )}
-
           {success && (
-            <div className="mb-6 p-4 bg-emerald-50 border border-emerald-200 rounded-lg flex items-center space-x-2">
-              <CheckCircle className="w-5 h-5 text-emerald-500" />
-              <span className="text-emerald-700 text-sm">{success}</span>
+            <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-center space-x-2">
+              <CheckCircle className="w-5 h-5 text-green-500" />
+              <span className="text-green-700 text-sm">{success}</span>
             </div>
           )}
 
@@ -238,230 +319,303 @@ export default function SignupPage() {
             </div>
           </div>
 
-          {/* Form Card */}
-          <Card className="border-0 shadow-xl bg-white/80 backdrop-blur-sm">
-            <CardContent className="p-8">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                {step === 1 ? (
-                  <>
-                    <div className="space-y-2">
-                      <Label
-                        htmlFor="name"
-                        className="text-sm font-medium text-gray-700"
-                      >
-                        Full Name
-                      </Label>
-                      <div className="relative">
-                        <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                        <Input
-                          id="name"
-                          type="text"
-                          placeholder="Enter your full name"
-                          value={formData.name}
-                          onChange={(e) =>
-                            setFormData((prev) => ({
-                              ...prev,
-                              name: e.target.value,
-                            }))
-                          }
-                          className="pl-11 h-12 border-gray-200 focus:border-emerald-500 focus:ring-emerald-500"
-                          required
-                          disabled={isLoading}
-                        />
-                      </div>
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label
-                        htmlFor="email"
-                        className="text-sm font-medium text-gray-700"
-                      >
-                        Email Address
-                      </Label>
-                      <div className="relative">
-                        <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                        <Input
-                          id="email"
-                          type="email"
-                          placeholder="Enter your email"
-                          value={formData.email}
-                          onChange={(e) =>
-                            setFormData((prev) => ({
-                              ...prev,
-                              email: e.target.value,
-                            }))
-                          }
-                          className="pl-11 h-12 border-gray-200 focus:border-emerald-500 focus:ring-emerald-500"
-                          required
-                          disabled={isLoading}
-                        />
-                      </div>
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label
-                        htmlFor="password"
-                        className="text-sm font-medium text-gray-700"
-                      >
-                        Password
-                      </Label>
-                      <div className="relative">
-                        <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                        <Input
-                          id="password"
-                          type={showPassword ? "text" : "password"}
-                          placeholder="Create a strong password"
-                          value={formData.password}
-                          onChange={(e) =>
-                            setFormData((prev) => ({
-                              ...prev,
-                              password: e.target.value,
-                            }))
-                          }
-                          className="pl-11 pr-11 h-12 border-gray-200 focus:border-emerald-500 focus:ring-emerald-500"
-                          required
-                          disabled={isLoading}
-                        />
-                        <button
-                          type="button"
-                          onClick={() => setShowPassword(!showPassword)}
-                          className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
-                          disabled={isLoading}
-                        >
-                          {showPassword ? (
-                            <EyeOff className="w-5 h-5" />
-                          ) : (
-                            <Eye className="w-5 h-5" />
-                          )}
-                        </button>
-                      </div>
-                    </div>
-
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="terms" required disabled={isLoading} />
-                      <Label htmlFor="terms" className="text-sm text-gray-600">
-                        I agree to the{" "}
-                        <Link
-                          href="/terms"
-                          className="text-emerald-600 hover:text-emerald-700"
-                        >
-                          Terms of Service
-                        </Link>{" "}
-                        and{" "}
-                        <Link
-                          href="/privacy"
-                          className="text-emerald-600 hover:text-emerald-700"
-                        >
-                          Privacy Policy
-                        </Link>
-                      </Label>
-                    </div>
-
-                    <Button
-                      type="submit"
-                      className="w-full h-12 bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300"
-                      disabled={isLoading}
+          {/* Student Signup Form */}
+          {role === "student" && (
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {step === 1 ? (
+                <>
+                  <div className="space-y-2">
+                    <Label
+                      htmlFor="name"
+                      className="text-sm font-medium text-gray-700"
                     >
-                      Continue
-                      <ArrowRight className="w-5 h-5 ml-2" />
-                    </Button>
-                  </>
-                ) : (
-                  <>
-                    <div className="space-y-4 max-h-80 overflow-y-auto">
-                      <div className="grid grid-cols-1 gap-3">
-                        {subjects.map((subject) => (
-                          <div
-                            key={subject.id}
-                            className={`flex items-center space-x-3 p-4 border-2 rounded-lg cursor-pointer transition-all duration-200 ${
-                              formData.selectedSubjects.includes(subject.id)
-                                ? "border-emerald-500 bg-emerald-50"
-                                : "border-gray-200 hover:border-gray-300"
-                            }`}
-                          >
-                            <Checkbox
-                              id={subject.id}
-                              checked={formData.selectedSubjects.includes(
-                                subject.id
-                              )}
-                              onCheckedChange={() =>
-                                handleSubjectToggle(subject.id)
-                              }
-                              disabled={isLoading}
-                            />
-                            <div className="text-2xl">{subject.icon}</div>
-                            <div className="flex-1">
-                              <div className="font-medium text-gray-800">
-                                {subject.name}
-                              </div>
-                              <div className="text-sm text-gray-500">
-                                {subject.category}
-                              </div>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
+                      Full Name
+                    </Label>
+                    <div className="relative">
+                      <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                      <Input
+                        id="name"
+                        type="text"
+                        placeholder="Enter your full name"
+                        value={formData.name}
+                        onChange={(e) =>
+                          setFormData((prev) => ({
+                            ...prev,
+                            name: e.target.value,
+                          }))
+                        }
+                        className="pl-11 h-12 border-gray-200 focus:border-emerald-500 focus:ring-emerald-500"
+                        required
+                        disabled={isLoading}
+                      />
                     </div>
+                  </div>
 
-                    <div className="text-center p-4 bg-emerald-50 rounded-lg">
-                      <div className="flex items-center justify-center space-x-2 text-emerald-700">
-                        <Target className="w-5 h-5" />
-                        <span className="font-medium">
-                          Selected: {formData.selectedSubjects.length} subjects
-                        </span>
-                      </div>
-                      <p className="text-sm text-emerald-600 mt-1">
-                        Choose at least 3 subjects to continue
-                      </p>
+                  <div className="space-y-2">
+                    <Label
+                      htmlFor="email"
+                      className="text-sm font-medium text-gray-700"
+                    >
+                      Email Address
+                    </Label>
+                    <div className="relative">
+                      <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                      <Input
+                        id="email"
+                        type="email"
+                        placeholder="Enter your email"
+                        value={formData.email}
+                        onChange={(e) =>
+                          setFormData((prev) => ({
+                            ...prev,
+                            email: e.target.value,
+                          }))
+                        }
+                        className="pl-11 h-12 border-gray-200 focus:border-emerald-500 focus:ring-emerald-500"
+                        required
+                        disabled={isLoading}
+                      />
                     </div>
+                  </div>
 
-                    <div className="flex space-x-4">
-                      <Button
+                  <div className="space-y-2">
+                    <Label
+                      htmlFor="password"
+                      className="text-sm font-medium text-gray-700"
+                    >
+                      Password
+                    </Label>
+                    <div className="relative">
+                      <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                      <Input
+                        id="password"
+                        type={showPassword ? "text" : "password"}
+                        placeholder="Create a strong password"
+                        value={formData.password}
+                        onChange={(e) =>
+                          setFormData((prev) => ({
+                            ...prev,
+                            password: e.target.value,
+                          }))
+                        }
+                        className="pl-11 pr-11 h-12 border-gray-200 focus:border-emerald-500 focus:ring-emerald-500"
+                        required
+                        disabled={isLoading}
+                      />
+                      <button
                         type="button"
-                        variant="outline"
-                        onClick={() => setStep(1)}
-                        className="flex-1 h-12 border-gray-200"
+                        onClick={() => setShowPassword(!showPassword)}
+                        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
                         disabled={isLoading}
                       >
-                        <ArrowLeft className="w-5 h-5 mr-2" />
-                        Back
-                      </Button>
-                      <Button
-                        type="submit"
-                        disabled={
-                          formData.selectedSubjects.length < 3 || isLoading
-                        }
-                        className="flex-1 h-12 bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300"
-                      >
-                        {isLoading ? (
-                          <div className="flex items-center">
-                            <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
-                            Creating...
-                          </div>
+                        {showPassword ? (
+                          <EyeOff className="w-5 h-5" />
                         ) : (
-                          "Create Account"
+                          <Eye className="w-5 h-5" />
                         )}
-                      </Button>
+                      </button>
                     </div>
-                  </>
-                )}
-              </form>
+                  </div>
 
-              {step === 1 && (
-                <div className="mt-8 text-center">
-                  <p className="text-gray-600">
-                    Already have an account?{" "}
-                    <Link
-                      href="/login"
-                      className="text-emerald-600 hover:text-emerald-700 font-medium"
+                  <div className="flex items-center space-x-2">
+                    <Checkbox id="terms" required disabled={isLoading} />
+                    <Label htmlFor="terms" className="text-sm text-gray-600">
+                      I agree to the{" "}
+                      <Link
+                        href="/terms"
+                        className="text-emerald-600 hover:text-emerald-700"
+                      >
+                        Terms of Service
+                      </Link>{" "}
+                      and{" "}
+                      <Link
+                        href="/privacy"
+                        className="text-emerald-600 hover:text-emerald-700"
+                      >
+                        Privacy Policy
+                      </Link>
+                    </Label>
+                  </div>
+
+                  <Button
+                    type="submit"
+                    className="w-full h-12 bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300"
+                    disabled={isLoading}
+                  >
+                    Continue
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <div className="space-y-4 max-h-80 overflow-y-auto">
+                    <div className="grid grid-cols-1 gap-3">
+                      {subjects.map((subject) => (
+                        <div
+                          key={subject.id}
+                          className={`flex items-center space-x-3 p-4 border-2 rounded-lg cursor-pointer transition-all duration-200 ${
+                            formData.selectedSubjects.includes(subject.id)
+                              ? "border-emerald-500 bg-emerald-50"
+                              : "border-gray-200 hover:border-gray-300"
+                          }`}
+                        >
+                          <Checkbox
+                            id={subject.id}
+                            checked={formData.selectedSubjects.includes(
+                              subject.id
+                            )}
+                            onCheckedChange={() =>
+                              handleSubjectToggle(subject.id)
+                            }
+                            disabled={isLoading}
+                          />
+                          <div className="text-2xl">{subject.icon}</div>
+                          <div className="flex-1">
+                            <div className="font-medium text-gray-800">
+                              {subject.name}
+                            </div>
+                            <div className="text-sm text-gray-500">
+                              {subject.category}
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="text-center p-4 bg-emerald-50 rounded-lg">
+                    <div className="flex items-center justify-center space-x-2 text-emerald-700">
+                      <Target className="w-5 h-5" />
+                      <span className="font-medium">
+                        Selected: {formData.selectedSubjects.length} subjects
+                      </span>
+                    </div>
+                    <p className="text-sm text-emerald-600 mt-1">
+                      Choose at least 3 subjects to continue
+                    </p>
+                  </div>
+
+                  <div className="flex space-x-4">
+                    <Button
+                      type="button"
+                      variant="outline"
+                      onClick={() => setStep(1)}
+                      className="flex-1 h-12 border-gray-200"
+                      disabled={isLoading}
                     >
-                      Sign in here
-                    </Link>
-                  </p>
-                </div>
+                      <ArrowLeft className="w-5 h-5 mr-2" />
+                      Back
+                    </Button>
+                    <Button
+                      type="submit"
+                      disabled={
+                        formData.selectedSubjects.length < 3 || isLoading
+                      }
+                      className="flex-1 h-12 bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300"
+                    >
+                      {isLoading ? (
+                        <div className="flex items-center">
+                          <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                          Creating...
+                        </div>
+                      ) : (
+                        "Create Account"
+                      )}
+                    </Button>
+                  </div>
+                </>
               )}
-            </CardContent>
-          </Card>
+            </form>
+          )}
+
+          {/* University Signup Form */}
+          {role === "university" && (
+            <form onSubmit={handleUniversitySubmit} className="space-y-5">
+              <div>
+                <Label htmlFor="universityName">University Name</Label>
+                <Input
+                  id="universityName"
+                  type="text"
+                  required
+                  value={universityData.universityName}
+                  onChange={(e) =>
+                    setUniversityData({
+                      ...universityData,
+                      universityName: e.target.value,
+                    })
+                  }
+                  placeholder="e.g. University of Lagos"
+                />
+              </div>
+              <div>
+                <Label htmlFor="adminName">Admin Name</Label>
+                <Input
+                  id="adminName"
+                  type="text"
+                  required
+                  value={universityData.adminName}
+                  onChange={(e) =>
+                    setUniversityData({
+                      ...universityData,
+                      adminName: e.target.value,
+                    })
+                  }
+                  placeholder="e.g. Dr. John Doe"
+                />
+              </div>
+              <div>
+                <Label htmlFor="email">Email</Label>
+                <Input
+                  id="email"
+                  type="email"
+                  required
+                  value={universityData.email}
+                  onChange={(e) =>
+                    setUniversityData({
+                      ...universityData,
+                      email: e.target.value,
+                    })
+                  }
+                  placeholder="university@email.com"
+                />
+              </div>
+              <div>
+                <Label htmlFor="password">Password</Label>
+                <Input
+                  id="password"
+                  type="password"
+                  required
+                  value={universityData.password}
+                  onChange={(e) =>
+                    setUniversityData({
+                      ...universityData,
+                      password: e.target.value,
+                    })
+                  }
+                  placeholder="Password"
+                />
+              </div>
+              <div>
+                <Label htmlFor="confirmPassword">Confirm Password</Label>
+                <Input
+                  id="confirmPassword"
+                  type="password"
+                  required
+                  value={universityData.confirmPassword}
+                  onChange={(e) =>
+                    setUniversityData({
+                      ...universityData,
+                      confirmPassword: e.target.value,
+                    })
+                  }
+                  placeholder="Confirm Password"
+                />
+              </div>
+              <Button type="submit" className="w-full" disabled={isLoading}>
+                {isLoading ? "Signing up..." : "Sign Up as University"}
+              </Button>
+            </form>
+          )}
         </div>
       </div>
 

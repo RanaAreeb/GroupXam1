@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
@@ -48,11 +48,16 @@ const SUBJECTS = [
 ];
 
 interface Reply {
+  _id: string;
   author: string;
   authorInitials: string;
   content: string;
   createdAt?: string;
+  replies?: NestedReply[];
+  parentId?: string;
 }
+
+interface NestedReply extends Reply {}
 
 interface Discussion {
   _id: string;
@@ -62,7 +67,7 @@ interface Discussion {
   authorInitials: string;
   content: string;
   tags: string[];
-  replies: Reply[];
+  replies: NestedReply[];
   likes: number;
   createdAt?: string;
 }
@@ -80,7 +85,6 @@ export default function DiscussionsPage() {
     content: string;
     tags: string;
   }>({ title: "", subject: "All", content: "", tags: "" });
-  const [replying, setReplying] = useState<Record<string, string>>({}); // { [discussionId]: replyText }
   const [replyLoading, setReplyLoading] = useState<Record<string, boolean>>({});
   const [expandedReplies, setExpandedReplies] = useState<
     Record<string, boolean>
@@ -88,6 +92,14 @@ export default function DiscussionsPage() {
   const [visibleDiscussions, setVisibleDiscussions] = useState(3);
   const [openComments, setOpenComments] = useState<Record<string, boolean>>({});
   const [posting, setPosting] = useState(false);
+
+  // New state management for replies with unique keys
+  const [activeReplies, setActiveReplies] = useState<Record<string, string>>(
+    {}
+  );
+  const [showReplyInput, setShowReplyInput] = useState<Record<string, boolean>>(
+    {}
+  );
 
   // Fetch discussions from API
   useEffect(() => {
@@ -136,40 +148,121 @@ export default function DiscussionsPage() {
     }
   };
 
-  // Handle reply
-  const handleReply = async (discussionId: string) => {
-    if (!replying[discussionId]) return;
-    setReplyLoading((prev) => ({ ...prev, [discussionId]: true }));
-    const res = await fetch("/api/discussions", {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        discussionId,
-        reply: {
-          author: user?.name || "Anonymous",
-          authorInitials: user?.name
-            ? user.name
-                .split(" ")
-                .map((n) => n[0])
-                .join("")
-                .toUpperCase()
-            : "AN",
-          content: replying[discussionId],
-        },
-      }),
-    });
-    setReplying((prev) => ({ ...prev, [discussionId]: "" }));
-    setReplyLoading((prev) => ({ ...prev, [discussionId]: false }));
-    // Update only the replies for this discussion in state
-    if (res.ok) {
-      setDiscussions((prev) =>
-        prev.map((d) =>
-          d._id === discussionId
-            ? {
-                ...d,
-                replies: [
-                  ...d.replies,
-                  {
+  // When creating new replies (including nested), always assign a unique _id
+  const generateId = () =>
+    Date.now().toString() + Math.random().toString(36).slice(2);
+
+  // Handle reply to main discussion
+  const handleMainReply = useCallback(
+    async (discussionId: string) => {
+      const replyContent = activeReplies[discussionId];
+      if (!replyContent) return;
+
+      setReplyLoading((prev) => ({ ...prev, [discussionId]: true }));
+      const newId = generateId();
+
+      const res = await fetch("/api/discussions", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          discussionId,
+          reply: {
+            _id: newId,
+            author: user?.name || "Anonymous",
+            authorInitials: user?.name
+              ? user.name
+                  .split(" ")
+                  .map((n) => n[0])
+                  .join("")
+                  .toUpperCase()
+              : "AN",
+            content: replyContent,
+          },
+        }),
+      });
+
+      setReplyLoading((prev) => ({ ...prev, [discussionId]: false }));
+
+      if (res.ok) {
+        setDiscussions((prev) =>
+          prev.map((d) =>
+            d._id === discussionId
+              ? {
+                  ...d,
+                  replies: [
+                    ...d.replies,
+                    {
+                      _id: newId,
+                      author: user?.name || "Anonymous",
+                      authorInitials: user?.name
+                        ? user.name
+                            .split(" ")
+                            .map((n) => n[0])
+                            .join("")
+                            .toUpperCase()
+                        : "AN",
+                      content: replyContent,
+                      createdAt: new Date().toISOString(),
+                    },
+                  ],
+                }
+              : d
+          )
+        );
+
+        // Clear the reply input
+        setActiveReplies((prev) => ({ ...prev, [discussionId]: "" }));
+        setShowReplyInput((prev) => ({ ...prev, [discussionId]: false }));
+      }
+    },
+    [activeReplies, user]
+  );
+
+  // Handle reply to a reply (nested reply)
+  const handleNestedReply = useCallback(
+    async (
+      discussionId: string,
+      parentReplyId: string,
+      parentReplyAuthor: string
+    ) => {
+      const replyKey = `${discussionId}_${parentReplyId}`;
+      const replyContent = activeReplies[replyKey];
+      if (!replyContent) return;
+
+      setReplyLoading((prev) => ({ ...prev, [replyKey]: true }));
+      const newId = generateId();
+
+      const res = await fetch("/api/discussions", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          discussionId,
+          reply: {
+            _id: newId,
+            author: user?.name || "Anonymous",
+            authorInitials: user?.name
+              ? user.name
+                  .split(" ")
+                  .map((n) => n[0])
+                  .join("")
+                  .toUpperCase()
+              : "AN",
+            content: replyContent,
+            parentId: parentReplyId,
+          },
+        }),
+      });
+
+      setReplyLoading((prev) => ({ ...prev, [replyKey]: false }));
+
+      if (res.ok) {
+        setDiscussions((prev) =>
+          prev.map((d) =>
+            d._id === discussionId
+              ? {
+                  ...d,
+                  replies: addNestedReply(d.replies, parentReplyId, {
+                    _id: newId,
                     author: user?.name || "Anonymous",
                     authorInitials: user?.name
                       ? user.name
@@ -178,55 +271,206 @@ export default function DiscussionsPage() {
                           .join("")
                           .toUpperCase()
                       : "AN",
-                    content: replying[discussionId],
+                    content: replyContent,
                     createdAt: new Date().toISOString(),
-                  },
-                ],
-              }
-            : d
-        )
-      );
-    }
-  };
+                    parentId: parentReplyId,
+                  }),
+                }
+              : d
+          )
+        );
+
+        // Clear the reply input
+        setActiveReplies((prev) => ({ ...prev, [replyKey]: "" }));
+        setShowReplyInput((prev) => ({ ...prev, [replyKey]: false }));
+      }
+    },
+    [activeReplies, user]
+  );
+
+  // Helper to add a nested reply
+  function addNestedReply(
+    replies: NestedReply[],
+    parentId: string,
+    newReply: NestedReply
+  ): NestedReply[] {
+    return replies.map((reply) => {
+      if (reply._id === parentId) {
+        return {
+          ...reply,
+          replies: reply.replies ? [...reply.replies, newReply] : [newReply],
+        };
+      } else if (reply.replies) {
+        return {
+          ...reply,
+          replies: addNestedReply(reply.replies, parentId, newReply),
+        };
+      }
+      return reply;
+    });
+  }
+
+  // Toggle reply input visibility
+  const toggleReplyInput = useCallback(
+    (key: string) => {
+      setShowReplyInput((prev) => ({
+        ...prev,
+        [key]: !prev[key],
+      }));
+      // Clear the reply text when closing
+      if (showReplyInput[key]) {
+        setActiveReplies((prev) => ({ ...prev, [key]: "" }));
+      }
+    },
+    [showReplyInput]
+  );
+
+  // Update reply text
+  const updateReplyText = useCallback((key: string, value: string) => {
+    setActiveReplies((prev) => ({ ...prev, [key]: value }));
+  }, []);
+
+  // Render replies recursively (one level deep)
+  function RenderReplies({
+    replies,
+    discussion,
+    parentId,
+  }: {
+    replies: NestedReply[];
+    discussion: Discussion;
+    parentId?: string;
+  }) {
+    const effectiveParentId = parentId || undefined;
+    return (
+      <div
+        className={
+          effectiveParentId
+            ? "pl-8 border-l-2 border-emerald-100 mt-2 space-y-3"
+            : ""
+        }
+      >
+        {replies.map((reply) => {
+          const replyKey = `${discussion._id}_${reply._id}`;
+          return (
+            <div
+              key={reply._id}
+              className="flex items-start gap-2 bg-emerald-50/60 rounded-xl p-2 mb-2"
+            >
+              <Avatar>
+                <AvatarFallback className="bg-blue-100 text-blue-700">
+                  {reply.authorInitials || "AN"}
+                </AvatarFallback>
+              </Avatar>
+              <div className="flex-1">
+                <div className="flex items-center gap-2">
+                  <div className="font-medium text-sm text-gray-800">
+                    {reply.author || "Anonymous"}
+                  </div>
+                  {/* Author badge if reply author is discussion creator */}
+                  {reply.author === discussion.author && (
+                    <span className="ml-1 px-2 py-0.5 bg-emerald-500 text-white text-xs rounded-full font-semibold">
+                      Author
+                    </span>
+                  )}
+                  <span className="ml-2 text-xs text-gray-400">
+                    {reply.createdAt
+                      ? new Date(reply.createdAt).toLocaleString()
+                      : ""}
+                  </span>
+                </div>
+                <div className="text-gray-700 text-sm whitespace-pre-line">
+                  {reply.content}
+                </div>
+                {/* Reply to this comment */}
+                {isLoggedIn && (
+                  <div className="flex items-center gap-2 mt-1">
+                    <button
+                      className="text-xs text-emerald-600 hover:underline"
+                      onClick={() => toggleReplyInput(replyKey)}
+                    >
+                      Reply
+                    </button>
+                  </div>
+                )}
+                {/* Nested reply input */}
+                {isLoggedIn && showReplyInput[replyKey] && (
+                  <div className="flex items-center gap-2 mt-2">
+                    <Input
+                      placeholder="Write a reply..."
+                      value={activeReplies[replyKey] || ""}
+                      onChange={(e) =>
+                        updateReplyText(replyKey, e.target.value)
+                      }
+                      className="flex-1 rounded-full"
+                      autoFocus
+                    />
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="text-emerald-600 hover:text-emerald-700 rounded-full"
+                      disabled={replyLoading[replyKey]}
+                      onClick={() =>
+                        handleNestedReply(
+                          discussion._id,
+                          reply._id,
+                          reply.author
+                        )
+                      }
+                    >
+                      <Reply className="w-4 h-4 mr-1" />
+                      {replyLoading[replyKey] ? "Sending..." : "Reply"}
+                    </Button>
+                  </div>
+                )}
+                {/* Render nested replies (one level deep) */}
+                {reply.replies && reply.replies.length > 0 && (
+                  <RenderReplies
+                    replies={reply.replies}
+                    discussion={discussion}
+                    parentId={reply._id}
+                  />
+                )}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    );
+  }
 
   const filteredDiscussions = discussions;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50">
       <AppHeader active="Discussions" />
-      <div className="container mx-auto py-8 px-4">
-        {/* Header and Search Bar */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4">
-          <div>
-            <h1 className="text-3xl font-bold text-gray-800 mb-1">
-              Discussions
-            </h1>
-            <p className="text-gray-500 text-base">
-              Connect with fellow students and get help
-            </p>
+      <div className="flex justify-center w-full">
+        <div className="w-full max-w-2xl px-2 sm:px-0 py-8">
+          {/* Header and Search Bar */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4 px-2">
+            <div>
+              <h1 className="text-3xl font-bold text-gray-800 mb-1">
+                Discussions
+              </h1>
+              <p className="text-gray-500 text-base">
+                Connect with fellow students and get help
+              </p>
+            </div>
+            <div className="flex items-center gap-2 w-full sm:w-auto">
+              <input
+                type="text"
+                placeholder="Search discussions..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full sm:w-72 px-4 py-2 rounded-full border border-gray-300 focus:border-emerald-500 focus:ring-emerald-200 focus:outline-none bg-white shadow-sm"
+              />
+              <Button className="ml-2" onClick={() => setSearchQuery("")}>
+                Clear
+              </Button>
+            </div>
           </div>
-          <div className="flex items-center gap-2 w-full sm:w-auto">
-            <input
-              type="text"
-              placeholder="Search discussions..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full sm:w-72 px-4 py-2 rounded-lg border border-gray-300 focus:border-emerald-500 focus:ring-emerald-200 focus:outline-none shadow-sm bg-white"
-            />
-            <Button className="ml-2" onClick={() => setSearchQuery("")}>
-              Clear
-            </Button>
-          </div>
-          <Button
-            className="bg-gradient-to-r from-emerald-500 to-blue-500 text-white font-semibold shadow-md"
-            onClick={() => setShowNewPost((v) => !v)}
-          >
-            <Plus className="w-4 h-4 mr-2" /> New Discussion
-          </Button>
-        </div>
-        {/* Subject Tabs */}
-        <div className="flex flex-col md:flex-row gap-4 mb-8">
-          <div className="flex gap-2 overflow-x-auto">
+
+          {/* Subject Tabs */}
+          <div className="flex gap-2 overflow-x-auto pb-2 mb-4 border-b border-gray-200 sticky top-0 bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50 z-10">
             {SUBJECTS.map((subject) => (
               <Button
                 key={subject}
@@ -235,300 +479,284 @@ export default function DiscussionsPage() {
                 onClick={() => setSelectedSubject(subject)}
                 className={
                   selectedSubject === subject
-                    ? "bg-emerald-500 hover:bg-emerald-600"
-                    : ""
+                    ? "bg-emerald-500 hover:bg-emerald-600 rounded-full px-4"
+                    : "rounded-full px-4"
                 }
               >
                 {subject}
               </Button>
             ))}
           </div>
-        </div>
-        {/* New Discussion Inline Form */}
-        {showNewPost && (
-          <form
-            onSubmit={handleNewPost}
-            className="bg-white rounded-lg shadow-md p-6 mb-8 max-w-2xl mx-auto"
-          >
-            <div className="mb-4">
-              <label className="block text-gray-700 font-semibold mb-1">
-                Title
-              </label>
-              <input
-                type="text"
-                required
-                value={newPost.title}
-                onChange={(e) =>
-                  setNewPost((p) => ({ ...p, title: e.target.value }))
-                }
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-emerald-500"
-                placeholder="Enter a clear topic title"
-              />
-            </div>
-            <div className="mb-4">
-              <label className="block text-gray-700 font-semibold mb-1">
-                Subject
-              </label>
-              <select
-                value={newPost.subject}
-                onChange={(e) =>
-                  setNewPost((p) => ({ ...p, subject: e.target.value }))
-                }
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-emerald-500"
-              >
-                {SUBJECTS.map((s) => (
-                  <option key={s} value={s}>
-                    {s}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div className="mb-4">
-              <label className="block text-gray-700 font-semibold mb-1">
-                Content
-              </label>
-              <textarea
-                required
-                value={newPost.content}
-                onChange={(e) =>
-                  setNewPost((p) => ({ ...p, content: e.target.value }))
-                }
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-emerald-500"
-                rows={4}
-                placeholder="Describe your question or topic in detail"
-              />
-            </div>
-            <div className="mb-4">
-              <label className="block text-gray-700 font-semibold mb-1">
-                Tags{" "}
-                <span className="text-xs text-gray-400">(comma separated)</span>
-              </label>
-              <input
-                type="text"
-                value={newPost.tags}
-                onChange={(e) =>
-                  setNewPost((p) => ({ ...p, tags: e.target.value }))
-                }
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-emerald-500"
-                placeholder="e.g. exam, help, WAEC"
-              />
-            </div>
-            <div className="flex gap-2 justify-end">
-              <Button
-                type="button"
-                variant="outline"
-                onClick={() => setShowNewPost(false)}
-                disabled={posting}
-              >
-                Cancel
-              </Button>
-              <Button
-                type="submit"
-                className="bg-emerald-600 text-white"
-                disabled={posting}
-              >
-                {posting ? "Posting..." : "Post Discussion"}
-              </Button>
-            </div>
-          </form>
-        )}
-        {/* Discussions List */}
-        {loading ? (
-          <div className="text-center py-12">Loading...</div>
-        ) : (
-          <>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredDiscussions
+
+          {/* New Discussion Inline Form */}
+          {showNewPost && (
+            <form
+              onSubmit={handleNewPost}
+              className="bg-white border border-gray-200 rounded-2xl p-6 mb-8 mx-auto shadow-sm"
+            >
+              <div className="mb-3">
+                <input
+                  type="text"
+                  required
+                  value={newPost.title}
+                  onChange={(e) =>
+                    setNewPost((p) => ({ ...p, title: e.target.value }))
+                  }
+                  className="w-full px-4 py-2 border rounded-full focus:outline-none focus:border-emerald-500 text-lg font-semibold"
+                  placeholder="What's happening? (Title)"
+                />
+              </div>
+              <div className="mb-3 flex gap-2">
+                <select
+                  value={newPost.subject}
+                  onChange={(e) =>
+                    setNewPost((p) => ({ ...p, subject: e.target.value }))
+                  }
+                  className="px-4 py-2 border rounded-full focus:outline-none focus:border-emerald-500"
+                >
+                  {SUBJECTS.map((s) => (
+                    <option key={s} value={s}>
+                      {s}
+                    </option>
+                  ))}
+                </select>
+                <input
+                  type="text"
+                  value={newPost.tags}
+                  onChange={(e) =>
+                    setNewPost((p) => ({ ...p, tags: e.target.value }))
+                  }
+                  className="flex-1 px-4 py-2 border rounded-full focus:outline-none focus:border-emerald-500"
+                  placeholder="#tags (comma separated)"
+                />
+              </div>
+              <div className="mb-3">
+                <textarea
+                  required
+                  value={newPost.content}
+                  onChange={(e) =>
+                    setNewPost((p) => ({ ...p, content: e.target.value }))
+                  }
+                  className="w-full px-4 py-2 border rounded-2xl focus:outline-none focus:border-emerald-500 text-base"
+                  rows={3}
+                  placeholder="Share your thoughts, ask a question, or start a discussion..."
+                />
+              </div>
+              <div className="flex gap-2 justify-end">
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={() => setShowNewPost(false)}
+                  disabled={posting}
+                >
+                  Cancel
+                </Button>
+                <Button
+                  type="submit"
+                  className="bg-emerald-600 text-white rounded-full px-6"
+                  disabled={posting}
+                >
+                  {posting ? "Posting..." : "Post"}
+                </Button>
+              </div>
+            </form>
+          )}
+
+          {/* Discussions Feed */}
+          <div className="flex flex-col gap-4">
+            {loading ? (
+              <div className="text-center py-12">Loading...</div>
+            ) : filteredDiscussions.length === 0 ? (
+              <div className="text-center py-12">
+                <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <MessageSquare className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                  No discussions found
+                </h3>
+                <p className="text-gray-600 mb-6">
+                  {searchQuery
+                    ? "Try adjusting your search terms"
+                    : isLoggedIn
+                    ? "Be the first to start a discussion!"
+                    : "Sign in to start and participate in discussions!"}
+                </p>
+                {isLoggedIn ? (
+                  <Button
+                    onClick={() => setShowNewPost(true)}
+                    className="bg-gradient-to-r from-emerald-500 to-blue-500 rounded-full px-6"
+                  >
+                    <Plus className="w-4 h-4 mr-2" /> Start Discussion
+                  </Button>
+                ) : (
+                  <Button
+                    asChild
+                    className="bg-gradient-to-r from-emerald-500 to-blue-500 rounded-full px-6"
+                  >
+                    <Link href="/login">Sign In to Join Discussions</Link>
+                  </Button>
+                )}
+              </div>
+            ) : (
+              filteredDiscussions
                 .slice(0, visibleDiscussions)
                 .map((discussion) => {
                   const replies = discussion.replies || [];
-                  const showAll = expandedReplies[discussion._id];
-                  const visibleReplies = showAll
-                    ? replies
-                    : replies.slice(0, 3);
                   const commentsOpen = openComments[discussion._id];
                   return (
-                    <Card
+                    <div
                       key={discussion._id}
-                      className="border-0 shadow-lg hover:shadow-xl transition-shadow cursor-pointer max-w-xl mx-auto"
+                      className="bg-white border border-gray-200 rounded-2xl px-6 py-5 hover:bg-emerald-50/40 transition-all cursor-pointer shadow-none mb-2"
                     >
-                      <CardContent className="p-6">
-                        <div className="flex items-start space-x-4">
+                      {/* Top Row: Avatar, Author, Subject, Time */}
+                      <div className="flex items-center gap-3 mb-1">
+                        <Avatar>
+                          <AvatarFallback className="bg-emerald-100 text-emerald-700">
+                            {discussion.authorInitials}
+                          </AvatarFallback>
+                        </Avatar>
+                        <span className="font-semibold text-gray-800">
+                          {discussion.author}
+                        </span>
+                        <Badge className="bg-emerald-100 text-emerald-700 ml-1">
+                          {discussion.subject}
+                        </Badge>
+                        <span className="text-xs text-gray-400 ml-auto">
+                          {discussion.createdAt
+                            ? new Date(discussion.createdAt).toLocaleString()
+                            : ""}
+                        </span>
+                      </div>
+                      {/* Title and Content */}
+                      <div className="mb-2">
+                        <span className="font-bold text-lg text-gray-900">
+                          {discussion.title}
+                        </span>
+                        <div className="text-gray-700 text-base mt-1 whitespace-pre-line">
+                          {discussion.content}
+                        </div>
+                      </div>
+                      {/* Tags as hashtags */}
+                      <div className="flex flex-wrap gap-2 mb-2">
+                        {discussion.tags &&
+                          discussion.tags.map((tag) => (
+                            <span
+                              key={tag}
+                              className="text-emerald-600 text-xs font-medium"
+                            >
+                              #{tag}
+                            </span>
+                          ))}
+                      </div>
+                      {/* Actions Row */}
+                      <div className="flex items-center gap-6 text-gray-500 text-sm mb-2">
+                        <button className="flex items-center gap-1 hover:text-emerald-600 transition-colors">
+                          <ThumbsUp className="w-4 h-4" />{" "}
+                          {discussion.likes || 0}
+                        </button>
+                        <button
+                          className="flex items-center gap-1 hover:text-emerald-600 transition-colors"
+                          onClick={() =>
+                            setOpenComments((prev) => ({
+                              ...prev,
+                              [discussion._id]: !commentsOpen,
+                            }))
+                          }
+                        >
+                          <MessageSquare className="w-4 h-4" /> {replies.length}{" "}
+                          {replies.length === 1 ? "Reply" : "Replies"}
+                        </button>
+                        {isLoggedIn ? (
+                          <button
+                            className="flex items-center gap-1 hover:text-emerald-600 transition-colors"
+                            onClick={() => toggleReplyInput(discussion._id)}
+                          >
+                            <Reply className="w-4 h-4" /> Reply
+                          </button>
+                        ) : (
+                          <span className="flex items-center gap-1 text-gray-400 text-xs">
+                            <Reply className="w-4 h-4" />
+                            <Link href="/login" className="hover:underline">
+                              Sign in to reply
+                            </Link>
+                          </span>
+                        )}
+                      </div>
+
+                      {/* Main Reply Input */}
+                      {isLoggedIn && showReplyInput[discussion._id] && (
+                        <div className="flex items-center gap-2 mt-3 mb-2">
                           <Avatar>
                             <AvatarFallback className="bg-emerald-100 text-emerald-700">
-                              {discussion.authorInitials}
+                              {user?.name
+                                ? user.name
+                                    .split(" ")
+                                    .map((n) => n[0])
+                                    .join("")
+                                    .toUpperCase()
+                                : "AN"}
                             </AvatarFallback>
                           </Avatar>
-                          <div className="flex-1">
-                            <div className="flex items-center gap-2 mb-2">
-                              <Badge className="bg-emerald-100 text-emerald-700">
-                                {discussion.subject}
-                              </Badge>
-                              <span className="text-sm text-gray-500">•</span>
-                              <span className="text-sm text-gray-500">
-                                {discussion.createdAt
-                                  ? new Date(
-                                      discussion.createdAt
-                                    ).toLocaleString()
-                                  : ""}
-                              </span>
-                            </div>
-                            <h3 className="text-lg font-semibold text-gray-800 mb-2 hover:text-emerald-600 transition-colors">
-                              {discussion.title}
-                            </h3>
-                            <p className="text-gray-600 mb-3 line-clamp-2">
-                              {discussion.content}
-                            </p>
-                            <div className="flex flex-wrap gap-2 mb-4">
-                              {discussion.tags &&
-                                discussion.tags.map((tag) => (
-                                  <Badge
-                                    key={tag}
-                                    variant="secondary"
-                                    className="text-xs"
-                                  >
-                                    #{tag}
-                                  </Badge>
-                                ))}
-                            </div>
-                            {/* Comments Icon */}
-                            <button
-                              className="flex items-center gap-1 text-emerald-600 hover:text-emerald-800 text-sm font-medium mb-2 focus:outline-none"
-                              onClick={() =>
-                                setOpenComments((prev) => ({
-                                  ...prev,
-                                  [discussion._id]: !commentsOpen,
-                                }))
-                              }
-                            >
-                              <MessageSquare className="w-4 h-4" />
-                              {replies.length}{" "}
-                              {replies.length === 1 ? "Comment" : "Comments"}
-                            </button>
-                            {/* Replies (hidden by default, show on icon click) */}
-                            {commentsOpen && (
-                              <div className="bg-gray-50 rounded-lg p-3 mb-3">
-                                <div className="font-semibold mb-2 text-emerald-700 flex items-center gap-2">
-                                  Replies:
-                                  <span className="text-xs text-gray-500">
-                                    ({replies.length})
-                                  </span>
-                                </div>
-                                <div className="space-y-2">
-                                  {visibleReplies.map((reply, idx) => (
-                                    <div
-                                      key={idx}
-                                      className="flex items-start gap-2"
-                                    >
-                                      <Avatar>
-                                        <AvatarFallback className="bg-blue-100 text-blue-700">
-                                          {reply.authorInitials || "AN"}
-                                        </AvatarFallback>
-                                      </Avatar>
-                                      <div>
-                                        <div className="font-medium text-sm text-gray-800">
-                                          {reply.author || "Anonymous"}
-                                          <span className="ml-2 text-xs text-gray-400">
-                                            {reply.createdAt
-                                              ? new Date(
-                                                  reply.createdAt
-                                                ).toLocaleString()
-                                              : ""}
-                                          </span>
-                                        </div>
-                                        <div className="text-gray-600 text-sm">
-                                          {reply.content}
-                                        </div>
-                                      </div>
-                                    </div>
-                                  ))}
-                                  {replies.length > 3 && (
-                                    <button
-                                      className="text-xs text-emerald-600 hover:underline mt-2"
-                                      onClick={() =>
-                                        setExpandedReplies((prev) => ({
-                                          ...prev,
-                                          [discussion._id]: !showAll,
-                                        }))
-                                      }
-                                    >
-                                      {showAll
-                                        ? "Show less"
-                                        : `Show more comments (${
-                                            replies.length - 3
-                                          })`}
-                                    </button>
-                                  )}
-                                </div>
-                              </div>
-                            )}
-                            {/* Reply Form (show only if comments open) */}
-                            {commentsOpen && (
-                              <div className="flex items-center gap-2 mt-2">
-                                <Input
-                                  placeholder="Write a reply..."
-                                  value={replying[discussion._id] || ""}
-                                  onChange={(e) =>
-                                    setReplying((prev) => ({
-                                      ...prev,
-                                      [discussion._id]: e.target.value,
-                                    }))
-                                  }
-                                  className="flex-1"
-                                />
-                                <Button
-                                  variant="ghost"
-                                  size="sm"
-                                  className="text-emerald-600 hover:text-emerald-700"
-                                  disabled={replyLoading[discussion._id]}
-                                  onClick={() => handleReply(discussion._id)}
-                                >
-                                  <Reply className="w-4 h-4 mr-1" /> Reply
-                                </Button>
-                              </div>
-                            )}
-                          </div>
+                          <Input
+                            placeholder="Write a reply..."
+                            value={activeReplies[discussion._id] || ""}
+                            onChange={(e) =>
+                              updateReplyText(discussion._id, e.target.value)
+                            }
+                            className="flex-1 rounded-full"
+                            autoFocus
+                          />
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            className="text-emerald-600 hover:text-emerald-700 rounded-full"
+                            disabled={replyLoading[discussion._id]}
+                            onClick={() => handleMainReply(discussion._id)}
+                          >
+                            <Reply className="w-4 h-4 mr-1" />
+                            {replyLoading[discussion._id]
+                              ? "Sending..."
+                              : "Send"}
+                          </Button>
                         </div>
-                      </CardContent>
-                    </Card>
+                      )}
+
+                      {/* Replies Thread (if open) */}
+                      {commentsOpen && replies.length > 0 && (
+                        <RenderReplies
+                          replies={replies}
+                          discussion={discussion}
+                        />
+                      )}
+                    </div>
                   );
-                })}
-            </div>
-            {/* Show more discussions button */}
-            {filteredDiscussions.length > visibleDiscussions && (
-              <div className="flex justify-center mt-8">
-                <Button
-                  variant="outline"
-                  onClick={() => setVisibleDiscussions((v) => v + 3)}
-                  className="px-8 py-2 border-2 border-emerald-500 text-emerald-700 hover:bg-emerald-50"
-                >
-                  Show more discussions
-                </Button>
-              </div>
+                })
             )}
-          </>
-        )}
-        {/* Empty State */}
-        {!loading && filteredDiscussions.length === 0 && (
-          <div className="text-center py-12">
-            <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
-              <MessageSquare className="w-8 h-8 text-white" />
-            </div>
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">
-              No discussions found
-            </h3>
-            <p className="text-gray-600 mb-6">
-              {searchQuery
-                ? "Try adjusting your search terms"
-                : "Be the first to start a discussion!"}
-            </p>
-            <Button
-              onClick={() => setShowNewPost(true)}
-              className="bg-gradient-to-r from-emerald-500 to-blue-500"
-            >
-              <Plus className="w-4 h-4 mr-2" /> Start Discussion
-            </Button>
           </div>
+
+          {/* Show more discussions button */}
+          {filteredDiscussions.length > visibleDiscussions && !loading && (
+            <div className="flex justify-center mt-8">
+              <Button
+                variant="outline"
+                onClick={() => setVisibleDiscussions((v) => v + 5)}
+                className="px-8 py-2 border-2 border-emerald-500 text-emerald-700 hover:bg-emerald-50 rounded-full"
+              >
+                Show more discussions
+              </Button>
+            </div>
+          )}
+        </div>
+
+        {/* Floating New Discussion Button */}
+        {isLoggedIn && (
+          <Button
+            className="fixed bottom-8 right-8 z-50 bg-gradient-to-r from-emerald-500 to-blue-500 text-white font-semibold shadow-lg rounded-full px-6 py-3 text-lg hover:scale-105 transition-transform"
+            onClick={() => setShowNewPost((v) => !v)}
+            style={{ display: showNewPost ? "none" : undefined }}
+          >
+            <Plus className="w-5 h-5 mr-2" /> New Discussion
+          </Button>
         )}
       </div>
     </div>

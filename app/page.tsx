@@ -17,9 +17,63 @@ import {
 import Header from "@/components/ui/header";
 import Image from "next/image";
 import { useAuth } from "@/hooks/use-auth";
+import { useEffect, useRef, useState } from "react";
 
 export default function HomePage() {
   const { isLoggedIn, loading, logout } = useAuth();
+
+  // Animated counters
+  const [questionsCount, setQuestionsCount] = useState(0);
+  const [successRate, setSuccessRate] = useState(0);
+  const [supportHours, setSupportHours] = useState(0);
+
+  // Live activity feed
+  const activities = [
+    "Adaora just aced a Chemistry quiz!",
+    "Kemi joined the Math study group.",
+    "Chidi completed 20 flashcards.",
+    "Ayo scored 95% in Physics practice test!",
+    "Fatima unlocked a new badge!",
+    "Emeka started a Timed Exam.",
+    "Zainab posted a question in Discussions.",
+    "Tunde finished a Biology flashcard set.",
+  ];
+  const [activityIndex, setActivityIndex] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActivityIndex((i) => (i + 1) % activities.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Animated counters effect
+  useEffect(() => {
+    let q = 0,
+      s = 0,
+      h = 0;
+    const interval = setInterval(() => {
+      if (q < 50000) setQuestionsCount((prev) => Math.min(prev + 1000, 50000));
+      if (s < 95) setSuccessRate((prev) => Math.min(prev + 5, 95));
+      if (h < 24) setSupportHours((prev) => Math.min(prev + 1, 24));
+      q += 1000;
+      s += 5;
+      h += 1;
+    }, 30);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Subject tiles
+  const subjects = [
+    { name: "Mathematics", icon: <Target className="w-6 h-6" /> },
+    { name: "Biology", icon: <Brain className="w-6 h-6" /> },
+    { name: "Chemistry", icon: <BookOpen className="w-6 h-6" /> },
+    { name: "Physics", icon: <Clock className="w-6 h-6" /> },
+    { name: "English", icon: <MessageSquare className="w-6 h-6" /> },
+    { name: "Economics", icon: <Star className="w-6 h-6" /> },
+    { name: "Geography", icon: <ArrowRight className="w-6 h-6" /> },
+    { name: "Civic", icon: <Play className="w-6 h-6" /> },
+  ];
+
   return (
     <div className="min-h-screen bg-white">
       <Header
@@ -30,6 +84,12 @@ export default function HomePage() {
               className="text-gray-600 hover:text-emerald-600 transition-colors font-medium"
             >
               Features
+            </Link>
+            <Link
+              href="/services"
+              className="text-gray-600 hover:text-emerald-600 transition-colors font-medium"
+            >
+              Services
             </Link>
             <Link
               href="#how-it-works"
@@ -58,15 +118,38 @@ export default function HomePage() {
         }
       />
 
-      {/* Hero Section */}
-      <section className="relative py-12 sm:py-20 px-4 bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50 overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-        <div className="container mx-auto text-center relative">
-          <Badge className="mb-4 sm:mb-6 bg-emerald-100 text-emerald-700 hover:bg-emerald-200 px-3 sm:px-4 py-1 sm:py-2 text-xs sm:text-sm font-medium">
+      {/* Animated Hero Section */}
+      <section className="relative py-16 sm:py-24 px-4 bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50 overflow-hidden">
+        {/* SVG Blobs */}
+        <svg
+          className="absolute -top-32 -left-32 w-[40vw] h-[40vw] opacity-30 blur-2xl"
+          viewBox="0 0 200 200"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill="#6ee7b7"
+            d="M44.8,-67.2C56.7,-59.2,63.7,-44.2,68.2,-29.2C72.7,-14.2,74.7,0.8,70.2,13.7C65.7,26.6,54.7,37.4,42.2,46.2C29.7,55,14.8,61.8,-0.7,62.7C-16.2,63.6,-32.4,58.6,-44.2,48.6C-56,38.6,-63.4,23.6,-66.2,7.6C-69,-8.4,-67.2,-25.4,-58.7,-36.7C-50.2,-48,-35,-53.7,-20.1,-60.2C-5.2,-66.7,9.4,-74.1,24.2,-74.2C39,-74.3,55,-67.2,44.8,-67.2Z"
+            transform="translate(100 100)"
+          />
+        </svg>
+        <svg
+          className="absolute -bottom-32 -right-32 w-[40vw] h-[40vw] opacity-20 blur-2xl"
+          viewBox="0 0 200 200"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill="#a5b4fc"
+            d="M38.2,-60.2C51.2,-54.2,63.2,-44.2,68.2,-31.2C73.2,-18.2,71.2,-2.2,66.2,12.8C61.2,27.8,53.2,41.8,41.2,50.8C29.2,59.8,14.2,63.8,-0.8,64.8C-15.8,65.8,-31.8,63.8,-44.8,55.8C-57.8,47.8,-67.8,33.8,-70.8,18.8C-73.8,3.8,-69.8,-12.2,-61.8,-25.2C-53.8,-38.2,-41.8,-48.2,-28.8,-54.2C-15.8,-60.2,-1.8,-62.2,12.2,-62.2C26.2,-62.2,52.2,-66.2,38.2,-60.2Z"
+            transform="translate(100 100)"
+          />
+        </svg>
+
+        <div className="container mx-auto text-center relative z-10">
+          <Badge className="mb-4 sm:mb-6 bg-emerald-100 text-emerald-700 hover:bg-emerald-200 px-3 sm:px-4 py-1 sm:py-2 text-xs sm:text-sm font-medium animate-pulse">
             🎓 Trusted by 10,000+ Students
           </Badge>
           <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6 leading-tight px-2">
-            <span className="bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient-x">
               Ace Your Exams
             </span>
             <br />
@@ -78,47 +161,101 @@ export default function HomePage() {
             with flashcards, and track your progress.
           </p>
 
-          {/* Main Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-12 sm:mb-16 px-4">
+          {/* Quick Start Widget */}
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-8 sm:mb-12 px-4">
             <Button
-              size="lg"
-              variant="outline"
               asChild
-              className="text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 border-2 border-gray-300 hover:border-emerald-600 hover:text-emerald-600 transition-all duration-300"
+              size="lg"
+              className="bg-emerald-600 hover:bg-emerald-700 text-white text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 shadow-lg"
             >
-              <Link href="/demo" className="flex items-center justify-center">
-                <Play className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
-                Watch Demo
-              </Link>
+              <Link href="/quiz">Take a Quiz</Link>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              className="bg-blue-600 hover:bg-blue-700 text-white text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 shadow-lg"
+            >
+              <Link href="/flashcards">Start Flashcards</Link>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              className="bg-purple-600 hover:bg-purple-700 text-white text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 shadow-lg"
+            >
+              <Link href="/discussions">Join Group</Link>
             </Button>
           </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-4 sm:gap-8 max-w-2xl mx-auto px-4">
+          {/* Animated Counters */}
+          <div className="grid grid-cols-3 gap-4 sm:gap-8 max-w-2xl mx-auto px-4 mb-6">
             <div className="text-center">
-              <div className="text-2xl sm:text-3xl font-bold text-emerald-600 mb-1 sm:mb-2">
-                50K+
+              <div className="text-2xl sm:text-3xl font-bold text-emerald-600 mb-1 sm:mb-2 animate-bounce">
+                {questionsCount.toLocaleString()}+
               </div>
               <div className="text-xs sm:text-sm text-gray-600">
                 Practice Questions
               </div>
             </div>
             <div className="text-center">
-              <div className="text-2xl sm:text-3xl font-bold text-blue-600 mb-1 sm:mb-2">
-                95%
+              <div className="text-2xl sm:text-3xl font-bold text-blue-600 mb-1 sm:mb-2 animate-bounce">
+                {successRate}%
               </div>
               <div className="text-xs sm:text-sm text-gray-600">
                 Success Rate
               </div>
             </div>
             <div className="text-center">
-              <div className="text-2xl sm:text-3xl font-bold text-purple-600 mb-1 sm:mb-2">
-                24/7
+              <div className="text-2xl sm:text-3xl font-bold text-purple-600 mb-1 sm:mb-2 animate-bounce">
+                {supportHours}/7
               </div>
               <div className="text-xs sm:text-sm text-gray-600">
                 Study Support
               </div>
             </div>
+          </div>
+
+          {/* Live Activity Feed */}
+          <div className="flex justify-center mb-4">
+            <div className="bg-white/80 rounded-full px-6 py-2 shadow-md flex items-center gap-2 text-sm font-medium text-gray-700 animate-fade-in">
+              <span className="inline-block w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
+              {activities[activityIndex]}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Interactive Subject Tiles */}
+      <section className="py-10 sm:py-16 px-4 bg-white">
+        <div className="container mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl sm:text-4xl font-bold text-gray-800 mb-2">
+              Explore Subjects
+            </h2>
+            <p className="text-gray-600 max-w-xl mx-auto">
+              Jump into practice questions and resources for your favorite
+              subjects
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+            {subjects.map((subject) => (
+              <Link
+                key={subject.name}
+                href="/quiz"
+                className="group block rounded-2xl bg-gradient-to-br from-emerald-50 to-blue-50 hover:from-emerald-100 hover:to-blue-100 shadow-md hover:shadow-xl p-6 text-center transition-all duration-300 border border-transparent hover:border-emerald-400"
+              >
+                <div className="flex justify-center mb-3">
+                  <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r from-emerald-500 to-blue-500 text-white text-2xl group-hover:scale-110 transition-transform">
+                    {subject.icon}
+                  </span>
+                </div>
+                <div className="font-semibold text-lg text-gray-800 group-hover:text-emerald-700">
+                  {subject.name}
+                </div>
+                <div className="text-xs text-gray-500 mt-1">
+                  Start Practicing
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
