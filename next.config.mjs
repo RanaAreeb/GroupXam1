@@ -16,6 +16,14 @@ const nextConfig = {
   env: {
     CUSTOM_KEY: 'groupxam-study-app',
   },
+  async rewrites() {
+    return [
+      {
+        source: '/.well-known/appspecific/:path*',
+        destination: '/api/devtools',
+      },
+    ]
+  },
 }
 
 export default nextConfig
