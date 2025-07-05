@@ -164,7 +164,7 @@ export default function HomePage() {
                   onClick={logout}
                   className="text-gray-600 hover:text-red-600 transition-colors font-medium"
                 >
-                  SignOut
+                  Sign Out
                 </button>
               </>
             ) : (
@@ -173,7 +173,7 @@ export default function HomePage() {
                   href="/login"
                   className="text-gray-600 hover:text-emerald-600 transition-colors font-medium"
                 >
-                  SignIn
+                  Sign In
                 </Link>
                 <Link
                   href="/signup"
@@ -733,7 +733,7 @@ export default function HomePage() {
             </div>
             <div>
               <h3 className="font-semibold mb-3 sm:mb-4 text-base sm:text-lg">
-                Platform
+                Learning Tools
               </h3>
               <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-gray-400">
                 <li>
@@ -766,6 +766,14 @@ export default function HomePage() {
                     className="hover:text-white transition-colors"
                   >
                     Discussions
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/services"
+                    className="hover:text-white transition-colors"
+                  >
+                    Institutional Testing Service
                   </Link>
                 </li>
               </ul>
