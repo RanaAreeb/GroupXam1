@@ -177,7 +177,7 @@ export default function HomePage() {
                 </Link>
                 <Link
                   href="/signup"
-                  className="ml-3 px-4 py-2 rounded bg-emerald-600 text-white hover:bg-emerald-700 transition-colors font-semibold shadow"
+                  className="px-4 py-2 rounded bg-emerald-600 text-white hover:bg-emerald-700 transition-colors font-semibold shadow"
                 >
                   Sign Up
                 </Link>
@@ -237,7 +237,7 @@ export default function HomePage() {
           </p>
 
           {/* Quick Start Widget */}
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-8 sm:mb-12 px-4">
+          <div className="grid grid-cols-2 gap-3 sm:flex sm:flex-row sm:gap-4 justify-center mb-8 sm:mb-12 px-4 max-w-md sm:max-w-none mx-auto">
             <Button
               asChild
               size="lg"
