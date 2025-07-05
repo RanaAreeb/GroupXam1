@@ -51,9 +51,13 @@ export default function LoginPage() {
 
       if (response.ok) {
         setSuccess("Login successful! Redirecting...");
-        // Redirect to dashboard after successful login
+        // Redirect based on user role
         setTimeout(() => {
-          window.location.href = "/";
+          if (data.user && data.user.role === "university") {
+            window.location.href = "/university/dashboard";
+          } else {
+            window.location.href = "/";
+          }
         }, 1500);
       } else {
         setError(data.error || "Login failed. Please try again.");

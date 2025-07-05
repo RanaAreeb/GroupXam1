@@ -30,20 +30,16 @@ import {
   Filter,
   CheckCircle,
   Plus,
+  Trash2,
 } from "lucide-react";
 import CreateExamForm from "./create-exam-form";
-
-interface MCQ {
-  id: string;
-  question: string;
-  options: string[];
-  correctAnswer: number;
-  points: number;
-  explanation?: string;
-}
+import { useState } from "react";
+import { Label } from "@/components/ui/label";
+import MCQManager, { MCQ } from "./MCQManager";
 
 interface Exam {
-  id: string;
+  id?: string;
+  _id?: string;
   title: string;
   subject: string;
   date: string;
@@ -58,13 +54,15 @@ interface Exam {
   registrationDeadline: string;
   createdAt: string;
   mcqs?: MCQ[];
+  registrationTime?: string;
 }
 
 interface ExamListProps {
   exams: Exam[];
+  onExamsChanged: () => void;
 }
 
-export default function ExamList({ exams }: ExamListProps) {
+export default function ExamList({ exams, onExamsChanged }: ExamListProps) {
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString("en-US", {
       year: "numeric",
@@ -175,11 +173,62 @@ export default function ExamList({ exams }: ExamListProps) {
     );
   };
 
+  const [editExam, setEditExam] = useState<Exam | null>(null);
+  const [editError, setEditError] = useState<string | null>(null);
+  const [editLoading, setEditLoading] = useState(false);
+  const [deleteExamId, setDeleteExamId] = useState<string | null>(null);
+  const [deleteError, setDeleteError] = useState<string | null>(null);
+  const [deleteLoading, setDeleteLoading] = useState(false);
+
+  // Edit Exam handler
+  const handleEditExam = async (updatedExam: Exam) => {
+    setEditLoading(true);
+    setEditError(null);
+    try {
+      const res = await fetch("/api/exams", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(updatedExam),
+      });
+      if (!res.ok) {
+        const data = await res.json();
+        setEditError(data.error || "Failed to update exam");
+      } else {
+        setEditExam(null);
+        onExamsChanged();
+      }
+    } catch (err) {
+      setEditError("Network error. Please try again.");
+    } finally {
+      setEditLoading(false);
+    }
+  };
+
+  // Delete Exam handler
+  const handleDeleteExam = async (id: string) => {
+    setDeleteLoading(true);
+    setDeleteError(null);
+    try {
+      const res = await fetch(`/api/exams?id=${id}`, { method: "DELETE" });
+      if (!res.ok) {
+        const data = await res.json();
+        setDeleteError(data.error || "Failed to delete exam");
+      } else {
+        setDeleteExamId(null);
+        onExamsChanged();
+      }
+    } catch (err) {
+      setDeleteError("Network error. Please try again.");
+    } finally {
+      setDeleteLoading(false);
+    }
+  };
+
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <h2 className="text-2xl font-bold text-gray-800">Manage Exams</h2>
-        <CreateExamForm />
+        <CreateExamForm onExamCreated={() => {}} />
       </div>
 
       {/* Filters */}
@@ -218,7 +267,10 @@ export default function ExamList({ exams }: ExamListProps) {
       {/* Exams Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {exams.map((exam) => (
-          <Card key={exam.id} className="hover:shadow-lg transition-shadow">
+          <Card
+            key={exam.id || exam._id}
+            className="hover:shadow-lg transition-shadow"
+          >
             <CardHeader>
               <div className="flex justify-between items-start">
                 <CardTitle className="text-lg">{exam.title}</CardTitle>
@@ -248,6 +300,16 @@ export default function ExamList({ exams }: ExamListProps) {
                     {exam.registeredStudents}/{exam.maxStudents}
                   </span>
                 </div>
+                <div className="flex items-center text-sm">
+                  <Calendar className="w-4 h-4 mr-2 text-gray-500" />
+                  <span>
+                    Reg. Deadline: {formatDate(exam.registrationDeadline)}
+                  </span>
+                </div>
+                <div className="flex items-center text-sm">
+                  <Clock className="w-4 h-4 mr-2 text-gray-500" />
+                  <span>Reg. Time: {exam.registrationTime || "-"}</span>
+                </div>
               </div>
 
               {/* MCQ Info */}
@@ -273,7 +335,11 @@ export default function ExamList({ exams }: ExamListProps) {
                   <Eye className="w-4 h-4 mr-2" />
                   View
                 </Button>
-                <Button variant="outline" size="sm">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setEditExam(exam)}
+                >
                   <Edit className="w-4 h-4 mr-2" />
                   Edit
                 </Button>
@@ -281,6 +347,14 @@ export default function ExamList({ exams }: ExamListProps) {
                 <Button variant="outline" size="sm">
                   <FileText className="w-4 h-4 mr-2" />
                   Results
+                </Button>
+                <Button
+                  variant="destructive"
+                  size="sm"
+                  onClick={() => setDeleteExamId(exam.id ?? exam._id ?? "")}
+                >
+                  <Trash2 className="w-4 h-4 mr-2" />
+                  Delete
                 </Button>
               </div>
             </CardContent>
@@ -295,10 +369,129 @@ export default function ExamList({ exams }: ExamListProps) {
               <FileText className="w-12 h-12 mx-auto mb-4 text-gray-300" />
               <h3 className="text-lg font-medium mb-2">No exams created yet</h3>
               <p className="mb-4">Create your first exam to get started</p>
-              <CreateExamForm />
+              <CreateExamForm onExamCreated={() => {}} />
             </div>
           </CardContent>
         </Card>
+      )}
+
+      {/* Edit Exam Modal */}
+      {editExam && (
+        <Dialog
+          open={!!editExam}
+          onOpenChange={(open) => !open && setEditExam(null)}
+        >
+          <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+            <DialogHeader>
+              <DialogTitle>Edit Exam</DialogTitle>
+            </DialogHeader>
+            {/* Simple form for editing (expand as needed) */}
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                handleEditExam(editExam);
+              }}
+              className="space-y-4"
+            >
+              <Label>Title</Label>
+              <Input
+                value={editExam.title}
+                onChange={(e) =>
+                  setEditExam({ ...editExam, title: e.target.value })
+                }
+              />
+              <Label>Date</Label>
+              <Input
+                type="date"
+                value={editExam.date}
+                onChange={(e) =>
+                  setEditExam({ ...editExam, date: e.target.value })
+                }
+              />
+              <Label>Time</Label>
+              <Input
+                value={editExam.time}
+                onChange={(e) =>
+                  setEditExam({ ...editExam, time: e.target.value })
+                }
+              />
+              <Label>MCQs</Label>
+              <MCQManager
+                mcqs={editExam.mcqs || []}
+                setMcqs={(newMcqs: MCQ[]) =>
+                  setEditExam({ ...editExam, mcqs: newMcqs })
+                }
+              />
+              <Label>Registration Deadline</Label>
+              <Input
+                type="date"
+                value={editExam.registrationDeadline}
+                onChange={(e) =>
+                  setEditExam({
+                    ...editExam,
+                    registrationDeadline: e.target.value,
+                  })
+                }
+              />
+              <Label>Registration Time</Label>
+              <Input
+                type="time"
+                value={editExam.registrationTime || ""}
+                onChange={(e) =>
+                  setEditExam({ ...editExam, registrationTime: e.target.value })
+                }
+              />
+              {editError && (
+                <div className="text-red-600 text-sm">{editError}</div>
+              )}
+              <div className="flex gap-2">
+                <Button type="submit" disabled={editLoading}>
+                  {editLoading ? "Saving..." : "Save Changes"}
+                </Button>
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={() => setEditExam(null)}
+                >
+                  Cancel
+                </Button>
+              </div>
+            </form>
+          </DialogContent>
+        </Dialog>
+      )}
+
+      {/* Delete Exam Confirmation */}
+      {deleteExamId && (
+        <Dialog
+          open={!!deleteExamId}
+          onOpenChange={(open) => !open && setDeleteExamId(null)}
+        >
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Delete Exam</DialogTitle>
+            </DialogHeader>
+            <div className="mb-4">
+              Are you sure you want to delete this exam? This action cannot be
+              undone.
+            </div>
+            {deleteError && (
+              <div className="text-red-600 text-sm mb-2">{deleteError}</div>
+            )}
+            <div className="flex gap-2">
+              <Button
+                variant="destructive"
+                onClick={() => handleDeleteExam(deleteExamId)}
+                disabled={deleteLoading}
+              >
+                {deleteLoading ? "Deleting..." : "Delete"}
+              </Button>
+              <Button variant="outline" onClick={() => setDeleteExamId(null)}>
+                Cancel
+              </Button>
+            </div>
+          </DialogContent>
+        </Dialog>
       )}
     </div>
   );

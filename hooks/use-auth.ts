@@ -6,6 +6,8 @@ import { useRouter } from "next/navigation";
 interface AuthUser {
   name?: string;
   email?: string;
+  role?: "student" | "university";
+  universityName?: string;
 }
 
 interface AuthState {

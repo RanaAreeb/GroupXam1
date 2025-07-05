@@ -23,10 +23,20 @@ export async function POST(request) {
     const db = await getDatabase()
     const users = db.collection("users")
 
-    // Find user with projection to only get needed fields
+    // Find user with projection to get needed fields including role
     const user = await users.findOne(
       { email: email.toLowerCase() },
-      { projection: { _id: 1, email: 1, password: 1, name: 1 } }
+      {
+        projection: {
+          _id: 1,
+          email: 1,
+          password: 1,
+          name: 1,
+          role: 1,
+          universityName: 1,
+          adminName: 1
+        }
+      }
     )
 
     if (!user) {
@@ -47,15 +57,21 @@ export async function POST(request) {
       )
     }
 
-    // Generate JWT token with name
+    // Generate JWT token with role information
     const token = jwt.sign(
-      { userId: user._id, email: user.email, name: user.name },
+      {
+        userId: user._id,
+        email: user.email,
+        name: user.name,
+        role: user.role || "student", // Default to student for legacy accounts
+        ...(user.role === "university" && { universityName: user.universityName })
+      },
       JWT_SECRET,
       { expiresIn: "7d" }
     )
 
     const responseTime = Date.now() - startTime
-    console.log(`Login successful for ${email} in ${responseTime}ms`)
+    console.log(`Login successful for ${email} (${user.role || "student"}) in ${responseTime}ms`)
 
     const response = NextResponse.json(
       {
@@ -63,7 +79,9 @@ export async function POST(request) {
         user: {
           id: user._id,
           name: user.name,
-          email: user.email
+          email: user.email,
+          role: user.role || "student",
+          ...(user.role === "university" && { universityName: user.universityName })
         },
         responseTime: `${responseTime}ms`
       },

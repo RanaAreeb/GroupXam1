@@ -628,92 +628,6 @@ export default function ExamsPage() {
           </div>
         </div>
 
-        {/* Categories Accordion */}
-        <div className="space-y-6">
-          {filteredCategories.map((category) => {
-            const Icon = category.icon;
-            const isCatOpen = expandedCategory === category.id;
-            return (
-              <Card key={category.id} className="border-0 shadow-lg">
-                <CardContent className="p-6">
-                  <button
-                    className="flex items-center w-full text-left focus:outline-none"
-                    onClick={() =>
-                      setExpandedCategory(isCatOpen ? null : category.id)
-                    }
-                  >
-                    <div
-                      className={`w-10 h-10 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-xl flex items-center justify-center mr-4`}
-                    >
-                      <Icon className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <h2 className="text-2xl font-bold text-gray-800">
-                        {category.title}
-                      </h2>
-                      <p className="text-sm text-gray-600">
-                        {category.description}
-                      </p>
-                    </div>
-                    <span className="ml-auto text-xs text-gray-500">
-                      {category.subjects.length} subjects
-                    </span>
-                  </button>
-                  {isCatOpen && (
-                    <div className="mt-6 space-y-4">
-                      {category.subjects.map((subject) => {
-                        const SubjIcon = subject.icon;
-                        const isSubjOpen = expandedSubject === subject.name;
-                        return (
-                          <div
-                            key={subject.name}
-                            className="bg-gray-50 rounded-lg p-4"
-                          >
-                            <button
-                              className="flex items-center w-full text-left focus:outline-none"
-                              onClick={() =>
-                                setExpandedSubject(
-                                  isSubjOpen ? null : subject.name
-                                )
-                              }
-                            >
-                              <SubjIcon className="w-5 h-5 text-gray-600 mr-3" />
-                              <span className="font-medium text-gray-800">
-                                {subject.name}
-                              </span>
-                              <Badge
-                                variant="secondary"
-                                className="ml-2 text-xs"
-                              >
-                                {subject.examCount} exams
-                              </Badge>
-                              <span className="ml-auto text-xs text-gray-500">
-                                {isSubjOpen ? "▲" : "▼"}
-                              </span>
-                            </button>
-                            {isSubjOpen && (
-                              <div className="mt-3 ml-8">
-                                <div className="text-sm text-gray-700 font-semibold mb-1">
-                                  Subcategories:
-                                </div>
-                                <ul className="list-disc ml-5 text-gray-600 text-sm space-y-1">
-                                  {subject.subcategories.map((subcat) => (
-                                    <li key={subcat}>{subcat}</li>
-                                  ))}
-                                </ul>
-                              </div>
-                            )}
-                          </div>
-                        );
-                      })}
-                    </div>
-                  )}
-                </CardContent>
-              </Card>
-            );
-          })}
-        </div>
-
         {/* Quick Stats */}
         <div className="grid md:grid-cols-4 gap-6 mb-12 mt-4">
           <Card className="border-0 shadow-lg bg-gradient-to-br from-emerald-50 to-emerald-100">
@@ -804,6 +718,92 @@ export default function ExamsPage() {
               );
             })}
           </div>
+        </div>
+
+        {/* Categories Accordion */}
+        <div className="space-y-6">
+          {filteredCategories.map((category) => {
+            const Icon = category.icon;
+            const isCatOpen = expandedCategory === category.id;
+            return (
+              <Card key={category.id} className="border-0 shadow-lg">
+                <CardContent className="p-6">
+                  <button
+                    className="flex items-center w-full text-left focus:outline-none"
+                    onClick={() =>
+                      setExpandedCategory(isCatOpen ? null : category.id)
+                    }
+                  >
+                    <div
+                      className={`w-10 h-10 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-xl flex items-center justify-center mr-4`}
+                    >
+                      <Icon className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h2 className="text-2xl font-bold text-gray-800">
+                        {category.title}
+                      </h2>
+                      <p className="text-sm text-gray-600">
+                        {category.description}
+                      </p>
+                    </div>
+                    <span className="ml-auto text-xs text-gray-500">
+                      {category.subjects.length} subjects
+                    </span>
+                  </button>
+                  {isCatOpen && (
+                    <div className="mt-6 space-y-4">
+                      {category.subjects.map((subject) => {
+                        const SubjIcon = subject.icon;
+                        const isSubjOpen = expandedSubject === subject.name;
+                        return (
+                          <div
+                            key={subject.name}
+                            className="bg-gray-50 rounded-lg p-4"
+                          >
+                            <button
+                              className="flex items-center w-full text-left focus:outline-none"
+                              onClick={() =>
+                                setExpandedSubject(
+                                  isSubjOpen ? null : subject.name
+                                )
+                              }
+                            >
+                              <SubjIcon className="w-5 h-5 text-gray-600 mr-3" />
+                              <span className="font-medium text-gray-800">
+                                {subject.name}
+                              </span>
+                              <Badge
+                                variant="secondary"
+                                className="ml-2 text-xs"
+                              >
+                                {subject.examCount} exams
+                              </Badge>
+                              <span className="ml-auto text-xs text-gray-500">
+                                {isSubjOpen ? "▲" : "▼"}
+                              </span>
+                            </button>
+                            {isSubjOpen && (
+                              <div className="mt-3 ml-8">
+                                <div className="text-sm text-gray-700 font-semibold mb-1">
+                                  Subcategories:
+                                </div>
+                                <ul className="list-disc ml-5 text-gray-600 text-sm space-y-1">
+                                  {subject.subcategories.map((subcat) => (
+                                    <li key={subcat}>{subcat}</li>
+                                  ))}
+                                </ul>
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
 
         {/* Tips Section */}

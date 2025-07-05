@@ -6,7 +6,9 @@ const uri = process.env.MONGODB_URI || "mongodb://localhost:27017/groupxam"
 
 export async function POST(request) {
   try {
-    const { name, email, password, selectedSubjects } = await request.json()
+    const requestData = await request.json()
+    // Always store email in lowercase
+    const email = requestData.email.toLowerCase()
 
     // Connect to MongoDB
     const client = new MongoClient(uri)
@@ -22,27 +24,54 @@ export async function POST(request) {
     }
 
     // Hash password
-    const hashedPassword = await bcrypt.hash(password, 12)
+    const hashedPassword = await bcrypt.hash(requestData.password, 12)
 
-    // Create user
-    const user = {
-      name,
-      email,
-      password: hashedPassword,
-      selectedSubjects,
-      createdAt: new Date(),
-      stats: {
-        totalQuestions: 0,
-        correctAnswers: 0,
-        streak: 0,
-        level: "Beginner",
-      },
+    let user;
+
+    // Handle university signup
+    if (requestData.role === "university") {
+      user = {
+        role: "university",
+        universityName: requestData.universityName,
+        adminName: requestData.adminName,
+        name: requestData.adminName, // Use adminName as the display name
+        email, // always lowercase
+        password: hashedPassword,
+        createdAt: new Date(),
+        stats: {
+          totalExams: 0,
+          totalStudents: 0,
+          totalSubmissions: 0,
+        },
+      }
+    } else {
+      // Handle student signup (default)
+      user = {
+        role: "student",
+        name: requestData.name,
+        email, // always lowercase
+        password: hashedPassword,
+        selectedSubjects: requestData.selectedSubjects || [],
+        createdAt: new Date(),
+        stats: {
+          totalQuestions: 0,
+          correctAnswers: 0,
+          streak: 0,
+          level: "Beginner",
+        },
+      }
     }
 
     const result = await users.insertOne(user)
     await client.close()
 
-    return NextResponse.json({ message: "User created successfully", userId: result.insertedId }, { status: 201 })
+    return NextResponse.json(
+      {
+        message: `${requestData.role === "university" ? "University" : "Student"} account created successfully`,
+        userId: result.insertedId
+      },
+      { status: 201 }
+    )
   } catch (error) {
     console.error("Signup error:", error)
     return NextResponse.json({ error: "Internal server error" }, { status: 500 })

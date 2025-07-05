@@ -104,131 +104,48 @@ export default function UniversityDashboard() {
   const [submittedExams, setSubmittedExams] = useState<SubmittedExam[]>([]);
   const [isCreateExamOpen, setIsCreateExamOpen] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  // Mock data for demonstration
+  // Fetch real exams from API
+  const fetchExams = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/exams");
+      if (!res.ok) {
+        const data = await res.json();
+        setError(data.error || "Failed to fetch exams");
+        setExams([]);
+      } else {
+        const data = await res.json();
+        setExams(data);
+      }
+    } catch (err) {
+      setError("Network error. Please try again.");
+      setExams([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Fetch real submissions from API
+  const fetchSubmissions = async () => {
+    try {
+      const res = await fetch("/api/exams/submissions");
+      if (!res.ok) {
+        setSubmittedExams([]);
+      } else {
+        const data = await res.json();
+        setSubmittedExams(data);
+      }
+    } catch {
+      setSubmittedExams([]);
+    }
+  };
+
   useEffect(() => {
-    const mockExams: Exam[] = [
-      {
-        id: "1",
-        title: "Computer Science Entrance Exam 2024",
-        subject: "Computer Science",
-        date: "2024-03-15",
-        time: "10:00 AM",
-        duration: 120,
-        totalQuestions: 100,
-        maxStudents: 500,
-        registeredStudents: 342,
-        status: "scheduled",
-        description:
-          "Comprehensive entrance examination for Computer Science program",
-        requirements: [
-          "Senior Secondary Certificate",
-          "Mathematics Background",
-        ],
-        registrationDeadline: "2024-03-10",
-        createdAt: "2024-02-15",
-        mcqs: [
-          {
-            id: "mcq1",
-            question: "What is the time complexity of binary search?",
-            options: ["O(1)", "O(log n)", "O(n)", "O(n²)"],
-            correctAnswer: 1,
-            points: 2,
-            explanation:
-              "Binary search has logarithmic time complexity as it divides the search space in half with each iteration.",
-          },
-          {
-            id: "mcq2",
-            question: "Which data structure follows LIFO principle?",
-            options: ["Queue", "Stack", "Tree", "Graph"],
-            correctAnswer: 1,
-            points: 1,
-            explanation: "Stack follows Last In First Out (LIFO) principle.",
-          },
-          {
-            id: "mcq3",
-            question: "What is the primary function of an operating system?",
-            options: [
-              "To run applications",
-              "To manage hardware resources",
-              "To provide internet access",
-              "To create files",
-            ],
-            correctAnswer: 1,
-            points: 2,
-            explanation:
-              "The primary function of an operating system is to manage hardware resources and provide an interface for applications.",
-          },
-        ],
-      },
-      {
-        id: "2",
-        title: "Engineering Aptitude Test",
-        subject: "Engineering",
-        date: "2024-03-25",
-        time: "9:00 AM",
-        duration: 150,
-        totalQuestions: 120,
-        maxStudents: 400,
-        registeredStudents: 156,
-        status: "draft",
-        description: "Aptitude test for various engineering disciplines",
-        requirements: ["Senior Secondary Certificate", "Physics & Mathematics"],
-        registrationDeadline: "2024-03-20",
-        createdAt: "2024-02-20",
-        mcqs: [
-          {
-            id: "mcq4",
-            question: "What is Ohm's Law?",
-            options: ["V = IR", "P = VI", "F = ma", "E = mc²"],
-            correctAnswer: 0,
-            points: 2,
-            explanation:
-              "Ohm's Law states that voltage (V) equals current (I) multiplied by resistance (R).",
-          },
-          {
-            id: "mcq5",
-            question: "Which of the following is a vector quantity?",
-            options: ["Temperature", "Mass", "Force", "Time"],
-            correctAnswer: 2,
-            points: 1,
-            explanation:
-              "Force is a vector quantity as it has both magnitude and direction.",
-          },
-        ],
-      },
-    ];
-
-    const mockSubmittedExams: SubmittedExam[] = [
-      {
-        id: "1",
-        examId: "1",
-        examTitle: "Computer Science Entrance Exam 2024",
-        studentName: "John Doe",
-        studentEmail: "john.doe@email.com",
-        submittedAt: "2024-03-15T12:30:00Z",
-        score: 85,
-        totalQuestions: 100,
-        timeTaken: 110,
-        status: "submitted",
-      },
-      {
-        id: "2",
-        examId: "1",
-        examTitle: "Computer Science Entrance Exam 2024",
-        studentName: "Jane Smith",
-        studentEmail: "jane.smith@email.com",
-        submittedAt: "2024-03-15T11:45:00Z",
-        score: 92,
-        totalQuestions: 100,
-        timeTaken: 95,
-        status: "reviewed",
-      },
-    ];
-
-    setExams(mockExams);
-    setSubmittedExams(mockSubmittedExams);
-    setLoading(false);
+    fetchExams();
+    fetchSubmissions();
   }, []);
 
   const getStatusColor = (status: string) => {
@@ -266,25 +183,27 @@ export default function UniversityDashboard() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-background">
         <Header />
         <div className="container mx-auto py-8">
-          <div className="text-center">Loading dashboard...</div>
+          <div className="text-center text-foreground">
+            Loading dashboard...
+          </div>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       <Header />
 
       {/* Dashboard Header */}
-      <section className="bg-white border-b">
+      <section className="bg-card border-b border-border">
         <div className="container mx-auto py-6">
           <div className="flex justify-between items-center">
             <div>
-              <h1 className="text-3xl font-bold text-gray-800">
+              <h1 className="text-3xl font-bold text-card-foreground">
                 University Dashboard
               </h1>
               <p className="text-gray-600">
@@ -294,7 +213,7 @@ export default function UniversityDashboard() {
             <div className="flex items-center space-x-4">
               <div className="text-right">
                 <p className="text-sm text-gray-600">Welcome back,</p>
-                <p className="font-semibold text-gray-800">
+                <p className="font-semibold text-card-foreground">
                   {user?.name || "University Admin"}
                 </p>
               </div>
@@ -325,7 +244,7 @@ export default function UniversityDashboard() {
             {/* Overview Tab */}
             <TabsContent value="overview" className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-                <Card>
+                <Card className="bg-card border border-border">
                   <CardContent className="p-6">
                     <div className="flex items-center space-x-4">
                       <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
@@ -333,7 +252,7 @@ export default function UniversityDashboard() {
                       </div>
                       <div>
                         <p className="text-sm text-gray-600">Total Exams</p>
-                        <p className="text-2xl font-bold text-gray-800">
+                        <p className="text-2xl font-bold text-card-foreground">
                           {exams.length}
                         </p>
                       </div>
@@ -341,7 +260,7 @@ export default function UniversityDashboard() {
                   </CardContent>
                 </Card>
 
-                <Card>
+                <Card className="bg-card border border-border">
                   <CardContent className="p-6">
                     <div className="flex items-center space-x-4">
                       <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
@@ -351,7 +270,7 @@ export default function UniversityDashboard() {
                         <p className="text-sm text-gray-600">
                           Total Registrations
                         </p>
-                        <p className="text-2xl font-bold text-gray-800">
+                        <p className="text-2xl font-bold text-card-foreground">
                           {exams.reduce(
                             (sum, exam) => sum + exam.registeredStudents,
                             0
@@ -362,7 +281,7 @@ export default function UniversityDashboard() {
                   </CardContent>
                 </Card>
 
-                <Card>
+                <Card className="bg-card border border-border">
                   <CardContent className="p-6">
                     <div className="flex items-center space-x-4">
                       <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
@@ -370,7 +289,7 @@ export default function UniversityDashboard() {
                       </div>
                       <div>
                         <p className="text-sm text-gray-600">Submissions</p>
-                        <p className="text-2xl font-bold text-gray-800">
+                        <p className="text-2xl font-bold text-card-foreground">
                           {submittedExams.length}
                         </p>
                       </div>
@@ -378,7 +297,7 @@ export default function UniversityDashboard() {
                   </CardContent>
                 </Card>
 
-                <Card>
+                <Card className="bg-card border border-border">
                   <CardContent className="p-6">
                     <div className="flex items-center space-x-4">
                       <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
@@ -386,11 +305,11 @@ export default function UniversityDashboard() {
                       </div>
                       <div>
                         <p className="text-sm text-gray-600">Avg Score</p>
-                        <p className="text-2xl font-bold text-gray-800">
+                        <p className="text-2xl font-bold text-card-foreground">
                           {submittedExams.length > 0
                             ? Math.round(
                                 submittedExams.reduce(
-                                  (sum, exam) => sum + exam.score,
+                                  (sum, exam) => sum + (exam.score || 0),
                                   0
                                 ) / submittedExams.length
                               )
@@ -405,7 +324,7 @@ export default function UniversityDashboard() {
 
               {/* Recent Activity */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <Card>
+                <Card className="bg-card border border-border">
                   <CardHeader>
                     <CardTitle>Recent Exams</CardTitle>
                   </CardHeader>
@@ -417,7 +336,7 @@ export default function UniversityDashboard() {
                           className="flex items-center justify-between p-4 border rounded-lg"
                         >
                           <div>
-                            <h4 className="font-semibold text-gray-800">
+                            <h4 className="font-semibold text-card-foreground">
                               {exam.title}
                             </h4>
                             <p className="text-sm text-gray-600">
@@ -433,7 +352,7 @@ export default function UniversityDashboard() {
                   </CardContent>
                 </Card>
 
-                <Card>
+                <Card className="bg-card border border-border">
                   <CardHeader>
                     <CardTitle>Recent Submissions</CardTitle>
                   </CardHeader>
@@ -445,7 +364,7 @@ export default function UniversityDashboard() {
                           className="flex items-center justify-between p-4 border rounded-lg"
                         >
                           <div>
-                            <h4 className="font-semibold text-gray-800">
+                            <h4 className="font-semibold text-card-foreground">
                               {submission.studentName}
                             </h4>
                             <p className="text-sm text-gray-600">
@@ -453,7 +372,7 @@ export default function UniversityDashboard() {
                             </p>
                           </div>
                           <div className="text-right">
-                            <p className="font-semibold text-gray-800">
+                            <p className="font-semibold text-card-foreground">
                               {submission.score}%
                             </p>
                             <p className="text-sm text-gray-600">
@@ -470,7 +389,7 @@ export default function UniversityDashboard() {
 
             {/* Exams Tab */}
             <TabsContent value="exams" className="space-y-6">
-              <ExamList exams={exams} />
+              <ExamList exams={exams} onExamsChanged={fetchExams} />
             </TabsContent>
 
             {/* Submissions Tab */}
@@ -481,13 +400,13 @@ export default function UniversityDashboard() {
             {/* Create Exam Tab */}
             <TabsContent value="create" className="space-y-6">
               <div className="flex justify-between items-center">
-                <h2 className="text-2xl font-bold text-gray-800">
+                <h2 className="text-2xl font-bold text-card-foreground">
                   Create New Exam
                 </h2>
               </div>
-              <Card>
+              <Card className="bg-card border border-border">
                 <CardContent className="p-6">
-                  <CreateExamForm />
+                  <CreateExamForm onExamCreated={fetchExams} />
                 </CardContent>
               </Card>
             </TabsContent>

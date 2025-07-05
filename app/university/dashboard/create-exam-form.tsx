@@ -37,15 +37,7 @@ import {
   Calendar,
   Clock,
 } from "lucide-react";
-
-interface MCQ {
-  id: string;
-  question: string;
-  options: string[];
-  correctAnswer: number;
-  points: number;
-  explanation?: string;
-}
+import MCQManager, { MCQ } from "./MCQManager";
 
 interface ExamData {
   title: string;
@@ -56,6 +48,7 @@ interface ExamData {
   duration: string;
   maxStudents: string;
   registrationDeadline: string;
+  registrationTime?: string;
   requirements: string;
   instructions: string;
   passingScore: string;
@@ -66,7 +59,11 @@ interface ExamData {
   mcqs: MCQ[];
 }
 
-export default function CreateExamForm() {
+export default function CreateExamForm({
+  onExamCreated,
+}: {
+  onExamCreated: () => void;
+}) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("details");
   const [examData, setExamData] = useState<ExamData>({
@@ -78,6 +75,7 @@ export default function CreateExamForm() {
     duration: "",
     maxStudents: "",
     registrationDeadline: "",
+    registrationTime: "",
     requirements: "",
     instructions: "",
     passingScore: "60",
@@ -88,87 +86,50 @@ export default function CreateExamForm() {
     mcqs: [],
   });
 
-  const [currentMCQ, setCurrentMCQ] = useState<MCQ>({
-    id: "",
-    question: "",
-    options: ["", "", "", ""],
-    correctAnswer: 0,
-    points: 1,
-    explanation: "",
-  });
-
-  const addMCQ = () => {
-    if (
-      currentMCQ.question.trim() &&
-      currentMCQ.options.every((opt) => opt.trim())
-    ) {
-      const newMCQ = {
-        ...currentMCQ,
-        id: Date.now().toString(),
-      };
-      setExamData({
-        ...examData,
-        mcqs: [...examData.mcqs, newMCQ],
-      });
-      setCurrentMCQ({
-        id: "",
-        question: "",
-        options: ["", "", "", ""],
-        correctAnswer: 0,
-        points: 1,
-        explanation: "",
-      });
-    }
-  };
-
-  const removeMCQ = (id: string) => {
-    setExamData({
-      ...examData,
-      mcqs: examData.mcqs.filter((mcq) => mcq.id !== id),
-    });
-  };
-
-  const updateMCQOption = (
-    mcqId: string,
-    optionIndex: number,
-    value: string
-  ) => {
-    setExamData({
-      ...examData,
-      mcqs: examData.mcqs.map((mcq) => {
-        if (mcq.id === mcqId) {
-          const newOptions = [...mcq.options];
-          newOptions[optionIndex] = value;
-          return { ...mcq, options: newOptions };
-        }
-        return mcq;
-      }),
-    });
-  };
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Creating exam with MCQs:", examData);
-    setIsOpen(false);
-    // Reset form
-    setExamData({
-      title: "",
-      subject: "",
-      description: "",
-      date: "",
-      time: "",
-      duration: "",
-      maxStudents: "",
-      registrationDeadline: "",
-      requirements: "",
-      instructions: "",
-      passingScore: "60",
-      allowReview: true,
-      shuffleQuestions: false,
-      showResults: true,
-      timeLimit: true,
-      mcqs: [],
-    });
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/exams", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(examData),
+      });
+      if (!res.ok) {
+        const data = await res.json();
+        setError(data.error || "Failed to create exam");
+      } else {
+        setIsOpen(false);
+        setExamData({
+          title: "",
+          subject: "",
+          description: "",
+          date: "",
+          time: "",
+          duration: "",
+          maxStudents: "",
+          registrationDeadline: "",
+          registrationTime: "",
+          requirements: "",
+          instructions: "",
+          passingScore: "60",
+          allowReview: true,
+          shuffleQuestions: false,
+          showResults: true,
+          timeLimit: true,
+          mcqs: [],
+        });
+        if (onExamCreated) onExamCreated();
+      }
+    } catch (err) {
+      setError("Network error. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const totalPoints = examData.mcqs.reduce((sum, mcq) => sum + mcq.points, 0);
@@ -335,22 +296,40 @@ export default function CreateExamForm() {
                       required
                     />
                   </div>
-                  <div>
-                    <Label htmlFor="registrationDeadline">
-                      Registration Deadline
-                    </Label>
-                    <Input
-                      id="registrationDeadline"
-                      type="date"
-                      value={examData.registrationDeadline}
-                      onChange={(e) =>
-                        setExamData({
-                          ...examData,
-                          registrationDeadline: e.target.value,
-                        })
-                      }
-                      required
-                    />
+                  <div className="flex gap-2">
+                    <div className="flex-1">
+                      <Label htmlFor="registrationDeadline">
+                        Registration Deadline
+                      </Label>
+                      <Input
+                        id="registrationDeadline"
+                        type="date"
+                        value={examData.registrationDeadline}
+                        onChange={(e) =>
+                          setExamData({
+                            ...examData,
+                            registrationDeadline: e.target.value,
+                          })
+                        }
+                        required
+                      />
+                    </div>
+                    <div className="flex-1">
+                      <Label htmlFor="registrationTime">
+                        Registration Time
+                      </Label>
+                      <Input
+                        id="registrationTime"
+                        type="time"
+                        value={examData.registrationTime || ""}
+                        onChange={(e) =>
+                          setExamData({
+                            ...examData,
+                            registrationTime: e.target.value,
+                          })
+                        }
+                      />
+                    </div>
                   </div>
                 </div>
 
@@ -376,167 +355,15 @@ export default function CreateExamForm() {
           <TabsContent value="mcqs" className="space-y-6">
             <Card>
               <CardHeader>
-                <CardTitle>Add MCQ Questions</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <div>
-                  <Label htmlFor="question">Question</Label>
-                  <Textarea
-                    id="question"
-                    value={currentMCQ.question}
-                    onChange={(e) =>
-                      setCurrentMCQ({ ...currentMCQ, question: e.target.value })
-                    }
-                    placeholder="Enter your MCQ question here..."
-                    rows={3}
-                  />
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="points">Points</Label>
-                    <Input
-                      id="points"
-                      type="number"
-                      value={currentMCQ.points}
-                      onChange={(e) =>
-                        setCurrentMCQ({
-                          ...currentMCQ,
-                          points: parseInt(e.target.value) || 1,
-                        })
-                      }
-                      min="1"
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="explanation">Explanation (Optional)</Label>
-                    <Input
-                      id="explanation"
-                      value={currentMCQ.explanation}
-                      onChange={(e) =>
-                        setCurrentMCQ({
-                          ...currentMCQ,
-                          explanation: e.target.value,
-                        })
-                      }
-                      placeholder="Explain the correct answer..."
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-4">
-                  <Label>Options</Label>
-                  {currentMCQ.options.map((option, index) => (
-                    <div key={index} className="flex items-center space-x-2">
-                      <input
-                        type="radio"
-                        name="correctAnswer"
-                        checked={currentMCQ.correctAnswer === index}
-                        onChange={() =>
-                          setCurrentMCQ({ ...currentMCQ, correctAnswer: index })
-                        }
-                        className="w-4 h-4 text-blue-600"
-                      />
-                      <Input
-                        value={option}
-                        onChange={(e) => {
-                          const newOptions = [...currentMCQ.options];
-                          newOptions[index] = e.target.value;
-                          setCurrentMCQ({ ...currentMCQ, options: newOptions });
-                        }}
-                        placeholder={`Option ${String.fromCharCode(
-                          65 + index
-                        )}`}
-                      />
-                    </div>
-                  ))}
-                </div>
-
-                <Button
-                  onClick={addMCQ}
-                  disabled={
-                    !currentMCQ.question.trim() ||
-                    currentMCQ.options.some((opt) => !opt.trim())
-                  }
-                  className="w-full"
-                >
-                  <Plus className="w-4 h-4 mr-2" />
-                  Add MCQ
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* MCQs List */}
-            <Card>
-              <CardHeader>
-                <CardTitle>MCQ Questions ({examData.mcqs.length})</CardTitle>
+                <CardTitle>Manage MCQs</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="space-y-4">
-                  {examData.mcqs.map((mcq, index) => (
-                    <div key={mcq.id} className="border rounded-lg p-4">
-                      <div className="flex justify-between items-start mb-3">
-                        <div className="flex items-center space-x-2">
-                          <Badge variant="secondary">Q{index + 1}</Badge>
-                          <Badge variant="outline">{mcq.points} pts</Badge>
-                          <Badge variant="outline">MCQ</Badge>
-                        </div>
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          onClick={() => removeMCQ(mcq.id)}
-                        >
-                          <Trash2 className="w-4 h-4" />
-                        </Button>
-                      </div>
-                      <p className="text-sm font-medium mb-3">{mcq.question}</p>
-                      <div className="space-y-2">
-                        {mcq.options.map((option, optIndex) => (
-                          <div
-                            key={optIndex}
-                            className="flex items-center space-x-2 text-sm"
-                          >
-                            <span
-                              className={`w-4 h-4 rounded-full border flex items-center justify-center ${
-                                optIndex === mcq.correctAnswer
-                                  ? "bg-green-100 border-green-500"
-                                  : "bg-gray-100"
-                              }`}
-                            >
-                              {optIndex === mcq.correctAnswer && (
-                                <CheckCircle className="w-3 h-3 text-green-600" />
-                              )}
-                            </span>
-                            <span
-                              className={
-                                optIndex === mcq.correctAnswer
-                                  ? "font-medium text-green-700"
-                                  : ""
-                              }
-                            >
-                              {String.fromCharCode(65 + optIndex)}. {option}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                      {mcq.explanation && (
-                        <div className="mt-3 p-2 bg-blue-50 rounded text-sm text-blue-700">
-                          <strong>Explanation:</strong> {mcq.explanation}
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                </div>
-
-                {examData.mcqs.length === 0 && (
-                  <div className="text-center py-8 text-gray-500">
-                    <FileText className="w-12 h-12 mx-auto mb-4 text-gray-300" />
-                    <h3 className="text-lg font-medium mb-2">
-                      No MCQs added yet
-                    </h3>
-                    <p>Add MCQ questions to create your exam</p>
-                  </div>
-                )}
+                <MCQManager
+                  mcqs={examData.mcqs}
+                  setMcqs={(newMcqs: MCQ[]) =>
+                    setExamData({ ...examData, mcqs: newMcqs })
+                  }
+                />
               </CardContent>
             </Card>
           </TabsContent>

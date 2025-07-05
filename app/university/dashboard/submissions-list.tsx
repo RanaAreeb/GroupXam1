@@ -12,6 +12,14 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Eye, Download, Search, FileText } from "lucide-react";
+import { useState } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import jsPDF from "jspdf";
 
 interface SubmittedExam {
   id: string;
@@ -31,6 +39,9 @@ interface SubmissionsListProps {
 }
 
 export default function SubmissionsList({ submissions }: SubmissionsListProps) {
+  const [viewedSubmission, setViewedSubmission] =
+    useState<SubmittedExam | null>(null);
+
   const formatDateTime = (dateString: string) => {
     return new Date(dateString).toLocaleString("en-US", {
       year: "numeric",
@@ -39,6 +50,40 @@ export default function SubmissionsList({ submissions }: SubmissionsListProps) {
       hour: "2-digit",
       minute: "2-digit",
     });
+  };
+
+  const handleDownloadSubmission = (submission: SubmittedExam) => {
+    const doc = new jsPDF();
+    doc.setFontSize(16);
+    doc.text("Submission Report", 10, 15);
+    doc.setFontSize(12);
+    doc.text(`Student: ${submission.studentName}`, 10, 30);
+    doc.text(`Email: ${submission.studentEmail}`, 10, 38);
+    doc.text(`Exam: ${submission.examTitle}`, 10, 46);
+    doc.text(`Submitted: ${formatDateTime(submission.submittedAt)}`, 10, 54);
+    doc.text(
+      `Score: ${submission.score}% (${submission.score}/${submission.totalQuestions})`,
+      10,
+      62
+    );
+    doc.text(`Time Taken: ${submission.timeTaken} min`, 10, 70);
+    doc.text(`Status: ${submission.status}`, 10, 78);
+    // Add answers if available
+    if ((submission as any).answers) {
+      doc.text("Answers:", 10, 90);
+      ((submission as any).answers as number[]).forEach((ans, idx) => {
+        doc.text(
+          `Q${idx + 1}: Option ${
+            typeof ans === "number" ? String.fromCharCode(65 + ans) : ans
+          }`,
+          10,
+          98 + idx * 8
+        );
+      });
+    }
+    doc.save(
+      `submission_${submission.studentEmail}_${submission.examTitle}.pdf`
+    );
   };
 
   return (
@@ -148,11 +193,19 @@ export default function SubmissionsList({ submissions }: SubmissionsListProps) {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                       <div className="flex gap-2">
-                        <Button variant="outline" size="sm">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => setViewedSubmission(submission)}
+                        >
                           <Eye className="w-4 h-4 mr-1" />
                           View
                         </Button>
-                        <Button variant="outline" size="sm">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => handleDownloadSubmission(submission)}
+                        >
                           <Download className="w-4 h-4 mr-1" />
                           Download
                         </Button>
@@ -180,6 +233,43 @@ export default function SubmissionsList({ submissions }: SubmissionsListProps) {
           </CardContent>
         </Card>
       )}
+
+      {/* View Submission Dialog */}
+      <Dialog
+        open={!!viewedSubmission}
+        onOpenChange={() => setViewedSubmission(null)}
+      >
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Submission Details</DialogTitle>
+          </DialogHeader>
+          {viewedSubmission && (
+            <div className="space-y-2">
+              <div>
+                <b>Student:</b> {viewedSubmission.studentName} (
+                {viewedSubmission.studentEmail})
+              </div>
+              <div>
+                <b>Exam:</b> {viewedSubmission.examTitle}
+              </div>
+              <div>
+                <b>Submitted:</b> {formatDateTime(viewedSubmission.submittedAt)}
+              </div>
+              <div>
+                <b>Score:</b> {viewedSubmission.score}% (
+                {viewedSubmission.score}/{viewedSubmission.totalQuestions})
+              </div>
+              <div>
+                <b>Time Taken:</b> {viewedSubmission.timeTaken} min
+              </div>
+              <div>
+                <b>Status:</b> {viewedSubmission.status}
+              </div>
+              {/* Add answers display here if available in submission */}
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

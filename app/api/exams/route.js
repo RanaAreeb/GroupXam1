@@ -1,0 +1,160 @@
+import { NextResponse } from "next/server";
+import { MongoClient, ObjectId } from "mongodb";
+import jwt from "jsonwebtoken";
+
+const uri = process.env.MONGODB_URI || "mongodb://localhost:27017/groupxam";
+const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key";
+
+function getUserFromRequest(request) {
+    const token = request.cookies.get("token")?.value;
+    if (!token) return null;
+    try {
+        return jwt.verify(token, JWT_SECRET);
+    } catch {
+        return null;
+    }
+}
+
+export async function GET(request) {
+    // List exams - different behavior for different user types
+    const user = getUserFromRequest(request);
+    const { searchParams } = new URL(request.url);
+    const id = searchParams.get("id");
+    const client = new MongoClient(uri);
+    await client.connect();
+    const db = client.db("groupxam");
+
+    try {
+        if (id) {
+            // Fetch a single exam by id
+            const exam = await db.collection("exams").findOne({ _id: new ObjectId(id) });
+            await client.close();
+            if (!exam) return NextResponse.json({ error: "Exam not found" }, { status: 404 });
+            return NextResponse.json(exam);
+        }
+
+        let exams;
+
+        if (!user) {
+            // Unauthenticated users can see all upcoming exams
+            const now = new Date();
+            exams = await db.collection("exams")
+                .find({
+                    date: { $gte: now.toISOString().split('T')[0] } // Only future exams
+                })
+                .sort({ date: 1, time: 1 })
+                .toArray();
+        } else if (user.role === "university") {
+            // Universities see only their own exams
+            exams = await db.collection("exams")
+                .find({ universityId: user.userId.toString() })
+                .sort({ date: 1, time: 1 })
+                .toArray();
+        } else if (user.role === "student") {
+            // Students see all upcoming exams
+            const now = new Date();
+            exams = await db.collection("exams")
+                .find({
+                    date: { $gte: now.toISOString().split('T')[0] } // Only future exams
+                })
+                .sort({ date: 1, time: 1 })
+                .toArray();
+        } else {
+            // Other roles see all upcoming exams
+            const now = new Date();
+            exams = await db.collection("exams")
+                .find({
+                    date: { $gte: now.toISOString().split('T')[0] } // Only future exams
+                })
+                .sort({ date: 1, time: 1 })
+                .toArray();
+        }
+
+        await client.close();
+        return NextResponse.json(exams);
+    } catch (error) {
+        await client.close();
+        console.error("Error fetching exams:", error);
+        return NextResponse.json({ error: "Failed to fetch exams" }, { status: 500 });
+    }
+}
+
+export async function POST(request) {
+    // Create a new exam (with conflict check)
+    const user = getUserFromRequest(request);
+    if (!user || user.role !== "university") {
+        return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+    const data = await request.json();
+    const client = new MongoClient(uri);
+    await client.connect();
+    const db = client.db("groupxam");
+    // Conflict check: no two exams at the same date+time
+    const conflict = await db.collection("exams").findOne({ date: data.date, time: data.time });
+    if (conflict) {
+        await client.close();
+        return NextResponse.json({ error: "Exam time conflicts with another exam." }, { status: 409 });
+    }
+    const exam = {
+        ...data,
+        universityId: user.userId.toString(),
+        universityName: user.universityName,
+        createdAt: new Date(),
+        mcqs: data.mcqs || [],
+    };
+    const result = await db.collection("exams").insertOne(exam);
+    await client.close();
+    return NextResponse.json({ message: "Exam created", examId: result.insertedId }, { status: 201 });
+}
+
+export async function PUT(request) {
+    // Edit an exam (only by the owner university)
+    const user = getUserFromRequest(request);
+    if (!user || user.role !== "university") {
+        return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+    const data = await request.json();
+    if (!data._id) {
+        return NextResponse.json({ error: "Missing exam ID" }, { status: 400 });
+    }
+    const client = new MongoClient(uri);
+    await client.connect();
+    const db = client.db("groupxam");
+    // Conflict check (ignore self)
+    const conflict = await db.collection("exams").findOne({ date: data.date, time: data.time, _id: { $ne: new ObjectId(data._id) } });
+    if (conflict) {
+        await client.close();
+        return NextResponse.json({ error: "Exam time conflicts with another exam." }, { status: 409 });
+    }
+    const result = await db.collection("exams").updateOne(
+        { _id: new ObjectId(data._id), universityId: user.userId.toString() },
+        { $set: { ...data, updatedAt: new Date() } }
+    );
+    await client.close();
+    if (result.matchedCount === 0) {
+        return NextResponse.json({ error: "Exam not found or not owned by you" }, { status: 404 });
+    }
+    return NextResponse.json({ message: "Exam updated" });
+}
+
+export async function DELETE(request) {
+    // Delete an exam (only by the owner university)
+    const user = getUserFromRequest(request);
+    if (!user || user.role !== "university") {
+        return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+    const { searchParams } = new URL(request.url);
+    const id = searchParams.get("id");
+    if (!id) {
+        return NextResponse.json({ error: "Missing exam ID" }, { status: 400 });
+    }
+    const client = new MongoClient(uri);
+    await client.connect();
+    const db = client.db("groupxam");
+    const result = await db.collection("exams").deleteOne({ _id: new ObjectId(id), universityId: user.userId.toString() });
+    await client.close();
+    if (result.deletedCount === 0) {
+        return NextResponse.json({ error: "Exam not found or not owned by you" }, { status: 404 });
+    }
+    return NextResponse.json({ message: "Exam deleted" });
+} 

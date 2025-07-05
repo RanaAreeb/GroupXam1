@@ -13,14 +13,26 @@ import {
   Star,
   ArrowRight,
   BookOpen,
+  AlertCircle,
 } from "lucide-react";
 import Header from "@/components/ui/header";
 import Image from "next/image";
 import { useAuth } from "@/hooks/use-auth";
 import { useEffect, useRef, useState } from "react";
 
+// Add type for Exam
+interface Exam {
+  _id?: string;
+  id?: string;
+  title: string;
+  subject: string;
+  universityName?: string;
+  date: string;
+  time: string;
+}
+
 export default function HomePage() {
-  const { isLoggedIn, loading, logout } = useAuth();
+  const { isLoggedIn, loading, logout, user } = useAuth();
 
   // Animated counters
   const [questionsCount, setQuestionsCount] = useState(0);
@@ -74,45 +86,102 @@ export default function HomePage() {
     { name: "Civic", icon: <Play className="w-6 h-6" /> },
   ];
 
+  // Exam alert state
+  const [upcomingExam, setUpcomingExam] = useState<Exam | null>(null);
+  const [regNo, setRegNo] = useState("");
+  const [studentName, setStudentName] = useState(user?.name || "");
+  const [registerStatus, setRegisterStatus] = useState("");
+  const [registerError, setRegisterError] = useState("");
+
+  useEffect(() => {
+    // Fetch upcoming exams
+    fetch("/api/exams")
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then((exams: Exam[]) => {
+        if (Array.isArray(exams) && exams.length > 0) {
+          // Find the soonest exam in the future
+          const now = new Date();
+          const nextExam = exams
+            .filter((e) => {
+              const examDate = new Date(`${e.date}T${e.time}`);
+              return examDate > now;
+            })
+            .sort((a, b) => {
+              const aDate = new Date(`${a.date}T${a.time}`).getTime();
+              const bDate = new Date(`${b.date}T${b.time}`).getTime();
+              return aDate - bDate;
+            })[0];
+          setUpcomingExam(nextExam || null);
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching exams:", error);
+        // Don't show error to user, just don't show the alert
+      });
+  }, []);
+
+  const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setRegisterStatus("");
+    setRegisterError("");
+    try {
+      const res = await fetch("/api/exams/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          examId: upcomingExam?._id || upcomingExam?.id,
+          regNo,
+          name: studentName,
+        }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setRegisterStatus("Registered successfully!");
+        setRegNo("");
+      } else {
+        setRegisterError(data.error || "Registration failed");
+      }
+    } catch {
+      setRegisterError("Network error. Please try again.");
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white">
       <Header
         navLinks={
           <>
-            <Link
-              href="#features"
-              className="text-gray-600 hover:text-emerald-600 transition-colors font-medium"
-            >
-              Features
-            </Link>
-            <Link
-              href="/services"
-              className="text-gray-600 hover:text-emerald-600 transition-colors font-medium"
-            >
-              Services
-            </Link>
-            <Link
-              href="#how-it-works"
-              className="text-gray-600 hover:text-emerald-600 transition-colors font-medium"
-            >
-              How it Works
-            </Link>
             {loading ? (
               <span className="text-gray-400 font-medium">...</span>
             ) : isLoggedIn ? (
-              <button
-                onClick={logout}
-                className="text-gray-600 hover:text-red-600 transition-colors font-medium"
-              >
-                Logout
-              </button>
+              <>
+                <button
+                  onClick={logout}
+                  className="text-gray-600 hover:text-red-600 transition-colors font-medium"
+                >
+                  SignOut
+                </button>
+              </>
             ) : (
-              <Link
-                href="/login"
-                className="text-gray-600 hover:text-emerald-600 transition-colors font-medium"
-              >
-                Login
-              </Link>
+              <>
+                <Link
+                  href="/login"
+                  className="text-gray-600 hover:text-emerald-600 transition-colors font-medium"
+                >
+                  SignIn
+                </Link>
+                <Link
+                  href="/signup"
+                  className="ml-3 px-4 py-2 rounded bg-emerald-600 text-white hover:bg-emerald-700 transition-colors font-semibold shadow"
+                >
+                  Sign Up
+                </Link>
+              </>
             )}
           </>
         }
@@ -148,6 +217,12 @@ export default function HomePage() {
           <Badge className="mb-4 sm:mb-6 bg-emerald-100 text-emerald-700 hover:bg-emerald-200 px-3 sm:px-4 py-1 sm:py-2 text-xs sm:text-sm font-medium animate-pulse">
             🎓 Trusted by 10,000+ Students
           </Badge>
+          <div className="mb-4">
+            <span className="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full font-medium text-sm">
+              Now offering Institutional Testing Services for schools and
+              universities!
+            </span>
+          </div>
           <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6 leading-tight px-2">
             <span className="bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient-x">
               Ace Your Exams
@@ -166,23 +241,30 @@ export default function HomePage() {
             <Button
               asChild
               size="lg"
+              className="bg-purple-600 hover:bg-purple-700 text-white text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 shadow-lg"
+            >
+              <Link href="/exams?type=sat">SAT</Link>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              className="bg-orange-600 hover:bg-orange-700 text-white text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 shadow-lg"
+            >
+              <Link href="/exams?type=act">ACT</Link>
+            </Button>
+            <Button
+              asChild
+              size="lg"
               className="bg-emerald-600 hover:bg-emerald-700 text-white text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 shadow-lg"
             >
-              <Link href="/quiz">Take a Quiz</Link>
+              <Link href="/exams?type=waec">WAEC</Link>
             </Button>
             <Button
               asChild
               size="lg"
               className="bg-blue-600 hover:bg-blue-700 text-white text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 shadow-lg"
             >
-              <Link href="/flashcards">Start Flashcards</Link>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              className="bg-purple-600 hover:bg-purple-700 text-white text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 shadow-lg"
-            >
-              <Link href="/discussions">Join Group</Link>
+              <Link href="/exams?type=wassce">WASSCE</Link>
             </Button>
           </div>
 
@@ -221,6 +303,69 @@ export default function HomePage() {
               {activities[activityIndex]}
             </div>
           </div>
+
+          {/* Exam Alert */}
+          {upcomingExam && (
+            <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 flex items-center gap-4 mb-6">
+              <AlertCircle className="w-6 h-6 text-yellow-500" />
+              <div className="flex-1">
+                <div className="font-semibold text-yellow-800">
+                  Upcoming Exam: {upcomingExam.title} ({upcomingExam.subject})
+                </div>
+                <div className="text-yellow-700 text-sm">
+                  {upcomingExam.universityName && (
+                    <span>By {upcomingExam.universityName} &middot; </span>
+                  )}
+                  {upcomingExam.date} at {upcomingExam.time}
+                </div>
+                {isLoggedIn && user?.role === "student" && (
+                  <form
+                    className="mt-2 flex flex-col sm:flex-row gap-2"
+                    onSubmit={handleRegister}
+                  >
+                    <input
+                      type="text"
+                      placeholder="University Reg No."
+                      value={regNo}
+                      onChange={(e) => setRegNo(e.target.value)}
+                      className="border rounded px-3 py-2 text-sm"
+                      required
+                    />
+                    <input
+                      type="text"
+                      placeholder="Your Name"
+                      value={studentName}
+                      onChange={(e) => setStudentName(e.target.value)}
+                      className="border rounded px-3 py-2 text-sm"
+                      required
+                    />
+                    <Button
+                      type="submit"
+                      className="bg-yellow-500 hover:bg-yellow-600 text-white"
+                    >
+                      Register
+                    </Button>
+                    {registerStatus && (
+                      <span className="text-green-700 ml-2">
+                        {registerStatus}
+                      </span>
+                    )}
+                    {registerError && (
+                      <span className="text-red-600 ml-2">{registerError}</span>
+                    )}
+                  </form>
+                )}
+                {!isLoggedIn && (
+                  <div className="mt-2 text-yellow-700 text-xs">
+                    <Link href="/login" className="underline text-yellow-800">
+                      Sign in
+                    </Link>{" "}
+                    to register for this exam.
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
@@ -274,7 +419,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6 mb-12">
             {/* Quiz Card */}
             <Card className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2 bg-gradient-to-br from-emerald-50 to-emerald-100">
               <CardContent className="p-6 sm:p-8 text-center">
@@ -356,6 +501,29 @@ export default function HomePage() {
                   className="w-full bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 shadow-md text-sm sm:text-base"
                 >
                   <Link href="/discussions">Join Discussion</Link>
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Institutional Testing Service Card */}
+            <Card className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2 bg-gradient-to-br from-emerald-50 to-emerald-100">
+              <CardContent className="p-6 sm:p-8 text-center">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <Star className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3">
+                  Institutional Testing Service
+                </h3>
+                <p className="text-gray-600 mb-4 sm:mb-6 text-xs sm:text-sm leading-relaxed">
+                  Comprehensive online exam and assessment solutions for
+                  schools, colleges, and universities. Empower your institution
+                  with secure, scalable, and customizable testing.
+                </p>
+                <Button
+                  asChild
+                  className="w-full bg-emerald-600 hover:bg-emerald-700 shadow-md text-sm sm:text-base"
+                >
+                  <Link href="/services">Learn More</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -544,16 +712,6 @@ export default function HomePage() {
             Join over 10,000 students who have transformed their grades with
             groupXam. Start your journey to academic excellence today.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
-            <Button
-              size="lg"
-              variant="outline"
-              asChild
-              className="bg-white text-emerald-600 hover:bg-gray-100 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 shadow-xl"
-            >
-              <Link href="/demo">See How It Works</Link>
-            </Button>
-          </div>
         </div>
       </section>
 
@@ -678,14 +836,6 @@ export default function HomePage() {
                     className="hover:text-white transition-colors"
                   >
                     Terms of Service
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/careers"
-                    className="hover:text-white transition-colors"
-                  >
-                    Careers
                   </Link>
                 </li>
               </ul>
