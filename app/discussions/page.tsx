@@ -110,6 +110,7 @@ export default function DiscussionsPage() {
   const [showReplyInput, setShowReplyInput] = useState<Record<string, boolean>>(
     {}
   );
+  const [openReplies, setOpenReplies] = useState<Record<string, boolean>>({});
 
   // Use SWR data for discussions
   const discussionsData = data && Array.isArray(data) ? data : [];
@@ -181,6 +182,7 @@ export default function DiscussionsPage() {
       setReplyLoading((prev) => ({ ...prev, [discussionId]: false }));
 
       if (res.ok) {
+        await mutate(); // revalidate SWR cache
         setDiscussions((prev) =>
           prev.map((d) =>
             d._id === discussionId
@@ -212,7 +214,7 @@ export default function DiscussionsPage() {
         setShowReplyInput((prev) => ({ ...prev, [discussionId]: false }));
       }
     },
-    [activeReplies, user]
+    [activeReplies, user, mutate]
   );
 
   // Handle reply to a reply (nested reply)
@@ -253,6 +255,7 @@ export default function DiscussionsPage() {
       setReplyLoading((prev) => ({ ...prev, [replyKey]: false }));
 
       if (res.ok) {
+        await mutate(); // revalidate SWR cache
         setDiscussions((prev) =>
           prev.map((d) =>
             d._id === discussionId
@@ -282,7 +285,7 @@ export default function DiscussionsPage() {
         setShowReplyInput((prev) => ({ ...prev, [replyKey]: false }));
       }
     },
-    [activeReplies, user]
+    [activeReplies, user, mutate]
   );
 
   // Helper to add a nested reply
@@ -387,6 +390,21 @@ export default function DiscussionsPage() {
                     >
                       Reply
                     </button>
+                    {/* Toggle nested replies */}
+                    {reply.replies && reply.replies.length > 0 && (
+                      <button
+                        className="text-xs text-emerald-600 hover:underline flex items-center gap-1"
+                        onClick={() =>
+                          setOpenReplies((prev) => ({
+                            ...prev,
+                            [reply._id]: !prev[reply._id],
+                          }))
+                        }
+                      >
+                        <MessageSquare className="w-3 h-3" />
+                        {reply.replies.length} Replies
+                      </button>
+                    )}
                   </div>
                 )}
                 {/* Nested reply input */}
@@ -419,20 +437,39 @@ export default function DiscussionsPage() {
                     </Button>
                   </div>
                 )}
-                {/* Render nested replies (one level deep) */}
-                {reply.replies && reply.replies.length > 0 && (
-                  <RenderReplies
-                    replies={reply.replies}
-                    discussion={discussion}
-                    parentId={reply._id}
-                  />
-                )}
+                {/* Render nested replies only if toggled open */}
+                {reply.replies &&
+                  reply.replies.length > 0 &&
+                  openReplies[reply._id] && (
+                    <RenderReplies
+                      replies={reply.replies}
+                      discussion={discussion}
+                      parentId={reply._id}
+                    />
+                  )}
               </div>
             </div>
           );
         })}
       </div>
     );
+  }
+
+  // Utility to build a nested reply tree from a flat array
+  function buildReplyTree(flatReplies: Reply[]) {
+    const idToReply: Record<string, Reply> = {};
+    const rootReplies: Reply[] = [];
+    flatReplies.forEach((reply) => {
+      idToReply[reply._id] = { ...reply, replies: [] };
+    });
+    flatReplies.forEach((reply) => {
+      if (reply.parentId && idToReply[reply.parentId] && idToReply[reply._id]) {
+        idToReply[reply.parentId]?.replies?.push(idToReply[reply._id]!);
+      } else if (idToReply[reply._id]) {
+        rootReplies.push(idToReply[reply._id]);
+      }
+    });
+    return rootReplies;
   }
 
   const filteredDiscussions = discussionsData;
@@ -574,6 +611,7 @@ export default function DiscussionsPage() {
                 .map((discussion) => {
                   const replies = discussion.replies || [];
                   const commentsOpen = openComments[discussion._id];
+                  const discussionReplies = buildReplyTree(replies);
                   return (
                     <div
                       key={discussion._id}
@@ -695,7 +733,7 @@ export default function DiscussionsPage() {
                       {/* Replies Thread (if open) */}
                       {commentsOpen && replies.length > 0 && (
                         <RenderReplies
-                          replies={replies}
+                          replies={discussionReplies}
                           discussion={discussion}
                         />
                       )}

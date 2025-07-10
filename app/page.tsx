@@ -192,6 +192,14 @@ export default function HomePage() {
               <span className="text-gray-400 font-medium">...</span>
             ) : isLoggedIn ? (
               <>
+                {user?.role === "university" && (
+                  <Link
+                    href="/university/dashboard"
+                    className="text-gray-600 hover:text-emerald-600 transition-colors font-medium mr-2"
+                  >
+                    Dashboard
+                  </Link>
+                )}
                 <button
                   onClick={logout}
                   className="text-gray-600 hover:text-red-600 transition-colors font-medium"
@@ -351,41 +359,13 @@ export default function HomePage() {
                   {upcomingExam.date} at {upcomingExam.time}
                 </div>
                 {isLoggedIn && user?.role === "student" && (
-                  <form
-                    className="mt-2 flex flex-col sm:flex-row gap-2"
-                    onSubmit={handleRegister}
-                  >
-                    <input
-                      type="text"
-                      placeholder="University Reg No."
-                      value={regNo}
-                      onChange={(e) => setRegNo(e.target.value)}
-                      className="border rounded px-3 py-2 text-sm"
-                      required
-                    />
-                    <input
-                      type="text"
-                      placeholder="Your Name"
-                      value={studentName}
-                      onChange={(e) => setStudentName(e.target.value)}
-                      className="border rounded px-3 py-2 text-sm"
-                      required
-                    />
-                    <Button
-                      type="submit"
-                      className="bg-yellow-500 hover:bg-yellow-600 text-white"
-                    >
-                      Register
-                    </Button>
-                    {registerStatus && (
-                      <span className="text-green-700 ml-2">
-                        {registerStatus}
-                      </span>
-                    )}
-                    {registerError && (
-                      <span className="text-red-600 ml-2">{registerError}</span>
-                    )}
-                  </form>
+                  <div className="mt-4 flex justify-center">
+                    <Link href="/services">
+                      <Button className="bg-yellow-500 hover:bg-yellow-600 text-white">
+                        Register
+                      </Button>
+                    </Link>
+                  </div>
                 )}
                 {!isLoggedIn && (
                   <div className="mt-2 text-yellow-700 text-xs">

@@ -129,6 +129,8 @@ export default function ServicesPage() {
   const [totalStudents, setTotalStudents] = useState(0);
   const [totalUniversities, setTotalUniversities] = useState(0);
 
+  const [showDetailsFor, setShowDetailsFor] = useState<string | null>(null);
+
   const fetchRegistrations = async () => {
     if (isLoggedIn && user?.role === "student") {
       try {
@@ -545,35 +547,280 @@ This slip must be presented on exam day for verification.
                               Registered
                             </span>
                           ) : (
-                            <Button
-                              onClick={() => handleRegister(a)}
-                              disabled={
-                                registering === (a._id || a.id) ||
-                                !!isPastDeadline
+                            <Dialog
+                              open={showRegistrationForm === (a._id || a.id)}
+                              onOpenChange={(open) =>
+                                setShowRegistrationForm(
+                                  open ? (a._id || a.id) ?? null : null
+                                )
                               }
-                              className="bg-blue-600 hover:bg-blue-700 text-white"
                             >
-                              {registering === (a._id || a.id)
-                                ? "Registering..."
-                                : "Register"}
-                            </Button>
+                              <DialogTrigger asChild>
+                                <Button
+                                  onClick={() => handleRegister(a)}
+                                  disabled={
+                                    registering === (a._id || a.id) ||
+                                    !!isPastDeadline
+                                  }
+                                  className="bg-blue-600 hover:bg-blue-700 text-white"
+                                >
+                                  {registering === (a._id || a.id)
+                                    ? "Registering..."
+                                    : "Register"}
+                                </Button>
+                              </DialogTrigger>
+                              <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+                                <DialogHeader>
+                                  <DialogTitle>Register for Exam</DialogTitle>
+                                </DialogHeader>
+
+                                <form
+                                  onSubmit={handleGuestRegistration}
+                                  className="space-y-6"
+                                >
+                                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                      <Label htmlFor="name">Full Name *</Label>
+                                      <Input
+                                        id="name"
+                                        value={registrationForm.name}
+                                        onChange={(e) =>
+                                          setRegistrationForm({
+                                            ...registrationForm,
+                                            name: e.target.value,
+                                          })
+                                        }
+                                        required
+                                      />
+                                    </div>
+                                    <div>
+                                      <Label htmlFor="email">
+                                        Email Address *
+                                      </Label>
+                                      <Input
+                                        id="email"
+                                        type="email"
+                                        value={registrationForm.email}
+                                        onChange={(e) =>
+                                          setRegistrationForm({
+                                            ...registrationForm,
+                                            email: e.target.value,
+                                          })
+                                        }
+                                        required
+                                      />
+                                    </div>
+                                    <div>
+                                      <Label htmlFor="phone">
+                                        Phone Number *
+                                      </Label>
+                                      <Input
+                                        id="phone"
+                                        value={registrationForm.phone}
+                                        onChange={(e) =>
+                                          setRegistrationForm({
+                                            ...registrationForm,
+                                            phone: e.target.value,
+                                          })
+                                        }
+                                        required
+                                      />
+                                    </div>
+                                    <div>
+                                      <Label htmlFor="regNo">
+                                        Registration Number
+                                      </Label>
+                                      <Input
+                                        id="regNo"
+                                        value={registrationForm.regNo}
+                                        onChange={(e) =>
+                                          setRegistrationForm({
+                                            ...registrationForm,
+                                            regNo: e.target.value,
+                                          })
+                                        }
+                                      />
+                                    </div>
+                                    <div>
+                                      <Label htmlFor="dateOfBirth">
+                                        Date of Birth *
+                                      </Label>
+                                      <Input
+                                        id="dateOfBirth"
+                                        type="date"
+                                        value={registrationForm.dateOfBirth}
+                                        onChange={(e) =>
+                                          setRegistrationForm({
+                                            ...registrationForm,
+                                            dateOfBirth: e.target.value,
+                                          })
+                                        }
+                                        required
+                                      />
+                                    </div>
+                                    <div>
+                                      <Label htmlFor="gender">Gender *</Label>
+                                      <Select
+                                        value={registrationForm.gender}
+                                        onValueChange={(value) =>
+                                          setRegistrationForm({
+                                            ...registrationForm,
+                                            gender: value,
+                                          })
+                                        }
+                                      >
+                                        <SelectTrigger>
+                                          <SelectValue placeholder="Select gender" />
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                          <SelectItem value="male">
+                                            Male
+                                          </SelectItem>
+                                          <SelectItem value="female">
+                                            Female
+                                          </SelectItem>
+                                          <SelectItem value="other">
+                                            Other
+                                          </SelectItem>
+                                        </SelectContent>
+                                      </Select>
+                                    </div>
+                                  </div>
+
+                                  <div>
+                                    <Label htmlFor="address">Address *</Label>
+                                    <Textarea
+                                      id="address"
+                                      value={registrationForm.address}
+                                      onChange={(e) =>
+                                        setRegistrationForm({
+                                          ...registrationForm,
+                                          address: e.target.value,
+                                        })
+                                      }
+                                      required
+                                    />
+                                  </div>
+
+                                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                      <Label htmlFor="parentName">
+                                        Parent/Guardian Name *
+                                      </Label>
+                                      <Input
+                                        id="parentName"
+                                        value={registrationForm.parentName}
+                                        onChange={(e) =>
+                                          setRegistrationForm({
+                                            ...registrationForm,
+                                            parentName: e.target.value,
+                                          })
+                                        }
+                                        required
+                                      />
+                                    </div>
+                                    <div>
+                                      <Label htmlFor="parentPhone">
+                                        Parent/Guardian Phone *
+                                      </Label>
+                                      <Input
+                                        id="parentPhone"
+                                        value={registrationForm.parentPhone}
+                                        onChange={(e) =>
+                                          setRegistrationForm({
+                                            ...registrationForm,
+                                            parentPhone: e.target.value,
+                                          })
+                                        }
+                                        required
+                                      />
+                                    </div>
+                                  </div>
+
+                                  <div className="flex justify-end space-x-4">
+                                    <Button
+                                      type="button"
+                                      variant="outline"
+                                      onClick={() =>
+                                        setShowRegistrationForm(null)
+                                      }
+                                    >
+                                      Cancel
+                                    </Button>
+                                    <Button
+                                      type="submit"
+                                      disabled={
+                                        registering === showRegistrationForm
+                                      }
+                                      className="bg-blue-600 hover:bg-blue-700 text-white"
+                                    >
+                                      {registering === showRegistrationForm
+                                        ? "Registering..."
+                                        : "Register"}
+                                    </Button>
+                                  </div>
+                                </form>
+                              </DialogContent>
+                            </Dialog>
                           )
                         ) : (
-                          <Button
-                            onClick={() => handleRegister(a)}
-                            disabled={!!isPastDeadline}
-                            className="bg-blue-600 hover:bg-blue-700 text-white"
-                          >
-                            Register Now
-                          </Button>
+                          <DialogTrigger asChild>
+                            <Button
+                              onClick={() => handleRegister(a)}
+                              disabled={!!isPastDeadline}
+                              className="bg-blue-600 hover:bg-blue-700 text-white"
+                            >
+                              Register Now
+                            </Button>
+                          </DialogTrigger>
                         )}
 
-                        <Button variant="outline" asChild>
-                          <Link href={`/exam-details/${a._id || a.id}`}>
-                            <Eye className="w-4 h-4 mr-2" />
-                            Details
-                          </Link>
-                        </Button>
+                        <Dialog
+                          open={showDetailsFor === (a._id || a.id)}
+                          onOpenChange={(open) =>
+                            setShowDetailsFor(
+                              open ? (a._id || a.id) ?? null : null
+                            )
+                          }
+                        >
+                          <DialogTrigger asChild>
+                            <Button variant="outline">
+                              <Eye className="w-4 h-4 mr-2" />
+                              Details
+                            </Button>
+                          </DialogTrigger>
+                          <DialogContent className="max-w-xl">
+                            <DialogHeader>
+                              <DialogTitle>Exam Details</DialogTitle>
+                            </DialogHeader>
+                            <div className="space-y-2">
+                              <div className="font-bold text-lg">{a.title}</div>
+                              <div className="text-gray-700">
+                                {a.description}
+                              </div>
+                              <div className="flex flex-col gap-1 text-sm mt-2">
+                                <div>
+                                  <b>University:</b> {a.universityName}
+                                </div>
+                                <div>
+                                  <b>Subject:</b> {a.subject}
+                                </div>
+                                <div>
+                                  <b>Date:</b> {a.date}
+                                </div>
+                                <div>
+                                  <b>Time:</b> {a.time}
+                                </div>
+                                <div>
+                                  <b>Duration:</b> {a.duration || 120} minutes
+                                </div>
+                                <div>
+                                  <b>Max Students:</b> {a.maxStudents || 500}
+                                </div>
+                              </div>
+                            </div>
+                          </DialogContent>
+                        </Dialog>
                       </div>
 
                       {registerSuccess && registering === (a._id || a.id) && (
