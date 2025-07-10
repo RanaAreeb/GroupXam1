@@ -55,6 +55,8 @@ interface Exam {
   createdAt: string;
   mcqs?: MCQ[];
   registrationTime?: string;
+  className?: string;
+  department?: string;
 }
 
 interface ExamListProps {
@@ -279,6 +281,14 @@ export default function ExamList({ exams, onExamsChanged }: ExamListProps) {
                 </Badge>
               </div>
               <p className="text-sm text-gray-600">{exam.description}</p>
+              <div className="flex flex-wrap gap-4 mt-2">
+                <span className="inline-block text-xs bg-gray-100 rounded px-2 py-1 text-gray-700">
+                  <b>Class:</b> {exam.className || "-"}
+                </span>
+                <span className="inline-block text-xs bg-gray-100 rounded px-2 py-1 text-gray-700">
+                  <b>Department:</b> {exam.department || "-"}
+                </span>
+              </div>
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-2 gap-4 mb-4">

@@ -14,11 +14,13 @@ import {
   ArrowRight,
   BookOpen,
   AlertCircle,
+  Users,
 } from "lucide-react";
 import Header from "@/components/ui/header";
 import Image from "next/image";
 import { useAuth } from "@/hooks/use-auth";
 import { useEffect, useRef, useState } from "react";
+import { MdGroups } from "react-icons/md";
 
 // Add type for Exam
 interface Exam {
@@ -150,6 +152,36 @@ export default function HomePage() {
       setRegisterError("Network error. Please try again.");
     }
   };
+
+  // Testimonials data
+  const testimonials = [
+    {
+      name: "Adaora O.",
+      initial: "A",
+      color: "bg-emerald-500",
+      quote:
+        '"groupXam helped me improve my grades significantly. The practice questions are exactly like the real WAEC exams!"',
+      details: "WAEC 2023 - 8 A's",
+    },
+    {
+      name: "Kemi S.",
+      initial: "K",
+      color: "bg-blue-500",
+      quote:
+        '"The flashcards feature is amazing! I could study anywhere and the progress tracking kept me motivated."',
+      details: "WAEC 2023 - 7 A's",
+    },
+    {
+      name: "Chidi M.",
+      initial: "C",
+      color: "bg-purple-500",
+      quote:
+        '"The discussion forum helped me understand difficult concepts. The community is very supportive!"',
+      details: "WAEC 2023 - 6 A's",
+    },
+  ];
+  // Duplicate testimonials for seamless marquee
+  const marqueeTestimonials = [...testimonials, ...testimonials];
 
   return (
     <div className="min-h-screen bg-white">
@@ -421,21 +453,23 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6 mb-12">
             {/* Quiz Card */}
-            <Card className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2 bg-gradient-to-br from-emerald-50 to-emerald-100">
-              <CardContent className="p-6 sm:p-8 text-center">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <Target className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+            <Card className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2 bg-gradient-to-br from-emerald-50 to-emerald-100 h-full">
+              <CardContent className="p-6 sm:p-8 text-center flex flex-col h-full justify-between">
+                <div className="flex-1 flex flex-col justify-center">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <Target className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3">
+                    Practice Quizzes
+                  </h3>
+                  <p className="text-gray-600 mb-4 sm:mb-6 text-xs sm:text-sm leading-relaxed">
+                    Test your knowledge with interactive quizzes and get instant
+                    feedback
+                  </p>
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3">
-                  Practice Quizzes
-                </h3>
-                <p className="text-gray-600 mb-4 sm:mb-6 text-xs sm:text-sm leading-relaxed">
-                  Test your knowledge with interactive quizzes and get instant
-                  feedback
-                </p>
                 <Button
                   asChild
-                  className="w-full bg-emerald-600 hover:bg-emerald-700 shadow-md text-sm sm:text-base"
+                  className="w-full bg-emerald-600 hover:bg-emerald-700 shadow-md text-sm sm:text-base mt-auto"
                 >
                   <Link href="/quiz">Start Quiz</Link>
                 </Button>
@@ -443,20 +477,22 @@ export default function HomePage() {
             </Card>
 
             {/* Exam Card */}
-            <Card className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2 bg-gradient-to-br from-blue-50 to-blue-100">
-              <CardContent className="p-6 sm:p-8 text-center">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <Clock className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+            <Card className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2 bg-gradient-to-br from-blue-50 to-blue-100 h-full">
+              <CardContent className="p-6 sm:p-8 text-center flex flex-col h-full justify-between">
+                <div className="flex-1 flex flex-col justify-center">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <Clock className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3">
+                    Timed Exams
+                  </h3>
+                  <p className="text-gray-600 mb-4 sm:mb-6 text-xs sm:text-sm leading-relaxed">
+                    Simulate real exam conditions with our timed practice tests
+                  </p>
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3">
-                  Timed Exams
-                </h3>
-                <p className="text-gray-600 mb-4 sm:mb-6 text-xs sm:text-sm leading-relaxed">
-                  Simulate real exam conditions with our timed practice tests
-                </p>
                 <Button
                   asChild
-                  className="w-full bg-blue-600 hover:bg-blue-700 shadow-md text-sm sm:text-base"
+                  className="w-full bg-blue-600 hover:bg-blue-700 shadow-md text-sm sm:text-base mt-auto"
                 >
                   <Link href="/exams">Take Exam</Link>
                 </Button>
@@ -464,20 +500,22 @@ export default function HomePage() {
             </Card>
 
             {/* Flashcards Card */}
-            <Card className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2 bg-gradient-to-br from-purple-50 to-purple-100">
-              <CardContent className="p-6 sm:p-8 text-center">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <Brain className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+            <Card className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2 bg-gradient-to-br from-purple-50 to-purple-100 h-full">
+              <CardContent className="p-6 sm:p-8 text-center flex flex-col h-full justify-between">
+                <div className="flex-1 flex flex-col justify-center">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <Brain className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3">
+                    Smart Flashcards
+                  </h3>
+                  <p className="text-gray-600 mb-4 sm:mb-6 text-xs sm:text-sm leading-relaxed">
+                    Memorize key concepts with our intelligent flashcard system
+                  </p>
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3">
-                  Smart Flashcards
-                </h3>
-                <p className="text-gray-600 mb-4 sm:mb-6 text-xs sm:text-sm leading-relaxed">
-                  Memorize key concepts with our intelligent flashcard system
-                </p>
                 <Button
                   asChild
-                  className="w-full bg-purple-600 hover:bg-purple-700 shadow-md text-sm sm:text-base"
+                  className="w-full bg-purple-600 hover:bg-purple-700 shadow-md text-sm sm:text-base mt-auto"
                 >
                   <Link href="/flashcards">Study Cards</Link>
                 </Button>
@@ -485,20 +523,22 @@ export default function HomePage() {
             </Card>
 
             {/* Discussions Card */}
-            <Card className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2 bg-gradient-to-br from-emerald-50 to-blue-50">
-              <CardContent className="p-6 sm:p-8 text-center">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <MessageSquare className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+            <Card className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2 bg-gradient-to-br from-emerald-50 to-blue-50 h-full">
+              <CardContent className="p-6 sm:p-8 text-center flex flex-col h-full justify-between">
+                <div className="flex-1 flex flex-col justify-center">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <MessageSquare className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3">
+                    Study Groups
+                  </h3>
+                  <p className="text-gray-600 mb-4 sm:mb-6 text-xs sm:text-sm leading-relaxed">
+                    Connect with peers and get help from the community
+                  </p>
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3">
-                  Study Groups
-                </h3>
-                <p className="text-gray-600 mb-4 sm:mb-6 text-xs sm:text-sm leading-relaxed">
-                  Connect with peers and get help from the community
-                </p>
                 <Button
                   asChild
-                  className="w-full bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 shadow-md text-sm sm:text-base"
+                  className="w-full bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 shadow-md text-sm sm:text-base mt-auto"
                 >
                   <Link href="/discussions">Join Discussion</Link>
                 </Button>
@@ -506,22 +546,24 @@ export default function HomePage() {
             </Card>
 
             {/* Institutional Testing Service Card */}
-            <Card className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2 bg-gradient-to-br from-emerald-50 to-emerald-100">
-              <CardContent className="p-6 sm:p-8 text-center">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <Star className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+            <Card className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2 bg-gradient-to-br from-emerald-50 to-emerald-100 h-full">
+              <CardContent className="p-6 sm:p-8 text-center flex flex-col h-full justify-between">
+                <div className="flex-1 flex flex-col justify-center">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <Star className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3">
+                    Institutional Testing Service
+                  </h3>
+                  <p className="text-gray-600 mb-4 sm:mb-6 text-xs sm:text-sm leading-relaxed">
+                    Comprehensive online exam and assessment solutions for
+                    schools, colleges, and universities. Empower your
+                    institution with secure, scalable, and customizable testing.
+                  </p>
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3">
-                  Institutional Testing Service
-                </h3>
-                <p className="text-gray-600 mb-4 sm:mb-6 text-xs sm:text-sm leading-relaxed">
-                  Comprehensive online exam and assessment solutions for
-                  schools, colleges, and universities. Empower your institution
-                  with secure, scalable, and customizable testing.
-                </p>
                 <Button
                   asChild
-                  className="w-full bg-emerald-600 hover:bg-emerald-700 shadow-md text-sm sm:text-base"
+                  className="w-full bg-emerald-600 hover:bg-emerald-700 shadow-md text-sm sm:text-base mt-auto"
                 >
                   <Link href="/services">Learn More</Link>
                 </Button>
@@ -606,98 +648,59 @@ export default function HomePage() {
               Join thousands of successful students
             </p>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 px-4">
-            <Card className="border-0 shadow-lg">
-              <CardContent className="p-6 sm:p-8">
-                <div className="flex mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400 fill-current"
-                    />
-                  ))}
-                </div>
-                <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 italic">
-                  "groupXam helped me improve my grades significantly. The
-                  practice questions are exactly like the real WAEC exams!"
-                </p>
-                <div className="flex items-center">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-emerald-500 rounded-full flex items-center justify-center text-white font-bold mr-3 sm:mr-4 text-sm sm:text-base">
-                    A
-                  </div>
-                  <div>
-                    <div className="font-semibold text-sm sm:text-base">
-                      Adaora O.
+          {/* Marquee Train Animation */}
+          <div className="overflow-hidden relative">
+            <div
+              className="flex gap-8 animate-marquee"
+              style={{ minWidth: "200%", willChange: "transform" }}
+            >
+              {marqueeTestimonials.map((t, idx) => (
+                <div
+                  className="flex flex-col h-full min-w-[320px] max-w-xs mx-auto"
+                  key={idx}
+                >
+                  <div className="border-0 shadow-lg rounded-xl bg-white flex flex-col h-full p-6 sm:p-8">
+                    <div className="flex mb-4">
+                      {[...Array(5)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400 fill-current"
+                        />
+                      ))}
                     </div>
-                    <div className="text-xs sm:text-sm text-gray-500">
-                      WAEC 2023 - 8 A's
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 shadow-lg">
-              <CardContent className="p-6 sm:p-8">
-                <div className="flex mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400 fill-current"
-                    />
-                  ))}
-                </div>
-                <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 italic">
-                  "The flashcards feature is amazing! I could study anywhere and
-                  the progress tracking kept me motivated."
-                </p>
-                <div className="flex items-center">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold mr-3 sm:mr-4 text-sm sm:text-base">
-                    K
-                  </div>
-                  <div>
-                    <div className="font-semibold text-sm sm:text-base">
-                      Kemi S.
-                    </div>
-                    <div className="text-xs sm:text-sm text-gray-500">
-                      WAEC 2023 - 7 A's
+                    <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 italic">
+                      {t.quote}
+                    </p>
+                    <div className="flex items-center mt-auto">
+                      <div
+                        className={`w-10 h-10 sm:w-12 sm:h-12 ${t.color} rounded-full flex items-center justify-center text-white font-bold mr-3 sm:mr-4 text-sm sm:text-base`}
+                      >
+                        {t.initial}
+                      </div>
+                      <div>
+                        <div className="font-semibold text-sm sm:text-base">
+                          {t.name}
+                        </div>
+                        <div className="text-xs sm:text-sm text-gray-500">
+                          {t.details}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 shadow-lg">
-              <CardContent className="p-6 sm:p-8">
-                <div className="flex mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400 fill-current"
-                    />
-                  ))}
-                </div>
-                <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 italic">
-                  "The discussion forum helped me understand difficult concepts.
-                  The community is very supportive!"
-                </p>
-                <div className="flex items-center">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold mr-3 sm:mr-4 text-sm sm:text-base">
-                    C
-                  </div>
-                  <div>
-                    <div className="font-semibold text-sm sm:text-base">
-                      Chidi M.
-                    </div>
-                    <div className="text-xs sm:text-sm text-gray-500">
-                      WAEC 2023 - 6 A's
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+              ))}
+            </div>
           </div>
+          {/* Marquee Animation CSS */}
+          <style>{`
+            @keyframes marquee {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+            .animate-marquee {
+              animation: marquee 30s linear infinite;
+            }
+          `}</style>
         </div>
       </section>
 
@@ -706,7 +709,7 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="container mx-auto text-center relative">
           <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6 px-4">
-            Ready to Ace Your WAEC?
+            Ready to Ace Your Exams?
           </h2>
           <p className="text-base sm:text-xl text-emerald-100 mb-8 sm:mb-10 max-w-2xl mx-auto px-4">
             Join over 10,000 students who have transformed their grades with
@@ -720,11 +723,14 @@ export default function HomePage() {
         <div className="container mx-auto">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-8 text-center sm:text-left">
             <div>
-              <div className="flex items-center space-x-3 mb-4 sm:mb-6 justify-center sm:justify-start">
-                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-xl flex items-center justify-center">
-                  <BookOpen className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
-                </div>
-                <span className="text-lg sm:text-xl font-bold">groupXam</span>
+              <div className="flex items-center mb-4 sm:mb-6 justify-center sm:justify-start">
+                <Image
+                  src="/logo-white.png"
+                  alt="groupXam logo"
+                  width={150}
+                  height={150}
+                  className="transition-transform duration-300 group-hover:scale-105"
+                />
               </div>
               <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
                 Empowering students to achieve academic excellence through
@@ -733,7 +739,7 @@ export default function HomePage() {
             </div>
             <div>
               <h3 className="font-semibold mb-3 sm:mb-4 text-base sm:text-lg">
-                Learning Tools
+                Learning Tools & Products
               </h3>
               <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-gray-400">
                 <li>
@@ -774,6 +780,16 @@ export default function HomePage() {
                     className="hover:text-white transition-colors"
                   >
                     Institutional Testing Service
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="https://efggames.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-white transition-colors"
+                  >
+                    EFG Games
                   </Link>
                 </li>
               </ul>

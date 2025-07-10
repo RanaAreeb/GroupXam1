@@ -23,6 +23,7 @@ export default function AppHeader({
     { href: "/exams", label: "Exams" },
     { href: "/flashcards", label: "Flashcards" },
     { href: "/discussions", label: "Discussions" },
+    { href: "/other-subjects", label: "Other Subjects" },
   ];
 
   return (

@@ -42,6 +42,8 @@ import MCQManager, { MCQ } from "./MCQManager";
 interface ExamData {
   title: string;
   subject: string;
+  className: string; // new
+  department: string; // new
   description: string;
   date: string;
   time: string;
@@ -69,6 +71,8 @@ export default function CreateExamForm({
   const [examData, setExamData] = useState<ExamData>({
     title: "",
     subject: "",
+    className: "",
+    department: "",
     description: "",
     date: "",
     time: "",
@@ -91,6 +95,14 @@ export default function CreateExamForm({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Validate duration
+    const durationNum = Number(examData.duration);
+    if (durationNum < 30 || durationNum > 240) {
+      setError("Duration must be between 30 and 240 minutes");
+      return;
+    }
+
     setLoading(true);
     setError(null);
     try {
@@ -107,6 +119,8 @@ export default function CreateExamForm({
         setExamData({
           title: "",
           subject: "",
+          className: "",
+          department: "",
           description: "",
           date: "",
           time: "",
@@ -201,6 +215,32 @@ export default function CreateExamForm({
                       </SelectContent>
                     </Select>
                   </div>
+                  {/* New Class field */}
+                  <div>
+                    <Label htmlFor="className">Class</Label>
+                    <Input
+                      id="className"
+                      value={examData.className}
+                      onChange={(e) =>
+                        setExamData({ ...examData, className: e.target.value })
+                      }
+                      placeholder="e.g. SS1, 100 Level, etc."
+                      required
+                    />
+                  </div>
+                  {/* New Department field */}
+                  <div>
+                    <Label htmlFor="department">Department</Label>
+                    <Input
+                      id="department"
+                      value={examData.department}
+                      onChange={(e) =>
+                        setExamData({ ...examData, department: e.target.value })
+                      }
+                      placeholder="e.g. Science, Arts, Engineering, etc."
+                      required
+                    />
+                  </div>
                 </div>
 
                 <div>
@@ -274,8 +314,13 @@ export default function CreateExamForm({
                         setExamData({ ...examData, duration: e.target.value })
                       }
                       placeholder="120"
+                      min="30"
+                      max="240"
                       required
                     />
+                    <span className="text-xs text-gray-500">
+                      (30 to 240 minutes)
+                    </span>
                   </div>
                 </div>
 

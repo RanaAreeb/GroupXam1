@@ -21,7 +21,7 @@ export async function POST(request) {
         return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
     const body = await request.json();
-    const { examId, answers } = body;
+    const { examId, answers, securityAlerts = [] } = body;
     if (!examId || !Array.isArray(answers)) {
         return NextResponse.json({ error: "Missing examId or answers" }, { status: 400 });
     }
@@ -55,6 +55,8 @@ export async function POST(request) {
             totalQuestions,
             timeTaken: exam.duration || 0,
             answers,
+            examTitle: exam.title || "",
+            securityAlerts,
         };
         if (existing) {
             await db.collection("submissions").updateOne(

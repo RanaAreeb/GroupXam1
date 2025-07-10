@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useCallback } from "react";
+import useSWR from "swr";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
@@ -77,8 +78,17 @@ export default function DiscussionsPage() {
   const [selectedSubject, setSelectedSubject] = useState<string>("All");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [showNewPost, setShowNewPost] = useState<boolean>(false);
-  const [discussions, setDiscussions] = useState<Discussion[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
+  const [discussions, setDiscussions] = useState<Discussion[]>([]); // for local updates only
+  const fetcher = (url: string) => fetch(url).then((res) => res.json());
+  const params = new URLSearchParams();
+  if (selectedSubject && selectedSubject !== "All")
+    params.append("subject", selectedSubject);
+  if (searchQuery) params.append("search", searchQuery);
+  const { data, error, isLoading, mutate } = useSWR(
+    `/api/discussions?${params.toString()}`,
+    fetcher,
+    { revalidateOnFocus: false }
+  );
   const [newPost, setNewPost] = useState<{
     title: string;
     subject: string;
@@ -101,20 +111,8 @@ export default function DiscussionsPage() {
     {}
   );
 
-  // Fetch discussions from API
-  useEffect(() => {
-    setLoading(true);
-    const params = new URLSearchParams();
-    if (selectedSubject && selectedSubject !== "All")
-      params.append("subject", selectedSubject);
-    if (searchQuery) params.append("search", searchQuery);
-    fetch(`/api/discussions?${params.toString()}`)
-      .then((res) => res.json())
-      .then((data: Discussion[]) =>
-        setDiscussions(Array.isArray(data) ? data : [])
-      )
-      .finally(() => setLoading(false));
-  }, [selectedSubject, searchQuery, showNewPost]);
+  // Use SWR data for discussions
+  const discussionsData = data && Array.isArray(data) ? data : [];
 
   // Handle new discussion submit
   const handleNewPost = async (e: React.FormEvent) => {
@@ -141,8 +139,7 @@ export default function DiscussionsPage() {
     });
     setPosting(false);
     if (res.ok) {
-      const created = await res.json();
-      setDiscussions((prev) => [created, ...prev]);
+      await mutate(); // revalidate SWR cache
       setShowNewPost(false);
       setNewPost({ title: "", content: "", subject: "All", tags: "" });
     }
@@ -438,13 +435,14 @@ export default function DiscussionsPage() {
     );
   }
 
-  const filteredDiscussions = discussions;
+  const filteredDiscussions = discussionsData;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50">
       <AppHeader active="Discussions" />
-      <div className="flex justify-center w-full">
-        <div className="w-full max-w-2xl px-2 sm:px-0 py-8">
+      {/* Main feed */}
+      <div className="w-full py-8 bg-transparent">
+        <div className="w-full max-w-6xl mx-auto px-2 md:px-8">
           {/* Header and Search Bar */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4 px-2">
             <div>
@@ -564,38 +562,11 @@ export default function DiscussionsPage() {
 
           {/* Discussions Feed */}
           <div className="flex flex-col gap-4">
-            {loading ? (
+            {isLoading ? (
               <div className="text-center py-12">Loading...</div>
-            ) : filteredDiscussions.length === 0 ? (
+            ) : error ? (
               <div className="text-center py-12">
-                <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <MessageSquare className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                  No discussions found
-                </h3>
-                <p className="text-gray-600 mb-6">
-                  {searchQuery
-                    ? "Try adjusting your search terms"
-                    : isLoggedIn
-                    ? "Be the first to start a discussion!"
-                    : "Sign in to start and participate in discussions!"}
-                </p>
-                {isLoggedIn ? (
-                  <Button
-                    onClick={() => setShowNewPost(true)}
-                    className="bg-gradient-to-r from-emerald-500 to-blue-500 rounded-full px-6"
-                  >
-                    <Plus className="w-4 h-4 mr-2" /> Start Discussion
-                  </Button>
-                ) : (
-                  <Button
-                    asChild
-                    className="bg-gradient-to-r from-emerald-500 to-blue-500 rounded-full px-6"
-                  >
-                    <Link href="/login">Sign In to Join Discussions</Link>
-                  </Button>
-                )}
+                Error loading discussions.
               </div>
             ) : (
               filteredDiscussions
@@ -639,7 +610,7 @@ export default function DiscussionsPage() {
                       {/* Tags as hashtags */}
                       <div className="flex flex-wrap gap-2 mb-2">
                         {discussion.tags &&
-                          discussion.tags.map((tag) => (
+                          discussion.tags.map((tag: string) => (
                             <span
                               key={tag}
                               className="text-emerald-600 text-xs font-medium"
@@ -735,7 +706,7 @@ export default function DiscussionsPage() {
           </div>
 
           {/* Show more discussions button */}
-          {filteredDiscussions.length > visibleDiscussions && !loading && (
+          {filteredDiscussions.length > visibleDiscussions && !isLoading && (
             <div className="flex justify-center mt-8">
               <Button
                 variant="outline"
