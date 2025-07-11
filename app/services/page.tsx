@@ -557,7 +557,7 @@ This slip must be presented on exam day for verification.
                             >
                               <DialogTrigger asChild>
                                 <Button
-                                  onClick={() => handleRegister(a)}
+                                  // onClick={handleRegister(a)}
                                   disabled={
                                     registering === (a._id || a.id) ||
                                     !!isPastDeadline
@@ -573,7 +573,6 @@ This slip must be presented on exam day for verification.
                                 <DialogHeader>
                                   <DialogTitle>Register for Exam</DialogTitle>
                                 </DialogHeader>
-
                                 <form
                                   onSubmit={handleGuestRegistration}
                                   className="space-y-6"
@@ -764,15 +763,12 @@ This slip must be presented on exam day for verification.
                             </Dialog>
                           )
                         ) : (
-                          <DialogTrigger asChild>
-                            <Button
-                              onClick={() => handleRegister(a)}
-                              disabled={!!isPastDeadline}
-                              className="bg-blue-600 hover:bg-blue-700 text-white"
-                            >
-                              Register Now
-                            </Button>
-                          </DialogTrigger>
+                          <Button
+                            asChild
+                            className="bg-blue-600 hover:bg-blue-700 text-white"
+                          >
+                            <Link href="/login">Sign in to Register</Link>
+                          </Button>
                         )}
 
                         <Dialog
