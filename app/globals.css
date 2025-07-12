@@ -4,6 +4,10 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  cursor: default;
+}
+html {
+  cursor: default;
 }
 
 @layer utilities {

@@ -46,6 +46,7 @@
     "cmdk": "1.0.4",
     "date-fns": "4.1.0",
     "embla-carousel-react": "8.5.1",
+    "framer-motion": "^12.23.3",
     "gcp-metadata": "latest",
     "input-otp": "1.4.1",
     "jsonwebtoken": "latest",
@@ -57,6 +58,7 @@
     "mongodb-client-encryption": "latest",
     "next": "14.2.16",
     "next-themes": "^0.4.4",
+    "nodemailer": "^7.0.5",
     "react": "^18",
     "react-day-picker": "8.10.1",
     "react-dom": "^18",
@@ -75,6 +77,7 @@
   },
   "devDependencies": {
     "@types/node": "^22",
+    "@types/nodemailer": "^6.4.17",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "postcss": "^8.5",

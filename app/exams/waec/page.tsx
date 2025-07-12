@@ -1,59 +1,34 @@
 "use client";
 import { useState } from "react";
-import Header from "@/components/ui/header";
+import AppHeader from "@/components/ui/app-header";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { waecExams } from "./exams-data";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { Badge } from "@/components/ui/badge";
+import { Progress } from "@/components/ui/progress";
+import { Target, MessageSquare } from "lucide-react";
 
-const exams = [
-  {
-    id: 1,
-    title: "WAEC Mathematics 2025",
-    subject: "Mathematics",
-    className: "SS3",
-    department: "Science",
-    date: "2025-07-08",
-    time: "09:00",
-    questions: [
-      {
-        q: "What is 2 + 2?",
-        options: ["3", "4", "5", "6"],
-        answer: 1,
-      },
-      {
-        q: "The square root of 16 is?",
-        options: ["2", "4", "8", "16"],
-        answer: 1,
-      },
-    ],
+const subjectMeta: Record<
+  string,
+  { icon: JSX.Element; gradient: string; badge: string }
+> = {
+  Mathematics: {
+    icon: <Target className="w-7 h-7" />,
+    gradient: "from-pink-500 to-yellow-500",
+    badge: "bg-pink-100 text-pink-700",
   },
-  {
-    id: 2,
-    title: "WAEC English 2025",
-    subject: "English",
-    className: "SS3",
-    department: "Arts",
-    date: "2025-07-10",
-    time: "11:00",
-    questions: [
-      {
-        q: "Choose the correct synonym for 'happy'.",
-        options: ["sad", "joyful", "angry", "tired"],
-        answer: 1,
-      },
-      {
-        q: "Which is a noun?",
-        options: ["run", "quickly", "happiness", "blue"],
-        answer: 2,
-      },
-    ],
+  English: {
+    icon: <MessageSquare className="w-7 h-7" />,
+    gradient: "from-orange-400 to-pink-500",
+    badge: "bg-orange-100 text-orange-700",
   },
-];
+};
 
 export default function WaecExamsPage() {
   const [openExam, setOpenExam] = useState<number | null>(null);
@@ -76,7 +51,7 @@ export default function WaecExamsPage() {
     }));
   };
 
-  const handleSubmit = (exam: (typeof exams)[0]) => {
+  const handleSubmit = (exam: WaecExam) => {
     const userAnswers = answers[exam.id] || [];
     let correct = 0;
     exam.questions.forEach((q, i) => {
@@ -89,86 +64,179 @@ export default function WaecExamsPage() {
     setShowFeedback(true);
   };
 
+  type WaecExam = (typeof waecExams)[number];
+  const exams: WaecExam[] = waecExams;
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-blue-50">
-      <Header />
+    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50">
+      <AppHeader active="Exams" />
       <div className="container mx-auto py-12 px-4">
-        <h1 className="text-3xl sm:text-4xl font-bold mb-8 text-emerald-700">
-          WAEC Exams
-        </h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-          {exams.map((exam) => (
-            <Card key={exam.id} className="shadow-lg border-0">
-              <CardContent className="p-6 flex flex-col h-full">
-                <div className="mb-2 text-xl font-bold text-gray-800">
-                  {exam.title}
-                </div>
-                <div className="text-sm text-gray-600 mb-1">{exam.subject}</div>
-                <div className="flex flex-wrap gap-2 mb-2">
-                  <span className="inline-block bg-gray-100 rounded px-2 py-1 text-xs text-gray-700">
-                    <b>Class:</b> {exam.className}
-                  </span>
-                  <span className="inline-block bg-gray-100 rounded px-2 py-1 text-xs text-gray-700">
-                    <b>Department:</b> {exam.department}
-                  </span>
-                </div>
-                <div className="text-xs text-gray-500 mb-4">
-                  {exam.date} at {exam.time}
-                </div>
-                {openExam === exam.id ? (
-                  <div className="mt-4 space-y-6">
-                    {exam.questions.map((q, qIdx) => (
-                      <div key={qIdx} className="mb-4">
-                        <div className="font-semibold mb-2">
-                          Q{qIdx + 1}. {q.q}
-                        </div>
-                        <div className="flex flex-col gap-2">
-                          {q.options.map((opt, optIdx) => (
-                            <label
-                              key={optIdx}
-                              className={`flex items-center gap-2 p-2 rounded cursor-pointer transition-all ${
-                                answers[exam.id]?.[qIdx] === optIdx
-                                  ? "bg-emerald-100 border-emerald-400"
-                                  : "bg-white border border-gray-200 hover:border-emerald-300"
-                              }`}
-                            >
-                              <input
-                                type="radio"
-                                name={`q${exam.id}_${qIdx}`}
-                                checked={answers[exam.id]?.[qIdx] === optIdx}
-                                onChange={() =>
-                                  handleAnswer(exam.id, qIdx, optIdx)
-                                }
-                                className="accent-emerald-600"
-                              />
-                              <span>{opt}</span>
-                            </label>
-                          ))}
-                        </div>
-                      </div>
-                    ))}
-                    <Button
-                      className="bg-emerald-600 hover:bg-emerald-700 text-white mt-2"
-                      onClick={() => handleSubmit(exam)}
-                    >
-                      Submit
-                    </Button>
-                  </div>
-                ) : (
-                  <Button
-                    className="bg-emerald-600 hover:bg-emerald-700 text-white mt-auto"
-                    onClick={() => handleStart(exam.id)}
-                  >
-                    View / Register
-                  </Button>
-                )}
-              </CardContent>
-            </Card>
-          ))}
+        <div className="text-center mb-10">
+          <h1 className="text-4xl md:text-5xl font-bold mb-2">
+            <span className="bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">
+              WAEC Practice Exams
+            </span>
+          </h1>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Practice real WAEC questions for Mathematics and English. Get
+            instant feedback and track your progress!
+          </p>
         </div>
+        {/* Only show exam list if no exam is open */}
+        {openExam === null ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12">
+            {exams.map((exam: WaecExam) => {
+              const meta =
+                subjectMeta[exam.subject] || subjectMeta["Mathematics"];
+              return (
+                <Card
+                  key={exam.id}
+                  className={`relative overflow-hidden rounded-3xl shadow-xl border-0 bg-white/70 backdrop-blur-md transition-transform duration-300 hover:scale-105 hover:shadow-2xl group`}
+                >
+                  <CardContent className="p-8 flex flex-col h-full">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div
+                        className={`w-14 h-14 rounded-xl bg-gradient-to-br ${meta.gradient} flex items-center justify-center shadow-lg border-4 border-white group-hover:scale-110 transition-transform`}
+                      >
+                        {meta.icon}
+                      </div>
+                      <div>
+                        <div className="text-xl font-bold text-gray-800 mb-1">
+                          {exam.title}
+                        </div>
+                        <Badge className={`${meta.badge} px-3 py-1 shadow`}>
+                          {exam.subject}
+                        </Badge>
+                      </div>
+                    </div>
+                    <div className="flex flex-wrap gap-2 mb-2">
+                      <span className="inline-block bg-gray-100 rounded px-2 py-1 text-xs text-gray-700">
+                        <b>Class:</b> {exam.className}
+                      </span>
+                      <span className="inline-block bg-gray-100 rounded px-2 py-1 text-xs text-gray-700">
+                        <b>Department:</b> {exam.department}
+                      </span>
+                    </div>
+                    <div className="text-xs text-gray-500 mb-4">
+                      {exam.date} at {exam.time}
+                    </div>
+                    <Button
+                      className="bg-emerald-600 hover:bg-emerald-700 text-white mt-auto w-full rounded-full shadow-lg"
+                      onClick={() => handleStart(exam.id)}
+                    >
+                      Go Practice
+                    </Button>
+                    {/* Decorative gradient blob */}
+                    <span
+                      className={`absolute -top-10 -right-10 w-32 h-32 rounded-full opacity-20 blur-2xl bg-gradient-to-br ${meta.gradient}`}
+                    ></span>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        ) : (
+          // Only show the selected exam in full-page view
+          (() => {
+            const exam = exams.find((e: WaecExam) => e.id === openExam);
+            if (!exam) return null;
+            const meta =
+              subjectMeta[exam.subject] || subjectMeta["Mathematics"];
+            return (
+              <div className="max-w-2xl mx-auto mb-12">
+                <Card className="relative overflow-hidden rounded-3xl shadow-xl border-0 bg-white/80 backdrop-blur-md">
+                  <CardContent className="p-8 flex flex-col h-full">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div
+                        className={`w-14 h-14 rounded-xl bg-gradient-to-br ${meta.gradient} flex items-center justify-center shadow-lg border-4 border-white`}
+                      >
+                        {meta.icon}
+                      </div>
+                      <div>
+                        <div className="text-xl font-bold text-gray-800 mb-1">
+                          {exam.title}
+                        </div>
+                        <Badge className={`${meta.badge} px-3 py-1 shadow`}>
+                          {exam.subject}
+                        </Badge>
+                      </div>
+                    </div>
+                    <div className="flex flex-wrap gap-2 mb-2">
+                      <span className="inline-block bg-gray-100 rounded px-2 py-1 text-xs text-gray-700">
+                        <b>Class:</b> {exam.className}
+                      </span>
+                      <span className="inline-block bg-gray-100 rounded px-2 py-1 text-xs text-gray-700">
+                        <b>Department:</b> {exam.department}
+                      </span>
+                    </div>
+                    <div className="text-xs text-gray-500 mb-4">
+                      {exam.date} at {exam.time}
+                    </div>
+                    <Button
+                      variant="secondary"
+                      className="mb-6 w-fit self-start"
+                      onClick={() => setOpenExam(null)}
+                    >
+                      ← Back
+                    </Button>
+                    <div className="mt-4 space-y-6">
+                      {exam.questions.map(
+                        (
+                          q: { q: string; options: string[]; answer: number },
+                          qIdx: number
+                        ) => (
+                          <div key={qIdx} className="mb-4">
+                            <div className="font-semibold mb-2">
+                              Q{qIdx + 1}. {q.q}
+                            </div>
+                            <div className="flex flex-col gap-2">
+                              {q.options.map((opt: string, optIdx: number) => (
+                                <label
+                                  key={optIdx}
+                                  className={`flex items-center gap-2 p-2 rounded cursor-pointer transition-all ${
+                                    answers[exam.id]?.[qIdx] === optIdx
+                                      ? "bg-emerald-100 border-emerald-400"
+                                      : "bg-white border border-gray-200 hover:border-emerald-300"
+                                  }`}
+                                >
+                                  <input
+                                    type="radio"
+                                    name={`q${exam.id}_${qIdx}`}
+                                    checked={
+                                      answers[exam.id]?.[qIdx] === optIdx
+                                    }
+                                    onChange={() =>
+                                      handleAnswer(exam.id, qIdx, optIdx)
+                                    }
+                                    className="accent-emerald-600"
+                                  />
+                                  <span>{opt}</span>
+                                </label>
+                              ))}
+                            </div>
+                          </div>
+                        )
+                      )}
+                      <Button
+                        className="bg-emerald-600 hover:bg-emerald-700 text-white mt-2 w-full rounded-full shadow-lg"
+                        onClick={() => handleSubmit(exam)}
+                      >
+                        Submit
+                      </Button>
+                    </div>
+                    {/* Decorative gradient blob */}
+                    <span
+                      className={`absolute -top-10 -right-10 w-32 h-32 rounded-full opacity-20 blur-2xl bg-gradient-to-br ${meta.gradient}`}
+                    ></span>
+                  </CardContent>
+                </Card>
+              </div>
+            );
+          })()
+        )}
         {/* Feedback Modal */}
         <Dialog open={showFeedback} onOpenChange={setShowFeedback}>
-          <DialogContent className="max-w-md text-center">
+          <DialogContent className="max-w-md text-center bg-white/80 backdrop-blur-md rounded-3xl shadow-2xl">
             <DialogHeader>
               <DialogTitle className="text-3xl flex items-center justify-center gap-2">
                 {feedbackEmoji}{" "}
@@ -182,6 +250,10 @@ export default function WaecExamsPage() {
             <div className="my-4 text-lg font-semibold text-emerald-700">
               You scored {score} out of 2
             </div>
+            <Progress
+              value={(score / 2) * 100}
+              className="mb-4 h-3 bg-gray-200"
+            />
             {score === 2 && <div className="text-4xl animate-bounce">🎊</div>}
             {score === 2 && (
               <div className="text-emerald-600 font-bold mt-2">
@@ -194,13 +266,40 @@ export default function WaecExamsPage() {
               </div>
             )}
             <Button
-              className="mt-6 bg-emerald-600 hover:bg-emerald-700 text-white"
+              className="mt-6 bg-emerald-600 hover:bg-emerald-700 text-white w-full rounded-full shadow-lg"
               onClick={() => setShowFeedback(false)}
             >
               Close
             </Button>
           </DialogContent>
         </Dialog>
+        {/* Tips Section */}
+        <Card className="border-0 shadow-lg bg-gradient-to-r from-emerald-500 to-blue-500 text-white mt-16 rounded-3xl">
+          <CardContent className="p-8">
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                <MessageSquare className="w-6 h-6" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold mb-2">
+                  Exam Preparation Tips
+                </h3>
+                <ul className="space-y-2 text-emerald-100">
+                  <li>• Read all questions carefully before starting</li>
+                  <li>
+                    • Manage your time effectively - don’t spend too long on one
+                    question
+                  </li>
+                  <li>• Review your answers before submitting</li>
+                  <li>• Take practice exams regularly to build confidence</li>
+                  <li>
+                    • Focus on your weak areas and practice specific subjects
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );

@@ -33,6 +33,17 @@ interface Exam {
   time: string;
 }
 
+// Remove hardcoded testimonials and use fetched reviews
+interface Review {
+  _id?: string;
+  name: string;
+  initial: string;
+  quote: string;
+  details: string;
+  rating: number;
+  createdAt?: string;
+}
+
 export default function HomePage() {
   const { isLoggedIn, loading, logout, user } = useAuth();
 
@@ -78,14 +89,46 @@ export default function HomePage() {
 
   // Subject tiles
   const subjects = [
-    { name: "Mathematics", icon: <Target className="w-6 h-6" /> },
-    { name: "Biology", icon: <Brain className="w-6 h-6" /> },
-    { name: "Chemistry", icon: <BookOpen className="w-6 h-6" /> },
-    { name: "Physics", icon: <Clock className="w-6 h-6" /> },
-    { name: "English", icon: <MessageSquare className="w-6 h-6" /> },
-    { name: "Economics", icon: <Star className="w-6 h-6" /> },
-    { name: "Geography", icon: <ArrowRight className="w-6 h-6" /> },
-    { name: "Civic", icon: <Play className="w-6 h-6" /> },
+    {
+      name: "Mathematics",
+      icon: <Target className="w-6 h-6" />,
+      gradient: "from-pink-500 to-yellow-500",
+    },
+    {
+      name: "Biology",
+      icon: <Brain className="w-6 h-6" />,
+      gradient: "from-green-400 to-emerald-600",
+    },
+    {
+      name: "Chemistry",
+      icon: <BookOpen className="w-6 h-6" />,
+      gradient: "from-blue-400 to-cyan-500",
+    },
+    {
+      name: "Physics",
+      icon: <Clock className="w-6 h-6" />,
+      gradient: "from-purple-500 to-indigo-500",
+    },
+    {
+      name: "English",
+      icon: <MessageSquare className="w-6 h-6" />,
+      gradient: "from-orange-400 to-pink-500",
+    },
+    {
+      name: "Economics",
+      icon: <Star className="w-6 h-6" />,
+      gradient: "from-yellow-400 to-amber-500",
+    },
+    {
+      name: "Geography",
+      icon: <ArrowRight className="w-6 h-6" />,
+      gradient: "from-teal-400 to-blue-500",
+    },
+    {
+      name: "Civic",
+      icon: <Play className="w-6 h-6" />,
+      gradient: "from-red-400 to-pink-600",
+    },
   ];
 
   // Exam alert state
@@ -153,35 +196,13 @@ export default function HomePage() {
     }
   };
 
-  // Testimonials data
-  const testimonials = [
-    {
-      name: "Adaora O.",
-      initial: "A",
-      color: "bg-emerald-500",
-      quote:
-        '"groupXam helped me improve my grades significantly. The practice questions are exactly like the real WAEC exams!"',
-      details: "WAEC 2023 - 8 A's",
-    },
-    {
-      name: "Kemi S.",
-      initial: "K",
-      color: "bg-blue-500",
-      quote:
-        '"The flashcards feature is amazing! I could study anywhere and the progress tracking kept me motivated."',
-      details: "WAEC 2023 - 7 A's",
-    },
-    {
-      name: "Chidi M.",
-      initial: "C",
-      color: "bg-purple-500",
-      quote:
-        '"The discussion forum helped me understand difficult concepts. The community is very supportive!"',
-      details: "WAEC 2023 - 6 A's",
-    },
-  ];
-  // Duplicate testimonials for seamless marquee
-  const marqueeTestimonials = [...testimonials, ...testimonials];
+  // Reviews state for carousel
+  const [reviews, setReviews] = useState<Review[]>([]);
+  useEffect(() => {
+    fetch("/api/reviews")
+      .then((res) => (res.ok ? res.json() : []))
+      .then((data) => setReviews(Array.isArray(data) ? data : []));
+  }, []);
 
   return (
     <div className="min-h-screen bg-white">
@@ -278,20 +299,6 @@ export default function HomePage() {
 
           {/* Quick Start Widget */}
           <div className="grid grid-cols-2 gap-3 sm:flex sm:flex-row sm:gap-4 justify-center mb-8 sm:mb-12 px-4 max-w-md sm:max-w-none mx-auto">
-            <Button
-              asChild
-              size="lg"
-              className="bg-purple-600 hover:bg-purple-700 text-white text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 shadow-lg"
-            >
-              <Link href="/exams?type=sat">SAT</Link>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              className="bg-orange-600 hover:bg-orange-700 text-white text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 shadow-lg"
-            >
-              <Link href="/exams?type=act">ACT</Link>
-            </Button>
             <Button
               asChild
               size="lg"
@@ -398,10 +405,13 @@ export default function HomePage() {
               <Link
                 key={subject.name}
                 href="/quiz"
-                className="group block rounded-2xl bg-gradient-to-br from-emerald-50 to-blue-50 hover:from-emerald-100 hover:to-blue-100 shadow-md hover:shadow-xl p-6 text-center transition-all duration-300 border border-transparent hover:border-emerald-400"
+                className="group block rounded-2xl bg-white hover:shadow-xl shadow-md p-6 text-center transition-all duration-300 border border-gray-100 hover:border-transparent relative overflow-hidden"
+                style={{ position: "relative" }}
               >
-                <div className="flex justify-center mb-3">
-                  <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r from-emerald-500 to-blue-500 text-white text-2xl group-hover:scale-110 transition-transform">
+                <div className={`flex justify-center mb-3`}>
+                  <span
+                    className={`inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br ${subject.gradient} text-white text-2xl shadow-lg group-hover:scale-110 transition-transform border-4 border-white`}
+                  >
                     {subject.icon}
                   </span>
                 </div>
@@ -411,6 +421,10 @@ export default function HomePage() {
                 <div className="text-xs text-gray-500 mt-1">
                   Start Practicing
                 </div>
+                {/* Decorative blob */}
+                <span
+                  className={`absolute -top-6 -right-6 w-20 h-20 rounded-full opacity-10 blur-2xl bg-gradient-to-br ${subject.gradient}`}
+                ></span>
               </Link>
             ))}
           </div>
@@ -433,10 +447,10 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6 mb-12">
             {/* Quiz Card */}
-            <Card className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2 bg-gradient-to-br from-emerald-50 to-emerald-100 h-full">
+            <Card className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2 bg-gradient-to-br from-green-100 to-green-50 h-full">
               <CardContent className="p-6 sm:p-8 text-center flex flex-col h-full justify-between">
                 <div className="flex-1 flex flex-col justify-center">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                     <Target className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                   </div>
                   <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3">
@@ -457,7 +471,7 @@ export default function HomePage() {
             </Card>
 
             {/* Exam Card */}
-            <Card className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2 bg-gradient-to-br from-blue-50 to-blue-100 h-full">
+            <Card className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2 bg-gradient-to-br from-blue-100 to-blue-50 h-full">
               <CardContent className="p-6 sm:p-8 text-center flex flex-col h-full justify-between">
                 <div className="flex-1 flex flex-col justify-center">
                   <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
@@ -480,10 +494,10 @@ export default function HomePage() {
             </Card>
 
             {/* Flashcards Card */}
-            <Card className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2 bg-gradient-to-br from-purple-50 to-purple-100 h-full">
+            <Card className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2 bg-gradient-to-br from-purple-100 to-purple-50 h-full">
               <CardContent className="p-6 sm:p-8 text-center flex flex-col h-full justify-between">
                 <div className="flex-1 flex flex-col justify-center">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-purple-500 to-fuchsia-500 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                     <Brain className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                   </div>
                   <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3">
@@ -503,10 +517,10 @@ export default function HomePage() {
             </Card>
 
             {/* Discussions Card */}
-            <Card className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2 bg-gradient-to-br from-emerald-50 to-blue-50 h-full">
+            <Card className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2 bg-gradient-to-br from-cyan-100 to-teal-50 h-full">
               <CardContent className="p-6 sm:p-8 text-center flex flex-col h-full justify-between">
                 <div className="flex-1 flex flex-col justify-center">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                     <MessageSquare className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                   </div>
                   <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3">
@@ -526,10 +540,10 @@ export default function HomePage() {
             </Card>
 
             {/* Institutional Testing Service Card */}
-            <Card className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2 bg-gradient-to-br from-emerald-50 to-emerald-100 h-full">
+            <Card className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2 bg-gradient-to-br from-emerald-100 to-lime-50 h-full">
               <CardContent className="p-6 sm:p-8 text-center flex flex-col h-full justify-between">
                 <div className="flex-1 flex flex-col justify-center">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-emerald-500 to-lime-500 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                     <Star className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                   </div>
                   <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3">
@@ -634,17 +648,19 @@ export default function HomePage() {
               className="flex gap-8 animate-marquee"
               style={{ minWidth: "200%", willChange: "transform" }}
             >
-              {marqueeTestimonials.map((t, idx) => (
+              {reviews.concat(reviews).map((t, idx) => (
                 <div
                   className="flex flex-col h-full min-w-[320px] max-w-xs mx-auto"
-                  key={idx}
+                  key={t._id || idx}
                 >
                   <div className="border-0 shadow-lg rounded-xl bg-white flex flex-col h-full p-6 sm:p-8">
-                    <div className="flex mb-4">
+                    <div className="flex mb-4 gap-1">
                       {[...Array(5)].map((_, i) => (
                         <Star
                           key={i}
-                          className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400 fill-current"
+                          className={`w-4 h-4 sm:w-5 sm:h-5 ${
+                            i < t.rating ? "text-yellow-400" : "text-gray-300"
+                          } fill-current`}
                         />
                       ))}
                     </div>
@@ -653,7 +669,7 @@ export default function HomePage() {
                     </p>
                     <div className="flex items-center mt-auto">
                       <div
-                        className={`w-10 h-10 sm:w-12 sm:h-12 ${t.color} rounded-full flex items-center justify-center text-white font-bold mr-3 sm:mr-4 text-sm sm:text-base`}
+                        className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-full flex items-center justify-center text-white font-bold mr-3 sm:mr-4 text-sm sm:text-base`}
                       >
                         {t.initial}
                       </div>
@@ -664,6 +680,11 @@ export default function HomePage() {
                         <div className="text-xs sm:text-sm text-gray-500">
                           {t.details}
                         </div>
+                        {t.createdAt && (
+                          <div className="text-xs text-gray-400 mt-1">
+                            {new Date(t.createdAt).toLocaleDateString()}
+                          </div>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -762,6 +783,7 @@ export default function HomePage() {
                     Institutional Testing Service
                   </Link>
                 </li>
+
                 <li>
                   <Link
                     href="https://efggames.com"
@@ -781,14 +803,6 @@ export default function HomePage() {
               <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-gray-400">
                 <li>
                   <Link
-                    href="/help"
-                    className="hover:text-white transition-colors"
-                  >
-                    Help Center
-                  </Link>
-                </li>
-                <li>
-                  <Link
                     href="/contact"
                     className="hover:text-white transition-colors"
                   >
@@ -801,14 +815,6 @@ export default function HomePage() {
                     className="hover:text-white transition-colors"
                   >
                     FAQ
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/tutorials"
-                    className="hover:text-white transition-colors"
-                  >
-                    Tutorials
                   </Link>
                 </li>
               </ul>
@@ -828,7 +834,7 @@ export default function HomePage() {
                 </li>
                 <li>
                   <Link
-                    href="/privacy"
+                    href="/privacy-policy"
                     className="hover:text-white transition-colors"
                   >
                     Privacy Policy
@@ -836,14 +842,22 @@ export default function HomePage() {
                 </li>
                 <li>
                   <Link
-                    href="/terms"
+                    href="/terms-of-use"
                     className="hover:text-white transition-colors"
                   >
-                    Terms of Service
+                    Terms of Use
                   </Link>
                 </li>
               </ul>
             </div>
+          </div>
+          <div className="flex justify-center mb-6">
+            <Button
+              asChild
+              className="bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-bold text-lg px-8 py-3 rounded-full shadow-xl animate-fade-in"
+            >
+              <Link href="/testimonials">Read & Share Testimonials</Link>
+            </Button>
           </div>
           <div className="border-t border-gray-800 pt-6 sm:pt-8 text-center text-sm sm:text-base text-gray-400">
             <p>

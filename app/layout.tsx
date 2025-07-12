@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import CookieConsent from "@/components/CookieConsent";
 
 export const metadata: Metadata = {
   title: "GroupXam - Ace Your Exams with Confidence",
@@ -96,7 +97,10 @@ export default function RootLayout({
         <meta name="msapplication-TileColor" content="#10b981" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
       </head>
-      <body>{children}</body>
+      <body>
+        <CookieConsent />
+        {children}
+      </body>
     </html>
   );
 }

@@ -53,6 +53,7 @@ const examTypes = [
     color: "emerald",
     count: 45,
     difficulty: "Advanced",
+    gradient: "from-green-400 to-emerald-500",
   },
   {
     id: "wassce",
@@ -62,24 +63,7 @@ const examTypes = [
     color: "blue",
     count: 38,
     difficulty: "Advanced",
-  },
-  {
-    id: "sat",
-    title: "SAT",
-    description: "Scholastic Assessment Test",
-    icon: BookMarked,
-    color: "purple",
-    count: 25,
-    difficulty: "Advanced",
-  },
-  {
-    id: "act",
-    title: "ACT",
-    description: "American College Testing",
-    icon: TestTube,
-    color: "orange",
-    count: 22,
-    difficulty: "Advanced",
+    gradient: "from-blue-400 to-blue-600",
   },
 ];
 
@@ -331,41 +315,50 @@ export default function ExamsPage() {
           <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
             Choose Your Exam Type
           </h2>
-          <div className="grid md:grid-cols-4 gap-6">
-            {examTypes.map((examType) => {
-              const Icon = examType.icon;
-              const colors = getColorClasses(examType.color);
-
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
+            {examTypes.map((type) => {
+              const color = getColorClasses(type.color);
               return (
                 <Card
-                  key={examType.id}
-                  className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2"
+                  key={type.id}
+                  className={`
+                    relative overflow-hidden rounded-3xl shadow-xl border-0
+                    bg-white/70 backdrop-blur-md
+                    transition-transform duration-300
+                    hover:scale-105 hover:shadow-2xl
+                    group
+                  `}
                 >
-                  <CardContent className="p-6 text-center">
-                    <div
-                      className={`w-12 h-12 bg-gradient-to-r ${colors.bg} rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg`}
-                    >
-                      <Icon className="w-6 h-6 text-white" />
+                  <CardContent className="p-8 flex flex-col items-center text-center">
+                    <div className="w-16 h-16 rounded-full bg-white shadow-lg flex items-center justify-center mb-4 border-4 border-white group-hover:shadow-emerald-200">
+                      <type.icon className={`w-8 h-8 ${color.text}`} />
                     </div>
-                    <h3 className="text-lg font-bold text-gray-800 mb-2">
-                      {examType.title}
-                    </h3>
-                    <p className="text-gray-600 mb-3 text-xs leading-relaxed">
-                      {examType.description}
-                    </p>
-                    <div className="flex justify-between items-center mb-4 text-xs">
-                      <Badge variant="secondary">{examType.count} Exams</Badge>
-                      <Badge className={colors.text}>
-                        {examType.difficulty}
+                    <div className="font-bold text-2xl mb-1 text-gray-900 tracking-wide">
+                      {type.title}
+                    </div>
+                    <div className="text-gray-700 text-sm mb-3">
+                      {type.description}
+                    </div>
+                    <div className="flex items-center gap-2 mb-6">
+                      <Badge className="bg-emerald-100 text-emerald-700 px-3 py-1 shadow">
+                        {type.count} Exams
+                      </Badge>
+                      <Badge className="bg-black text-white px-3 py-1">
+                        {type.difficulty}
                       </Badge>
                     </div>
                     <Button
-                      className={`w-full ${colors.button} shadow-md text-sm`}
+                      asChild
+                      className={`w-full rounded-full font-semibold shadow-lg ${color.button} text-base py-3`}
                     >
-                      <Link href={`/exams/${examType.id}`}>
-                        Browse {examType.title}
-                      </Link>
+                      <Link
+                        href={`/exams/${type.id}`}
+                      >{`Browse ${type.title}`}</Link>
                     </Button>
+                    {/* Decorative gradient blob */}
+                    <span
+                      className={`absolute -top-10 -right-10 w-32 h-32 rounded-full opacity-20 blur-2xl bg-gradient-to-br ${type.gradient}`}
+                    ></span>
                   </CardContent>
                 </Card>
               );

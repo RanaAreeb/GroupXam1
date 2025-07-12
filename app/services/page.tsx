@@ -362,27 +362,29 @@ This slip must be presented on exam day for verification.
       {/* Hero Section */}
       <section className="relative py-16 sm:py-24 px-4 bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50 overflow-hidden">
         <div className="container mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">
-            University Entrance Exams
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">
+            Entrance & Certification Exams
           </h1>
-          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            Register for upcoming university entrance examinations and take your
-            first step towards higher education
+          <p className="text-lg sm:text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+            Register for upcoming exams across K-12, university entrance,
+            professional certification, government, and more. Take your next
+            step in education or career advancement with our all-in-one testing
+            platform.
           </p>
 
           {/* Stats */}
-          <div className="flex justify-center space-x-6 mb-8">
-            <Badge className="bg-white text-emerald-600 px-6 py-3 shadow-lg">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:space-x-6 mb-8 w-full max-w-xl mx-auto">
+            <Badge className="bg-white text-emerald-600 px-6 py-3 shadow-lg w-full sm:w-auto flex items-center justify-center">
               <BookOpen className="w-5 h-5 mr-2" />
               {totalExams} Upcoming Exams
             </Badge>
-            <Badge className="bg-white text-emerald-600 px-6 py-3 shadow-lg">
+            <Badge className="bg-white text-emerald-600 px-6 py-3 shadow-lg w-full sm:w-auto flex items-center justify-center">
               <Users className="w-5 h-5 mr-2" />
               {totalStudents} Students Registered
             </Badge>
-            <Badge className="bg-white text-emerald-600 px-6 py-3 shadow-lg">
+            <Badge className="bg-white text-emerald-600 px-6 py-3 shadow-lg w-full sm:w-auto flex items-center justify-center">
               <Building className="w-5 h-5 mr-2" />
-              {totalUniversities} Universities
+              {totalUniversities} Institutions
             </Badge>
           </div>
         </div>
