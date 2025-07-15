@@ -1,6 +1,9 @@
 import { NextResponse } from "next/server";
 import { getDatabase } from "@/lib/db";
 
+// Force dynamic rendering for this route
+export const dynamic = 'force-dynamic';
+
 // GET - Fetch user's flashcard sets
 export async function GET(request) {
     try {

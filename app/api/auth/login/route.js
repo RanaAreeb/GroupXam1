@@ -5,6 +5,9 @@ import { getDatabase } from "@/lib/db"
 
 const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key"
 
+// Force dynamic rendering for this route
+export const dynamic = 'force-dynamic';
+
 export async function POST(request) {
   const startTime = Date.now()
 

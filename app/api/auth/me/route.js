@@ -3,6 +3,10 @@ import jwt from "jsonwebtoken";
 
 const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key";
 
+// Force dynamic rendering for this route
+export const dynamic = 'force-dynamic';
+
+// GET - Get current user info
 export async function GET(request) {
     const token = request.cookies.get("token")?.value;
     if (!token) {

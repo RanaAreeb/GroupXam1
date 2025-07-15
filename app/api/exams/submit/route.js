@@ -1,9 +1,11 @@
 import { NextResponse } from "next/server";
-import { MongoClient, ObjectId } from "mongodb";
+import { getDatabase } from "@/lib/db";
 import jwt from "jsonwebtoken";
 
-const uri = process.env.MONGODB_URI || "mongodb://localhost:27017/groupxam";
 const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key";
+
+// Force dynamic rendering for this route
+export const dynamic = 'force-dynamic';
 
 function getUserFromRequest(request) {
     const token = request.cookies.get("token")?.value;

@@ -3,6 +3,9 @@ import { MongoClient, ObjectId } from "mongodb";
 
 const uri = process.env.MONGODB_URI || "mongodb://localhost:27017/groupxam";
 
+// Force dynamic rendering for this route
+export const dynamic = 'force-dynamic';
+
 // Expanded subjects and subcategories
 export const SUBJECTS = [
     { name: "Physics" },

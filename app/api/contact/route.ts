@@ -1,6 +1,9 @@
 import { NextRequest } from "next/server";
 import nodemailer from "nodemailer";
 
+// Force dynamic rendering for this route
+export const dynamic = "force-dynamic";
+
 export async function POST(req: NextRequest) {
   try {
     const { name, email, subject, message } = await req.json();

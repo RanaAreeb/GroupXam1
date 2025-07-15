@@ -6,6 +6,9 @@ import { sendWelcomeEmail } from "@/lib/email";
 const uri = process.env.MONGODB_URI || "mongodb://localhost:27017/groupxam";
 const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key";
 
+// Force dynamic rendering for this route
+export const dynamic = 'force-dynamic';
+
 export async function POST(request) {
     try {
         const { email, verificationCode } = await request.json();

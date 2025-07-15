@@ -1,6 +1,9 @@
 import { NextRequest } from "next/server";
 import { getDatabase } from "@/lib/db";
 
+// Force dynamic rendering for this route
+export const dynamic = "force-dynamic";
+
 export async function GET() {
   try {
     const db = await getDatabase();

@@ -1,3 +1,6 @@
+// Force dynamic rendering for this route
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
     // Return environment variables (only non-sensitive ones)
     const env = {

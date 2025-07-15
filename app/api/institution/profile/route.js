@@ -4,6 +4,9 @@ import jwt from "jsonwebtoken";
 
 const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key";
 
+// Force dynamic rendering for this route
+export const dynamic = 'force-dynamic';
+
 // GET - Fetch institution profile
 export async function GET(request) {
     try {
