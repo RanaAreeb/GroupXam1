@@ -56,7 +56,15 @@ export default function PrivacyPolicyPage() {
           We implement industry-standard security measures to protect your
           information. However, no method is 100% secure.
         </p>
-        <h2 className="text-xl font-bold mb-2 text-emerald-300">5. Contact</h2>
+        <h2 className="text-xl font-bold mb-2 text-emerald-300">
+          5. Children's Privacy
+        </h2>
+        <p className="mb-4">
+          Our services are not intended for individuals under the age of 13. We
+          do not knowingly collect personal information from children under 13.
+          If we become aware of such data, we will take steps to delete it.
+        </p>
+        <h2 className="text-xl font-bold mb-2 text-emerald-300">6. Contact</h2>
         <p>
           If you have questions about this policy, please contact us via the
           Contact page.

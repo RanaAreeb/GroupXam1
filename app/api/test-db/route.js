@@ -1,7 +1,5 @@
 import { NextResponse } from "next/server"
-import { MongoClient } from "mongodb"
-
-const uri = process.env.MONGODB_URI || "mongodb://localhost:27017/groupxam"
+import { getDatabase } from "@/lib/db"
 
 // Force dynamic rendering for this route
 export const dynamic = 'force-dynamic';
@@ -9,20 +7,15 @@ export const dynamic = 'force-dynamic';
 export async function GET() {
   try {
     console.log("Testing database connection...")
-    console.log("MongoDB URI:", uri ? "Set" : "Not set")
+    console.log("MongoDB URI:", process.env.MONGODB_URI ? "Set" : "Not set")
 
-    const client = new MongoClient(uri)
-    await client.connect()
-
-    const db = client.db("groupxam")
+    const db = await getDatabase()
     await db.admin().ping()
 
     // Get collection counts
     const questionsCount = await db.collection("questions").countDocuments()
     const usersCount = await db.collection("users").countDocuments()
     const flashcardsCount = await db.collection("flashcards").countDocuments()
-
-    await client.close()
 
     return NextResponse.json({
       status: "success",

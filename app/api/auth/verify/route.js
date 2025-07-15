@@ -1,9 +1,8 @@
 import { NextResponse } from "next/server";
-import { MongoClient } from "mongodb";
+import { getDatabase } from "@/lib/db";
 import jwt from "jsonwebtoken";
 import { sendWelcomeEmail } from "@/lib/email";
 
-const uri = process.env.MONGODB_URI || "mongodb://localhost:27017/groupxam";
 const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key";
 
 // Force dynamic rendering for this route
@@ -20,16 +19,13 @@ export async function POST(request) {
         }
 
         // Connect to MongoDB
-        const client = new MongoClient(uri);
-        await client.connect();
-        const db = client.db("groupxam");
+        const db = await getDatabase();
         const users = db.collection("users");
 
         // Find user by email
         const user = await users.findOne({ email: email.toLowerCase() });
 
         if (!user) {
-            await client.close();
             return NextResponse.json({
                 error: "User not found"
             }, { status: 404 });
@@ -37,7 +33,6 @@ export async function POST(request) {
 
         // Check if already verified
         if (user.isVerified) {
-            await client.close();
             return NextResponse.json({
                 error: "Email is already verified"
             }, { status: 400 });
@@ -45,7 +40,6 @@ export async function POST(request) {
 
         // Check if verification code is expired
         if (new Date() > user.verificationExpiry) {
-            await client.close();
             return NextResponse.json({
                 error: "Verification code has expired. Please request a new one."
             }, { status: 400 });
@@ -53,7 +47,6 @@ export async function POST(request) {
 
         // Check verification attempts
         if (user.verificationAttempts >= 5) {
-            await client.close();
             return NextResponse.json({
                 error: "Too many verification attempts. Please request a new code."
             }, { status: 400 });
@@ -67,7 +60,6 @@ export async function POST(request) {
                 { $inc: { verificationAttempts: 1 } }
             );
 
-            await client.close();
             return NextResponse.json({
                 error: "Invalid verification code"
             }, { status: 400 });
@@ -91,7 +83,6 @@ export async function POST(request) {
         );
 
         if (updateResult.matchedCount === 0) {
-            await client.close();
             return NextResponse.json({
                 error: "Failed to verify account"
             }, { status: 500 });
@@ -116,8 +107,6 @@ export async function POST(request) {
             console.error('Failed to send welcome email:', emailError);
             // Don't fail the verification if welcome email fails
         }
-
-        await client.close();
 
         // Set HTTP-only cookie
         const response = NextResponse.json({
@@ -160,16 +149,13 @@ export async function PUT(request) {
         }
 
         // Connect to MongoDB
-        const client = new MongoClient(uri);
-        await client.connect();
-        const db = client.db("groupxam");
+        const db = await getDatabase();
         const users = db.collection("users");
 
         // Find user by email
         const user = await users.findOne({ email: email.toLowerCase() });
 
         if (!user) {
-            await client.close();
             return NextResponse.json({
                 error: "User not found"
             }, { status: 404 });
@@ -177,7 +163,6 @@ export async function PUT(request) {
 
         // Check if already verified
         if (user.isVerified) {
-            await client.close();
             return NextResponse.json({
                 error: "Email is already verified"
             }, { status: 400 });
@@ -209,13 +194,11 @@ export async function PUT(request) {
         );
 
         if (!emailResult.success) {
-            await client.close();
+            console.error('Email sending failed:', emailResult.error);
             return NextResponse.json({
                 error: "Failed to send verification email. Please try again."
             }, { status: 500 });
         }
-
-        await client.close();
 
         return NextResponse.json({
             success: true,

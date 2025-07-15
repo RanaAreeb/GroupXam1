@@ -1,9 +1,7 @@
 import { NextResponse } from "next/server"
-import { MongoClient } from "mongodb"
+import { getDatabase } from "@/lib/db"
 import bcrypt from "bcryptjs"
 import { generateVerificationCode, sendVerificationEmail } from "@/lib/email"
-
-const uri = process.env.MONGODB_URI || "mongodb://localhost:27017/groupxam"
 
 // Force dynamic rendering for this route
 export const dynamic = 'force-dynamic';
@@ -15,15 +13,12 @@ export async function POST(request) {
     const email = requestData.email.toLowerCase()
 
     // Connect to MongoDB
-    const client = new MongoClient(uri)
-    await client.connect()
-    const db = client.db("groupxam")
+    const db = await getDatabase()
     const users = db.collection("users")
 
     // Check if user already exists
     const existingUser = await users.findOne({ email })
     if (existingUser) {
-      await client.close()
       return NextResponse.json({ error: "User already exists" }, { status: 400 })
     }
 
@@ -152,8 +147,6 @@ export async function POST(request) {
         error: "Failed to send verification email. Please try again."
       }, { status: 500 });
     }
-
-    await client.close()
 
     return NextResponse.json(
       {

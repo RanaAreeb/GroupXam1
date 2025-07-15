@@ -18,67 +18,57 @@ function getUserFromRequest(request) {
 }
 
 export async function POST(request) {
+    // Submit exam answers
     const user = getUserFromRequest(request);
     if (!user || user.role !== "student") {
         return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
-    const body = await request.json();
-    const { examId, answers, securityAlerts = [] } = body;
-    if (!examId || !Array.isArray(answers)) {
-        return NextResponse.json({ error: "Missing examId or answers" }, { status: 400 });
+    const data = await request.json();
+    const db = await getDatabase();
+
+    // Check if already submitted
+    const existing = await db.collection("examSubmissions").findOne({
+        examId: data.examId,
+        studentEmail: user.email
+    });
+    if (existing) {
+        return NextResponse.json({ error: "Already submitted this exam" }, { status: 409 });
     }
-    const client = new MongoClient(uri);
-    await client.connect();
-    const db = client.db("groupxam");
-    try {
-        // Get exam and MCQs
-        const exam = await db.collection("exams").findOne({ _id: new ObjectId(examId) });
-        if (!exam) {
-            await client.close();
-            return NextResponse.json({ error: "Exam not found" }, { status: 404 });
-        }
-        // Calculate score
-        let score = 0;
-        let totalQuestions = exam.mcqs.length;
-        for (let i = 0; i < totalQuestions; i++) {
-            if (answers[i] === exam.mcqs[i].correctAnswer) score++;
-        }
-        const examIdStr = typeof examId === "string" ? examId : examId.toString();
-        // Find existing registration/submission
-        const existing = await db.collection("submissions").findOne({
-            examId: examIdStr,
-            studentEmail: user.email
+
+    // Calculate score
+    const exam = await db.collection("exams").findOne({ _id: new ObjectId(data.examId) });
+    if (!exam) {
+        return NextResponse.json({ error: "Exam not found" }, { status: 404 });
+    }
+
+    let score = 0;
+    let totalQuestions = 0;
+    if (exam.mcqs && data.answers) {
+        exam.mcqs.forEach((mcq, index) => {
+            totalQuestions++;
+            if (data.answers[index] === mcq.correctAnswer) {
+                score += mcq.points || 1;
+            }
         });
-        const now = new Date();
-        let update = {
-            status: "submitted",
-            submittedAt: now,
-            score,
-            totalQuestions,
-            timeTaken: exam.duration || 0,
-            answers,
-            examTitle: exam.title || "",
-            securityAlerts,
-        };
-        if (existing) {
-            await db.collection("submissions").updateOne(
-                { _id: existing._id },
-                { $set: update }
-            );
-        } else {
-            // If not registered, create new submission
-            await db.collection("submissions").insertOne({
-                examId: examIdStr,
-                studentEmail: user.email,
-                studentName: user.name || "",
-                ...update,
-                registeredAt: now,
-            });
-        }
-        await client.close();
-        return NextResponse.json({ message: "Submission saved", score });
-    } catch (error) {
-        await client.close();
-        return NextResponse.json({ error: "Failed to submit assessment" }, { status: 500 });
     }
+
+    const submission = {
+        examId: data.examId,
+        studentEmail: user.email,
+        studentName: user.name,
+        answers: data.answers || [],
+        score,
+        totalQuestions,
+        submittedAt: new Date(),
+        timeTaken: data.timeTaken || 0,
+        securityAlerts: data.securityAlerts || []
+    };
+
+    const result = await db.collection("examSubmissions").insertOne(submission);
+    return NextResponse.json({
+        message: "Exam submitted successfully",
+        submissionId: result.insertedId,
+        score,
+        totalQuestions
+    }, { status: 201 });
 } 

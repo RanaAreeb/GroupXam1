@@ -18,27 +18,36 @@ function getUserFromRequest(request) {
 }
 
 export async function GET(request) {
+    // Get exam submissions
     const user = getUserFromRequest(request);
     if (!user) {
         return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
-    const client = new MongoClient(uri);
-    await client.connect();
-    const db = client.db("groupxam");
-    let submissions = [];
-    if (user.role === "university") {
-        // Find all exams for this university
-        const exams = await db.collection("exams").find({ universityId: user.userId.toString() }).toArray();
-        const examIds = exams.map(e => e._id?.toString()).filter(Boolean);
-        // Find all submissions for these exams
-        submissions = await db.collection("submissions").find({ examId: { $in: examIds } }).toArray();
-    } else if (user.role === "student") {
-        // Find all submissions for this student
-        submissions = await db.collection("submissions").find({ studentEmail: user.email }).toArray();
-    } else {
-        await client.close();
-        return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    const db = await getDatabase();
+
+    try {
+        let submissions;
+        if (user.role === "university") {
+            // Universities see submissions for their exams
+            const exams = await db.collection("exams").find({ universityId: user.userId.toString() }).toArray();
+            const examIds = exams.map(exam => exam._id.toString());
+            submissions = await db.collection("examSubmissions")
+                .find({ examId: { $in: examIds } })
+                .sort({ submittedAt: -1 })
+                .toArray();
+        } else if (user.role === "student") {
+            // Students see their own submissions
+            submissions = await db.collection("examSubmissions")
+                .find({ studentEmail: user.email })
+                .sort({ submittedAt: -1 })
+                .toArray();
+        } else {
+            return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+        }
+
+        return NextResponse.json(submissions);
+    } catch (error) {
+        console.error("Error fetching submissions:", error);
+        return NextResponse.json({ error: "Failed to fetch submissions" }, { status: 500 });
     }
-    await client.close();
-    return NextResponse.json(submissions);
 } 

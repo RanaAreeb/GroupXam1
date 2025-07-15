@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getDatabase } from "@/lib/db";
+import { ObjectId } from "mongodb";
 import jwt from "jsonwebtoken";
 
 const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key";
@@ -22,15 +23,12 @@ export async function GET(request) {
     const user = getUserFromRequest(request);
     const { searchParams } = new URL(request.url);
     const id = searchParams.get("id");
-    const client = new MongoClient(uri);
-    await client.connect();
-    const db = client.db("groupxam");
+    const db = await getDatabase();
 
     try {
         if (id) {
             // Fetch a single exam by id
             const exam = await db.collection("exams").findOne({ _id: new ObjectId(id) });
-            await client.close();
             if (!exam) return NextResponse.json({ error: "Exam not found" }, { status: 404 });
             return NextResponse.json(exam);
         }
@@ -72,10 +70,8 @@ export async function GET(request) {
                 .toArray();
         }
 
-        await client.close();
         return NextResponse.json(exams);
     } catch (error) {
-        await client.close();
         console.error("Error fetching exams:", error);
         return NextResponse.json({ error: "Failed to fetch exams" }, { status: 500 });
     }
@@ -88,13 +84,11 @@ export async function POST(request) {
         return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
     const data = await request.json();
-    const client = new MongoClient(uri);
-    await client.connect();
-    const db = client.db("groupxam");
+    const db = await getDatabase();
+
     // Conflict check: no two exams at the same date+time
     const conflict = await db.collection("exams").findOne({ date: data.date, time: data.time });
     if (conflict) {
-        await client.close();
         return NextResponse.json({ error: "Exam time conflicts with another exam." }, { status: 409 });
     }
     const exam = {
@@ -105,7 +99,6 @@ export async function POST(request) {
         mcqs: data.mcqs || [],
     };
     const result = await db.collection("exams").insertOne(exam);
-    await client.close();
     return NextResponse.json({ message: "Exam created", examId: result.insertedId }, { status: 201 });
 }
 
@@ -119,20 +112,17 @@ export async function PUT(request) {
     if (!data._id) {
         return NextResponse.json({ error: "Missing exam ID" }, { status: 400 });
     }
-    const client = new MongoClient(uri);
-    await client.connect();
-    const db = client.db("groupxam");
+    const db = await getDatabase();
+
     // Conflict check (ignore self)
     const conflict = await db.collection("exams").findOne({ date: data.date, time: data.time, _id: { $ne: new ObjectId(data._id) } });
     if (conflict) {
-        await client.close();
         return NextResponse.json({ error: "Exam time conflicts with another exam." }, { status: 409 });
     }
     const result = await db.collection("exams").updateOne(
         { _id: new ObjectId(data._id), universityId: user.userId.toString() },
         { $set: { ...data, updatedAt: new Date() } }
     );
-    await client.close();
     if (result.matchedCount === 0) {
         return NextResponse.json({ error: "Exam not found or not owned by you" }, { status: 404 });
     }
@@ -150,11 +140,8 @@ export async function DELETE(request) {
     if (!id) {
         return NextResponse.json({ error: "Missing exam ID" }, { status: 400 });
     }
-    const client = new MongoClient(uri);
-    await client.connect();
-    const db = client.db("groupxam");
+    const db = await getDatabase();
     const result = await db.collection("exams").deleteOne({ _id: new ObjectId(id), universityId: user.userId.toString() });
-    await client.close();
     if (result.deletedCount === 0) {
         return NextResponse.json({ error: "Exam not found or not owned by you" }, { status: 404 });
     }

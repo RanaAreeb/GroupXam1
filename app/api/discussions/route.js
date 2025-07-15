@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
-import { MongoClient, ObjectId } from "mongodb";
-
-const uri = process.env.MONGODB_URI || "mongodb://localhost:27017/groupxam";
+import { getDatabase } from "@/lib/db";
+import { ObjectId } from "mongodb";
 
 // Force dynamic rendering for this route
 export const dynamic = 'force-dynamic';
@@ -32,9 +31,7 @@ export async function GET(request) {
         const { searchParams } = new URL(request.url);
         const subject = searchParams.get("subject");
         const search = searchParams.get("search") || "";
-        const client = new MongoClient(uri);
-        await client.connect();
-        const db = client.db("groupxam");
+        const db = await getDatabase();
         const discussions = db.collection("discussions");
 
         const query = {};
@@ -51,7 +48,6 @@ export async function GET(request) {
             .find(query)
             .sort({ createdAt: -1 })
             .toArray();
-        await client.close();
         return NextResponse.json(result);
     } catch (error) {
         console.error("Discussions fetch error:", error);
@@ -62,9 +58,7 @@ export async function GET(request) {
 export async function POST(request) {
     try {
         const data = await request.json();
-        const client = new MongoClient(uri);
-        await client.connect();
-        const db = client.db("groupxam");
+        const db = await getDatabase();
         const discussions = db.collection("discussions");
         const discussion = {
             title: data.title,
@@ -78,7 +72,6 @@ export async function POST(request) {
             createdAt: new Date(),
         };
         const result = await discussions.insertOne(discussion);
-        await client.close();
         return NextResponse.json({ message: "Discussion created", id: result.insertedId }, { status: 201 });
     } catch (error) {
         console.error("Discussion creation error:", error);
@@ -90,15 +83,12 @@ export async function PATCH(request) {
     // Add a reply to a discussion
     try {
         const { discussionId, reply } = await request.json();
-        const client = new MongoClient(uri);
-        await client.connect();
-        const db = client.db("groupxam");
+        const db = await getDatabase();
         const discussions = db.collection("discussions");
         const updateResult = await discussions.updateOne(
             { _id: new ObjectId(discussionId) },
             { $push: { replies: { ...reply, createdAt: new Date() } } }
         );
-        await client.close();
         if (updateResult.modifiedCount === 1) {
             return NextResponse.json({ message: "Reply added" });
         } else {

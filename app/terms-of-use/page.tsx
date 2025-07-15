@@ -54,7 +54,33 @@ export default function TermsOfUsePage() {
           We may update these terms at any time. Continued use of the platform
           constitutes acceptance of the new terms.
         </p>
-        <h2 className="text-xl font-bold mb-2 text-emerald-300">5. Contact</h2>
+        <h2 className="text-xl font-bold mb-2 text-emerald-300">
+          5. Termination
+        </h2>
+        <p className="mb-4">
+          We reserve the right to suspend or terminate your access to the
+          Service at our discretion, without notice, for conduct that we believe
+          violates these Terms or is harmful to other users.
+        </p>
+        <h2 className="text-xl font-bold mb-2 text-emerald-300">
+          6. Academic Policy Adherement
+        </h2>
+        <p className="mb-4">
+          By creating an account on our platform, you are agreeing to the
+          following: groupXam is not responsible for any academic dishonesty or
+          misconduct reports that may occur as a result of misusing the Service.
+          Users are responsible for adhering to their institution's academic
+          policies.
+        </p>
+        <h2 className="text-xl font-bold mb-2 text-emerald-300">
+          7. Children's Privacy
+        </h2>
+        <p className="mb-4">
+          Our services are not intended for individuals under the age of 13. We
+          do not knowingly collect personal information from children under 13.
+          If we become aware of such data, we will take steps to delete it.
+        </p>
+        <h2 className="text-xl font-bold mb-2 text-emerald-300">8. Contact</h2>
         <p>
           If you have questions about these terms, please contact us via the
           Contact page.

@@ -1,7 +1,5 @@
 import { NextResponse } from "next/server"
-import { MongoClient } from "mongodb"
-
-const uri = process.env.MONGODB_URI || "mongodb://localhost:27017/groupxam"
+import { getDatabase } from "@/lib/db"
 
 // Force dynamic rendering for this route
 export const dynamic = 'force-dynamic';
@@ -12,9 +10,7 @@ export async function GET(request) {
     const subject = searchParams.get("subject")
     const limit = Number.parseInt(searchParams.get("limit")) || 10
 
-    const client = new MongoClient(uri)
-    await client.connect()
-    const db = client.db("groupxam")
+    const db = await getDatabase()
     const questions = db.collection("questions")
 
     const query = {}
@@ -23,8 +19,6 @@ export async function GET(request) {
     }
 
     const result = await questions.find(query).limit(limit).toArray()
-
-    await client.close()
 
     return NextResponse.json(result)
   } catch (error) {
@@ -37,9 +31,7 @@ export async function POST(request) {
   try {
     const questionData = await request.json()
 
-    const client = new MongoClient(uri)
-    await client.connect()
-    const db = client.db("groupxam")
+    const db = await getDatabase()
     const questions = db.collection("questions")
 
     const question = {
@@ -50,7 +42,6 @@ export async function POST(request) {
     }
 
     const result = await questions.insertOne(question)
-    await client.close()
 
     return NextResponse.json(
       { message: "Question created successfully", questionId: result.insertedId },
