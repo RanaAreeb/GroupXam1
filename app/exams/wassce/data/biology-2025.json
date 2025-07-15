@@ -1,0 +1,36 @@
+{
+  "id": 5,
+  "title": "WASSCE Biology 2025",
+  "subject": "Biology",
+  "className": "SS3",
+  "department": "Science",
+  "date": "2025-03-19",
+  "time": "01:00 PM",
+  "questions": [
+    {
+      "q": "What is the powerhouse of the cell?",
+      "options": ["Nucleus", "Mitochondria", "Ribosome", "Golgi apparatus"],
+      "answer": 1
+    },
+    {
+      "q": "Which of the following is not a part of the central nervous system?",
+      "options": ["Brain", "Spinal cord", "Nerves", "Cerebellum"],
+      "answer": 2
+    },
+    {
+      "q": "What is the process by which plants make their own food?",
+      "options": ["Respiration", "Photosynthesis", "Digestion", "Excretion"],
+      "answer": 1
+    },
+    {
+      "q": "Which blood type is known as the universal donor?",
+      "options": ["A", "B", "AB", "O"],
+      "answer": 3
+    },
+    {
+      "q": "What is the largest organ in the human body?",
+      "options": ["Heart", "Liver", "Skin", "Brain"],
+      "answer": 2
+    }
+  ]
+}

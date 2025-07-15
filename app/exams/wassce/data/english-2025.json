@@ -1,0 +1,41 @@
+{
+  "id": 2,
+  "title": "WASSCE English Language 2025",
+  "subject": "English",
+  "className": "SS3",
+  "department": "Arts",
+  "date": "2025-03-16",
+  "time": "10:00 AM",
+  "questions": [
+    {
+      "q": "Which of the following is a correct sentence?",
+      "options": [
+        "Me and him went to the store",
+        "Him and I went to the store",
+        "He and I went to the store",
+        "I and he went to the store"
+      ],
+      "answer": 2
+    },
+    {
+      "q": "What is the past participle of 'write'?",
+      "options": ["wrote", "written", "writed", "writing"],
+      "answer": 1
+    },
+    {
+      "q": "Which word is an antonym of 'happy'?",
+      "options": ["joyful", "sad", "excited", "pleased"],
+      "answer": 1
+    },
+    {
+      "q": "What type of sentence is 'How beautiful the sunset is!'?",
+      "options": ["Declarative", "Interrogative", "Imperative", "Exclamatory"],
+      "answer": 3
+    },
+    {
+      "q": "Which of the following is a proper noun?",
+      "options": ["city", "country", "London", "river"],
+      "answer": 2
+    }
+  ]
+}

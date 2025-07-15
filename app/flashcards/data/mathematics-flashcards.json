@@ -1,0 +1,84 @@
+{
+  "id": "mathematics-flashcards",
+  "title": "Mathematics Flashcards",
+  "subject": "Mathematics",
+  "difficulty": "Beginner",
+  "sets": [
+    {
+      "id": "math-fundamentals",
+      "title": "Mathematics Fundamentals",
+      "cardCount": 20,
+      "difficulty": "Beginner",
+      "cards": [
+        {
+          "front": "What is the Pythagorean Theorem?",
+          "back": "In a right triangle, a² + b² = c² where c is the hypotenuse."
+        },
+        {
+          "front": "What is the area of a circle?",
+          "back": "A = πr² where r is the radius."
+        },
+        {
+          "front": "What is the perimeter of a rectangle?",
+          "back": "P = 2(l + w) where l is length and w is width."
+        },
+        {
+          "front": "What is the slope formula?",
+          "back": "m = (y₂ - y₁)/(x₂ - x₁)"
+        },
+        {
+          "front": "What is the quadratic formula?",
+          "back": "x = (-b ± √(b² - 4ac))/2a"
+        },
+        {
+          "front": "What is the derivative of x²?",
+          "back": "2x"
+        },
+        {
+          "front": "What is the integral of 2x?",
+          "back": "x² + C"
+        },
+        {
+          "front": "What is the mean?",
+          "back": "The sum of all values divided by the number of values."
+        },
+        {
+          "front": "What is the median?",
+          "back": "The middle value when data is arranged in order."
+        },
+        {
+          "front": "What is the mode?",
+          "back": "The value that appears most frequently in a dataset."
+        }
+      ]
+    },
+    {
+      "id": "math-advanced",
+      "title": "Advanced Mathematics",
+      "cardCount": 25,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is the chain rule?",
+          "back": "d/dx[f(g(x))] = f'(g(x)) × g'(x)"
+        },
+        {
+          "front": "What is integration by parts?",
+          "back": "∫udv = uv - ∫vdu"
+        },
+        {
+          "front": "What is the binomial theorem?",
+          "back": "(a + b)ⁿ = Σ(n choose k) × a^(n-k) × b^k"
+        },
+        {
+          "front": "What is a matrix?",
+          "back": "A rectangular array of numbers arranged in rows and columns."
+        },
+        {
+          "front": "What is a determinant?",
+          "back": "A scalar value that can be computed from the elements of a square matrix."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "id": "chemistry-flashcards",
+  "title": "Chemistry Flashcards",
+  "subject": "Chemistry",
+  "difficulty": "Beginner",
+  "sets": [
+    {
+      "id": "chemistry-fundamentals",
+      "title": "Chemistry Fundamentals",
+      "cardCount": 20,
+      "difficulty": "Beginner",
+      "cards": [
+        {
+          "front": "What is an ionic bond?",
+          "back": "An ionic bond is formed when electrons are transferred from one atom to another, creating charged ions."
+        },
+        {
+          "front": "Define covalent bond",
+          "back": "A covalent bond is formed when atoms share electrons to achieve stable electron configurations."
+        },
+        {
+          "front": "What is pH?",
+          "back": "A measure of the acidity or alkalinity of a solution, ranging from 0 to 14."
+        },
+        {
+          "front": "Define Molecule",
+          "back": "The smallest unit of a compound that retains the chemical properties of that compound."
+        },
+        {
+          "front": "What is a Catalyst?",
+          "back": "A substance that increases the rate of a chemical reaction without being consumed."
+        },
+        {
+          "front": "What is an Atom?",
+          "back": "The smallest unit of an element that retains the properties of that element."
+        },
+        {
+          "front": "Define Element",
+          "back": "A pure substance made up of only one type of atom."
+        },
+        {
+          "front": "What is a Compound?",
+          "back": "A substance formed when two or more elements are chemically combined."
+        },
+        {
+          "front": "Define Mixture",
+          "back": "A combination of two or more substances that are not chemically combined."
+        },
+        {
+          "front": "What is the Periodic Table?",
+          "back": "A table of chemical elements arranged by atomic number and properties."
+        }
+      ]
+    },
+    {
+      "id": "chemistry-advanced",
+      "title": "Advanced Chemistry",
+      "cardCount": 25,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is Oxidation?",
+          "back": "The loss of electrons by a molecule, atom, or ion."
+        },
+        {
+          "front": "Define Reduction",
+          "back": "The gain of electrons by a molecule, atom, or ion."
+        },
+        {
+          "front": "What is a Redox Reaction?",
+          "back": "A chemical reaction involving the transfer of electrons between species."
+        },
+        {
+          "front": "Define Equilibrium",
+          "back": "A state where the forward and reverse reactions occur at equal rates."
+        },
+        {
+          "front": "What is Le Chatelier's Principle?",
+          "back": "When a system at equilibrium is disturbed, it will adjust to minimize the disturbance."
+        }
+      ]
+    }
+  ]
+}

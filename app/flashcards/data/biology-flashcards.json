@@ -1,0 +1,84 @@
+{
+  "id": "biology-flashcards",
+  "title": "Biology Flashcards",
+  "subject": "Biology",
+  "difficulty": "Beginner",
+  "sets": [
+    {
+      "id": "biology-fundamentals",
+      "title": "Biology Fundamentals",
+      "cardCount": 22,
+      "difficulty": "Beginner",
+      "cards": [
+        {
+          "front": "What is mitosis?",
+          "back": "Mitosis is the process of cell division that results in two identical diploid cells."
+        },
+        {
+          "front": "Function of ribosomes",
+          "back": "Ribosomes are responsible for protein synthesis in cells."
+        },
+        {
+          "front": "What is DNA?",
+          "back": "Deoxyribonucleic acid, the molecule that carries genetic information."
+        },
+        {
+          "front": "Define Photosynthesis",
+          "back": "The process by which plants convert light energy into chemical energy."
+        },
+        {
+          "front": "What is a Cell?",
+          "back": "The basic structural and functional unit of all living organisms."
+        },
+        {
+          "front": "What is the Cell Membrane?",
+          "back": "A semi-permeable barrier that surrounds and protects the cell."
+        },
+        {
+          "front": "Define Nucleus",
+          "back": "The control center of the cell that contains genetic material."
+        },
+        {
+          "front": "What is Cytoplasm?",
+          "back": "The gel-like substance that fills the cell and contains organelles."
+        },
+        {
+          "front": "Define Mitochondria",
+          "back": "The powerhouse of the cell that produces energy through cellular respiration."
+        },
+        {
+          "front": "What is the Endoplasmic Reticulum?",
+          "back": "A network of membranes that transports materials within the cell."
+        }
+      ]
+    },
+    {
+      "id": "biology-advanced",
+      "title": "Advanced Biology",
+      "cardCount": 28,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is Meiosis?",
+          "back": "Cell division that produces four haploid cells for sexual reproduction."
+        },
+        {
+          "front": "Define Gene",
+          "back": "A segment of DNA that codes for a specific protein or trait."
+        },
+        {
+          "front": "What is Natural Selection?",
+          "back": "The process by which organisms better adapted to their environment survive and reproduce."
+        },
+        {
+          "front": "Define Evolution",
+          "back": "The gradual change in species over time through natural selection."
+        },
+        {
+          "front": "What is an Ecosystem?",
+          "back": "A community of living organisms and their physical environment."
+        }
+      ]
+    }
+  ]
+}

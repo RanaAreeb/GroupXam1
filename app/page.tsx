@@ -292,9 +292,9 @@ export default function HomePage() {
             <span className="text-gray-800">with Confidence</span>
           </h1>
           <p className="text-base sm:text-xl text-gray-600 mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed px-4">
-            The most comprehensive study platform for WAEC/WASSCE/ACT/SAT
-            preparation. Practice with thousands of questions, master concepts
-            with flashcards, and track your progress.
+            The most comprehensive study platform for WAEC/WASSCE preparation.
+            Practice with thousands of questions, master concepts with
+            flashcards, and track your progress.
           </p>
 
           {/* Quick Start Widget */}
@@ -304,14 +304,14 @@ export default function HomePage() {
               size="lg"
               className="bg-emerald-600 hover:bg-emerald-700 text-white text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 shadow-lg"
             >
-              <Link href="/exams?type=waec">WAEC</Link>
+              <Link href="/exams/waec">WAEC</Link>
             </Button>
             <Button
               asChild
               size="lg"
               className="bg-blue-600 hover:bg-blue-700 text-white text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 shadow-lg"
             >
-              <Link href="/exams?type=wassce">WASSCE</Link>
+              <Link href="/exams/wassce">WASSCE</Link>
             </Button>
           </div>
 

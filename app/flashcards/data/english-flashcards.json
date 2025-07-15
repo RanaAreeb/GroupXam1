@@ -1,0 +1,84 @@
+{
+  "id": "english-flashcards",
+  "title": "English Flashcards",
+  "subject": "English",
+  "difficulty": "Beginner",
+  "sets": [
+    {
+      "id": "english-grammar",
+      "title": "English Grammar",
+      "cardCount": 18,
+      "difficulty": "Beginner",
+      "cards": [
+        {
+          "front": "What is a noun?",
+          "back": "A word that names a person, place, thing, or idea."
+        },
+        {
+          "front": "What is a verb?",
+          "back": "A word that expresses action or state of being."
+        },
+        {
+          "front": "What is an adjective?",
+          "back": "A word that describes or modifies a noun or pronoun."
+        },
+        {
+          "front": "What is an adverb?",
+          "back": "A word that describes or modifies a verb, adjective, or other adverb."
+        },
+        {
+          "front": "What is a pronoun?",
+          "back": "A word that takes the place of a noun."
+        },
+        {
+          "front": "What is a preposition?",
+          "back": "A word that shows the relationship between a noun/pronoun and other words."
+        },
+        {
+          "front": "What is a conjunction?",
+          "back": "A word that connects words, phrases, or clauses."
+        },
+        {
+          "front": "What is an interjection?",
+          "back": "A word that expresses strong emotion or surprise."
+        },
+        {
+          "front": "What is a subject?",
+          "back": "The person, place, thing, or idea that performs the action in a sentence."
+        },
+        {
+          "front": "What is a predicate?",
+          "back": "The part of a sentence that tells what the subject does or is."
+        }
+      ]
+    },
+    {
+      "id": "english-literature",
+      "title": "English Literature",
+      "cardCount": 22,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is a metaphor?",
+          "back": "A figure of speech that compares two things without using 'like' or 'as'."
+        },
+        {
+          "front": "What is a simile?",
+          "back": "A figure of speech that compares two things using 'like' or 'as'."
+        },
+        {
+          "front": "What is personification?",
+          "back": "Giving human qualities to non-human objects or ideas."
+        },
+        {
+          "front": "What is alliteration?",
+          "back": "The repetition of initial consonant sounds in nearby words."
+        },
+        {
+          "front": "What is onomatopoeia?",
+          "back": "Words that imitate the sounds they represent."
+        }
+      ]
+    }
+  ]
+}

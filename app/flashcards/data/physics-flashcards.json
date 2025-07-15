@@ -1,0 +1,84 @@
+{
+  "id": "physics-flashcards",
+  "title": "Physics Flashcards",
+  "subject": "Physics",
+  "difficulty": "Beginner",
+  "sets": [
+    {
+      "id": "physics-fundamentals",
+      "title": "Physics Fundamentals",
+      "cardCount": 25,
+      "difficulty": "Beginner",
+      "cards": [
+        {
+          "front": "What is Newton's First Law?",
+          "back": "An object at rest stays at rest and an object in motion stays in motion unless acted upon by an external force."
+        },
+        {
+          "front": "Define Velocity",
+          "back": "Velocity is the rate of change of displacement with respect to time. It's a vector quantity."
+        },
+        {
+          "front": "What is the formula for Force?",
+          "back": "F = ma (Force equals mass times acceleration)"
+        },
+        {
+          "front": "What is Kinetic Energy?",
+          "back": "Energy possessed by an object due to its motion. KE = ½mv²"
+        },
+        {
+          "front": "Define Acceleration",
+          "back": "The rate of change of velocity with respect to time."
+        },
+        {
+          "front": "What is the SI unit of force?",
+          "back": "Newton (N)"
+        },
+        {
+          "front": "What is Potential Energy?",
+          "back": "Energy stored in an object due to its position or configuration."
+        },
+        {
+          "front": "Define Momentum",
+          "back": "The product of an object's mass and velocity. p = mv"
+        },
+        {
+          "front": "What is Work?",
+          "back": "Work is done when a force causes displacement. W = F × d"
+        },
+        {
+          "front": "Define Power",
+          "back": "The rate at which work is done. P = W/t"
+        }
+      ]
+    },
+    {
+      "id": "physics-advanced",
+      "title": "Advanced Physics Concepts",
+      "cardCount": 30,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is the Law of Conservation of Energy?",
+          "back": "Energy cannot be created or destroyed, only transformed from one form to another."
+        },
+        {
+          "front": "Define Impulse",
+          "back": "The change in momentum of an object. Impulse = F × t"
+        },
+        {
+          "front": "What is Centripetal Force?",
+          "back": "The force that keeps an object moving in a circular path."
+        },
+        {
+          "front": "Define Angular Velocity",
+          "back": "The rate of change of angular displacement with respect to time."
+        },
+        {
+          "front": "What is Torque?",
+          "back": "The rotational equivalent of force. τ = r × F"
+        }
+      ]
+    }
+  ]
+}

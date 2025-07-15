@@ -1,0 +1,36 @@
+{
+  "id": 4,
+  "title": "WASSCE Chemistry 2025",
+  "subject": "Chemistry",
+  "className": "SS3",
+  "department": "Science",
+  "date": "2025-03-18",
+  "time": "12:00 PM",
+  "questions": [
+    {
+      "q": "What is the chemical symbol for gold?",
+      "options": ["Ag", "Au", "Fe", "Cu"],
+      "answer": 1
+    },
+    {
+      "q": "What is the pH of a neutral solution?",
+      "options": ["0", "7", "14", "10"],
+      "answer": 1
+    },
+    {
+      "q": "Which gas is known as the 'silent killer'?",
+      "options": ["Carbon monoxide", "Carbon dioxide", "Nitrogen", "Oxygen"],
+      "answer": 0
+    },
+    {
+      "q": "What is the molecular formula for water?",
+      "options": ["H2O", "CO2", "O2", "N2"],
+      "answer": 0
+    },
+    {
+      "q": "Which element has the atomic number 1?",
+      "options": ["Helium", "Hydrogen", "Carbon", "Oxygen"],
+      "answer": 1
+    }
+  ]
+}
