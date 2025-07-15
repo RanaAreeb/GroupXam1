@@ -7,21 +7,21 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-emerald-950 via-blue-950 to-purple-950 flex flex-col items-center justify-center px-4 py-12 relative overflow-hidden">
       {/* Back Button */}
-      <div className="absolute top-8 left-8 z-20">
+      <div className="absolute top-8 left-4 z-20">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-emerald-700 via-blue-700 to-purple-700 text-white font-semibold shadow-lg hover:scale-105 transition-transform"
+          className="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-gradient-to-r from-emerald-700 via-blue-700 to-purple-700 text-white font-semibold shadow-lg hover:scale-105 transition-transform text-sm"
         >
-          <ArrowLeft className="w-5 h-5" />
+          <ArrowLeft className="w-4 h-4" />
           Back
         </Link>
       </div>
       {/* Hero Section */}
-      <div className="relative z-10 max-w-3xl w-full text-center mb-12">
-        <h1 className="text-5xl md:text-6xl font-extrabold text-emerald-400 drop-shadow-lg tracking-tight mb-4">
+      <div className="relative z-10 max-w-3xl w-full text-center mb-12 mt-16">
+        <h1 className="text-4xl md:text-6xl font-extrabold text-emerald-400 drop-shadow-lg tracking-tight mb-4">
           groupXam
         </h1>
-        <p className="text-xl md:text-2xl text-blue-200 font-medium mb-6">
+        <p className="text-lg md:text-2xl text-blue-200 font-medium mb-6">
           Where preparation meets academic acceleration.
         </p>
         <div className="mx-auto w-24 h-1 bg-gradient-to-r from-emerald-400 via-blue-400 to-purple-400 rounded-full mb-6" />

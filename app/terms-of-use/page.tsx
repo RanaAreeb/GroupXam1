@@ -7,21 +7,21 @@ export default function TermsOfUsePage() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-emerald-950 via-blue-950 to-purple-950 flex flex-col items-center justify-center px-4 py-12 relative overflow-hidden">
       {/* Back Button */}
-      <div className="absolute top-8 left-8 z-20">
+      <div className="absolute top-8 left-4 z-20">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-emerald-700 via-blue-700 to-purple-700 text-white font-semibold shadow-lg hover:scale-105 transition-transform"
+          className="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-gradient-to-r from-emerald-700 via-blue-700 to-purple-700 text-white font-semibold shadow-lg hover:scale-105 transition-transform text-sm"
         >
-          <ArrowLeft className="w-5 h-5" />
+          <ArrowLeft className="w-4 h-4" />
           Back
         </Link>
       </div>
       {/* Terms of Use Content */}
-      <div className="relative z-10 max-w-2xl w-full text-center mb-10">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-emerald-400 mb-4 drop-shadow-lg">
+      <div className="relative z-10 max-w-2xl w-full text-center mb-10 mt-16">
+        <h1 className="text-3xl md:text-5xl font-extrabold text-emerald-400 mb-4 drop-shadow-lg">
           Terms of Use
         </h1>
-        <p className="text-lg text-blue-100 mb-6">
+        <p className="text-base md:text-lg text-blue-100 mb-6">
           Please read these terms carefully before using groupXam.
         </p>
       </div>

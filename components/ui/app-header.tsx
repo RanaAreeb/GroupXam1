@@ -25,6 +25,12 @@ export default function AppHeader({
     { href: "/discussions", label: "Discussions" },
   ];
 
+  const legalLinks = [
+    { href: "/terms-of-use", label: "Terms of Service" },
+    { href: "/privacy-policy", label: "Privacy Policy" },
+    { href: "/about", label: "About Us" },
+  ];
+
   return (
     <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50 shadow-md transition-shadow duration-300">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
@@ -129,6 +135,26 @@ export default function AppHeader({
                   Logout
                 </button>
               )}
+
+              {/* Legal Links */}
+              <div className="w-full border-t border-gray-200 pt-4 mt-4">
+                <div className="text-sm text-gray-500 text-center mb-3">
+                  Legal & Info
+                </div>
+                {legalLinks.map((link) => (
+                  <div
+                    key={link.href}
+                    className="w-full text-base text-center py-2 rounded-lg font-medium bg-gray-50 hover:bg-gray-100 text-gray-700 shadow-sm transition-all duration-200 mb-2"
+                  >
+                    <Link
+                      href={link.href}
+                      className="hover:text-gray-900 transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

@@ -15,6 +15,7 @@ import {
   BookOpen,
   AlertCircle,
   Users,
+  FileText,
 } from "lucide-react";
 import Header from "@/components/ui/header";
 import Image from "next/image";
@@ -486,7 +487,7 @@ export default function HomePage() {
                     <Clock className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                   </div>
                   <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3">
-                    Timed Exams
+                    Exam Prep
                   </h3>
                   <p className="text-gray-600 mb-4 sm:mb-6 text-xs sm:text-sm leading-relaxed">
                     Simulate real exam conditions with our timed practice tests
@@ -509,7 +510,7 @@ export default function HomePage() {
                     <Brain className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                   </div>
                   <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3">
-                    Smart Flashcards
+                    Flashcards
                   </h3>
                   <p className="text-gray-600 mb-4 sm:mb-6 text-xs sm:text-sm leading-relaxed">
                     Memorize key concepts with our intelligent flashcard system
@@ -644,7 +645,7 @@ export default function HomePage() {
         <div className="container mx-auto">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-3 sm:mb-4 px-4">
-              What Students Say
+              What are students saying.
             </h2>
             <p className="text-base sm:text-xl text-gray-600 px-4">
               Join thousands of successful students
@@ -756,7 +757,7 @@ export default function HomePage() {
                     href="/quiz"
                     className="hover:text-white transition-colors"
                   >
-                    Practice Quizzes
+                    Quizzes
                   </Link>
                 </li>
                 <li>
@@ -764,7 +765,7 @@ export default function HomePage() {
                     href="/exams"
                     className="hover:text-white transition-colors"
                   >
-                    Timed Exams
+                    Exams prep
                   </Link>
                 </li>
                 <li>
@@ -788,7 +789,7 @@ export default function HomePage() {
                     href="/services"
                     className="hover:text-white transition-colors"
                   >
-                    Institutional Testing Service
+                    proctorXam
                   </Link>
                 </li>
 

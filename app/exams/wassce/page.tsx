@@ -189,25 +189,43 @@ export default function WassceExamsPage() {
           <Button
             onClick={() => setShowSyllabus(true)}
             variant={showSyllabus ? "default" : "outline"}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full"
+            className={`px-8 py-3 rounded-full transition-all duration-300 ${
+              showSyllabus
+                ? "bg-blue-600 hover:bg-blue-700 text-white shadow-lg scale-105"
+                : "bg-white hover:bg-gray-50 text-blue-600 border-2 border-blue-600 hover:border-blue-700"
+            }`}
           >
+            <FileText className="w-5 h-5 mr-2" />
             View Syllabus
+            {showSyllabus && <span className="ml-2">✓</span>}
           </Button>
           <Button
             onClick={() => setShowSyllabus(false)}
             variant={!showSyllabus ? "default" : "outline"}
-            className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-full"
+            className={`px-8 py-3 rounded-full transition-all duration-300 ${
+              !showSyllabus
+                ? "bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg scale-105"
+                : "bg-white hover:bg-gray-50 text-emerald-600 border-2 border-emerald-600 hover:border-emerald-700"
+            }`}
           >
+            <Target className="w-5 h-5 mr-2" />
             Practice Exams
+            {!showSyllabus && <span className="ml-2">✓</span>}
           </Button>
         </div>
 
         {/* Syllabus Section */}
         {showSyllabus && (
           <div className="mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
-              WASSCE Syllabus 2025
-            </h2>
+            <div className="text-center mb-8">
+              <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
+                <FileText className="w-4 h-4" />
+                Syllabus View Active
+              </div>
+              <h2 className="text-3xl font-bold text-gray-800">
+                WASSCE Syllabus 2025
+              </h2>
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {syllabusSubjects.map((subject) => (
                 <Card
@@ -246,56 +264,67 @@ export default function WassceExamsPage() {
 
         {/* Only show exam list if no exam is open and not showing syllabus */}
         {!showSyllabus && openExam === null ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12">
-            {exams.map((exam: WassceExam) => {
-              const meta =
-                subjectMeta[exam.subject] || subjectMeta["Mathematics"];
-              return (
-                <Card
-                  key={exam.id}
-                  className={`relative overflow-hidden rounded-3xl shadow-xl border-0 bg-white/70 backdrop-blur-md transition-transform duration-300 hover:scale-105 hover:shadow-2xl group`}
-                >
-                  <CardContent className="p-8 flex flex-col h-full">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div
-                        className={`w-14 h-14 rounded-xl bg-gradient-to-br ${meta.gradient} flex items-center justify-center shadow-lg border-4 border-white group-hover:scale-110 transition-transform`}
-                      >
-                        {meta.icon}
-                      </div>
-                      <div>
-                        <div className="text-xl font-bold text-gray-800 mb-1">
-                          {exam.title}
+          <div>
+            <div className="text-center mb-8">
+              <div className="inline-flex items-center gap-2 bg-emerald-100 text-emerald-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
+                <Target className="w-4 h-4" />
+                Practice View Active
+              </div>
+              <h2 className="text-3xl font-bold text-gray-800 mb-6">
+                Available Practice Exams
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12">
+              {exams.map((exam: WassceExam) => {
+                const meta =
+                  subjectMeta[exam.subject] || subjectMeta["Mathematics"];
+                return (
+                  <Card
+                    key={exam.id}
+                    className={`relative overflow-hidden rounded-3xl shadow-xl border-0 bg-white/70 backdrop-blur-md transition-transform duration-300 hover:scale-105 hover:shadow-2xl group`}
+                  >
+                    <CardContent className="p-8 flex flex-col h-full">
+                      <div className="flex items-center gap-3 mb-4">
+                        <div
+                          className={`w-14 h-14 rounded-xl bg-gradient-to-br ${meta.gradient} flex items-center justify-center shadow-lg border-4 border-white group-hover:scale-110 transition-transform`}
+                        >
+                          {meta.icon}
                         </div>
-                        <Badge className={`${meta.badge} px-3 py-1 shadow`}>
-                          {exam.subject}
-                        </Badge>
+                        <div>
+                          <div className="text-xl font-bold text-gray-800 mb-1">
+                            {exam.title}
+                          </div>
+                          <Badge className={`${meta.badge} px-3 py-1 shadow`}>
+                            {exam.subject}
+                          </Badge>
+                        </div>
                       </div>
-                    </div>
-                    <div className="flex flex-wrap gap-2 mb-2">
-                      <span className="inline-block bg-gray-100 rounded px-2 py-1 text-xs text-gray-700">
-                        <b>Class:</b> {exam.className}
-                      </span>
-                      <span className="inline-block bg-gray-100 rounded px-2 py-1 text-xs text-gray-700">
-                        <b>Department:</b> {exam.department}
-                      </span>
-                    </div>
-                    <div className="text-xs text-gray-500 mb-4">
-                      {exam.date} at {exam.time}
-                    </div>
-                    <Button
-                      className="bg-emerald-600 hover:bg-emerald-700 text-white mt-auto w-full rounded-full shadow-lg"
-                      onClick={() => handleStart(exam.id)}
-                    >
-                      Go Practice
-                    </Button>
-                    {/* Decorative gradient blob */}
-                    <span
-                      className={`absolute -top-10 -right-10 w-32 h-32 rounded-full opacity-20 blur-2xl bg-gradient-to-br ${meta.gradient}`}
-                    ></span>
-                  </CardContent>
-                </Card>
-              );
-            })}
+                      <div className="flex flex-wrap gap-2 mb-2">
+                        <span className="inline-block bg-gray-100 rounded px-2 py-1 text-xs text-gray-700">
+                          <b>Class:</b> {exam.className}
+                        </span>
+                        <span className="inline-block bg-gray-100 rounded px-2 py-1 text-xs text-gray-700">
+                          <b>Department:</b> {exam.department}
+                        </span>
+                      </div>
+                      <div className="text-xs text-gray-500 mb-4">
+                        {exam.date} at {exam.time}
+                      </div>
+                      <Button
+                        className="bg-emerald-600 hover:bg-emerald-700 text-white mt-auto w-full rounded-full shadow-lg"
+                        onClick={() => handleStart(exam.id)}
+                      >
+                        Go Practice
+                      </Button>
+                      {/* Decorative gradient blob */}
+                      <span
+                        className={`absolute -top-10 -right-10 w-32 h-32 rounded-full opacity-20 blur-2xl bg-gradient-to-br ${meta.gradient}`}
+                      ></span>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
           </div>
         ) : (
           !showSyllabus &&
