@@ -38,6 +38,12 @@ export default function QuizPage({
           setQuizTime(data.default.timeLimit || 0);
           setQuizTimeLeft(data.default.timeLimit || 0);
           setQuizAnswers(Array(data.default.questions.length).fill(-1));
+        } else if (params.quizId === "physics-quiz-2") {
+          const data = await import("../../data/physics-quiz-2.json");
+          setQuizQuestions(data.default.questions);
+          setQuizTime(data.default.timeLimit || 0);
+          setQuizTimeLeft(data.default.timeLimit || 0);
+          setQuizAnswers(Array(data.default.questions.length).fill(-1));
         } else {
           // For other quizzes, create mock data
           const mockQuestions = [
@@ -358,30 +364,32 @@ export default function QuizPage({
                             </div>
 
                             <div className="space-y-1">
-                              {question.options.map((option, optIdx) => (
-                                <div
-                                  key={optIdx}
-                                  className={`text-sm p-2 rounded ${
-                                    optIdx === correctAnswer
-                                      ? "bg-green-100 text-green-800 font-semibold"
-                                      : optIdx === userAnswer && !isCorrect
-                                      ? "bg-red-100 text-red-800 font-semibold"
-                                      : "bg-gray-50 text-gray-600"
-                                  }`}
-                                >
-                                  {option}
-                                  {optIdx === correctAnswer && (
-                                    <span className="ml-2 text-green-600">
-                                      ✓ Correct Answer
-                                    </span>
-                                  )}
-                                  {optIdx === userAnswer && !isCorrect && (
-                                    <span className="ml-2 text-red-600">
-                                      ✗ Your Answer
-                                    </span>
-                                  )}
-                                </div>
-                              ))}
+                              {question.options.map(
+                                (option: string, optIdx: number) => (
+                                  <div
+                                    key={optIdx}
+                                    className={`text-sm p-2 rounded ${
+                                      optIdx === correctAnswer
+                                        ? "bg-green-100 text-green-800 font-semibold"
+                                        : optIdx === userAnswer && !isCorrect
+                                        ? "bg-red-100 text-red-800 font-semibold"
+                                        : "bg-gray-50 text-gray-600"
+                                    }`}
+                                  >
+                                    {option}
+                                    {optIdx === correctAnswer && (
+                                      <span className="ml-2 text-green-600">
+                                        ✓ Correct Answer
+                                      </span>
+                                    )}
+                                    {optIdx === userAnswer && !isCorrect && (
+                                      <span className="ml-2 text-red-600">
+                                        ✗ Your Answer
+                                      </span>
+                                    )}
+                                  </div>
+                                )
+                              )}
                             </div>
 
                             {!isCorrect && (

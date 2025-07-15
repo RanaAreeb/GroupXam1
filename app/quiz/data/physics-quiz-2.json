@@ -1,0 +1,124 @@
+{
+  "id": "physics-quiz-2",
+  "title": "Physics Quiz 2",
+  "subject": "Physics",
+  "difficulty": "Intermediate",
+  "timeLimit": 600,
+  "questions": [
+    {
+      "q": "What is the principle of conservation of energy?",
+      "options": [
+        "Energy can be created but not destroyed",
+        "Energy can be destroyed but not created",
+        "Energy cannot be created or destroyed, only transformed",
+        "Energy can be both created and destroyed"
+      ],
+      "answer": 2
+    },
+    {
+      "q": "Which of the following is NOT a fundamental force in nature?",
+      "options": [
+        "Gravitational force",
+        "Electromagnetic force",
+        "Strong nuclear force",
+        "Friction force"
+      ],
+      "answer": 3
+    },
+    {
+      "q": "What is the relationship between mass and weight?",
+      "options": [
+        "Mass and weight are the same thing",
+        "Weight is mass multiplied by acceleration due to gravity",
+        "Mass is weight divided by acceleration due to gravity",
+        "There is no relationship between mass and weight"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "What is the SI unit of power?",
+      "options": ["Joule", "Watt", "Newton", "Pascal"],
+      "answer": 1
+    },
+    {
+      "q": "Which law states that 'for every action, there is an equal and opposite reaction'?",
+      "options": [
+        "Newton's First Law",
+        "Newton's Second Law",
+        "Newton's Third Law",
+        "Newton's Law of Gravitation"
+      ],
+      "answer": 2
+    },
+    {
+      "q": "What is the formula for kinetic energy?",
+      "options": ["KE = mgh", "KE = ½mv²", "KE = mv", "KE = ½mgh"],
+      "answer": 1
+    },
+    {
+      "q": "Which of these waves can travel through a vacuum?",
+      "options": ["Sound waves", "Water waves", "Light waves", "Seismic waves"],
+      "answer": 2
+    },
+    {
+      "q": "What is the speed of light in vacuum?",
+      "options": ["3 × 10⁸ m/s", "3 × 10⁷ m/s", "3 × 10⁹ m/s", "3 × 10⁶ m/s"],
+      "answer": 0
+    },
+    {
+      "q": "What is the unit of electric current?",
+      "options": ["Volt", "Ampere", "Ohm", "Watt"],
+      "answer": 1
+    },
+    {
+      "q": "Which of these is a scalar quantity?",
+      "options": ["Force", "Velocity", "Acceleration", "Temperature"],
+      "answer": 3
+    },
+    {
+      "q": "What is the principle of moments?",
+      "options": [
+        "Sum of clockwise moments equals sum of anticlockwise moments",
+        "All moments must be clockwise",
+        "All moments must be anticlockwise",
+        "Moments have no relationship to each other"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "What is the relationship between frequency and wavelength?",
+      "options": [
+        "They are directly proportional",
+        "They are inversely proportional",
+        "They have no relationship",
+        "They are equal to each other"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "What is the unit of frequency?",
+      "options": ["Meter", "Second", "Hertz", "Watt"],
+      "answer": 2
+    },
+    {
+      "q": "Which of these is NOT a type of energy?",
+      "options": [
+        "Kinetic energy",
+        "Potential energy",
+        "Thermal energy",
+        "Gravity energy"
+      ],
+      "answer": 3
+    },
+    {
+      "q": "What is the law of reflection?",
+      "options": [
+        "Angle of incidence equals angle of reflection",
+        "Angle of incidence is greater than angle of reflection",
+        "Angle of incidence is less than angle of reflection",
+        "There is no relationship between angles"
+      ],
+      "answer": 0
+    }
+  ]
+}
