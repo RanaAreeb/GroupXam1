@@ -34,7 +34,8 @@ export async function POST(request) {
           name: 1,
           role: 1,
           universityName: 1,
-          adminName: 1
+          adminName: 1,
+          isVerified: 1
         }
       }
     )
@@ -53,6 +54,18 @@ export async function POST(request) {
       console.log(`Login failed: Invalid password for email ${email}`)
       return NextResponse.json(
         { error: "Invalid credentials" },
+        { status: 401 }
+      )
+    }
+
+    // Check if email is verified
+    if (user.isVerified === false) {
+      return NextResponse.json(
+        {
+          error: "Please verify your email address before logging in",
+          requiresVerification: true,
+          email: user.email
+        },
         { status: 401 }
       )
     }

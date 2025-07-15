@@ -87,47 +87,55 @@ export default function HomePage() {
     return () => clearInterval(interval);
   }, []);
 
-  // Subject tiles
+  // Subject tiles with category mapping
   const subjects = [
     {
       name: "Mathematics",
       icon: <Target className="w-6 h-6" />,
       gradient: "from-pink-500 to-yellow-500",
+      category: "mathematics",
     },
     {
       name: "Biology",
       icon: <Brain className="w-6 h-6" />,
       gradient: "from-green-400 to-emerald-600",
+      category: "sciences",
     },
     {
       name: "Chemistry",
       icon: <BookOpen className="w-6 h-6" />,
       gradient: "from-blue-400 to-cyan-500",
+      category: "sciences",
     },
     {
       name: "Physics",
       icon: <Clock className="w-6 h-6" />,
       gradient: "from-purple-500 to-indigo-500",
+      category: "sciences",
     },
     {
       name: "English",
       icon: <MessageSquare className="w-6 h-6" />,
       gradient: "from-orange-400 to-pink-500",
+      category: "arts-humanities",
     },
     {
       name: "Economics",
       icon: <Star className="w-6 h-6" />,
       gradient: "from-yellow-400 to-amber-500",
+      category: "economics",
     },
     {
       name: "Geography",
       icon: <ArrowRight className="w-6 h-6" />,
       gradient: "from-teal-400 to-blue-500",
+      category: "arts-humanities",
     },
     {
       name: "Civic",
       icon: <Play className="w-6 h-6" />,
       gradient: "from-red-400 to-pink-600",
+      category: "arts-humanities",
     },
   ];
 
@@ -404,7 +412,7 @@ export default function HomePage() {
             {subjects.map((subject) => (
               <Link
                 key={subject.name}
-                href="/quiz"
+                href={`/quiz?category=${subject.category}`}
                 className="group block rounded-2xl bg-white hover:shadow-xl shadow-md p-6 text-center transition-all duration-300 border border-gray-100 hover:border-transparent relative overflow-hidden"
                 style={{ position: "relative" }}
               >
@@ -454,7 +462,7 @@ export default function HomePage() {
                     <Target className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                   </div>
                   <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3">
-                    Practice Quizzes
+                    Quizzes
                   </h3>
                   <p className="text-gray-600 mb-4 sm:mb-6 text-xs sm:text-sm leading-relaxed">
                     Test your knowledge with interactive quizzes and get instant
@@ -540,14 +548,14 @@ export default function HomePage() {
             </Card>
 
             {/* Institutional Testing Service Card */}
-            <Card className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2 bg-gradient-to-br from-emerald-100 to-lime-50 h-full">
+            <Card className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2 bg-gradient-to-br from-emerald-100 to-lime-50 h-full min-w-[280px]">
               <CardContent className="p-6 sm:p-8 text-center flex flex-col h-full justify-between">
                 <div className="flex-1 flex flex-col justify-center">
                   <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-emerald-500 to-lime-500 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                     <Star className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                   </div>
                   <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3">
-                    Institutional Testing Service
+                    proctorXam
                   </h3>
                   <p className="text-gray-600 mb-4 sm:mb-6 text-xs sm:text-sm leading-relaxed">
                     Comprehensive online exam and assessment solutions for

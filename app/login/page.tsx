@@ -61,7 +61,16 @@ export default function LoginPage() {
           }
         }, 1500);
       } else {
-        setError(data.error || "Login failed. Please try again.");
+        if (data.requiresVerification) {
+          setError("Please verify your email address before logging in.");
+          setTimeout(() => {
+            window.location.href = `/verify?email=${encodeURIComponent(
+              formData.email
+            )}`;
+          }, 2000);
+        } else {
+          setError(data.error || "Login failed. Please try again.");
+        }
       }
     } catch (err) {
       setError("Network error. Please check your connection and try again.");

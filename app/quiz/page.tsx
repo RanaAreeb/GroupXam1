@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -136,12 +136,33 @@ const getMockQuizzes = (subject: string) => {
 export default function QuizPage() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
+  // Handle URL parameters for category selection
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const categoryParam = urlParams.get("category");
+
+    if (
+      categoryParam &&
+      subjectCategories.find((cat) => cat.id === categoryParam)
+    ) {
+      setSelectedCategory(categoryParam);
+    }
+  }, []);
+
   const handleCategoryClick = (categoryId: string) => {
     setSelectedCategory(categoryId);
+    // Update URL without page reload
+    const url = new URL(window.location.href);
+    url.searchParams.set("category", categoryId);
+    window.history.pushState({}, "", url.toString());
   };
 
   const handleBackToCategories = () => {
     setSelectedCategory(null);
+    // Update URL without page reload
+    const url = new URL(window.location.href);
+    url.searchParams.delete("category");
+    window.history.pushState({}, "", url.toString());
   };
 
   const handleStartQuiz = (subject: string, quiz: any) => {

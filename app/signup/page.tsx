@@ -6,6 +6,14 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
 import Image from "next/image";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
@@ -20,6 +28,16 @@ import {
   CheckCircle,
   Target,
   AlertCircle,
+  Building2,
+  GraduationCap,
+  Briefcase,
+  Shield,
+  Award,
+  School,
+  Users,
+  Phone,
+  MapPin,
+  Globe,
 } from "lucide-react";
 
 interface Subject {
@@ -35,6 +53,70 @@ interface FormData {
   password: string;
   selectedSubjects: string[];
 }
+
+interface InstitutionData {
+  institutionName: string;
+  institutionType: string;
+  subcategory: string;
+  adminName: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+  phone: string;
+  address: string;
+  website: string;
+  description: string;
+  studentCount: string;
+  establishedYear: string;
+}
+
+// Institution subcategories
+const institutionSubcategories = {
+  "K-12": [
+    "Primary School",
+    "Secondary School",
+    "High School",
+    "International School",
+    "Charter School",
+    "Private School",
+    "Public School",
+  ],
+  "University & College": [
+    "Public University",
+    "Private University",
+    "Community College",
+    "Technical College",
+    "Medical School",
+    "Law School",
+    "Business School",
+    "Engineering School",
+    "Arts & Design School",
+  ],
+  "Pre-employment": [
+    "Training Institute",
+    "Vocational School",
+    "Skill Development Center",
+    "Career Training Center",
+    "Professional Development Institute",
+    "Corporate Training Center",
+  ],
+  "Compliance assessments": [
+    "Certification Body",
+    "Accreditation Agency",
+    "Regulatory Authority",
+    "Professional Association",
+    "Industry Standards Organization",
+    "Quality Assurance Institute",
+  ],
+  "Professional certifications": [
+    "Certification Institute",
+    "Professional Training Center",
+    "Skill Assessment Center",
+    "Industry Certification Body",
+    "Professional Development Organization",
+    "Continuing Education Provider",
+  ],
+};
 
 const subjects: Subject[] = [
   { id: "physics", name: "Physics", category: "Sciences", icon: "⚛️" },
@@ -105,6 +187,7 @@ const subjects: Subject[] = [
 export default function SignupPage() {
   const [role, setRole] = useState<"student" | "university">("student");
   const [step, setStep] = useState(1);
+  const [institutionStep, setInstitutionStep] = useState(1);
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
@@ -115,12 +198,20 @@ export default function SignupPage() {
     password: "",
     selectedSubjects: [],
   });
-  const [universityData, setUniversityData] = useState({
-    universityName: "",
+  const [institutionData, setInstitutionData] = useState<InstitutionData>({
+    institutionName: "",
+    institutionType: "",
+    subcategory: "",
     adminName: "",
     email: "",
     password: "",
     confirmPassword: "",
+    phone: "",
+    address: "",
+    website: "",
+    description: "",
+    studentCount: "",
+    establishedYear: "",
   });
 
   const handleSubjectToggle = (subjectId: string) => {
@@ -153,12 +244,23 @@ export default function SignupPage() {
         const data = await response.json();
 
         if (response.ok) {
-          setSuccess(
-            "Account created successfully! Redirecting to dashboard..."
-          );
-          setTimeout(() => {
-            window.location.href = "/";
-          }, 2000);
+          if (data.requiresVerification) {
+            setSuccess(
+              "Account created successfully! Please check your email for verification code."
+            );
+            setTimeout(() => {
+              window.location.href = `/verify?email=${encodeURIComponent(
+                formData.email
+              )}`;
+            }, 2000);
+          } else {
+            setSuccess(
+              "Account created successfully! Redirecting to dashboard..."
+            );
+            setTimeout(() => {
+              window.location.href = "/";
+            }, 2000);
+          }
         } else {
           setError(data.error || "Signup failed. Please try again.");
         }
@@ -170,18 +272,26 @@ export default function SignupPage() {
     }
   };
 
-  const handleUniversitySubmit = async (
+  const handleInstitutionSubmit = async (
     e: React.FormEvent<HTMLFormElement>
   ) => {
     e.preventDefault();
+
+    if (institutionStep < 3) {
+      setInstitutionStep(institutionStep + 1);
+      return;
+    }
+
     setIsLoading(true);
     setError("");
     setSuccess("");
-    if (universityData.password !== universityData.confirmPassword) {
+
+    if (institutionData.password !== institutionData.confirmPassword) {
       setError("Passwords do not match.");
       setIsLoading(false);
       return;
     }
+
     try {
       const response = await fetch("/api/auth/signup", {
         method: "POST",
@@ -190,18 +300,39 @@ export default function SignupPage() {
         },
         body: JSON.stringify({
           role: "university",
-          universityName: universityData.universityName,
-          adminName: universityData.adminName,
-          email: universityData.email,
-          password: universityData.password,
+          institutionName: institutionData.institutionName,
+          institutionType: institutionData.institutionType,
+          subcategory: institutionData.subcategory,
+          adminName: institutionData.adminName,
+          email: institutionData.email,
+          password: institutionData.password,
+          phone: institutionData.phone,
+          address: institutionData.address,
+          website: institutionData.website,
+          description: institutionData.description,
+          studentCount: institutionData.studentCount,
+          establishedYear: institutionData.establishedYear,
         }),
       });
       const data = await response.json();
       if (response.ok) {
-        setSuccess("University account created! Redirecting to dashboard...");
-        setTimeout(() => {
-          window.location.href = "/university/dashboard";
-        }, 2000);
+        if (data.requiresVerification) {
+          setSuccess(
+            "Institution account created! Please check your email for verification code."
+          );
+          setTimeout(() => {
+            window.location.href = `/verify?email=${encodeURIComponent(
+              institutionData.email
+            )}`;
+          }, 2000);
+        } else {
+          setSuccess(
+            "Institution account created! Redirecting to dashboard..."
+          );
+          setTimeout(() => {
+            window.location.href = "/university/dashboard";
+          }, 2000);
+        }
       } else {
         setError(data.error || "Signup failed. Please try again.");
       }
@@ -241,14 +372,22 @@ export default function SignupPage() {
                 ? step === 1
                   ? "Create Your Account"
                   : "Choose Your Subjects"
-                : "University Signup"}
+                : institutionStep === 1
+                ? "Institution Registration"
+                : institutionStep === 2
+                ? "Contact Information"
+                : "Complete Registration"}
             </h1>
             <p className="text-gray-600">
               {role === "student"
                 ? step === 1
                   ? "Start your journey to academic excellence"
                   : "Select 3-5 subjects you want to focus on"
-                : "Register your university to schedule exams and manage students"}
+                : institutionStep === 1
+                ? "Register your institution to schedule exams and manage students"
+                : institutionStep === 2
+                ? "Provide your institution's contact details"
+                : "Complete your institution profile and create account"}
             </p>
           </div>
 
@@ -274,7 +413,7 @@ export default function SignupPage() {
               onClick={() => setRole("university")}
               type="button"
             >
-              University
+              Institution
             </button>
           </div>
 
@@ -297,27 +436,67 @@ export default function SignupPage() {
             <div className="flex items-center space-x-4">
               <div
                 className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                  step >= 1
+                  (role === "student" && step >= 1) ||
+                  (role === "university" && institutionStep >= 1)
                     ? "bg-emerald-500 text-white"
                     : "bg-gray-200 text-gray-500"
                 }`}
               >
-                {step > 1 ? <CheckCircle className="w-5 h-5" /> : "1"}
+                {(role === "student" && step > 1) ||
+                (role === "university" && institutionStep > 1) ? (
+                  <CheckCircle className="w-5 h-5" />
+                ) : (
+                  "1"
+                )}
               </div>
               <div
                 className={`w-16 h-1 ${
-                  step >= 2 ? "bg-emerald-500" : "bg-gray-200"
+                  (role === "student" && step >= 2) ||
+                  (role === "university" && institutionStep >= 2)
+                    ? "bg-emerald-500"
+                    : "bg-gray-200"
                 }`}
               ></div>
               <div
                 className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                  step >= 2
+                  (role === "student" && step >= 2) ||
+                  (role === "university" && institutionStep >= 2)
                     ? "bg-emerald-500 text-white"
                     : "bg-gray-200 text-gray-500"
                 }`}
               >
-                2
+                {role === "university" ? (
+                  institutionStep >= 3 ? (
+                    <CheckCircle className="w-5 h-5" />
+                  ) : (
+                    "2"
+                  )
+                ) : (
+                  "2"
+                )}
               </div>
+              {role === "university" && (
+                <>
+                  <div
+                    className={`w-16 h-1 ${
+                      institutionStep >= 3 ? "bg-emerald-500" : "bg-gray-200"
+                    }`}
+                  ></div>
+                  <div
+                    className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                      institutionStep >= 3
+                        ? "bg-emerald-500 text-white"
+                        : "bg-gray-200 text-gray-500"
+                    }`}
+                  >
+                    {institutionStep >= 3 ? (
+                      <CheckCircle className="w-5 h-5" />
+                    ) : (
+                      "3"
+                    )}
+                  </div>
+                </>
+              )}
             </div>
           </div>
 
@@ -530,92 +709,342 @@ export default function SignupPage() {
             </form>
           )}
 
-          {/* University Signup Form */}
+          {/* Institution Signup Form */}
           {role === "university" && (
-            <form onSubmit={handleUniversitySubmit} className="space-y-5">
-              <div>
-                <Label htmlFor="universityName">University Name</Label>
-                <Input
-                  id="universityName"
-                  type="text"
-                  required
-                  value={universityData.universityName}
-                  onChange={(e) =>
-                    setUniversityData({
-                      ...universityData,
-                      universityName: e.target.value,
-                    })
+            <form onSubmit={handleInstitutionSubmit} className="space-y-5">
+              {/* Step 1: Basic Information */}
+              {institutionStep === 1 && (
+                <>
+                  <div className="text-center mb-6">
+                    <h2 className="text-xl font-semibold text-gray-800 mb-2">
+                      Step 1: Institution Type
+                    </h2>
+                    <p className="text-gray-600">
+                      Select your institution category and type
+                    </p>
+                  </div>
+
+                  <div className="space-y-4">
+                    <div>
+                      <Label htmlFor="institutionType">
+                        Institution Category
+                      </Label>
+                      <Select
+                        value={institutionData.institutionType}
+                        onValueChange={(value) =>
+                          setInstitutionData({
+                            ...institutionData,
+                            institutionType: value,
+                            subcategory: "", // Reset subcategory when type changes
+                          })
+                        }
+                      >
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select institution category" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {Object.keys(institutionSubcategories).map((type) => (
+                            <SelectItem key={type} value={type}>
+                              {type}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    {institutionData.institutionType && (
+                      <div>
+                        <Label htmlFor="subcategory">Institution Type</Label>
+                        <Select
+                          value={institutionData.subcategory}
+                          onValueChange={(value) =>
+                            setInstitutionData({
+                              ...institutionData,
+                              subcategory: value,
+                            })
+                          }
+                        >
+                          <SelectTrigger>
+                            <SelectValue placeholder="Select institution type" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {institutionSubcategories[
+                              institutionData.institutionType as keyof typeof institutionSubcategories
+                            ]?.map((sub) => (
+                              <SelectItem key={sub} value={sub}>
+                                {sub}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </div>
+                    )}
+
+                    <div>
+                      <Label htmlFor="institutionName">Institution Name</Label>
+                      <Input
+                        id="institutionName"
+                        type="text"
+                        required
+                        value={institutionData.institutionName}
+                        onChange={(e) =>
+                          setInstitutionData({
+                            ...institutionData,
+                            institutionName: e.target.value,
+                          })
+                        }
+                        placeholder="e.g. University of Lagos"
+                      />
+                    </div>
+                  </div>
+                </>
+              )}
+
+              {/* Step 2: Contact Information */}
+              {institutionStep === 2 && (
+                <>
+                  <div className="text-center mb-6">
+                    <h2 className="text-xl font-semibold text-gray-800 mb-2">
+                      Step 2: Contact Information
+                    </h2>
+                    <p className="text-gray-600">
+                      Provide your institution's contact details
+                    </p>
+                  </div>
+
+                  <div className="space-y-4">
+                    <div>
+                      <Label htmlFor="adminName">Admin Name</Label>
+                      <Input
+                        id="adminName"
+                        type="text"
+                        required
+                        value={institutionData.adminName}
+                        onChange={(e) =>
+                          setInstitutionData({
+                            ...institutionData,
+                            adminName: e.target.value,
+                          })
+                        }
+                        placeholder="e.g. Dr. John Doe"
+                      />
+                    </div>
+
+                    <div>
+                      <Label htmlFor="email">Email Address</Label>
+                      <Input
+                        id="email"
+                        type="email"
+                        required
+                        value={institutionData.email}
+                        onChange={(e) =>
+                          setInstitutionData({
+                            ...institutionData,
+                            email: e.target.value,
+                          })
+                        }
+                        placeholder="admin@institution.com"
+                      />
+                    </div>
+
+                    <div>
+                      <Label htmlFor="phone">Phone Number</Label>
+                      <Input
+                        id="phone"
+                        type="tel"
+                        value={institutionData.phone}
+                        onChange={(e) =>
+                          setInstitutionData({
+                            ...institutionData,
+                            phone: e.target.value,
+                          })
+                        }
+                        placeholder="+234 123 456 7890"
+                      />
+                    </div>
+
+                    <div>
+                      <Label htmlFor="website">Website (Optional)</Label>
+                      <Input
+                        id="website"
+                        type="url"
+                        value={institutionData.website}
+                        onChange={(e) =>
+                          setInstitutionData({
+                            ...institutionData,
+                            website: e.target.value,
+                          })
+                        }
+                        placeholder="https://www.institution.com"
+                      />
+                    </div>
+
+                    <div>
+                      <Label htmlFor="address">Address</Label>
+                      <Textarea
+                        id="address"
+                        value={institutionData.address}
+                        onChange={(e) =>
+                          setInstitutionData({
+                            ...institutionData,
+                            address: e.target.value,
+                          })
+                        }
+                        placeholder="Enter your institution's address"
+                        rows={3}
+                      />
+                    </div>
+                  </div>
+                </>
+              )}
+
+              {/* Step 3: Additional Information & Security */}
+              {institutionStep === 3 && (
+                <>
+                  <div className="text-center mb-6">
+                    <h2 className="text-xl font-semibold text-gray-800 mb-2">
+                      Step 3: Additional Information
+                    </h2>
+                    <p className="text-gray-600">
+                      Complete your institution profile
+                    </p>
+                  </div>
+
+                  <div className="space-y-4">
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <Label htmlFor="studentCount">Number of Students</Label>
+                        <Input
+                          id="studentCount"
+                          type="number"
+                          value={institutionData.studentCount}
+                          onChange={(e) =>
+                            setInstitutionData({
+                              ...institutionData,
+                              studentCount: e.target.value,
+                            })
+                          }
+                          placeholder="e.g. 5000"
+                        />
+                      </div>
+
+                      <div>
+                        <Label htmlFor="establishedYear">
+                          Established Year
+                        </Label>
+                        <Input
+                          id="establishedYear"
+                          type="number"
+                          value={institutionData.establishedYear}
+                          onChange={(e) =>
+                            setInstitutionData({
+                              ...institutionData,
+                              establishedYear: e.target.value,
+                            })
+                          }
+                          placeholder="e.g. 1962"
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <Label htmlFor="description">
+                        Institution Description
+                      </Label>
+                      <Textarea
+                        id="description"
+                        value={institutionData.description}
+                        onChange={(e) =>
+                          setInstitutionData({
+                            ...institutionData,
+                            description: e.target.value,
+                          })
+                        }
+                        placeholder="Brief description of your institution..."
+                        rows={3}
+                      />
+                    </div>
+
+                    <div>
+                      <Label htmlFor="password">Password</Label>
+                      <Input
+                        id="password"
+                        type="password"
+                        required
+                        value={institutionData.password}
+                        onChange={(e) =>
+                          setInstitutionData({
+                            ...institutionData,
+                            password: e.target.value,
+                          })
+                        }
+                        placeholder="Create a strong password"
+                      />
+                    </div>
+
+                    <div>
+                      <Label htmlFor="confirmPassword">Confirm Password</Label>
+                      <Input
+                        id="confirmPassword"
+                        type="password"
+                        required
+                        value={institutionData.confirmPassword}
+                        onChange={(e) =>
+                          setInstitutionData({
+                            ...institutionData,
+                            confirmPassword: e.target.value,
+                          })
+                        }
+                        placeholder="Confirm your password"
+                      />
+                    </div>
+                  </div>
+                </>
+              )}
+
+              {/* Navigation Buttons */}
+              <div className="flex space-x-4">
+                {institutionStep > 1 && (
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={() => setInstitutionStep(institutionStep - 1)}
+                    className="flex-1"
+                    disabled={isLoading}
+                  >
+                    <ArrowLeft className="w-4 h-4 mr-2" />
+                    Previous
+                  </Button>
+                )}
+
+                <Button
+                  type="submit"
+                  className="flex-1"
+                  disabled={
+                    isLoading ||
+                    (institutionStep === 1 &&
+                      (!institutionData.institutionType ||
+                        !institutionData.subcategory ||
+                        !institutionData.institutionName))
                   }
-                  placeholder="e.g. University of Lagos"
-                />
+                >
+                  {isLoading ? (
+                    <div className="flex items-center">
+                      <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                      {institutionStep === 3
+                        ? "Creating Account..."
+                        : "Loading..."}
+                    </div>
+                  ) : institutionStep === 3 ? (
+                    "Create Institution Account"
+                  ) : (
+                    <>
+                      Next
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </>
+                  )}
+                </Button>
               </div>
-              <div>
-                <Label htmlFor="adminName">Admin Name</Label>
-                <Input
-                  id="adminName"
-                  type="text"
-                  required
-                  value={universityData.adminName}
-                  onChange={(e) =>
-                    setUniversityData({
-                      ...universityData,
-                      adminName: e.target.value,
-                    })
-                  }
-                  placeholder="e.g. Dr. John Doe"
-                />
-              </div>
-              <div>
-                <Label htmlFor="email">Email</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  required
-                  value={universityData.email}
-                  onChange={(e) =>
-                    setUniversityData({
-                      ...universityData,
-                      email: e.target.value,
-                    })
-                  }
-                  placeholder="university@email.com"
-                />
-              </div>
-              <div>
-                <Label htmlFor="password">Password</Label>
-                <Input
-                  id="password"
-                  type="password"
-                  required
-                  value={universityData.password}
-                  onChange={(e) =>
-                    setUniversityData({
-                      ...universityData,
-                      password: e.target.value,
-                    })
-                  }
-                  placeholder="Password"
-                />
-              </div>
-              <div>
-                <Label htmlFor="confirmPassword">Confirm Password</Label>
-                <Input
-                  id="confirmPassword"
-                  type="password"
-                  required
-                  value={universityData.confirmPassword}
-                  onChange={(e) =>
-                    setUniversityData({
-                      ...universityData,
-                      confirmPassword: e.target.value,
-                    })
-                  }
-                  placeholder="Confirm Password"
-                />
-              </div>
-              <Button type="submit" className="w-full" disabled={isLoading}>
-                {isLoading ? "Signing up..." : "Sign Up as University"}
-              </Button>
             </form>
           )}
         </div>
