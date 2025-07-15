@@ -16,6 +16,7 @@ import {
   AlertCircle,
   Users,
   FileText,
+  Code,
 } from "lucide-react";
 import Header from "@/components/ui/header";
 import Image from "next/image";
@@ -91,10 +92,10 @@ export default function HomePage() {
   // Subject tiles with category mapping
   const subjects = [
     {
-      name: "Mathematics",
-      icon: <Target className="w-6 h-6" />,
-      gradient: "from-pink-500 to-yellow-500",
-      category: "mathematics",
+      name: "Coding",
+      icon: <Code className="w-6 h-6" />,
+      gradient: "from-indigo-500 to-blue-500",
+      category: "coding",
     },
     {
       name: "Biology",
