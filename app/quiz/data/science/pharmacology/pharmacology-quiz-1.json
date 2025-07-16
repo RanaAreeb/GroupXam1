@@ -1,0 +1,190 @@
+{
+  "id": "pharmacology-quiz-1",
+  "title": "Pharmacology Quiz 1",
+  "subject": "Pharmacology",
+  "difficulty": "Intermediate",
+  "questions": 15,
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is pharmacology?",
+      "options": [
+        "Study of diseases",
+        "Study of drugs",
+        "Study of cells",
+        "Study of organs"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Pharmacology is the study of drugs and their effects on living organisms."
+    },
+    {
+      "id": 2,
+      "question": "What is the therapeutic effect of a drug?",
+      "options": [
+        "Side effect",
+        "Intended beneficial effect",
+        "Toxic effect",
+        "Placebo effect"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The therapeutic effect is the intended beneficial effect of a drug."
+    },
+    {
+      "id": 3,
+      "question": "What is a side effect?",
+      "options": [
+        "Intended effect",
+        "Unintended effect",
+        "Toxic effect",
+        "Placebo effect"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A side effect is an unintended effect of a drug that occurs in addition to the therapeutic effect."
+    },
+    {
+      "id": 4,
+      "question": "What is the half-life of a drug?",
+      "options": [
+        "Time to reach peak effect",
+        "Time for half the drug to be eliminated",
+        "Duration of action",
+        "Time to onset"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Half-life is the time it takes for half of the drug to be eliminated from the body."
+    },
+    {
+      "id": 5,
+      "question": "What is bioavailability?",
+      "options": [
+        "Drug toxicity",
+        "Fraction of drug reaching circulation",
+        "Drug cost",
+        "Drug shelf life"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Bioavailability is the fraction of a drug that reaches systemic circulation in an unchanged form."
+    },
+    {
+      "id": 6,
+      "question": "What is a generic drug?",
+      "options": [
+        "Brand name drug",
+        "Copy of brand name drug",
+        "Experimental drug",
+        "Illegal drug"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A generic drug is a copy of a brand name drug with the same active ingredients and effects."
+    },
+    {
+      "id": 7,
+      "question": "What is drug metabolism?",
+      "options": [
+        "Drug absorption",
+        "Drug breakdown",
+        "Drug excretion",
+        "Drug distribution"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Drug metabolism is the breakdown of drugs by enzymes in the body."
+    },
+    {
+      "id": 8,
+      "question": "What is a drug interaction?",
+      "options": [
+        "Drug cost",
+        "Effect of one drug on another",
+        "Drug packaging",
+        "Drug storage"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A drug interaction occurs when one drug affects the action of another drug."
+    },
+    {
+      "id": 9,
+      "question": "What is the placebo effect?",
+      "options": [
+        "Drug toxicity",
+        "Psychological response to treatment",
+        "Drug allergy",
+        "Drug addiction"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The placebo effect is a psychological response to treatment that occurs even with inactive substances."
+    },
+    {
+      "id": 10,
+      "question": "What is drug tolerance?",
+      "options": [
+        "Drug allergy",
+        "Decreased response to drug over time",
+        "Drug addiction",
+        "Drug toxicity"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Drug tolerance is a decreased response to a drug that develops with repeated use."
+    },
+    {
+      "id": 11,
+      "question": "What is drug addiction?",
+      "options": [
+        "Drug allergy",
+        "Compulsive drug use",
+        "Drug toxicity",
+        "Drug interaction"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Drug addiction is compulsive drug use despite harmful consequences."
+    },
+    {
+      "id": 12,
+      "question": "What is a drug allergy?",
+      "options": [
+        "Drug tolerance",
+        "Immune response to drug",
+        "Drug addiction",
+        "Drug interaction"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A drug allergy is an immune system response to a drug that can cause harmful reactions."
+    },
+    {
+      "id": 13,
+      "question": "What is drug excretion?",
+      "options": [
+        "Drug absorption",
+        "Drug metabolism",
+        "Drug elimination from body",
+        "Drug distribution"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Drug excretion is the elimination of drugs and their metabolites from the body."
+    },
+    {
+      "id": 14,
+      "question": "What is drug distribution?",
+      "options": [
+        "Drug absorption",
+        "Drug movement throughout body",
+        "Drug metabolism",
+        "Drug excretion"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Drug distribution is the movement of drugs throughout the body after absorption."
+    },
+    {
+      "id": 15,
+      "question": "What is drug absorption?",
+      "options": [
+        "Drug movement into bloodstream",
+        "Drug metabolism",
+        "Drug excretion",
+        "Drug distribution"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Drug absorption is the movement of drugs from the site of administration into the bloodstream."
+    }
+  ]
+}

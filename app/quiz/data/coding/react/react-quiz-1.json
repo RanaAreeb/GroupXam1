@@ -1,0 +1,174 @@
+{
+  "id": "react-quiz-1",
+  "title": "React Fundamentals",
+  "subject": "React",
+  "difficulty": "Intermediate",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is React?",
+      "options": [
+        "A JavaScript library for building user interfaces",
+        "A programming language",
+        "A database management system",
+        "A web server"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 2,
+      "question": "What is a component in React?",
+      "options": [
+        "A reusable piece of UI",
+        "A database table",
+        "A CSS file",
+        "A JavaScript function"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 3,
+      "question": "What is the correct way to create a React component?",
+      "options": [
+        "function MyComponent() { return <div>Hello</div>; }",
+        "class MyComponent { return <div>Hello</div>; }",
+        "component MyComponent() { return <div>Hello</div>; }",
+        "create MyComponent() { return <div>Hello</div>; }"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 4,
+      "question": "What is JSX?",
+      "options": [
+        "A syntax extension for JavaScript",
+        "A CSS framework",
+        "A database query language",
+        "A testing framework"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 5,
+      "question": "What is the purpose of state in React?",
+      "options": [
+        "To store data that can change over time",
+        "To store static data",
+        "To store CSS styles",
+        "To store HTML elements"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 6,
+      "question": "How do you update state in a functional component?",
+      "options": [
+        "useState hook",
+        "setState method",
+        "updateState function",
+        "changeState method"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 7,
+      "question": "What is the purpose of props in React?",
+      "options": [
+        "To pass data from parent to child components",
+        "To store local state",
+        "To handle events",
+        "To style components"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 8,
+      "question": "What is the correct way to handle events in React?",
+      "options": [
+        "onClick={handleClick}",
+        "onclick={handleClick}",
+        "click={handleClick}",
+        "handleClick={onClick}"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 9,
+      "question": "What is the purpose of useEffect hook?",
+      "options": [
+        "To perform side effects in functional components",
+        "To create state",
+        "To handle events",
+        "To style components"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 10,
+      "question": "What is the virtual DOM?",
+      "options": [
+        "A lightweight copy of the actual DOM",
+        "A database",
+        "A CSS framework",
+        "A JavaScript library"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 11,
+      "question": "What is the purpose of keys in React lists?",
+      "options": [
+        "To help React identify which items have changed",
+        "To style list items",
+        "To sort list items",
+        "To filter list items"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 12,
+      "question": "What is the correct way to render a list in React?",
+      "options": [
+        "items.map(item => <li key={item.id}>{item.name}</li>)",
+        "items.forEach(item => <li>{item.name}</li>)",
+        "items.render(item => <li>{item.name}</li>)",
+        "items.list(item => <li>{item.name}</li>)"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 13,
+      "question": "What is the purpose of conditional rendering?",
+      "options": [
+        "To render different content based on conditions",
+        "To create loops",
+        "To handle events",
+        "To style components"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 14,
+      "question": "What is the correct way to conditionally render in React?",
+      "options": [
+        "{condition && <Component />}",
+        "if (condition) <Component />",
+        "condition ? <Component /> : null",
+        "All of the above"
+      ],
+      "correctAnswer": 3
+    },
+    {
+      "id": 15,
+      "question": "What is the purpose of React Router?",
+      "options": [
+        "To handle navigation in React applications",
+        "To manage state",
+        "To handle events",
+        "To style components"
+      ],
+      "correctAnswer": 0
+    }
+  ],
+  "timeLimit": 900
+}

@@ -1,0 +1,174 @@
+{
+  "id": "finance-quiz-1",
+  "title": "Finance Fundamentals",
+  "subject": "Finance",
+  "difficulty": "Intermediate",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is finance?",
+      "options": [
+        "The management of money and investments",
+        "The study of economics",
+        "The process of accounting",
+        "The study of banking"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 2,
+      "question": "What is the time value of money?",
+      "options": [
+        "The concept that money today is worth more than money in the future",
+        "The value of money over time",
+        "The interest rate on money",
+        "The inflation rate"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 3,
+      "question": "What is compound interest?",
+      "options": [
+        "Interest earned on both principal and accumulated interest",
+        "Interest earned only on principal",
+        "Simple interest",
+        "Fixed interest"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 4,
+      "question": "What is a stock?",
+      "options": [
+        "A share of ownership in a company",
+        "A type of bond",
+        "A type of loan",
+        "A type of insurance"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 5,
+      "question": "What is a bond?",
+      "options": [
+        "A debt security that represents a loan to a borrower",
+        "A share of ownership",
+        "A type of insurance",
+        "A type of currency"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 6,
+      "question": "What is diversification?",
+      "options": [
+        "Spreading investments across different assets to reduce risk",
+        "Investing in one asset only",
+        "Buying and selling frequently",
+        "Investing in high-risk assets"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 7,
+      "question": "What is risk?",
+      "options": [
+        "The possibility of losing money on an investment",
+        "The guarantee of making money",
+        "The interest rate",
+        "The inflation rate"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 8,
+      "question": "What is return?",
+      "options": [
+        "The profit or loss on an investment",
+        "The interest rate",
+        "The principal amount",
+        "The inflation rate"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 9,
+      "question": "What is a portfolio?",
+      "options": [
+        "A collection of investments",
+        "A single investment",
+        "A type of account",
+        "A type of loan"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 10,
+      "question": "What is a mutual fund?",
+      "options": [
+        "A pool of money from many investors used to buy securities",
+        "A single stock",
+        "A type of bond",
+        "A type of loan"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 11,
+      "question": "What is an ETF?",
+      "options": [
+        "Exchange-Traded Fund - a type of investment fund",
+        "A type of stock",
+        "A type of bond",
+        "A type of currency"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 12,
+      "question": "What is a dividend?",
+      "options": [
+        "A distribution of profits to shareholders",
+        "A type of interest",
+        "A type of loan payment",
+        "A type of tax"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 13,
+      "question": "What is capital gains?",
+      "options": [
+        "Profit from selling an investment for more than its purchase price",
+        "Interest earned on investments",
+        "Dividends received",
+        "Taxes paid on investments"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 14,
+      "question": "What is a bull market?",
+      "options": [
+        "A market where prices are rising",
+        "A market where prices are falling",
+        "A stable market",
+        "A volatile market"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 15,
+      "question": "What is a bear market?",
+      "options": [
+        "A market where prices are falling",
+        "A market where prices are rising",
+        "A stable market",
+        "A volatile market"
+      ],
+      "correctAnswer": 0
+    }
+  ],
+  "timeLimit": 900
+}

@@ -31,41 +31,176 @@ export default function QuizPage({
     async function loadQuiz() {
       try {
         setLoading(true);
-        // Try to load from the existing physics quiz data
-        if (params.quizId === "physics-quiz-1") {
-          const data = await import("../../data/physics-quiz-1.json");
-          setQuizQuestions(data.default.questions);
-          setQuizTime(data.default.timeLimit || 0);
-          setQuizTimeLeft(data.default.timeLimit || 0);
-          setQuizAnswers(Array(data.default.questions.length).fill(-1));
-        } else if (params.quizId === "physics-quiz-2") {
-          const data = await import("../../data/physics-quiz-2.json");
-          setQuizQuestions(data.default.questions);
-          setQuizTime(data.default.timeLimit || 0);
-          setQuizTimeLeft(data.default.timeLimit || 0);
-          setQuizAnswers(Array(data.default.questions.length).fill(-1));
+
+        // Determine if this is a science or coding subject
+        const scienceSubjects = [
+          "physics",
+          "chemistry",
+          "biology",
+          "anatomy",
+          "physiology",
+          "microbiology",
+          "biochemistry",
+          "pharmacology",
+          "ecology",
+          "psychology",
+        ];
+
+        const codingSubjects = [
+          "javascript",
+          "python",
+          "html/css",
+          "react",
+          "node.js",
+          "database",
+        ];
+
+        const economicsSubjects = [
+          "economics",
+          "micro economics",
+          "macro economics",
+          "accounting",
+          "finance",
+          "political science",
+        ];
+
+        let apiUrl = "";
+        if (scienceSubjects.includes(params.subject.toLowerCase())) {
+          apiUrl = `/api/quiz-data/science/${params.subject.toLowerCase()}`;
+        } else if (codingSubjects.includes(params.subject.toLowerCase())) {
+          // Map subject names to folder names
+          let folderName = params.subject.toLowerCase();
+          if (params.subject.toLowerCase() === "html/css") {
+            folderName = "html-css";
+          } else if (params.subject.toLowerCase() === "node.js") {
+            folderName = "nodejs";
+          }
+          apiUrl = `/api/quiz-data/coding/${folderName}`;
+        } else if (economicsSubjects.includes(params.subject.toLowerCase())) {
+          // Map subject names to folder names
+          let folderName = params.subject.toLowerCase();
+          if (params.subject.toLowerCase() === "micro economics") {
+            folderName = "micro-economics";
+          } else if (params.subject.toLowerCase() === "macro economics") {
+            folderName = "macro-economics";
+          } else if (params.subject.toLowerCase() === "political science") {
+            folderName = "political-science";
+          }
+          apiUrl = `/api/quiz-data/economics/${folderName}`;
+        }
+
+        if (apiUrl) {
+          const response = await fetch(apiUrl);
+          if (response.ok) {
+            const quizzes = await response.json();
+            console.log("Loaded quizzes:", quizzes);
+            const quiz = quizzes.find((q: any) => q.id === params.quizId);
+            console.log("Found quiz:", quiz);
+
+            if (quiz) {
+              console.log("Quiz questions:", quiz.questions);
+              setQuizQuestions(quiz.questions);
+              setQuizTime(quiz.timeLimit || 0);
+              setQuizTimeLeft(quiz.timeLimit || 0);
+              setQuizAnswers(Array(quiz.questions.length).fill(-1));
+            } else {
+              // Fallback to mock data if quiz not found
+              const mockQuestions = [
+                {
+                  id: 1,
+                  question: "What is the main topic of this subject?",
+                  options: ["Option A", "Option B", "Option C", "Option D"],
+                  correctAnswer: 0,
+                  explanation: "This is a sample question.",
+                },
+                {
+                  id: 2,
+                  question: "Which of the following is correct?",
+                  options: [
+                    "First option",
+                    "Second option",
+                    "Third option",
+                    "Fourth option",
+                  ],
+                  correctAnswer: 1,
+                  explanation: "This is a sample question.",
+                },
+                {
+                  id: 3,
+                  question: "Choose the best answer:",
+                  options: ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
+                  correctAnswer: 2,
+                  explanation: "This is a sample question.",
+                },
+              ];
+              setQuizQuestions(mockQuestions);
+              setQuizTime(300); // 5 minutes
+              setQuizTimeLeft(300);
+              setQuizAnswers(Array(mockQuestions.length).fill(-1));
+            }
+          } else {
+            // Fallback to mock data if API fails
+            const mockQuestions = [
+              {
+                id: 1,
+                question: "What is the main topic of this subject?",
+                options: ["Option A", "Option B", "Option C", "Option D"],
+                correctAnswer: 0,
+                explanation: "This is a sample question.",
+              },
+              {
+                id: 2,
+                question: "Which of the following is correct?",
+                options: [
+                  "First option",
+                  "Second option",
+                  "Third option",
+                  "Fourth option",
+                ],
+                correctAnswer: 1,
+                explanation: "This is a sample question.",
+              },
+              {
+                id: 3,
+                question: "Choose the best answer:",
+                options: ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
+                correctAnswer: 2,
+                explanation: "This is a sample question.",
+              },
+            ];
+            setQuizQuestions(mockQuestions);
+            setQuizTime(300); // 5 minutes
+            setQuizTimeLeft(300);
+            setQuizAnswers(Array(mockQuestions.length).fill(-1));
+          }
         } else {
-          // For other quizzes, create mock data
+          // Fallback to mock data if subject not recognized
           const mockQuestions = [
             {
-              q: "What is the main topic of this subject?",
+              id: 1,
+              question: "What is the main topic of this subject?",
               options: ["Option A", "Option B", "Option C", "Option D"],
-              answer: 0,
+              correctAnswer: 0,
+              explanation: "This is a sample question.",
             },
             {
-              q: "Which of the following is correct?",
+              id: 2,
+              question: "Which of the following is correct?",
               options: [
                 "First option",
                 "Second option",
                 "Third option",
                 "Fourth option",
               ],
-              answer: 1,
+              correctAnswer: 1,
+              explanation: "This is a sample question.",
             },
             {
-              q: "Choose the best answer:",
+              id: 3,
+              question: "Choose the best answer:",
               options: ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
-              answer: 2,
+              correctAnswer: 2,
+              explanation: "This is a sample question.",
             },
           ];
           setQuizQuestions(mockQuestions);
@@ -101,7 +236,7 @@ export default function QuizPage({
     if (!quizQuestions.length) return;
     let correct = 0;
     for (let i = 0; i < quizAnswers.length; i++) {
-      if (quizAnswers[i] === quizQuestions[i]?.answer) correct++;
+      if (quizAnswers[i] === quizQuestions[i]?.correctAnswer) correct++;
     }
     setQuizScore(correct);
     setQuizFeedbackEmoji(
@@ -228,33 +363,40 @@ export default function QuizPage({
               {/* Question */}
               <div className="mb-8">
                 <div className="font-semibold mb-4 text-xl text-gray-800">
-                  Q{currentQuestion + 1}. {quizQuestions[currentQuestion]?.q}
+                  Q{currentQuestion + 1}.{" "}
+                  {quizQuestions[currentQuestion]?.question || ""}
                 </div>
 
                 {/* Options */}
                 <div className="space-y-3">
-                  {quizQuestions[currentQuestion]?.options.map(
-                    (opt: string, optIdx: number) => (
-                      <label
-                        key={optIdx}
-                        className={`flex items-center gap-3 p-4 rounded-xl cursor-pointer transition-all text-base shadow-sm border-2 ${
-                          quizAnswers[currentQuestion] === optIdx
-                            ? "bg-gradient-to-r from-emerald-100 to-blue-100 border-emerald-400"
-                            : "bg-white border border-gray-200 hover:border-emerald-300"
-                        }`}
-                      >
-                        <input
-                          type="radio"
-                          name={`q${currentQuestion}`}
-                          checked={quizAnswers[currentQuestion] === optIdx}
-                          onChange={() =>
-                            handleQuizAnswer(currentQuestion, optIdx)
-                          }
-                          className="accent-emerald-600"
-                        />
-                        <span className="flex-1">{opt}</span>
-                      </label>
+                  {Array.isArray(quizQuestions[currentQuestion]?.options) ? (
+                    quizQuestions[currentQuestion].options.map(
+                      (opt: string, optIdx: number) => (
+                        <label
+                          key={optIdx}
+                          className={`flex items-center gap-3 p-4 rounded-xl cursor-pointer transition-all text-base shadow-sm border-2 ${
+                            quizAnswers[currentQuestion] === optIdx
+                              ? "bg-gradient-to-r from-emerald-100 to-blue-100 border-emerald-400"
+                              : "bg-white border border-gray-200 hover:border-emerald-300"
+                          }`}
+                        >
+                          <input
+                            type="radio"
+                            name={`q${currentQuestion}`}
+                            checked={quizAnswers[currentQuestion] === optIdx}
+                            onChange={() =>
+                              handleQuizAnswer(currentQuestion, optIdx)
+                            }
+                            className="accent-emerald-600"
+                          />
+                          <span className="flex-1">
+                            {typeof opt === "string" ? opt : ""}
+                          </span>
+                        </label>
+                      )
                     )
+                  ) : (
+                    <div>Options not available</div>
                   )}
                 </div>
               </div>
@@ -338,7 +480,7 @@ export default function QuizPage({
                 <div className="space-y-4 max-h-96 overflow-y-auto">
                   {quizQuestions.map((question, qIdx) => {
                     const userAnswer = quizAnswers[qIdx];
-                    const correctAnswer = question.answer;
+                    const correctAnswer = question.correctAnswer;
                     const isCorrect = userAnswer === correctAnswer;
 
                     return (
@@ -360,42 +502,45 @@ export default function QuizPage({
                           </div>
                           <div className="flex-1">
                             <div className="font-semibold text-gray-800 mb-2">
-                              Q{qIdx + 1}. {question.q}
+                              Q{qIdx + 1}. {question.question || ""}
                             </div>
-
                             <div className="space-y-1">
-                              {question.options.map(
-                                (option: string, optIdx: number) => (
-                                  <div
-                                    key={optIdx}
-                                    className={`text-sm p-2 rounded ${
-                                      optIdx === correctAnswer
-                                        ? "bg-green-100 text-green-800 font-semibold"
-                                        : optIdx === userAnswer && !isCorrect
-                                        ? "bg-red-100 text-red-800 font-semibold"
-                                        : "bg-gray-50 text-gray-600"
-                                    }`}
-                                  >
-                                    {option}
-                                    {optIdx === correctAnswer && (
-                                      <span className="ml-2 text-green-600">
-                                        ✓ Correct Answer
-                                      </span>
-                                    )}
-                                    {optIdx === userAnswer && !isCorrect && (
-                                      <span className="ml-2 text-red-600">
-                                        ✗ Your Answer
-                                      </span>
-                                    )}
-                                  </div>
+                              {Array.isArray(question.options) ? (
+                                question.options.map(
+                                  (option: string, optIdx: number) => (
+                                    <div
+                                      key={optIdx}
+                                      className={`text-sm p-2 rounded ${
+                                        optIdx === correctAnswer
+                                          ? "bg-green-100 text-green-800 font-semibold"
+                                          : optIdx === userAnswer && !isCorrect
+                                          ? "bg-red-100 text-red-800 font-semibold"
+                                          : "bg-gray-50 text-gray-600"
+                                      }`}
+                                    >
+                                      {typeof option === "string" ? option : ""}
+                                      {optIdx === correctAnswer && (
+                                        <span className="ml-2 text-green-600">
+                                          ✓ Correct Answer
+                                        </span>
+                                      )}
+                                      {optIdx === userAnswer && !isCorrect && (
+                                        <span className="ml-2 text-red-600">
+                                          ✗ Your Answer
+                                        </span>
+                                      )}
+                                    </div>
+                                  )
                                 )
+                              ) : (
+                                <div>Options not available</div>
                               )}
                             </div>
-
                             {!isCorrect && (
                               <div className="mt-2 text-sm text-red-600">
                                 You selected:{" "}
-                                {userAnswer !== -1
+                                {userAnswer !== -1 &&
+                                Array.isArray(question.options)
                                   ? question.options[userAnswer]
                                   : "No answer"}
                               </div>

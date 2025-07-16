@@ -1,0 +1,174 @@
+{
+  "id": "economics-quiz-1",
+  "title": "Economics Fundamentals",
+  "subject": "Economics",
+  "difficulty": "Intermediate",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the fundamental economic problem?",
+      "options": [
+        "Scarcity of resources",
+        "Too much money",
+        "High unemployment",
+        "Low productivity"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 2,
+      "question": "What is opportunity cost?",
+      "options": [
+        "The value of the next best alternative foregone",
+        "The total cost of production",
+        "The price of goods",
+        "The cost of labor"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 3,
+      "question": "What is the law of demand?",
+      "options": [
+        "As price increases, quantity demanded decreases",
+        "As price increases, quantity demanded increases",
+        "Price and demand are unrelated",
+        "Demand always equals supply"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 4,
+      "question": "What is the law of supply?",
+      "options": [
+        "As price increases, quantity supplied increases",
+        "As price increases, quantity supplied decreases",
+        "Supply and price are unrelated",
+        "Supply always equals demand"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 5,
+      "question": "What is market equilibrium?",
+      "options": [
+        "Where supply equals demand",
+        "Where price is zero",
+        "Where there is no competition",
+        "Where government controls prices"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 6,
+      "question": "What is elasticity of demand?",
+      "options": [
+        "How responsive quantity demanded is to price changes",
+        "How much money people have",
+        "How many goods are available",
+        "How fast prices change"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 7,
+      "question": "What is a normal good?",
+      "options": [
+        "A good whose demand increases when income increases",
+        "A good that is always available",
+        "A good that is cheap",
+        "A good that is essential"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 8,
+      "question": "What is an inferior good?",
+      "options": [
+        "A good whose demand decreases when income increases",
+        "A good that is broken",
+        "A good that is expensive",
+        "A good that is illegal"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 9,
+      "question": "What is a substitute good?",
+      "options": [
+        "A good that can replace another good",
+        "A good that is free",
+        "A good that is better quality",
+        "A good that is cheaper"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 10,
+      "question": "What is a complementary good?",
+      "options": [
+        "A good that is used together with another good",
+        "A good that is free",
+        "A good that is better quality",
+        "A good that is cheaper"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 11,
+      "question": "What is consumer surplus?",
+      "options": [
+        "The difference between what consumers are willing to pay and what they actually pay",
+        "Extra money consumers have",
+        "Money saved on purchases",
+        "Tax refunds"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 12,
+      "question": "What is producer surplus?",
+      "options": [
+        "The difference between what producers receive and what they are willing to accept",
+        "Extra profit for producers",
+        "Money saved on production",
+        "Government subsidies"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 13,
+      "question": "What is a price ceiling?",
+      "options": [
+        "A maximum price set by government",
+        "A minimum price set by government",
+        "The highest price in the market",
+        "The lowest price in the market"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 14,
+      "question": "What is a price floor?",
+      "options": [
+        "A minimum price set by government",
+        "A maximum price set by government",
+        "The lowest price in the market",
+        "The highest price in the market"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 15,
+      "question": "What is the invisible hand?",
+      "options": [
+        "The market mechanism that guides self-interested individuals to promote social welfare",
+        "Government intervention in markets",
+        "A type of market failure",
+        "A form of taxation"
+      ],
+      "correctAnswer": 0
+    }
+  ],
+  "timeLimit": 900
+}

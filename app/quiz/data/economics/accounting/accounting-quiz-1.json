@@ -1,0 +1,174 @@
+{
+  "id": "accounting-quiz-1",
+  "title": "Accounting Fundamentals",
+  "subject": "Accounting",
+  "difficulty": "Intermediate",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is accounting?",
+      "options": [
+        "The process of recording, analyzing, and reporting financial transactions",
+        "The process of making money",
+        "The process of paying taxes",
+        "The process of budgeting"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 2,
+      "question": "What is the accounting equation?",
+      "options": [
+        "Assets = Liabilities + Owner's Equity",
+        "Assets = Liabilities - Owner's Equity",
+        "Assets + Liabilities = Owner's Equity",
+        "Assets - Liabilities = Owner's Equity"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 3,
+      "question": "What is a debit?",
+      "options": [
+        "An entry on the left side of an account",
+        "An entry on the right side of an account",
+        "A type of credit card",
+        "A type of loan"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 4,
+      "question": "What is a credit?",
+      "options": [
+        "An entry on the right side of an account",
+        "An entry on the left side of an account",
+        "A type of debit card",
+        "A type of loan"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 5,
+      "question": "What is double-entry bookkeeping?",
+      "options": [
+        "A system where every transaction affects at least two accounts",
+        "A system where transactions are recorded twice",
+        "A system with two sets of books",
+        "A system with two accountants"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 6,
+      "question": "What is a journal?",
+      "options": [
+        "A chronological record of transactions",
+        "A financial statement",
+        "A type of ledger",
+        "A type of account"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 7,
+      "question": "What is a ledger?",
+      "options": [
+        "A collection of accounts showing their balances",
+        "A chronological record of transactions",
+        "A financial statement",
+        "A type of journal"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 8,
+      "question": "What is a trial balance?",
+      "options": [
+        "A list of all account balances to check for equality",
+        "A financial statement",
+        "A type of journal",
+        "A type of ledger"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 9,
+      "question": "What is an income statement?",
+      "options": [
+        "A report showing revenues, expenses, and net income",
+        "A report showing assets and liabilities",
+        "A report showing cash flows",
+        "A report showing owner's equity"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 10,
+      "question": "What is a balance sheet?",
+      "options": [
+        "A report showing assets, liabilities, and owner's equity",
+        "A report showing revenues and expenses",
+        "A report showing cash flows",
+        "A report showing income"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 11,
+      "question": "What is depreciation?",
+      "options": [
+        "The allocation of the cost of an asset over its useful life",
+        "The decrease in value of money",
+        "The increase in value of assets",
+        "The cost of repairs"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 12,
+      "question": "What is accrual accounting?",
+      "options": [
+        "Recording transactions when they occur, not when cash changes hands",
+        "Recording only cash transactions",
+        "Recording transactions at the end of the year",
+        "Recording transactions monthly"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 13,
+      "question": "What is cash accounting?",
+      "options": [
+        "Recording transactions only when cash is received or paid",
+        "Recording all transactions immediately",
+        "Recording transactions at year-end",
+        "Recording transactions monthly"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 14,
+      "question": "What is a general ledger?",
+      "options": [
+        "The main ledger containing all accounts",
+        "A ledger for general expenses only",
+        "A ledger for income only",
+        "A ledger for assets only"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 15,
+      "question": "What is a chart of accounts?",
+      "options": [
+        "A list of all accounts used by a business",
+        "A list of all customers",
+        "A list of all suppliers",
+        "A list of all employees"
+      ],
+      "correctAnswer": 0
+    }
+  ],
+  "timeLimit": 900
+}

@@ -1,0 +1,165 @@
+{
+  "id": "physiology-quiz-1",
+  "title": "Physiology Quiz 1",
+  "subject": "Physiology",
+  "difficulty": "Intermediate",
+  "questions": 15,
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the normal body temperature in Celsius?",
+      "options": ["35°C", "36.5°C", "37°C", "38°C"],
+      "correctAnswer": 2,
+      "explanation": "The normal human body temperature is approximately 37°C (98.6°F)."
+    },
+    {
+      "id": 2,
+      "question": "What is the main function of red blood cells?",
+      "options": [
+        "Fight infection",
+        "Transport oxygen",
+        "Clot blood",
+        "Produce antibodies"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Red blood cells contain hemoglobin and are responsible for transporting oxygen from the lungs to tissues."
+    },
+    {
+      "id": 3,
+      "question": "What is the normal resting heart rate for adults?",
+      "options": ["40-60 bpm", "60-100 bpm", "100-140 bpm", "140-180 bpm"],
+      "correctAnswer": 1,
+      "explanation": "The normal resting heart rate for adults is typically between 60-100 beats per minute."
+    },
+    {
+      "id": 4,
+      "question": "What hormone regulates blood sugar levels?",
+      "options": ["Adrenaline", "Insulin", "Thyroxine", "Cortisol"],
+      "correctAnswer": 1,
+      "explanation": "Insulin, produced by the pancreas, regulates blood sugar levels by helping cells absorb glucose."
+    },
+    {
+      "id": 5,
+      "question": "What is the process of breathing called?",
+      "options": ["Respiration", "Ventilation", "Circulation", "Digestion"],
+      "correctAnswer": 1,
+      "explanation": "Ventilation is the mechanical process of breathing, involving inhalation and exhalation."
+    },
+    {
+      "id": 6,
+      "question": "What is the main function of the kidneys?",
+      "options": [
+        "Produce hormones",
+        "Filter blood",
+        "Digest food",
+        "Pump blood"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The kidneys filter blood to remove waste products and excess water, producing urine."
+    },
+    {
+      "id": 7,
+      "question": "What is the normal blood pressure reading?",
+      "options": ["90/60", "120/80", "140/90", "160/100"],
+      "correctAnswer": 1,
+      "explanation": "Normal blood pressure is typically around 120/80 mmHg."
+    },
+    {
+      "id": 8,
+      "question": "What is the function of white blood cells?",
+      "options": [
+        "Transport oxygen",
+        "Fight infection",
+        "Clot blood",
+        "Carry nutrients"
+      ],
+      "correctAnswer": 1,
+      "explanation": "White blood cells are part of the immune system and help fight infections and diseases."
+    },
+    {
+      "id": 9,
+      "question": "What is the main function of the digestive system?",
+      "options": [
+        "Transport oxygen",
+        "Break down food",
+        "Filter blood",
+        "Produce hormones"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The digestive system breaks down food into nutrients that can be absorbed by the body."
+    },
+    {
+      "id": 10,
+      "question": "What is the role of the nervous system?",
+      "options": [
+        "Transport nutrients",
+        "Coordinate body functions",
+        "Produce hormones",
+        "Filter blood"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The nervous system coordinates and controls body functions through electrical signals."
+    },
+    {
+      "id": 11,
+      "question": "What is the function of platelets?",
+      "options": [
+        "Transport oxygen",
+        "Fight infection",
+        "Clot blood",
+        "Produce antibodies"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Platelets are blood cells that help form blood clots to stop bleeding."
+    },
+    {
+      "id": 12,
+      "question": "What is the main function of the respiratory system?",
+      "options": [
+        "Digest food",
+        "Gas exchange",
+        "Transport blood",
+        "Produce hormones"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The respiratory system is responsible for gas exchange, bringing oxygen in and removing carbon dioxide."
+    },
+    {
+      "id": 13,
+      "question": "What is homeostasis?",
+      "options": [
+        "Cell division",
+        "Maintaining internal balance",
+        "Energy production",
+        "Protein synthesis"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Homeostasis is the body's ability to maintain a stable internal environment despite external changes."
+    },
+    {
+      "id": 14,
+      "question": "What is the function of the endocrine system?",
+      "options": [
+        "Transport blood",
+        "Produce hormones",
+        "Digest food",
+        "Filter waste"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The endocrine system produces and secretes hormones that regulate various body functions."
+    },
+    {
+      "id": 15,
+      "question": "What is the main function of the circulatory system?",
+      "options": [
+        "Transport substances",
+        "Digest food",
+        "Produce hormones",
+        "Filter blood"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The circulatory system transports oxygen, nutrients, hormones, and waste products throughout the body."
+    }
+  ]
+}

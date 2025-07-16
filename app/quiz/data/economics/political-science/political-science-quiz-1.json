@@ -1,0 +1,174 @@
+{
+  "id": "political-science-quiz-1",
+  "title": "Political Science Fundamentals",
+  "subject": "Political Science",
+  "difficulty": "Intermediate",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is political science?",
+      "options": [
+        "The study of politics, government, and political behavior",
+        "The study of economics",
+        "The study of history",
+        "The study of sociology"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 2,
+      "question": "What is democracy?",
+      "options": [
+        "A system of government where power comes from the people",
+        "A system with one ruler",
+        "A system with no government",
+        "A system with military rule"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 3,
+      "question": "What is a monarchy?",
+      "options": [
+        "A system of government with a king or queen as head of state",
+        "A system with elected leaders",
+        "A system with no leaders",
+        "A system with military rule"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 4,
+      "question": "What is a dictatorship?",
+      "options": [
+        "A system where one person has absolute power",
+        "A system with elected leaders",
+        "A system with no government",
+        "A system with shared power"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 5,
+      "question": "What is separation of powers?",
+      "options": [
+        "Dividing government power among different branches",
+        "Having one person in charge",
+        "Having no government",
+        "Having military rule"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 6,
+      "question": "What is checks and balances?",
+      "options": [
+        "Each branch of government limiting the power of others",
+        "Having one powerful branch",
+        "Having no limits on power",
+        "Having military control"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 7,
+      "question": "What is federalism?",
+      "options": [
+        "Sharing power between national and state governments",
+        "Having only national government",
+        "Having only state governments",
+        "Having no government"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 8,
+      "question": "What is a constitution?",
+      "options": [
+        "A written plan for government",
+        "A type of law",
+        "A type of election",
+        "A type of court"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 9,
+      "question": "What is civil rights?",
+      "options": [
+        "Rights guaranteed to all citizens",
+        "Rights for government officials only",
+        "Rights for military only",
+        "Rights for wealthy only"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 10,
+      "question": "What is civil liberties?",
+      "options": [
+        "Individual freedoms protected from government interference",
+        "Government powers",
+        "Military powers",
+        "Economic rights"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 11,
+      "question": "What is political participation?",
+      "options": [
+        "Citizen involvement in political processes",
+        "Government activities",
+        "Military activities",
+        "Economic activities"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 12,
+      "question": "What is a political party?",
+      "options": [
+        "An organized group seeking political power",
+        "A social club",
+        "A business organization",
+        "A military unit"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 13,
+      "question": "What is lobbying?",
+      "options": [
+        "Attempting to influence government decisions",
+        "Running for office",
+        "Voting in elections",
+        "Protesting"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 14,
+      "question": "What is public opinion?",
+      "options": [
+        "The views of the general public on political issues",
+        "Government opinions",
+        "Media opinions",
+        "Expert opinions"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 15,
+      "question": "What is political socialization?",
+      "options": [
+        "The process of learning political attitudes and behaviors",
+        "Political campaigning",
+        "Voting in elections",
+        "Government education"
+      ],
+      "correctAnswer": 0
+    }
+  ],
+  "timeLimit": 900
+}

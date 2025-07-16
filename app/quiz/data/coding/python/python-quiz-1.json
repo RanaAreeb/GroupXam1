@@ -1,0 +1,144 @@
+{
+  "id": "python-quiz-1",
+  "title": "Python Fundamentals",
+  "subject": "Python",
+  "difficulty": "Intermediate",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the correct way to create a variable in Python?",
+      "options": ["var x = 5", "x = 5", "variable x = 5", "declare x = 5"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 2,
+      "question": "Which of the following is NOT a Python data type?",
+      "options": ["list", "tuple", "array", "dictionary"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 3,
+      "question": "What is the output of: print(type([]))?",
+      "options": [
+        "<class 'list'>",
+        "<class 'array'>",
+        "<class 'tuple'>",
+        "<class 'set'>"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 4,
+      "question": "How do you create a function in Python?",
+      "options": [
+        "function my_function():",
+        "def my_function():",
+        "create function my_function():",
+        "func my_function():"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 5,
+      "question": "What is the correct way to create a list?",
+      "options": [
+        "list = [1, 2, 3]",
+        "list = (1, 2, 3)",
+        "list = {1, 2, 3}",
+        "list = 1, 2, 3"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 6,
+      "question": "Which method is used to add an element to a list?",
+      "options": ["add()", "append()", "insert()", "push()"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 7,
+      "question": "What is a tuple in Python?",
+      "options": [
+        "An immutable list",
+        "A mutable list",
+        "A dictionary",
+        "A set"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 8,
+      "question": "What does the 'len()' function do?",
+      "options": [
+        "Returns the length of an object",
+        "Returns the largest number",
+        "Returns the smallest number",
+        "Returns the sum of numbers"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 9,
+      "question": "What is the output of: print(3 * 'hello')?",
+      "options": ["hellohellohello", "3hello", "Error", "hello 3"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 10,
+      "question": "Which of the following is a valid Python comment?",
+      "options": [
+        "// This is a comment",
+        "# This is a comment",
+        "/* This is a comment */",
+        "-- This is a comment"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 11,
+      "question": "What is the purpose of the 'self' parameter in Python classes?",
+      "options": [
+        "Refers to the instance of the class",
+        "Refers to the parent class",
+        "Refers to the global scope",
+        "Refers to the module"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 12,
+      "question": "What does the 'import' statement do?",
+      "options": [
+        "Imports modules or functions",
+        "Exports functions",
+        "Creates variables",
+        "Defines classes"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 13,
+      "question": "What is the output of: print(10 / 3)?",
+      "options": ["3", "3.3333333333333335", "3.0", "Error"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 14,
+      "question": "Which method is used to remove whitespace from the beginning and end of a string?",
+      "options": ["trim()", "strip()", "clean()", "remove()"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 15,
+      "question": "What is the purpose of the 'try-except' block?",
+      "options": [
+        "To handle exceptions and errors",
+        "To create loops",
+        "To define functions",
+        "To import modules"
+      ],
+      "correctAnswer": 0
+    }
+  ],
+  "timeLimit": 900
+}

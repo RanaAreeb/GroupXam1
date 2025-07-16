@@ -1,0 +1,155 @@
+{
+  "id": "physics-quiz-2",
+  "title": "Physics Quiz 2",
+  "subject": "Physics",
+  "difficulty": "Intermediate",
+  "questions": 15,
+  "timeLimit": 600,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the principle of conservation of energy?",
+      "options": [
+        "Energy can be created but not destroyed",
+        "Energy can be destroyed but not created",
+        "Energy cannot be created or destroyed, only transformed",
+        "Energy can be both created and destroyed"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The principle of conservation of energy states that energy cannot be created or destroyed, only transformed from one form to another."
+    },
+    {
+      "id": 2,
+      "question": "Which of the following is NOT a fundamental force in nature?",
+      "options": [
+        "Gravitational force",
+        "Electromagnetic force",
+        "Strong nuclear force",
+        "Friction force"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Friction force is not a fundamental force. The four fundamental forces are gravitational, electromagnetic, strong nuclear, and weak nuclear forces."
+    },
+    {
+      "id": 3,
+      "question": "What is the relationship between mass and weight?",
+      "options": [
+        "Mass and weight are the same thing",
+        "Weight is mass multiplied by acceleration due to gravity",
+        "Mass is weight divided by acceleration due to gravity",
+        "There is no relationship between mass and weight"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Weight is mass multiplied by acceleration due to gravity (W = mg)."
+    },
+    {
+      "id": 4,
+      "question": "What is the SI unit of power?",
+      "options": ["Joule", "Watt", "Newton", "Pascal"],
+      "correctAnswer": 1,
+      "explanation": "The SI unit of power is the Watt (W)."
+    },
+    {
+      "id": 5,
+      "question": "Which law states that 'for every action, there is an equal and opposite reaction'?",
+      "options": [
+        "Newton's First Law",
+        "Newton's Second Law",
+        "Newton's Third Law",
+        "Newton's Law of Gravitation"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Newton's Third Law states that for every action, there is an equal and opposite reaction."
+    },
+    {
+      "id": 6,
+      "question": "What is the formula for kinetic energy?",
+      "options": ["KE = mgh", "KE = ½mv²", "KE = mv", "KE = ½mgh"],
+      "correctAnswer": 1,
+      "explanation": "The formula for kinetic energy is KE = ½mv², where m is mass and v is velocity."
+    },
+    {
+      "id": 7,
+      "question": "Which of these waves can travel through a vacuum?",
+      "options": ["Sound waves", "Water waves", "Light waves", "Seismic waves"],
+      "correctAnswer": 2,
+      "explanation": "Light waves (electromagnetic waves) can travel through a vacuum, while other waves require a medium."
+    },
+    {
+      "id": 8,
+      "question": "What is the speed of light in vacuum?",
+      "options": ["3 × 10⁸ m/s", "3 × 10⁷ m/s", "3 × 10⁹ m/s", "3 × 10⁶ m/s"],
+      "correctAnswer": 0,
+      "explanation": "The speed of light in vacuum is approximately 3 × 10⁸ m/s."
+    },
+    {
+      "id": 9,
+      "question": "What is the unit of electric current?",
+      "options": ["Volt", "Ampere", "Ohm", "Watt"],
+      "correctAnswer": 1,
+      "explanation": "The unit of electric current is the Ampere (A)."
+    },
+    {
+      "id": 10,
+      "question": "Which of these is a scalar quantity?",
+      "options": ["Force", "Velocity", "Acceleration", "Temperature"],
+      "correctAnswer": 3,
+      "explanation": "Temperature is a scalar quantity because it only has magnitude, not direction."
+    },
+    {
+      "id": 11,
+      "question": "What is the principle of moments?",
+      "options": [
+        "Sum of clockwise moments equals sum of anticlockwise moments",
+        "All moments must be clockwise",
+        "All moments must be anticlockwise",
+        "Moments have no relationship to each other"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The principle of moments states that for equilibrium, the sum of clockwise moments equals the sum of anticlockwise moments."
+    },
+    {
+      "id": 12,
+      "question": "What is the relationship between frequency and wavelength?",
+      "options": [
+        "They are directly proportional",
+        "They are inversely proportional",
+        "They have no relationship",
+        "They are equal to each other"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Frequency and wavelength are inversely proportional: f = c/λ, where c is the speed of light."
+    },
+    {
+      "id": 13,
+      "question": "What is the unit of frequency?",
+      "options": ["Meter", "Second", "Hertz", "Watt"],
+      "correctAnswer": 2,
+      "explanation": "The unit of frequency is the Hertz (Hz)."
+    },
+    {
+      "id": 14,
+      "question": "Which of these is NOT a type of energy?",
+      "options": [
+        "Kinetic energy",
+        "Potential energy",
+        "Thermal energy",
+        "Gravity energy"
+      ],
+      "correctAnswer": 3,
+      "explanation": "There is no such thing as 'gravity energy'. The correct term is gravitational potential energy."
+    },
+    {
+      "id": 15,
+      "question": "What is the law of reflection?",
+      "options": [
+        "Angle of incidence equals angle of reflection",
+        "Angle of incidence is greater than angle of reflection",
+        "Angle of incidence is less than angle of reflection",
+        "There is no relationship between angles"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The law of reflection states that the angle of incidence equals the angle of reflection."
+    }
+  ]
+}

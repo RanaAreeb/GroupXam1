@@ -1,0 +1,144 @@
+{
+  "id": "javascript-quiz-1",
+  "title": "JavaScript Fundamentals",
+  "subject": "JavaScript",
+  "difficulty": "Intermediate",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the correct way to declare a variable in JavaScript?",
+      "options": [
+        "var x = 5;",
+        "variable x = 5;",
+        "v x = 5;",
+        "declare x = 5;"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 2,
+      "question": "Which of the following is NOT a JavaScript data type?",
+      "options": ["String", "Boolean", "Integer", "Undefined"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 3,
+      "question": "What does the '===' operator do in JavaScript?",
+      "options": [
+        "Checks for equality and type",
+        "Checks for equality only",
+        "Assigns a value",
+        "Compares arrays"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 4,
+      "question": "How do you create a function in JavaScript?",
+      "options": [
+        "function myFunction() {}",
+        "create function myFunction() {}",
+        "def myFunction():",
+        "func myFunction() {}"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 5,
+      "question": "What is the output of: console.log(typeof null);",
+      "options": ["null", "undefined", "object", "number"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 6,
+      "question": "Which method is used to add an element to the end of an array?",
+      "options": ["push()", "pop()", "shift()", "unshift()"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 7,
+      "question": "What is a closure in JavaScript?",
+      "options": [
+        "A function that has access to variables in its outer scope",
+        "A way to close browser windows",
+        "A method to end loops",
+        "A type of variable declaration"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 8,
+      "question": "What does the 'let' keyword do?",
+      "options": [
+        "Declares a block-scoped variable",
+        "Declares a global variable",
+        "Declares a constant",
+        "Declares a function"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 9,
+      "question": "What is the purpose of the 'use strict' directive?",
+      "options": [
+        "Enables strict mode for better error checking",
+        "Makes code run faster",
+        "Prevents all errors",
+        "Enables ES6 features"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 10,
+      "question": "What is the output of: console.log(2 + '2');",
+      "options": ["4", "22", "NaN", "Error"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 11,
+      "question": "Which method removes the last element from an array?",
+      "options": ["pop()", "push()", "shift()", "unshift()"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 12,
+      "question": "What is the difference between 'null' and 'undefined'?",
+      "options": [
+        "null is assigned, undefined is not",
+        "They are the same thing",
+        "undefined is assigned, null is not",
+        "null is a number, undefined is a string"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 13,
+      "question": "What does the 'this' keyword refer to in JavaScript?",
+      "options": [
+        "The current object context",
+        "The previous object",
+        "The global object only",
+        "The parent object"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 14,
+      "question": "Which of the following is a truthy value in JavaScript?",
+      "options": ["0", "false", "null", "[]"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 15,
+      "question": "What is the purpose of the 'async/await' syntax?",
+      "options": [
+        "To handle asynchronous operations more cleanly",
+        "To make code run faster",
+        "To prevent errors",
+        "To create loops"
+      ],
+      "correctAnswer": 0
+    }
+  ],
+  "timeLimit": 900
+}

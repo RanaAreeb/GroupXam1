@@ -1,0 +1,36 @@
+{
+  "id": 102,
+  "title": "WASSCE English Language Mock Exam",
+  "subject": "English Language",
+  "className": "SS3",
+  "department": "Arts",
+  "date": "2025-03-15",
+  "time": "09:00 AM",
+  "questions": [
+    {
+      "q": "Write an essay on the topic: 'The Impact of Social Media on Modern Communication'.",
+      "options": [],
+      "answer": -1
+    },
+    {
+      "q": "Compose a formal letter to the principal requesting permission for a school excursion.",
+      "options": [],
+      "answer": -1
+    },
+    {
+      "q": "Write a story that ends with the sentence: 'It was then I realized the true meaning of friendship.'",
+      "options": [],
+      "answer": -1
+    },
+    {
+      "q": "Analyze the use of figurative language in a given passage.",
+      "options": [],
+      "answer": -1
+    },
+    {
+      "q": "Write a speech to be delivered at your school's graduation ceremony.",
+      "options": [],
+      "answer": -1
+    }
+  ]
+}

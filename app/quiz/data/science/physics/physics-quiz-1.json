@@ -1,0 +1,52 @@
+{
+  "id": "physics-quiz-1",
+  "title": "Physics Quiz 1",
+  "subject": "Physics",
+  "difficulty": "Beginner",
+  "questions": 6,
+  "timeLimit": 300,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the SI unit of force?",
+      "options": ["Newton", "Joule", "Watt", "Pascal"],
+      "correctAnswer": 0,
+      "explanation": "The SI unit of force is the Newton (N)."
+    },
+    {
+      "id": 2,
+      "question": "Which of these is a vector quantity?",
+      "options": ["Speed", "Distance", "Velocity", "Energy"],
+      "correctAnswer": 2,
+      "explanation": "Velocity is a vector quantity because it has both magnitude and direction."
+    },
+    {
+      "id": 3,
+      "question": "What is the acceleration due to gravity on Earth?",
+      "options": ["9.8 m/s²", "10 m/s²", "8.9 m/s²", "12 m/s²"],
+      "correctAnswer": 0,
+      "explanation": "The acceleration due to gravity on Earth is approximately 9.8 m/s²."
+    },
+    {
+      "id": 4,
+      "question": "What is the SI unit of work?",
+      "options": ["Newton", "Joule", "Watt", "Pascal"],
+      "correctAnswer": 1,
+      "explanation": "The SI unit of work is the Joule (J)."
+    },
+    {
+      "id": 5,
+      "question": "Which of these is a scalar quantity?",
+      "options": ["Force", "Velocity", "Speed", "Acceleration"],
+      "correctAnswer": 2,
+      "explanation": "Speed is a scalar quantity because it only has magnitude, not direction."
+    },
+    {
+      "id": 6,
+      "question": "What is the SI unit of power?",
+      "options": ["Newton", "Joule", "Watt", "Pascal"],
+      "correctAnswer": 2,
+      "explanation": "The SI unit of power is the Watt (W)."
+    }
+  ]
+}

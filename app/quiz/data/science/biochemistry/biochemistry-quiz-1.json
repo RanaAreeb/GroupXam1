@@ -1,0 +1,175 @@
+{
+  "id": "biochemistry-quiz-1",
+  "title": "Biochemistry Quiz 1",
+  "subject": "Biochemistry",
+  "difficulty": "Intermediate",
+  "questions": 15,
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What are the building blocks of proteins?",
+      "options": [
+        "Nucleotides",
+        "Amino acids",
+        "Fatty acids",
+        "Monosaccharides"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Amino acids are the building blocks of proteins, linked together by peptide bonds."
+    },
+    {
+      "id": 2,
+      "question": "What is the primary energy molecule in cells?",
+      "options": ["Glucose", "ATP", "NADH", "FADH2"],
+      "correctAnswer": 1,
+      "explanation": "ATP (Adenosine Triphosphate) is the primary energy molecule used by cells."
+    },
+    {
+      "id": 3,
+      "question": "What type of molecule is DNA?",
+      "options": ["Protein", "Carbohydrate", "Lipid", "Nucleic acid"],
+      "correctAnswer": 3,
+      "explanation": "DNA is a nucleic acid, specifically deoxyribonucleic acid."
+    },
+    {
+      "id": 4,
+      "question": "What is the function of enzymes?",
+      "options": [
+        "Provide energy",
+        "Speed up reactions",
+        "Store information",
+        "Transport molecules"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Enzymes are biological catalysts that speed up chemical reactions in living organisms."
+    },
+    {
+      "id": 5,
+      "question": "What is the chemical formula for glucose?",
+      "options": ["C6H12O6", "C12H22O11", "C6H10O5", "C5H10O5"],
+      "correctAnswer": 0,
+      "explanation": "Glucose has the chemical formula C6H12O6."
+    },
+    {
+      "id": 6,
+      "question": "What are the building blocks of nucleic acids?",
+      "options": [
+        "Amino acids",
+        "Nucleotides",
+        "Fatty acids",
+        "Monosaccharides"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Nucleotides are the building blocks of nucleic acids like DNA and RNA."
+    },
+    {
+      "id": 7,
+      "question": "What is the function of lipids?",
+      "options": [
+        "Energy storage",
+        "Genetic information",
+        "Enzyme catalysis",
+        "Oxygen transport"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Lipids serve as energy storage molecules and are components of cell membranes."
+    },
+    {
+      "id": 8,
+      "question": "What is the pH scale used to measure?",
+      "options": [
+        "Temperature",
+        "Acidity/basicity",
+        "Pressure",
+        "Concentration"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The pH scale measures the acidity or basicity of a solution."
+    },
+    {
+      "id": 9,
+      "question": "What is the function of carbohydrates?",
+      "options": [
+        "Energy source",
+        "Genetic information",
+        "Enzyme catalysis",
+        "Oxygen transport"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Carbohydrates serve as a primary energy source for living organisms."
+    },
+    {
+      "id": 10,
+      "question": "What is the process of breaking down glucose for energy called?",
+      "options": [
+        "Photosynthesis",
+        "Cellular respiration",
+        "Protein synthesis",
+        "DNA replication"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Cellular respiration is the process of breaking down glucose to produce ATP."
+    },
+    {
+      "id": 11,
+      "question": "What is the function of RNA?",
+      "options": [
+        "Energy storage",
+        "Genetic information transfer",
+        "Enzyme catalysis",
+        "Cell structure"
+      ],
+      "correctAnswer": 1,
+      "explanation": "RNA transfers genetic information from DNA to protein synthesis machinery."
+    },
+    {
+      "id": 12,
+      "question": "What is the function of cell membranes?",
+      "options": [
+        "Energy production",
+        "Selective barrier",
+        "Protein synthesis",
+        "DNA storage"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Cell membranes act as selective barriers, controlling what enters and exits the cell."
+    },
+    {
+      "id": 13,
+      "question": "What is the function of vitamins?",
+      "options": [
+        "Energy source",
+        "Cofactors for enzymes",
+        "Genetic information",
+        "Cell structure"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Vitamins often serve as cofactors for enzymes, helping them function properly."
+    },
+    {
+      "id": 14,
+      "question": "What is the function of minerals in the body?",
+      "options": [
+        "Energy source",
+        "Structural components",
+        "Genetic information",
+        "Enzyme catalysis"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Minerals serve as structural components and are essential for various biochemical processes."
+    },
+    {
+      "id": 15,
+      "question": "What is the function of hormones?",
+      "options": [
+        "Energy source",
+        "Chemical messengers",
+        "Genetic information",
+        "Cell structure"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Hormones are chemical messengers that regulate various physiological processes in the body."
+    }
+  ]
+}

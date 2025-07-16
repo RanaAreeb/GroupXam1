@@ -1,0 +1,174 @@
+{
+  "id": "micro-economics-quiz-1",
+  "title": "Micro Economics Fundamentals",
+  "subject": "Micro Economics",
+  "difficulty": "Intermediate",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is microeconomics?",
+      "options": [
+        "The study of individual economic units like households and firms",
+        "The study of the entire economy",
+        "The study of international trade",
+        "The study of government policy"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 2,
+      "question": "What is utility?",
+      "options": [
+        "The satisfaction or happiness derived from consuming goods",
+        "The usefulness of a product",
+        "The price of a good",
+        "The cost of production"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 3,
+      "question": "What is marginal utility?",
+      "options": [
+        "The additional satisfaction from consuming one more unit",
+        "The total satisfaction from all units consumed",
+        "The average satisfaction per unit",
+        "The maximum satisfaction possible"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 4,
+      "question": "What is the law of diminishing marginal utility?",
+      "options": [
+        "As consumption increases, marginal utility decreases",
+        "As consumption increases, total utility decreases",
+        "As price increases, utility decreases",
+        "As income increases, utility decreases"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 5,
+      "question": "What is a budget constraint?",
+      "options": [
+        "The limit on what a consumer can afford given their income and prices",
+        "A government spending limit",
+        "A company's budget",
+        "A price ceiling"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 6,
+      "question": "What is an indifference curve?",
+      "options": [
+        "A curve showing combinations of goods that give equal satisfaction",
+        "A curve showing price changes",
+        "A curve showing income changes",
+        "A curve showing demand changes"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 7,
+      "question": "What is the marginal rate of substitution?",
+      "options": [
+        "The rate at which a consumer is willing to trade one good for another",
+        "The rate of price changes",
+        "The rate of income changes",
+        "The rate of production changes"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 8,
+      "question": "What is a production function?",
+      "options": [
+        "The relationship between inputs and outputs",
+        "The cost of production",
+        "The price of goods",
+        "The demand for goods"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 9,
+      "question": "What is marginal product?",
+      "options": [
+        "The additional output from one more unit of input",
+        "The total output produced",
+        "The average output per unit",
+        "The maximum output possible"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 10,
+      "question": "What is the law of diminishing returns?",
+      "options": [
+        "As more of a variable input is added, marginal product eventually decreases",
+        "As more inputs are added, total output decreases",
+        "As prices increase, output decreases",
+        "As costs increase, profit decreases"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 11,
+      "question": "What is total cost?",
+      "options": [
+        "Fixed costs plus variable costs",
+        "Only fixed costs",
+        "Only variable costs",
+        "Revenue minus profit"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 12,
+      "question": "What is marginal cost?",
+      "options": [
+        "The additional cost of producing one more unit",
+        "The total cost of production",
+        "The average cost per unit",
+        "The fixed cost per unit"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 13,
+      "question": "What is average total cost?",
+      "options": [
+        "Total cost divided by quantity produced",
+        "Variable cost divided by quantity",
+        "Fixed cost divided by quantity",
+        "Marginal cost divided by quantity"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 14,
+      "question": "What is perfect competition?",
+      "options": [
+        "A market structure with many buyers and sellers of identical products",
+        "A market with only one seller",
+        "A market with only a few sellers",
+        "A market with government control"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 15,
+      "question": "What is a monopoly?",
+      "options": [
+        "A market structure with only one seller",
+        "A market with many sellers",
+        "A market with government control",
+        "A market with perfect competition"
+      ],
+      "correctAnswer": 0
+    }
+  ],
+  "timeLimit": 900
+}

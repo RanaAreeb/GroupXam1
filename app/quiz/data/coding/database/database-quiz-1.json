@@ -1,0 +1,174 @@
+{
+  "id": "database-quiz-1",
+  "title": "Database Fundamentals",
+  "subject": "Database",
+  "difficulty": "Intermediate",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is a database?",
+      "options": [
+        "An organized collection of structured information",
+        "A programming language",
+        "A web server",
+        "A file system"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 2,
+      "question": "What is SQL?",
+      "options": [
+        "Structured Query Language",
+        "Simple Query Language",
+        "Standard Query Language",
+        "System Query Language"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 3,
+      "question": "What is a primary key?",
+      "options": [
+        "A unique identifier for each record in a table",
+        "A foreign key",
+        "A composite key",
+        "A candidate key"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 4,
+      "question": "What is a foreign key?",
+      "options": [
+        "A key that references a primary key in another table",
+        "A unique identifier",
+        "A composite key",
+        "A candidate key"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 5,
+      "question": "What is normalization?",
+      "options": [
+        "The process of organizing data to reduce redundancy",
+        "The process of creating tables",
+        "The process of deleting data",
+        "The process of backing up data"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 6,
+      "question": "What is the purpose of the SELECT statement?",
+      "options": [
+        "To retrieve data from a database",
+        "To insert data into a database",
+        "To update data in a database",
+        "To delete data from a database"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 7,
+      "question": "What is the purpose of the INSERT statement?",
+      "options": [
+        "To add new records to a table",
+        "To retrieve data from a table",
+        "To update existing records",
+        "To delete records from a table"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 8,
+      "question": "What is the purpose of the UPDATE statement?",
+      "options": [
+        "To modify existing records in a table",
+        "To add new records to a table",
+        "To retrieve data from a table",
+        "To delete records from a table"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 9,
+      "question": "What is the purpose of the DELETE statement?",
+      "options": [
+        "To remove records from a table",
+        "To add new records to a table",
+        "To retrieve data from a table",
+        "To update existing records"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 10,
+      "question": "What is a JOIN in SQL?",
+      "options": [
+        "A way to combine rows from two or more tables",
+        "A way to create tables",
+        "A way to delete tables",
+        "A way to backup tables"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 11,
+      "question": "What is the difference between INNER JOIN and LEFT JOIN?",
+      "options": [
+        "INNER JOIN returns only matching rows, LEFT JOIN returns all rows from left table",
+        "INNER JOIN returns all rows, LEFT JOIN returns only matching rows",
+        "They are the same thing",
+        "INNER JOIN is faster than LEFT JOIN"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 12,
+      "question": "What is the purpose of the WHERE clause?",
+      "options": [
+        "To filter records based on a condition",
+        "To sort records",
+        "To group records",
+        "To join tables"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 13,
+      "question": "What is the purpose of the ORDER BY clause?",
+      "options": [
+        "To sort the result set",
+        "To filter records",
+        "To group records",
+        "To join tables"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 14,
+      "question": "What is the purpose of the GROUP BY clause?",
+      "options": [
+        "To group rows that have the same values",
+        "To sort records",
+        "To filter records",
+        "To join tables"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 15,
+      "question": "What is an index in a database?",
+      "options": [
+        "A data structure that improves the speed of data retrieval",
+        "A table",
+        "A view",
+        "A stored procedure"
+      ],
+      "correctAnswer": 0
+    }
+  ],
+  "timeLimit": 900
+}

@@ -72,17 +72,69 @@ const subjectCategories = [
     description: "Physics, Chemistry, Biology and more",
     icon: Atom,
     color: "emerald",
+    gradient: "from-emerald-500 to-teal-500",
+    bgGradient: "from-emerald-50 to-teal-50",
     subjects: [
-      { name: "Physics", icon: Atom, color: "emerald" },
-      { name: "Chemistry", icon: FlaskConical, color: "blue" },
-      { name: "Biology", icon: Leaf, color: "green" },
-      { name: "Anatomy", icon: Heart, color: "red" },
-      { name: "Physiology", icon: Brain, color: "pink" },
-      { name: "Microbiology", icon: Microscope, color: "orange" },
-      { name: "Biochemistry", icon: Dna, color: "indigo" },
-      { name: "Pharmacology", icon: Pill, color: "violet" },
-      { name: "Ecology", icon: EcologyIcon, color: "teal" },
-      { name: "Psychology", icon: Brain, color: "amber" },
+      {
+        name: "Physics",
+        icon: Atom,
+        color: "emerald",
+        gradient: "from-blue-500 to-indigo-500",
+      },
+      {
+        name: "Chemistry",
+        icon: FlaskConical,
+        color: "blue",
+        gradient: "from-green-500 to-emerald-500",
+      },
+      {
+        name: "Biology",
+        icon: Leaf,
+        color: "green",
+        gradient: "from-emerald-500 to-green-500",
+      },
+      {
+        name: "Anatomy",
+        icon: Heart,
+        color: "red",
+        gradient: "from-red-500 to-pink-500",
+      },
+      {
+        name: "Physiology",
+        icon: Brain,
+        color: "pink",
+        gradient: "from-pink-500 to-purple-500",
+      },
+      {
+        name: "Microbiology",
+        icon: Microscope,
+        color: "orange",
+        gradient: "from-orange-500 to-red-500",
+      },
+      {
+        name: "Biochemistry",
+        icon: Dna,
+        color: "indigo",
+        gradient: "from-indigo-500 to-purple-500",
+      },
+      {
+        name: "Pharmacology",
+        icon: Pill,
+        color: "violet",
+        gradient: "from-violet-500 to-purple-500",
+      },
+      {
+        name: "Ecology",
+        icon: EcologyIcon,
+        color: "teal",
+        gradient: "from-teal-500 to-cyan-500",
+      },
+      {
+        name: "Psychology",
+        icon: Brain,
+        color: "amber",
+        gradient: "from-amber-500 to-orange-500",
+      },
     ],
   },
   {
@@ -91,13 +143,45 @@ const subjectCategories = [
     description: "Economics, Accounting, Finance and more",
     icon: DollarSign,
     color: "blue",
+    gradient: "from-blue-500 to-cyan-500",
+    bgGradient: "from-blue-50 to-cyan-50",
     subjects: [
-      { name: "Economics", icon: DollarSign, color: "blue" },
-      { name: "Micro Economics", icon: TrendingDown, color: "cyan" },
-      { name: "Macro Economics", icon: TrendingUp, color: "sky" },
-      { name: "Accounting", icon: Calculator, color: "emerald" },
-      { name: "Finance", icon: Calculator, color: "purple" },
-      { name: "Political Science", icon: Vote, color: "red" },
+      {
+        name: "Economics",
+        icon: DollarSign,
+        color: "blue",
+        gradient: "from-green-500 to-emerald-500",
+      },
+      {
+        name: "Micro Economics",
+        icon: TrendingDown,
+        color: "cyan",
+        gradient: "from-cyan-500 to-blue-500",
+      },
+      {
+        name: "Macro Economics",
+        icon: TrendingUp,
+        color: "sky",
+        gradient: "from-sky-500 to-blue-500",
+      },
+      {
+        name: "Accounting",
+        icon: Calculator,
+        color: "emerald",
+        gradient: "from-emerald-500 to-teal-500",
+      },
+      {
+        name: "Finance",
+        icon: Calculator,
+        color: "purple",
+        gradient: "from-purple-500 to-indigo-500",
+      },
+      {
+        name: "Political Science",
+        icon: Vote,
+        color: "red",
+        gradient: "from-red-500 to-orange-500",
+      },
     ],
   },
   {
@@ -106,14 +190,51 @@ const subjectCategories = [
     description: "Algebra, Calculus, Statistics and more",
     icon: Calculator,
     color: "purple",
+    gradient: "from-purple-500 to-indigo-500",
+    bgGradient: "from-purple-50 to-indigo-50",
     subjects: [
-      { name: "Statistics", icon: Calculator, color: "purple" },
-      { name: "Calculus", icon: Calculator, color: "indigo" },
-      { name: "Algebra", icon: Calculator, color: "blue" },
-      { name: "Arithmetic", icon: Calculator, color: "emerald" },
-      { name: "Geometry", icon: Calculator, color: "teal" },
-      { name: "Trigonometry", icon: Calculator, color: "cyan" },
-      { name: "Pythagorean Theorem", icon: Calculator, color: "orange" },
+      {
+        name: "Statistics",
+        icon: Calculator,
+        color: "purple",
+        gradient: "from-purple-500 to-pink-500",
+      },
+      {
+        name: "Calculus",
+        icon: Calculator,
+        color: "indigo",
+        gradient: "from-indigo-500 to-blue-500",
+      },
+      {
+        name: "Algebra",
+        icon: Calculator,
+        color: "blue",
+        gradient: "from-blue-500 to-cyan-500",
+      },
+      {
+        name: "Arithmetic",
+        icon: Calculator,
+        color: "emerald",
+        gradient: "from-emerald-500 to-green-500",
+      },
+      {
+        name: "Geometry",
+        icon: Calculator,
+        color: "teal",
+        gradient: "from-teal-500 to-emerald-500",
+      },
+      {
+        name: "Trigonometry",
+        icon: Calculator,
+        color: "cyan",
+        gradient: "from-cyan-500 to-blue-500",
+      },
+      {
+        name: "Pythagorean Theorem",
+        icon: Calculator,
+        color: "orange",
+        gradient: "from-orange-500 to-red-500",
+      },
     ],
   },
   {
@@ -122,19 +243,81 @@ const subjectCategories = [
     description: "English, Literature, History and more",
     icon: BookText,
     color: "rose",
+    gradient: "from-rose-500 to-pink-500",
+    bgGradient: "from-rose-50 to-pink-50",
     subjects: [
-      { name: "English", icon: BookText, color: "rose" },
-      { name: "Literature", icon: ScrollText, color: "pink" },
-      { name: "History", icon: Globe, color: "amber" },
-      { name: "Geography", icon: MapPin, color: "emerald" },
-      { name: "Philosophy", icon: Lightbulb, color: "yellow" },
-      { name: "Sociology", icon: Users, color: "blue" },
-      { name: "Art History", icon: Palette, color: "purple" },
-      { name: "Music Theory", icon: Music, color: "indigo" },
-      { name: "Creative Writing", icon: BookOpen, color: "teal" },
-      { name: "Foreign Languages", icon: Languages, color: "cyan" },
-      { name: "Religious Studies", icon: BookMarked, color: "orange" },
-      { name: "Cultural Studies", icon: Globe, color: "violet" },
+      {
+        name: "English",
+        icon: BookText,
+        color: "rose",
+        gradient: "from-rose-500 to-red-500",
+      },
+      {
+        name: "Literature",
+        icon: ScrollText,
+        color: "pink",
+        gradient: "from-pink-500 to-purple-500",
+      },
+      {
+        name: "History",
+        icon: Globe,
+        color: "amber",
+        gradient: "from-amber-500 to-orange-500",
+      },
+      {
+        name: "Geography",
+        icon: MapPin,
+        color: "emerald",
+        gradient: "from-emerald-500 to-teal-500",
+      },
+      {
+        name: "Philosophy",
+        icon: Lightbulb,
+        color: "yellow",
+        gradient: "from-yellow-500 to-amber-500",
+      },
+      {
+        name: "Sociology",
+        icon: Users,
+        color: "blue",
+        gradient: "from-blue-500 to-indigo-500",
+      },
+      {
+        name: "Art History",
+        icon: Palette,
+        color: "purple",
+        gradient: "from-purple-500 to-pink-500",
+      },
+      {
+        name: "Music Theory",
+        icon: Music,
+        color: "indigo",
+        gradient: "from-indigo-500 to-purple-500",
+      },
+      {
+        name: "Creative Writing",
+        icon: BookOpen,
+        color: "teal",
+        gradient: "from-teal-500 to-cyan-500",
+      },
+      {
+        name: "Foreign Languages",
+        icon: Languages,
+        color: "cyan",
+        gradient: "from-cyan-500 to-blue-500",
+      },
+      {
+        name: "Religious Studies",
+        icon: BookMarked,
+        color: "orange",
+        gradient: "from-orange-500 to-amber-500",
+      },
+      {
+        name: "Cultural Studies",
+        icon: Globe,
+        color: "violet",
+        gradient: "from-violet-500 to-purple-500",
+      },
     ],
   },
 ];
@@ -450,14 +633,14 @@ export default function FlashcardsPage() {
     // Check if flashcards exist
     if (!flashcards || flashcards.length === 0) {
       return (
-        <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50">
+        <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50">
           <AppHeader userInitial="J" active="Flashcards" />
           <div className="container mx-auto max-w-4xl py-8 px-4">
             <div className="text-center">
               <Button
                 variant="ghost"
                 onClick={handleBackToSets}
-                className="mb-4 text-green-700 hover:text-green-800"
+                className="mb-4 text-blue-700 hover:text-blue-800"
               >
                 <ChevronLeft className="w-4 h-4 mr-2" />
                 Back to Sets
@@ -483,7 +666,7 @@ export default function FlashcardsPage() {
     const currentFlashcard = flashcards[currentCard];
 
     return (
-      <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50">
+      <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50">
         <AppHeader userInitial="J" active="Flashcards" />
 
         <div className="container mx-auto max-w-4xl py-8 px-4">
@@ -493,7 +676,7 @@ export default function FlashcardsPage() {
               <Button
                 variant="ghost"
                 onClick={handleBackToSets}
-                className="mb-2 text-green-700 hover:text-green-800"
+                className="mb-2 text-blue-700 hover:text-blue-800"
               >
                 <ChevronLeft className="w-4 h-4 mr-2" />
                 Back to Sets
@@ -505,7 +688,7 @@ export default function FlashcardsPage() {
                 {selectedSubject} • {flashcards.length} cards
               </p>
             </div>
-            <Badge variant="secondary" className="bg-green-100 text-green-800">
+            <Badge variant="secondary" className="bg-blue-100 text-blue-800">
               {currentCard + 1} / {flashcards.length}
             </Badge>
           </div>
@@ -513,7 +696,7 @@ export default function FlashcardsPage() {
           {/* Progress */}
           <Progress
             value={((currentCard + 1) / flashcards.length) * 100}
-            className="mb-8 h-3 bg-green-100"
+            className="mb-8 h-3 bg-blue-100"
           />
 
           {/* Flashcard */}
@@ -524,7 +707,7 @@ export default function FlashcardsPage() {
               transition={{ duration: 0.3 }}
             >
               <Card
-                className="border-0 shadow-2xl cursor-pointer transition-all duration-500 hover:shadow-3xl min-h-[400px] flex items-center justify-center bg-gradient-to-br from-white to-green-50"
+                className="border-0 shadow-2xl cursor-pointer transition-all duration-500 hover:shadow-3xl min-h-[400px] flex items-center justify-center bg-gradient-to-br from-white to-blue-50"
                 onClick={handleFlip}
               >
                 <CardContent className="p-12 text-center w-full">
@@ -532,8 +715,8 @@ export default function FlashcardsPage() {
                     <Badge
                       className={
                         isFlipped
-                          ? "bg-blue-100 text-blue-700 hover:bg-blue-200 transition-colors duration-200"
-                          : "bg-green-100 text-green-700 hover:bg-green-200 transition-colors duration-200"
+                          ? "bg-purple-100 text-purple-700 hover:bg-purple-200 transition-colors duration-200"
+                          : "bg-emerald-100 text-emerald-700 hover:bg-emerald-200 transition-colors duration-200"
                       }
                     >
                       {isFlipped ? "Answer" : "Question"}
@@ -562,7 +745,7 @@ export default function FlashcardsPage() {
               variant="outline"
               onClick={handlePrevious}
               disabled={currentCard === 0}
-              className="border-green-200 text-green-700 hover:bg-green-50"
+              className="border-blue-200 text-blue-700 hover:bg-blue-50"
             >
               <ChevronLeft className="w-4 h-4 mr-2" />
               Previous
@@ -570,7 +753,7 @@ export default function FlashcardsPage() {
 
             <Button
               onClick={handleFlip}
-              className="bg-green-600 hover:bg-green-700 text-white shadow-lg"
+              className="bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white shadow-lg"
             >
               <RotateCcw className="w-4 h-4 mr-2" />
               Flip Card
@@ -580,7 +763,7 @@ export default function FlashcardsPage() {
               variant="outline"
               onClick={handleNext}
               disabled={currentCard === flashcards.length - 1}
-              className="border-green-200 text-green-700 hover:bg-green-50"
+              className="border-purple-200 text-purple-700 hover:bg-purple-50"
             >
               Next
               <ChevronRight className="w-4 h-4 ml-2" />
@@ -592,13 +775,13 @@ export default function FlashcardsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50">
+    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50">
       <AppHeader userInitial="J" active="Flashcards" />
 
       {/* Hero Section */}
-      <section className="relative py-16 sm:py-24 px-4 bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 text-white shadow-lg rounded-b-3xl mb-12">
+      <section className="relative py-16 sm:py-24 px-4 bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 text-white shadow-lg rounded-b-3xl mb-12">
         <div className="container mx-auto text-center relative z-10">
-          <nav className="mb-4 text-sm text-green-100/80">
+          <nav className="mb-4 text-sm text-emerald-100/80">
             <Link href="/" className="hover:underline">
               Home
             </Link>{" "}
@@ -638,7 +821,7 @@ export default function FlashcardsPage() {
               ? selectedCategoryData.title
               : "Interactive Flashcards"}
           </h1>
-          <p className="text-lg sm:text-xl text-green-100/90 max-w-2xl mx-auto mb-2">
+          <p className="text-lg sm:text-xl text-emerald-100/90 max-w-2xl mx-auto mb-2">
             {selectedSubjectData
               ? `Master ${selectedSubjectData.name} concepts with interactive flashcards`
               : selectedCategoryData
@@ -665,7 +848,7 @@ export default function FlashcardsPage() {
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            fill="#059669"
+            fill="#3b82f6"
             d="M38.2,-60.2C51.2,-54.2,63.2,-44.2,68.2,-31.2C73.2,-18.2,71.2,-2.2,66.2,12.8C61.2,27.8,53.2,41.8,41.2,50.8C29.2,59.8,14.2,63.8,-0.8,64.8C-15.8,65.8,-31.8,63.8,-44.8,55.8C-57.8,47.8,-67.8,33.8,-70.8,18.8C-73.8,3.8,-69.8,-12.2,-61.8,-25.2C-53.8,-38.2,-41.8,-48.2,-28.8,-54.2C-15.8,-60.2,-1.8,-62.2,12.2,-62.2C26.2,-62.2,52.2,-66.2,38.2,-60.2Z"
             transform="translate(100 100)"
           />
@@ -679,7 +862,7 @@ export default function FlashcardsPage() {
             <Button
               variant="outline"
               onClick={handleBackToSubjects}
-              className="flex items-center gap-2 border-green-200 text-green-700 hover:bg-green-50"
+              className="flex items-center gap-2 border-blue-200 text-blue-700 hover:bg-blue-50"
             >
               <ArrowLeft className="w-4 h-4" />
               Back to Subjects
@@ -692,7 +875,7 @@ export default function FlashcardsPage() {
             <Button
               variant="outline"
               onClick={handleBackToCategories}
-              className="flex items-center gap-2 border-green-200 text-green-700 hover:bg-green-50"
+              className="flex items-center gap-2 border-purple-200 text-purple-700 hover:bg-purple-50"
             >
               <ArrowLeft className="w-4 h-4" />
               Back to Categories
@@ -716,10 +899,14 @@ export default function FlashcardsPage() {
                     className="shadow-xl border-0 rounded-2xl bg-white hover:shadow-2xl transition-all duration-300 group cursor-pointer overflow-hidden"
                     onClick={() => handleCategoryClick(category.id)}
                   >
-                    <div className="h-2 bg-gradient-to-r from-green-500 to-emerald-500"></div>
+                    <div
+                      className={`h-2 bg-gradient-to-r ${category.gradient}`}
+                    ></div>
                     <CardContent className="p-8 flex flex-col items-center text-center h-full">
                       <div className="mb-5">
-                        <span className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 text-white text-3xl shadow-lg group-hover:scale-110 transition-transform">
+                        <span
+                          className={`inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r ${category.gradient} text-white text-3xl shadow-lg group-hover:scale-110 transition-transform`}
+                        >
                           <Icon className="w-8 h-8" />
                         </span>
                       </div>
@@ -732,7 +919,9 @@ export default function FlashcardsPage() {
                       <div className="text-xs text-gray-400 mb-4">
                         {category.subjects.length} subjects available
                       </div>
-                      <Button className="w-full bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-semibold py-2 px-4 rounded-lg shadow group-hover:shadow-lg transition-all">
+                      <Button
+                        className={`w-full bg-gradient-to-r ${category.gradient} hover:opacity-90 text-white font-semibold py-2 px-4 rounded-lg shadow group-hover:shadow-lg transition-all`}
+                      >
                         Explore Subjects
                       </Button>
                     </CardContent>
@@ -757,10 +946,14 @@ export default function FlashcardsPage() {
                     className="shadow-xl border-0 rounded-2xl bg-white hover:shadow-2xl transition-all duration-300 group cursor-pointer overflow-hidden"
                     onClick={() => handleSubjectClick(subject.name)}
                   >
-                    <div className="h-1 bg-gradient-to-r from-green-500 to-emerald-500"></div>
+                    <div
+                      className={`h-1 bg-gradient-to-r ${subject.gradient}`}
+                    ></div>
                     <CardContent className="p-6 flex flex-col items-center text-center h-full">
                       <div className="mb-4">
-                        <span className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 text-white text-2xl shadow-lg group-hover:scale-110 transition-transform">
+                        <span
+                          className={`inline-flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r ${subject.gradient} text-white text-2xl shadow-lg group-hover:scale-110 transition-transform`}
+                        >
                           <SubjIcon className="w-7 h-7" />
                         </span>
                       </div>
@@ -771,7 +964,9 @@ export default function FlashcardsPage() {
                         {flashcardSets.length} set
                         {flashcardSets.length !== 1 ? "s" : ""} available
                       </div>
-                      <Button className="w-full bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-semibold py-2 px-4 rounded-lg shadow group-hover:shadow-lg transition-all">
+                      <Button
+                        className={`w-full bg-gradient-to-r ${subject.gradient} hover:opacity-90 text-white font-semibold py-2 px-4 rounded-lg shadow group-hover:shadow-lg transition-all`}
+                      >
                         View Sets
                       </Button>
                     </CardContent>
@@ -793,7 +988,7 @@ export default function FlashcardsPage() {
               {isLoggedIn ? (
                 <Dialog open={showCreateForm} onOpenChange={setShowCreateForm}>
                   <DialogTrigger asChild>
-                    <Button className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600">
+                    <Button className="bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600">
                       <Plus className="w-4 h-4 mr-2" />
                       Create New Set
                     </Button>
@@ -811,7 +1006,7 @@ export default function FlashcardsPage() {
                           value={newSetTitle}
                           onChange={(e) => setNewSetTitle(e.target.value)}
                           placeholder="Enter set title..."
-                          className="border-green-200 focus:border-green-500"
+                          className="border-blue-200 focus:border-blue-500"
                         />
                       </div>
                       <div>
@@ -822,7 +1017,7 @@ export default function FlashcardsPage() {
                           {newCards.map((card, index) => (
                             <div
                               key={index}
-                              className="border border-green-200 rounded-lg p-4"
+                              className="border border-blue-200 rounded-lg p-4"
                             >
                               <div className="flex justify-between items-center mb-2">
                                 <span className="text-sm font-medium text-gray-600">
@@ -850,7 +1045,7 @@ export default function FlashcardsPage() {
                                       updateCard(index, "front", e.target.value)
                                     }
                                     placeholder="Enter question..."
-                                    className="border-green-200 focus:border-green-500"
+                                    className="border-blue-200 focus:border-blue-500"
                                     rows={3}
                                   />
                                 </div>
@@ -864,7 +1059,7 @@ export default function FlashcardsPage() {
                                       updateCard(index, "back", e.target.value)
                                     }
                                     placeholder="Enter answer..."
-                                    className="border-green-200 focus:border-green-500"
+                                    className="border-blue-200 focus:border-blue-500"
                                     rows={3}
                                   />
                                 </div>
@@ -875,7 +1070,7 @@ export default function FlashcardsPage() {
                             type="button"
                             variant="outline"
                             onClick={addNewCard}
-                            className="w-full border-green-200 text-green-700 hover:bg-green-50"
+                            className="w-full border-purple-200 text-purple-700 hover:bg-purple-50"
                           >
                             <Plus className="w-4 h-4 mr-2" />
                             Add Another Card
@@ -885,7 +1080,7 @@ export default function FlashcardsPage() {
                       <div className="flex gap-3 pt-4">
                         <Button
                           onClick={handleCreateSet}
-                          className="flex-1 bg-green-600 hover:bg-green-700"
+                          className="flex-1 bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600"
                           disabled={
                             isCreating ||
                             !newSetTitle.trim() ||
@@ -909,7 +1104,7 @@ export default function FlashcardsPage() {
                         <Button
                           variant="outline"
                           onClick={() => setShowCreateForm(false)}
-                          className="border-green-200 text-green-700 hover:bg-green-50"
+                          className="border-gray-200 text-gray-700 hover:bg-gray-50"
                         >
                           Cancel
                         </Button>
@@ -1065,72 +1260,88 @@ export default function FlashcardsPage() {
               {[
                 ...getFlashcardSetsFromData(selectedSubjectData.name),
                 ...userSets,
-              ].map((set) => (
-                <motion.div
-                  key={set.id}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <Card
-                    className="border-0 shadow-lg hover:shadow-xl transition-shadow cursor-pointer overflow-hidden"
-                    onClick={() => handleSetSelect(set)}
+              ].map((set, index) => {
+                const colors = [
+                  "from-emerald-500 to-teal-500",
+                  "from-blue-500 to-cyan-500",
+                  "from-purple-500 to-indigo-500",
+                  "from-pink-500 to-rose-500",
+                  "from-orange-500 to-amber-500",
+                  "from-indigo-500 to-purple-500",
+                ];
+                const colorClass = colors[index % colors.length];
+
+                return (
+                  <motion.div
+                    key={set.id}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                   >
-                    <div className="h-1 bg-gradient-to-r from-green-500 to-emerald-500"></div>
-                    <CardContent className="p-6">
-                      <div className="flex items-center justify-between mb-3">
-                        <Badge
-                          className={`${
-                            set.isUserCreated
-                              ? "bg-green-100 text-green-700"
-                              : "bg-emerald-100 text-emerald-700"
-                          } hover:bg-opacity-80 transition-colors duration-200`}
+                    <Card
+                      className="border-0 shadow-lg hover:shadow-xl transition-shadow cursor-pointer overflow-hidden"
+                      onClick={() => handleSetSelect(set)}
+                    >
+                      <div
+                        className={`h-1 bg-gradient-to-r ${colorClass}`}
+                      ></div>
+                      <CardContent className="p-6">
+                        <div className="flex items-center justify-between mb-3">
+                          <Badge
+                            className={`${
+                              set.isUserCreated
+                                ? "bg-emerald-100 text-emerald-700"
+                                : "bg-blue-100 text-blue-700"
+                            } hover:bg-opacity-80 transition-colors duration-200`}
+                          >
+                            {set.difficulty}
+                          </Badge>
+                          {set.isUserCreated && (
+                            <div className="flex gap-1">
+                              <Button
+                                size="sm"
+                                variant="ghost"
+                                className="p-1 h-auto text-gray-400 hover:text-gray-600"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  handleEditSet(set);
+                                }}
+                              >
+                                <Edit className="w-4 h-4" />
+                              </Button>
+                              <Button
+                                size="sm"
+                                variant="ghost"
+                                className="p-1 h-auto text-red-400 hover:text-red-600"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  handleDeleteSet(set.id);
+                                }}
+                              >
+                                <Trash2 className="w-4 h-4" />
+                              </Button>
+                            </div>
+                          )}
+                        </div>
+                        <h3 className="text-lg font-semibold mb-2">
+                          {set.title}
+                        </h3>
+                        <p className="text-sm text-gray-600 mb-4">
+                          {set.cardCount} cards • {set.progress}% complete
+                        </p>
+                        <Progress
+                          value={set.progress}
+                          className="mb-4 h-2 bg-gray-100"
+                        />
+                        <Button
+                          className={`w-full bg-gradient-to-r ${colorClass} hover:opacity-90 text-white`}
                         >
-                          {set.difficulty}
-                        </Badge>
-                        {set.isUserCreated && (
-                          <div className="flex gap-1">
-                            <Button
-                              size="sm"
-                              variant="ghost"
-                              className="p-1 h-auto text-gray-400 hover:text-gray-600"
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                handleEditSet(set);
-                              }}
-                            >
-                              <Edit className="w-4 h-4" />
-                            </Button>
-                            <Button
-                              size="sm"
-                              variant="ghost"
-                              className="p-1 h-auto text-red-400 hover:text-red-600"
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                handleDeleteSet(set.id);
-                              }}
-                            >
-                              <Trash2 className="w-4 h-4" />
-                            </Button>
-                          </div>
-                        )}
-                      </div>
-                      <h3 className="text-lg font-semibold mb-2">
-                        {set.title}
-                      </h3>
-                      <p className="text-sm text-gray-600 mb-4">
-                        {set.cardCount} cards • {set.progress}% complete
-                      </p>
-                      <Progress
-                        value={set.progress}
-                        className="mb-4 h-2 bg-green-100"
-                      />
-                      <Button className="w-full bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600">
-                        Study Now
-                      </Button>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
+                          Study Now
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         )}

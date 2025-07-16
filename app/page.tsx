@@ -498,7 +498,7 @@ export default function HomePage() {
                   asChild
                   className="w-full bg-blue-600 hover:bg-blue-700 shadow-md text-sm sm:text-base mt-auto"
                 >
-                  <Link href="/exams">Take Exam</Link>
+                  <Link href="/exams">Start Learning</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -766,7 +766,7 @@ export default function HomePage() {
                     href="/exams"
                     className="hover:text-white transition-colors"
                   >
-                    Exams prep
+                    Exam prep
                   </Link>
                 </li>
                 <li>
@@ -782,7 +782,7 @@ export default function HomePage() {
                     href="/discussions"
                     className="hover:text-white transition-colors"
                   >
-                    Discussions
+                    Study Groups
                   </Link>
                 </li>
                 <li>

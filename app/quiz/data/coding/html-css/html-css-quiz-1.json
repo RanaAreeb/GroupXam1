@@ -1,0 +1,104 @@
+{
+  "id": "html-css-quiz-1",
+  "title": "HTML & CSS Fundamentals",
+  "subject": "HTML/CSS",
+  "difficulty": "Intermediate",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What does HTML stand for?",
+      "options": [
+        "HyperText Markup Language",
+        "High Tech Modern Language",
+        "Home Tool Markup Language",
+        "Hyperlink and Text Markup Language"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 2,
+      "question": "Which HTML tag is used to create a hyperlink?",
+      "options": ["<link>", "<a>", "<href>", "<url>"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 3,
+      "question": "What is the correct HTML element for inserting a line break?",
+      "options": ["<break>", "<lb>", "<br>", "<newline>"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 4,
+      "question": "Which CSS property controls the text size?",
+      "options": ["text-size", "font-size", "size", "text-style"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 5,
+      "question": "What is the correct HTML element for the largest heading?",
+      "options": ["<h6>", "<heading>", "<h1>", "<head>"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 6,
+      "question": "Which CSS property is used to change the background color?",
+      "options": ["color", "background-color", "bgcolor", "background"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 7,
+      "question": "What is the correct HTML element for creating an unordered list?",
+      "options": ["<list>", "<ul>", "<ol>", "<li>"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 8,
+      "question": "Which CSS property controls the space between elements?",
+      "options": ["spacing", "margin", "padding", "border"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 9,
+      "question": "What is the correct HTML element for inserting an image?",
+      "options": ["<img>", "<image>", "<picture>", "<photo>"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 10,
+      "question": "Which CSS property is used to change the font of an element?",
+      "options": ["font-family", "font-style", "font-weight", "font-size"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 11,
+      "question": "What is the correct HTML element for creating a table?",
+      "options": ["<table>", "<tr>", "<td>", "<th>"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 12,
+      "question": "Which CSS property is used to make text bold?",
+      "options": ["font-weight", "text-weight", "bold", "font-style"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 13,
+      "question": "What is the correct HTML element for creating a form?",
+      "options": ["<form>", "<input>", "<fieldset>", "<formset>"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 14,
+      "question": "Which CSS property is used to add space inside an element?",
+      "options": ["margin", "padding", "spacing", "border"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 15,
+      "question": "What is the correct HTML element for creating a paragraph?",
+      "options": ["<p>", "<paragraph>", "<text>", "<para>"],
+      "correctAnswer": 0
+    }
+  ],
+  "timeLimit": 900
+}

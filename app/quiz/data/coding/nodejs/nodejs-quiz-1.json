@@ -1,0 +1,174 @@
+{
+  "id": "nodejs-quiz-1",
+  "title": "Node.js Fundamentals",
+  "subject": "Node.js",
+  "difficulty": "Intermediate",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is Node.js?",
+      "options": [
+        "A JavaScript runtime built on Chrome's V8 engine",
+        "A web browser",
+        "A database",
+        "A programming language"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 2,
+      "question": "What is the purpose of package.json?",
+      "options": [
+        "To manage project dependencies and metadata",
+        "To store database credentials",
+        "To configure the web server",
+        "To define CSS styles"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 3,
+      "question": "How do you install dependencies in Node.js?",
+      "options": [
+        "npm install",
+        "node install",
+        "install npm",
+        "package install"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 4,
+      "question": "What is the purpose of the 'require' function?",
+      "options": [
+        "To import modules",
+        "To export modules",
+        "To create variables",
+        "To handle HTTP requests"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 5,
+      "question": "What is the purpose of the 'module.exports'?",
+      "options": [
+        "To export modules",
+        "To import modules",
+        "To create variables",
+        "To handle events"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 6,
+      "question": "What is the purpose of the 'fs' module?",
+      "options": [
+        "To work with the file system",
+        "To handle HTTP requests",
+        "To work with databases",
+        "To handle events"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 7,
+      "question": "What is the purpose of the 'http' module?",
+      "options": [
+        "To create HTTP servers and make HTTP requests",
+        "To work with files",
+        "To handle databases",
+        "To work with events"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 8,
+      "question": "What is the purpose of the 'path' module?",
+      "options": [
+        "To work with file and directory paths",
+        "To handle HTTP requests",
+        "To work with databases",
+        "To handle events"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 9,
+      "question": "What is the purpose of the 'url' module?",
+      "options": [
+        "To parse and format URLs",
+        "To handle HTTP requests",
+        "To work with databases",
+        "To handle events"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 10,
+      "question": "What is the purpose of the 'querystring' module?",
+      "options": [
+        "To parse and format query strings",
+        "To handle HTTP requests",
+        "To work with databases",
+        "To handle events"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 11,
+      "question": "What is the purpose of the 'crypto' module?",
+      "options": [
+        "To provide cryptographic functionality",
+        "To handle HTTP requests",
+        "To work with databases",
+        "To handle events"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 12,
+      "question": "What is the purpose of the 'events' module?",
+      "options": [
+        "To handle events and event emitters",
+        "To handle HTTP requests",
+        "To work with databases",
+        "To work with files"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 13,
+      "question": "What is the purpose of the 'util' module?",
+      "options": [
+        "To provide utility functions",
+        "To handle HTTP requests",
+        "To work with databases",
+        "To handle events"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 14,
+      "question": "What is the purpose of the 'os' module?",
+      "options": [
+        "To provide operating system-related utility methods",
+        "To handle HTTP requests",
+        "To work with databases",
+        "To handle events"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 15,
+      "question": "What is the purpose of the 'process' object?",
+      "options": [
+        "To provide information about the current Node.js process",
+        "To handle HTTP requests",
+        "To work with databases",
+        "To handle events"
+      ],
+      "correctAnswer": 0
+    }
+  ],
+  "timeLimit": 900
+}

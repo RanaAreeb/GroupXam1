@@ -1,0 +1,150 @@
+{
+  "id": "biology-quiz-1",
+  "title": "Biology Quiz 1",
+  "subject": "Biology",
+  "difficulty": "Intermediate",
+  "questions": 15,
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the powerhouse of the cell?",
+      "options": [
+        "Nucleus",
+        "Mitochondria",
+        "Endoplasmic reticulum",
+        "Golgi apparatus"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Mitochondria is known as the powerhouse of the cell because it produces energy through cellular respiration."
+    },
+    {
+      "id": 2,
+      "question": "Which of the following is not a type of blood cell?",
+      "options": ["Red blood cell", "White blood cell", "Platelet", "Neuron"],
+      "correctAnswer": 3,
+      "explanation": "Neurons are nerve cells, not blood cells. The three types of blood cells are red blood cells, white blood cells, and platelets."
+    },
+    {
+      "id": 3,
+      "question": "What is the process by which plants make their own food?",
+      "options": ["Respiration", "Photosynthesis", "Digestion", "Fermentation"],
+      "correctAnswer": 1,
+      "explanation": "Photosynthesis is the process by which plants convert sunlight, carbon dioxide, and water into glucose and oxygen."
+    },
+    {
+      "id": 4,
+      "question": "Which organ system is responsible for transporting oxygen throughout the body?",
+      "options": [
+        "Digestive system",
+        "Circulatory system",
+        "Respiratory system",
+        "Nervous system"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The circulatory system, which includes the heart and blood vessels, transports oxygen and nutrients throughout the body."
+    },
+    {
+      "id": 5,
+      "question": "What is the basic unit of life?",
+      "options": ["Atom", "Molecule", "Cell", "Tissue"],
+      "correctAnswer": 2,
+      "explanation": "The cell is the basic unit of life. All living organisms are composed of one or more cells."
+    },
+    {
+      "id": 6,
+      "question": "Which gas do plants absorb from the atmosphere during photosynthesis?",
+      "options": ["Oxygen", "Carbon dioxide", "Nitrogen", "Hydrogen"],
+      "correctAnswer": 1,
+      "explanation": "Plants absorb carbon dioxide from the atmosphere during photosynthesis to produce glucose."
+    },
+    {
+      "id": 7,
+      "question": "What is the function of DNA?",
+      "options": [
+        "Energy production",
+        "Genetic information storage",
+        "Protein synthesis",
+        "Cell division"
+      ],
+      "correctAnswer": 1,
+      "explanation": "DNA (Deoxyribonucleic acid) stores genetic information that determines an organism's traits and characteristics."
+    },
+    {
+      "id": 8,
+      "question": "Which of the following is a function of the skeletal system?",
+      "options": [
+        "Digestion",
+        "Protection of organs",
+        "Blood circulation",
+        "Respiration"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The skeletal system provides protection for vital organs like the brain, heart, and lungs."
+    },
+    {
+      "id": 9,
+      "question": "What is the process of cell division called?",
+      "options": ["Mitosis", "Meiosis", "Both A and B", "Neither A nor B"],
+      "correctAnswer": 2,
+      "explanation": "Both mitosis and meiosis are processes of cell division. Mitosis produces identical cells, while meiosis produces gametes."
+    },
+    {
+      "id": 10,
+      "question": "Which organ is responsible for filtering blood and removing waste?",
+      "options": ["Liver", "Kidney", "Pancreas", "Spleen"],
+      "correctAnswer": 1,
+      "explanation": "The kidneys filter blood and remove waste products, excess water, and salts from the body."
+    },
+    {
+      "id": 11,
+      "question": "What is the study of heredity called?",
+      "options": ["Ecology", "Genetics", "Taxonomy", "Physiology"],
+      "correctAnswer": 1,
+      "explanation": "Genetics is the study of heredity and the variation of inherited characteristics."
+    },
+    {
+      "id": 12,
+      "question": "Which of the following is a characteristic of living things?",
+      "options": [
+        "Growth and development",
+        "Ability to move",
+        "Ability to think",
+        "Ability to speak"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Growth and development is a fundamental characteristic of all living organisms."
+    },
+    {
+      "id": 13,
+      "question": "What is the main function of the respiratory system?",
+      "options": [
+        "Digestion",
+        "Gas exchange",
+        "Blood circulation",
+        "Waste removal"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The respiratory system is responsible for gas exchange, bringing oxygen into the body and removing carbon dioxide."
+    },
+    {
+      "id": 14,
+      "question": "Which of the following is a type of tissue?",
+      "options": ["Muscle", "Bone", "Blood", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Muscle, bone, and blood are all types of tissues found in the human body."
+    },
+    {
+      "id": 15,
+      "question": "What is the role of enzymes in biological reactions?",
+      "options": [
+        "They provide energy",
+        "They speed up reactions",
+        "They store information",
+        "They transport molecules"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Enzymes are biological catalysts that speed up chemical reactions in living organisms."
+    }
+  ]
+}

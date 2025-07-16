@@ -1,0 +1,120 @@
+{
+  "id": "chemistry-quiz-1",
+  "title": "Chemistry Quiz 1",
+  "subject": "Chemistry",
+  "difficulty": "Intermediate",
+  "questions": 15,
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the chemical symbol for gold?",
+      "options": ["Au", "Ag", "Fe", "Cu"],
+      "correctAnswer": 0,
+      "explanation": "Au is the chemical symbol for gold, derived from the Latin word 'aurum'."
+    },
+    {
+      "id": 2,
+      "question": "Which of the following is a noble gas?",
+      "options": ["Helium", "Oxygen", "Nitrogen", "Carbon"],
+      "correctAnswer": 0,
+      "explanation": "Helium is a noble gas, characterized by its stable electron configuration."
+    },
+    {
+      "id": 3,
+      "question": "What is the pH of a neutral solution?",
+      "options": ["0", "7", "14", "10"],
+      "correctAnswer": 1,
+      "explanation": "A neutral solution has a pH of 7. Values below 7 are acidic, above 7 are basic."
+    },
+    {
+      "id": 4,
+      "question": "Which element has the atomic number 1?",
+      "options": ["Helium", "Hydrogen", "Lithium", "Carbon"],
+      "correctAnswer": 1,
+      "explanation": "Hydrogen has atomic number 1, meaning it has 1 proton in its nucleus."
+    },
+    {
+      "id": 5,
+      "question": "What type of bond is formed when electrons are shared between atoms?",
+      "options": [
+        "Ionic bond",
+        "Covalent bond",
+        "Metallic bond",
+        "Hydrogen bond"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A covalent bond is formed when atoms share electrons to achieve stability."
+    },
+    {
+      "id": 6,
+      "question": "What is the chemical formula for water?",
+      "options": ["H2O", "CO2", "O2", "N2"],
+      "correctAnswer": 0,
+      "explanation": "Water has the chemical formula H2O, consisting of two hydrogen atoms and one oxygen atom."
+    },
+    {
+      "id": 7,
+      "question": "Which gas is essential for respiration?",
+      "options": ["Carbon dioxide", "Oxygen", "Nitrogen", "Hydrogen"],
+      "correctAnswer": 1,
+      "explanation": "Oxygen is essential for cellular respiration, the process that produces energy in cells."
+    },
+    {
+      "id": 8,
+      "question": "What is the most abundant element in the Earth's crust?",
+      "options": ["Iron", "Oxygen", "Silicon", "Aluminum"],
+      "correctAnswer": 1,
+      "explanation": "Oxygen is the most abundant element in the Earth's crust, making up about 46% by mass."
+    },
+    {
+      "id": 9,
+      "question": "Which of the following is a greenhouse gas?",
+      "options": ["Oxygen", "Nitrogen", "Carbon dioxide", "Helium"],
+      "correctAnswer": 2,
+      "explanation": "Carbon dioxide is a greenhouse gas that contributes to global warming by trapping heat in the atmosphere."
+    },
+    {
+      "id": 10,
+      "question": "What is the atomic number of carbon?",
+      "options": ["4", "6", "8", "12"],
+      "correctAnswer": 1,
+      "explanation": "Carbon has atomic number 6, meaning it has 6 protons in its nucleus."
+    },
+    {
+      "id": 11,
+      "question": "Which metal is liquid at room temperature?",
+      "options": ["Mercury", "Gallium", "Cesium", "Francium"],
+      "correctAnswer": 0,
+      "explanation": "Mercury is the only metal that is liquid at room temperature."
+    },
+    {
+      "id": 12,
+      "question": "What is the chemical symbol for iron?",
+      "options": ["Ir", "Fe", "In", "Fr"],
+      "correctAnswer": 1,
+      "explanation": "Fe is the chemical symbol for iron, derived from the Latin word 'ferrum'."
+    },
+    {
+      "id": 13,
+      "question": "Which gas is produced during photosynthesis?",
+      "options": ["Carbon dioxide", "Oxygen", "Nitrogen", "Hydrogen"],
+      "correctAnswer": 1,
+      "explanation": "Oxygen is produced as a byproduct during photosynthesis when plants convert sunlight into energy."
+    },
+    {
+      "id": 14,
+      "question": "What is the valency of carbon in methane (CH4)?",
+      "options": ["2", "3", "4", "5"],
+      "correctAnswer": 2,
+      "explanation": "Carbon has a valency of 4 in methane, as it forms four single bonds with hydrogen atoms."
+    },
+    {
+      "id": 15,
+      "question": "Which element is most reactive among the alkali metals?",
+      "options": ["Lithium", "Sodium", "Potassium", "Cesium"],
+      "correctAnswer": 3,
+      "explanation": "Cesium is the most reactive alkali metal due to its large atomic size and low ionization energy."
+    }
+  ]
+}

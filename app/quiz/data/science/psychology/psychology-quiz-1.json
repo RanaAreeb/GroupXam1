@@ -1,0 +1,160 @@
+{
+  "id": "psychology-quiz-1",
+  "title": "Psychology Quiz 1",
+  "subject": "Psychology",
+  "difficulty": "Intermediate",
+  "questions": 15,
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is psychology?",
+      "options": [
+        "Study of the mind",
+        "Study of behavior",
+        "Study of mind and behavior",
+        "Study of brain"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Psychology is the scientific study of the mind and behavior."
+    },
+    {
+      "id": 2,
+      "question": "What is classical conditioning?",
+      "options": [
+        "Learning by association",
+        "Learning by reinforcement",
+        "Learning by observation",
+        "Learning by trial and error"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Classical conditioning is learning by association, where a neutral stimulus becomes associated with a meaningful stimulus."
+    },
+    {
+      "id": 3,
+      "question": "What is operant conditioning?",
+      "options": [
+        "Learning by association",
+        "Learning by reinforcement",
+        "Learning by observation",
+        "Learning by instinct"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Operant conditioning is learning through reinforcement or punishment of behaviors."
+    },
+    {
+      "id": 4,
+      "question": "What is memory?",
+      "options": [
+        "Ability to think",
+        "Ability to learn",
+        "Ability to store and retrieve information",
+        "Ability to speak"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Memory is the ability to store and retrieve information over time."
+    },
+    {
+      "id": 5,
+      "question": "What is perception?",
+      "options": [
+        "Sensation",
+        "Interpretation of sensory information",
+        "Memory",
+        "Learning"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Perception is the interpretation of sensory information from the environment."
+    },
+    {
+      "id": 6,
+      "question": "What is motivation?",
+      "options": ["Emotion", "Drive to achieve goals", "Memory", "Learning"],
+      "correctAnswer": 1,
+      "explanation": "Motivation is the drive or desire to achieve goals or satisfy needs."
+    },
+    {
+      "id": 7,
+      "question": "What is emotion?",
+      "options": ["Thought", "Feeling or mood", "Memory", "Learning"],
+      "correctAnswer": 1,
+      "explanation": "Emotion is a feeling or mood that influences behavior and thinking."
+    },
+    {
+      "id": 8,
+      "question": "What is personality?",
+      "options": [
+        "Temporary behavior",
+        "Enduring patterns of behavior",
+        "Emotion",
+        "Memory"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Personality consists of enduring patterns of behavior, thoughts, and emotions."
+    },
+    {
+      "id": 9,
+      "question": "What is intelligence?",
+      "options": [
+        "Knowledge",
+        "Ability to learn and solve problems",
+        "Memory",
+        "Creativity"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Intelligence is the ability to learn, understand, and solve problems."
+    },
+    {
+      "id": 10,
+      "question": "What is stress?",
+      "options": ["Emotion", "Response to pressure", "Memory", "Learning"],
+      "correctAnswer": 1,
+      "explanation": "Stress is the body's response to pressure or demands."
+    },
+    {
+      "id": 11,
+      "question": "What is consciousness?",
+      "options": [
+        "Sleep",
+        "Awareness of thoughts and environment",
+        "Memory",
+        "Learning"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Consciousness is awareness of one's thoughts, feelings, and environment."
+    },
+    {
+      "id": 12,
+      "question": "What is learning?",
+      "options": [
+        "Memory",
+        "Relatively permanent change in behavior",
+        "Emotion",
+        "Motivation"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Learning is a relatively permanent change in behavior due to experience."
+    },
+    {
+      "id": 13,
+      "question": "What is attention?",
+      "options": ["Focus on specific stimuli", "Memory", "Learning", "Emotion"],
+      "correctAnswer": 0,
+      "explanation": "Attention is the ability to focus on specific stimuli while ignoring others."
+    },
+    {
+      "id": 14,
+      "question": "What is cognition?",
+      "options": ["Emotion", "Mental processes", "Memory", "Learning"],
+      "correctAnswer": 1,
+      "explanation": "Cognition refers to mental processes such as thinking, reasoning, and problem-solving."
+    },
+    {
+      "id": 15,
+      "question": "What is development?",
+      "options": ["Growth", "Changes over time", "Learning", "Memory"],
+      "correctAnswer": 1,
+      "explanation": "Development refers to changes in behavior, thinking, and abilities over time."
+    }
+  ]
+}

@@ -1,0 +1,155 @@
+{
+  "id": "microbiology-quiz-1",
+  "title": "Microbiology Quiz 1",
+  "subject": "Microbiology",
+  "difficulty": "Intermediate",
+  "questions": 15,
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What are microorganisms that cause disease called?",
+      "options": ["Antibiotics", "Pathogens", "Antibodies", "Enzymes"],
+      "correctAnswer": 1,
+      "explanation": "Pathogens are microorganisms that cause disease in their host organisms."
+    },
+    {
+      "id": 2,
+      "question": "Which of the following is not a type of microorganism?",
+      "options": ["Bacteria", "Viruses", "Fungi", "Plants"],
+      "correctAnswer": 3,
+      "explanation": "Plants are multicellular organisms, not microorganisms. Bacteria, viruses, and fungi are microorganisms."
+    },
+    {
+      "id": 3,
+      "question": "What is the study of bacteria called?",
+      "options": ["Virology", "Bacteriology", "Mycology", "Parasitology"],
+      "correctAnswer": 1,
+      "explanation": "Bacteriology is the branch of microbiology that studies bacteria."
+    },
+    {
+      "id": 4,
+      "question": "What is the shape of a spherical bacterium called?",
+      "options": ["Bacillus", "Coccus", "Spirillum", "Vibrio"],
+      "correctAnswer": 1,
+      "explanation": "A spherical bacterium is called a coccus (plural: cocci)."
+    },
+    {
+      "id": 5,
+      "question": "What is the function of antibiotics?",
+      "options": [
+        "Kill viruses",
+        "Kill bacteria",
+        "Kill fungi",
+        "Kill all microorganisms"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Antibiotics are medications that kill or inhibit the growth of bacteria."
+    },
+    {
+      "id": 6,
+      "question": "What is a virus?",
+      "options": [
+        "A living cell",
+        "A non-living particle",
+        "A type of bacteria",
+        "A type of fungus"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A virus is a non-living particle that requires a host cell to reproduce."
+    },
+    {
+      "id": 7,
+      "question": "What is the process by which bacteria reproduce?",
+      "options": ["Mitosis", "Meiosis", "Binary fission", "Budding"],
+      "correctAnswer": 2,
+      "explanation": "Bacteria reproduce through binary fission, a form of asexual reproduction."
+    },
+    {
+      "id": 8,
+      "question": "What is the study of fungi called?",
+      "options": ["Virology", "Bacteriology", "Mycology", "Parasitology"],
+      "correctAnswer": 2,
+      "explanation": "Mycology is the branch of microbiology that studies fungi."
+    },
+    {
+      "id": 9,
+      "question": "What is a vaccine?",
+      "options": [
+        "An antibiotic",
+        "A weakened pathogen",
+        "An antibody",
+        "An enzyme"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A vaccine contains a weakened or inactivated pathogen that stimulates the immune system."
+    },
+    {
+      "id": 10,
+      "question": "What is the function of antibodies?",
+      "options": [
+        "Kill pathogens directly",
+        "Mark pathogens for destruction",
+        "Produce energy",
+        "Transport oxygen"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Antibodies mark pathogens for destruction by the immune system."
+    },
+    {
+      "id": 11,
+      "question": "What is the study of viruses called?",
+      "options": ["Virology", "Bacteriology", "Mycology", "Parasitology"],
+      "correctAnswer": 0,
+      "explanation": "Virology is the branch of microbiology that studies viruses."
+    },
+    {
+      "id": 12,
+      "question": "What is a culture medium?",
+      "options": [
+        "A type of bacteria",
+        "A nutrient substance for growing microorganisms",
+        "A type of virus",
+        "A type of fungus"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A culture medium is a nutrient substance used to grow and maintain microorganisms in the laboratory."
+    },
+    {
+      "id": 13,
+      "question": "What is the function of the cell wall in bacteria?",
+      "options": [
+        "Energy production",
+        "Protection and shape",
+        "DNA storage",
+        "Protein synthesis"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The cell wall provides protection and maintains the shape of bacterial cells."
+    },
+    {
+      "id": 14,
+      "question": "What is a plasmid?",
+      "options": [
+        "A type of virus",
+        "A small circular DNA molecule",
+        "A type of bacteria",
+        "A type of fungus"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A plasmid is a small circular DNA molecule found in bacteria that can replicate independently."
+    },
+    {
+      "id": 15,
+      "question": "What is the function of flagella in bacteria?",
+      "options": [
+        "Energy production",
+        "Movement",
+        "Protection",
+        "Reproduction"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Flagella are whip-like structures that enable bacteria to move through their environment."
+    }
+  ]
+}

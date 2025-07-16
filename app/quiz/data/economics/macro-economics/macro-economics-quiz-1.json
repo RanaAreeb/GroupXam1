@@ -1,0 +1,174 @@
+{
+  "id": "macro-economics-quiz-1",
+  "title": "Macro Economics Fundamentals",
+  "subject": "Macro Economics",
+  "difficulty": "Intermediate",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is macroeconomics?",
+      "options": [
+        "The study of the economy as a whole",
+        "The study of individual markets",
+        "The study of business management",
+        "The study of international trade"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 2,
+      "question": "What is GDP?",
+      "options": [
+        "Gross Domestic Product - the total value of goods and services produced",
+        "Government Debt Payment",
+        "Gross Domestic Price",
+        "Government Development Plan"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 3,
+      "question": "What is inflation?",
+      "options": [
+        "A general increase in prices over time",
+        "A decrease in prices over time",
+        "A stable price level",
+        "A change in exchange rates"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 4,
+      "question": "What is unemployment?",
+      "options": [
+        "The percentage of the labor force that is jobless and seeking work",
+        "The total number of people without jobs",
+        "The number of people who don't want to work",
+        "The number of retired people"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 5,
+      "question": "What is fiscal policy?",
+      "options": [
+        "Government spending and taxation to influence the economy",
+        "Central bank control of money supply",
+        "International trade policy",
+        "Business regulation"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 6,
+      "question": "What is monetary policy?",
+      "options": [
+        "Central bank control of money supply and interest rates",
+        "Government spending and taxation",
+        "International trade policy",
+        "Business regulation"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 7,
+      "question": "What is aggregate demand?",
+      "options": [
+        "Total demand for goods and services in an economy",
+        "Demand for a specific product",
+        "Demand from government only",
+        "Demand from consumers only"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 8,
+      "question": "What is aggregate supply?",
+      "options": [
+        "Total supply of goods and services in an economy",
+        "Supply of a specific product",
+        "Supply from government only",
+        "Supply from businesses only"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 9,
+      "question": "What is a recession?",
+      "options": [
+        "A significant decline in economic activity",
+        "A period of high inflation",
+        "A period of high unemployment",
+        "A period of high growth"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 10,
+      "question": "What is the business cycle?",
+      "options": [
+        "Fluctuations in economic activity over time",
+        "The cycle of buying and selling",
+        "The cycle of employment",
+        "The cycle of inflation"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 11,
+      "question": "What is the multiplier effect?",
+      "options": [
+        "The magnified impact of initial spending on total income",
+        "The effect of inflation on prices",
+        "The effect of unemployment on wages",
+        "The effect of taxes on spending"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 12,
+      "question": "What is the Phillips Curve?",
+      "options": [
+        "The relationship between unemployment and inflation",
+        "The relationship between GDP and inflation",
+        "The relationship between interest rates and inflation",
+        "The relationship between money supply and inflation"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 13,
+      "question": "What is the natural rate of unemployment?",
+      "options": [
+        "The unemployment rate that exists when the economy is at full employment",
+        "The lowest possible unemployment rate",
+        "The highest possible unemployment rate",
+        "The average unemployment rate"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 14,
+      "question": "What is stagflation?",
+      "options": [
+        "High inflation combined with high unemployment",
+        "Low inflation with low unemployment",
+        "High growth with low inflation",
+        "Low growth with low unemployment"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 15,
+      "question": "What is the velocity of money?",
+      "options": [
+        "The rate at which money circulates in the economy",
+        "The speed of bank transactions",
+        "The rate of inflation",
+        "The rate of interest"
+      ],
+      "correctAnswer": 0
+    }
+  ],
+  "timeLimit": 900
+}

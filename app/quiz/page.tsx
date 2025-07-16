@@ -48,7 +48,7 @@ const subjectCategories = [
       {
         name: "Chemistry",
         icon: BookOpen,
-        quizzes: ["chemistry-quiz-1"],
+        quizzes: ["chemistry-quiz-1", "chemistry-quiz-2"],
       },
       {
         name: "Biology",
@@ -314,73 +314,81 @@ const quizData: Record<
     id: "chemistry-quiz-1",
     title: "Chemistry Quiz 1",
     subject: "Chemistry",
-    difficulty: "Beginner",
-    questions: 10,
-    timeLimit: 300,
+    difficulty: "Intermediate",
+    questions: 15,
+    timeLimit: 900,
+  },
+  "chemistry-quiz-2": {
+    id: "chemistry-quiz-2",
+    title: "Chemistry Quiz 2",
+    subject: "Chemistry",
+    difficulty: "Intermediate",
+    questions: 15,
+    timeLimit: 900,
   },
   "biology-quiz-1": {
     id: "biology-quiz-1",
     title: "Biology Quiz 1",
     subject: "Biology",
-    difficulty: "Beginner",
-    questions: 10,
-    timeLimit: 300,
+    difficulty: "Intermediate",
+    questions: 15,
+    timeLimit: 900,
   },
   "anatomy-quiz-1": {
     id: "anatomy-quiz-1",
     title: "Anatomy Quiz 1",
     subject: "Anatomy",
-    difficulty: "Beginner",
-    questions: 10,
-    timeLimit: 300,
+    difficulty: "Intermediate",
+    questions: 15,
+    timeLimit: 900,
   },
   "physiology-quiz-1": {
     id: "physiology-quiz-1",
     title: "Physiology Quiz 1",
     subject: "Physiology",
-    difficulty: "Beginner",
-    questions: 10,
-    timeLimit: 300,
+    difficulty: "Intermediate",
+    questions: 15,
+    timeLimit: 900,
   },
   "microbiology-quiz-1": {
     id: "microbiology-quiz-1",
     title: "Microbiology Quiz 1",
     subject: "Microbiology",
-    difficulty: "Beginner",
-    questions: 10,
-    timeLimit: 300,
+    difficulty: "Intermediate",
+    questions: 15,
+    timeLimit: 900,
   },
   "biochemistry-quiz-1": {
     id: "biochemistry-quiz-1",
     title: "Biochemistry Quiz 1",
     subject: "Biochemistry",
-    difficulty: "Beginner",
-    questions: 10,
-    timeLimit: 300,
+    difficulty: "Intermediate",
+    questions: 15,
+    timeLimit: 900,
   },
   "pharmacology-quiz-1": {
     id: "pharmacology-quiz-1",
     title: "Pharmacology Quiz 1",
     subject: "Pharmacology",
-    difficulty: "Beginner",
-    questions: 10,
-    timeLimit: 300,
+    difficulty: "Intermediate",
+    questions: 15,
+    timeLimit: 900,
   },
   "ecology-quiz-1": {
     id: "ecology-quiz-1",
     title: "Ecology Quiz 1",
     subject: "Ecology",
-    difficulty: "Beginner",
-    questions: 10,
-    timeLimit: 300,
+    difficulty: "Intermediate",
+    questions: 15,
+    timeLimit: 900,
   },
   "psychology-quiz-1": {
     id: "psychology-quiz-1",
     title: "Psychology Quiz 1",
     subject: "Psychology",
-    difficulty: "Beginner",
-    questions: 10,
-    timeLimit: 300,
+    difficulty: "Intermediate",
+    questions: 15,
+    timeLimit: 900,
   },
   "javascript-quiz-1": {
     id: "javascript-quiz-1",
@@ -633,19 +641,109 @@ const quizData: Record<
 };
 
 // Get quizzes for a subject
-const getQuizzesForSubject = (subjectName: string) => {
+const getQuizzesForSubject = async (subjectName: string) => {
   const subject = subjectCategories
     .flatMap((cat) => cat.subjects)
     .find((sub) => sub.name === subjectName);
 
   if (!subject) return [];
 
+  // For science subjects, load from the new folder structure
+  if (
+    subjectName.toLowerCase() === "physics" ||
+    subjectName.toLowerCase() === "chemistry" ||
+    subjectName.toLowerCase() === "biology" ||
+    subjectName.toLowerCase() === "anatomy" ||
+    subjectName.toLowerCase() === "physiology" ||
+    subjectName.toLowerCase() === "microbiology" ||
+    subjectName.toLowerCase() === "biochemistry" ||
+    subjectName.toLowerCase() === "pharmacology" ||
+    subjectName.toLowerCase() === "ecology" ||
+    subjectName.toLowerCase() === "psychology"
+  ) {
+    try {
+      const response = await fetch(
+        `/api/quiz-data/science/${subjectName.toLowerCase()}`
+      );
+      if (response.ok) {
+        const quizFiles = await response.json();
+        return quizFiles;
+      }
+    } catch (error) {
+      console.error("Error loading quiz data:", error);
+    }
+  }
+
+  // For coding subjects, load from the coding folder structure
+  if (
+    subjectName.toLowerCase() === "javascript" ||
+    subjectName.toLowerCase() === "python" ||
+    subjectName.toLowerCase() === "html/css" ||
+    subjectName.toLowerCase() === "react" ||
+    subjectName.toLowerCase() === "node.js" ||
+    subjectName.toLowerCase() === "database"
+  ) {
+    try {
+      // Map subject names to folder names
+      let folderName = subjectName.toLowerCase();
+      if (subjectName.toLowerCase() === "html/css") {
+        folderName = "html-css";
+      } else if (subjectName.toLowerCase() === "node.js") {
+        folderName = "nodejs";
+      }
+
+      const response = await fetch(`/api/quiz-data/coding/${folderName}`);
+      if (response.ok) {
+        const quizFiles = await response.json();
+        return quizFiles;
+      }
+    } catch (error) {
+      console.error("Error loading quiz data:", error);
+    }
+  }
+
+  // For economics subjects, load from the economics folder structure
+  if (
+    subjectName.toLowerCase() === "economics" ||
+    subjectName.toLowerCase() === "micro economics" ||
+    subjectName.toLowerCase() === "macro economics" ||
+    subjectName.toLowerCase() === "accounting" ||
+    subjectName.toLowerCase() === "finance" ||
+    subjectName.toLowerCase() === "political science"
+  ) {
+    try {
+      // Map subject names to folder names
+      let folderName = subjectName.toLowerCase();
+      if (subjectName.toLowerCase() === "micro economics") {
+        folderName = "micro-economics";
+      } else if (subjectName.toLowerCase() === "macro economics") {
+        folderName = "macro-economics";
+      } else if (subjectName.toLowerCase() === "political science") {
+        folderName = "political-science";
+      }
+
+      const response = await fetch(`/api/quiz-data/economics/${folderName}`);
+      if (response.ok) {
+        const quizFiles = await response.json();
+        return quizFiles;
+      }
+    } catch (error) {
+      console.error("Error loading quiz data:", error);
+    }
+  }
+
+  // Fallback to static data for other subjects
   return subject.quizzes.map((quizId) => quizData[quizId]).filter(Boolean);
 };
 
 export default function QuizPage() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedSubject, setSelectedSubject] = useState<string | null>(null);
+  const [quizData, setQuizData] = useState<any[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [subjectQuizCounts, setSubjectQuizCounts] = useState<{
+    [key: string]: number;
+  }>({});
 
   // Handle URL parameters for category selection
   useEffect(() => {
@@ -664,6 +762,130 @@ export default function QuizPage() {
       setSelectedSubject(subjectParam);
     }
   }, []);
+
+  // Load quiz data when subject changes
+  useEffect(() => {
+    if (selectedSubject) {
+      loadQuizData(selectedSubject);
+    }
+  }, [selectedSubject]);
+
+  // Load quiz counts for science subjects
+  useEffect(() => {
+    const loadQuizCounts = async () => {
+      const scienceSubjects = [
+        "physics",
+        "chemistry",
+        "biology",
+        "anatomy",
+        "physiology",
+        "microbiology",
+        "biochemistry",
+        "pharmacology",
+        "ecology",
+        "psychology",
+      ];
+
+      const codingSubjects = [
+        "javascript",
+        "python",
+        "html/css",
+        "react",
+        "node.js",
+        "database",
+      ];
+
+      const economicsSubjects = [
+        "economics",
+        "micro economics",
+        "macro economics",
+        "accounting",
+        "finance",
+        "political science",
+      ];
+
+      const counts: { [key: string]: number } = {};
+
+      // Load science subject counts
+      for (const subject of scienceSubjects) {
+        try {
+          const response = await fetch(`/api/quiz-data/science/${subject}`);
+          if (response.ok) {
+            const quizFiles = await response.json();
+            counts[subject] = Array.isArray(quizFiles) ? quizFiles.length : 0;
+          }
+        } catch (error) {
+          console.error(`Error loading quiz count for ${subject}:`, error);
+          counts[subject] = 0;
+        }
+      }
+
+      // Load coding subject counts
+      for (const subject of codingSubjects) {
+        try {
+          // Map subject names to folder names
+          let folderName = subject;
+          if (subject === "html/css") {
+            folderName = "html-css";
+          } else if (subject === "node.js") {
+            folderName = "nodejs";
+          }
+
+          const response = await fetch(`/api/quiz-data/coding/${folderName}`);
+          if (response.ok) {
+            const quizFiles = await response.json();
+            counts[subject] = Array.isArray(quizFiles) ? quizFiles.length : 0;
+          }
+        } catch (error) {
+          console.error(`Error loading quiz count for ${subject}:`, error);
+          counts[subject] = 0;
+        }
+      }
+
+      // Load economics subject counts
+      for (const subject of economicsSubjects) {
+        try {
+          // Map subject names to folder names
+          let folderName = subject;
+          if (subject === "micro economics") {
+            folderName = "micro-economics";
+          } else if (subject === "macro economics") {
+            folderName = "macro-economics";
+          } else if (subject === "political science") {
+            folderName = "political-science";
+          }
+
+          const response = await fetch(
+            `/api/quiz-data/economics/${folderName}`
+          );
+          if (response.ok) {
+            const quizFiles = await response.json();
+            counts[subject] = Array.isArray(quizFiles) ? quizFiles.length : 0;
+          }
+        } catch (error) {
+          console.error(`Error loading quiz count for ${subject}:`, error);
+          counts[subject] = 0;
+        }
+      }
+
+      setSubjectQuizCounts(counts);
+    };
+
+    loadQuizCounts();
+  }, []);
+
+  const loadQuizData = async (subjectName: string) => {
+    setLoading(true);
+    try {
+      const quizzes = await getQuizzesForSubject(subjectName);
+      setQuizData(quizzes);
+    } catch (error) {
+      console.error("Error loading quiz data:", error);
+      setQuizData([]);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleCategoryClick = (categoryId: string) => {
     setSelectedCategory(categoryId);
@@ -864,7 +1086,45 @@ export default function QuizPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {selectedCategoryData.subjects.map((subject) => {
               const SubjIcon = subject.icon;
-              const quizzes = getQuizzesForSubject(subject.name);
+              // Use dynamic quiz count for science subjects, fallback to static count
+              const isScienceSubject = [
+                "physics",
+                "chemistry",
+                "biology",
+                "anatomy",
+                "physiology",
+                "microbiology",
+                "biochemistry",
+                "pharmacology",
+                "ecology",
+                "psychology",
+              ].includes(subject.name.toLowerCase());
+
+              const isCodingSubject = [
+                "javascript",
+                "python",
+                "html/css",
+                "react",
+                "node.js",
+                "database",
+              ].includes(subject.name.toLowerCase());
+
+              const isEconomicsSubject = [
+                "economics",
+                "micro economics",
+                "macro economics",
+                "accounting",
+                "finance",
+                "political science",
+              ].includes(subject.name.toLowerCase());
+
+              const quizCount =
+                isScienceSubject || isCodingSubject || isEconomicsSubject
+                  ? subjectQuizCounts[subject.name.toLowerCase()] ||
+                    subject.quizzes?.length ||
+                    0
+                  : subject.quizzes?.length || 1;
+
               return (
                 <Card
                   key={subject.name}
@@ -881,8 +1141,7 @@ export default function QuizPage() {
                       {subject.name}
                     </div>
                     <div className="text-xs text-gray-500 mb-4">
-                      {quizzes.length} quiz{quizzes.length !== 1 ? "es" : ""}{" "}
-                      available
+                      {quizCount} quiz{quizCount !== 1 ? "es" : ""} available
                     </div>
                     <Button className="w-full bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow group-hover:shadow-lg transition-all">
                       View Quizzes
@@ -895,44 +1154,53 @@ export default function QuizPage() {
         ) : (
           /* Quizzes Grid */
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {getQuizzesForSubject(selectedSubjectData.name).map((quiz) => (
-              <Card
-                key={quiz.id}
-                className="shadow-xl border-0 rounded-2xl bg-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group"
-              >
-                <CardContent className="p-6 flex flex-col items-center text-center h-full">
-                  <div className="mb-4">
-                    <span className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-emerald-500 to-blue-500 text-white text-2xl shadow-lg group-hover:scale-110 transition-transform">
-                      <Target className="w-7 h-7" />
-                    </span>
-                  </div>
-                  <div className="font-bold text-lg text-gray-800 mb-2">
-                    {quiz.title}
-                  </div>
-                  <div className="text-xs text-gray-500 mb-2">
-                    {quiz.questions} questions •{" "}
-                    {Math.floor(quiz.timeLimit / 60)} min
-                  </div>
-                  <Badge
-                    className={`mb-4 ${
-                      quiz.difficulty === "Beginner"
-                        ? "bg-green-100 text-green-700"
-                        : quiz.difficulty === "Intermediate"
-                        ? "bg-yellow-100 text-yellow-700"
-                        : "bg-red-100 text-red-700"
-                    }`}
-                  >
-                    {quiz.difficulty}
-                  </Badge>
-                  <Button
-                    className="w-full bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow group-hover:shadow-lg transition-all"
-                    onClick={() => handleStartQuiz(quiz)}
-                  >
-                    Start Quiz
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
+            {loading ? (
+              <p>Loading quizzes...</p>
+            ) : quizData.length === 0 ? (
+              <p>No quizzes available for this subject.</p>
+            ) : (
+              quizData.map((quiz) => (
+                <Card
+                  key={quiz.id}
+                  className="shadow-xl border-0 rounded-2xl bg-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group"
+                >
+                  <CardContent className="p-6 flex flex-col items-center text-center h-full">
+                    <div className="mb-4">
+                      <span className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-emerald-500 to-blue-500 text-white text-2xl shadow-lg group-hover:scale-110 transition-transform">
+                        <Target className="w-7 h-7" />
+                      </span>
+                    </div>
+                    <div className="font-bold text-lg text-gray-800 mb-2">
+                      {quiz.title}
+                    </div>
+                    <div className="text-xs text-gray-500 mb-2">
+                      {Array.isArray(quiz.questions)
+                        ? quiz.questions.length
+                        : 0}{" "}
+                      questions •{" "}
+                      {quiz.timeLimit ? Math.floor(quiz.timeLimit / 60) : 0} min
+                    </div>
+                    <Badge
+                      className={`mb-4 ${
+                        quiz.difficulty === "Beginner"
+                          ? "bg-green-100 text-green-700"
+                          : quiz.difficulty === "Intermediate"
+                          ? "bg-yellow-100 text-yellow-700"
+                          : "bg-red-100 text-red-700"
+                      }`}
+                    >
+                      {quiz.difficulty}
+                    </Badge>
+                    <Button
+                      className="w-full bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow group-hover:shadow-lg transition-all"
+                      onClick={() => handleStartQuiz(quiz)}
+                    >
+                      Start Quiz
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))
+            )}
           </div>
         )}
       </div>

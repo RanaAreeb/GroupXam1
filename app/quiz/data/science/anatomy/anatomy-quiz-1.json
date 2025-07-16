@@ -1,0 +1,135 @@
+{
+  "id": "anatomy-quiz-1",
+  "title": "Anatomy Quiz 1",
+  "subject": "Anatomy",
+  "difficulty": "Intermediate",
+  "questions": 15,
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "How many bones are in the adult human body?",
+      "options": ["156", "206", "256", "306"],
+      "correctAnswer": 1,
+      "explanation": "The adult human body has 206 bones, though this number can vary slightly between individuals."
+    },
+    {
+      "id": 2,
+      "question": "Which bone is the longest in the human body?",
+      "options": ["Humerus", "Femur", "Tibia", "Fibula"],
+      "correctAnswer": 1,
+      "explanation": "The femur (thigh bone) is the longest and strongest bone in the human body."
+    },
+    {
+      "id": 3,
+      "question": "What is the largest organ in the human body?",
+      "options": ["Heart", "Liver", "Skin", "Brain"],
+      "correctAnswer": 2,
+      "explanation": "The skin is the largest organ in the human body, covering an area of about 20 square feet."
+    },
+    {
+      "id": 4,
+      "question": "How many chambers does the human heart have?",
+      "options": ["2", "3", "4", "5"],
+      "correctAnswer": 2,
+      "explanation": "The human heart has four chambers: two atria (upper chambers) and two ventricles (lower chambers)."
+    },
+    {
+      "id": 5,
+      "question": "Which muscle is responsible for pumping blood throughout the body?",
+      "options": [
+        "Skeletal muscle",
+        "Smooth muscle",
+        "Cardiac muscle",
+        "Striated muscle"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Cardiac muscle is the specialized muscle tissue that makes up the heart and is responsible for pumping blood."
+    },
+    {
+      "id": 6,
+      "question": "What is the name of the bone that protects the brain?",
+      "options": ["Skull", "Cranium", "Both A and B", "Neither A nor B"],
+      "correctAnswer": 2,
+      "explanation": "Both skull and cranium refer to the bone structure that protects the brain, though cranium specifically refers to the part that encloses the brain."
+    },
+    {
+      "id": 7,
+      "question": "How many pairs of ribs does a human have?",
+      "options": ["10", "11", "12", "13"],
+      "correctAnswer": 2,
+      "explanation": "Humans have 12 pairs of ribs, which protect the heart and lungs."
+    },
+    {
+      "id": 8,
+      "question": "What is the main function of the spinal cord?",
+      "options": [
+        "Digestion",
+        "Breathing",
+        "Nerve signal transmission",
+        "Blood circulation"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The spinal cord is responsible for transmitting nerve signals between the brain and the rest of the body."
+    },
+    {
+      "id": 9,
+      "question": "Which joint allows the most movement?",
+      "options": [
+        "Hinge joint",
+        "Ball and socket joint",
+        "Pivot joint",
+        "Gliding joint"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Ball and socket joints, like the hip and shoulder, allow the most movement in multiple directions."
+    },
+    {
+      "id": 10,
+      "question": "What is the name of the bone in the upper arm?",
+      "options": ["Radius", "Ulna", "Humerus", "Scapula"],
+      "correctAnswer": 2,
+      "explanation": "The humerus is the bone in the upper arm, connecting the shoulder to the elbow."
+    },
+    {
+      "id": 11,
+      "question": "How many vertebrae are in the human spine?",
+      "options": ["26", "33", "24", "30"],
+      "correctAnswer": 1,
+      "explanation": "The human spine has 33 vertebrae: 7 cervical, 12 thoracic, 5 lumbar, 5 sacral, and 4 coccygeal."
+    },
+    {
+      "id": 12,
+      "question": "What is the function of tendons?",
+      "options": [
+        "Connect bone to bone",
+        "Connect muscle to bone",
+        "Connect muscle to muscle",
+        "Protect organs"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Tendons are fibrous connective tissues that connect muscles to bones, allowing movement."
+    },
+    {
+      "id": 13,
+      "question": "Which part of the brain controls balance and coordination?",
+      "options": ["Cerebrum", "Cerebellum", "Brainstem", "Hypothalamus"],
+      "correctAnswer": 1,
+      "explanation": "The cerebellum is responsible for balance, coordination, and fine motor control."
+    },
+    {
+      "id": 14,
+      "question": "What is the name of the bone in the lower leg that bears most of the body's weight?",
+      "options": ["Fibula", "Tibia", "Femur", "Patella"],
+      "correctAnswer": 1,
+      "explanation": "The tibia (shinbone) is the larger of the two lower leg bones and bears most of the body's weight."
+    },
+    {
+      "id": 15,
+      "question": "How many muscles are in the human body?",
+      "options": ["400", "600", "800", "1000"],
+      "correctAnswer": 1,
+      "explanation": "The human body has approximately 600 muscles, which make up about 40% of body weight."
+    }
+  ]
+}

@@ -1,0 +1,190 @@
+{
+  "id": "ecology-quiz-1",
+  "title": "Ecology Quiz 1",
+  "subject": "Ecology",
+  "difficulty": "Intermediate",
+  "questions": 15,
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is ecology?",
+      "options": [
+        "Study of cells",
+        "Study of organisms and environment",
+        "Study of diseases",
+        "Study of chemicals"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Ecology is the study of how organisms interact with each other and their environment."
+    },
+    {
+      "id": 2,
+      "question": "What is a population?",
+      "options": [
+        "All living things",
+        "Group of same species in area",
+        "All ecosystems",
+        "All communities"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A population is a group of individuals of the same species living in a specific area."
+    },
+    {
+      "id": 3,
+      "question": "What is a community?",
+      "options": [
+        "All populations in area",
+        "Single species",
+        "All ecosystems",
+        "All biomes"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A community consists of all the populations of different species living in a specific area."
+    },
+    {
+      "id": 4,
+      "question": "What is an ecosystem?",
+      "options": [
+        "Living organisms only",
+        "Non-living environment only",
+        "Living and non-living components",
+        "Single organism"
+      ],
+      "correctAnswer": 2,
+      "explanation": "An ecosystem includes both living organisms and their non-living environment."
+    },
+    {
+      "id": 5,
+      "question": "What is a producer?",
+      "options": [
+        "Organism that eats others",
+        "Organism that makes its own food",
+        "Organism that breaks down dead matter",
+        "Organism that hunts"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A producer is an organism that makes its own food through photosynthesis."
+    },
+    {
+      "id": 6,
+      "question": "What is a consumer?",
+      "options": [
+        "Organism that makes food",
+        "Organism that eats other organisms",
+        "Organism that breaks down dead matter",
+        "Organism that produces oxygen"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A consumer is an organism that eats other organisms for energy."
+    },
+    {
+      "id": 7,
+      "question": "What is a decomposer?",
+      "options": [
+        "Organism that makes food",
+        "Organism that eats others",
+        "Organism that breaks down dead matter",
+        "Organism that hunts"
+      ],
+      "correctAnswer": 2,
+      "explanation": "A decomposer breaks down dead organic matter and recycles nutrients."
+    },
+    {
+      "id": 8,
+      "question": "What is a food chain?",
+      "options": [
+        "Linear feeding relationship",
+        "Complex feeding network",
+        "Energy pyramid",
+        "Population growth"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A food chain shows a linear feeding relationship between organisms."
+    },
+    {
+      "id": 9,
+      "question": "What is a food web?",
+      "options": [
+        "Linear feeding relationship",
+        "Complex feeding network",
+        "Energy pyramid",
+        "Population growth"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A food web shows the complex feeding relationships between multiple organisms."
+    },
+    {
+      "id": 10,
+      "question": "What is carrying capacity?",
+      "options": [
+        "Maximum population size",
+        "Minimum population size",
+        "Population growth rate",
+        "Population density"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Carrying capacity is the maximum population size that an environment can support."
+    },
+    {
+      "id": 11,
+      "question": "What is biodiversity?",
+      "options": [
+        "Variety of life",
+        "Population size",
+        "Ecosystem size",
+        "Species count"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Biodiversity refers to the variety of life in an ecosystem or on Earth."
+    },
+    {
+      "id": 12,
+      "question": "What is a habitat?",
+      "options": [
+        "Organism's home",
+        "Organism's food",
+        "Organism's predator",
+        "Organism's offspring"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A habitat is the natural home or environment of an organism."
+    },
+    {
+      "id": 13,
+      "question": "What is a niche?",
+      "options": [
+        "Organism's role",
+        "Organism's home",
+        "Organism's food",
+        "Organism's size"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A niche is an organism's role or function in its ecosystem."
+    },
+    {
+      "id": 14,
+      "question": "What is symbiosis?",
+      "options": [
+        "Competition",
+        "Close relationship between species",
+        "Predation",
+        "Parasitism"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Symbiosis is a close relationship between two different species."
+    },
+    {
+      "id": 15,
+      "question": "What is competition?",
+      "options": [
+        "Cooperation",
+        "Struggle for resources",
+        "Predation",
+        "Symbiosis"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Competition is the struggle between organisms for limited resources."
+    }
+  ]
+}
