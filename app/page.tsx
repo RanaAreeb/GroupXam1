@@ -308,7 +308,7 @@ export default function HomePage() {
           </p>
 
           {/* Quick Start Widget */}
-          <div className="grid grid-cols-2 gap-3 sm:flex sm:flex-row sm:gap-4 justify-center mb-8 sm:mb-12 px-4 max-w-md sm:max-w-none mx-auto">
+          <div className="grid grid-cols-3 gap-3 sm:flex sm:flex-row sm:gap-4 justify-center mb-8 sm:mb-12 px-4 max-w-md sm:max-w-none mx-auto">
             <Button
               asChild
               size="lg"
@@ -322,6 +322,13 @@ export default function HomePage() {
               className="bg-blue-600 hover:bg-blue-700 text-white text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 shadow-lg"
             >
               <Link href="/exams/wassce">WASSCE</Link>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              className="bg-purple-600 hover:bg-purple-700 text-white text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 shadow-lg"
+            >
+              <Link href="/exams/jamb">JAMB</Link>
             </Button>
           </div>
 

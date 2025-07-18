@@ -752,7 +752,10 @@ export default function JambExamsPage() {
         )}
 
         {/* Practice Questions and Mock Exams Section */}
-        {activeTab !== "syllabus" && openExam === null && !selectedSubject ? (
+        {activeTab !== "syllabus" &&
+        openExam === null &&
+        !selectedSubject &&
+        !examData ? (
           <div>
             <div className="text-center mb-8">
               <div
@@ -832,7 +835,7 @@ export default function JambExamsPage() {
               })}
             </div>
           </div>
-        ) : selectedSubject ? (
+        ) : selectedSubject && !openExam && !examData ? (
           // Year Selection View
           <div>
             <div className="text-center mb-8">
@@ -892,8 +895,7 @@ export default function JambExamsPage() {
               ))}
             </div>
           </div>
-        ) : (
-          (openExam !== null || isLoadingExam || examData !== null) &&
+        ) : openExam !== null || isLoadingExam || examData !== null ? (
           // Only show the selected exam in full-page view
           (() => {
             if (isLoadingExam) {
@@ -1081,7 +1083,7 @@ export default function JambExamsPage() {
               </div>
             );
           })()
-        )}
+        ) : null}
         {/* Feedback Modal */}
         <Dialog open={showFeedback} onOpenChange={setShowFeedback}>
           <DialogContent className="max-w-md text-center bg-white/80 backdrop-blur-md rounded-3xl shadow-2xl">
