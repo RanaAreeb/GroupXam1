@@ -1,0 +1,459 @@
+{
+  "id": "jamb-literature-in-english-2012",
+  "title": "JAMB Literature in English 2012",
+  "subject": "Literature in English",
+  "year": 2012,
+  "duration": "2 hours",
+  "instructions": "Answer all questions. Each question carries equal marks.",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which Question Paper Type of Literature-in-English as indicated above is given to you?",
+      "options": ["Type Green", "Type Purple", "Type Red", "Type Yellow"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 2,
+      "question": "Who is the paternal aunt to Aaron and Maanan?",
+      "options": ["Mrs Bonu", "Hannah", "Fosuwa", "Adwao"],
+      "correctAnswer": 2,
+      "context": "J.C. De Graft's Sons and Daughters"
+    },
+    {
+      "id": 3,
+      "question": "From the play, George is a",
+      "options": [
+        "laboratory assistant",
+        "pharmacist",
+        "nurse",
+        "medical doctor"
+      ],
+      "correctAnswer": 3,
+      "context": "J.C. De Graft's Sons and Daughters"
+    },
+    {
+      "id": 4,
+      "question": "'If you touch me, I shall smash your face with this bottle.' The statement is made by",
+      "options": [
+        "Maanan to lawyer B",
+        "Maanan to Mrs Bonu",
+        "James to Awere",
+        "Awere to Aaron"
+      ],
+      "correctAnswer": 0,
+      "context": "J.C. De Graft's Sons and Daughters"
+    },
+    {
+      "id": 5,
+      "question": "The issue at stake is that",
+      "options": [
+        "Maanan is trying to compromise",
+        "Lawyer B is trying to kiss Maanan",
+        "James sees Awere as a bad influence",
+        "Mrs Bonu is taunting Maanan for loving her husband"
+      ],
+      "correctAnswer": 1,
+      "context": "J.C. De Graft's Sons and Daughters"
+    },
+    {
+      "id": 6,
+      "question": "'From forth the fatal loins of these two foes A pair of star-crossed lovers take their life...' The lines above suggest that the tragedy in the play",
+      "options": [
+        "could have been averted",
+        "is predestined",
+        "is brought on enmity",
+        "brought misfortune on the lovers"
+      ],
+      "correctAnswer": 1,
+      "context": "William Shakespeare's Romeo and Juliet"
+    },
+    {
+      "id": 7,
+      "question": "'O she doth teach the torches to burn bright! It seems she hangs upon the cheek of night A rich jewel in an Ethiop's ear.' From the lines above, Juliet's beauty is presented",
+      "options": [
+        "in contrast to the dark night",
+        "as a source of envy to all",
+        "in terms of riches",
+        "as being outstanding"
+      ],
+      "correctAnswer": 3,
+      "context": "William Shakespeare's Romeo and Juliet"
+    },
+    {
+      "id": 8,
+      "question": "'The all-seeing sun, Ne'er saw match since first the world begun.' The lines above were spoken by",
+      "options": [
+        "Count Paris in praise of Juliet",
+        "Romeo in praise of Juliet",
+        "Romeo in praise of Roseline",
+        "Lady Capulet in praise of Roseline"
+      ],
+      "correctAnswer": 2,
+      "context": "William Shakespeare's Romeo and Juliet"
+    },
+    {
+      "id": 9,
+      "question": "The major role of Mercutio in the play is to",
+      "options": [
+        "serve as a contrast to Romeo",
+        "aid and abet Romeo's passion",
+        "annoy Tybalt",
+        "accompany Romeo to Friar Lawrence"
+      ],
+      "correctAnswer": 0,
+      "context": "William Shakespeare's Romeo and Juliet"
+    },
+    {
+      "id": 10,
+      "question": "The play shares the feature of classical tragedy through the use of",
+      "options": ["violence on stage", "chorus", "comic relief", "flashback"],
+      "correctAnswer": 2,
+      "context": "William Shakespeare's Romeo and Juliet"
+    },
+    {
+      "id": 11,
+      "question": "'Meka, kneeling down in his usual fashion with his behind up in the air. Kelara knelt down beside him. Amalia and her husband knelt down as well.' The actions of Meka, Kelara, Amalia and her husband signify",
+      "options": ["parade", "dance", "prayer", "celebration"],
+      "correctAnswer": 2,
+      "context": "Ferdinand Oyono's The Old Man and the Medal"
+    },
+    {
+      "id": 12,
+      "question": "'He had knocked his toes against so many things that he had no toenails anymore and the yaws he had suffered from his youth had twisted his toes up so that they pointed to the sky.' The description above is in reference to the foot of",
+      "options": ["Kelara", "Meka", "Egamba", "Mvondo"],
+      "correctAnswer": 1,
+      "context": "Ferdinand Oyono's The Old Man and the Medal"
+    },
+    {
+      "id": 13,
+      "question": "'They said their prayers in a monotonous sing-song, kneeling on their bamboo bed like camels waiting to be loaded.' The dominant figure of speech in the excerpt above is",
+      "options": [
+        "rhetorical question",
+        "simile",
+        "metaphor",
+        "mixed metaphor"
+      ],
+      "correctAnswer": 1,
+      "context": "Ferdinand Oyono's The Old Man and the Medal"
+    },
+    {
+      "id": 14,
+      "question": "As a symbol of material success and fulfilment, Ibuzza community places a lot of importance on",
+      "options": ["childbirth", "wealth", "male child", "female child"],
+      "correctAnswer": 2,
+      "context": "Buchi Emecheta's The Joy of Motherhood"
+    },
+    {
+      "id": 15,
+      "question": "Ona on her dying bed appeals to Agbadi to",
+      "options": [
+        "give her a befitting burial",
+        "take good care of her children",
+        "take another wife",
+        "allow Nnu Ego marry a man of her choice"
+      ],
+      "correctAnswer": 3,
+      "context": "Buchi Emecheta's The Joy of Motherhood"
+    },
+    {
+      "id": 16,
+      "question": "The little money Nnaife makes after returning from Fernando PO is used for",
+      "options": [
+        "expanding Nnu Ego's business",
+        "taking care of his family",
+        "sending his children to school",
+        "getting more wives"
+      ],
+      "correctAnswer": 3,
+      "context": "Buchi Emecheta's The Joy of Motherhood"
+    },
+    {
+      "id": 17,
+      "question": "The novel is mainly classified as a",
+      "options": ["metaphor", "hyperbole", "satire", "fiction"],
+      "correctAnswer": 2,
+      "context": "George Orwell's Nineteen Eighty-Four"
+    },
+    {
+      "id": 18,
+      "question": "Winston writes that the hope of the country lies on the",
+      "options": ["ministry of the truth", "proles", "party", "children"],
+      "correctAnswer": 1,
+      "context": "George Orwell's Nineteen Eighty-Four"
+    },
+    {
+      "id": 19,
+      "question": "In the novel, two minutes hate is a programme designed for",
+      "options": ["parents", "thought police", "the community", "children"],
+      "correctAnswer": 2,
+      "context": "George Orwell's Nineteen Eighty-Four"
+    },
+    {
+      "id": 20,
+      "question": "To drop his philosophy of life and imbibe the tenets of the party, Winston is subjected to all forms of torture and inhuman treatment by",
+      "options": ["O'Brien", "thought police", "Big Brother", "Goldstein"],
+      "correctAnswer": 0,
+      "context": "George Orwell's Nineteen Eighty-Four"
+    },
+    {
+      "id": 21,
+      "question": "The movement in Adeoti's Naked Soles is characterized by",
+      "options": [
+        "hope and agreement",
+        "freedom and self-determination",
+        "pricks and tears",
+        "disappointed and disarray"
+      ],
+      "correctAnswer": 2,
+      "context": "New Poetry"
+    },
+    {
+      "id": 22,
+      "question": "One of the dominant themes of Rubadiri's An African Thunderstorm is the",
+      "options": [
+        "relationship between man and woman",
+        "activities of man during rainy seasons",
+        "effect of rain on women and children",
+        "problem of climate change"
+      ],
+      "correctAnswer": 3,
+      "context": "New Poetry"
+    },
+    {
+      "id": 23,
+      "question": "In Kunene's A Heritage of Liberation, the weapons are to be preserved for the generation yet unborn by the",
+      "options": ["gods", "elders", "people", "government"],
+      "correctAnswer": 2,
+      "context": "New Poetry"
+    },
+    {
+      "id": 24,
+      "question": "Give Me The Minstrel's Seat ends on a clarion call for",
+      "options": ["freedom", "peace", "rectitude", "commitment"],
+      "correctAnswer": 3,
+      "context": "New Poetry"
+    },
+    {
+      "id": 25,
+      "question": "'...the youthful hue/sits on thy skin like a morning dew...' The excerpt above from Marvell's To His Coy Mistress is an example of",
+      "options": ["simile", "anaphora", "paradox", "onomatopoeia"],
+      "correctAnswer": 0,
+      "context": "New Poetry"
+    },
+    {
+      "id": 26,
+      "question": "In Lawrence's Bat, the poet compares bats with",
+      "options": ["sparrows", "swans", "swallows", "crows"],
+      "correctAnswer": 2,
+      "context": "New Poetry"
+    },
+    {
+      "id": 27,
+      "question": "Eliot's The Journey of the Magi could be said to examine the issues of",
+      "options": [
+        "three trees on the low sky",
+        "empty wine-skins",
+        "spiritual rebirth",
+        "holy pilgrimage"
+      ],
+      "correctAnswer": 2,
+      "context": "New Poetry"
+    },
+    {
+      "id": 28,
+      "question": "'We would be believing we dreamt it.' The figure of speech in the line above from Acquah's In the Navel of the Soul is",
+      "options": ["apostrophe", "assonance", "antithesis", "alliteration"],
+      "correctAnswer": 3,
+      "context": "New Poetry"
+    },
+    {
+      "id": 29,
+      "question": "The casualties in Launko's End of the War are",
+      "options": ["women", "children", "men", "soldiers"],
+      "correctAnswer": 0,
+      "context": "New Poetry"
+    },
+    {
+      "id": 30,
+      "question": "The theme of Cope's Sonnet VII is",
+      "options": [
+        "art of poetry",
+        "adventure",
+        "contempt for literature",
+        "isolation"
+      ],
+      "correctAnswer": 0,
+      "context": "New Poetry"
+    },
+    {
+      "id": 31,
+      "question": "A literary work in which the characters and events are used as symbols is known as",
+      "options": ["characterization", "allegory", "metaphor", "parallelism"],
+      "correctAnswer": 1,
+      "context": "General Literary Principles"
+    },
+    {
+      "id": 32,
+      "question": "Characterization in a novel refers to the",
+      "options": [
+        "writer's opinion of the characters",
+        "way the characters are revealed to the reader",
+        "characters and the way they behave",
+        "reader's opinion of the characters"
+      ],
+      "correctAnswer": 1,
+      "context": "General Literary Principles"
+    },
+    {
+      "id": 33,
+      "question": "In literary work, verbal irony refers to a",
+      "options": [
+        "device in which the speaker means the opposite of what he says",
+        "situation in which a character speaks or acts against the trend of events",
+        "difficult situation which defies a logical or rational resolution",
+        "device in which the actor on stage means exactly what he says"
+      ],
+      "correctAnswer": 0,
+      "context": "General Literary Principles"
+    },
+    {
+      "id": 34,
+      "question": "In the theater, words spoken by a character that are meant to be heard by the audience but not by the other characters on stage is called",
+      "options": ["aside", "soliloquy", "acoustic", "tone"],
+      "correctAnswer": 0,
+      "context": "General Literary Principles"
+    },
+    {
+      "id": 35,
+      "question": "Drama is the representation of a complete series of actions by means of",
+      "options": [
+        "movement and gesture for the screen and audience",
+        "speech, movement and gesture for the stage only",
+        "speech, movement and gesture for the stage, screen and radio",
+        "speech, gesture and movement for the screen and radio"
+      ],
+      "correctAnswer": 2,
+      "context": "General Literary Principles"
+    },
+    {
+      "id": 36,
+      "question": "A poet's use of regular rhythm is known as",
+      "options": ["allegory", "assonance", "metre", "onomatopoeia"],
+      "correctAnswer": 2,
+      "context": "General Literary Principles"
+    },
+    {
+      "id": 37,
+      "question": "A literary genre which directly imitates human action is",
+      "options": ["drama", "comedy", "prose", "poetry"],
+      "correctAnswer": 0,
+      "context": "General Literary Principles"
+    },
+    {
+      "id": 38,
+      "question": "A fable is a story in which",
+      "options": [
+        "allegations are made about characters",
+        "animals or things are used as characters",
+        "there is an important setting",
+        "the story is told in poetic form"
+      ],
+      "correctAnswer": 1,
+      "context": "General Literary Principles"
+    },
+    {
+      "id": 39,
+      "question": "The juxtaposition of two contrasting ideas in a line of poetry is",
+      "options": ["euphemism", "synecdoche", "catharsis", "oxymoron"],
+      "correctAnswer": 3,
+      "context": "General Literary Principles"
+    },
+    {
+      "id": 40,
+      "question": "The main aim of caricature is to",
+      "options": ["describe", "expose", "emphasize", "ridicule"],
+      "correctAnswer": 3,
+      "context": "General Literary Principles"
+    },
+    {
+      "id": 41,
+      "question": "'O! Ceremony, show me but thy worth What is thy soul of adoration' The figure of speech in the lines above is",
+      "options": ["antithesis", "invocation", "personification", "apostrophe"],
+      "correctAnswer": 3,
+      "context": "Literary Appreciation"
+    },
+    {
+      "id": 42,
+      "question": "'What eyes will watch our large mouths, Shaped by the laughter of big children What eyes will watch our large mouths?' Birage Diop: Vanity. The tone of the lines above is one of",
+      "options": ["sarcasm", "sacrilege", "chiasmus", "eulogy"],
+      "correctAnswer": 0,
+      "context": "Literary Appreciation"
+    },
+    {
+      "id": 43,
+      "question": "The old man slept in his favourite chair The wind ran its fingers through his hair He looked like a tree gone dry of sap And his hands were dry upon his lap. The rhyme scheme of the poem above is",
+      "options": ["bbaa", "aabb", "abab", "baba"],
+      "correctAnswer": 1,
+      "context": "Literary Appreciation"
+    },
+    {
+      "id": 44,
+      "question": "'Unequal laws unto a savage race, That hoard, and sleep, and feed....' The lines above show that the speaker",
+      "options": [
+        "detects discrimination",
+        "is desirous of adventure",
+        "hates his old wife",
+        "knows much of his city men"
+      ],
+      "correctAnswer": 0,
+      "context": "Literary Appreciation"
+    },
+    {
+      "id": 45,
+      "question": "'...How can I look at Oyo and say I hate long shiny cars? How can I come to the children and despise international schools? And Koomson comes, and the family sees Jesus Christ in him....' The feeling conveyed by the speaker above is one of",
+      "options": ["anger", "alienation", "hope", "despair"],
+      "correctAnswer": 1,
+      "context": "Literary Appreciation"
+    },
+    {
+      "id": 46,
+      "question": "'Hide me now, when night children haunt the earth' Wole Soyinka:Night. Night children in the stanza above reflects the consciousness of",
+      "options": ["birds", "armed robbers", "animals", "spirit beings"],
+      "correctAnswer": 1,
+      "context": "Literary Appreciation"
+    },
+    {
+      "id": 47,
+      "question": "'Serrated shadows, through dark leaves, Til, bathed in warm suffusion of your dapped cells Sensation pained me, faceless, silent as night thieves.' Wole Soyinka: Night. The dominant mood in the lines above is one of",
+      "options": ["apprehension", "defiance", "joy", "indifference"],
+      "correctAnswer": 0,
+      "context": "Literary Appreciation"
+    },
+    {
+      "id": 48,
+      "question": "'The drums overwhelmed the guns...' J.P Clark: Casualties. The poet in the excerpt above uses",
+      "options": ["litotes", "symbolism", "onomatopoeia", "alliteration"],
+      "correctAnswer": 2,
+      "context": "Literary Appreciation"
+    },
+    {
+      "id": 49,
+      "question": "'....They do not see the funeral piles At home eating up the forests...' J.P. Clark:Casualties. The imagery created in the above excerpt is achieved through",
+      "options": ["metaphor", "personification", "synecdoche", "metonym"],
+      "correctAnswer": 0,
+      "context": "Literary Appreciation"
+    },
+    {
+      "id": 50,
+      "question": "'I cannot rest from travel: I will drink Life to the lees, all times I have enjoyed Greatly, have suffered greatly' A.L. Tennyson: Ulysses. The lines above inform the reader that the poet",
+      "options": [
+        "is determined to suffer",
+        "has his poetic imagination kindled",
+        "will cure his sour mood",
+        "will not drink much"
+      ],
+      "correctAnswer": 1,
+      "context": "Literary Appreciation"
+    }
+  ]
+}

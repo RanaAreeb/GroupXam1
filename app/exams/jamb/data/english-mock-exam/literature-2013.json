@@ -1,0 +1,469 @@
+{
+  "id": "jamb-literature-in-english-2013",
+  "title": "JAMB Literature in English 2013",
+  "subject": "Literature in English",
+  "year": 2013,
+  "duration": "2 hours",
+  "instructions": "Answer all questions. Each question carries equal marks.",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which Question Paper Type of Literature-in-English is given to you?",
+      "options": ["Type B", "Type I", "Type B", "Type U"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 2,
+      "question": "James: 'Let me swear, woman. And I will swear by my father's coffin that if....' The lines depict James as a",
+      "options": ["traditionalist", "Christian", "pagan", "Muslim"],
+      "correctAnswer": 0,
+      "context": "J.C. De Graft's Sons and Daughters"
+    },
+    {
+      "id": 3,
+      "question": "The speaker is referring to",
+      "options": ["Fosuwa", "Awere", "Maanan", "Hannah"],
+      "correctAnswer": 1,
+      "context": "J.C. De Graft's Sons and Daughters"
+    },
+    {
+      "id": 4,
+      "question": "Aaron: '...All I need really is a place in an Art school, engineering can go hang itself.' The dominant figure of speech in the excerpt above is",
+      "options": ["metonymy", "synecdoche", "personification", "metaphor"],
+      "correctAnswer": 2,
+      "context": "J.C. De Graft's Sons and Daughters"
+    },
+    {
+      "id": 5,
+      "question": "From the play, the character of Aaron represents the",
+      "options": ["painters", "art work", "new generation", "old generation"],
+      "correctAnswer": 2,
+      "context": "J.C. De Graft's Sons and Daughters"
+    },
+    {
+      "id": 6,
+      "question": "'Uncle, this is a Montague, our foe; A villain that is hither come in spite, To scorn at our solemnity this night.' The villain in the excerpt above is",
+      "options": [
+        "attempting to steal",
+        "attending a feast uninvited",
+        "engaging in a shouty match",
+        "holding a sword to commit murder"
+      ],
+      "correctAnswer": 1,
+      "context": "William Shakespeare's Romeo and Juliet"
+    },
+    {
+      "id": 7,
+      "question": "'What, drawn and talk of peace? I hate the word As I hate hell, all Montagues, and thee Have at thee, coward!' Based on William Shakespeare's Romeo and Juliet, the lines above reveal the speaker as a",
+      "options": [
+        "violence seeker",
+        "peace maker",
+        "real Montague",
+        "trouble shooter"
+      ],
+      "correctAnswer": 3,
+      "context": "William Shakespeare's Romeo and Juliet"
+    },
+    {
+      "id": 8,
+      "question": "Romeo's mood, at the beginning of the play can be described as",
+      "options": [
+        "melancholic and sentimental",
+        "dreamy and hopeful",
+        "frustrated and pensive",
+        "gay and elated"
+      ],
+      "correctAnswer": 2,
+      "context": "William Shakespeare's Romeo and Juliet"
+    },
+    {
+      "id": 9,
+      "question": "'O'deadly sin! O rude unthankfulness! Thy fault our law calls death, but the kind Prince, taking thy part, hath rushed aside the law, And turned that black word \"death\" to banishment.' The speaker in the passage above is",
+      "options": [
+        "Lord Montague",
+        "Friar Lawrence",
+        "Apothecary",
+        "Lord Capulet"
+      ],
+      "correctAnswer": 0,
+      "context": "William Shakespeare's Romeo and Juliet"
+    },
+    {
+      "id": 10,
+      "question": "'....Put up thy sword Or manage it to part these men with me.' The speech above was made when",
+      "options": [
+        "Tybalt challenges Romeo to duel",
+        "Prince Escalus arrives to make peace between the families",
+        "Romeo and Paris engaged themselves in a fight",
+        "Benvolio tries to separate the servants of the feuding families"
+      ],
+      "correctAnswer": 3,
+      "context": "William Shakespeare's Romeo and Juliet"
+    },
+    {
+      "id": 11,
+      "question": "For his sacrifices to the church, Meka gets",
+      "options": [
+        "appointed into the church elders' council",
+        "the privilege to choose a permanent place to sit",
+        "a place near an aged leper",
+        "a land to build a new house"
+      ],
+      "correctAnswer": 0,
+      "context": "Ferdinand Oyono's The Old Man and the Medal"
+    },
+    {
+      "id": 12,
+      "question": "'Since I came to this country, I have never seen cocoa as well dried as yours.' The speaker above is",
+      "options": ["Nkolo", "the Commandant", "the Catechist", "Nua"],
+      "correctAnswer": 1,
+      "context": "Ferdinand Oyono's The Old Man and the Medal"
+    },
+    {
+      "id": 13,
+      "question": "To the white men, the medal that is given symbolizes",
+      "options": ["harmonious relationship", "love", "peace", "friendship"],
+      "correctAnswer": 3,
+      "context": "Ferdinand Oyono's The Old Man and the Medal"
+    },
+    {
+      "id": 14,
+      "question": "Nnu Ego is blamed for the misfortunes of her",
+      "options": ["parents", "husband", "siblings", "children"],
+      "correctAnswer": 3,
+      "context": "Buchi Emecheta's The Joy of Motherhood"
+    },
+    {
+      "id": 15,
+      "question": "According to the novel Nnaife becomes frustrated when",
+      "options": [
+        "Oshiaju secures a scholarship to study abroad",
+        "he is arrested and charged for attempted murder of his in-law",
+        "his wife gives birth to female twins",
+        "he is recruited into the army"
+      ],
+      "correctAnswer": 2,
+      "context": "Buchi Emecheta's The Joy of Motherhood"
+    },
+    {
+      "id": 16,
+      "question": "Adaku remains faithful to Nnaife until she",
+      "options": [
+        "starts keeping unnecessary friends",
+        "is unable to give birth to a male child",
+        "is rebuked by the Ibuza society for abusing Nnu Ego",
+        "becomes rich and powerful"
+      ],
+      "correctAnswer": 0,
+      "context": "Buchi Emecheta's The Joy of Motherhood"
+    },
+    {
+      "id": 17,
+      "question": "The Ministry of Love is concerned with",
+      "options": [
+        "peace and freedom",
+        "torture and pain",
+        "joy and peace",
+        "hatred and pain"
+      ],
+      "correctAnswer": 0,
+      "context": "George Orwell's Nineteen Eighty-Four"
+    },
+    {
+      "id": 18,
+      "question": "The instruments of power and torture belong to",
+      "options": [
+        "the government",
+        "the party",
+        "the thought police",
+        "individuals"
+      ],
+      "correctAnswer": 0,
+      "context": "George Orwell's Nineteen Eighty-Four"
+    },
+    {
+      "id": 19,
+      "question": "The action in the novel is built around",
+      "options": ["Winston Smith", "O'Brien", "Julia", "Big Brother"],
+      "correctAnswer": 0,
+      "context": "George Orwell's Nineteen Eighty-Four"
+    },
+    {
+      "id": 20,
+      "question": "Winston Smith works in the Record Department of the Ministry of",
+      "options": ["love", "truth", "peace", "plenty"],
+      "correctAnswer": 0,
+      "context": "George Orwell's Nineteen Eighty-Four"
+    },
+    {
+      "id": 21,
+      "question": "The dominant poetic technique employed in Adeoti's Naked Soles is",
+      "options": ["zeugma", "oxymoron", "hyperbole", "onomatopoeia"],
+      "correctAnswer": 3,
+      "context": "New Poetry"
+    },
+    {
+      "id": 22,
+      "question": "Rubadiri's An African Thunderstorm can be described as",
+      "options": ["didactic", "dramatic", "traditional", "satirical"],
+      "correctAnswer": 2,
+      "context": "New Poetry"
+    },
+    {
+      "id": 23,
+      "question": "'Since it was you who in all these thin seasons.' The device employed in the line above from Kunene's The Heritage of Liberation, is an example of",
+      "options": ["apostrophe", "allusion", "anecdote", "aside"],
+      "correctAnswer": 0,
+      "context": "New Poetry"
+    },
+    {
+      "id": 24,
+      "question": "'Let me ask for what reason or rhyme women refuse to marry? Woman cannot exist except by man, what is there in that to vex some of them so?' The lines above from Give Me The Minstrel's Seat is an example of",
+      "options": [
+        "pathetic fallacy",
+        "chiasmus",
+        "ironical statement",
+        "rhetorical question"
+      ],
+      "correctAnswer": 3,
+      "context": "New Poetry"
+    },
+    {
+      "id": 25,
+      "question": "'Time winged chariot' The line above from Marvell's To His Coy Mistress depicts",
+      "options": [
+        "how fast time flies",
+        "the usefulness of time",
+        "the measurement of time",
+        "how fast events unfold"
+      ],
+      "correctAnswer": 0,
+      "context": "New Poetry"
+    },
+    {
+      "id": 26,
+      "question": "Lawrence's Bat opens with the description of the",
+      "options": ["scene", "creatures", "bats", "scenery"],
+      "correctAnswer": 0,
+      "context": "New Poetry"
+    },
+    {
+      "id": 27,
+      "question": "The theme of Eliot's The Journey of Magi is",
+      "options": [
+        "quest for salvation",
+        "escape from persecution",
+        "nature",
+        "journey"
+      ],
+      "correctAnswer": 0,
+      "context": "New Poetry"
+    },
+    {
+      "id": 28,
+      "question": "Acquah's In The Navel of the Soul describes the",
+      "options": [
+        "lack of experienced midwives in the society",
+        "excesses of the new generation churches and politicians",
+        "complications of motherhood and child bearing",
+        "conflict between the church and tradition"
+      ],
+      "correctAnswer": 1,
+      "context": "New Poetry"
+    },
+    {
+      "id": 29,
+      "question": "'Listen...they will tell you...to beat drums is mere children's play, the adult's is to start echoes...' The lines above from Launko's End of the War, enhance the",
+      "options": [
+        "rhyme of the poem",
+        "rhythm of the poem",
+        "language of the poem",
+        "use of imagery"
+      ],
+      "correctAnswer": 3,
+      "context": "New Poetry"
+    },
+    {
+      "id": 30,
+      "question": "The language of Cope's Sonnet VII is",
+      "options": ["complicated", "simple", "poetic complicated", "difficult"],
+      "correctAnswer": 0,
+      "context": "New Poetry"
+    },
+    {
+      "id": 31,
+      "question": "A device used by a writer to recall past event in a literary work is",
+      "options": ["interlude", "anti-climax", "flashback", "foreshadowing"],
+      "correctAnswer": 2,
+      "context": "General Literary Principles"
+    },
+    {
+      "id": 32,
+      "question": "A paragraph in prose is equivalent to a",
+      "options": [
+        "trope in poetry",
+        "verse in poetry",
+        "stanza in poetry",
+        "meter in poetry"
+      ],
+      "correctAnswer": 2,
+      "context": "General Literary Principles"
+    },
+    {
+      "id": 33,
+      "question": "A fable is a brief narrative illustrating wisdom and",
+      "options": ["urgency", "origin", "custom", "truth"],
+      "correctAnswer": 3,
+      "context": "General Literary Principles"
+    },
+    {
+      "id": 34,
+      "question": "A device used in poetry to achieve emphasis or stress a point is known as",
+      "options": ["rhyme", "assonance", "repetition", "alliteration"],
+      "correctAnswer": 2,
+      "context": "General Literary Principles"
+    },
+    {
+      "id": 35,
+      "question": "A literary work that ridicules the shortcomings of people or ideas is",
+      "options": ["a masque", "a satire", "an irony", "a fable"],
+      "correctAnswer": 1,
+      "context": "General Literary Principles"
+    },
+    {
+      "id": 36,
+      "question": "The figure of speech in which the writer means the exact opposite of what he intends to say is",
+      "options": ["satire", "irony", "paradox", "metaphor"],
+      "correctAnswer": 1,
+      "context": "General Literary Principles"
+    },
+    {
+      "id": 37,
+      "question": "Action without speech in a play is",
+      "options": ["soliloquy", "aside", "epilogue", "mime"],
+      "correctAnswer": 3,
+      "context": "General Literary Principles"
+    },
+    {
+      "id": 38,
+      "question": "A literary work that teaches moral is said to be",
+      "options": ["impressive", "didactic", "instructive", "corrective"],
+      "correctAnswer": 1,
+      "context": "General Literary Principles"
+    },
+    {
+      "id": 39,
+      "question": "A mistake committed by the hero which leads to his downfall is known as",
+      "options": ["comic relief", "terse", "climax", "tragic flaw"],
+      "correctAnswer": 3,
+      "context": "General Literary Principles"
+    },
+    {
+      "id": 40,
+      "question": "The speech made by a character to himself on stage is",
+      "options": ["monologue", "epilogue", "aside", "soliloquy"],
+      "correctAnswer": 0,
+      "context": "General Literary Principles"
+    },
+    {
+      "id": 41,
+      "question": "'Women as a clam, on the sea's crescent I saw your jealous eye quench the sea's Fluorescence, dance on the pulse incessant.' Wole Soyinka: Night. The lines above suggest that women are",
+      "options": ["magicians", "covetous", "dogmatic", "seers"],
+      "correctAnswer": 1,
+      "context": "Literary Appreciation"
+    },
+    {
+      "id": 42,
+      "question": "'Busy old fool Unruly sun Why dost thou thus Through windows And through curtains Call on us?' J. Donne: The Sun Rising. The excerpt above suggests",
+      "options": [
+        "praise of nature",
+        "invitation to the sun",
+        "welcoming the sun",
+        "indictment of the sun"
+      ],
+      "correctAnswer": 3,
+      "context": "Literary Appreciation"
+    },
+    {
+      "id": 43,
+      "question": "The figure of speech involved in the lines above is",
+      "options": ["simile", "personification", "epigram", "pun"],
+      "correctAnswer": 1,
+      "context": "Literary Appreciation"
+    },
+    {
+      "id": 44,
+      "question": "'Will no one tell me what she sings perhaps the plaintive numbers flow for old, unhappy, far off things And battles long ago. Or is it some more humble lay, Familiar matter of today?' The lines above show that the persona",
+      "options": [
+        "does not understand the girl's language",
+        "is so much in love with the girl",
+        "so hates the words of the girl",
+        "understands the girl's songs"
+      ],
+      "correctAnswer": 1,
+      "context": "Literary Appreciation"
+    },
+    {
+      "id": 45,
+      "question": "The line ends in a literary device known as",
+      "options": [
+        "transferred epithet",
+        "rhetorical question",
+        "irony",
+        "conceit"
+      ],
+      "correctAnswer": 1,
+      "context": "Literary Appreciation"
+    },
+    {
+      "id": 46,
+      "question": "'Oh incomprehensible God! Shall my pilot be My inborn stars to that Final call to thee...' The literary device used in the first line is",
+      "options": ["passion", "apostrophe", "burlesque", "rhetoric"],
+      "correctAnswer": 1,
+      "context": "Literary Appreciation"
+    },
+    {
+      "id": 47,
+      "question": "'Busy old fool, unruly sun, Why dost thou thus.' J. Donne: The Sun Rising. From the lines above, the poet sees the sun as",
+      "options": [
+        "a necessary evil",
+        "a light provider",
+        "illumination after darkness",
+        "an unnecessary evil"
+      ],
+      "correctAnswer": 0,
+      "context": "Literary Appreciation"
+    },
+    {
+      "id": 48,
+      "question": "'The body perishes, the heart stays young. The platter wears away with serving food. No log retains its bark when old, No lover peaceful while the rival weeps.' The theme of the poem above is",
+      "options": [
+        "permanence of love",
+        "decaying nature of wood",
+        "non-peaceful nature of love",
+        "diminishing nature of love"
+      ],
+      "correctAnswer": 0,
+      "context": "Literary Appreciation"
+    },
+    {
+      "id": 49,
+      "question": "'No lover peaceful while the rival weeps' means that",
+      "options": [
+        "there is true and permanent love",
+        "the two lovers weep together",
+        "the pain of one lover is felt by the other",
+        "there is no permanent love"
+      ],
+      "correctAnswer": 2,
+      "context": "Literary Appreciation"
+    },
+    {
+      "id": 50,
+      "question": "'Will college make you a better Olokun priest? Will it make you serve our ancestors better? Look at me. An able-bodied, strong-hearted priest of Olokun. Did I go to college?' Grace Osifo: Dizzy Angel. The literary device used in the passage above is",
+      "options": ["simile", "parallelism", "onomatopoeia", "metaphor"],
+      "correctAnswer": 3,
+      "context": "Literary Appreciation"
+    }
+  ]
+}

@@ -19,6 +19,19 @@ const loadExamData = (subject, year) => {
             if (year === 2010) {
                 fileName = 'mathematics-2010.json';
             }
+        } else if (subject === 'Literature in English') {
+            folderName = 'english-mock-exam';
+            if (year === 2011) {
+                fileName = 'literature-2011.json';
+            } else if (year === 2012) {
+                fileName = 'literature-2012.json';
+            } else if (year === 2013) {
+                fileName = 'literature-2013.json';
+            } else if (year === 2014) {
+                fileName = 'literature-2014.json';
+            } else if (year === 2015) {
+                fileName = 'literature-2015.json';
+            }
         }
 
         if (folderName && fileName) {
@@ -164,6 +177,86 @@ const mockExamData = {
                     question: "Solve: 3x - 2y = 8 and x + y = 4",
                     options: ["x=3, y=1", "x=2, y=2", "x=4, y=0", "x=1, y=3"],
                     correctAnswer: 1
+                }
+            ]
+        }
+    },
+    "Literature in English": {
+        2010: {
+            id: "literature-2010",
+            title: "JAMB Literature in English 2010",
+            subject: "Literature in English",
+            year: 2010,
+            duration: "2 hours",
+            questions: [
+                {
+                    id: 1,
+                    question: "Who wrote 'Things Fall Apart'?",
+                    options: ["Wole Soyinka", "Chinua Achebe", "Gabriel Okara", "Amos Tutuola"],
+                    correctAnswer: 1
+                },
+                {
+                    id: 2,
+                    question: "What is a sonnet?",
+                    options: ["A 12-line poem", "A 14-line poem", "A 16-line poem", "A 10-line poem"],
+                    correctAnswer: 1
+                },
+                {
+                    id: 3,
+                    question: "In 'Romeo and Juliet', who gives Romeo the poison?",
+                    options: ["Friar Lawrence", "The Apothecary", "Mercutio", "Balthasar"],
+                    correctAnswer: 1
+                },
+                {
+                    id: 4,
+                    question: "What literary device is used in 'The stars danced in the sky'?",
+                    options: ["Simile", "Metaphor", "Personification", "Alliteration"],
+                    correctAnswer: 2
+                },
+                {
+                    id: 5,
+                    question: "Who is the protagonist in 'The Lion and the Jewel'?",
+                    options: ["Baroka", "Lakunle", "Sidi", "All of the above"],
+                    correctAnswer: 2
+                }
+            ]
+        },
+        2012: {
+            id: "literature-2012",
+            title: "JAMB Literature in English 2012",
+            subject: "Literature in English",
+            year: 2012,
+            duration: "2 hours",
+            questions: [
+                {
+                    id: 1,
+                    question: "What is the setting of 'The Concubine'?",
+                    options: ["Lagos", "Omokachi", "Ibadan", "Kano"],
+                    correctAnswer: 1
+                },
+                {
+                    id: 2,
+                    question: "Who wrote 'The Beautiful Ones Are Not Yet Born'?",
+                    options: ["Ayi Kwei Armah", "Kofi Awoonor", "Ama Ata Aidoo", "Efua Sutherland"],
+                    correctAnswer: 0
+                },
+                {
+                    id: 3,
+                    question: "What is the rhyme scheme of a Shakespearean sonnet?",
+                    options: ["ABAB CDCD EFEF GG", "ABBA ABBA CDECDE", "ABAB BCBC CDCD EE", "AABB CCDD EEFF GG"],
+                    correctAnswer: 0
+                },
+                {
+                    id: 4,
+                    question: "In 'She Stoops to Conquer', who is Kate Hardcastle?",
+                    options: ["The protagonist", "The antagonist", "A minor character", "The narrator"],
+                    correctAnswer: 0
+                },
+                {
+                    id: 5,
+                    question: "What does the 'green light' symbolize in 'The Great Gatsby'?",
+                    options: ["Hope and dreams", "Money", "Jealousy", "Nature"],
+                    correctAnswer: 0
                 }
             ]
         }

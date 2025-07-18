@@ -978,7 +978,12 @@ export default function JambExamsPage() {
                     <Button
                       variant="secondary"
                       className="mb-6 w-fit self-start"
-                      onClick={() => setOpenExam(null)}
+                      onClick={() => {
+                        setOpenExam(null);
+                        setExamData(null);
+                        setShowFeedback(false);
+                        setShowModal(false);
+                      }}
                     >
                       ← Back
                     </Button>
