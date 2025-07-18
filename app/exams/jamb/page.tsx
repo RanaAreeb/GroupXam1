@@ -518,6 +518,7 @@ export default function JambExamsPage() {
   const [examData, setExamData] = useState<any>(null);
   const [answers, setAnswers] = useState<{ [examId: string]: number[] }>({});
   const [showFeedback, setShowFeedback] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const [score, setScore] = useState(0);
   const [feedbackEmoji, setFeedbackEmoji] = useState("🎉");
   const [showSyllabus, setShowSyllabus] = useState(false);
@@ -582,7 +583,7 @@ export default function JambExamsPage() {
           );
         }
 
-        // Initialize answers array
+        // Initialize answers array using the exam ID
         if (!answers[loadedExamData.id]) {
           setAnswers((prev) => ({
             ...prev,
@@ -592,9 +593,9 @@ export default function JambExamsPage() {
           }));
         }
 
-        // Set the exam as open
-        console.log("Setting openExam to:", 1); // Use a number ID for JAMB exams
-        setOpenExam(1);
+        // Set the exam as open using a number ID for consistency
+        console.log("Setting openExam to:", 999); // Use 999 as JAMB exam ID
+        setOpenExam(999);
         setIsLoadingExam(false);
       } else {
         console.error("Failed to load exam data");
@@ -619,16 +620,18 @@ export default function JambExamsPage() {
   };
 
   const handleSubmit = (exam: any) => {
-    const userAnswers = answers[exam.id] || [];
+    const examId = exam.id || examData?.id;
+    const userAnswers = answers[examId] || [];
     let correct = 0;
-    exam.questions.forEach((q: any, i: number) => {
+    const questions = exam.questions || examData?.questions || [];
+    questions.forEach((q: any, i: number) => {
       if (userAnswers[i] === q.correctAnswer) correct++;
     });
     setScore(correct);
     setFeedbackEmoji(
-      correct === exam.questions.length ? "🎉" : correct > 0 ? "👍" : "😅"
+      correct === questions.length ? "🎉" : correct > 0 ? "👍" : "😅"
     );
-    setShowFeedback(true);
+    setShowModal(true);
   };
 
   const getCurrentExams = () => {
@@ -1000,11 +1003,12 @@ export default function JambExamsPage() {
                                 {q.options.map(
                                   (opt: string, optIdx: number) => {
                                     const isSelected =
-                                      answers[exam.id]?.[qIdx] === optIdx;
+                                      answers[exam.id || examData?.id]?.[
+                                        qIdx
+                                      ] === optIdx;
                                     const isCorrect =
                                       q.correctAnswer === optIdx;
-                                    const showExamFeedback =
-                                      showFeedback && exam.answerKey;
+                                    const showExamFeedback = showFeedback;
 
                                     let optionClass =
                                       "flex items-center gap-2 p-2 rounded cursor-pointer transition-all";
@@ -1037,10 +1041,16 @@ export default function JambExamsPage() {
                                       >
                                         <input
                                           type="radio"
-                                          name={`q${exam.id}_${qIdx}`}
+                                          name={`q${
+                                            exam.id || examData?.id
+                                          }_${qIdx}`}
                                           checked={isSelected}
                                           onChange={() =>
-                                            handleAnswer(exam.id, qIdx, optIdx)
+                                            handleAnswer(
+                                              exam.id || examData?.id,
+                                              qIdx,
+                                              optIdx
+                                            )
                                           }
                                           className="accent-emerald-600"
                                           disabled={showExamFeedback}
@@ -1067,12 +1077,34 @@ export default function JambExamsPage() {
                           </div>
                         )
                       )}
-                      <Button
-                        className="bg-emerald-600 hover:bg-emerald-700 text-white mt-2 w-full rounded-full shadow-lg"
-                        onClick={() => handleSubmit(exam)}
-                      >
-                        Submit
-                      </Button>
+                      {!showFeedback ? (
+                        <Button
+                          className="bg-emerald-600 hover:bg-emerald-700 text-white mt-2 w-full rounded-full shadow-lg"
+                          onClick={() => handleSubmit(exam)}
+                        >
+                          Submit
+                        </Button>
+                      ) : (
+                        <div className="mt-2 space-y-2">
+                          <Button
+                            variant="outline"
+                            className="w-full rounded-full"
+                            onClick={() => setShowFeedback(false)}
+                          >
+                            Hide Answers
+                          </Button>
+                          <Button
+                            className="bg-emerald-600 hover:bg-emerald-700 text-white w-full rounded-full shadow-lg"
+                            onClick={() => {
+                              setShowFeedback(false);
+                              setOpenExam(null);
+                              setExamData(null);
+                            }}
+                          >
+                            Back to Exams
+                          </Button>
+                        </div>
+                      )}
                     </div>
                     {/* Decorative gradient blob */}
                     <span
@@ -1085,7 +1117,7 @@ export default function JambExamsPage() {
           })()
         ) : null}
         {/* Feedback Modal */}
-        <Dialog open={showFeedback} onOpenChange={setShowFeedback}>
+        <Dialog open={showModal} onOpenChange={setShowModal}>
           <DialogContent className="max-w-md text-center bg-white/80 backdrop-blur-md rounded-3xl shadow-2xl">
             <DialogHeader>
               <DialogTitle className="text-3xl flex items-center justify-center gap-2">
@@ -1100,37 +1132,57 @@ export default function JambExamsPage() {
             <div className="my-4 text-lg font-semibold text-emerald-700">
               You scored {score} out of{" "}
               {(() => {
+                // First check examData (for JAMB exams)
+                if (examData && examData.questions) {
+                  return examData.questions.length;
+                }
+
+                // Then check practice questions
                 const exam = practiceQuestions.find((e) => e.id === openExam);
-                if (!exam) {
-                  if (typeof window !== "undefined") {
-                    const storedExam = localStorage.getItem("currentJambExam");
-                    if (storedExam) {
-                      const jambExam = JSON.parse(storedExam);
-                      return jambExam.questions?.length || 0;
-                    }
+                if (exam && exam.questions) {
+                  return exam.questions.length;
+                }
+
+                // Fallback to localStorage
+                if (typeof window !== "undefined") {
+                  const storedExam = localStorage.getItem("currentJambExam");
+                  if (storedExam) {
+                    const jambExam = JSON.parse(storedExam);
+                    return jambExam.questions?.length || 0;
                   }
                 }
-                return exam?.questions?.length || 0;
+
+                return 0;
               })()}
             </div>
             <Progress
               value={
                 (score /
                   (() => {
+                    // First check examData (for JAMB exams)
+                    if (examData && examData.questions) {
+                      return examData.questions.length;
+                    }
+
+                    // Then check practice questions
                     const exam = practiceQuestions.find(
                       (e) => e.id === openExam
                     );
-                    if (!exam) {
-                      if (typeof window !== "undefined") {
-                        const storedExam =
-                          localStorage.getItem("currentJambExam");
-                        if (storedExam) {
-                          const jambExam = JSON.parse(storedExam);
-                          return jambExam.questions?.length || 1;
-                        }
+                    if (exam && exam.questions) {
+                      return exam.questions.length;
+                    }
+
+                    // Fallback to localStorage
+                    if (typeof window !== "undefined") {
+                      const storedExam =
+                        localStorage.getItem("currentJambExam");
+                      if (storedExam) {
+                        const jambExam = JSON.parse(storedExam);
+                        return jambExam.questions?.length || 1;
                       }
                     }
-                    return exam?.questions?.length || 1;
+
+                    return 1;
                   })()) *
                 100
               }
@@ -1138,10 +1190,22 @@ export default function JambExamsPage() {
             />
             <div className="space-y-3">
               <Button
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-full"
+                onClick={() => {
+                  setShowModal(false);
+                  setShowFeedback(true);
+                  // Keep the exam open to show answers
+                }}
+              >
+                Show Correct Answers
+              </Button>
+              <Button
                 className="w-full bg-emerald-600 hover:bg-emerald-700 text-white rounded-full"
                 onClick={() => {
+                  setShowModal(false);
                   setShowFeedback(false);
                   setOpenExam(null);
+                  setExamData(null);
                 }}
               >
                 Back to Exams
@@ -1150,25 +1214,40 @@ export default function JambExamsPage() {
                 variant="outline"
                 className="w-full rounded-full"
                 onClick={() => {
+                  setShowModal(false);
                   setShowFeedback(false);
-                  const exam = practiceQuestions.find((e) => e.id === openExam);
-                  const questionCount = exam
-                    ? exam.questions.length
-                    : (() => {
-                        if (typeof window !== "undefined") {
-                          const storedExam =
-                            localStorage.getItem("currentJambExam");
-                          if (storedExam) {
-                            const jambExam = JSON.parse(storedExam);
-                            return jambExam.questions?.length || 50;
-                          }
-                        }
-                        return 50;
-                      })();
-                  setAnswers((prev) => ({
-                    ...prev,
-                    [openExam!]: Array(questionCount).fill(-1),
-                  }));
+
+                  // Determine question count and exam ID
+                  let questionCount = 50;
+                  let examId = null;
+
+                  if (examData && examData.questions) {
+                    questionCount = examData.questions.length;
+                    examId = examData.id;
+                  } else {
+                    const exam = practiceQuestions.find(
+                      (e) => e.id === openExam
+                    );
+                    if (exam && exam.questions) {
+                      questionCount = exam.questions.length;
+                      examId = exam.id;
+                    } else if (typeof window !== "undefined") {
+                      const storedExam =
+                        localStorage.getItem("currentJambExam");
+                      if (storedExam) {
+                        const jambExam = JSON.parse(storedExam);
+                        questionCount = jambExam.questions?.length || 50;
+                        examId = jambExam.id;
+                      }
+                    }
+                  }
+
+                  if (examId) {
+                    setAnswers((prev) => ({
+                      ...prev,
+                      [examId]: Array(questionCount).fill(-1),
+                    }));
+                  }
                 }}
               >
                 Try Again
