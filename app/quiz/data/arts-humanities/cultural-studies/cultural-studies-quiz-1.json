@@ -1,0 +1,190 @@
+{
+  "id": "cultural-studies-quiz-1",
+  "title": "Cultural Studies Quiz 1",
+  "subject": "Cultural Studies",
+  "difficulty": "Beginner",
+  "questions": 15,
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is culture?",
+      "options": [
+        "Only art and music",
+        "The way of life of a group",
+        "Only language",
+        "Only religion"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Culture is the way of life of a group, including their beliefs, values, customs, and practices."
+    },
+    {
+      "id": 2,
+      "question": "What is cultural relativism?",
+      "options": [
+        "Judging other cultures",
+        "Understanding cultures on their own terms",
+        "Ignoring cultural differences",
+        "Imposing one's culture on others"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Cultural relativism is the practice of understanding and evaluating cultures on their own terms rather than judging them by one's own cultural standards."
+    },
+    {
+      "id": 3,
+      "question": "What is ethnocentrism?",
+      "options": [
+        "Understanding other cultures",
+        "Judging other cultures by one's own standards",
+        "Learning about cultures",
+        "Respecting cultural differences"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Ethnocentrism is the tendency to judge other cultures by the standards of one's own culture."
+    },
+    {
+      "id": 4,
+      "question": "What is cultural diffusion?",
+      "options": [
+        "The spread of cultural elements",
+        "The destruction of culture",
+        "The isolation of cultures",
+        "The creation of new cultures"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Cultural diffusion is the spread of cultural elements from one society to another."
+    },
+    {
+      "id": 5,
+      "question": "What is a subculture?",
+      "options": [
+        "A smaller culture within a larger culture",
+        "A type of art",
+        "A social movement",
+        "A political group"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A subculture is a smaller culture within a larger culture that has its own distinct values and norms."
+    },
+    {
+      "id": 6,
+      "question": "What is cultural appropriation?",
+      "options": [
+        "Learning about other cultures",
+        "Adopting elements of another culture without understanding",
+        "Respecting cultural differences",
+        "Sharing cultural practices"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Cultural appropriation is the adoption of elements of another culture without understanding or respecting their significance."
+    },
+    {
+      "id": 7,
+      "question": "What is multiculturalism?",
+      "options": [
+        "One dominant culture",
+        "The coexistence of multiple cultures",
+        "Cultural isolation",
+        "Cultural assimilation"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Multiculturalism is the coexistence of multiple cultures within a society."
+    },
+    {
+      "id": 8,
+      "question": "What is cultural identity?",
+      "options": [
+        "A person's name",
+        "A person's sense of belonging to a culture",
+        "A person's job",
+        "A person's age"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Cultural identity is a person's sense of belonging to a particular culture or group."
+    },
+    {
+      "id": 9,
+      "question": "What is cultural heritage?",
+      "options": [
+        "Only buildings",
+        "The legacy of cultural traditions",
+        "Only food",
+        "Only clothing"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Cultural heritage is the legacy of cultural traditions, beliefs, and practices passed down from generation to generation."
+    },
+    {
+      "id": 10,
+      "question": "What is cultural diversity?",
+      "options": [
+        "Only racial differences",
+        "The variety of cultures in a society",
+        "Only religious differences",
+        "Only language differences"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Cultural diversity refers to the variety of cultures, ethnicities, and backgrounds present in a society."
+    },
+    {
+      "id": 11,
+      "question": "What is cultural assimilation?",
+      "options": [
+        "Learning about other cultures",
+        "Adopting the culture of the dominant group",
+        "Respecting cultural differences",
+        "Sharing cultural practices"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Cultural assimilation is the process of adopting the culture of the dominant group in society."
+    },
+    {
+      "id": 12,
+      "question": "What is cultural capital?",
+      "options": [
+        "Money",
+        "Knowledge and skills valued by society",
+        "Physical possessions",
+        "Social connections"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Cultural capital refers to knowledge, skills, and cultural experiences that are valued by society."
+    },
+    {
+      "id": 13,
+      "question": "What is cultural imperialism?",
+      "options": [
+        "Learning about other cultures",
+        "The dominance of one culture over others",
+        "Cultural exchange",
+        "Cultural respect"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Cultural imperialism is the dominance of one culture over others, often through economic or political power."
+    },
+    {
+      "id": 14,
+      "question": "What is cultural hybridity?",
+      "options": [
+        "Cultural purity",
+        "The mixing of different cultural elements",
+        "Cultural isolation",
+        "Cultural dominance"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Cultural hybridity is the mixing of different cultural elements to create new cultural forms."
+    },
+    {
+      "id": 15,
+      "question": "What is cultural globalization?",
+      "options": [
+        "Cultural isolation",
+        "The worldwide spread of cultural elements",
+        "Cultural destruction",
+        "Cultural preservation"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Cultural globalization is the worldwide spread of cultural elements through trade, media, and technology."
+    }
+  ]
+}

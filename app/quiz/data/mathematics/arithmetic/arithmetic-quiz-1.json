@@ -1,0 +1,115 @@
+{
+  "id": "arithmetic-quiz-1",
+  "title": "Arithmetic Quiz 1",
+  "subject": "Arithmetic",
+  "difficulty": "Beginner",
+  "questions": 15,
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is 15 + 27?",
+      "options": ["40", "42", "43", "44"],
+      "correctAnswer": 1,
+      "explanation": "15 + 27 = 42"
+    },
+    {
+      "id": 2,
+      "question": "What is 48 - 19?",
+      "options": ["27", "29", "31", "33"],
+      "correctAnswer": 1,
+      "explanation": "48 - 19 = 29"
+    },
+    {
+      "id": 3,
+      "question": "What is 7 × 8?",
+      "options": ["54", "56", "58", "60"],
+      "correctAnswer": 1,
+      "explanation": "7 × 8 = 56"
+    },
+    {
+      "id": 4,
+      "question": "What is 84 ÷ 6?",
+      "options": ["12", "14", "16", "18"],
+      "correctAnswer": 1,
+      "explanation": "84 ÷ 6 = 14"
+    },
+    {
+      "id": 5,
+      "question": "What is 3² + 4²?",
+      "options": ["7", "12", "25", "49"],
+      "correctAnswer": 2,
+      "explanation": "3² + 4² = 9 + 16 = 25"
+    },
+    {
+      "id": 6,
+      "question": "What is 20% of 150?",
+      "options": ["20", "30", "40", "50"],
+      "correctAnswer": 1,
+      "explanation": "20% of 150 = 0.20 × 150 = 30"
+    },
+    {
+      "id": 7,
+      "question": "What is the greatest common factor of 24 and 36?",
+      "options": ["6", "8", "12", "24"],
+      "correctAnswer": 2,
+      "explanation": "Factors of 24: 1,2,3,4,6,8,12,24. Factors of 36: 1,2,3,4,6,9,12,18,36. GCF = 12"
+    },
+    {
+      "id": 8,
+      "question": "What is the least common multiple of 8 and 12?",
+      "options": ["16", "24", "32", "48"],
+      "correctAnswer": 1,
+      "explanation": "Multiples of 8: 8,16,24,32... Multiples of 12: 12,24,36... LCM = 24"
+    },
+    {
+      "id": 9,
+      "question": "What is 2.5 × 0.4?",
+      "options": ["0.1", "1.0", "10", "100"],
+      "correctAnswer": 1,
+      "explanation": "2.5 × 0.4 = 1.0"
+    },
+    {
+      "id": 10,
+      "question": "What is 3/4 + 1/6?",
+      "options": ["11/12", "4/10", "4/6", "5/10"],
+      "correctAnswer": 0,
+      "explanation": "3/4 + 1/6 = 9/12 + 2/12 = 11/12"
+    },
+    {
+      "id": 11,
+      "question": "What is 5/8 × 2/3?",
+      "options": ["10/24", "5/12", "7/11", "3/4"],
+      "correctAnswer": 1,
+      "explanation": "5/8 × 2/3 = 10/24 = 5/12"
+    },
+    {
+      "id": 12,
+      "question": "What is √25 + √16?",
+      "options": ["7", "9", "11", "13"],
+      "correctAnswer": 1,
+      "explanation": "√25 + √16 = 5 + 4 = 9"
+    },
+    {
+      "id": 13,
+      "question": "What is 15% as a decimal?",
+      "options": ["0.015", "0.15", "1.5", "15"],
+      "correctAnswer": 1,
+      "explanation": "15% = 15/100 = 0.15"
+    },
+    {
+      "id": 14,
+      "question": "What is 0.75 as a fraction?",
+      "options": ["3/4", "7/10", "75/100", "3/5"],
+      "correctAnswer": 0,
+      "explanation": "0.75 = 75/100 = 3/4"
+    },
+    {
+      "id": 15,
+      "question": "What is the average of 12, 18, 24, and 30?",
+      "options": ["18", "20", "21", "24"],
+      "correctAnswer": 2,
+      "explanation": "Average = (12 + 18 + 24 + 30)/4 = 84/4 = 21"
+    }
+  ]
+}

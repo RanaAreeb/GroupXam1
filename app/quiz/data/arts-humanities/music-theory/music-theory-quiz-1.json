@@ -1,0 +1,155 @@
+{
+  "id": "music-theory-quiz-1",
+  "title": "Music Theory Quiz 1",
+  "subject": "Music Theory",
+  "difficulty": "Beginner",
+  "questions": 15,
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "How many notes are in a major scale?",
+      "options": ["5", "6", "7", "8"],
+      "correctAnswer": 2,
+      "explanation": "A major scale consists of 7 different notes, with the 8th note being the same as the first but an octave higher."
+    },
+    {
+      "id": 2,
+      "question": "What is the first note of the C major scale?",
+      "options": ["A", "B", "C", "D"],
+      "correctAnswer": 2,
+      "explanation": "The C major scale starts with C and follows the pattern: C, D, E, F, G, A, B, C."
+    },
+    {
+      "id": 3,
+      "question": "What is a chord?",
+      "options": [
+        "A single note",
+        "Two or more notes played together",
+        "A rhythm pattern",
+        "A tempo marking"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A chord is two or more notes played together simultaneously."
+    },
+    {
+      "id": 4,
+      "question": "How many notes are in a triad?",
+      "options": ["2", "3", "4", "5"],
+      "correctAnswer": 1,
+      "explanation": "A triad is a chord consisting of three notes: the root, third, and fifth."
+    },
+    {
+      "id": 5,
+      "question": "What is the time signature 4/4 also known as?",
+      "options": ["Common time", "Cut time", "Waltz time", "March time"],
+      "correctAnswer": 0,
+      "explanation": "4/4 time signature is also known as common time and is the most frequently used time signature."
+    },
+    {
+      "id": 6,
+      "question": "What does a sharp symbol (#) do to a note?",
+      "options": [
+        "Raises it by a half step",
+        "Lowers it by a half step",
+        "Makes it longer",
+        "Makes it shorter"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A sharp symbol raises a note by a half step (semitone)."
+    },
+    {
+      "id": 7,
+      "question": "What does a flat symbol (♭) do to a note?",
+      "options": [
+        "Raises it by a half step",
+        "Lowers it by a half step",
+        "Makes it longer",
+        "Makes it shorter"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A flat symbol lowers a note by a half step (semitone)."
+    },
+    {
+      "id": 8,
+      "question": "What is the relative minor of C major?",
+      "options": ["A minor", "B minor", "D minor", "E minor"],
+      "correctAnswer": 0,
+      "explanation": "A minor is the relative minor of C major, sharing the same key signature."
+    },
+    {
+      "id": 9,
+      "question": "What is an octave?",
+      "options": [
+        "A chord",
+        "A scale",
+        "The interval between two notes with the same name",
+        "A rhythm pattern"
+      ],
+      "correctAnswer": 2,
+      "explanation": "An octave is the interval between two notes with the same name, where the higher note has twice the frequency of the lower note."
+    },
+    {
+      "id": 10,
+      "question": "What is a rest in music?",
+      "options": [
+        "A pause or silence",
+        "A type of chord",
+        "A tempo marking",
+        "A dynamic marking"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A rest is a musical symbol indicating a pause or silence of a specific duration."
+    },
+    {
+      "id": 11,
+      "question": "What is the Italian term for 'loud'?",
+      "options": ["Piano", "Forte", "Mezzo", "Crescendo"],
+      "correctAnswer": 1,
+      "explanation": "Forte (f) is the Italian term for 'loud' in music."
+    },
+    {
+      "id": 12,
+      "question": "What is the Italian term for 'soft'?",
+      "options": ["Piano", "Forte", "Mezzo", "Crescendo"],
+      "correctAnswer": 0,
+      "explanation": "Piano (p) is the Italian term for 'soft' in music."
+    },
+    {
+      "id": 13,
+      "question": "What is a key signature?",
+      "options": [
+        "A tempo marking",
+        "Sharps or flats at the beginning of a staff",
+        "A dynamic marking",
+        "A rhythm pattern"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A key signature consists of sharps or flats placed at the beginning of a staff to indicate the key of the piece."
+    },
+    {
+      "id": 14,
+      "question": "What is a measure (bar)?",
+      "options": [
+        "A single note",
+        "A group of beats between bar lines",
+        "A chord",
+        "A scale"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A measure (or bar) is a group of beats between two bar lines, containing a specific number of beats according to the time signature."
+    },
+    {
+      "id": 15,
+      "question": "What is a clef?",
+      "options": [
+        "A tempo marking",
+        "A symbol at the beginning of a staff",
+        "A dynamic marking",
+        "A chord"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A clef is a symbol placed at the beginning of a staff to indicate the pitch of the notes on the staff."
+    }
+  ]
+}

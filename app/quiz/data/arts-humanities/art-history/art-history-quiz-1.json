@@ -1,0 +1,175 @@
+{
+  "id": "art-history-quiz-1",
+  "title": "Art History Quiz 1",
+  "subject": "Art History",
+  "difficulty": "Beginner",
+  "questions": 15,
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "Who painted the Mona Lisa?",
+      "options": ["Michelangelo", "Leonardo da Vinci", "Raphael", "Donatello"],
+      "correctAnswer": 1,
+      "explanation": "Leonardo da Vinci painted the Mona Lisa, one of the most famous paintings in the world."
+    },
+    {
+      "id": 2,
+      "question": "What is the Renaissance?",
+      "options": [
+        "A type of painting",
+        "A period of cultural rebirth in Europe",
+        "A style of architecture",
+        "A type of sculpture"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The Renaissance was a period of cultural rebirth in Europe from the 14th to 17th centuries."
+    },
+    {
+      "id": 3,
+      "question": "Who painted the ceiling of the Sistine Chapel?",
+      "options": ["Leonardo da Vinci", "Michelangelo", "Raphael", "Botticelli"],
+      "correctAnswer": 1,
+      "explanation": "Michelangelo painted the ceiling of the Sistine Chapel, including the famous 'Creation of Adam'."
+    },
+    {
+      "id": 4,
+      "question": "What is impressionism?",
+      "options": [
+        "A 19th-century art movement",
+        "A type of sculpture",
+        "A style of architecture",
+        "A type of photography"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Impressionism was a 19th-century art movement characterized by visible brushstrokes and emphasis on light."
+    },
+    {
+      "id": 5,
+      "question": "Who painted 'Starry Night'?",
+      "options": [
+        "Claude Monet",
+        "Vincent van Gogh",
+        "Pablo Picasso",
+        "Salvador Dalí"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Vincent van Gogh painted 'Starry Night' in 1889 while staying at the Saint-Paul-de-Mausole asylum."
+    },
+    {
+      "id": 6,
+      "question": "What is cubism?",
+      "options": [
+        "A style that breaks objects into geometric shapes",
+        "A type of sculpture",
+        "A painting technique",
+        "A color theory"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Cubism is an art style that breaks objects into geometric shapes and shows multiple perspectives simultaneously."
+    },
+    {
+      "id": 7,
+      "question": "Who is known for cubism?",
+      "options": [
+        "Vincent van Gogh",
+        "Pablo Picasso",
+        "Claude Monet",
+        "Salvador Dalí"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Pablo Picasso, along with Georges Braque, developed cubism in the early 20th century."
+    },
+    {
+      "id": 8,
+      "question": "What is the Baroque period?",
+      "options": [
+        "A 17th-century art style",
+        "A type of painting",
+        "A sculpture technique",
+        "A color palette"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The Baroque period was a 17th-century art style characterized by dramatic, emotional, and ornate works."
+    },
+    {
+      "id": 9,
+      "question": "Who painted 'The Persistence of Memory'?",
+      "options": [
+        "Salvador Dalí",
+        "Pablo Picasso",
+        "Vincent van Gogh",
+        "Claude Monet"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Salvador Dalí painted 'The Persistence of Memory' in 1931, featuring melting clocks."
+    },
+    {
+      "id": 10,
+      "question": "What is surrealism?",
+      "options": [
+        "An art movement exploring the unconscious mind",
+        "A type of sculpture",
+        "A painting technique",
+        "A color theory"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Surrealism was an art movement that explored the unconscious mind and dream-like imagery."
+    },
+    {
+      "id": 11,
+      "question": "Who painted 'Water Lilies'?",
+      "options": [
+        "Vincent van Gogh",
+        "Claude Monet",
+        "Pablo Picasso",
+        "Salvador Dalí"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Claude Monet painted the 'Water Lilies' series, which are among his most famous works."
+    },
+    {
+      "id": 12,
+      "question": "What is the Gothic period?",
+      "options": [
+        "A medieval art style",
+        "A type of painting",
+        "A sculpture technique",
+        "A modern art movement"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The Gothic period was a medieval art style characterized by pointed arches, ribbed vaults, and flying buttresses."
+    },
+    {
+      "id": 13,
+      "question": "Who sculpted 'David'?",
+      "options": ["Leonardo da Vinci", "Michelangelo", "Donatello", "Raphael"],
+      "correctAnswer": 1,
+      "explanation": "Michelangelo sculpted the famous 'David' statue, completed in 1504."
+    },
+    {
+      "id": 14,
+      "question": "What is abstract art?",
+      "options": [
+        "Art that doesn't represent recognizable objects",
+        "A type of sculpture",
+        "A painting technique",
+        "A color theory"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Abstract art doesn't attempt to represent recognizable objects but uses shapes, colors, and forms."
+    },
+    {
+      "id": 15,
+      "question": "Who painted 'The Birth of Venus'?",
+      "options": [
+        "Leonardo da Vinci",
+        "Michelangelo",
+        "Sandro Botticelli",
+        "Raphael"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Sandro Botticelli painted 'The Birth of Venus' in the 1480s, one of the most famous Renaissance paintings."
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "id": "geometry-quiz-1",
+  "title": "Geometry Quiz 1",
+  "subject": "Geometry",
+  "difficulty": "Beginner",
+  "questions": 15,
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the area of a rectangle with length 8 and width 6?",
+      "options": ["14", "28", "48", "56"],
+      "correctAnswer": 2,
+      "explanation": "Area = length × width = 8 × 6 = 48"
+    },
+    {
+      "id": 2,
+      "question": "What is the perimeter of a square with side length 5?",
+      "options": ["10", "15", "20", "25"],
+      "correctAnswer": 2,
+      "explanation": "Perimeter = 4 × side length = 4 × 5 = 20"
+    },
+    {
+      "id": 3,
+      "question": "What is the area of a circle with radius 3?",
+      "options": ["6π", "9π", "12π", "18π"],
+      "correctAnswer": 1,
+      "explanation": "Area = πr² = π(3)² = 9π"
+    },
+    {
+      "id": 4,
+      "question": "What is the circumference of a circle with diameter 10?",
+      "options": ["5π", "10π", "20π", "25π"],
+      "correctAnswer": 1,
+      "explanation": "Circumference = πd = π(10) = 10π"
+    },
+    {
+      "id": 5,
+      "question": "What is the area of a triangle with base 6 and height 4?",
+      "options": ["10", "12", "24", "48"],
+      "correctAnswer": 1,
+      "explanation": "Area = (1/2) × base × height = (1/2) × 6 × 4 = 12"
+    },
+    {
+      "id": 6,
+      "question": "What is the volume of a cube with edge length 3?",
+      "options": ["9", "18", "27", "36"],
+      "correctAnswer": 2,
+      "explanation": "Volume = edge length³ = 3³ = 27"
+    },
+    {
+      "id": 7,
+      "question": "What is the surface area of a cube with edge length 4?",
+      "options": ["48", "64", "96", "128"],
+      "correctAnswer": 2,
+      "explanation": "Surface area = 6 × edge length² = 6 × 4² = 6 × 16 = 96"
+    },
+    {
+      "id": 8,
+      "question": "What is the volume of a cylinder with radius 2 and height 5?",
+      "options": ["10π", "20π", "40π", "50π"],
+      "correctAnswer": 1,
+      "explanation": "Volume = πr²h = π(2)²(5) = π(4)(5) = 20π"
+    },
+    {
+      "id": 9,
+      "question": "What is the area of a trapezoid with bases 3 and 7 and height 4?",
+      "options": ["10", "20", "40", "80"],
+      "correctAnswer": 1,
+      "explanation": "Area = (1/2)(b₁ + b₂)h = (1/2)(3 + 7)(4) = (1/2)(10)(4) = 20"
+    },
+    {
+      "id": 10,
+      "question": "What is the measure of each angle in a regular hexagon?",
+      "options": ["60°", "90°", "120°", "180°"],
+      "correctAnswer": 2,
+      "explanation": "Each angle = (n-2)180°/n = (6-2)180°/6 = 4×180°/6 = 720°/6 = 120°"
+    },
+    {
+      "id": 11,
+      "question": "What is the area of a parallelogram with base 8 and height 3?",
+      "options": ["11", "24", "48", "96"],
+      "correctAnswer": 1,
+      "explanation": "Area = base × height = 8 × 3 = 24"
+    },
+    {
+      "id": 12,
+      "question": "What is the volume of a sphere with radius 3?",
+      "options": ["12π", "36π", "108π", "144π"],
+      "correctAnswer": 1,
+      "explanation": "Volume = (4/3)πr³ = (4/3)π(3)³ = (4/3)π(27) = 36π"
+    },
+    {
+      "id": 13,
+      "question": "What is the surface area of a sphere with radius 2?",
+      "options": ["8π", "16π", "32π", "64π"],
+      "correctAnswer": 1,
+      "explanation": "Surface area = 4πr² = 4π(2)² = 4π(4) = 16π"
+    },
+    {
+      "id": 14,
+      "question": "What is the area of a rhombus with diagonals 6 and 8?",
+      "options": ["12", "24", "48", "96"],
+      "correctAnswer": 1,
+      "explanation": "Area = (1/2) × d₁ × d₂ = (1/2) × 6 × 8 = 24"
+    },
+    {
+      "id": 15,
+      "question": "What is the volume of a cone with radius 3 and height 4?",
+      "options": ["12π", "24π", "36π", "48π"],
+      "correctAnswer": 0,
+      "explanation": "Volume = (1/3)πr²h = (1/3)π(3)²(4) = (1/3)π(9)(4) = 12π"
+    }
+  ]
+}

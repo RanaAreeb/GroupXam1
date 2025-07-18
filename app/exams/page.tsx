@@ -65,6 +65,16 @@ const examTypes = [
     difficulty: "Advanced",
     gradient: "from-blue-400 to-blue-600",
   },
+  {
+    id: "jamb",
+    title: "JAMB",
+    description: "Joint Admissions and Matriculation Board",
+    icon: BookOpen,
+    color: "purple",
+    count: 42,
+    difficulty: "Advanced",
+    gradient: "from-purple-400 to-purple-600",
+  },
 ];
 
 // Remove the subject tiles section (Sciences, Economics & Business, Mathematics, etc.) from this page

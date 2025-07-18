@@ -1,0 +1,135 @@
+{
+  "id": "english-quiz-1",
+  "title": "English Quiz 1",
+  "subject": "English",
+  "difficulty": "Beginner",
+  "questions": 15,
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which of the following is a proper noun?",
+      "options": ["city", "London", "river", "mountain"],
+      "correctAnswer": 1,
+      "explanation": "London is a proper noun because it's the specific name of a city. Proper nouns are always capitalized."
+    },
+    {
+      "id": 2,
+      "question": "What is the past tense of 'go'?",
+      "options": ["goed", "went", "gone", "going"],
+      "correctAnswer": 1,
+      "explanation": "The past tense of 'go' is 'went'. This is an irregular verb that doesn't follow the standard -ed pattern."
+    },
+    {
+      "id": 3,
+      "question": "Which sentence uses correct subject-verb agreement?",
+      "options": [
+        "The team are playing well.",
+        "The team is playing well.",
+        "The team were playing well.",
+        "The team be playing well."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Collective nouns like 'team' can take singular or plural verbs, but 'team' is typically treated as singular in American English."
+    },
+    {
+      "id": 4,
+      "question": "What is the comparative form of 'good'?",
+      "options": ["gooder", "more good", "better", "best"],
+      "correctAnswer": 2,
+      "explanation": "The comparative form of 'good' is 'better'. This is an irregular adjective that doesn't follow the standard -er pattern."
+    },
+    {
+      "id": 5,
+      "question": "Which word is a synonym for 'happy'?",
+      "options": ["sad", "joyful", "angry", "tired"],
+      "correctAnswer": 1,
+      "explanation": "Joyful is a synonym for happy, meaning they have similar meanings."
+    },
+    {
+      "id": 6,
+      "question": "What type of sentence is 'How beautiful!'?",
+      "options": ["Declarative", "Interrogative", "Imperative", "Exclamatory"],
+      "correctAnswer": 3,
+      "explanation": "This is an exclamatory sentence because it expresses strong emotion and ends with an exclamation mark."
+    },
+    {
+      "id": 7,
+      "question": "Which word is an antonym of 'big'?",
+      "options": ["large", "huge", "small", "great"],
+      "correctAnswer": 2,
+      "explanation": "Small is an antonym of big, meaning they have opposite meanings."
+    },
+    {
+      "id": 8,
+      "question": "What is the plural form of 'child'?",
+      "options": ["childs", "children", "childes", "child's"],
+      "correctAnswer": 1,
+      "explanation": "The plural form of 'child' is 'children'. This is an irregular plural that doesn't follow the standard -s pattern."
+    },
+    {
+      "id": 9,
+      "question": "Which sentence contains a metaphor?",
+      "options": [
+        "The wind howled like a wolf.",
+        "Life is a journey.",
+        "She runs as fast as lightning.",
+        "The flowers danced in the breeze."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Life is a journey' is a metaphor because it directly compares life to a journey without using 'like' or 'as'."
+    },
+    {
+      "id": 10,
+      "question": "What is the correct spelling?",
+      "options": ["recieve", "receive", "receeve", "receve"],
+      "correctAnswer": 1,
+      "explanation": "Receive is spelled with 'ei' after 'c'. The rule is 'i before e except after c'."
+    },
+    {
+      "id": 11,
+      "question": "Which word is a homophone of 'their'?",
+      "options": ["there", "they're", "Both A and B", "Neither A nor B"],
+      "correctAnswer": 2,
+      "explanation": "Both 'there' and 'they're' are homophones of 'their'. They sound the same but have different meanings and spellings."
+    },
+    {
+      "id": 12,
+      "question": "What is the superlative form of 'far'?",
+      "options": ["farther", "farthest", "more far", "most far"],
+      "correctAnswer": 1,
+      "explanation": "The superlative form of 'far' is 'farthest'. This is an irregular adjective."
+    },
+    {
+      "id": 13,
+      "question": "Which sentence uses correct punctuation?",
+      "options": [
+        "Its time to go.",
+        "It's time to go.",
+        "Its' time to go.",
+        "Its time to go!"
+      ],
+      "correctAnswer": 1,
+      "explanation": "It's time to go' is correct because 'it's' is the contraction of 'it is'."
+    },
+    {
+      "id": 14,
+      "question": "What is the part of speech of 'quickly' in 'She runs quickly'?",
+      "options": ["Noun", "Verb", "Adjective", "Adverb"],
+      "correctAnswer": 3,
+      "explanation": "Quickly is an adverb because it modifies the verb 'runs' by describing how she runs."
+    },
+    {
+      "id": 15,
+      "question": "Which sentence is grammatically correct?",
+      "options": [
+        "Me and him went to the store.",
+        "Him and I went to the store.",
+        "He and I went to the store.",
+        "I and he went to the store."
+      ],
+      "correctAnswer": 2,
+      "explanation": "He and I went to the store' is correct because both pronouns are in the subjective case."
+    }
+  ]
+}

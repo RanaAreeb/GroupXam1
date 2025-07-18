@@ -1,0 +1,125 @@
+{
+  "id": "geography-quiz-1",
+  "title": "Geography Quiz 1",
+  "subject": "Geography",
+  "difficulty": "Beginner",
+  "questions": 15,
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the capital of Australia?",
+      "options": ["Sydney", "Melbourne", "Canberra", "Brisbane"],
+      "correctAnswer": 2,
+      "explanation": "Canberra is the capital of Australia, chosen as a compromise between Sydney and Melbourne."
+    },
+    {
+      "id": 2,
+      "question": "Which is the largest continent by area?",
+      "options": ["North America", "Africa", "Asia", "Europe"],
+      "correctAnswer": 2,
+      "explanation": "Asia is the largest continent by area, covering about 30% of Earth's land area."
+    },
+    {
+      "id": 3,
+      "question": "What is the longest river in the world?",
+      "options": ["Amazon", "Nile", "Yangtze", "Mississippi"],
+      "correctAnswer": 1,
+      "explanation": "The Nile River is the longest river in the world, flowing through northeastern Africa."
+    },
+    {
+      "id": 4,
+      "question": "Which mountain range runs through South America?",
+      "options": ["Rocky Mountains", "Andes", "Himalayas", "Alps"],
+      "correctAnswer": 1,
+      "explanation": "The Andes mountain range runs along the western coast of South America."
+    },
+    {
+      "id": 5,
+      "question": "What is the capital of Japan?",
+      "options": ["Osaka", "Kyoto", "Tokyo", "Yokohama"],
+      "correctAnswer": 2,
+      "explanation": "Tokyo is the capital and largest city of Japan."
+    },
+    {
+      "id": 6,
+      "question": "Which ocean is the largest?",
+      "options": [
+        "Atlantic Ocean",
+        "Indian Ocean",
+        "Arctic Ocean",
+        "Pacific Ocean"
+      ],
+      "correctAnswer": 3,
+      "explanation": "The Pacific Ocean is the largest and deepest ocean on Earth."
+    },
+    {
+      "id": 7,
+      "question": "What is the capital of Brazil?",
+      "options": ["Rio de Janeiro", "São Paulo", "Brasília", "Salvador"],
+      "correctAnswer": 2,
+      "explanation": "Brasília is the capital of Brazil, a planned city built in the 1960s."
+    },
+    {
+      "id": 8,
+      "question": "Which desert is the largest in the world?",
+      "options": ["Sahara", "Arabian", "Gobi", "Antarctic"],
+      "correctAnswer": 0,
+      "explanation": "The Sahara Desert in Africa is the largest hot desert in the world."
+    },
+    {
+      "id": 9,
+      "question": "What is the capital of Canada?",
+      "options": ["Toronto", "Montreal", "Vancouver", "Ottawa"],
+      "correctAnswer": 3,
+      "explanation": "Ottawa is the capital of Canada, located in the province of Ontario."
+    },
+    {
+      "id": 10,
+      "question": "Which country has the largest population in the world?",
+      "options": ["India", "China", "United States", "Indonesia"],
+      "correctAnswer": 1,
+      "explanation": "China has the largest population in the world, though India is rapidly catching up."
+    },
+    {
+      "id": 11,
+      "question": "What is the capital of South Africa?",
+      "options": ["Johannesburg", "Cape Town", "Pretoria", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "South Africa has three capital cities: Pretoria (executive), Cape Town (legislative), and Bloemfontein (judicial)."
+    },
+    {
+      "id": 12,
+      "question": "Which is the smallest continent?",
+      "options": ["Europe", "Australia", "Antarctica", "South America"],
+      "correctAnswer": 1,
+      "explanation": "Australia is the smallest continent by land area."
+    },
+    {
+      "id": 13,
+      "question": "What is the capital of Russia?",
+      "options": ["St. Petersburg", "Moscow", "Novosibirsk", "Yekaterinburg"],
+      "correctAnswer": 1,
+      "explanation": "Moscow is the capital and largest city of Russia."
+    },
+    {
+      "id": 14,
+      "question": "Which strait separates Asia from North America?",
+      "options": [
+        "Bering Strait",
+        "Strait of Gibraltar",
+        "Strait of Malacca",
+        "Strait of Hormuz"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The Bering Strait separates Asia from North America, connecting the Pacific and Arctic oceans."
+    },
+    {
+      "id": 15,
+      "question": "What is the capital of Egypt?",
+      "options": ["Alexandria", "Cairo", "Giza", "Luxor"],
+      "correctAnswer": 1,
+      "explanation": "Cairo is the capital and largest city of Egypt."
+    }
+  ]
+}

@@ -64,6 +64,31 @@ export default function QuizPage({
           "political science",
         ];
 
+        const mathematicsSubjects = [
+          "statistics",
+          "calculus",
+          "algebra",
+          "arithmetic",
+          "geometry",
+          "trigonometry",
+          "pythagorean theorem",
+        ];
+
+        const artsHumanitiesSubjects = [
+          "english",
+          "literature",
+          "history",
+          "geography",
+          "philosophy",
+          "sociology",
+          "art history",
+          "music theory",
+          "creative writing",
+          "foreign languages",
+          "religious studies",
+          "cultural studies",
+        ];
+
         let apiUrl = "";
         if (scienceSubjects.includes(params.subject.toLowerCase())) {
           apiUrl = `/api/quiz-data/science/${params.subject.toLowerCase()}`;
@@ -87,9 +112,83 @@ export default function QuizPage({
             folderName = "political-science";
           }
           apiUrl = `/api/quiz-data/economics/${folderName}`;
+        } else if (
+          mathematicsSubjects.includes(
+            decodeURIComponent(params.subject).toLowerCase()
+          )
+        ) {
+          // Map subject names to folder names
+          let folderName = decodeURIComponent(params.subject).toLowerCase();
+          if (
+            decodeURIComponent(params.subject).toLowerCase() ===
+            "pythagorean theorem"
+          ) {
+            folderName = "pythagorean-theorem";
+          }
+          apiUrl = `/api/quiz-data/mathematics/${folderName}`;
+        } else if (
+          artsHumanitiesSubjects.includes(
+            decodeURIComponent(params.subject).toLowerCase()
+          )
+        ) {
+          // Map subject names to folder names
+          let folderName = decodeURIComponent(params.subject).toLowerCase();
+          if (
+            decodeURIComponent(params.subject).toLowerCase() === "art history"
+          ) {
+            folderName = "art-history";
+          } else if (
+            decodeURIComponent(params.subject).toLowerCase() === "music theory"
+          ) {
+            folderName = "music-theory";
+          } else if (
+            decodeURIComponent(params.subject).toLowerCase() ===
+            "creative writing"
+          ) {
+            folderName = "creative-writing";
+          } else if (
+            decodeURIComponent(params.subject).toLowerCase() ===
+            "foreign languages"
+          ) {
+            folderName = "foreign-languages";
+          } else if (
+            decodeURIComponent(params.subject).toLowerCase() ===
+            "religious studies"
+          ) {
+            folderName = "religious-studies";
+          } else if (
+            decodeURIComponent(params.subject).toLowerCase() ===
+            "cultural studies"
+          ) {
+            folderName = "cultural-studies";
+          }
+          apiUrl = `/api/quiz-data/arts-humanities/${folderName}`;
+
+          // For English and other arts-humanities subjects, try to load the specific quiz first
+          try {
+            const specificQuizUrl = `/api/quiz-data/arts-humanities/${folderName}/${params.quizId}`;
+            const specificResponse = await fetch(specificQuizUrl);
+            if (specificResponse.ok) {
+              const quiz = await specificResponse.json();
+              console.log("Loaded specific quiz:", quiz);
+              if (quiz && quiz.questions) {
+                setQuizQuestions(quiz.questions);
+                setQuizTime(quiz.timeLimit || 0);
+                setQuizTimeLeft(quiz.timeLimit || 0);
+                setQuizAnswers(Array(quiz.questions.length).fill(-1));
+                setLoading(false);
+                return;
+              }
+            }
+          } catch (error) {
+            console.log(
+              "Could not load specific quiz, trying general endpoint"
+            );
+          }
         }
 
         if (apiUrl) {
+          // Fallback to loading all quizzes and finding the specific one
           const response = await fetch(apiUrl);
           if (response.ok) {
             const quizzes = await response.json();
@@ -304,7 +403,8 @@ export default function QuizPage({
 
           <div className="text-center">
             <h1 className="text-3xl md:text-4xl font-bold mb-2 text-gray-800">
-              {params.subject.charAt(0).toUpperCase() + params.subject.slice(1)}{" "}
+              {decodeURIComponent(params.subject).charAt(0).toUpperCase() +
+                decodeURIComponent(params.subject).slice(1)}{" "}
               Quiz
             </h1>
             <p className="text-lg text-gray-600">

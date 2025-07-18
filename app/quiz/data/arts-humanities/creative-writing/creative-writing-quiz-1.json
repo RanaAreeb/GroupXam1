@@ -1,0 +1,185 @@
+{
+  "id": "creative-writing-quiz-1",
+  "title": "Creative Writing Quiz 1",
+  "subject": "Creative Writing",
+  "difficulty": "Beginner",
+  "questions": 15,
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is a protagonist?",
+      "options": [
+        "The villain",
+        "The main character",
+        "A supporting character",
+        "The narrator"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The protagonist is the main character of a story, around whom the plot revolves."
+    },
+    {
+      "id": 2,
+      "question": "What is the climax of a story?",
+      "options": [
+        "The beginning",
+        "The turning point",
+        "The ending",
+        "The background"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The climax is the turning point of the story, the moment of greatest tension or conflict."
+    },
+    {
+      "id": 3,
+      "question": "What is dialogue?",
+      "options": [
+        "Narration",
+        "Conversation between characters",
+        "Description",
+        "Action"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Dialogue is conversation between characters in a story, usually enclosed in quotation marks."
+    },
+    {
+      "id": 4,
+      "question": "What is a plot?",
+      "options": [
+        "The characters",
+        "The sequence of events",
+        "The setting",
+        "The theme"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The plot is the sequence of events that make up a story, including the conflict and resolution."
+    },
+    {
+      "id": 5,
+      "question": "What is a metaphor?",
+      "options": [
+        "A comparison using 'like' or 'as'",
+        "A direct comparison",
+        "A sound word",
+        "A repetition"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A metaphor is a direct comparison between two unlike things without using 'like' or 'as'."
+    },
+    {
+      "id": 6,
+      "question": "What is a simile?",
+      "options": [
+        "A comparison using 'like' or 'as'",
+        "A direct comparison",
+        "A sound word",
+        "A repetition"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A simile is a comparison between two unlike things using 'like' or 'as'."
+    },
+    {
+      "id": 7,
+      "question": "What is the setting of a story?",
+      "options": [
+        "The characters",
+        "The time and place",
+        "The plot",
+        "The theme"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The setting is the time and place where the story takes place."
+    },
+    {
+      "id": 8,
+      "question": "What is a theme?",
+      "options": [
+        "The main message",
+        "The plot",
+        "The characters",
+        "The setting"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The theme is the main message or lesson that the author wants to convey."
+    },
+    {
+      "id": 9,
+      "question": "What is personification?",
+      "options": [
+        "Giving human qualities to non-human things",
+        "Comparing two things",
+        "A sound word",
+        "A repetition"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Personification is giving human characteristics to animals, objects, or abstract ideas."
+    },
+    {
+      "id": 10,
+      "question": "What is alliteration?",
+      "options": [
+        "Repetition of vowel sounds",
+        "Repetition of consonant sounds",
+        "Repetition of words",
+        "A comparison"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Alliteration is the repetition of initial consonant sounds in nearby words."
+    },
+    {
+      "id": 11,
+      "question": "What is onomatopoeia?",
+      "options": [
+        "Words that imitate sounds",
+        "A comparison",
+        "A repetition",
+        "A description"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Onomatopoeia is the use of words that phonetically imitate the sounds they describe."
+    },
+    {
+      "id": 12,
+      "question": "What is a conflict in a story?",
+      "options": [
+        "The problem",
+        "The solution",
+        "The characters",
+        "The setting"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Conflict is the problem or struggle that drives the plot forward."
+    },
+    {
+      "id": 13,
+      "question": "What is a resolution?",
+      "options": ["The beginning", "The problem", "The solution", "The climax"],
+      "correctAnswer": 2,
+      "explanation": "The resolution is how the conflict is solved or the story ends."
+    },
+    {
+      "id": 14,
+      "question": "What is imagery?",
+      "options": [
+        "Visual description",
+        "Descriptive language that appeals to the senses",
+        "Dialogue",
+        "Action"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Imagery is descriptive language that appeals to the senses (sight, sound, smell, taste, touch)."
+    },
+    {
+      "id": 15,
+      "question": "What is a narrator?",
+      "options": [
+        "A character",
+        "The person telling the story",
+        "The author",
+        "The reader"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The narrator is the person or voice telling the story."
+    }
+  ]
+}

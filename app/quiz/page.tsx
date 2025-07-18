@@ -732,6 +732,77 @@ const getQuizzesForSubject = async (subjectName: string) => {
     }
   }
 
+  // For mathematics subjects, load from the mathematics folder structure
+  if (
+    subjectName.toLowerCase() === "statistics" ||
+    subjectName.toLowerCase() === "calculus" ||
+    subjectName.toLowerCase() === "algebra" ||
+    subjectName.toLowerCase() === "arithmetic" ||
+    subjectName.toLowerCase() === "geometry" ||
+    subjectName.toLowerCase() === "trigonometry" ||
+    subjectName.toLowerCase() === "pythagorean theorem"
+  ) {
+    try {
+      // Map subject names to folder names
+      let folderName = subjectName.toLowerCase();
+      if (subjectName.toLowerCase() === "pythagorean theorem") {
+        folderName = "pythagorean-theorem";
+      }
+
+      const response = await fetch(`/api/quiz-data/mathematics/${folderName}`);
+      if (response.ok) {
+        const quizFiles = await response.json();
+        return quizFiles;
+      }
+    } catch (error) {
+      console.error("Error loading quiz data:", error);
+    }
+  }
+
+  // For arts & humanities subjects, load from the arts-humanities folder structure
+  if (
+    subjectName.toLowerCase() === "english" ||
+    subjectName.toLowerCase() === "literature" ||
+    subjectName.toLowerCase() === "history" ||
+    subjectName.toLowerCase() === "geography" ||
+    subjectName.toLowerCase() === "philosophy" ||
+    subjectName.toLowerCase() === "sociology" ||
+    subjectName.toLowerCase() === "art history" ||
+    subjectName.toLowerCase() === "music theory" ||
+    subjectName.toLowerCase() === "creative writing" ||
+    subjectName.toLowerCase() === "foreign languages" ||
+    subjectName.toLowerCase() === "religious studies" ||
+    subjectName.toLowerCase() === "cultural studies"
+  ) {
+    try {
+      // Map subject names to folder names
+      let folderName = subjectName.toLowerCase();
+      if (subjectName.toLowerCase() === "art history") {
+        folderName = "art-history";
+      } else if (subjectName.toLowerCase() === "music theory") {
+        folderName = "music-theory";
+      } else if (subjectName.toLowerCase() === "creative writing") {
+        folderName = "creative-writing";
+      } else if (subjectName.toLowerCase() === "foreign languages") {
+        folderName = "foreign-languages";
+      } else if (subjectName.toLowerCase() === "religious studies") {
+        folderName = "religious-studies";
+      } else if (subjectName.toLowerCase() === "cultural studies") {
+        folderName = "cultural-studies";
+      }
+
+      const response = await fetch(
+        `/api/quiz-data/arts-humanities/${folderName}`
+      );
+      if (response.ok) {
+        const quizFiles = await response.json();
+        return quizFiles;
+      }
+    } catch (error) {
+      console.error("Error loading quiz data:", error);
+    }
+  }
+
   // Fallback to static data for other subjects
   return subject.quizzes.map((quizId) => quizData[quizId]).filter(Boolean);
 };
@@ -804,6 +875,31 @@ export default function QuizPage() {
         "political science",
       ];
 
+      const mathematicsSubjects = [
+        "statistics",
+        "calculus",
+        "algebra",
+        "arithmetic",
+        "geometry",
+        "trigonometry",
+        "pythagorean theorem",
+      ];
+
+      const artsHumanitiesSubjects = [
+        "english",
+        "literature",
+        "history",
+        "geography",
+        "philosophy",
+        "sociology",
+        "art history",
+        "music theory",
+        "creative writing",
+        "foreign languages",
+        "religious studies",
+        "cultural studies",
+      ];
+
       const counts: { [key: string]: number } = {};
 
       // Load science subject counts
@@ -857,6 +953,60 @@ export default function QuizPage() {
 
           const response = await fetch(
             `/api/quiz-data/economics/${folderName}`
+          );
+          if (response.ok) {
+            const quizFiles = await response.json();
+            counts[subject] = Array.isArray(quizFiles) ? quizFiles.length : 0;
+          }
+        } catch (error) {
+          console.error(`Error loading quiz count for ${subject}:`, error);
+          counts[subject] = 0;
+        }
+      }
+
+      // Load mathematics subject counts
+      for (const subject of mathematicsSubjects) {
+        try {
+          // Map subject names to folder names
+          let folderName = subject;
+          if (subject === "pythagorean theorem") {
+            folderName = "pythagorean-theorem";
+          }
+
+          const response = await fetch(
+            `/api/quiz-data/mathematics/${folderName}`
+          );
+          if (response.ok) {
+            const quizFiles = await response.json();
+            counts[subject] = Array.isArray(quizFiles) ? quizFiles.length : 0;
+          }
+        } catch (error) {
+          console.error(`Error loading quiz count for ${subject}:`, error);
+          counts[subject] = 0;
+        }
+      }
+
+      // Load arts & humanities subject counts
+      for (const subject of artsHumanitiesSubjects) {
+        try {
+          // Map subject names to folder names
+          let folderName = subject;
+          if (subject === "art history") {
+            folderName = "art-history";
+          } else if (subject === "music theory") {
+            folderName = "music-theory";
+          } else if (subject === "creative writing") {
+            folderName = "creative-writing";
+          } else if (subject === "foreign languages") {
+            folderName = "foreign-languages";
+          } else if (subject === "religious studies") {
+            folderName = "religious-studies";
+          } else if (subject === "cultural studies") {
+            folderName = "cultural-studies";
+          }
+
+          const response = await fetch(
+            `/api/quiz-data/arts-humanities/${folderName}`
           );
           if (response.ok) {
             const quizFiles = await response.json();
@@ -925,7 +1075,9 @@ export default function QuizPage() {
 
   const handleStartQuiz = (quiz: any) => {
     // Navigate to quiz page with quiz info
-    const quizUrl = `/quiz/${quiz.subject.toLowerCase()}/${quiz.id}`;
+    const quizUrl = `/quiz/${encodeURIComponent(quiz.subject.toLowerCase())}/${
+      quiz.id
+    }`;
     window.location.href = quizUrl;
   };
 
@@ -1118,8 +1270,37 @@ export default function QuizPage() {
                 "political science",
               ].includes(subject.name.toLowerCase());
 
+              const isMathematicsSubject = [
+                "statistics",
+                "calculus",
+                "algebra",
+                "arithmetic",
+                "geometry",
+                "trigonometry",
+                "pythagorean theorem",
+              ].includes(subject.name.toLowerCase());
+
+              const isArtsHumanitiesSubject = [
+                "english",
+                "literature",
+                "history",
+                "geography",
+                "philosophy",
+                "sociology",
+                "art history",
+                "music theory",
+                "creative writing",
+                "foreign languages",
+                "religious studies",
+                "cultural studies",
+              ].includes(subject.name.toLowerCase());
+
               const quizCount =
-                isScienceSubject || isCodingSubject || isEconomicsSubject
+                isScienceSubject ||
+                isCodingSubject ||
+                isEconomicsSubject ||
+                isMathematicsSubject ||
+                isArtsHumanitiesSubject
                   ? subjectQuizCounts[subject.name.toLowerCase()] ||
                     subject.quizzes?.length ||
                     0

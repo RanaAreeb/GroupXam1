@@ -1,0 +1,155 @@
+{
+  "id": "religious-studies-quiz-1",
+  "title": "Religious Studies Quiz 1",
+  "subject": "Religious Studies",
+  "difficulty": "Beginner",
+  "questions": 15,
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the holy book of Christianity?",
+      "options": ["The Torah", "The Bible", "The Quran", "The Vedas"],
+      "correctAnswer": 1,
+      "explanation": "The Bible is the holy book of Christianity, containing the Old and New Testaments."
+    },
+    {
+      "id": 2,
+      "question": "What is the holy book of Islam?",
+      "options": ["The Torah", "The Bible", "The Quran", "The Vedas"],
+      "correctAnswer": 2,
+      "explanation": "The Quran is the holy book of Islam, believed to be the word of God revealed to Muhammad."
+    },
+    {
+      "id": 3,
+      "question": "What is the holy book of Judaism?",
+      "options": ["The Torah", "The Bible", "The Quran", "The Vedas"],
+      "correctAnswer": 0,
+      "explanation": "The Torah is the holy book of Judaism, containing the first five books of the Hebrew Bible."
+    },
+    {
+      "id": 4,
+      "question": "Who is the founder of Buddhism?",
+      "options": ["Jesus Christ", "Muhammad", "Siddhartha Gautama", "Moses"],
+      "correctAnswer": 2,
+      "explanation": "Siddhartha Gautama, also known as the Buddha, is the founder of Buddhism."
+    },
+    {
+      "id": 5,
+      "question": "Who is the founder of Christianity?",
+      "options": ["Jesus Christ", "Muhammad", "Siddhartha Gautama", "Moses"],
+      "correctAnswer": 0,
+      "explanation": "Jesus Christ is considered the founder of Christianity."
+    },
+    {
+      "id": 6,
+      "question": "Who is the founder of Islam?",
+      "options": ["Jesus Christ", "Muhammad", "Siddhartha Gautama", "Moses"],
+      "correctAnswer": 1,
+      "explanation": "Muhammad is the founder of Islam, considered the last prophet of God."
+    },
+    {
+      "id": 7,
+      "question": "What is the holy book of Hinduism?",
+      "options": ["The Torah", "The Bible", "The Quran", "The Vedas"],
+      "correctAnswer": 3,
+      "explanation": "The Vedas are the oldest holy books of Hinduism."
+    },
+    {
+      "id": 8,
+      "question": "What is the Five Pillars of Islam?",
+      "options": [
+        "Basic beliefs",
+        "Core practices",
+        "Holy books",
+        "Sacred places"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The Five Pillars of Islam are the core practices that all Muslims are expected to follow."
+    },
+    {
+      "id": 9,
+      "question": "What is the Eightfold Path in Buddhism?",
+      "options": [
+        "A road",
+        "A set of ethical guidelines",
+        "A holy book",
+        "A sacred place"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The Eightfold Path is a set of ethical guidelines in Buddhism for achieving enlightenment."
+    },
+    {
+      "id": 10,
+      "question": "What is the Ten Commandments?",
+      "options": [
+        "Christian laws",
+        "Jewish laws",
+        "Islamic laws",
+        "Buddhist laws"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The Ten Commandments are fundamental laws in Judaism and Christianity."
+    },
+    {
+      "id": 11,
+      "question": "What is a mosque?",
+      "options": [
+        "A Christian place of worship",
+        "A Jewish place of worship",
+        "An Islamic place of worship",
+        "A Buddhist temple"
+      ],
+      "correctAnswer": 2,
+      "explanation": "A mosque is an Islamic place of worship."
+    },
+    {
+      "id": 12,
+      "question": "What is a synagogue?",
+      "options": [
+        "A Christian place of worship",
+        "A Jewish place of worship",
+        "An Islamic place of worship",
+        "A Buddhist temple"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A synagogue is a Jewish place of worship."
+    },
+    {
+      "id": 13,
+      "question": "What is a church?",
+      "options": [
+        "A Christian place of worship",
+        "A Jewish place of worship",
+        "An Islamic place of worship",
+        "A Buddhist temple"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A church is a Christian place of worship."
+    },
+    {
+      "id": 14,
+      "question": "What is karma in Hinduism and Buddhism?",
+      "options": [
+        "A type of prayer",
+        "The law of cause and effect",
+        "A holy book",
+        "A sacred place"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Karma is the law of cause and effect - actions have consequences in this life or future lives."
+    },
+    {
+      "id": 15,
+      "question": "What is reincarnation?",
+      "options": [
+        "A type of prayer",
+        "The rebirth of the soul",
+        "A holy book",
+        "A sacred place"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Reincarnation is the belief that the soul is reborn into a new body after death."
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "id": "philosophy-quiz-1",
+  "title": "Philosophy Quiz 1",
+  "subject": "Philosophy",
+  "difficulty": "Beginner",
+  "questions": 15,
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "Who is considered the father of Western philosophy?",
+      "options": ["Plato", "Aristotle", "Socrates", "Pythagoras"],
+      "correctAnswer": 2,
+      "explanation": "Socrates is considered the father of Western philosophy, known for the Socratic method of questioning."
+    },
+    {
+      "id": 2,
+      "question": "What is epistemology the study of?",
+      "options": ["Ethics", "Knowledge", "Reality", "Beauty"],
+      "correctAnswer": 1,
+      "explanation": "Epistemology is the branch of philosophy concerned with the theory of knowledge."
+    },
+    {
+      "id": 3,
+      "question": "What is metaphysics the study of?",
+      "options": ["Knowledge", "Ethics", "Reality and existence", "Logic"],
+      "correctAnswer": 2,
+      "explanation": "Metaphysics is the branch of philosophy concerned with the fundamental nature of reality and existence."
+    },
+    {
+      "id": 4,
+      "question": "Who wrote 'The Republic'?",
+      "options": ["Aristotle", "Plato", "Socrates", "Descartes"],
+      "correctAnswer": 1,
+      "explanation": "Plato wrote 'The Republic', one of the most influential works of philosophy."
+    },
+    {
+      "id": 5,
+      "question": "What is the Socratic method?",
+      "options": [
+        "A way of teaching through questions",
+        "A logical argument",
+        "A type of meditation",
+        "A mathematical proof"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The Socratic method is a form of cooperative argumentative dialogue that stimulates critical thinking through questions."
+    },
+    {
+      "id": 6,
+      "question": "What is ethics the study of?",
+      "options": ["Knowledge", "Reality", "Right and wrong", "Logic"],
+      "correctAnswer": 2,
+      "explanation": "Ethics is the branch of philosophy concerned with moral principles and values."
+    },
+    {
+      "id": 7,
+      "question": "Who said 'I think, therefore I am'?",
+      "options": ["Plato", "Aristotle", "Descartes", "Kant"],
+      "correctAnswer": 2,
+      "explanation": "René Descartes said 'Cogito, ergo sum' (I think, therefore I am) in his work 'Meditations on First Philosophy'."
+    },
+    {
+      "id": 8,
+      "question": "What is a priori knowledge?",
+      "options": [
+        "Knowledge from experience",
+        "Knowledge independent of experience",
+        "Knowledge from authority",
+        "Knowledge from intuition"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A priori knowledge is knowledge that is independent of experience, such as mathematical truths."
+    },
+    {
+      "id": 9,
+      "question": "What is the study of logic concerned with?",
+      "options": ["Valid reasoning", "Emotions", "Aesthetics", "Ethics"],
+      "correctAnswer": 0,
+      "explanation": "Logic is the study of valid reasoning and argumentation."
+    },
+    {
+      "id": 10,
+      "question": "Who founded the Academy in Athens?",
+      "options": ["Aristotle", "Plato", "Socrates", "Pythagoras"],
+      "correctAnswer": 1,
+      "explanation": "Plato founded the Academy in Athens, considered the first institution of higher learning in the Western world."
+    },
+    {
+      "id": 11,
+      "question": "What is utilitarianism?",
+      "options": [
+        "A theory that actions are right if they promote happiness",
+        "A theory about knowledge",
+        "A theory about reality",
+        "A theory about beauty"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Utilitarianism is an ethical theory that states actions are right if they promote the greatest happiness for the greatest number."
+    },
+    {
+      "id": 12,
+      "question": "Who wrote 'Nicomachean Ethics'?",
+      "options": ["Plato", "Aristotle", "Socrates", "Descartes"],
+      "correctAnswer": 1,
+      "explanation": "Aristotle wrote 'Nicomachean Ethics', one of the most important works on ethics."
+    },
+    {
+      "id": 13,
+      "question": "What is a paradox?",
+      "options": [
+        "A logical contradiction",
+        "A statement that seems contradictory but may be true",
+        "A false statement",
+        "A simple question"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A paradox is a statement that seems contradictory or absurd but may actually be true."
+    },
+    {
+      "id": 14,
+      "question": "What is the study of aesthetics concerned with?",
+      "options": ["Beauty and art", "Knowledge", "Ethics", "Logic"],
+      "correctAnswer": 0,
+      "explanation": "Aesthetics is the branch of philosophy concerned with beauty, art, and taste."
+    },
+    {
+      "id": 15,
+      "question": "Who said 'The unexamined life is not worth living'?",
+      "options": ["Plato", "Aristotle", "Socrates", "Descartes"],
+      "correctAnswer": 2,
+      "explanation": "Socrates said 'The unexamined life is not worth living' during his trial in Athens."
+    }
+  ]
+}

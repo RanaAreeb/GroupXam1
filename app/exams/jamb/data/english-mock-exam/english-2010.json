@@ -1,0 +1,462 @@
+{
+  "id": "english-2010",
+  "title": "JAMB Use of English 2010",
+  "subject": "Use of English",
+  "year": 2010,
+  "duration": "2 hours",
+  "paperType": "A",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which literature in English Question Paper Type is given to you?",
+      "options": ["Type A", "Type B", "Type C", "Type D"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 2,
+      "question": "Questions 2 to 5 are based on J.C. De Graft's Sons and Daughters. 'I simply don't understand what's the matter with everybody today. Everybody let me down,' and the speaker above is referring to _____.",
+      "options": [
+        "coming back of the Agunwa to the society to live again",
+        "ill-luck and tragic events attributed to a predestined fate",
+        "his condemnation of her choice of career",
+        "his recent advances towards her"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 3,
+      "question": "Maanan expresses dislike for Lawyer B because of _____.",
+      "options": [
+        "his condemnation of her choice of career",
+        "his recent advances towards her",
+        "the betrayal of her father's trust",
+        "the betrayal of his wife's trust"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 4,
+      "question": "The traditional order in the play is represented by _____.",
+      "options": ["Mrs. B", "Hannah", "Maanan", "Aunt"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 5,
+      "question": "Where does the play take place?",
+      "options": [
+        "On the street",
+        "In George's place",
+        "In Aunt's house",
+        "In Ofosu's place"
+      ],
+      "correctAnswer": 3
+    },
+    {
+      "id": 6,
+      "question": "Questions 6 to 10 based on William Shakespeare's Romeo and Juliet. 'O deadly sin! O rude unthankfulness! Thy fault our law calls death, but the kind Prince, Taking thy part, hath rushed aside the law And turned that black word...' Deadly sin refers to the _____.",
+      "options": [
+        "suicide of Juliet",
+        "suicide of Romeo",
+        "murder of Paris",
+        "murder of Tybalt"
+      ],
+      "correctAnswer": 3
+    },
+    {
+      "id": 7,
+      "question": "The play is mostly written in _____.",
+      "options": ["blank verse", "free verse", "metres", "foot"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 8,
+      "question": "'O serpent heart, hid with a flowering face!' The statement above refers to _____.",
+      "options": ["Juliet", "Romeo", "Tybalt", "Benvolio"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 9,
+      "question": "The spatial setting of the play is _____.",
+      "options": ["Athens", "Verona", "Padua", "Venice"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 10,
+      "question": "Romeo is banished to Mantua because he _____.",
+      "options": [
+        "kills Tybalt in a street duel",
+        "marries Juliet without parental consent",
+        "attends Capulet's party uninvited",
+        "attempts to kill Paris his rival"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 11,
+      "question": "Questions 11 to 13 are based on Buchi Emecheta's The Joys of Motherhood. In the novel, the society puts high value on _____.",
+      "options": [
+        "egalitarianism",
+        "male ascendancy",
+        "procreation",
+        "gender equity"
+      ],
+      "correctAnswer": 2
+    },
+    {
+      "id": 12,
+      "question": "The medicine man links the lump discovered on the head of Nnu Ego at birth, to the _____.",
+      "options": [
+        "possession of physical admirable qualities that makes her an epitome of perfection",
+        "wound inflicted on the slave woman buried with Agbadi's wife",
+        "traditional beliefs about birthmarks",
+        "supernatural forces"
+      ],
+      "correctAnswer": 3
+    },
+    {
+      "id": 13,
+      "question": "The constant companions of Nnaife's family are _____.",
+      "options": [
+        "togetherness and happiness",
+        "poverty and hunger",
+        "sickness and joblessness",
+        "disagreement and humiliation"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 14,
+      "question": "Questions 14 to 16 are based on Ferdinand Oyono's The Old Man and the Medal. The disagreement between Mvondo and Nti centres on the latter's claim to have _____.",
+      "options": [
+        "assisted Meka in getting the medal",
+        "eaten the entire entrails of a sheep",
+        "eaten more than his share of the food",
+        "been in a white man's office"
+      ],
+      "correctAnswer": 2
+    },
+    {
+      "id": 15,
+      "question": "Meka can be best described as _____.",
+      "options": [
+        "an egocentric old man",
+        "a simple-hearted old man",
+        "an impulsive old man",
+        "an old religious bigot"
+      ],
+      "correctAnswer": 3
+    },
+    {
+      "id": 16,
+      "question": "In the novel, the colonialists treat the Africans with _____.",
+      "options": ["kids' gloves", "disdain", "indifference", "honour"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 17,
+      "question": "Questions 17 to 20 are based on George Orwell's Nineteen Eighty-four. The Ministry of peace is concerned with making _____.",
+      "options": ["instruments", "weapons", "wars", "reconciliation"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 18,
+      "question": "The subject matter of the novel is _____.",
+      "options": [
+        "totalitarian dictatorship",
+        "exploitation and cruelty",
+        "retributive justice",
+        "class segregation"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 19,
+      "question": "How did Winston start his rebellion against the state?",
+      "options": [
+        "By engaging in anti-party activities",
+        "By keeping a private diary",
+        "When he started a secret affair",
+        "When he spied on the party"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 20,
+      "question": "The party seeks power for _____.",
+      "options": ["the nation", "its own sake", "its members", "peoples' sake"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 21,
+      "question": "Questions 21 to 30 are based on selected poems. As the dancers move through paths strewn with glass chips, the images in Adeoti's Naked Soles change from _____.",
+      "options": [
+        "joy to excitement",
+        "inaction to action",
+        "pain to grief",
+        "sorrow to joy"
+      ],
+      "correctAnswer": 3
+    },
+    {
+      "id": 22,
+      "question": "Rubadiri's An African Thunderstorm, says that during thunderstorm in the village _____.",
+      "options": [
+        "women cook their food",
+        "children play in the rain",
+        "children are delighted while women move in and out",
+        "both women and children are delighted"
+      ],
+      "correctAnswer": 2
+    },
+    {
+      "id": 23,
+      "question": "'Yet in their finger upon Our navel The midwives of the spirit say They feel a foetal throb.' The dominant literary device used in the extract above from Acquah's In the Navel of the Soul is _____.",
+      "options": ["epigram", "allegory", "enjambment", "rhythm"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 24,
+      "question": "In Kunene's A heritage of Liberation, the poet persona requests that the weapons of warfare be handed to their _____.",
+      "options": ["friends", "relations", "grand children", "families"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 25,
+      "question": "The predominant device in Launko's End of the War is _____.",
+      "options": ["onomatopoeia", "antithesis", "oxymoron", "paradox"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 26,
+      "question": "The theme of the poem Give Me The Minstrel's Seat centres on _____.",
+      "options": ["divorce", "fortune", "marriage", "companionship"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 27,
+      "question": "The poet persona in Marvell's To His Coy Mistress is willing to praise the lady's eyes for _____.",
+      "options": [
+        "thirty thousand years",
+        "six decades",
+        "two centuries",
+        "a century"
+      ],
+      "correctAnswer": 3
+    },
+    {
+      "id": 28,
+      "question": "In Lawrence's Bat, the poet persona mistakes the bats for _____.",
+      "options": ["owls", "swallows", "pipistrelle", "sparrows"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 29,
+      "question": "In Eliot's Journey of the Magi, the magi are aided on their journey by _____.",
+      "options": ["donkeys", "horses", "camels", "chariots"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 30,
+      "question": "According to Cope's Sonnet VII, poetry is basically _____.",
+      "options": ["boring", "therapeutic", "philosophical", "inspiring"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 31,
+      "question": "Questions 31 to 40 are based on General Literary Principles. A play which mainly aims at provoking excessive laughter is called _____.",
+      "options": ["tragi-comedy", "comedy", "a farce", "satire"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 32,
+      "question": "Both comedy and tragedy have _____.",
+      "options": ["happy ending", "climax", "tragic hero", "stanza"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 33,
+      "question": "A formal dignified speech or writing praising a person or a thing for past or present deeds is _____.",
+      "options": ["premiere", "eulogy", "anthology", "lampoon"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 34,
+      "question": "The narrative style in which the hero tells his own story directly is the _____.",
+      "options": ["objective", "subjective", "first-person", "third-person"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 35,
+      "question": "The physical, historical or cultural background of a literary work is referred to as _____.",
+      "options": ["episode", "plot", "time", "setting"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 36,
+      "question": "A plot structure that defies chronology can be described as _____.",
+      "options": ["open-ended", "circular", "episodic", "organic"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 37,
+      "question": "Pun as a literary device deals with _____.",
+      "options": [
+        "placing two opposite phrases",
+        "placing words side by side",
+        "playing on words",
+        "arrangement of words"
+      ],
+      "correctAnswer": 2
+    },
+    {
+      "id": 38,
+      "question": "In a narrative poem, the poet attempts to _____.",
+      "options": [
+        "summarize a story",
+        "describe a place",
+        "preach a sermon",
+        "tell a story"
+      ],
+      "correctAnswer": 3
+    },
+    {
+      "id": 39,
+      "question": "The account of experiences of an individual during the course of a journey is known as _____.",
+      "options": [
+        "a travelogue",
+        "an autobiography",
+        "a catalogue",
+        "a memoir"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 40,
+      "question": "Satirical writing employs _____.",
+      "options": ["epigram", "synecdoche", "irony", "onomatopoeia"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 41,
+      "question": "Questions 41 to 50 are based on Literary Appreciation. Use the quotation below to answer questions 41 and 42. 'Basha: You dumb skull of a bone head . . . you will face court martial for this. You look everywhere? You search inside toilet bowl?' Wole Soyinka: King Baabu. The person being addressed above is a _____.",
+      "options": ["soldier", "student", "domestic servant", "lawyer"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 42,
+      "question": "From the tone of the speech above, the speaker is obviously _____.",
+      "options": ["enraged", "lackadaisical", "elated", "happy"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 43,
+      "question": "'That year the harvest was sad, like a funeral, and many farmers wept as they dug up the miserable yams. One man tied his cloth to a tree branch and hanged himself.' Chinua Achebe: Things Fall Apart. The mood conveyed in the excerpt above is one of _____.",
+      "options": ["sadness", "frustration", "sympathy", "dilemma"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 44,
+      "question": "'That age is best which is the first, when youth and blood are warmer, But being spent, the worse, and worst Time still succeed the former.' The rhyme scheme in the excerpt above is _____.",
+      "options": ["bbaa", "aabb", "abab", "abba"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 45,
+      "question": "But the towering earth was tired sitting in one position. She moved, suddenly, and the houses crumbled, the mountains heaved horribly, and the work of a million years was lost. The subject matter of the extract above is _____.",
+      "options": ["storm", "sea waves", "house movement", "earthquake"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 46,
+      "question": "And your laughter like a flame piercing the shadows Has revealed Africa to me beyond the snow of yesterday. From the poem above, shadow means _____.",
+      "options": [
+        "famine",
+        "bleak future",
+        "period of sufferings",
+        "abstract ideas"
+      ],
+      "correctAnswer": 3
+    },
+    {
+      "id": 47,
+      "question": "Don't panic. Be calm, If you are somehow upset ...try to regain your exposure. The speaker in the excerpt above is _____.",
+      "options": ["hopeless", "uncertain", "afraid", "confident"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 48,
+      "question": "Use the lines below to answer questions 48 and 49. 'Move him into the sun Gently its touch awoke him once, At home, whispering of fields unsown Always it woke him even in France Until this morning and this snow If anything might rouse him now This kind old sun will know Think how it wakes the seeds Woke, once, the clays of a cold star Are limbs, so dear achieved, are sides Full nerved still swarm too hard to stir Was it, for this the clay grew tall? O what made fatuous sunbeams toil To break earth's sleep at all.' The poem can be described as _____.",
+      "options": ["a lyric", "an epic", "a sonnet", "an elegy"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 49,
+      "question": "The theme of the poem is _____.",
+      "options": [
+        "futility of life",
+        "distortion of life",
+        "creation of life",
+        "vanity of life"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 50,
+      "question": "A cursing rogue with a merry farce, A bundle of rags upon a crutch, Stumbled upon that windy place Called cruachan, and it was as much. The rhyme scheme of the stanza above is _____.",
+      "options": ["aabb", "abab", "bbaa", "abba"],
+      "correctAnswer": 1
+    }
+  ],
+  "answerKey": {
+    "1": "A",
+    "2": "A",
+    "3": "B",
+    "4": "D",
+    "5": "D",
+    "6": "D",
+    "7": "B",
+    "8": "B",
+    "9": "B",
+    "10": "A",
+    "11": "C",
+    "12": "D",
+    "13": "B",
+    "14": "C",
+    "15": "D",
+    "16": "B",
+    "17": "D",
+    "18": "B",
+    "19": "A",
+    "20": "B",
+    "21": "D",
+    "22": "C",
+    "23": "C",
+    "24": "C",
+    "25": "D",
+    "26": "D",
+    "27": "D",
+    "28": "A",
+    "29": "C",
+    "30": "B",
+    "31": "C",
+    "32": "B",
+    "33": "B",
+    "34": "C",
+    "35": "D",
+    "36": "D",
+    "37": "C",
+    "38": "D",
+    "39": "A",
+    "40": "C",
+    "41": "A",
+    "42": "A",
+    "43": "A",
+    "44": "C",
+    "45": "D",
+    "46": "D",
+    "47": "D",
+    "48": "C",
+    "49": "A",
+    "50": "B"
+  }
+}

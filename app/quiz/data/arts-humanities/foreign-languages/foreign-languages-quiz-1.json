@@ -1,0 +1,115 @@
+{
+  "id": "foreign-languages-quiz-1",
+  "title": "Foreign Languages Quiz 1",
+  "subject": "Foreign Languages",
+  "difficulty": "Beginner",
+  "questions": 15,
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What does 'Bonjour' mean in French?",
+      "options": ["Goodbye", "Hello", "Thank you", "Please"],
+      "correctAnswer": 1,
+      "explanation": "Bonjour means 'Hello' in French and is used as a formal greeting."
+    },
+    {
+      "id": 2,
+      "question": "What does 'Gracias' mean in Spanish?",
+      "options": ["Hello", "Goodbye", "Thank you", "Please"],
+      "correctAnswer": 2,
+      "explanation": "Gracias means 'Thank you' in Spanish."
+    },
+    {
+      "id": 3,
+      "question": "What does 'Ciao' mean in Italian?",
+      "options": ["Hello and goodbye", "Thank you", "Please", "Yes"],
+      "correctAnswer": 0,
+      "explanation": "Ciao is an informal Italian greeting that can mean both 'Hello' and 'Goodbye'."
+    },
+    {
+      "id": 4,
+      "question": "What does 'Danke' mean in German?",
+      "options": ["Hello", "Goodbye", "Thank you", "Please"],
+      "correctAnswer": 2,
+      "explanation": "Danke means 'Thank you' in German."
+    },
+    {
+      "id": 5,
+      "question": "What does 'Arigato' mean in Japanese?",
+      "options": ["Hello", "Goodbye", "Thank you", "Please"],
+      "correctAnswer": 2,
+      "explanation": "Arigato means 'Thank you' in Japanese."
+    },
+    {
+      "id": 6,
+      "question": "What does 'Merci' mean in French?",
+      "options": ["Hello", "Goodbye", "Thank you", "Please"],
+      "correctAnswer": 2,
+      "explanation": "Merci means 'Thank you' in French."
+    },
+    {
+      "id": 7,
+      "question": "What does 'Hola' mean in Spanish?",
+      "options": ["Hello", "Goodbye", "Thank you", "Please"],
+      "correctAnswer": 0,
+      "explanation": "Hola means 'Hello' in Spanish."
+    },
+    {
+      "id": 8,
+      "question": "What does 'Guten Tag' mean in German?",
+      "options": ["Good morning", "Good afternoon", "Good evening", "Goodbye"],
+      "correctAnswer": 1,
+      "explanation": "Guten Tag means 'Good afternoon' or 'Good day' in German."
+    },
+    {
+      "id": 9,
+      "question": "What does 'Konnichiwa' mean in Japanese?",
+      "options": ["Good morning", "Good afternoon", "Good evening", "Goodbye"],
+      "correctAnswer": 1,
+      "explanation": "Konnichiwa means 'Good afternoon' in Japanese."
+    },
+    {
+      "id": 10,
+      "question": "What does 'Por favor' mean in Spanish?",
+      "options": ["Hello", "Goodbye", "Thank you", "Please"],
+      "correctAnswer": 3,
+      "explanation": "Por favor means 'Please' in Spanish."
+    },
+    {
+      "id": 11,
+      "question": "What does 'Bitte' mean in German?",
+      "options": ["Hello", "Goodbye", "Thank you", "Please"],
+      "correctAnswer": 3,
+      "explanation": "Bitte means 'Please' in German."
+    },
+    {
+      "id": 12,
+      "question": "What does 'Sayonara' mean in Japanese?",
+      "options": ["Hello", "Goodbye", "Thank you", "Please"],
+      "correctAnswer": 1,
+      "explanation": "Sayonara means 'Goodbye' in Japanese."
+    },
+    {
+      "id": 13,
+      "question": "What does 'Au revoir' mean in French?",
+      "options": ["Hello", "Goodbye", "Thank you", "Please"],
+      "correctAnswer": 1,
+      "explanation": "Au revoir means 'Goodbye' in French."
+    },
+    {
+      "id": 14,
+      "question": "What does 'Adiós' mean in Spanish?",
+      "options": ["Hello", "Goodbye", "Thank you", "Please"],
+      "correctAnswer": 1,
+      "explanation": "Adiós means 'Goodbye' in Spanish."
+    },
+    {
+      "id": 15,
+      "question": "What does 'Auf Wiedersehen' mean in German?",
+      "options": ["Hello", "Goodbye", "Thank you", "Please"],
+      "correctAnswer": 1,
+      "explanation": "Auf Wiedersehen means 'Goodbye' in German."
+    }
+  ]
+}

@@ -557,7 +557,7 @@ export default function HomePage() {
                     <Star className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                   </div>
                   <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3">
-                    proctorXam
+                    XamIt
                   </h3>
                   <p className="text-gray-600 mb-4 sm:mb-6 text-xs sm:text-sm leading-relaxed">
                     Comprehensive online exam and assessment solutions for
@@ -790,7 +790,7 @@ export default function HomePage() {
                     href="/services"
                     className="hover:text-white transition-colors"
                   >
-                    proctorXam
+                    XamIt
                   </Link>
                 </li>
 

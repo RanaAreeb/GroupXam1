@@ -1,0 +1,47 @@
+{
+  "id": "mathematics-2010",
+  "title": "JAMB Mathematics 2010",
+  "subject": "Mathematics",
+  "year": 2010,
+  "duration": "2 hours",
+  "paperType": "A",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the value of x in the equation 2x + 5 = 13?",
+      "options": ["3", "4", "5", "6"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 2,
+      "question": "Simplify: (3x² + 2x - 1) + (x² - 3x + 2)",
+      "options": ["4x² - x + 1", "4x² + 5x + 1", "2x² - x + 1", "2x² + 5x + 1"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 3,
+      "question": "What is the area of a circle with radius 7cm? (π = 22/7)",
+      "options": ["154 cm²", "44 cm²", "22 cm²", "77 cm²"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 4,
+      "question": "Solve for x: log₂(x) = 3",
+      "options": ["6", "8", "9", "12"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 5,
+      "question": "What is the slope of the line passing through points (2,3) and (4,7)?",
+      "options": ["1", "2", "3", "4"],
+      "correctAnswer": 1
+    }
+  ],
+  "answerKey": {
+    "1": "B",
+    "2": "A",
+    "3": "A",
+    "4": "B",
+    "5": "B"
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "id": "history-quiz-1",
+  "title": "History Quiz 1",
+  "subject": "History",
+  "difficulty": "Beginner",
+  "questions": 15,
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "In which year did World War II end?",
+      "options": ["1943", "1944", "1945", "1946"],
+      "correctAnswer": 2,
+      "explanation": "World War II ended in 1945 with the surrender of Germany in May and Japan in September."
+    },
+    {
+      "id": 2,
+      "question": "Who was the first President of the United States?",
+      "options": [
+        "Thomas Jefferson",
+        "John Adams",
+        "George Washington",
+        "Benjamin Franklin"
+      ],
+      "correctAnswer": 2,
+      "explanation": "George Washington was the first President of the United States, serving from 1789 to 1797."
+    },
+    {
+      "id": 3,
+      "question": "What was the name of the ship that brought the Pilgrims to America?",
+      "options": ["Mayflower", "Santa Maria", "Nina", "Pinta"],
+      "correctAnswer": 0,
+      "explanation": "The Mayflower was the ship that brought the Pilgrims to Plymouth, Massachusetts in 1620."
+    },
+    {
+      "id": 4,
+      "question": "In which year did Christopher Columbus first reach the Americas?",
+      "options": ["1490", "1491", "1492", "1493"],
+      "correctAnswer": 2,
+      "explanation": "Christopher Columbus first reached the Americas in 1492, landing in the Bahamas."
+    },
+    {
+      "id": 5,
+      "question": "What was the main cause of the American Civil War?",
+      "options": [
+        "Taxation without representation",
+        "Slavery",
+        "States' rights",
+        "Economic differences"
+      ],
+      "correctAnswer": 1,
+      "explanation": "While multiple factors contributed, slavery was the primary cause of the American Civil War."
+    },
+    {
+      "id": 6,
+      "question": "Who was the first Emperor of Rome?",
+      "options": ["Julius Caesar", "Augustus", "Nero", "Constantine"],
+      "correctAnswer": 1,
+      "explanation": "Augustus (Octavian) was the first Emperor of Rome, ruling from 27 BC to 14 AD."
+    },
+    {
+      "id": 7,
+      "question": "What was the name of the ancient Egyptian queen who ruled as pharaoh?",
+      "options": ["Nefertiti", "Cleopatra", "Hatshepsut", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "All three were Egyptian queens, with Hatshepsut being the first female pharaoh."
+    },
+    {
+      "id": 8,
+      "question": "In which year did the Declaration of Independence get signed?",
+      "options": ["1775", "1776", "1777", "1778"],
+      "correctAnswer": 1,
+      "explanation": "The Declaration of Independence was signed on July 4, 1776."
+    },
+    {
+      "id": 9,
+      "question": "What was the name of the first successful English colony in America?",
+      "options": ["Plymouth", "Jamestown", "Roanoke", "St. Augustine"],
+      "correctAnswer": 1,
+      "explanation": "Jamestown, established in 1607, was the first successful English colony in America."
+    },
+    {
+      "id": 10,
+      "question": "Who was the leader of the Soviet Union during World War II?",
+      "options": [
+        "Vladimir Lenin",
+        "Joseph Stalin",
+        "Nikita Khrushchev",
+        "Leonid Brezhnev"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Joseph Stalin was the leader of the Soviet Union during World War II."
+    },
+    {
+      "id": 11,
+      "question": "What was the name of the ancient Greek philosopher who taught Alexander the Great?",
+      "options": ["Socrates", "Plato", "Aristotle", "Pythagoras"],
+      "correctAnswer": 2,
+      "explanation": "Aristotle was the tutor of Alexander the Great and one of the most influential philosophers."
+    },
+    {
+      "id": 12,
+      "question": "In which year did the French Revolution begin?",
+      "options": ["1787", "1788", "1789", "1790"],
+      "correctAnswer": 2,
+      "explanation": "The French Revolution began in 1789 with the storming of the Bastille on July 14."
+    },
+    {
+      "id": 13,
+      "question": "What was the name of the first woman to win a Nobel Prize?",
+      "options": ["Marie Curie", "Mother Teresa", "Jane Addams", "Pearl Buck"],
+      "correctAnswer": 0,
+      "explanation": "Marie Curie was the first woman to win a Nobel Prize, winning in Physics in 1903."
+    },
+    {
+      "id": 14,
+      "question": "What was the name of the ancient Chinese philosopher who founded Confucianism?",
+      "options": ["Laozi", "Confucius", "Mencius", "Zhuangzi"],
+      "correctAnswer": 1,
+      "explanation": "Confucius (Kong Fuzi) was the ancient Chinese philosopher who founded Confucianism."
+    },
+    {
+      "id": 15,
+      "question": "In which year did the Berlin Wall fall?",
+      "options": ["1987", "1988", "1989", "1990"],
+      "correctAnswer": 2,
+      "explanation": "The Berlin Wall fell on November 9, 1989, marking the beginning of the end of the Cold War."
+    }
+  ]
+}

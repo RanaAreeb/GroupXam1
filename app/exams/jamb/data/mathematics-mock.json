@@ -1,0 +1,97 @@
+{
+  "title": "JAMB Mathematics Mock Exam",
+  "subject": "Mathematics",
+  "duration": "2 hours",
+  "questions": [
+    {
+      "q": "What is the value of x in the equation 2x + 5 = 13?",
+      "options": ["3", "4", "5", "6"],
+      "answer": 1,
+      "explanation": "2x + 5 = 13 → 2x = 13 - 5 → 2x = 8 → x = 4"
+    },
+    {
+      "q": "What is the square root of 144?",
+      "options": ["10", "11", "12", "13"],
+      "answer": 2,
+      "explanation": "12 × 12 = 144, so √144 = 12"
+    },
+    {
+      "q": "If 3x + 2y = 12 and x - y = 2, what is the value of x?",
+      "options": ["2", "3", "4", "5"],
+      "answer": 2,
+      "explanation": "From x - y = 2, y = x - 2. Substitute: 3x + 2(x-2) = 12 → 3x + 2x - 4 = 12 → 5x = 16 → x = 3.2"
+    },
+    {
+      "q": "What is the area of a circle with radius 7 units?",
+      "options": ["49π", "14π", "28π", "154π"],
+      "answer": 0,
+      "explanation": "Area = πr² = π(7)² = 49π"
+    },
+    {
+      "q": "Simplify: (2x²y³)³",
+      "options": ["6x⁶y⁹", "8x⁶y⁹", "8x⁵y⁶", "6x⁵y⁶"],
+      "answer": 1,
+      "explanation": "(2x²y³)³ = 2³(x²)³(y³)³ = 8x⁶y⁹"
+    },
+    {
+      "q": "What is the slope of the line passing through points (2,3) and (4,7)?",
+      "options": ["1", "2", "3", "4"],
+      "answer": 1,
+      "explanation": "Slope = (y₂-y₁)/(x₂-x₁) = (7-3)/(4-2) = 4/2 = 2"
+    },
+    {
+      "q": "Solve for x: log₂(x) = 3",
+      "options": ["6", "8", "9", "12"],
+      "answer": 1,
+      "explanation": "log₂(x) = 3 → x = 2³ = 8"
+    },
+    {
+      "q": "What is the sum of the first 10 natural numbers?",
+      "options": ["45", "50", "55", "60"],
+      "answer": 2,
+      "explanation": "Sum = n(n+1)/2 = 10(11)/2 = 55"
+    },
+    {
+      "q": "If sin θ = 0.5, what is cos θ?",
+      "options": ["0.5", "0.866", "1", "0.707"],
+      "answer": 1,
+      "explanation": "If sin θ = 0.5, then θ = 30°. cos 30° = √3/2 ≈ 0.866"
+    },
+    {
+      "q": "What is the derivative of x³?",
+      "options": ["x²", "2x²", "3x²", "3x"],
+      "answer": 2,
+      "explanation": "d/dx(x³) = 3x²"
+    },
+    {
+      "q": "Find the median of: 3, 7, 2, 9, 5, 1, 8",
+      "options": ["5", "6", "7", "8"],
+      "answer": 0,
+      "explanation": "Arrange: 1,2,3,5,7,8,9. Median = 5 (middle value)"
+    },
+    {
+      "q": "What is the probability of getting a head when tossing a fair coin?",
+      "options": ["0.25", "0.5", "0.75", "1"],
+      "answer": 1,
+      "explanation": "Probability of head = 1/2 = 0.5"
+    },
+    {
+      "q": "Solve: 2x + 3 > 7",
+      "options": ["x > 2", "x > 3", "x > 4", "x > 5"],
+      "answer": 0,
+      "explanation": "2x + 3 > 7 → 2x > 4 → x > 2"
+    },
+    {
+      "q": "What is the volume of a cube with side length 4 units?",
+      "options": ["16", "32", "64", "128"],
+      "answer": 2,
+      "explanation": "Volume = side³ = 4³ = 64"
+    },
+    {
+      "q": "Find the value of x if 5ˣ = 125",
+      "options": ["2", "3", "4", "5"],
+      "answer": 1,
+      "explanation": "5ˣ = 125 → 5ˣ = 5³ → x = 3"
+    }
+  ]
+}

@@ -1,0 +1,180 @@
+{
+  "id": "sociology-quiz-1",
+  "title": "Sociology Quiz 1",
+  "subject": "Sociology",
+  "difficulty": "Beginner",
+  "questions": 15,
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "Who is considered the father of sociology?",
+      "options": ["Karl Marx", "Émile Durkheim", "Max Weber", "Auguste Comte"],
+      "correctAnswer": 3,
+      "explanation": "Auguste Comte is considered the father of sociology, coining the term 'sociology' in the 19th century."
+    },
+    {
+      "id": 2,
+      "question": "What is socialization?",
+      "options": [
+        "The process of learning society's norms and values",
+        "A type of social movement",
+        "A form of social control",
+        "A social institution"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Socialization is the process through which individuals learn the norms, values, and behaviors of their society."
+    },
+    {
+      "id": 3,
+      "question": "What is a social institution?",
+      "options": [
+        "A building",
+        "A group of people",
+        "A stable pattern of social behavior",
+        "A law"
+      ],
+      "correctAnswer": 2,
+      "explanation": "A social institution is a stable pattern of social behavior organized around a specific purpose, like family or education."
+    },
+    {
+      "id": 4,
+      "question": "What is social stratification?",
+      "options": [
+        "Social mobility",
+        "The division of society into layers",
+        "Social change",
+        "Social interaction"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Social stratification is the division of society into layers or classes based on wealth, power, and status."
+    },
+    {
+      "id": 5,
+      "question": "What is a norm in sociology?",
+      "options": [
+        "A law",
+        "A rule or expectation for behavior",
+        "A value",
+        "A belief"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A norm is a rule or expectation for behavior that guides how people act in social situations."
+    },
+    {
+      "id": 6,
+      "question": "What is culture in sociology?",
+      "options": [
+        "Art and music",
+        "The way of life of a group",
+        "Language only",
+        "Religion only"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Culture is the way of life of a group, including their beliefs, values, norms, and material objects."
+    },
+    {
+      "id": 7,
+      "question": "What is a social group?",
+      "options": [
+        "Any collection of people",
+        "Two or more people who interact and share a sense of identity",
+        "A crowd",
+        "A population"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A social group consists of two or more people who interact regularly and share a sense of identity."
+    },
+    {
+      "id": 8,
+      "question": "What is deviance in sociology?",
+      "options": [
+        "Criminal behavior only",
+        "Behavior that violates social norms",
+        "Immoral behavior",
+        "Illegal behavior"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Deviance is behavior that violates social norms, which can include both criminal and non-criminal acts."
+    },
+    {
+      "id": 9,
+      "question": "What is social mobility?",
+      "options": [
+        "Physical movement",
+        "Movement between social classes",
+        "Geographic movement",
+        "Social interaction"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Social mobility is the movement of individuals or groups between different social classes."
+    },
+    {
+      "id": 10,
+      "question": "What is a role in sociology?",
+      "options": [
+        "A part in a play",
+        "A position in society",
+        "Expected behavior for a status",
+        "A job"
+      ],
+      "correctAnswer": 2,
+      "explanation": "A role is the expected behavior associated with a particular status or position in society."
+    },
+    {
+      "id": 11,
+      "question": "What is social change?",
+      "options": [
+        "Any change in society",
+        "Political change only",
+        "Economic change only",
+        "Technological change only"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Social change refers to any significant alteration in social structure, institutions, or patterns of behavior."
+    },
+    {
+      "id": 12,
+      "question": "What is a subculture?",
+      "options": [
+        "A smaller culture within a larger culture",
+        "A type of art",
+        "A social movement",
+        "A political group"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A subculture is a smaller culture within a larger culture that has its own distinct values and norms."
+    },
+    {
+      "id": 13,
+      "question": "What is social control?",
+      "options": [
+        "Government control",
+        "Methods used to maintain social order",
+        "Police control",
+        "Parental control"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Social control refers to the methods used by society to maintain social order and conformity."
+    },
+    {
+      "id": 14,
+      "question": "What is a status in sociology?",
+      "options": ["A position in society", "A role", "A job", "A title"],
+      "correctAnswer": 0,
+      "explanation": "A status is a position in society that carries certain rights and obligations."
+    },
+    {
+      "id": 15,
+      "question": "What is social interaction?",
+      "options": [
+        "Any contact between people",
+        "Communication between people",
+        "The process of people acting toward each other",
+        "Social media use"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Social interaction is the process of people acting toward and responding to each other."
+    }
+  ]
+}

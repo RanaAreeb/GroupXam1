@@ -1,0 +1,185 @@
+{
+  "id": "literature-quiz-1",
+  "title": "Literature Quiz 1",
+  "subject": "Literature",
+  "difficulty": "Beginner",
+  "questions": 15,
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is a simile?",
+      "options": [
+        "A comparison using 'like' or 'as'",
+        "A direct comparison without 'like' or 'as'",
+        "A word that imitates a sound",
+        "A repetition of consonant sounds"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A simile is a figure of speech that compares two things using 'like' or 'as', such as 'as brave as a lion'."
+    },
+    {
+      "id": 2,
+      "question": "What is the main character in a story called?",
+      "options": ["Antagonist", "Protagonist", "Foil", "Narrator"],
+      "correctAnswer": 1,
+      "explanation": "The protagonist is the main character or hero of the story around whom the plot revolves."
+    },
+    {
+      "id": 3,
+      "question": "What is personification?",
+      "options": [
+        "Giving human qualities to non-human things",
+        "Comparing two things using 'like' or 'as'",
+        "A word that imitates a sound",
+        "A reference to another work"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Personification is giving human characteristics to animals, objects, or abstract ideas."
+    },
+    {
+      "id": 4,
+      "question": "What is the setting of a story?",
+      "options": [
+        "The time and place where the story occurs",
+        "The main conflict",
+        "The characters",
+        "The theme"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The setting is the time and place where the story takes place, including the historical period and physical location."
+    },
+    {
+      "id": 5,
+      "question": "What is alliteration?",
+      "options": [
+        "Repetition of vowel sounds",
+        "Repetition of consonant sounds",
+        "Repetition of words",
+        "Repetition of phrases"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Alliteration is the repetition of initial consonant sounds in nearby words, like 'Peter Piper picked a peck.'"
+    },
+    {
+      "id": 6,
+      "question": "What is dramatic irony?",
+      "options": [
+        "When the audience knows something characters don't",
+        "When a character says the opposite of what they mean",
+        "When something happens by coincidence",
+        "When the ending is unexpected"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Dramatic irony occurs when the audience or reader knows something that the characters in the story do not."
+    },
+    {
+      "id": 7,
+      "question": "What is a sonnet?",
+      "options": [
+        "A 14-line poem with specific rhyme scheme",
+        "A poem with no rhyme",
+        "A very long poem",
+        "A poem about nature"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A sonnet is a 14-line poem that typically follows a specific rhyme scheme and meter."
+    },
+    {
+      "id": 8,
+      "question": "What is foreshadowing?",
+      "options": [
+        "Hints about what will happen later",
+        "A flashback to the past",
+        "The climax of the story",
+        "The resolution"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Foreshadowing is when the author gives hints or clues about what will happen later in the story."
+    },
+    {
+      "id": 9,
+      "question": "What is a metaphor?",
+      "options": [
+        "A direct comparison without 'like' or 'as'",
+        "A comparison using 'like' or 'as'",
+        "A word that imitates a sound",
+        "A repetition of words"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A metaphor is a direct comparison between two unlike things without using 'like' or 'as'."
+    },
+    {
+      "id": 10,
+      "question": "What is the theme of a story?",
+      "options": [
+        "The main message or lesson",
+        "The plot",
+        "The characters",
+        "The setting"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The theme is the central message, lesson, or moral that the author wants to convey to the reader."
+    },
+    {
+      "id": 11,
+      "question": "What is onomatopoeia?",
+      "options": [
+        "Words that imitate sounds",
+        "Repetition of consonant sounds",
+        "Giving human qualities to objects",
+        "A comparison using 'like'"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Onomatopoeia is the use of words that phonetically imitate the sounds they describe, like 'buzz' or 'meow'."
+    },
+    {
+      "id": 12,
+      "question": "What is a soliloquy?",
+      "options": [
+        "A speech given by one character alone on stage",
+        "A conversation between two characters",
+        "A narrator's commentary",
+        "A chorus speaking together"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A soliloquy is a speech given by a character alone on stage, revealing their thoughts and feelings to the audience."
+    },
+    {
+      "id": 13,
+      "question": "What is hyperbole?",
+      "options": [
+        "Deliberate exaggeration for effect",
+        "A comparison using 'like'",
+        "A word that imitates sound",
+        "A reference to another work"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Hyperbole is deliberate exaggeration for emphasis or humorous effect, like 'I've told you a million times.'"
+    },
+    {
+      "id": 14,
+      "question": "What is an allusion?",
+      "options": [
+        "A reference to another work, person, or event",
+        "A comparison using 'like'",
+        "A word that imitates sound",
+        "A repetition of words"
+      ],
+      "correctAnswer": 0,
+      "explanation": "An allusion is an indirect reference to another work of literature, person, or event."
+    },
+    {
+      "id": 15,
+      "question": "What is the climax of a story?",
+      "options": [
+        "The turning point or most intense moment",
+        "The beginning",
+        "The ending",
+        "The background information"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The climax is the turning point of the story, the moment of greatest tension or the most intense part of the conflict."
+    }
+  ]
+}
