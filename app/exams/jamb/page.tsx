@@ -1,42 +1,102 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import AppHeader from "@/components/ui/app-header";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Progress } from "@/components/ui/progress";
+import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Slider } from "@/components/ui/slider";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { Label } from "@/components/ui/label";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import {
+  BookOpen,
+  Clock,
+  Trophy,
+  Users,
+  ChevronLeft,
+  ChevronRight,
+  Check,
+  X,
+  RotateCcw,
+  AlertCircle,
+  Download,
+  Share,
+  Calculator,
+  Calendar,
+  FileText,
+  ChevronDown,
+  School,
+  Award,
+  Target,
+  Brain,
+  Heart,
+  Zap,
+  Star,
+  Sparkles,
+  Crown,
+  Shield,
+  Flame,
+  Lightbulb,
+  Rocket,
+  Diamond,
+  Gem,
+  Medal,
+  TrendingUp,
+  BarChart3,
+  PieChart,
+  Activity,
+  Atom,
+  Dna,
+  Leaf,
+  MessageSquare,
+  FlaskConical,
+  DollarSign,
+  Vote,
+  Pen,
+  Eraser,
+  Undo2,
+  Redo2,
+  Trash2,
+  Type,
+  Square,
+  Circle,
+  Minus,
+  ArrowRight,
+  Grid3X3,
+  Ruler,
+  ZoomIn,
+  ZoomOut,
+  RotateCw,
+  Move,
+  Layers,
+  Palette,
+  Brush,
+  PenTool,
+  MousePointer,
+  Save,
+  Upload,
+} from "lucide-react";
+import Link from "next/link";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { Badge } from "@/components/ui/badge";
-import { Progress } from "@/components/ui/progress";
-import {
-  Target,
-  MessageSquare,
-  BookOpen,
-  Atom,
-  FlaskConical,
-  Leaf,
-  FileText,
-  Download,
-  DollarSign,
-  MapPin,
-  History,
-  Monitor,
-  Calculator,
-  Brain,
-  Heart,
-  Microscope,
-  Pill,
-  TreePine,
-  Vote,
-  Globe,
-  TestTube,
-  Dna,
-  Leaf as EcologyIcon,
-} from "lucide-react";
-import Link from "next/link";
+import Whiteboard from "@/components/Whiteboard";
 
 const subjectMeta: Record<
   string,
@@ -72,7 +132,6 @@ const subjectMeta: Record<
     gradient: "from-green-500 to-emerald-500",
     badge: "bg-green-100 text-green-700",
   },
-
   "Literature in English": {
     icon: <BookOpen className="w-7 h-7" />,
     gradient: "from-violet-500 to-purple-500",
@@ -85,7 +144,7 @@ const subjectMeta: Record<
   },
 };
 
-// Practice Questions data (only subjects with past papers)
+// Practice Questions data
 const practiceQuestions = [
   {
     id: 1,
@@ -277,7 +336,7 @@ const practiceQuestions = [
   },
 ];
 
-// Past Papers data (2010-2018) - Subject categories
+// Past Papers data
 const pastPaperSubjects = [
   {
     id: 101,
@@ -369,7 +428,7 @@ const pastPaperSubjects = [
   },
 ];
 
-// Year-specific past papers (2010-2018)
+// Year-specific past papers
 const yearSpecificPapers = {
   "Use of English": [
     { year: 2010, questions: 60, duration: "2 hours" },
@@ -461,7 +520,7 @@ const yearSpecificPapers = {
   ],
 };
 
-// Syllabus subjects with their PDF links (only subjects with past papers)
+// Syllabus subjects
 const syllabusSubjects = [
   {
     name: "Use of English",
@@ -521,22 +580,17 @@ export default function JambExamsPage() {
   const [showModal, setShowModal] = useState(false);
   const [score, setScore] = useState(0);
   const [feedbackEmoji, setFeedbackEmoji] = useState("🎉");
-  const [showSyllabus, setShowSyllabus] = useState(false);
   const [activeTab, setActiveTab] = useState<"syllabus" | "practice" | "mock">(
     "practice"
   );
   const [selectedSubject, setSelectedSubject] = useState<string | null>(null);
   const [selectedYear, setSelectedYear] = useState<number | null>(null);
   const [isLoadingExam, setIsLoadingExam] = useState(false);
-
-  // Debug: Watch for openExam changes
-  useEffect(() => {
-    console.log("openExam changed to:", openExam);
-  }, [openExam]);
+  const [whiteboardOpen, setWhiteboardOpen] = useState(false);
+  const [whiteboardBg, setWhiteboardBg] = useState<"white" | "black">("white");
 
   const handleStart = async (examId: number) => {
     if (activeTab === "mock") {
-      // For past papers, show year selection
       const subject = pastPaperSubjects.find((e) => e.id === examId);
       if (subject) {
         setSelectedSubject(subject.subject);
@@ -560,9 +614,6 @@ export default function JambExamsPage() {
     setIsLoadingExam(true);
 
     try {
-      console.log("Loading exam for:", selectedSubject, year);
-
-      // Load MCQ questions for the specific year and subject
       const response = await fetch(
         `/api/exams/jamb/mock-data/${encodeURIComponent(
           selectedSubject!
@@ -570,12 +621,8 @@ export default function JambExamsPage() {
       );
       if (response.ok) {
         const loadedExamData = await response.json();
-        console.log("Exam data loaded:", loadedExamData);
-
-        // Store the exam data in state
         setExamData(loadedExamData);
 
-        // Store in localStorage as backup
         if (typeof window !== "undefined") {
           localStorage.setItem(
             "currentJambExam",
@@ -583,7 +630,6 @@ export default function JambExamsPage() {
           );
         }
 
-        // Initialize answers array using the exam ID
         if (!answers[loadedExamData.id]) {
           setAnswers((prev) => ({
             ...prev,
@@ -593,8 +639,6 @@ export default function JambExamsPage() {
           }));
         }
 
-        // Set the exam as open using a number ID for consistency
-        console.log("Setting openExam to:", 999); // Use 999 as JAMB exam ID
         setOpenExam(999);
         setIsLoadingExam(false);
       } else {
@@ -765,7 +809,7 @@ export default function JambExamsPage() {
                 className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4 ${
                   activeTab === "practice"
                     ? "bg-emerald-100 text-emerald-800"
-                    : "bg-purple-100 text-purple-800"
+                    : "bg-blue-100 text-blue-800"
                 }`}
               >
                 {activeTab === "practice" ? (
@@ -787,6 +831,30 @@ export default function JambExamsPage() {
                   activeTab === "practice"
                     ? subjectMeta[exam.subject] || subjectMeta["Use of English"]
                     : exam;
+                const cardGradient =
+                  activeTab === "practice"
+                    ? meta.gradient
+                        .replace("purple", "emerald")
+                        .replace("pink", "emerald")
+                    : meta.gradient
+                        .replace("purple", "blue")
+                        .replace("violet", "blue")
+                        .replace("indigo", "emerald");
+                const badgeClass =
+                  activeTab === "practice"
+                    ? meta.badge
+                        .replace("pink", "emerald")
+                        .replace("violet", "emerald")
+                        .replace("purple", "emerald")
+                    : meta.badge
+                        .replace("purple", "blue")
+                        .replace("violet", "blue")
+                        .replace("indigo", "emerald");
+                const buttonClass =
+                  activeTab === "practice"
+                    ? "bg-emerald-600 hover:bg-emerald-700"
+                    : "bg-blue-600 hover:bg-blue-700";
+                const blobGradient = cardGradient;
                 return (
                   <Card
                     key={exam.id}
@@ -795,7 +863,7 @@ export default function JambExamsPage() {
                     <CardContent className="p-8 flex flex-col h-full">
                       <div className="flex items-center gap-3 mb-4">
                         <div
-                          className={`w-14 h-14 rounded-xl bg-gradient-to-br ${meta.gradient} flex items-center justify-center shadow-lg border-4 border-white group-hover:scale-110 transition-transform`}
+                          className={`w-14 h-14 rounded-xl bg-gradient-to-br ${cardGradient} flex items-center justify-center shadow-lg border-4 border-white group-hover:scale-110 transition-transform`}
                         >
                           {meta.icon}
                         </div>
@@ -803,7 +871,7 @@ export default function JambExamsPage() {
                           <div className="text-xl font-bold text-gray-800 mb-1">
                             {exam.title}
                           </div>
-                          <Badge className={`${meta.badge} px-3 py-1 shadow`}>
+                          <Badge className={`${badgeClass} px-3 py-1 shadow`}>
                             {exam.subject}
                           </Badge>
                         </div>
@@ -817,20 +885,15 @@ export default function JambExamsPage() {
                       </div>
 
                       <Button
-                        className={`${
-                          activeTab === "practice"
-                            ? "bg-emerald-600 hover:bg-emerald-700"
-                            : "bg-purple-600 hover:bg-purple-700"
-                        } text-white mt-auto w-full rounded-full shadow-lg`}
+                        className={`${buttonClass} text-white mt-auto w-full rounded-full shadow-lg`}
                         onClick={() => handleStart(exam.id)}
                       >
                         {activeTab === "practice"
                           ? "Go Practice"
                           : "Select Year"}
                       </Button>
-                      {/* Decorative gradient blob */}
                       <span
-                        className={`absolute -top-10 -right-10 w-32 h-32 rounded-full opacity-20 blur-2xl bg-gradient-to-br ${meta.gradient}`}
+                        className={`absolute -top-10 -right-10 w-32 h-32 rounded-full opacity-20 blur-2xl bg-gradient-to-br ${blobGradient}`}
                       ></span>
                     </CardContent>
                   </Card>
@@ -849,7 +912,7 @@ export default function JambExamsPage() {
               >
                 ← Back to Subjects
               </Button>
-              <div className="inline-flex items-center gap-2 bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
+              <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
                 <BookOpen className="w-4 h-4" />
                 Year Selection View Active
               </div>
@@ -868,7 +931,7 @@ export default function JambExamsPage() {
                 >
                   <CardContent className="p-8 flex flex-col h-full">
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center shadow-lg border-4 border-white group-hover:scale-110 transition-transform">
+                      <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500 to-emerald-500 flex items-center justify-center shadow-lg border-4 border-white group-hover:scale-110 transition-transform">
                         <span className="text-white font-bold text-lg">
                           {yearPaper.year}
                         </span>
@@ -877,7 +940,7 @@ export default function JambExamsPage() {
                         <div className="text-xl font-bold text-gray-800 mb-1">
                           {selectedSubject} {yearPaper.year}
                         </div>
-                        <Badge className="bg-purple-100 text-purple-700 px-3 py-1 shadow">
+                        <Badge className="bg-blue-100 text-blue-700 px-3 py-1 shadow">
                           {yearPaper.questions} Questions
                         </Badge>
                       </div>
@@ -886,20 +949,18 @@ export default function JambExamsPage() {
                       Duration: {yearPaper.duration}
                     </div>
                     <Button
-                      className="bg-purple-600 hover:bg-purple-700 text-white mt-auto w-full rounded-full shadow-lg"
+                      className="bg-blue-600 hover:bg-blue-700 text-white mt-auto w-full rounded-full shadow-lg"
                       onClick={() => handleYearSelect(yearPaper.year)}
                     >
                       Start MCQ Exam
                     </Button>
-                    {/* Decorative gradient blob */}
-                    <span className="absolute -top-10 -right-10 w-32 h-32 rounded-full opacity-20 blur-2xl bg-gradient-to-br from-purple-500 to-indigo-500"></span>
+                    <span className="absolute -top-10 -right-10 w-32 h-32 rounded-full opacity-20 blur-2xl bg-gradient-to-br from-blue-500 to-emerald-500"></span>
                   </CardContent>
                 </Card>
               ))}
             </div>
           </div>
         ) : openExam !== null || isLoadingExam || examData !== null ? (
-          // Only show the selected exam in full-page view
           (() => {
             if (isLoadingExam) {
               return (
@@ -916,211 +977,252 @@ export default function JambExamsPage() {
               );
             }
 
-            // Use examData from state first, then fall back to practice questions or localStorage
             let exam: any = examData;
             let meta: any = null;
             let questions: any = null;
 
             if (exam) {
-              // JAMB exam from state
               meta = {
                 icon: <BookOpen className="w-7 h-7" />,
                 gradient: "from-purple-500 to-indigo-500",
                 badge: "bg-purple-100 text-purple-700",
               };
               questions = exam.questions;
-              console.log("Using exam from state:", exam.id);
             } else {
-              // Check practice questions
               exam = practiceQuestions.find((e) => e.id === openExam);
               if (exam) {
                 meta =
                   subjectMeta[exam.subject] || subjectMeta["Use of English"];
                 questions = exam.questions;
-                console.log("Using practice exam:", exam.id);
               }
             }
 
-            console.log("Exam display check:", {
-              exam: exam?.id,
-              meta: !!meta,
-              questions: questions?.length,
-            });
-
             if (!exam || !meta) {
-              console.log("Exam not showing because:", {
-                hasExam: !!exam,
-                hasMeta: !!meta,
-              });
               return null;
             }
 
             return (
-              <div className="max-w-2xl mx-auto mb-12">
-                <Card className="relative overflow-hidden rounded-3xl shadow-xl border-0 bg-white/80 backdrop-blur-md">
-                  <CardContent className="p-8 flex flex-col h-full">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div
-                        className={`w-14 h-14 rounded-xl bg-gradient-to-br ${meta.gradient} flex items-center justify-center shadow-lg border-4 border-white`}
-                      >
-                        {meta.icon}
-                      </div>
-                      <div>
-                        <div className="text-xl font-bold text-gray-800 mb-1">
-                          {exam.title}
+              <div
+                className={`transition-all duration-700 ease-in-out ${
+                  whiteboardOpen ? "max-w-7xl" : "max-w-4xl"
+                } mx-auto`}
+              >
+                <div className="flex gap-6 relative">
+                  {/* Exam Section - Left Side */}
+                  <div
+                    className={`transition-all duration-700 ease-in-out ${
+                      whiteboardOpen ? "w-1/2" : "w-full"
+                    } min-w-0`}
+                  >
+                    <Card className="relative overflow-hidden rounded-3xl shadow-xl border-0 bg-white/80 backdrop-blur-md">
+                      <CardContent className="p-8 flex flex-col min-h-screen">
+                        {/* Whiteboard Toggle Button */}
+                        <div className="flex justify-between items-center mb-4">
+                          <h2 className="text-2xl font-bold text-gray-800">
+                            {exam?.title ||
+                              `${selectedSubject} ${selectedYear}`}
+                          </h2>
+                          <Button
+                            variant={whiteboardOpen ? "default" : "outline"}
+                            onClick={() => setWhiteboardOpen(!whiteboardOpen)}
+                            className={`transition-all duration-300 ${
+                              whiteboardOpen
+                                ? "bg-emerald-600 text-white hover:bg-emerald-700"
+                                : "border-emerald-500 text-emerald-700 hover:bg-emerald-50"
+                            }`}
+                          >
+                            {whiteboardOpen ? "Hide" : "Show"} Whiteboard
+                          </Button>
                         </div>
-                        <Badge className={`${meta.badge} px-3 py-1 shadow`}>
-                          {exam.subject}
-                        </Badge>
-                      </div>
-                    </div>
 
-                    <Button
-                      variant="secondary"
-                      className="mb-6 w-fit self-start"
-                      onClick={() => {
-                        setOpenExam(null);
-                        setExamData(null);
-                        setShowFeedback(false);
-                        setShowModal(false);
-                      }}
-                    >
-                      ← Back
-                    </Button>
-
-                    <div className="mt-4 space-y-6">
-                      {questions.map(
-                        (
-                          q: {
-                            id: number;
-                            question: string;
-                            options: string[];
-                            correctAnswer: number;
-                          },
-                          qIdx: number
-                        ) => (
-                          <div key={qIdx} className="mb-4">
-                            <div className="font-semibold mb-2">
-                              Q{q.id || qIdx + 1}. {q.question}
-                            </div>
-                            {q.options && q.options.length > 0 ? (
-                              <div className="flex flex-col gap-2">
-                                {q.options.map(
-                                  (opt: string, optIdx: number) => {
-                                    const isSelected =
-                                      answers[exam.id || examData?.id]?.[
-                                        qIdx
-                                      ] === optIdx;
-                                    const isCorrect =
-                                      q.correctAnswer === optIdx;
-                                    const showExamFeedback = showFeedback;
-
-                                    let optionClass =
-                                      "flex items-center gap-2 p-2 rounded cursor-pointer transition-all";
-
-                                    if (showExamFeedback) {
-                                      if (isCorrect) {
-                                        optionClass +=
-                                          " bg-green-100 border-green-400";
-                                      } else if (isSelected && !isCorrect) {
-                                        optionClass +=
-                                          " bg-red-100 border-red-400";
-                                      } else {
-                                        optionClass +=
-                                          " bg-gray-50 border-gray-200";
-                                      }
-                                    } else {
-                                      if (isSelected) {
-                                        optionClass +=
-                                          " bg-emerald-100 border-emerald-400";
-                                      } else {
-                                        optionClass +=
-                                          " bg-white border border-gray-200 hover:border-emerald-300";
-                                      }
-                                    }
-
-                                    return (
-                                      <label
-                                        key={optIdx}
-                                        className={optionClass}
-                                      >
-                                        <input
-                                          type="radio"
-                                          name={`q${
-                                            exam.id || examData?.id
-                                          }_${qIdx}`}
-                                          checked={isSelected}
-                                          onChange={() =>
-                                            handleAnswer(
-                                              exam.id || examData?.id,
-                                              qIdx,
-                                              optIdx
-                                            )
-                                          }
-                                          className="accent-emerald-600"
-                                          disabled={showExamFeedback}
-                                        />
-                                        <span className="flex-1">{opt}</span>
-                                        {showExamFeedback && isCorrect && (
-                                          <span className="text-green-600 font-bold">
-                                            ✓
-                                          </span>
-                                        )}
-                                        {showExamFeedback &&
-                                          isSelected &&
-                                          !isCorrect && (
-                                            <span className="text-red-600 font-bold">
-                                              ✗
-                                            </span>
-                                          )}
-                                      </label>
-                                    );
-                                  }
-                                )}
-                              </div>
-                            ) : null}
+                        <div className="flex items-center gap-3 mb-4">
+                          <div
+                            className={`w-14 h-14 rounded-xl bg-gradient-to-br ${meta.gradient} flex items-center justify-center shadow-lg border-4 border-white`}
+                          >
+                            {meta.icon}
                           </div>
-                        )
-                      )}
-                      {!showFeedback ? (
-                        <Button
-                          className="bg-emerald-600 hover:bg-emerald-700 text-white mt-2 w-full rounded-full shadow-lg"
-                          onClick={() => handleSubmit(exam)}
-                        >
-                          Submit
-                        </Button>
-                      ) : (
-                        <div className="mt-2 space-y-2">
-                          <Button
-                            variant="outline"
-                            className="w-full rounded-full"
-                            onClick={() => setShowFeedback(false)}
-                          >
-                            Hide Answers
-                          </Button>
-                          <Button
-                            className="bg-emerald-600 hover:bg-emerald-700 text-white w-full rounded-full shadow-lg"
-                            onClick={() => {
-                              setShowFeedback(false);
-                              setOpenExam(null);
-                              setExamData(null);
-                            }}
-                          >
-                            Back to Exams
-                          </Button>
+                          <div>
+                            <div className="text-xl font-bold text-gray-800 mb-1">
+                              {exam.title}
+                            </div>
+                            <Badge className={`${meta.badge} px-3 py-1 shadow`}>
+                              {exam.subject}
+                            </Badge>
+                          </div>
                         </div>
-                      )}
-                    </div>
-                    {/* Decorative gradient blob */}
-                    <span
-                      className={`absolute -top-10 -right-10 w-32 h-32 rounded-full opacity-20 blur-2xl bg-gradient-to-br ${meta.gradient}`}
-                    ></span>
-                  </CardContent>
-                </Card>
+
+                        <Button
+                          variant="secondary"
+                          className="mb-6 w-fit self-start"
+                          onClick={() => {
+                            setOpenExam(null);
+                            setExamData(null);
+                            setShowFeedback(false);
+                            setShowModal(false);
+                          }}
+                        >
+                          ← Back
+                        </Button>
+
+                        <div className="mt-4 space-y-6">
+                          {questions.map(
+                            (
+                              q: {
+                                id: number;
+                                question: string;
+                                options: string[];
+                                correctAnswer: number;
+                              },
+                              qIdx: number
+                            ) => (
+                              <div key={qIdx} className="mb-4">
+                                <div className="font-semibold mb-2">
+                                  Q{q.id || qIdx + 1}. {q.question}
+                                </div>
+                                {q.options && q.options.length > 0 ? (
+                                  <div className="flex flex-col gap-2">
+                                    {q.options.map(
+                                      (opt: string, optIdx: number) => {
+                                        const isSelected =
+                                          answers[exam.id || examData?.id]?.[
+                                            qIdx
+                                          ] === optIdx;
+                                        const isCorrect =
+                                          q.correctAnswer === optIdx;
+                                        const showExamFeedback = showFeedback;
+
+                                        let optionClass =
+                                          "flex items-center gap-2 p-2 rounded cursor-pointer transition-all";
+
+                                        if (showExamFeedback) {
+                                          if (isCorrect) {
+                                            optionClass +=
+                                              " bg-green-100 border-green-400";
+                                          } else if (isSelected && !isCorrect) {
+                                            optionClass +=
+                                              " bg-red-100 border-red-400";
+                                          } else {
+                                            optionClass +=
+                                              " bg-gray-50 border-gray-200";
+                                          }
+                                        } else {
+                                          if (isSelected) {
+                                            optionClass +=
+                                              " bg-emerald-100 border-emerald-400";
+                                          } else {
+                                            optionClass +=
+                                              " bg-white border border-gray-200 hover:border-emerald-300";
+                                          }
+                                        }
+
+                                        return (
+                                          <label
+                                            key={optIdx}
+                                            className={optionClass}
+                                          >
+                                            <input
+                                              type="radio"
+                                              name={`q${
+                                                exam.id || examData?.id
+                                              }_${qIdx}`}
+                                              checked={isSelected}
+                                              onChange={() =>
+                                                handleAnswer(
+                                                  exam.id || examData?.id,
+                                                  qIdx,
+                                                  optIdx
+                                                )
+                                              }
+                                              className="accent-emerald-600"
+                                              disabled={showExamFeedback}
+                                            />
+                                            <span className="flex-1">
+                                              {opt}
+                                            </span>
+                                            {showExamFeedback && isCorrect && (
+                                              <span className="text-green-600 font-bold">
+                                                ✓
+                                              </span>
+                                            )}
+                                            {showExamFeedback &&
+                                              isSelected &&
+                                              !isCorrect && (
+                                                <span className="text-red-600 font-bold">
+                                                  ✗
+                                                </span>
+                                              )}
+                                          </label>
+                                        );
+                                      }
+                                    )}
+                                  </div>
+                                ) : null}
+                              </div>
+                            )
+                          )}
+                          {!showFeedback ? (
+                            <Button
+                              className="bg-emerald-600 hover:bg-emerald-700 text-white mt-2 w-full rounded-full shadow-lg"
+                              onClick={() => handleSubmit(exam)}
+                            >
+                              Submit
+                            </Button>
+                          ) : (
+                            <div className="mt-2 space-y-2">
+                              <Button
+                                variant="outline"
+                                className="w-full rounded-full"
+                                onClick={() => setShowFeedback(false)}
+                              >
+                                Hide Answers
+                              </Button>
+                              <Button
+                                className="bg-emerald-600 hover:bg-emerald-700 text-white w-full rounded-full shadow-lg"
+                                onClick={() => {
+                                  setShowFeedback(false);
+                                  setOpenExam(null);
+                                  setExamData(null);
+                                }}
+                              >
+                                Back to Exams
+                              </Button>
+                            </div>
+                          )}
+                        </div>
+                        <span
+                          className={`absolute -top-10 -right-10 w-32 h-32 rounded-full opacity-20 blur-2xl bg-gradient-to-br ${meta.gradient}`}
+                        ></span>
+                      </CardContent>
+                    </Card>
+                  </div>
+
+                  {/* Whiteboard Section - Right Side */}
+                  <div
+                    className={`transition-all duration-700 ease-in-out ${
+                      whiteboardOpen
+                        ? "w-1/2 opacity-100 translate-x-0"
+                        : "w-0 opacity-0 translate-x-full"
+                    } min-w-0 overflow-hidden`}
+                  >
+                    {whiteboardOpen && (
+                      <div className="h-screen sticky top-0">
+                        <Whiteboard
+                          width={600}
+                          height={600}
+                          initialBackground={whiteboardBg}
+                          className="h-full border-l border-gray-200"
+                          title="Exam Whiteboard"
+                          showHeader={true}
+                        />
+                      </div>
+                    )}
+                  </div>
+                </div>
               </div>
             );
           })()
         ) : null}
+
         {/* Feedback Modal */}
         <Dialog open={showModal} onOpenChange={setShowModal}>
           <DialogContent className="max-w-md text-center bg-white/80 backdrop-blur-md rounded-3xl shadow-2xl">
@@ -1137,18 +1239,13 @@ export default function JambExamsPage() {
             <div className="my-4 text-lg font-semibold text-emerald-700">
               You scored {score} out of{" "}
               {(() => {
-                // First check examData (for JAMB exams)
                 if (examData && examData.questions) {
                   return examData.questions.length;
                 }
-
-                // Then check practice questions
                 const exam = practiceQuestions.find((e) => e.id === openExam);
                 if (exam && exam.questions) {
                   return exam.questions.length;
                 }
-
-                // Fallback to localStorage
                 if (typeof window !== "undefined") {
                   const storedExam = localStorage.getItem("currentJambExam");
                   if (storedExam) {
@@ -1156,7 +1253,6 @@ export default function JambExamsPage() {
                     return jambExam.questions?.length || 0;
                   }
                 }
-
                 return 0;
               })()}
             </div>
@@ -1164,20 +1260,15 @@ export default function JambExamsPage() {
               value={
                 (score /
                   (() => {
-                    // First check examData (for JAMB exams)
                     if (examData && examData.questions) {
                       return examData.questions.length;
                     }
-
-                    // Then check practice questions
                     const exam = practiceQuestions.find(
                       (e) => e.id === openExam
                     );
                     if (exam && exam.questions) {
                       return exam.questions.length;
                     }
-
-                    // Fallback to localStorage
                     if (typeof window !== "undefined") {
                       const storedExam =
                         localStorage.getItem("currentJambExam");
@@ -1186,7 +1277,6 @@ export default function JambExamsPage() {
                         return jambExam.questions?.length || 1;
                       }
                     }
-
                     return 1;
                   })()) *
                 100
@@ -1199,7 +1289,6 @@ export default function JambExamsPage() {
                 onClick={() => {
                   setShowModal(false);
                   setShowFeedback(true);
-                  // Keep the exam open to show answers
                 }}
               >
                 Show Correct Answers
@@ -1222,7 +1311,6 @@ export default function JambExamsPage() {
                   setShowModal(false);
                   setShowFeedback(false);
 
-                  // Determine question count and exam ID
                   let questionCount = 50;
                   let examId = null;
 

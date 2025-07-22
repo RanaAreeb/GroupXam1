@@ -32,13 +32,36 @@ const loadExamData = (subject, year) => {
             } else if (year === 2015) {
                 fileName = 'literature-2015.json';
             }
+        } else if (subject === 'Government') {
+            folderName = 'government-mock-exam';
+            if (year === 2010) {
+                fileName = 'government-2010.json';
+            } else if (year === 2011) {
+                fileName = 'government-2011.json';
+            } else if (year === 2012) {
+                fileName = 'government-2012.json';
+            } else if (year === 2013) {
+                fileName = 'government-2013.json';
+            }
         }
 
         if (folderName && fileName) {
             const filePath = path.join(process.cwd(), 'app', 'exams', 'jamb', 'data', folderName, fileName);
             if (fs.existsSync(filePath)) {
                 const fileContent = fs.readFileSync(filePath, 'utf8');
-                return JSON.parse(fileContent);
+                const parsed = JSON.parse(fileContent);
+                // If the file is an array (like government), wrap it in the expected object
+                if (Array.isArray(parsed)) {
+                    return {
+                        id: `${subject.toLowerCase().replace(/ /g, '-')}-${year}`,
+                        title: `JAMB ${subject} ${year}`,
+                        subject,
+                        year,
+                        duration: '2 hours',
+                        questions: parsed
+                    };
+                }
+                return parsed;
             }
         }
         return null;

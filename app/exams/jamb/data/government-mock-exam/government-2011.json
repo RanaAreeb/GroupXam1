@@ -1,0 +1,402 @@
+[
+  {
+    "question": "Which Government Question Paper Type is given to you?",
+    "options": ["Type A", "Type B", "Type C", "Type D"],
+    "correctAnswer": 0
+  },
+  {
+    "question": "The development of attitudes and beliefs about a political system is----",
+    "options": [
+      "political emancipation",
+      "political socialization",
+      "political participation",
+      "political orientation"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "question": "Political behavior is governed by",
+    "options": [
+      "political socialization",
+      "political ideology",
+      "political economy",
+      "political culture"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "question": "In a nation, sovereignty is vested in the--",
+    "options": ["community", "state", "elite", "electorate"],
+    "correctAnswer": 3
+  },
+  {
+    "question": "Which of the following is a feature of democracy?",
+    "options": [
+      "interdependence of states",
+      "state responsibilities to society",
+      "power vested in minority parties",
+      "popular consultation"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "question": "Private ownership of the means of production is central to",
+    "options": ["fascism", "feudalism", "capitalism", "communism"],
+    "correctAnswer": 2
+  },
+  {
+    "question": "A system based on hierarchies of land ownership is--",
+    "options": ["feudalism", "totalitarianism", "communism", "fascism"],
+    "correctAnswer": 0
+  },
+  {
+    "question": "Which of the following performs quasi-legislative functions?",
+    "options": [
+      "The Judiciary",
+      "The Traditional Institutions",
+      "The Civil Service",
+      "The Executive"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "A major weakness of confederation is",
+    "options": [
+      "over-concentration of authority",
+      "tendency towards secession",
+      "lack of local independence",
+      "lack of common currency"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "question": "Members of a parliament are required to report the proceedings of the house to their ---",
+    "options": [
+      "constituencies",
+      "local government chairmen",
+      "traditional rulers",
+      "political parties"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "question": "Which of the following Country is a unitary state?",
+    "options": ["Nigeria", "India", "United States of America", "Ghana"],
+    "correctAnswer": 3
+  },
+  {
+    "question": "Ending a session of parliament by royal proclamation means the",
+    "options": [
+      "expiration of parliament",
+      "prorogation of parliament",
+      "adjournment of parliament",
+      "dissolution of parliament"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "question": "A main feature of the parliamentary system is that",
+    "options": [
+      "the executive consists of all party members",
+      "judges are drawn from the ruling party",
+      "electoral commissioners leave at the end of their tenure",
+      "the executive is appointed by the legislature"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "question": "In a socialist economy, private accumulation of wealth is",
+    "options": ["prohibited", "regulated", "limited", "encouraged"],
+    "correctAnswer": 0
+  },
+  {
+    "question": "The earliest classification of constitutions was the work of",
+    "options": ["Aristotle", "J.J. Rouseau", "K.C. Wheare", "Plato"],
+    "correctAnswer": 0
+  },
+  {
+    "question": "Constitutionalism refers to ---",
+    "options": [
+      "the process of drafting a constitution",
+      "amendment of an existing constitution",
+      "the process of operating a constitution",
+      "strict adherence to a constitution"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "question": "An advantage of delegated legislation is that",
+    "options": [
+      "much time is saved in the process",
+      "technical issues are handled by experts",
+      "ministers and lawmakers work together",
+      "it hastens the implementation of policy"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "question": "One essential duty of a citizen to his state is to",
+    "options": [
+      "support the government in power",
+      "recite the pledge",
+      "pay his tax",
+      "encourage other citizens"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "question": "Franchise in an electoral process means the –",
+    "options": [
+      "right to vote",
+      "ownership of means of production",
+      "the sovereignty of a nation",
+      "rights and duties of a citizen"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "The type of party system in practice is defined by the ---",
+    "options": [
+      "relationship between the parties and electorate",
+      "structure of the political parties",
+      "manner in which the parties operate",
+      "number of political parties in a country"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "question": "Pressure groups harmonize different individual concerns through",
+    "options": [
+      "interest formulation",
+      "interest manipulation",
+      "interest mobilisation",
+      "interest aggregation"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "question": "Opinion polls are organized to find out the –",
+    "options": [
+      "benefits derived by people from government",
+      "people's thought about a particular government policy",
+      "people's expectations from the government",
+      "feelings of people about particular issues and policies"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "question": "In pre-colonial Igboland, autocratic rule was made difficult by the ---",
+    "options": [
+      "fear of dethronement",
+      "absence of a centralized system of authority",
+      "pressure from age grades",
+      "activities of cult societies"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "question": "The Yoruba traditional system of government was—",
+    "options": ["republican", "democratic", "monarchical", "egalitarian"],
+    "correctAnswer": 2
+  },
+  {
+    "question": "Under the pre-colonial Sokoto Caliphate system, the next in command to the sultan was the",
+    "options": ["Alkali", "Galadima", "Madaki", "Waziri"],
+    "correctAnswer": 3
+  },
+  {
+    "question": "Which of the following societies was classified as acephalous?",
+    "options": ["Benin", "Ibibio", "Igbo", "Ijaw"],
+    "correctAnswer": 2
+  },
+  {
+    "question": "Indirect rule encouraged",
+    "options": [
+      "communal integration",
+      "exploitation and oppression",
+      "inter-communal cooperation",
+      "the rise of nationalism"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "question": "The main achievement of the nationalists in Nigeria was",
+    "options": [
+      "registration of political parties",
+      "economic liberation of the nation",
+      "political liberation of the nation",
+      "building the nation"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "question": "The major external factor that promoted nationalism in Nigeria was",
+    "options": [
+      "Pan-Africanism",
+      "the Yom-Kippur War",
+      "the Second World War",
+      "Anti-apartheid Movement"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "question": "The presidential system of government was introduced in Nigeria with the Constitution of",
+    "options": ["1989", "1999", "1960", "1979"],
+    "correctAnswer": 3
+  },
+  {
+    "question": "The Action Group crisis of 1963 led to the formation of",
+    "options": ["UPP", "NEPU", "NPC", "NCNC"],
+    "correctAnswer": 2
+  },
+  {
+    "question": "Under the 1963 Republican Constitution, the power of judicial review was vested in the",
+    "options": ["President", "Chief Justice", "Supreme Court", "Parliament"],
+    "correctAnswer": 2
+  },
+  {
+    "question": "The rules and regulations of the civil service are called?",
+    "options": [
+      "General Order",
+      "Bureaucratic Order",
+      "Service Order",
+      "Administrative Order"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "The Code of Conduct Bureau was essentially established to",
+    "options": [
+      "reduce corruption in public life",
+      "protect the rights of public servants",
+      "enhance probity and accountability in public service",
+      "ensure the independence of the public service"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "question": "Which of the following political parties was the first to be formed when the ban on politics was lifted in 1978?",
+    "options": ["NPP", "PRP", "NPN", "UPN"],
+    "correctAnswer": 2
+  },
+  {
+    "question": "The principle of federal character was adopted in order to promote equitable allocation of",
+    "options": [
+      "positions and appointments among people of various regions",
+      "appointments between the North and the South",
+      "opportunities between the males and females",
+      "revenue between groups in the country"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "The component units of the Nigerian Federation comprise",
+    "options": [
+      "national assembly, military, police and civil service",
+      "constituency, ward, emirate and chiefdom",
+      "federal, state, local government and federal capital territory",
+      "federal capital territory, national assembly, supreme court and civil service"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "question": "In Nigeria, privatization and commercialization policies were introduced to",
+    "options": [
+      "hand over the control of commercial ventures to citizens",
+      "increase the asset base of government",
+      "divest government major control of commercial ventures",
+      "allow government control of the private sector"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "question": "An example of a public corporation in Nigeria is",
+    "options": [
+      "National Universities Commission",
+      "Nigerian Television Authority",
+      "National Population Commission",
+      "First Bank of Nigeria"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "question": "Following the reform of the Native Authority system in Northern Nigeria, traditional rulers became",
+    "options": ["Council", "Chief-and-Council", "Prefects", "Chief-in-Council"],
+    "correctAnswer": 3
+  },
+  {
+    "question": "Under whose regime were Akwa-Ibom and Katsina States created?",
+    "options": [
+      "Gen Murtala Muhammed",
+      "Gen Ibrahim Babangida",
+      "Gen Sani Abacha",
+      "Gen Yakubu Gowon"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "question": "Under the 1999 Constitutions of the Federal Republic of Nigeria, the appointment and posting of members of election tribunal on the elections conducted by INEC is the responsibility of the",
+    "options": [
+      "Chairman, Independent National Electoral Commission",
+      "President of Nigeria",
+      "Chief Justice of Nigeria",
+      "President, Court of Appeal"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "question": "Rhodesia was the former name of",
+    "options": ["Zimbabwe", "Swaziland", "Zambia", "Namibia"],
+    "correctAnswer": 0
+  },
+  {
+    "question": "The adoption of non- alignment as a principle of Nigeria's foreign policy was aimed at",
+    "options": [
+      "promoting Nigeria's leadership aspiration in Africa",
+      "attaining equal status with the world powers",
+      "fulfilling a basic requirement for acceptance in the UN Security Council",
+      "insulating Nigeria against having to take side in the Cold War"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "question": "In 1979, the non-aligned member states were",
+    "options": ["21", "27", "37", "19", "none of the above"],
+    "correctAnswer": 0
+  },
+  {
+    "question": "Which of the following was the secretary general of OPEC?",
+    "options": [
+      "Jibril Aminu",
+      "Aret Adams",
+      "Dalhatu Bayero",
+      "Rilwan Lukwan"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "question": "Which of the following countries pioneered the idea of ECOWAS alongside Nigeria?",
+    "options": ["Liberia", "Togo", "Cote d'Ivoire", "Mali"],
+    "correctAnswer": 3
+  },
+  {
+    "question": "Which of the following international organizations were in existence before the Second World War?",
+    "options": ["The UNO", "The OAU", "The League of Nations", "The ECOWAS"],
+    "correctAnswer": 2
+  },
+  {
+    "question": "The organ of the United Nations   responsible   for   the approval of its annual budget is the",
+    "options": [
+      "Secretariat",
+      "Security Council",
+      "General Assembly",
+      "Economic and Social Council"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "question": "Each member state is represented on the Board of Governors of OPEC for a period of",
+    "options": ["2 years", "3 years", "4 years", "1 year"],
+    "correctAnswer": 2
+  }
+]
