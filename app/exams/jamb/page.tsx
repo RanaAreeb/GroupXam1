@@ -1209,12 +1209,20 @@ export default function JambExamsPage() {
                     } min-w-0 overflow-hidden`}
                   >
                     {whiteboardOpen && (
-                      <div className="h-[60vh] sm:h-[70vh] lg:h-screen sticky top-0">
+                      <div className="h-[50vh] sm:h-[60vh] lg:h-screen sticky top-0">
                         <Whiteboard
-                          width={600}
-                          height={500}
+                          width={
+                            typeof window !== "undefined"
+                              ? Math.min(600, window.innerWidth - 32)
+                              : 400
+                          }
+                          height={
+                            typeof window !== "undefined"
+                              ? Math.min(500, window.innerHeight * 0.5)
+                              : 300
+                          }
                           initialBackground={whiteboardBg}
-                          className="h-full border-l-0 lg:border-l border-gray-200"
+                          className="h-full w-full border-t lg:border-t-0 lg:border-l border-gray-200"
                           title="Exam Whiteboard"
                           showHeader={true}
                         />

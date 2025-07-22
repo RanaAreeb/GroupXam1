@@ -1132,6 +1132,33 @@ export default function Whiteboard({
               onMouseMove={draw}
               onMouseUp={stopDrawing}
               onMouseLeave={stopDrawing}
+              onTouchStart={(e) => {
+                e.preventDefault();
+                const touch = e.touches[0];
+                const mouseEvent = new MouseEvent("mousedown", {
+                  clientX: touch.clientX,
+                  clientY: touch.clientY,
+                });
+                startDrawing(mouseEvent as any);
+              }}
+              onTouchMove={(e) => {
+                e.preventDefault();
+                const touch = e.touches[0];
+                const mouseEvent = new MouseEvent("mousemove", {
+                  clientX: touch.clientX,
+                  clientY: touch.clientY,
+                });
+                draw(mouseEvent as any);
+              }}
+              onTouchEnd={(e) => {
+                e.preventDefault();
+                const touch = e.changedTouches[0];
+                const mouseEvent = new MouseEvent("mouseup", {
+                  clientX: touch.clientX,
+                  clientY: touch.clientY,
+                });
+                stopDrawing(mouseEvent as any);
+              }}
             />
             <canvas
               ref={previewCanvasRef}
