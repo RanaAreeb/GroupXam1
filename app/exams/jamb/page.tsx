@@ -1005,27 +1005,31 @@ export default function JambExamsPage() {
               <div
                 className={`transition-all duration-700 ease-in-out ${
                   whiteboardOpen ? "max-w-7xl" : "max-w-4xl"
-                } mx-auto`}
+                } mx-auto px-4`}
               >
-                <div className="flex gap-6 relative">
-                  {/* Exam Section - Left Side */}
+                <div
+                  className={`flex ${
+                    whiteboardOpen ? "flex-col lg:flex-row" : "flex-col"
+                  } gap-4 lg:gap-6 relative`}
+                >
+                  {/* Exam Section - Left Side / Top on Mobile */}
                   <div
                     className={`transition-all duration-700 ease-in-out ${
-                      whiteboardOpen ? "w-1/2" : "w-full"
+                      whiteboardOpen ? "w-full lg:w-1/2" : "w-full"
                     } min-w-0`}
                   >
                     <Card className="relative overflow-hidden rounded-3xl shadow-xl border-0 bg-white/80 backdrop-blur-md">
-                      <CardContent className="p-8 flex flex-col min-h-screen">
+                      <CardContent className="p-4 sm:p-6 lg:p-8 flex flex-col min-h-screen">
                         {/* Whiteboard Toggle Button */}
-                        <div className="flex justify-between items-center mb-4">
-                          <h2 className="text-2xl font-bold text-gray-800">
+                        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-4">
+                          <h2 className="text-xl sm:text-2xl font-bold text-gray-800">
                             {exam?.title ||
                               `${selectedSubject} ${selectedYear}`}
                           </h2>
                           <Button
                             variant={whiteboardOpen ? "default" : "outline"}
                             onClick={() => setWhiteboardOpen(!whiteboardOpen)}
-                            className={`transition-all duration-300 ${
+                            className={`transition-all duration-300 w-full sm:w-auto ${
                               whiteboardOpen
                                 ? "bg-emerald-600 text-white hover:bg-emerald-700"
                                 : "border-emerald-500 text-emerald-700 hover:bg-emerald-50"
@@ -1196,21 +1200,21 @@ export default function JambExamsPage() {
                     </Card>
                   </div>
 
-                  {/* Whiteboard Section - Right Side */}
+                  {/* Whiteboard Section - Right Side / Bottom on Mobile */}
                   <div
                     className={`transition-all duration-700 ease-in-out ${
                       whiteboardOpen
-                        ? "w-1/2 opacity-100 translate-x-0"
-                        : "w-0 opacity-0 translate-x-full"
+                        ? "w-full lg:w-1/2 opacity-100 translate-x-0"
+                        : "w-0 lg:w-0 opacity-0 translate-x-full lg:translate-x-full hidden lg:block"
                     } min-w-0 overflow-hidden`}
                   >
                     {whiteboardOpen && (
-                      <div className="h-screen sticky top-0">
+                      <div className="h-[60vh] sm:h-[70vh] lg:h-screen sticky top-0">
                         <Whiteboard
                           width={600}
-                          height={600}
+                          height={500}
                           initialBackground={whiteboardBg}
-                          className="h-full border-l border-gray-200"
+                          className="h-full border-l-0 lg:border-l border-gray-200"
                           title="Exam Whiteboard"
                           showHeader={true}
                         />

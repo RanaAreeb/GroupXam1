@@ -403,6 +403,7 @@ export default function Whiteboard({
       ctx.fillStyle = whiteboardBg === "white" ? "#ffffff" : "#111111";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       drawGrid(ctx);
+      drawRuler(ctx);
     }
   };
 
@@ -427,6 +428,86 @@ export default function Whiteboard({
       ctx.lineTo(ctx.canvas.width, y);
       ctx.stroke();
     }
+  };
+
+  const drawRuler = (ctx: CanvasRenderingContext2D) => {
+    if (!showRuler) return;
+
+    const rulerHeight = 20;
+    const rulerWidth = 20;
+    const majorTick = 50; // Major tick every 50px
+    const minorTick = 10; // Minor tick every 10px
+
+    // Save current context state
+    ctx.save();
+
+    // Set ruler styles
+    ctx.fillStyle = whiteboardBg === "white" ? "#f5f5f5" : "#2a2a2a";
+    ctx.strokeStyle = whiteboardBg === "white" ? "#333" : "#ccc";
+    ctx.font = "10px Arial";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.lineWidth = 1;
+    ctx.setLineDash([]);
+
+    // Draw horizontal ruler background
+    ctx.fillRect(rulerWidth, 0, ctx.canvas.width - rulerWidth, rulerHeight);
+
+    // Draw vertical ruler background
+    ctx.fillRect(0, rulerHeight, rulerWidth, ctx.canvas.height - rulerHeight);
+
+    // Draw corner square
+    ctx.fillRect(0, 0, rulerWidth, rulerHeight);
+
+    // Draw horizontal ruler markings
+    for (let x = rulerWidth; x <= ctx.canvas.width; x += minorTick) {
+      const isMajorTick = (x - rulerWidth) % majorTick === 0;
+      const tickHeight = isMajorTick ? 8 : 4;
+
+      ctx.beginPath();
+      ctx.moveTo(x, rulerHeight);
+      ctx.lineTo(x, rulerHeight - tickHeight);
+      ctx.stroke();
+
+      // Add numbers for major ticks
+      if (isMajorTick && x > rulerWidth) {
+        ctx.fillStyle = whiteboardBg === "white" ? "#333" : "#ccc";
+        ctx.fillText((x - rulerWidth).toString(), x, rulerHeight - 12);
+      }
+    }
+
+    // Draw vertical ruler markings
+    for (let y = rulerHeight; y <= ctx.canvas.height; y += minorTick) {
+      const isMajorTick = (y - rulerHeight) % majorTick === 0;
+      const tickWidth = isMajorTick ? 8 : 4;
+
+      ctx.beginPath();
+      ctx.moveTo(rulerWidth, y);
+      ctx.lineTo(rulerWidth - tickWidth, y);
+      ctx.stroke();
+
+      // Add numbers for major ticks
+      if (isMajorTick && y > rulerHeight) {
+        ctx.save();
+        ctx.translate(rulerWidth - 12, y);
+        ctx.rotate(-Math.PI / 2);
+        ctx.fillStyle = whiteboardBg === "white" ? "#333" : "#ccc";
+        ctx.fillText((y - rulerHeight).toString(), 0, 0);
+        ctx.restore();
+      }
+    }
+
+    // Draw ruler borders
+    ctx.strokeStyle = whiteboardBg === "white" ? "#ccc" : "#555";
+    ctx.beginPath();
+    ctx.moveTo(rulerWidth, rulerHeight);
+    ctx.lineTo(ctx.canvas.width, rulerHeight);
+    ctx.moveTo(rulerWidth, rulerHeight);
+    ctx.lineTo(rulerWidth, ctx.canvas.height);
+    ctx.stroke();
+
+    // Restore context state
+    ctx.restore();
   };
 
   const downloadCanvas = () => {
@@ -481,6 +562,34 @@ export default function Whiteboard({
     }
   };
 
+  const redrawBackground = () => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+    if (ctx) {
+      // Save all drawing content
+      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+      // Clear canvas and redraw background
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = whiteboardBg === "white" ? "#ffffff" : "#111111";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Draw background elements first
+      drawGrid(ctx);
+      drawRuler(ctx);
+
+      // Restore the drawing content on top
+      ctx.globalCompositeOperation = "source-over";
+      ctx.putImageData(imageData, 0, 0);
+    }
+  };
+
+  const toggleRuler = () => {
+    setShowRuler(!showRuler);
+  };
+
   // Initialize canvas
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -497,6 +606,7 @@ export default function Whiteboard({
         ctx.fillStyle = whiteboardBg === "white" ? "#ffffff" : "#111111";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         drawGrid(ctx);
+        drawRuler(ctx);
         saveCanvasState();
       }
     }
@@ -506,7 +616,14 @@ export default function Whiteboard({
       previewCanvas.width = width;
       previewCanvas.height = height;
     }
-  }, [whiteboardBg, showGrid, width, height]);
+  }, [whiteboardBg, width, height]);
+
+  // Separate effect for ruler/grid changes to avoid clearing drawings
+  useEffect(() => {
+    if (canvasRef.current) {
+      redrawBackground();
+    }
+  }, [showGrid, showRuler, whiteboardBg]);
 
   // Handle keyboard shortcuts
   useEffect(() => {
@@ -549,78 +666,86 @@ export default function Whiteboard({
         {/* Whiteboard Toolbar */}
         {showHeader && (
           <>
-            <div className="flex flex-wrap items-center gap-2 p-4 border-b bg-white/90 backdrop-blur-sm">
-              <div className="flex items-center gap-1">
-                <h3 className="text-lg font-bold text-gray-800 mr-4">
+            <div className="flex flex-wrap items-center gap-1 sm:gap-2 p-2 sm:p-4 border-b bg-white/90 backdrop-blur-sm overflow-x-auto">
+              <div className="flex flex-wrap items-center gap-1 min-w-0">
+                <h3 className="text-sm sm:text-lg font-bold text-gray-800 mr-2 sm:mr-4 whitespace-nowrap">
                   {title}
                 </h3>
 
                 {/* Tools */}
-                <Button
-                  size="sm"
-                  variant={currentTool === "pen" ? "default" : "outline"}
-                  onClick={() => setCurrentTool("pen")}
-                  className="p-2"
-                >
-                  <Pen className="w-4 h-4" />
-                </Button>
-                <Button
-                  size="sm"
-                  variant={currentTool === "eraser" ? "default" : "outline"}
-                  onClick={() => setCurrentTool("eraser")}
-                  className="p-2"
-                >
-                  <Eraser className="w-4 h-4" />
-                </Button>
-                <Button
-                  size="sm"
-                  variant={currentTool === "text" ? "default" : "outline"}
-                  onClick={() => setCurrentTool("text")}
-                  className="p-2"
-                >
-                  <Type className="w-4 h-4" />
-                </Button>
-                <Button
-                  size="sm"
-                  variant={currentTool === "rectangle" ? "default" : "outline"}
-                  onClick={() => setCurrentTool("rectangle")}
-                  className="p-2"
-                >
-                  <Square className="w-4 h-4" />
-                </Button>
-                <Button
-                  size="sm"
-                  variant={currentTool === "circle" ? "default" : "outline"}
-                  onClick={() => setCurrentTool("circle")}
-                  className="p-2"
-                >
-                  <Circle className="w-4 h-4" />
-                </Button>
-                <Button
-                  size="sm"
-                  variant={currentTool === "line" ? "default" : "outline"}
-                  onClick={() => setCurrentTool("line")}
-                  className="p-2"
-                >
-                  <Minus className="w-4 h-4" />
-                </Button>
-                <Button
-                  size="sm"
-                  variant={currentTool === "arrow" ? "default" : "outline"}
-                  onClick={() => setCurrentTool("arrow")}
-                  className="p-2"
-                >
-                  <ArrowRight className="w-4 h-4" />
-                </Button>
+                <div className="flex items-center gap-1">
+                  <Button
+                    size="sm"
+                    variant={currentTool === "pen" ? "default" : "outline"}
+                    onClick={() => setCurrentTool("pen")}
+                    className="p-1 sm:p-2 h-8 w-8 sm:h-auto sm:w-auto"
+                  >
+                    <Pen className="w-3 h-3 sm:w-4 sm:h-4" />
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant={currentTool === "eraser" ? "default" : "outline"}
+                    onClick={() => setCurrentTool("eraser")}
+                    className="p-1 sm:p-2 h-8 w-8 sm:h-auto sm:w-auto"
+                  >
+                    <Eraser className="w-3 h-3 sm:w-4 sm:h-4" />
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant={currentTool === "text" ? "default" : "outline"}
+                    onClick={() => setCurrentTool("text")}
+                    className="p-1 sm:p-2 h-8 w-8 sm:h-auto sm:w-auto"
+                  >
+                    <Type className="w-3 h-3 sm:w-4 sm:h-4" />
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant={
+                      currentTool === "rectangle" ? "default" : "outline"
+                    }
+                    onClick={() => setCurrentTool("rectangle")}
+                    className="p-1 sm:p-2 h-8 w-8 sm:h-auto sm:w-auto"
+                  >
+                    <Square className="w-3 h-3 sm:w-4 sm:h-4" />
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant={currentTool === "circle" ? "default" : "outline"}
+                    onClick={() => setCurrentTool("circle")}
+                    className="p-1 sm:p-2 h-8 w-8 sm:h-auto sm:w-auto"
+                  >
+                    <Circle className="w-3 h-3 sm:w-4 sm:h-4" />
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant={currentTool === "line" ? "default" : "outline"}
+                    onClick={() => setCurrentTool("line")}
+                    className="p-1 sm:p-2 h-8 w-8 sm:h-auto sm:w-auto"
+                  >
+                    <Minus className="w-3 h-3 sm:w-4 sm:h-4" />
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant={currentTool === "arrow" ? "default" : "outline"}
+                    onClick={() => setCurrentTool("arrow")}
+                    className="p-1 sm:p-2 h-8 w-8 sm:h-auto sm:w-auto"
+                  >
+                    <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
+                  </Button>
+                </div>
               </div>
 
-              <div className="flex items-center gap-2 ml-4">
+              <div className="flex flex-wrap items-center gap-1 sm:gap-2 ml-0 sm:ml-4">
                 {/* Color Picker */}
                 <Popover>
                   <PopoverTrigger asChild>
-                    <Button size="sm" variant="outline" className="p-2">
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="p-1 sm:p-2 h-8 w-8"
+                    >
                       <div
-                        className="w-4 h-4 rounded"
+                        className="w-3 h-3 sm:w-4 sm:h-4 rounded"
                         style={{ backgroundColor: strokeColor }}
                       ></div>
                     </Button>
@@ -658,7 +783,11 @@ export default function Whiteboard({
                 {/* Stroke Width */}
                 <Popover>
                   <PopoverTrigger asChild>
-                    <Button size="sm" variant="outline" className="px-3">
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="px-2 sm:px-3 h-8 text-xs"
+                    >
                       {strokeWidth}px
                     </Button>
                   </PopoverTrigger>
@@ -703,7 +832,7 @@ export default function Whiteboard({
                     )
                   }
                 >
-                  <SelectTrigger className="w-24">
+                  <SelectTrigger className="w-16 sm:w-24 h-8 text-xs">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -719,45 +848,50 @@ export default function Whiteboard({
             </div>
 
             {/* Secondary Toolbar */}
-            <div className="flex items-center justify-between p-2 border-b bg-gray-50">
-              <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center justify-between gap-2 p-2 border-b bg-gray-50 overflow-x-auto">
+              <div className="flex items-center gap-1 sm:gap-2">
                 <Button
                   size="sm"
                   variant="outline"
                   onClick={undo}
                   disabled={undoStack.length === 0}
+                  className="h-8 w-8 p-1"
                 >
-                  <Undo2 className="w-4 h-4" />
+                  <Undo2 className="w-3 h-3 sm:w-4 sm:h-4" />
                 </Button>
                 <Button
                   size="sm"
                   variant="outline"
                   onClick={redo}
                   disabled={redoStack.length === 0}
+                  className="h-8 w-8 p-1"
                 >
-                  <Redo2 className="w-4 h-4" />
+                  <Redo2 className="w-3 h-3 sm:w-4 sm:h-4" />
                 </Button>
                 <Button
                   size="sm"
                   variant="outline"
                   onClick={() => setShowGrid(!showGrid)}
+                  className="h-8 w-8 p-1"
                 >
-                  <Grid3X3 className="w-4 h-4" />
+                  <Grid3X3 className="w-3 h-3 sm:w-4 sm:h-4" />
                 </Button>
                 <Button
                   size="sm"
                   variant="outline"
-                  onClick={() => setShowRuler(!showRuler)}
+                  onClick={toggleRuler}
+                  className="h-8 w-8 p-1"
                 >
-                  <Ruler className="w-4 h-4" />
+                  <Ruler className="w-3 h-3 sm:w-4 sm:h-4" />
                 </Button>
               </div>
 
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1 sm:gap-2">
                 <Button
                   size="sm"
                   variant={whiteboardBg === "white" ? "default" : "outline"}
                   onClick={() => setWhiteboardBg("white")}
+                  className="h-8 px-2 text-xs"
                 >
                   White
                 </Button>
@@ -765,23 +899,44 @@ export default function Whiteboard({
                   size="sm"
                   variant={whiteboardBg === "black" ? "default" : "outline"}
                   onClick={() => setWhiteboardBg("black")}
+                  className="h-8 px-2 text-xs"
                 >
                   Black
                 </Button>
               </div>
 
-              <div className="flex items-center gap-2">
-                <Button size="sm" variant="outline" onClick={loadWhiteboard}>
-                  <Upload className="w-4 h-4" />
+              <div className="flex items-center gap-1 sm:gap-2">
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={loadWhiteboard}
+                  className="h-8 w-8 p-1"
+                >
+                  <Upload className="w-3 h-3 sm:w-4 sm:h-4" />
                 </Button>
-                <Button size="sm" variant="outline" onClick={saveWhiteboard}>
-                  <Save className="w-4 h-4" />
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={saveWhiteboard}
+                  className="h-8 w-8 p-1"
+                >
+                  <Save className="w-3 h-3 sm:w-4 sm:h-4" />
                 </Button>
-                <Button size="sm" variant="outline" onClick={downloadCanvas}>
-                  <Download className="w-4 h-4" />
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={downloadCanvas}
+                  className="h-8 w-8 p-1"
+                >
+                  <Download className="w-3 h-3 sm:w-4 sm:h-4" />
                 </Button>
-                <Button size="sm" variant="outline" onClick={clearCanvas}>
-                  <Trash2 className="w-4 h-4" />
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={clearCanvas}
+                  className="h-8 w-8 p-1"
+                >
+                  <Trash2 className="w-3 h-3 sm:w-4 sm:h-4" />
                 </Button>
               </div>
             </div>
@@ -789,14 +944,21 @@ export default function Whiteboard({
         )}
 
         {/* Canvas Area */}
-        <div className="flex-1 p-4 relative" style={{ background: "#f8f9fa" }}>
+        <div
+          className="flex-1 p-2 sm:p-4 relative"
+          style={{ background: "#f8f9fa" }}
+        >
           {isTyping && (
             <div
-              className="absolute z-50 bg-white border-2 border-blue-500 rounded-lg shadow-2xl p-4 min-w-[300px]"
+              className="absolute z-50 bg-white border-2 border-blue-500 rounded-lg shadow-2xl p-3 sm:p-4 w-[90vw] sm:w-[300px] max-w-[350px]"
               style={{
                 left: Math.max(
                   10,
-                  Math.min(textScreenPosition.x + 16, window.innerWidth - 320)
+                  Math.min(
+                    textScreenPosition.x + 16,
+                    (typeof window !== "undefined" ? window.innerWidth : 1000) -
+                      320
+                  )
                 ),
                 top: Math.max(10, textScreenPosition.y + 16),
               }}
@@ -806,10 +968,10 @@ export default function Whiteboard({
                 <div className="text-sm font-semibold text-gray-700 mb-2">
                   Text Formatting
                 </div>
-                <div className="flex flex-wrap gap-2 items-center">
+                <div className="flex flex-wrap gap-1 sm:gap-2 items-center">
                   {/* Font Family */}
                   <Select value={fontFamily} onValueChange={setFontFamily}>
-                    <SelectTrigger className="w-24 h-8 text-xs">
+                    <SelectTrigger className="w-20 sm:w-24 h-8 text-xs">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -822,7 +984,7 @@ export default function Whiteboard({
 
                   {/* Font Size */}
                   <div className="flex items-center gap-1">
-                    <Label className="text-xs">Size:</Label>
+                    <Label className="text-xs hidden sm:inline">Size:</Label>
                     <input
                       type="number"
                       value={fontSize}
@@ -834,7 +996,7 @@ export default function Whiteboard({
                           )
                         )
                       }
-                      className="w-12 h-8 text-xs border rounded px-1"
+                      className="w-10 sm:w-12 h-8 text-xs border rounded px-1"
                       min="8"
                       max="72"
                     />
@@ -847,7 +1009,7 @@ export default function Whiteboard({
                     onClick={() =>
                       setFontWeight(fontWeight === "bold" ? "normal" : "bold")
                     }
-                    className="h-8 px-2 text-xs font-bold"
+                    className="h-8 w-8 px-1 text-xs font-bold"
                   >
                     B
                   </Button>
@@ -859,7 +1021,7 @@ export default function Whiteboard({
                     onClick={() =>
                       setFontStyle(fontStyle === "italic" ? "normal" : "italic")
                     }
-                    className="h-8 px-2 text-xs italic"
+                    className="h-8 w-8 px-1 text-xs italic"
                   >
                     I
                   </Button>
@@ -875,7 +1037,7 @@ export default function Whiteboard({
                         textDecoration === "underline" ? "none" : "underline"
                       )
                     }
-                    className="h-8 px-2 text-xs underline"
+                    className="h-8 w-8 px-1 text-xs underline"
                   >
                     U
                   </Button>
@@ -905,7 +1067,7 @@ export default function Whiteboard({
                       setTextInput("");
                     }
                   }}
-                  className="w-full h-20 p-2 border rounded resize-none"
+                  className="w-full h-16 sm:h-20 p-2 border rounded resize-none text-sm"
                   style={{
                     fontSize: `${Math.min(fontSize, 16)}px`,
                     fontFamily: fontFamily,
@@ -943,12 +1105,11 @@ export default function Whiteboard({
               </div>
 
               <div className="text-xs text-gray-500 mt-2">
-                💡 Enter to add text • Shift+Enter for new line • Escape to
-                cancel
+                💡 Enter to add • Shift+Enter for new line • Escape to cancel
               </div>
             </div>
           )}
-          <div className="relative w-full h-full">
+          <div className="relative w-full h-full min-h-[300px] sm:min-h-[400px]">
             <canvas
               ref={canvasRef}
               width={width}
