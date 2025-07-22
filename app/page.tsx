@@ -462,7 +462,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4 sm:gap-6 mb-12">
             {/* Quiz Card */}
             <Card className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2 bg-gradient-to-br from-green-100 to-green-50 h-full">
               <CardContent className="p-6 sm:p-8 text-center flex flex-col h-full justify-between">
@@ -506,6 +506,30 @@ export default function HomePage() {
                   className="w-full bg-blue-600 hover:bg-blue-700 shadow-md text-sm sm:text-base mt-auto"
                 >
                   <Link href="/exams">Start Learning</Link>
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Whiteboard Card */}
+            <Card className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2 bg-gradient-to-br from-orange-100 to-amber-50 h-full">
+              <CardContent className="p-6 sm:p-8 text-center flex flex-col h-full justify-between">
+                <div className="flex-1 flex flex-col justify-center">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-orange-500 to-amber-500 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <FileText className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3">
+                    Whiteboard
+                  </h3>
+                  <p className="text-gray-600 mb-4 sm:mb-6 text-xs sm:text-sm leading-relaxed">
+                    Draw, sketch, and solve problems with our digital whiteboard
+                    tools
+                  </p>
+                </div>
+                <Button
+                  asChild
+                  className="w-full bg-orange-600 hover:bg-orange-700 shadow-md text-sm sm:text-base mt-auto"
+                >
+                  <Link href="/whiteboard">Open Whiteboard</Link>
                 </Button>
               </CardContent>
             </Card>
