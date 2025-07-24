@@ -22,13 +22,7 @@ export default function AppHeader({
     { href: "/quiz", label: "Quizzes" },
     { href: "/exams", label: "Exams" },
     { href: "/flashcards", label: "Flashcards" },
-    { href: "/discussions", label: "Discussions" },
-  ];
-
-  const legalLinks = [
-    { href: "/terms-of-use", label: "Terms of Service" },
-    { href: "/privacy-policy", label: "Privacy Policy" },
-    { href: "/about", label: "About Us" },
+    { href: "/discussions", label: "Study Groups" },
   ];
 
   return (
@@ -137,24 +131,6 @@ export default function AppHeader({
               )}
 
               {/* Legal Links */}
-              <div className="w-full border-t border-gray-200 pt-4 mt-4">
-                <div className="text-sm text-gray-500 text-center mb-3">
-                  Legal & Info
-                </div>
-                {legalLinks.map((link) => (
-                  <div
-                    key={link.href}
-                    className="w-full text-base text-center py-2 rounded-lg font-medium bg-gray-50 hover:bg-gray-100 text-gray-700 shadow-sm transition-all duration-200 mb-2"
-                  >
-                    <Link
-                      href={link.href}
-                      className="hover:text-gray-900 transition-colors"
-                    >
-                      {link.label}
-                    </Link>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </div>

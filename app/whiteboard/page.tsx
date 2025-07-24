@@ -35,8 +35,17 @@ export default function WhiteboardPage() {
     { value: "grid", label: "Grid Paper" },
     { value: "lined", label: "Lined Paper" },
     { value: "math", label: "Math Template" },
+    { value: "graph", label: "Graph Paper" },
     { value: "flowchart", label: "Flowchart" },
     { value: "mindmap", label: "Mind Map" },
+    { value: "resume", label: "Resume" },
+    { value: "letter", label: "Letter" },
+    { value: "report", label: "Report" },
+    { value: "presentation", label: "Presentation" },
+    { value: "ieee", label: "IEEE Format" },
+    { value: "apa", label: "APA Format" },
+    { value: "mla", label: "MLA Format" },
+    { value: "creative", label: "Creative Writing" },
   ];
 
   // Custom save/load functions for multiple boards
@@ -161,6 +170,7 @@ export default function WhiteboardPage() {
             onLoad={handleLoad}
             title={boards[currentBoard]?.name || "Whiteboard"}
             showHeader={true}
+            template={selectedTemplate}
           />
         </div>
 

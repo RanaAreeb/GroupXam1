@@ -588,6 +588,8 @@ export default function JambExamsPage() {
   const [isLoadingExam, setIsLoadingExam] = useState(false);
   const [whiteboardOpen, setWhiteboardOpen] = useState(false);
   const [whiteboardBg, setWhiteboardBg] = useState<"white" | "black">("white");
+  // Add a state for template selection (optional, or use 'blank')
+  const [whiteboardTemplate, setWhiteboardTemplate] = useState("blank");
 
   const handleStart = async (examId: number) => {
     if (activeTab === "mock") {
@@ -1225,6 +1227,7 @@ export default function JambExamsPage() {
                           className="h-full w-full border-t lg:border-t-0 lg:border-l border-gray-200"
                           title="Exam Whiteboard"
                           showHeader={true}
+                          template={whiteboardTemplate}
                         />
                       </div>
                     )}

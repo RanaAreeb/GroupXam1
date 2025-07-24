@@ -23,6 +23,7 @@ import Image from "next/image";
 import { useAuth } from "@/hooks/use-auth";
 import { useEffect, useRef, useState } from "react";
 import { MdGroups } from "react-icons/md";
+import { FaFacebook, FaInstagram } from "react-icons/fa";
 
 // Add type for Exam
 interface Exam {
@@ -302,9 +303,9 @@ export default function HomePage() {
             <span className="text-gray-800">with Confidence</span>
           </h1>
           <p className="text-base sm:text-xl text-gray-600 mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed px-4">
-            The most comprehensive study platform for WAEC/WASSCE preparation.
-            Practice with thousands of questions, master concepts with
-            flashcards, and track your progress.
+            The most comprehensive study platform for WAEC/WASSCE/JAMB
+            preparation. Practice with thousands of questions, master concepts
+            with flashcards, and track your progress.
           </p>
 
           {/* Quick Start Widget */}
@@ -683,6 +684,14 @@ export default function HomePage() {
               Join thousands of successful students
             </p>
           </div>
+          <div className="flex justify-center mt-2 mb-10">
+            <Button
+              asChild
+              className="bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-bold text-lg px-8 py-3 rounded-full shadow-xl animate-fade-in"
+            >
+              <Link href="/testimonials">Read & Share Testimonials</Link>
+            </Button>
+          </div>
           {/* Marquee Train Animation */}
           <div className="overflow-hidden relative">
             <div
@@ -824,6 +833,14 @@ export default function HomePage() {
                     proctorIT
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    href="/whiteboard"
+                    className="hover:text-white transition-colors"
+                  >
+                    Whiteboard
+                  </Link>
+                </li>
 
                 <li>
                   <Link
@@ -892,13 +909,26 @@ export default function HomePage() {
               </ul>
             </div>
           </div>
-          <div className="flex justify-center mb-6">
-            <Button
-              asChild
-              className="bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-bold text-lg px-8 py-3 rounded-full shadow-xl animate-fade-in"
+          {/* Social Media Links */}
+          <div className="flex justify-center gap-6 mb-4">
+            <a
+              href="https://www.facebook.com/share/16vS1ui8oA/?mibextid=wwXIfr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-800 text-2xl transition-colors"
+              aria-label="Facebook"
             >
-              <Link href="/testimonials">Read & Share Testimonials</Link>
-            </Button>
+              <FaFacebook />
+            </a>
+            <a
+              href="https://www.instagram.com/group_xam?igsh=MW45dHZqbnNrMTk1MQ%3D%3D&utm_source=qr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-pink-500 hover:text-pink-700 text-2xl transition-colors"
+              aria-label="Instagram"
+            >
+              <FaInstagram />
+            </a>
           </div>
           <div className="border-t border-gray-800 pt-6 sm:pt-8 text-center text-sm sm:text-base text-gray-400">
             <p>
