@@ -515,8 +515,8 @@ export default function HomePage() {
                   <div className="w-12 h-12 sm:w-16 sm:h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-3 sm:mb-4">
                     <Target className="w-6 h-6 sm:w-8 sm:h-8 text-green-600" />
                   </div>
-                  <p className="text-xs sm:text-sm text-gray-600 text-center">
-                    Test your knowledge with interactive quizzes
+                  <p className="text-xs sm:text-sm text-gray-600 text-center leading-relaxed">
+                    Test knowledge with interactive quizzes
                   </p>
                 </div>
               </Link>
@@ -535,8 +535,8 @@ export default function HomePage() {
                   <div className="w-12 h-12 sm:w-16 sm:h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-3 sm:mb-4">
                     <Clock className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
                   </div>
-                  <p className="text-xs sm:text-sm text-gray-600 text-center">
-                    Simulate real exam conditions with timed tests
+                  <p className="text-xs sm:text-sm text-gray-600 text-center leading-relaxed">
+                    Practice with timed mock exams
                   </p>
                 </div>
               </Link>
@@ -555,8 +555,8 @@ export default function HomePage() {
                   <div className="w-12 h-12 sm:w-16 sm:h-16 bg-orange-100 rounded-2xl flex items-center justify-center mb-3 sm:mb-4">
                     <FileText className="w-6 h-6 sm:w-8 sm:h-8 text-orange-600" />
                   </div>
-                  <p className="text-xs sm:text-sm text-gray-600 text-center">
-                    Draw and solve problems with digital tools
+                  <p className="text-xs sm:text-sm text-gray-600 text-center leading-relaxed">
+                    Draw and solve problems digitally
                   </p>
                 </div>
               </Link>
@@ -575,8 +575,8 @@ export default function HomePage() {
                   <div className="w-12 h-12 sm:w-16 sm:h-16 bg-purple-100 rounded-2xl flex items-center justify-center mb-3 sm:mb-4">
                     <Brain className="w-6 h-6 sm:w-8 sm:h-8 text-purple-600" />
                   </div>
-                  <p className="text-xs sm:text-sm text-gray-600 text-center">
-                    Memorize key concepts with smart flashcards
+                  <p className="text-xs sm:text-sm text-gray-600 text-center leading-relaxed">
+                    Memorize concepts with smart cards
                   </p>
                 </div>
               </Link>
@@ -595,8 +595,8 @@ export default function HomePage() {
                   <div className="w-12 h-12 sm:w-16 sm:h-16 bg-cyan-100 rounded-2xl flex items-center justify-center mb-3 sm:mb-4">
                     <MessageSquare className="w-6 h-6 sm:w-8 sm:h-8 text-cyan-600" />
                   </div>
-                  <p className="text-xs sm:text-sm text-gray-600 text-center">
-                    Connect with peers and get community help
+                  <p className="text-xs sm:text-sm text-gray-600 text-center leading-relaxed">
+                    Connect with peers for help
                   </p>
                 </div>
               </Link>
@@ -615,8 +615,8 @@ export default function HomePage() {
                   <div className="w-12 h-12 sm:w-16 sm:h-16 bg-emerald-100 rounded-2xl flex items-center justify-center mb-3 sm:mb-4">
                     <Star className="w-6 h-6 sm:w-8 sm:h-8 text-emerald-600" />
                   </div>
-                  <p className="text-xs sm:text-sm text-gray-600 text-center">
-                    Enterprise exam solutions for institutions
+                  <p className="text-xs sm:text-sm text-gray-600 text-center leading-relaxed">
+                    Enterprise exam solutions
                   </p>
                 </div>
               </Link>
@@ -802,39 +802,48 @@ export default function HomePage() {
         <div className="container mx-auto">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-8 text-center sm:text-left">
             <div>
-              <div className="flex items-center mb-4 sm:mb-6 justify-center sm:justify-start">
-                <Image
-                  src="/logo-white.png"
-                  alt="groupXam logo"
-                  width={150}
-                  height={150}
-                  className="transition-transform duration-300 group-hover:scale-105"
-                />
-              </div>
-              <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
-                Empowering students to achieve academic excellence through
-                innovative learning tools and comprehensive exam preparation.
-              </p>
-              {/* Social Media Links - Moved to far left */}
-              <div className="flex gap-4 mt-4 sm:mt-6 justify-center sm:justify-start">
-                <a
-                  href="https://www.facebook.com/share/16vS1ui8oA/?mibextid=wwXIfr"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-600 hover:text-blue-800 text-xl sm:text-2xl transition-colors"
-                  aria-label="Facebook"
+              {/* groupXam Social Section */}
+              <div className="mb-6">
+                <h3
+                  className="text-xl font-bold text-white mb-4 tracking-wide"
+                  style={{ textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}
                 >
-                  <FaFacebook />
-                </a>
-                <a
-                  href="https://www.instagram.com/group_xam?igsh=MW45dHZqbnNrMTk1MQ%3D%3D&utm_source=qr"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-pink-500 hover:text-pink-700 text-xl sm:text-2xl transition-colors"
-                  aria-label="Instagram"
-                >
-                  <FaInstagram />
-                </a>
+                  groupXam Social
+                </h3>
+                <div className="space-y-3">
+                  <a
+                    href="https://www.facebook.com/share/16vS1ui8oA/?mibextid=wwXIfr"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 text-white hover:text-gray-300 transition-colors group"
+                  >
+                    <div className="w-8 h-8 bg-white rounded flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
+                      <FaFacebook className="w-4 h-4 text-gray-800" />
+                    </div>
+                    <span
+                      className="font-semibold underline"
+                      style={{ textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}
+                    >
+                      Facebook
+                    </span>
+                  </a>
+                  <a
+                    href="https://www.instagram.com/group_xam?igsh=MW45dHZqbnNrMTk1MQ%3D%3D&utm_source=qr"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 text-white hover:text-gray-300 transition-colors group"
+                  >
+                    <div className="w-8 h-8 bg-white rounded flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
+                      <FaInstagram className="w-4 h-4 text-gray-800" />
+                    </div>
+                    <span
+                      className="font-semibold underline"
+                      style={{ textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}
+                    >
+                      Instagram
+                    </span>
+                  </a>
+                </div>
               </div>
             </div>
             <div>
