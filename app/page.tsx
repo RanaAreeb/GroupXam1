@@ -815,6 +815,27 @@ export default function HomePage() {
                 Empowering students to achieve academic excellence through
                 innovative learning tools and comprehensive exam preparation.
               </p>
+              {/* Social Media Links - Moved to far left */}
+              <div className="flex gap-4 mt-4 sm:mt-6 justify-center sm:justify-start">
+                <a
+                  href="https://www.facebook.com/share/16vS1ui8oA/?mibextid=wwXIfr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-800 text-xl sm:text-2xl transition-colors"
+                  aria-label="Facebook"
+                >
+                  <FaFacebook />
+                </a>
+                <a
+                  href="https://www.instagram.com/group_xam?igsh=MW45dHZqbnNrMTk1MQ%3D%3D&utm_source=qr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-pink-500 hover:text-pink-700 text-xl sm:text-2xl transition-colors"
+                  aria-label="Instagram"
+                >
+                  <FaInstagram />
+                </a>
+              </div>
             </div>
             <div>
               <h3 className="font-semibold mb-3 sm:mb-4 text-base sm:text-lg">
@@ -936,27 +957,6 @@ export default function HomePage() {
                 </li>
               </ul>
             </div>
-          </div>
-          {/* Social Media Links */}
-          <div className="flex justify-center gap-6 mb-4">
-            <a
-              href="https://www.facebook.com/share/16vS1ui8oA/?mibextid=wwXIfr"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 hover:text-blue-800 text-2xl transition-colors"
-              aria-label="Facebook"
-            >
-              <FaFacebook />
-            </a>
-            <a
-              href="https://www.instagram.com/group_xam?igsh=MW45dHZqbnNrMTk1MQ%3D%3D&utm_source=qr"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-pink-500 hover:text-pink-700 text-2xl transition-colors"
-              aria-label="Instagram"
-            >
-              <FaInstagram />
-            </a>
           </div>
           <div className="border-t border-gray-800 pt-6 sm:pt-8 text-center text-sm sm:text-base text-gray-400">
             <p>
