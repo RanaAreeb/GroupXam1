@@ -219,6 +219,7 @@ export default function HomePage() {
 
   // Scroll functionality for feature carousel
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [currentCardIndex, setCurrentCardIndex] = useState(0);
 
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
@@ -231,6 +232,24 @@ export default function HomePage() {
       scrollContainerRef.current.scrollBy({ left: 320, behavior: "smooth" });
     }
   };
+
+  // Track scroll position for mobile dots
+  useEffect(() => {
+    const handleScroll = () => {
+      if (scrollContainerRef.current) {
+        const scrollLeft = scrollContainerRef.current.scrollLeft;
+        const cardWidth = 320; // Width of each card including gap
+        const newIndex = Math.round(scrollLeft / cardWidth);
+        setCurrentCardIndex(Math.max(0, Math.min(newIndex, 5))); // 6 cards total (0-5)
+      }
+    };
+
+    const scrollContainer = scrollContainerRef.current;
+    if (scrollContainer) {
+      scrollContainer.addEventListener("scroll", handleScroll);
+      return () => scrollContainer.removeEventListener("scroll", handleScroll);
+    }
+  }, []);
 
   return (
     <div className="min-h-screen bg-white">
@@ -625,12 +644,16 @@ export default function HomePage() {
             {/* Mobile navigation dots - Only visible on mobile */}
             <div className="flex justify-center mt-6 sm:hidden">
               <div className="flex space-x-2">
-                <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
-                <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
-                <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
-                <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
-                <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
-                <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
+                {[0, 1, 2, 3, 4, 5].map((index) => (
+                  <div
+                    key={index}
+                    className={`w-2 h-2 rounded-full transition-colors duration-300 ${
+                      currentCardIndex === index
+                        ? "bg-emerald-500"
+                        : "bg-gray-300"
+                    }`}
+                  ></div>
+                ))}
               </div>
             </div>
           </div>
