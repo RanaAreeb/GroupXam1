@@ -1,0 +1,96 @@
+{
+  "id": "history-flashcards",
+  "title": "History Flashcards",
+  "subject": "History",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "history-fundamentals",
+      "title": "History Fundamentals",
+      "cardCount": 20,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is history?",
+          "back": "The study of past events, particularly human affairs"
+        },
+        {
+          "front": "What is a primary source?",
+          "back": "A firsthand account or original document from the time period being studied"
+        },
+        {
+          "front": "What is a secondary source?",
+          "back": "An interpretation or analysis of primary sources"
+        },
+        {
+          "front": "What is archaeology?",
+          "back": "The study of human history through excavation and analysis of artifacts"
+        },
+        {
+          "front": "What is anthropology?",
+          "back": "The study of human societies and cultures"
+        },
+        {
+          "front": "What is a civilization?",
+          "back": "A complex human society with advanced social, cultural, and political organization"
+        },
+        {
+          "front": "What is an empire?",
+          "back": "A group of nations or peoples ruled by a single authority"
+        },
+        {
+          "front": "What is a dynasty?",
+          "back": "A sequence of rulers from the same family"
+        },
+        {
+          "front": "What is a revolution?",
+          "back": "A fundamental change in political power or organizational structures"
+        },
+        {
+          "front": "What is colonization?",
+          "back": "The process of establishing control over foreign territories"
+        },
+        {
+          "front": "What is imperialism?",
+          "back": "A policy of extending a country's power through diplomacy or military force"
+        },
+        {
+          "front": "What is nationalism?",
+          "back": "A strong identification with one's own nation and support for its interests"
+        },
+        {
+          "front": "What is democracy?",
+          "back": "A system of government by the whole population through elected representatives"
+        },
+        {
+          "front": "What is monarchy?",
+          "back": "A form of government with a monarch at the head"
+        },
+        {
+          "front": "What is feudalism?",
+          "back": "A medieval social system based on land ownership and loyalty"
+        },
+        {
+          "front": "What is the Industrial Revolution?",
+          "back": "A period of major industrialization and innovation in the 18th-19th centuries"
+        },
+        {
+          "front": "What is the Renaissance?",
+          "back": "A period of cultural and intellectual rebirth in Europe (14th-17th centuries)"
+        },
+        {
+          "front": "What is the Enlightenment?",
+          "back": "An intellectual movement emphasizing reason and individualism (17th-18th centuries)"
+        },
+        {
+          "front": "What is the Middle Ages?",
+          "back": "The period of European history from the 5th to the 15th century"
+        },
+        {
+          "front": "What is the Modern Era?",
+          "back": "The period of history from the 15th century to the present"
+        }
+      ]
+    }
+  ]
+}

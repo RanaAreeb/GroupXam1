@@ -1,0 +1,96 @@
+{
+  "id": "cultural-studies-flashcards",
+  "title": "Cultural Studies Flashcards",
+  "subject": "Cultural Studies",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "cultural-studies-fundamentals",
+      "title": "Cultural Studies Fundamentals",
+      "cardCount": 20,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is cultural studies?",
+          "back": "An interdisciplinary field that examines cultural practices and their social contexts"
+        },
+        {
+          "front": "What is culture?",
+          "back": "The shared beliefs, values, customs, behaviors, and artifacts of a group"
+        },
+        {
+          "front": "What is cultural identity?",
+          "back": "A person's sense of belonging to a particular cultural group"
+        },
+        {
+          "front": "What is cultural diversity?",
+          "back": "The variety of cultural groups and their differences within a society"
+        },
+        {
+          "front": "What is cultural relativism?",
+          "back": "The principle that cultural practices should be understood in their own context"
+        },
+        {
+          "front": "What is ethnocentrism?",
+          "back": "The tendency to judge other cultures by the standards of one's own culture"
+        },
+        {
+          "front": "What is cultural appropriation?",
+          "back": "The adoption of elements from another culture without understanding or respect"
+        },
+        {
+          "front": "What is cultural exchange?",
+          "back": "The sharing of cultural elements between different groups"
+        },
+        {
+          "front": "What is cultural heritage?",
+          "back": "The traditions, customs, and artifacts passed down from previous generations"
+        },
+        {
+          "front": "What is cultural capital?",
+          "back": "Non-financial social assets that promote social mobility"
+        },
+        {
+          "front": "What is popular culture?",
+          "back": "Cultural products and activities that are widely consumed by the general public"
+        },
+        {
+          "front": "What is high culture?",
+          "back": "Cultural products and activities associated with elite social groups"
+        },
+        {
+          "front": "What is mass culture?",
+          "back": "Cultural products produced for and consumed by large audiences"
+        },
+        {
+          "front": "What is subculture?",
+          "back": "A cultural group within a larger culture with distinct beliefs and practices"
+        },
+        {
+          "front": "What is counterculture?",
+          "back": "A cultural group that opposes the dominant culture"
+        },
+        {
+          "front": "What is cultural globalization?",
+          "back": "The spread of cultural elements across national boundaries"
+        },
+        {
+          "front": "What is cultural imperialism?",
+          "back": "The domination of one culture over others through economic or political power"
+        },
+        {
+          "front": "What is cultural hybridity?",
+          "back": "The mixing of different cultural elements to create new forms"
+        },
+        {
+          "front": "What is cultural memory?",
+          "back": "The shared memories and experiences that shape a group's identity"
+        },
+        {
+          "front": "What is cultural production?",
+          "back": "The creation of cultural goods, services, and meanings"
+        }
+      ]
+    }
+  ]
+}

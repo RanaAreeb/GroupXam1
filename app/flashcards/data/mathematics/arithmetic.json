@@ -1,0 +1,96 @@
+{
+  "id": "arithmetic-flashcards",
+  "title": "Arithmetic Flashcards",
+  "subject": "Arithmetic",
+  "difficulty": "Beginner",
+  "sets": [
+    {
+      "id": "arithmetic-fundamentals",
+      "title": "Arithmetic Fundamentals",
+      "cardCount": 20,
+      "difficulty": "Beginner",
+      "cards": [
+        {
+          "front": "What is arithmetic?",
+          "back": "The branch of mathematics dealing with basic operations on numbers"
+        },
+        {
+          "front": "What is addition?",
+          "back": "The process of combining numbers to find their sum"
+        },
+        {
+          "front": "What is subtraction?",
+          "back": "The process of finding the difference between two numbers"
+        },
+        {
+          "front": "What is multiplication?",
+          "back": "The process of adding a number to itself a specified number of times"
+        },
+        {
+          "front": "What is division?",
+          "back": "The process of splitting a number into equal parts"
+        },
+        {
+          "front": "What is a fraction?",
+          "back": "A number that represents part of a whole"
+        },
+        {
+          "front": "What is a decimal?",
+          "back": "A number written with a decimal point to show parts of a whole"
+        },
+        {
+          "front": "What is a percentage?",
+          "back": "A fraction with denominator 100, written with % symbol"
+        },
+        {
+          "front": "What is a ratio?",
+          "back": "A comparison of two quantities by division"
+        },
+        {
+          "front": "What is a proportion?",
+          "back": "An equation stating that two ratios are equal"
+        },
+        {
+          "front": "What is a prime number?",
+          "back": "A number greater than 1 that has no positive divisors other than 1 and itself"
+        },
+        {
+          "front": "What is a composite number?",
+          "back": "A number that has more than two positive divisors"
+        },
+        {
+          "front": "What is a factor?",
+          "back": "A number that divides another number without leaving a remainder"
+        },
+        {
+          "front": "What is a multiple?",
+          "back": "A number that is the product of a given number and an integer"
+        },
+        {
+          "front": "What is the greatest common factor (GCF)?",
+          "back": "The largest number that divides two or more numbers evenly"
+        },
+        {
+          "front": "What is the least common multiple (LCM)?",
+          "back": "The smallest number that is a multiple of two or more numbers"
+        },
+        {
+          "front": "What is an integer?",
+          "back": "A whole number (positive, negative, or zero)"
+        },
+        {
+          "front": "What is a rational number?",
+          "back": "A number that can be expressed as a fraction"
+        },
+        {
+          "front": "What is an irrational number?",
+          "back": "A number that cannot be expressed as a fraction"
+        },
+        {
+          "front": "What is absolute value?",
+          "back": "The distance of a number from zero on the number line"
+        }
+      ]
+    }
+  ]
+}

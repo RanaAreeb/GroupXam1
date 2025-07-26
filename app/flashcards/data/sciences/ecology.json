@@ -1,0 +1,96 @@
+{
+  "id": "ecology-flashcards",
+  "title": "Ecology Flashcards",
+  "subject": "Ecology",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "ecology-fundamentals",
+      "title": "Ecology Fundamentals",
+      "cardCount": 20,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is ecology?",
+          "back": "The study of interactions between organisms and their environment"
+        },
+        {
+          "front": "What is an ecosystem?",
+          "back": "A community of living organisms and their physical environment"
+        },
+        {
+          "front": "What is a population?",
+          "back": "A group of individuals of the same species in a given area"
+        },
+        {
+          "front": "What is a community?",
+          "back": "All the populations of different species in a given area"
+        },
+        {
+          "front": "What is a habitat?",
+          "back": "The natural environment where an organism lives"
+        },
+        {
+          "front": "What is a niche?",
+          "back": "The role and position of an organism in its ecosystem"
+        },
+        {
+          "front": "What is a food chain?",
+          "back": "A linear sequence showing energy transfer between organisms"
+        },
+        {
+          "front": "What is a food web?",
+          "back": "A complex network of interconnected food chains"
+        },
+        {
+          "front": "What is a producer?",
+          "back": "An organism that makes its own food through photosynthesis"
+        },
+        {
+          "front": "What is a consumer?",
+          "back": "An organism that eats other organisms for energy"
+        },
+        {
+          "front": "What is a decomposer?",
+          "back": "An organism that breaks down dead organic matter"
+        },
+        {
+          "front": "What is a herbivore?",
+          "back": "An animal that eats only plants"
+        },
+        {
+          "front": "What is a carnivore?",
+          "back": "An animal that eats only other animals"
+        },
+        {
+          "front": "What is an omnivore?",
+          "back": "An animal that eats both plants and animals"
+        },
+        {
+          "front": "What is symbiosis?",
+          "back": "A close relationship between two different species"
+        },
+        {
+          "front": "What is mutualism?",
+          "back": "A symbiotic relationship where both species benefit"
+        },
+        {
+          "front": "What is commensalism?",
+          "back": "A symbiotic relationship where one species benefits and the other is unaffected"
+        },
+        {
+          "front": "What is parasitism?",
+          "back": "A symbiotic relationship where one species benefits and the other is harmed"
+        },
+        {
+          "front": "What is competition?",
+          "back": "Interaction between organisms competing for the same resources"
+        },
+        {
+          "front": "What is predation?",
+          "back": "Interaction where one organism kills and eats another"
+        }
+      ]
+    }
+  ]
+}

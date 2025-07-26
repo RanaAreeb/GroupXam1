@@ -1,0 +1,96 @@
+{
+  "id": "pharmacology-flashcards",
+  "title": "Pharmacology Flashcards",
+  "subject": "Pharmacology",
+  "difficulty": "Advanced",
+  "sets": [
+    {
+      "id": "pharmacology-fundamentals",
+      "title": "Pharmacology Fundamentals",
+      "cardCount": 20,
+      "difficulty": "Advanced",
+      "cards": [
+        {
+          "front": "What is pharmacology?",
+          "back": "The study of drugs and their effects on living organisms"
+        },
+        {
+          "front": "What is a drug?",
+          "back": "A chemical substance that affects the body's function"
+        },
+        {
+          "front": "What is pharmacokinetics?",
+          "back": "The study of how the body processes drugs"
+        },
+        {
+          "front": "What is pharmacodynamics?",
+          "back": "The study of how drugs affect the body"
+        },
+        {
+          "front": "What is absorption?",
+          "back": "The process by which a drug enters the bloodstream"
+        },
+        {
+          "front": "What is distribution?",
+          "back": "The movement of a drug throughout the body"
+        },
+        {
+          "front": "What is metabolism?",
+          "back": "The chemical breakdown of drugs in the body"
+        },
+        {
+          "front": "What is excretion?",
+          "back": "The removal of drugs from the body"
+        },
+        {
+          "front": "What is bioavailability?",
+          "back": "The fraction of a drug that reaches the bloodstream"
+        },
+        {
+          "front": "What is half-life?",
+          "back": "The time it takes for half of a drug to be eliminated"
+        },
+        {
+          "front": "What is a therapeutic dose?",
+          "back": "The amount of drug needed to produce the desired effect"
+        },
+        {
+          "front": "What is a toxic dose?",
+          "back": "The amount of drug that causes harmful effects"
+        },
+        {
+          "front": "What is a side effect?",
+          "back": "An unintended effect of a drug"
+        },
+        {
+          "front": "What is an adverse reaction?",
+          "back": "A harmful or unwanted response to a drug"
+        },
+        {
+          "front": "What is drug interaction?",
+          "back": "When one drug affects the action of another drug"
+        },
+        {
+          "front": "What is tolerance?",
+          "back": "A decrease in response to a drug over time"
+        },
+        {
+          "front": "What is dependence?",
+          "back": "A state where the body requires a drug to function normally"
+        },
+        {
+          "front": "What is addiction?",
+          "back": "A compulsive need to use a drug despite harmful consequences"
+        },
+        {
+          "front": "What is an agonist?",
+          "back": "A drug that activates a receptor"
+        },
+        {
+          "front": "What is an antagonist?",
+          "back": "A drug that blocks a receptor"
+        }
+      ]
+    }
+  ]
+}

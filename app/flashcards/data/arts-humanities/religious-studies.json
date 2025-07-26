@@ -1,0 +1,90 @@
+{
+  "id": "religious-studies-flashcards",
+  "title": "Religious Studies Flashcards",
+  "subject": "Religious Studies",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "religious-studies-fundamentals",
+      "title": "Religious Studies Fundamentals",
+      "cardCount": 20,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is religious studies?",
+          "back": "The academic study of religion, religious beliefs, and religious practices"
+        },
+        {
+          "front": "What is religion?",
+          "back": "A system of beliefs, practices, and values concerning the sacred and divine"
+        },
+        {
+          "front": "What is theology?",
+          "back": "The study of the nature of God and religious beliefs"
+        },
+        {
+          "front": "What is spirituality?",
+          "back": "A personal sense of connection to something greater than oneself"
+        },
+        {
+          "front": "What is a deity?",
+          "back": "A god or goddess in a polytheistic religion"
+        },
+        { "front": "What is monotheism?", "back": "The belief in one God" },
+        {
+          "front": "What is polytheism?",
+          "back": "The belief in multiple gods"
+        },
+        {
+          "front": "What is atheism?",
+          "back": "The absence of belief in the existence of deities"
+        },
+        {
+          "front": "What is agnosticism?",
+          "back": "The belief that the existence of God is unknown or unknowable"
+        },
+        {
+          "front": "What is a sacred text?",
+          "back": "A religious writing considered holy or authoritative"
+        },
+        {
+          "front": "What is a ritual?",
+          "back": "A formal ceremony or act performed according to religious tradition"
+        },
+        {
+          "front": "What is a prayer?",
+          "back": "A form of communication with a deity or spiritual being"
+        },
+        {
+          "front": "What is meditation?",
+          "back": "A practice of focusing the mind for spiritual or religious purposes"
+        },
+        {
+          "front": "What is a temple?",
+          "back": "A building dedicated to religious worship"
+        },
+        {
+          "front": "What is a church?",
+          "back": "A Christian place of worship"
+        },
+        { "front": "What is a mosque?", "back": "A Muslim place of worship" },
+        {
+          "front": "What is a synagogue?",
+          "back": "A Jewish place of worship"
+        },
+        {
+          "front": "What is a pilgrimage?",
+          "back": "A journey to a sacred place for religious purposes"
+        },
+        {
+          "front": "What is a festival?",
+          "back": "A religious celebration or observance"
+        },
+        {
+          "front": "What is a denomination?",
+          "back": "A subgroup within a religion with distinct beliefs or practices"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "id": "physiology-flashcards",
+  "title": "Physiology Flashcards",
+  "subject": "Physiology",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "physiology-fundamentals",
+      "title": "Physiology Fundamentals",
+      "cardCount": 20,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is physiology?",
+          "back": "The study of how living organisms function"
+        },
+        {
+          "front": "What is homeostasis?",
+          "back": "The maintenance of a stable internal environment"
+        },
+        {
+          "front": "What is negative feedback?",
+          "back": "A control mechanism that reverses a change to maintain homeostasis"
+        },
+        {
+          "front": "What is positive feedback?",
+          "back": "A control mechanism that amplifies a change"
+        },
+        {
+          "front": "What is metabolism?",
+          "back": "The sum of all chemical reactions in the body"
+        },
+        {
+          "front": "What is anabolism?",
+          "back": "The building up of complex molecules from simpler ones"
+        },
+        {
+          "front": "What is catabolism?",
+          "back": "The breaking down of complex molecules into simpler ones"
+        },
+        {
+          "front": "What is cellular respiration?",
+          "back": "The process by which cells produce energy from glucose"
+        },
+        {
+          "front": "What is aerobic respiration?",
+          "back": "Respiration that requires oxygen"
+        },
+        {
+          "front": "What is anaerobic respiration?",
+          "back": "Respiration that does not require oxygen"
+        },
+        {
+          "front": "What is diffusion?",
+          "back": "The movement of particles from high to low concentration"
+        },
+        {
+          "front": "What is osmosis?",
+          "back": "The diffusion of water across a semipermeable membrane"
+        },
+        {
+          "front": "What is active transport?",
+          "back": "The movement of substances against a concentration gradient using energy"
+        },
+        {
+          "front": "What is passive transport?",
+          "back": "The movement of substances down a concentration gradient without energy"
+        },
+        {
+          "front": "What is a hormone?",
+          "back": "A chemical messenger that regulates body functions"
+        },
+        {
+          "front": "What is an enzyme?",
+          "back": "A protein that speeds up chemical reactions"
+        },
+        {
+          "front": "What is a substrate?",
+          "back": "The substance that an enzyme acts upon"
+        },
+        {
+          "front": "What is the active site?",
+          "back": "The region of an enzyme where the substrate binds"
+        },
+        {
+          "front": "What is denaturation?",
+          "back": "The loss of protein structure due to heat or pH changes"
+        },
+        {
+          "front": "What is pH?",
+          "back": "A measure of the acidity or basicity of a solution"
+        }
+      ]
+    }
+  ]
+}

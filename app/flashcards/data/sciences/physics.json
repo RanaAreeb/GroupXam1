@@ -1,0 +1,134 @@
+{
+  "id": "physics-flashcards",
+  "title": "Physics Flashcards",
+  "subject": "Physics",
+  "difficulty": "Beginner",
+  "sets": [
+    {
+      "id": "physics-fundamentals",
+      "title": "Physics Fundamentals",
+      "cardCount": 20,
+      "difficulty": "Beginner",
+      "cards": [
+        {
+          "front": "What is physics?",
+          "back": "The study of matter, energy, and their interactions"
+        },
+        { "front": "What is the SI unit of length?", "back": "Meter (m)" },
+        { "front": "What is the SI unit of mass?", "back": "Kilogram (kg)" },
+        { "front": "What is the SI unit of time?", "back": "Second (s)" },
+        { "front": "What is the SI unit of force?", "back": "Newton (N)" },
+        { "front": "What is the SI unit of energy?", "back": "Joule (J)" },
+        { "front": "What is the SI unit of power?", "back": "Watt (W)" },
+        { "front": "What is the SI unit of pressure?", "back": "Pascal (Pa)" },
+        {
+          "front": "What is the SI unit of temperature?",
+          "back": "Kelvin (K)"
+        },
+        {
+          "front": "What is the SI unit of electric current?",
+          "back": "Ampere (A)"
+        },
+        { "front": "What is the SI unit of voltage?", "back": "Volt (V)" },
+        { "front": "What is the SI unit of resistance?", "back": "Ohm (Ω)" },
+        { "front": "What is the SI unit of frequency?", "back": "Hertz (Hz)" },
+        { "front": "What is the SI unit of wavelength?", "back": "Meter (m)" },
+        {
+          "front": "What is the SI unit of acceleration?",
+          "back": "Meter per second squared (m/s²)"
+        },
+        {
+          "front": "What is the SI unit of velocity?",
+          "back": "Meter per second (m/s)"
+        },
+        {
+          "front": "What is the SI unit of momentum?",
+          "back": "Kilogram meter per second (kg⋅m/s)"
+        },
+        { "front": "What is the SI unit of work?", "back": "Joule (J)" },
+        { "front": "What is the SI unit of charge?", "back": "Coulomb (C)" },
+        { "front": "What is the SI unit of capacitance?", "back": "Farad (F)" }
+      ]
+    },
+    {
+      "id": "physics-mechanics",
+      "title": "Mechanics",
+      "cardCount": 18,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is Newton's First Law?",
+          "back": "An object at rest stays at rest, and an object in motion stays in motion unless acted upon by an external force"
+        },
+        {
+          "front": "What is Newton's Second Law?",
+          "back": "Force equals mass times acceleration (F = ma)"
+        },
+        {
+          "front": "What is Newton's Third Law?",
+          "back": "For every action, there is an equal and opposite reaction"
+        },
+        {
+          "front": "What is the principle of moments?",
+          "back": "For equilibrium, the sum of clockwise moments equals the sum of anticlockwise moments about any point"
+        },
+        {
+          "front": "What is the law of conservation of energy?",
+          "back": "Energy cannot be created or destroyed, only transformed from one form to another"
+        },
+        {
+          "front": "What is the law of conservation of momentum?",
+          "back": "The total momentum of a closed system remains constant"
+        },
+        {
+          "front": "What is kinetic energy?",
+          "back": "Energy possessed by an object due to its motion (KE = ½mv²)"
+        },
+        {
+          "front": "What is potential energy?",
+          "back": "Energy possessed by an object due to its position or state"
+        },
+        {
+          "front": "What is gravitational potential energy?",
+          "back": "Energy possessed by an object due to its height above a reference point (PE = mgh)"
+        },
+        {
+          "front": "What is elastic potential energy?",
+          "back": "Energy stored in a stretched or compressed elastic object"
+        },
+        {
+          "front": "What is work done?",
+          "back": "The product of force and displacement in the direction of force (W = Fs)"
+        },
+        {
+          "front": "What is power?",
+          "back": "The rate at which work is done (P = W/t)"
+        },
+        {
+          "front": "What is efficiency?",
+          "back": "The ratio of useful work output to total work input"
+        },
+        {
+          "front": "What is friction?",
+          "back": "A force that opposes the relative motion of objects in contact"
+        },
+        {
+          "front": "What is static friction?",
+          "back": "Friction that prevents an object from starting to move"
+        },
+        {
+          "front": "What is kinetic friction?",
+          "back": "Friction that acts on an object that is already moving"
+        },
+        {
+          "front": "What is the coefficient of friction?",
+          "back": "A dimensionless scalar value that describes the ratio of the force of friction between two bodies"
+        },
+        {
+          "front": "What is centripetal force?",
+          "back": "The force that keeps an object moving in a circular path"
+        }
+      ]
+    }
+  ]
+}

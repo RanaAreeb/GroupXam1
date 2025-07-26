@@ -1,0 +1,96 @@
+{
+  "id": "pythagorean-theorem-flashcards",
+  "title": "Pythagorean Theorem Flashcards",
+  "subject": "Pythagorean Theorem",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "pythagorean-fundamentals",
+      "title": "Pythagorean Theorem Fundamentals",
+      "cardCount": 20,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is the Pythagorean theorem?",
+          "back": "In a right triangle, a² + b² = c² where c is the hypotenuse"
+        },
+        {
+          "front": "What is a right triangle?",
+          "back": "A triangle with one angle measuring exactly 90 degrees"
+        },
+        {
+          "front": "What is the hypotenuse?",
+          "back": "The longest side of a right triangle, opposite the right angle"
+        },
+        {
+          "front": "What are the legs?",
+          "back": "The two shorter sides of a right triangle that form the right angle"
+        },
+        {
+          "front": "What is a Pythagorean triple?",
+          "back": "Three positive integers that satisfy the Pythagorean theorem"
+        },
+        {
+          "front": "What is the most common Pythagorean triple?",
+          "back": "3, 4, 5 (3² + 4² = 5²)"
+        },
+        {
+          "front": "What is the converse of the Pythagorean theorem?",
+          "back": "If a² + b² = c², then the triangle is a right triangle"
+        },
+        {
+          "front": "What is the distance formula?",
+          "back": "d = √[(x₂-x₁)² + (y₂-y₁)²] for finding distance between two points"
+        },
+        {
+          "front": "What is a right angle?",
+          "back": "An angle that measures exactly 90 degrees"
+        },
+        {
+          "front": "What is an acute triangle?",
+          "back": "A triangle where all angles are less than 90 degrees"
+        },
+        {
+          "front": "What is an obtuse triangle?",
+          "back": "A triangle where one angle is greater than 90 degrees"
+        },
+        {
+          "front": "What is the area of a right triangle?",
+          "back": "Area = (1/2) × base × height"
+        },
+        {
+          "front": "What is the perimeter of a right triangle?",
+          "back": "Perimeter = sum of all three sides"
+        },
+        {
+          "front": "What is a square root?",
+          "back": "A number that when multiplied by itself gives the original number"
+        },
+        {
+          "front": "What is a perfect square?",
+          "back": "A number that is the square of an integer"
+        },
+        {
+          "front": "What is the square of a number?",
+          "back": "The result of multiplying a number by itself"
+        },
+        {
+          "front": "What is a right triangle with legs 6 and 8?",
+          "back": "The hypotenuse would be 10 (6² + 8² = 10²)"
+        },
+        {
+          "front": "What is a right triangle with legs 5 and 12?",
+          "back": "The hypotenuse would be 13 (5² + 12² = 13²)"
+        },
+        {
+          "front": "What is a right triangle with legs 7 and 24?",
+          "back": "The hypotenuse would be 25 (7² + 24² = 25²)"
+        },
+        {
+          "front": "What is a right triangle with legs 8 and 15?",
+          "back": "The hypotenuse would be 17 (8² + 15² = 17²)"
+        }
+      ]
+    }
+  ]
+}

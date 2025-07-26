@@ -1,0 +1,176 @@
+{
+  "id": "macro-economics-flashcards",
+  "title": "Macro Economics Flashcards",
+  "subject": "Macro Economics",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "macro-fundamentals",
+      "title": "Macro Economics Fundamentals",
+      "cardCount": 20,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is macroeconomics?",
+          "back": "The study of the economy as a whole, including national income, employment, and inflation"
+        },
+        {
+          "front": "What is GDP?",
+          "back": "Gross Domestic Product - the total market value of all final goods and services produced in a country"
+        },
+        {
+          "front": "What is GNP?",
+          "back": "Gross National Product - GDP plus net income from abroad"
+        },
+        {
+          "front": "What is nominal GDP?",
+          "back": "GDP measured at current prices"
+        },
+        {
+          "front": "What is real GDP?",
+          "back": "GDP adjusted for inflation, measured at constant prices"
+        },
+        {
+          "front": "What is the GDP deflator?",
+          "back": "A measure of the price level used to convert nominal GDP to real GDP"
+        },
+        {
+          "front": "What is inflation?",
+          "back": "A sustained increase in the general price level of goods and services"
+        },
+        {
+          "front": "What is deflation?",
+          "back": "A sustained decrease in the general price level of goods and services"
+        },
+        {
+          "front": "What is the Consumer Price Index (CPI)?",
+          "back": "A measure of the average change in prices of consumer goods and services"
+        },
+        {
+          "front": "What is the unemployment rate?",
+          "back": "The percentage of the labor force that is unemployed"
+        },
+        {
+          "front": "What is frictional unemployment?",
+          "back": "Unemployment due to workers searching for jobs or transitioning between jobs"
+        },
+        {
+          "front": "What is structural unemployment?",
+          "back": "Unemployment due to a mismatch between skills and job requirements"
+        },
+        {
+          "front": "What is cyclical unemployment?",
+          "back": "Unemployment due to economic downturns and business cycles"
+        },
+        {
+          "front": "What is the natural rate of unemployment?",
+          "back": "The unemployment rate that exists when the economy is at full employment"
+        },
+        {
+          "front": "What is aggregate demand?",
+          "back": "The total demand for goods and services in an economy at a given price level"
+        },
+        {
+          "front": "What is aggregate supply?",
+          "back": "The total supply of goods and services in an economy at a given price level"
+        },
+        {
+          "front": "What is the business cycle?",
+          "back": "The recurring pattern of economic expansion and contraction"
+        },
+        {
+          "front": "What is a recession?",
+          "back": "A period of declining economic activity, typically defined as two consecutive quarters of negative GDP growth"
+        },
+        {
+          "front": "What is a depression?",
+          "back": "A severe and prolonged recession"
+        },
+        {
+          "front": "What is economic growth?",
+          "back": "An increase in real GDP over time"
+        }
+      ]
+    },
+    {
+      "id": "macro-policy",
+      "title": "Economic Policy",
+      "cardCount": 18,
+      "difficulty": "Advanced",
+      "cards": [
+        {
+          "front": "What is fiscal policy?",
+          "back": "Government policy regarding taxation and spending to influence the economy"
+        },
+        {
+          "front": "What is monetary policy?",
+          "back": "Central bank policy regarding money supply and interest rates to influence the economy"
+        },
+        {
+          "front": "What is expansionary fiscal policy?",
+          "back": "Increasing government spending or decreasing taxes to stimulate the economy"
+        },
+        {
+          "front": "What is contractionary fiscal policy?",
+          "back": "Decreasing government spending or increasing taxes to slow down the economy"
+        },
+        {
+          "front": "What is expansionary monetary policy?",
+          "back": "Increasing money supply or decreasing interest rates to stimulate the economy"
+        },
+        {
+          "front": "What is contractionary monetary policy?",
+          "back": "Decreasing money supply or increasing interest rates to slow down the economy"
+        },
+        {
+          "front": "What is the multiplier effect?",
+          "back": "The magnified effect of an initial change in spending on total output"
+        },
+        {
+          "front": "What is the crowding out effect?",
+          "back": "When government spending reduces private investment"
+        },
+        {
+          "front": "What is the Phillips Curve?",
+          "back": "The inverse relationship between unemployment and inflation"
+        },
+        {
+          "front": "What is stagflation?",
+          "back": "A situation of high inflation and high unemployment occurring simultaneously"
+        },
+        {
+          "front": "What is the money supply?",
+          "back": "The total amount of money in circulation in an economy"
+        },
+        {
+          "front": "What is the velocity of money?",
+          "back": "The rate at which money circulates in the economy"
+        },
+        {
+          "front": "What is the quantity theory of money?",
+          "back": "MV = PY (Money supply × Velocity = Price level × Real GDP)"
+        },
+        {
+          "front": "What is the exchange rate?",
+          "back": "The price of one currency in terms of another currency"
+        },
+        {
+          "front": "What is a trade deficit?",
+          "back": "When imports exceed exports"
+        },
+        {
+          "front": "What is a trade surplus?",
+          "back": "When exports exceed imports"
+        },
+        {
+          "front": "What is comparative advantage?",
+          "back": "The ability to produce a good at a lower opportunity cost than another country"
+        },
+        {
+          "front": "What is absolute advantage?",
+          "back": "The ability to produce more of a good with the same resources than another country"
+        }
+      ]
+    }
+  ]
+}

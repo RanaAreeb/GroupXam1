@@ -1,0 +1,96 @@
+{
+  "id": "foreign-languages-flashcards",
+  "title": "Foreign Languages Flashcards",
+  "subject": "Foreign Languages",
+  "difficulty": "Beginner",
+  "sets": [
+    {
+      "id": "foreign-languages-fundamentals",
+      "title": "Foreign Languages Fundamentals",
+      "cardCount": 20,
+      "difficulty": "Beginner",
+      "cards": [
+        {
+          "front": "What is a foreign language?",
+          "back": "A language that is not the native language of a person or region"
+        },
+        {
+          "front": "What is a native language?",
+          "back": "The first language a person learns from birth"
+        },
+        {
+          "front": "What is a second language?",
+          "back": "A language learned after the native language"
+        },
+        {
+          "front": "What is bilingualism?",
+          "back": "The ability to speak two languages fluently"
+        },
+        {
+          "front": "What is multilingualism?",
+          "back": "The ability to speak multiple languages"
+        },
+        {
+          "front": "What is grammar?",
+          "back": "The rules that govern the structure of a language"
+        },
+        {
+          "front": "What is vocabulary?",
+          "back": "The words known and used by a person"
+        },
+        {
+          "front": "What is pronunciation?",
+          "back": "The way words are spoken or articulated"
+        },
+        {
+          "front": "What is a dialect?",
+          "back": "A regional variety of a language with distinct features"
+        },
+        {
+          "front": "What is an accent?",
+          "back": "The way a person pronounces words based on their native language"
+        },
+        {
+          "front": "What is a cognate?",
+          "back": "A word that has a similar form and meaning in different languages"
+        },
+        {
+          "front": "What is a false cognate?",
+          "back": "A word that looks similar but has different meanings in different languages"
+        },
+        {
+          "front": "What is translation?",
+          "back": "The process of converting text from one language to another"
+        },
+        {
+          "front": "What is interpretation?",
+          "back": "The oral translation of speech from one language to another"
+        },
+        {
+          "front": "What is a verb?",
+          "back": "A word that describes an action, state, or occurrence"
+        },
+        {
+          "front": "What is a noun?",
+          "back": "A word that names a person, place, thing, or idea"
+        },
+        {
+          "front": "What is an adjective?",
+          "back": "A word that describes a noun or pronoun"
+        },
+        {
+          "front": "What is an adverb?",
+          "back": "A word that describes a verb, adjective, or other adverb"
+        },
+        {
+          "front": "What is conjugation?",
+          "back": "The variation of verb forms to express different grammatical categories"
+        },
+        {
+          "front": "What is declension?",
+          "back": "The variation of noun, pronoun, and adjective forms"
+        }
+      ]
+    }
+  ]
+}

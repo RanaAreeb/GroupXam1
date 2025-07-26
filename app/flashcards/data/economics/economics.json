@@ -1,0 +1,176 @@
+{
+  "id": "economics-flashcards",
+  "title": "Economics Flashcards",
+  "subject": "Economics",
+  "difficulty": "Beginner",
+  "sets": [
+    {
+      "id": "economics-fundamentals",
+      "title": "Economics Fundamentals",
+      "cardCount": 20,
+      "difficulty": "Beginner",
+      "cards": [
+        {
+          "front": "What is the basic economic problem?",
+          "back": "Scarcity - unlimited wants but limited resources"
+        },
+        {
+          "front": "What are the four factors of production?",
+          "back": "Land, Labor, Capital, and Entrepreneurship"
+        },
+        {
+          "front": "What is opportunity cost?",
+          "back": "The value of the next best alternative that is forgone"
+        },
+        {
+          "front": "What is supply?",
+          "back": "The quantity of a good that producers are willing to sell at various prices"
+        },
+        {
+          "front": "What is demand?",
+          "back": "The quantity of a good that consumers are willing to buy at various prices"
+        },
+        {
+          "front": "What is the law of supply?",
+          "back": "As price increases, quantity supplied increases (ceteris paribus)"
+        },
+        {
+          "front": "What is the law of demand?",
+          "back": "As price increases, quantity demanded decreases (ceteris paribus)"
+        },
+        {
+          "front": "What is equilibrium price?",
+          "back": "The price at which quantity supplied equals quantity demanded"
+        },
+        {
+          "front": "What is a market?",
+          "back": "A place where buyers and sellers interact to exchange goods and services"
+        },
+        {
+          "front": "What is inflation?",
+          "back": "A sustained increase in the general price level of goods and services"
+        },
+        {
+          "front": "What is deflation?",
+          "back": "A sustained decrease in the general price level of goods and services"
+        },
+        {
+          "front": "What is GDP?",
+          "back": "Gross Domestic Product - the total value of goods and services produced in a country"
+        },
+        {
+          "front": "What is unemployment?",
+          "back": "The state of being without a job but actively seeking employment"
+        },
+        {
+          "front": "What is a monopoly?",
+          "back": "A market structure with only one seller of a particular good or service"
+        },
+        {
+          "front": "What is perfect competition?",
+          "back": "A market structure with many buyers and sellers of identical products"
+        },
+        {
+          "front": "What is elasticity?",
+          "back": "The responsiveness of quantity demanded or supplied to changes in price"
+        },
+        {
+          "front": "What is a subsidy?",
+          "back": "A payment from the government to producers to encourage production"
+        },
+        {
+          "front": "What is a tax?",
+          "back": "A compulsory payment to the government"
+        },
+        {
+          "front": "What is a tariff?",
+          "back": "A tax on imported goods"
+        },
+        {
+          "front": "What is a quota?",
+          "back": "A limit on the quantity of a good that can be imported"
+        }
+      ]
+    },
+    {
+      "id": "economics-micro",
+      "title": "Microeconomics",
+      "cardCount": 18,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is marginal cost?",
+          "back": "The additional cost of producing one more unit of output"
+        },
+        {
+          "front": "What is marginal revenue?",
+          "back": "The additional revenue from selling one more unit of output"
+        },
+        {
+          "front": "What is marginal utility?",
+          "back": "The additional satisfaction from consuming one more unit of a good"
+        },
+        {
+          "front": "What is diminishing marginal utility?",
+          "back": "As consumption increases, the additional utility from each unit decreases"
+        },
+        {
+          "front": "What is a price ceiling?",
+          "back": "A maximum price set by the government below the equilibrium price"
+        },
+        {
+          "front": "What is a price floor?",
+          "back": "A minimum price set by the government above the equilibrium price"
+        },
+        {
+          "front": "What is consumer surplus?",
+          "back": "The difference between what consumers are willing to pay and what they actually pay"
+        },
+        {
+          "front": "What is producer surplus?",
+          "back": "The difference between what producers receive and what they are willing to accept"
+        },
+        {
+          "front": "What is deadweight loss?",
+          "back": "The loss of economic efficiency due to market intervention"
+        },
+        {
+          "front": "What is a normal good?",
+          "back": "A good whose demand increases when income increases"
+        },
+        {
+          "front": "What is an inferior good?",
+          "back": "A good whose demand decreases when income increases"
+        },
+        {
+          "front": "What are substitute goods?",
+          "back": "Goods that can be used in place of each other"
+        },
+        {
+          "front": "What are complementary goods?",
+          "back": "Goods that are used together"
+        },
+        {
+          "front": "What is economies of scale?",
+          "back": "Cost advantages that arise from increased production"
+        },
+        {
+          "front": "What is diseconomies of scale?",
+          "back": "Cost disadvantages that arise from increased production"
+        },
+        {
+          "front": "What is a cartel?",
+          "back": "A group of firms that agree to coordinate their production and pricing"
+        },
+        {
+          "front": "What is price discrimination?",
+          "back": "Charging different prices to different customers for the same product"
+        },
+        {
+          "front": "What is a public good?",
+          "back": "A good that is non-excludable and non-rivalrous"
+        }
+      ]
+    }
+  ]
+}

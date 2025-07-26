@@ -1,0 +1,176 @@
+{
+  "id": "political-science-flashcards",
+  "title": "Political Science Flashcards",
+  "subject": "Political Science",
+  "difficulty": "Beginner",
+  "sets": [
+    {
+      "id": "political-fundamentals",
+      "title": "Political Science Fundamentals",
+      "cardCount": 20,
+      "difficulty": "Beginner",
+      "cards": [
+        {
+          "front": "What is political science?",
+          "back": "The study of politics, government, and political behavior"
+        },
+        {
+          "front": "What is politics?",
+          "back": "The process of making decisions that apply to members of a group"
+        },
+        {
+          "front": "What is government?",
+          "back": "The system or group of people governing an organized community"
+        },
+        {
+          "front": "What is democracy?",
+          "back": "A system of government where power comes from the people"
+        },
+        {
+          "front": "What is a republic?",
+          "back": "A form of government where power is held by the people and their elected representatives"
+        },
+        {
+          "front": "What is a monarchy?",
+          "back": "A form of government where power is held by a single ruler, usually a king or queen"
+        },
+        {
+          "front": "What is an oligarchy?",
+          "back": "A form of government where power is held by a small group of people"
+        },
+        {
+          "front": "What is a dictatorship?",
+          "back": "A form of government where power is held by one person with absolute authority"
+        },
+        {
+          "front": "What is the separation of powers?",
+          "back": "The division of government into executive, legislative, and judicial branches"
+        },
+        {
+          "front": "What is checks and balances?",
+          "back": "A system where each branch of government can limit the power of other branches"
+        },
+        {
+          "front": "What is federalism?",
+          "back": "A system of government where power is divided between central and regional governments"
+        },
+        {
+          "front": "What is a constitution?",
+          "back": "A written document that establishes the fundamental principles of government"
+        },
+        {
+          "front": "What is civil rights?",
+          "back": "Rights that protect individuals from discrimination and ensure equal treatment"
+        },
+        {
+          "front": "What is civil liberties?",
+          "back": "Basic freedoms guaranteed by law, such as freedom of speech and religion"
+        },
+        {
+          "front": "What is political ideology?",
+          "back": "A set of beliefs about how society should be organized and governed"
+        },
+        {
+          "front": "What is liberalism?",
+          "back": "A political ideology emphasizing individual rights, equality, and limited government"
+        },
+        {
+          "front": "What is conservatism?",
+          "back": "A political ideology emphasizing tradition, order, and limited government intervention"
+        },
+        {
+          "front": "What is socialism?",
+          "back": "A political ideology emphasizing collective ownership and social equality"
+        },
+        {
+          "front": "What is nationalism?",
+          "back": "A political ideology emphasizing loyalty to one's nation"
+        },
+        {
+          "front": "What is international relations?",
+          "back": "The study of relationships between countries and international organizations"
+        }
+      ]
+    },
+    {
+      "id": "political-systems",
+      "title": "Political Systems",
+      "cardCount": 18,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is a parliamentary system?",
+          "back": "A system where the executive branch derives its legitimacy from the legislature"
+        },
+        {
+          "front": "What is a presidential system?",
+          "back": "A system where the executive branch is separate from and independent of the legislature"
+        },
+        {
+          "front": "What is proportional representation?",
+          "back": "An electoral system where seats are allocated based on the proportion of votes received"
+        },
+        {
+          "front": "What is first-past-the-post?",
+          "back": "An electoral system where the candidate with the most votes wins"
+        },
+        {
+          "front": "What is a coalition government?",
+          "back": "A government formed by multiple political parties working together"
+        },
+        {
+          "front": "What is a two-party system?",
+          "back": "A political system dominated by two major political parties"
+        },
+        {
+          "front": "What is a multi-party system?",
+          "back": "A political system with multiple political parties competing for power"
+        },
+        {
+          "front": "What is lobbying?",
+          "back": "The practice of influencing government decisions through direct contact with officials"
+        },
+        {
+          "front": "What is interest groups?",
+          "back": "Organizations that seek to influence government policy on specific issues"
+        },
+        {
+          "front": "What is political participation?",
+          "back": "Activities that citizens engage in to influence government decisions"
+        },
+        {
+          "front": "What is voter turnout?",
+          "back": "The percentage of eligible voters who actually vote in an election"
+        },
+        {
+          "front": "What is political socialization?",
+          "back": "The process by which individuals learn political attitudes and behaviors"
+        },
+        {
+          "front": "What is public opinion?",
+          "back": "The collective attitudes and beliefs of the public on political issues"
+        },
+        {
+          "front": "What is political culture?",
+          "back": "The shared beliefs, values, and attitudes about politics in a society"
+        },
+        {
+          "front": "What is political economy?",
+          "back": "The study of the relationship between politics and economics"
+        },
+        {
+          "front": "What is comparative politics?",
+          "back": "The study of different political systems and their similarities and differences"
+        },
+        {
+          "front": "What is political theory?",
+          "back": "The study of fundamental questions about politics, justice, and power"
+        },
+        {
+          "front": "What is public policy?",
+          "back": "The decisions and actions taken by government to address public problems"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "id": "creative-writing-flashcards",
+  "title": "Creative Writing Flashcards",
+  "subject": "Creative Writing",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "creative-writing-fundamentals",
+      "title": "Creative Writing Fundamentals",
+      "cardCount": 20,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is creative writing?",
+          "back": "Writing that expresses thoughts, feelings, and emotions in an imaginative way"
+        },
+        {
+          "front": "What is fiction?",
+          "back": "Writing that describes imaginary events and people"
+        },
+        {
+          "front": "What is non-fiction?",
+          "back": "Writing that deals with facts and real events"
+        },
+        {
+          "front": "What is poetry?",
+          "back": "Literary work that uses rhythm, imagery, and figurative language"
+        },
+        {
+          "front": "What is prose?",
+          "back": "Written language in its ordinary form, without metrical structure"
+        },
+        {
+          "front": "What is a short story?",
+          "back": "A brief fictional narrative in prose"
+        },
+        {
+          "front": "What is a novel?",
+          "back": "A long fictional narrative in prose"
+        },
+        {
+          "front": "What is a memoir?",
+          "back": "A narrative of personal experiences and memories"
+        },
+        {
+          "front": "What is an essay?",
+          "back": "A short piece of writing on a particular subject"
+        },
+        {
+          "front": "What is a screenplay?",
+          "back": "A script for a film or television show"
+        },
+        {
+          "front": "What is a play?",
+          "back": "A dramatic work intended for theatrical performance"
+        },
+        {
+          "front": "What is a character?",
+          "back": "A person or being in a story"
+        },
+        {
+          "front": "What is dialogue?",
+          "back": "Conversation between characters in a story"
+        },
+        {
+          "front": "What is setting?",
+          "back": "The time and place where a story takes place"
+        },
+        {
+          "front": "What is plot?",
+          "back": "The sequence of events that make up a story"
+        },
+        {
+          "front": "What is conflict?",
+          "back": "A struggle between opposing forces in a story"
+        },
+        {
+          "front": "What is theme?",
+          "back": "The central message or meaning of a literary work"
+        },
+        {
+          "front": "What is point of view?",
+          "back": "The perspective from which a story is told"
+        },
+        {
+          "front": "What is imagery?",
+          "back": "Descriptive language that appeals to the senses"
+        },
+        {
+          "front": "What is symbolism?",
+          "back": "The use of objects or actions to represent abstract ideas"
+        }
+      ]
+    }
+  ]
+}

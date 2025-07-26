@@ -1,0 +1,96 @@
+{
+  "id": "calculus-flashcards",
+  "title": "Calculus Flashcards",
+  "subject": "Calculus",
+  "difficulty": "Advanced",
+  "sets": [
+    {
+      "id": "calculus-fundamentals",
+      "title": "Calculus Fundamentals",
+      "cardCount": 20,
+      "difficulty": "Advanced",
+      "cards": [
+        {
+          "front": "What is calculus?",
+          "back": "A branch of mathematics that deals with continuous change"
+        },
+        {
+          "front": "What is a limit?",
+          "back": "The value that a function approaches as the input approaches a certain value"
+        },
+        {
+          "front": "What is a derivative?",
+          "back": "The rate of change of a function at a given point"
+        },
+        {
+          "front": "What is an integral?",
+          "back": "The area under a curve or the accumulation of change"
+        },
+        {
+          "front": "What is differentiation?",
+          "back": "The process of finding the derivative of a function"
+        },
+        {
+          "front": "What is integration?",
+          "back": "The process of finding the integral of a function"
+        },
+        {
+          "front": "What is a tangent line?",
+          "back": "A line that touches a curve at exactly one point"
+        },
+        {
+          "front": "What is instantaneous rate of change?",
+          "back": "The rate of change at a specific point in time"
+        },
+        {
+          "front": "What is average rate of change?",
+          "back": "The change in y divided by the change in x over an interval"
+        },
+        {
+          "front": "What is the chain rule?",
+          "back": "A rule for finding the derivative of composite functions"
+        },
+        {
+          "front": "What is the product rule?",
+          "back": "A rule for finding the derivative of the product of two functions"
+        },
+        {
+          "front": "What is the quotient rule?",
+          "back": "A rule for finding the derivative of the quotient of two functions"
+        },
+        {
+          "front": "What is a critical point?",
+          "back": "A point where the derivative is zero or undefined"
+        },
+        {
+          "front": "What is a local maximum?",
+          "back": "The highest point in a small region around a point"
+        },
+        {
+          "front": "What is a local minimum?",
+          "back": "The lowest point in a small region around a point"
+        },
+        {
+          "front": "What is an inflection point?",
+          "back": "A point where the concavity of a function changes"
+        },
+        {
+          "front": "What is concavity?",
+          "back": "The direction in which a curve bends"
+        },
+        {
+          "front": "What is the fundamental theorem of calculus?",
+          "back": "The relationship between differentiation and integration"
+        },
+        {
+          "front": "What is a definite integral?",
+          "back": "An integral with specific limits of integration"
+        },
+        {
+          "front": "What is an indefinite integral?",
+          "back": "An integral without specific limits (includes + C)"
+        }
+      ]
+    }
+  ]
+}

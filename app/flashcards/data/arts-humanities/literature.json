@@ -1,0 +1,96 @@
+{
+  "id": "literature-flashcards",
+  "title": "Literature Flashcards",
+  "subject": "Literature",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "literature-fundamentals",
+      "title": "Literature Fundamentals",
+      "cardCount": 20,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is literature?",
+          "back": "Written works, especially those considered to have artistic or intellectual value"
+        },
+        {
+          "front": "What is fiction?",
+          "back": "Literature that describes imaginary events and people"
+        },
+        {
+          "front": "What is non-fiction?",
+          "back": "Literature that deals with facts and real events"
+        },
+        {
+          "front": "What is poetry?",
+          "back": "Literary work that uses rhythm, imagery, and figurative language"
+        },
+        {
+          "front": "What is prose?",
+          "back": "Written language in its ordinary form, without metrical structure"
+        },
+        {
+          "front": "What is a novel?",
+          "back": "A long fictional narrative in prose"
+        },
+        {
+          "front": "What is a short story?",
+          "back": "A brief fictional narrative in prose"
+        },
+        {
+          "front": "What is a drama?",
+          "back": "Literature intended for performance on stage"
+        },
+        {
+          "front": "What is a play?",
+          "back": "A dramatic work intended for theatrical performance"
+        },
+        {
+          "front": "What is a sonnet?",
+          "back": "A 14-line poem with a specific rhyme scheme"
+        },
+        {
+          "front": "What is a metaphor?",
+          "back": "A figure of speech that compares two things without using 'like' or 'as'"
+        },
+        {
+          "front": "What is a simile?",
+          "back": "A figure of speech that compares two things using 'like' or 'as'"
+        },
+        {
+          "front": "What is personification?",
+          "back": "Giving human qualities to non-human objects or ideas"
+        },
+        {
+          "front": "What is alliteration?",
+          "back": "The repetition of initial consonant sounds in words"
+        },
+        {
+          "front": "What is onomatopoeia?",
+          "back": "Words that imitate the sounds they describe"
+        },
+        {
+          "front": "What is a protagonist?",
+          "back": "The main character in a literary work"
+        },
+        {
+          "front": "What is an antagonist?",
+          "back": "The character who opposes the protagonist"
+        },
+        {
+          "front": "What is setting?",
+          "back": "The time and place where a story takes place"
+        },
+        {
+          "front": "What is plot?",
+          "back": "The sequence of events that make up a story"
+        },
+        {
+          "front": "What is theme?",
+          "back": "The central message or meaning of a literary work"
+        }
+      ]
+    }
+  ]
+}

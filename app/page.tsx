@@ -693,7 +693,7 @@ export default function HomePage() {
               asChild
               className="bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-bold text-lg px-8 py-3 rounded-full shadow-xl animate-fade-in"
             >
-              <Link href="/testimonials">Read & Share Testimonials</Link>
+              <Link href="/testimonials">Share Testimonials</Link>
             </Button>
           </div>
           {/* Marquee Train Animation */}

@@ -1,0 +1,96 @@
+{
+  "id": "music-theory-flashcards",
+  "title": "Music Theory Flashcards",
+  "subject": "Music Theory",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "music-theory-fundamentals",
+      "title": "Music Theory Fundamentals",
+      "cardCount": 20,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is music theory?",
+          "back": "The study of the practices and possibilities of music"
+        },
+        {
+          "front": "What is a note?",
+          "back": "A symbol representing a musical sound with a specific pitch"
+        },
+        {
+          "front": "What is pitch?",
+          "back": "The highness or lowness of a sound"
+        },
+        {
+          "front": "What is rhythm?",
+          "back": "The pattern of sounds and silences in music"
+        },
+        {
+          "front": "What is tempo?",
+          "back": "The speed or pace of a piece of music"
+        },
+        {
+          "front": "What is a scale?",
+          "back": "A series of notes arranged in ascending or descending order"
+        },
+        {
+          "front": "What is a chord?",
+          "back": "Three or more notes played simultaneously"
+        },
+        {
+          "front": "What is a melody?",
+          "back": "A sequence of single notes that form a musical line"
+        },
+        {
+          "front": "What is harmony?",
+          "back": "The combination of different musical notes played simultaneously"
+        },
+        {
+          "front": "What is a key signature?",
+          "back": "Sharps or flats at the beginning of a staff indicating the key"
+        },
+        {
+          "front": "What is a time signature?",
+          "back": "A notation indicating the number of beats per measure"
+        },
+        {
+          "front": "What is a measure?",
+          "back": "A segment of time containing a specific number of beats"
+        },
+        {
+          "front": "What is a rest?",
+          "back": "A symbol indicating silence for a specific duration"
+        },
+        {
+          "front": "What is dynamics?",
+          "back": "The volume or intensity of sound in music"
+        },
+        {
+          "front": "What is articulation?",
+          "back": "How notes are played or sung (staccato, legato, etc.)"
+        },
+        {
+          "front": "What is a major scale?",
+          "back": "A scale with a specific pattern of whole and half steps"
+        },
+        {
+          "front": "What is a minor scale?",
+          "back": "A scale with a different pattern than the major scale"
+        },
+        {
+          "front": "What is a triad?",
+          "back": "A chord consisting of three notes (root, third, fifth)"
+        },
+        {
+          "front": "What is an interval?",
+          "back": "The distance between two notes"
+        },
+        {
+          "front": "What is a cadence?",
+          "back": "A sequence of chords that brings a musical phrase to a conclusion"
+        }
+      ]
+    }
+  ]
+}

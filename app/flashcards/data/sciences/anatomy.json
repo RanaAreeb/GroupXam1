@@ -1,0 +1,96 @@
+{
+  "id": "anatomy-flashcards",
+  "title": "Anatomy Flashcards",
+  "subject": "Anatomy",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "anatomy-fundamentals",
+      "title": "Anatomy Fundamentals",
+      "cardCount": 20,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is anatomy?",
+          "back": "The study of the structure and organization of living things"
+        },
+        {
+          "front": "What is gross anatomy?",
+          "back": "The study of structures visible to the naked eye"
+        },
+        {
+          "front": "What is microscopic anatomy?",
+          "back": "The study of structures too small to see without a microscope"
+        },
+        {
+          "front": "What is the axial skeleton?",
+          "back": "The central part of the skeleton including skull, spine, and rib cage"
+        },
+        {
+          "front": "What is the appendicular skeleton?",
+          "back": "The bones of the limbs and their attachments"
+        },
+        {
+          "front": "What is a joint?",
+          "back": "A point where two or more bones meet"
+        },
+        {
+          "front": "What is a ligament?",
+          "back": "A band of connective tissue that connects bones to bones"
+        },
+        {
+          "front": "What is a tendon?",
+          "back": "A band of connective tissue that connects muscle to bone"
+        },
+        {
+          "front": "What is a muscle?",
+          "back": "A tissue that contracts to produce movement"
+        },
+        {
+          "front": "What is a nerve?",
+          "back": "A bundle of nerve fibers that transmit signals"
+        },
+        {
+          "front": "What is a blood vessel?",
+          "back": "A tube that carries blood throughout the body"
+        },
+        {
+          "front": "What is an artery?",
+          "back": "A blood vessel that carries blood away from the heart"
+        },
+        {
+          "front": "What is a vein?",
+          "back": "A blood vessel that carries blood toward the heart"
+        },
+        {
+          "front": "What is a capillary?",
+          "back": "A tiny blood vessel that connects arteries and veins"
+        },
+        {
+          "front": "What is an organ?",
+          "back": "A structure made of different tissues that performs a specific function"
+        },
+        {
+          "front": "What is a tissue?",
+          "back": "A group of similar cells that work together"
+        },
+        {
+          "front": "What is epithelial tissue?",
+          "back": "Tissue that covers surfaces and lines cavities"
+        },
+        {
+          "front": "What is connective tissue?",
+          "back": "Tissue that supports and connects other tissues"
+        },
+        {
+          "front": "What is muscle tissue?",
+          "back": "Tissue that contracts to produce movement"
+        },
+        {
+          "front": "What is nervous tissue?",
+          "back": "Tissue that transmits electrical signals"
+        }
+      ]
+    }
+  ]
+}

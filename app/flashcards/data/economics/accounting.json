@@ -1,0 +1,176 @@
+{
+  "id": "accounting-flashcards",
+  "title": "Accounting Flashcards",
+  "subject": "Accounting",
+  "difficulty": "Beginner",
+  "sets": [
+    {
+      "id": "accounting-fundamentals",
+      "title": "Accounting Fundamentals",
+      "cardCount": 20,
+      "difficulty": "Beginner",
+      "cards": [
+        {
+          "front": "What is accounting?",
+          "back": "The process of recording, classifying, and summarizing financial transactions"
+        },
+        {
+          "front": "What is the accounting equation?",
+          "back": "Assets = Liabilities + Owner's Equity"
+        },
+        {
+          "front": "What are assets?",
+          "back": "Resources owned by a business that have economic value"
+        },
+        {
+          "front": "What are liabilities?",
+          "back": "Obligations or debts owed by a business to others"
+        },
+        {
+          "front": "What is owner's equity?",
+          "back": "The owner's claim on the assets of the business"
+        },
+        {
+          "front": "What is revenue?",
+          "back": "Income earned from business activities"
+        },
+        {
+          "front": "What are expenses?",
+          "back": "Costs incurred in earning revenue"
+        },
+        {
+          "front": "What is net income?",
+          "back": "Revenue minus expenses"
+        },
+        {
+          "front": "What is a balance sheet?",
+          "back": "A financial statement showing assets, liabilities, and equity at a point in time"
+        },
+        {
+          "front": "What is an income statement?",
+          "back": "A financial statement showing revenue, expenses, and net income over a period"
+        },
+        {
+          "front": "What is a cash flow statement?",
+          "back": "A financial statement showing cash inflows and outflows"
+        },
+        {
+          "front": "What is double-entry bookkeeping?",
+          "back": "A system where every transaction affects at least two accounts"
+        },
+        {
+          "front": "What is a debit?",
+          "back": "An entry on the left side of an account"
+        },
+        {
+          "front": "What is a credit?",
+          "back": "An entry on the right side of an account"
+        },
+        {
+          "front": "What is a journal?",
+          "back": "A chronological record of business transactions"
+        },
+        {
+          "front": "What is a ledger?",
+          "back": "A collection of accounts showing the effects of transactions"
+        },
+        {
+          "front": "What is a trial balance?",
+          "back": "A list of all accounts and their balances to check for errors"
+        },
+        {
+          "front": "What is depreciation?",
+          "back": "The allocation of the cost of a long-term asset over its useful life"
+        },
+        {
+          "front": "What is an accrual?",
+          "back": "Revenue earned or expenses incurred but not yet recorded"
+        },
+        {
+          "front": "What is a prepayment?",
+          "back": "Payment made in advance for goods or services"
+        }
+      ]
+    },
+    {
+      "id": "accounting-advanced",
+      "title": "Advanced Accounting",
+      "cardCount": 18,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is GAAP?",
+          "back": "Generally Accepted Accounting Principles - standard accounting rules"
+        },
+        {
+          "front": "What is the matching principle?",
+          "back": "Expenses should be recorded in the same period as the revenue they help generate"
+        },
+        {
+          "front": "What is the revenue recognition principle?",
+          "back": "Revenue should be recorded when it is earned, not when cash is received"
+        },
+        {
+          "front": "What is the cost principle?",
+          "back": "Assets should be recorded at their original cost"
+        },
+        {
+          "front": "What is the going concern principle?",
+          "back": "The assumption that a business will continue operating indefinitely"
+        },
+        {
+          "front": "What is the consistency principle?",
+          "back": "Accounting methods should be consistent from period to period"
+        },
+        {
+          "front": "What is the materiality principle?",
+          "back": "Only significant items should be reported in financial statements"
+        },
+        {
+          "front": "What is the conservatism principle?",
+          "back": "When in doubt, choose the option that results in lower assets and income"
+        },
+        {
+          "front": "What is a current asset?",
+          "back": "An asset expected to be converted to cash within one year"
+        },
+        {
+          "front": "What is a fixed asset?",
+          "back": "A long-term asset used in business operations"
+        },
+        {
+          "front": "What is a current liability?",
+          "back": "A debt that must be paid within one year"
+        },
+        {
+          "front": "What is a long-term liability?",
+          "back": "A debt that will be paid over more than one year"
+        },
+        {
+          "front": "What is working capital?",
+          "back": "Current assets minus current liabilities"
+        },
+        {
+          "front": "What is the current ratio?",
+          "back": "Current assets divided by current liabilities"
+        },
+        {
+          "front": "What is the debt-to-equity ratio?",
+          "back": "Total liabilities divided by total equity"
+        },
+        {
+          "front": "What is return on assets (ROA)?",
+          "back": "Net income divided by average total assets"
+        },
+        {
+          "front": "What is return on equity (ROE)?",
+          "back": "Net income divided by average total equity"
+        },
+        {
+          "front": "What is gross profit margin?",
+          "back": "Gross profit divided by revenue"
+        }
+      ]
+    }
+  ]
+}

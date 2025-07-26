@@ -1,0 +1,176 @@
+{
+  "id": "biology-flashcards",
+  "title": "Biology Flashcards",
+  "subject": "Biology",
+  "difficulty": "Beginner",
+  "sets": [
+    {
+      "id": "biology-fundamentals",
+      "title": "Biology Fundamentals",
+      "cardCount": 20,
+      "difficulty": "Beginner",
+      "cards": [
+        {
+          "front": "What is biology?",
+          "back": "The study of living organisms and their interactions with each other and their environment"
+        },
+        {
+          "front": "What is a cell?",
+          "back": "The basic unit of life and the smallest unit that can carry out all life processes"
+        },
+        {
+          "front": "What is the cell theory?",
+          "back": "All living things are made of cells, cells are the basic unit of life, and all cells come from pre-existing cells"
+        },
+        {
+          "front": "What is a prokaryotic cell?",
+          "back": "A cell without a nucleus or membrane-bound organelles"
+        },
+        {
+          "front": "What is a eukaryotic cell?",
+          "back": "A cell with a nucleus and membrane-bound organelles"
+        },
+        {
+          "front": "What is the nucleus?",
+          "back": "The control center of the cell that contains genetic material"
+        },
+        {
+          "front": "What is the cytoplasm?",
+          "back": "The gel-like substance that fills the cell and contains organelles"
+        },
+        {
+          "front": "What is the cell membrane?",
+          "back": "A thin barrier that surrounds the cell and controls what enters and exits"
+        },
+        {
+          "front": "What is the cell wall?",
+          "back": "A rigid outer layer that provides support and protection (found in plants)"
+        },
+        {
+          "front": "What are mitochondria?",
+          "back": "Organelles that produce energy for the cell through cellular respiration"
+        },
+        {
+          "front": "What are chloroplasts?",
+          "back": "Organelles that capture light energy and convert it to chemical energy (found in plants)"
+        },
+        {
+          "front": "What is DNA?",
+          "back": "Deoxyribonucleic acid - the genetic material that carries hereditary information"
+        },
+        {
+          "front": "What is RNA?",
+          "back": "Ribonucleic acid - a molecule that helps in protein synthesis"
+        },
+        {
+          "front": "What is a gene?",
+          "back": "A segment of DNA that codes for a specific protein or trait"
+        },
+        {
+          "front": "What is a chromosome?",
+          "back": "A structure made of DNA and proteins that carries genetic information"
+        },
+        {
+          "front": "What is mitosis?",
+          "back": "Cell division that produces two identical daughter cells"
+        },
+        {
+          "front": "What is meiosis?",
+          "back": "Cell division that produces four genetically different cells (for reproduction)"
+        },
+        {
+          "front": "What is photosynthesis?",
+          "back": "The process by which plants convert light energy into chemical energy"
+        },
+        {
+          "front": "What is cellular respiration?",
+          "back": "The process by which cells break down glucose to produce energy"
+        },
+        {
+          "front": "What is homeostasis?",
+          "back": "The maintenance of a stable internal environment despite external changes"
+        }
+      ]
+    },
+    {
+      "id": "biology-anatomy",
+      "title": "Human Anatomy",
+      "cardCount": 18,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is the skeletal system?",
+          "back": "The framework of bones that provides support, protection, and movement"
+        },
+        {
+          "front": "What is the muscular system?",
+          "back": "The system of muscles that enables movement and maintains posture"
+        },
+        {
+          "front": "What is the circulatory system?",
+          "back": "The system that transports blood, nutrients, and oxygen throughout the body"
+        },
+        {
+          "front": "What is the respiratory system?",
+          "back": "The system that brings oxygen into the body and removes carbon dioxide"
+        },
+        {
+          "front": "What is the digestive system?",
+          "back": "The system that breaks down food and absorbs nutrients"
+        },
+        {
+          "front": "What is the nervous system?",
+          "back": "The system that coordinates body activities and responds to stimuli"
+        },
+        {
+          "front": "What is the endocrine system?",
+          "back": "The system of glands that produce hormones to regulate body functions"
+        },
+        {
+          "front": "What is the immune system?",
+          "back": "The system that protects the body from disease and infection"
+        },
+        {
+          "front": "What is the integumentary system?",
+          "back": "The system that includes skin, hair, and nails for protection"
+        },
+        {
+          "front": "What is the urinary system?",
+          "back": "The system that removes waste products from the blood"
+        },
+        {
+          "front": "What is the reproductive system?",
+          "back": "The system responsible for producing offspring"
+        },
+        {
+          "front": "What is the heart?",
+          "back": "A muscular organ that pumps blood throughout the body"
+        },
+        {
+          "front": "What are the lungs?",
+          "back": "Organs that exchange oxygen and carbon dioxide with the environment"
+        },
+        {
+          "front": "What is the brain?",
+          "back": "The control center of the nervous system that processes information"
+        },
+        {
+          "front": "What is the liver?",
+          "back": "An organ that processes nutrients, filters blood, and produces bile"
+        },
+        {
+          "front": "What are the kidneys?",
+          "back": "Organs that filter blood and remove waste products"
+        },
+        {
+          "front": "What is the stomach?",
+          "back": "An organ that breaks down food with acid and enzymes"
+        },
+        {
+          "front": "What is the small intestine?",
+          "back": "An organ where most nutrient absorption occurs"
+        }
+      ]
+    }
+  ]
+}

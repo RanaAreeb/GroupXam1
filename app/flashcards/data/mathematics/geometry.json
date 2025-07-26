@@ -1,0 +1,96 @@
+{
+  "id": "geometry-flashcards",
+  "title": "Geometry Flashcards",
+  "subject": "Geometry",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "geometry-fundamentals",
+      "title": "Geometry Fundamentals",
+      "cardCount": 20,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is geometry?",
+          "back": "The branch of mathematics dealing with shapes, sizes, and properties of space"
+        },
+        {
+          "front": "What is a point?",
+          "back": "A location in space with no size or dimension"
+        },
+        {
+          "front": "What is a line?",
+          "back": "A straight path that extends infinitely in both directions"
+        },
+        {
+          "front": "What is a line segment?",
+          "back": "A part of a line with two endpoints"
+        },
+        {
+          "front": "What is a ray?",
+          "back": "A part of a line that starts at a point and extends infinitely in one direction"
+        },
+        {
+          "front": "What is an angle?",
+          "back": "The figure formed by two rays sharing a common endpoint"
+        },
+        {
+          "front": "What is a right angle?",
+          "back": "An angle that measures exactly 90 degrees"
+        },
+        {
+          "front": "What is an acute angle?",
+          "back": "An angle that measures less than 90 degrees"
+        },
+        {
+          "front": "What is an obtuse angle?",
+          "back": "An angle that measures more than 90 degrees but less than 180 degrees"
+        },
+        {
+          "front": "What is a straight angle?",
+          "back": "An angle that measures exactly 180 degrees"
+        },
+        {
+          "front": "What is a triangle?",
+          "back": "A polygon with three sides and three angles"
+        },
+        {
+          "front": "What is a quadrilateral?",
+          "back": "A polygon with four sides and four angles"
+        },
+        {
+          "front": "What is a circle?",
+          "back": "A set of points equidistant from a center point"
+        },
+        {
+          "front": "What is the radius?",
+          "back": "The distance from the center of a circle to any point on the circle"
+        },
+        {
+          "front": "What is the diameter?",
+          "back": "The distance across a circle through its center"
+        },
+        {
+          "front": "What is the circumference?",
+          "back": "The distance around a circle"
+        },
+        {
+          "front": "What is area?",
+          "back": "The amount of space inside a two-dimensional figure"
+        },
+        {
+          "front": "What is perimeter?",
+          "back": "The distance around a two-dimensional figure"
+        },
+        {
+          "front": "What is volume?",
+          "back": "The amount of space inside a three-dimensional figure"
+        },
+        {
+          "front": "What is surface area?",
+          "back": "The total area of all faces of a three-dimensional figure"
+        }
+      ]
+    }
+  ]
+}

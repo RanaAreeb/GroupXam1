@@ -1,0 +1,96 @@
+{
+  "id": "psychology-flashcards",
+  "title": "Psychology Flashcards",
+  "subject": "Psychology",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "psychology-fundamentals",
+      "title": "Psychology Fundamentals",
+      "cardCount": 20,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is psychology?",
+          "back": "The scientific study of behavior and mental processes"
+        },
+        {
+          "front": "What is behavior?",
+          "back": "Any observable action or response of an organism"
+        },
+        {
+          "front": "What is cognition?",
+          "back": "Mental processes such as thinking, memory, and problem-solving"
+        },
+        {
+          "front": "What is consciousness?",
+          "back": "Awareness of one's thoughts, feelings, and environment"
+        },
+        {
+          "front": "What is learning?",
+          "back": "A relatively permanent change in behavior due to experience"
+        },
+        {
+          "front": "What is memory?",
+          "back": "The process of encoding, storing, and retrieving information"
+        },
+        {
+          "front": "What is perception?",
+          "back": "The process of organizing and interpreting sensory information"
+        },
+        {
+          "front": "What is motivation?",
+          "back": "The internal drive that directs behavior toward a goal"
+        },
+        {
+          "front": "What is emotion?",
+          "back": "A complex psychological and physiological state"
+        },
+        {
+          "front": "What is personality?",
+          "back": "The unique pattern of thoughts, feelings, and behaviors"
+        },
+        {
+          "front": "What is intelligence?",
+          "back": "The ability to learn, reason, and solve problems"
+        },
+        {
+          "front": "What is development?",
+          "back": "The changes that occur throughout the lifespan"
+        },
+        {
+          "front": "What is social psychology?",
+          "back": "The study of how people think, feel, and behave in social situations"
+        },
+        {
+          "front": "What is abnormal psychology?",
+          "back": "The study of psychological disorders"
+        },
+        {
+          "front": "What is clinical psychology?",
+          "back": "The branch of psychology that deals with mental health"
+        },
+        {
+          "front": "What is cognitive psychology?",
+          "back": "The study of mental processes like thinking and memory"
+        },
+        {
+          "front": "What is behavioral psychology?",
+          "back": "The study of observable behavior and learning"
+        },
+        {
+          "front": "What is biological psychology?",
+          "back": "The study of the biological basis of behavior"
+        },
+        {
+          "front": "What is developmental psychology?",
+          "back": "The study of human development across the lifespan"
+        },
+        {
+          "front": "What is experimental psychology?",
+          "back": "The use of scientific methods to study behavior"
+        }
+      ]
+    }
+  ]
+}

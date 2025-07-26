@@ -1,0 +1,93 @@
+{
+  "id": "geography-flashcards",
+  "title": "Geography Flashcards",
+  "subject": "Geography",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "geography-fundamentals",
+      "title": "Geography Fundamentals",
+      "cardCount": 20,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is geography?",
+          "back": "The study of Earth's physical features, climate, and human populations"
+        },
+        {
+          "front": "What is physical geography?",
+          "back": "The study of Earth's natural features and processes"
+        },
+        {
+          "front": "What is human geography?",
+          "back": "The study of human populations, cultures, and their interactions with the environment"
+        },
+        {
+          "front": "What is a continent?",
+          "back": "One of the seven large landmasses on Earth"
+        },
+        {
+          "front": "What is an ocean?",
+          "back": "A large body of saltwater that covers most of Earth's surface"
+        },
+        {
+          "front": "What is a mountain?",
+          "back": "A natural elevation of the Earth's surface"
+        },
+        {
+          "front": "What is a river?",
+          "back": "A large natural stream of water flowing in a channel"
+        },
+        {
+          "front": "What is a lake?",
+          "back": "A large body of water surrounded by land"
+        },
+        {
+          "front": "What is a desert?",
+          "back": "A barren area of land with little precipitation"
+        },
+        {
+          "front": "What is a forest?",
+          "back": "A large area covered with trees and undergrowth"
+        },
+        {
+          "front": "What is a climate?",
+          "back": "The long-term pattern of weather in a particular area"
+        },
+        {
+          "front": "What is weather?",
+          "back": "The short-term state of the atmosphere at a particular time and place"
+        },
+        {
+          "front": "What is latitude?",
+          "back": "The angular distance north or south of the equator"
+        },
+        {
+          "front": "What is longitude?",
+          "back": "The angular distance east or west of the prime meridian"
+        },
+        {
+          "front": "What is a map?",
+          "back": "A representation of Earth's surface on a flat surface"
+        },
+        { "front": "What is a globe?", "back": "A spherical model of Earth" },
+        {
+          "front": "What is a country?",
+          "back": "A nation with its own government and territory"
+        },
+        {
+          "front": "What is a capital city?",
+          "back": "The main city of a country where the government is located"
+        },
+        {
+          "front": "What is population density?",
+          "back": "The number of people living in a given area"
+        },
+        {
+          "front": "What is urbanization?",
+          "back": "The process of people moving from rural areas to cities"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "id": "algebra-flashcards",
+  "title": "Algebra Flashcards",
+  "subject": "Algebra",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "algebra-fundamentals",
+      "title": "Algebra Fundamentals",
+      "cardCount": 20,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is algebra?",
+          "back": "A branch of mathematics that uses letters and symbols to represent numbers and quantities"
+        },
+        {
+          "front": "What is a variable?",
+          "back": "A letter or symbol that represents an unknown value"
+        },
+        {
+          "front": "What is a constant?",
+          "back": "A number that does not change"
+        },
+        {
+          "front": "What is an expression?",
+          "back": "A mathematical phrase that can contain variables, constants, and operations"
+        },
+        {
+          "front": "What is an equation?",
+          "back": "A mathematical statement that shows two expressions are equal"
+        },
+        {
+          "front": "What is a linear equation?",
+          "back": "An equation where the highest power of the variable is 1"
+        },
+        {
+          "front": "What is a quadratic equation?",
+          "back": "An equation where the highest power of the variable is 2"
+        },
+        {
+          "front": "What is factoring?",
+          "back": "Breaking down an expression into simpler factors"
+        },
+        {
+          "front": "What is the distributive property?",
+          "back": "a(b + c) = ab + ac"
+        },
+        {
+          "front": "What is the commutative property?",
+          "back": "a + b = b + a and ab = ba"
+        },
+        {
+          "front": "What is the associative property?",
+          "back": "(a + b) + c = a + (b + c) and (ab)c = a(bc)"
+        },
+        {
+          "front": "What is the identity property?",
+          "back": "a + 0 = a and a × 1 = a"
+        },
+        {
+          "front": "What is the inverse property?",
+          "back": "a + (-a) = 0 and a × (1/a) = 1"
+        },
+        {
+          "front": "What is a function?",
+          "back": "A relation where each input has exactly one output"
+        },
+        {
+          "front": "What is the domain?",
+          "back": "The set of all possible input values for a function"
+        },
+        {
+          "front": "What is the range?",
+          "back": "The set of all possible output values for a function"
+        },
+        {
+          "front": "What is a slope?",
+          "back": "The measure of steepness of a line"
+        },
+        {
+          "front": "What is the slope-intercept form?",
+          "back": "y = mx + b, where m is slope and b is y-intercept"
+        },
+        {
+          "front": "What is the point-slope form?",
+          "back": "y - y₁ = m(x - x₁)"
+        },
+        {
+          "front": "What is a system of equations?",
+          "back": "A set of two or more equations with the same variables"
+        }
+      ]
+    }
+  ]
+}

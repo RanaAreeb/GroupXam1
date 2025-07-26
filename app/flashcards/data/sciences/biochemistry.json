@@ -1,0 +1,96 @@
+{
+  "id": "biochemistry-flashcards",
+  "title": "Biochemistry Flashcards",
+  "subject": "Biochemistry",
+  "difficulty": "Advanced",
+  "sets": [
+    {
+      "id": "biochemistry-fundamentals",
+      "title": "Biochemistry Fundamentals",
+      "cardCount": 20,
+      "difficulty": "Advanced",
+      "cards": [
+        {
+          "front": "What is biochemistry?",
+          "back": "The study of chemical processes within living organisms"
+        },
+        {
+          "front": "What is a biomolecule?",
+          "back": "A molecule that is essential for life processes"
+        },
+        {
+          "front": "What is a carbohydrate?",
+          "back": "A biomolecule made of carbon, hydrogen, and oxygen with a 1:2:1 ratio"
+        },
+        {
+          "front": "What is a monosaccharide?",
+          "back": "A simple sugar that cannot be broken down further"
+        },
+        {
+          "front": "What is a disaccharide?",
+          "back": "A sugar made of two monosaccharides joined together"
+        },
+        {
+          "front": "What is a polysaccharide?",
+          "back": "A complex carbohydrate made of many monosaccharides"
+        },
+        {
+          "front": "What is a lipid?",
+          "back": "A biomolecule that is insoluble in water but soluble in organic solvents"
+        },
+        {
+          "front": "What is a protein?",
+          "back": "A biomolecule made of amino acids that performs various functions"
+        },
+        {
+          "front": "What is an amino acid?",
+          "back": "The building block of proteins"
+        },
+        {
+          "front": "What is a nucleic acid?",
+          "back": "A biomolecule that stores and transmits genetic information"
+        },
+        {
+          "front": "What is DNA?",
+          "back": "Deoxyribonucleic acid - the molecule that carries genetic information"
+        },
+        {
+          "front": "What is RNA?",
+          "back": "Ribonucleic acid - a molecule involved in protein synthesis"
+        },
+        {
+          "front": "What is an enzyme?",
+          "back": "A protein that catalyzes chemical reactions"
+        },
+        {
+          "front": "What is a substrate?",
+          "back": "The molecule that an enzyme acts upon"
+        },
+        {
+          "front": "What is the active site?",
+          "back": "The region of an enzyme where the substrate binds"
+        },
+        {
+          "front": "What is denaturation?",
+          "back": "The loss of protein structure due to heat, pH, or chemicals"
+        },
+        {
+          "front": "What is a cofactor?",
+          "back": "A non-protein molecule that helps an enzyme function"
+        },
+        {
+          "front": "What is a coenzyme?",
+          "back": "An organic cofactor that helps an enzyme function"
+        },
+        {
+          "front": "What is ATP?",
+          "back": "Adenosine triphosphate - the energy currency of the cell"
+        },
+        {
+          "front": "What is metabolism?",
+          "back": "The sum of all chemical reactions in an organism"
+        }
+      ]
+    }
+  ]
+}

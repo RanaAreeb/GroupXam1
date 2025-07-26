@@ -1,0 +1,96 @@
+{
+  "id": "microbiology-flashcards",
+  "title": "Microbiology Flashcards",
+  "subject": "Microbiology",
+  "difficulty": "Advanced",
+  "sets": [
+    {
+      "id": "microbiology-fundamentals",
+      "title": "Microbiology Fundamentals",
+      "cardCount": 20,
+      "difficulty": "Advanced",
+      "cards": [
+        {
+          "front": "What is microbiology?",
+          "back": "The study of microorganisms too small to see with the naked eye"
+        },
+        {
+          "front": "What is a microorganism?",
+          "back": "A living organism that is too small to be seen without a microscope"
+        },
+        {
+          "front": "What is a bacterium?",
+          "back": "A single-celled prokaryotic microorganism"
+        },
+        {
+          "front": "What is a virus?",
+          "back": "A non-living infectious agent that requires a host cell to reproduce"
+        },
+        {
+          "front": "What is a fungus?",
+          "back": "A eukaryotic organism that includes yeasts, molds, and mushrooms"
+        },
+        {
+          "front": "What is a protozoan?",
+          "back": "A single-celled eukaryotic microorganism"
+        },
+        {
+          "front": "What is an algae?",
+          "back": "A photosynthetic eukaryotic microorganism"
+        },
+        {
+          "front": "What is a pathogen?",
+          "back": "A microorganism that causes disease"
+        },
+        {
+          "front": "What is an infection?",
+          "back": "The invasion and multiplication of pathogens in the body"
+        },
+        {
+          "front": "What is immunity?",
+          "back": "The body's ability to resist infection"
+        },
+        {
+          "front": "What is an antibiotic?",
+          "back": "A substance that kills or inhibits the growth of bacteria"
+        },
+        {
+          "front": "What is antibiotic resistance?",
+          "back": "The ability of bacteria to survive exposure to antibiotics"
+        },
+        {
+          "front": "What is a vaccine?",
+          "back": "A preparation that stimulates immunity to a specific disease"
+        },
+        {
+          "front": "What is sterilization?",
+          "back": "The complete destruction of all microorganisms"
+        },
+        {
+          "front": "What is disinfection?",
+          "back": "The destruction of most microorganisms on surfaces"
+        },
+        {
+          "front": "What is pasteurization?",
+          "back": "A process that kills harmful bacteria in food and beverages"
+        },
+        {
+          "front": "What is a culture?",
+          "back": "A growth of microorganisms in a controlled environment"
+        },
+        {
+          "front": "What is a colony?",
+          "back": "A visible mass of microorganisms growing on a solid medium"
+        },
+        {
+          "front": "What is a medium?",
+          "back": "A substance used to grow microorganisms"
+        },
+        {
+          "front": "What is aseptic technique?",
+          "back": "Methods used to prevent contamination during microbiological work"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "id": "art-history-flashcards",
+  "title": "Art History Flashcards",
+  "subject": "Art History",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "art-history-fundamentals",
+      "title": "Art History Fundamentals",
+      "cardCount": 20,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is art history?",
+          "back": "The study of visual arts and their development over time"
+        },
+        {
+          "front": "What is a painting?",
+          "back": "A work of art created by applying pigment to a surface"
+        },
+        {
+          "front": "What is a sculpture?",
+          "back": "A three-dimensional work of art created by shaping materials"
+        },
+        {
+          "front": "What is architecture?",
+          "back": "The art and science of designing and constructing buildings"
+        },
+        {
+          "front": "What is a fresco?",
+          "back": "A painting technique where pigment is applied to wet plaster"
+        },
+        {
+          "front": "What is oil painting?",
+          "back": "A painting technique using pigments mixed with oil"
+        },
+        {
+          "front": "What is watercolor?",
+          "back": "A painting technique using pigments dissolved in water"
+        },
+        {
+          "front": "What is perspective?",
+          "back": "A technique for creating the illusion of depth on a flat surface"
+        },
+        {
+          "front": "What is chiaroscuro?",
+          "back": "The use of light and shadow to create depth and volume"
+        },
+        {
+          "front": "What is composition?",
+          "back": "The arrangement of elements in a work of art"
+        },
+        {
+          "front": "What is the Renaissance?",
+          "back": "A period of cultural rebirth in Europe (14th-17th centuries)"
+        },
+        {
+          "front": "What is Baroque art?",
+          "back": "A style characterized by dramatic, emotional, and ornate qualities"
+        },
+        {
+          "front": "What is Impressionism?",
+          "back": "A 19th-century art movement emphasizing light and color"
+        },
+        {
+          "front": "What is Cubism?",
+          "back": "An early 20th-century art movement that fragmented objects into geometric shapes"
+        },
+        {
+          "front": "What is Surrealism?",
+          "back": "An art movement exploring the unconscious mind and dreams"
+        },
+        {
+          "front": "What is Abstract art?",
+          "back": "Art that does not represent recognizable objects"
+        },
+        {
+          "front": "What is a portrait?",
+          "back": "A painting, drawing, or photograph of a person"
+        },
+        {
+          "front": "What is a landscape?",
+          "back": "A work of art depicting natural scenery"
+        },
+        {
+          "front": "What is a still life?",
+          "back": "A work of art depicting inanimate objects"
+        },
+        {
+          "front": "What is a genre painting?",
+          "back": "A work of art depicting scenes from everyday life"
+        }
+      ]
+    }
+  ]
+}

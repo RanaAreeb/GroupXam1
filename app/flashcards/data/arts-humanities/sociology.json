@@ -1,0 +1,96 @@
+{
+  "id": "sociology-flashcards",
+  "title": "Sociology Flashcards",
+  "subject": "Sociology",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "sociology-fundamentals",
+      "title": "Sociology Fundamentals",
+      "cardCount": 20,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is sociology?",
+          "back": "The study of human society, social relationships, and social institutions"
+        },
+        {
+          "front": "What is a society?",
+          "back": "A group of people who share a common culture and territory"
+        },
+        {
+          "front": "What is culture?",
+          "back": "The shared beliefs, values, customs, and behaviors of a group"
+        },
+        {
+          "front": "What is socialization?",
+          "back": "The process of learning the norms and values of society"
+        },
+        {
+          "front": "What is a social institution?",
+          "back": "An established pattern of behavior that serves a specific function in society"
+        },
+        {
+          "front": "What is a social group?",
+          "back": "A collection of people who interact with each other and share a sense of unity"
+        },
+        {
+          "front": "What is a social norm?",
+          "back": "A rule or expectation that guides behavior in society"
+        },
+        {
+          "front": "What is a social role?",
+          "back": "The expected behavior associated with a particular social position"
+        },
+        {
+          "front": "What is social stratification?",
+          "back": "The division of society into hierarchical layers based on wealth, power, and status"
+        },
+        {
+          "front": "What is social mobility?",
+          "back": "The movement of individuals or groups between social positions"
+        },
+        {
+          "front": "What is a social class?",
+          "back": "A group of people with similar economic and social status"
+        },
+        {
+          "front": "What is gender?",
+          "back": "The social and cultural roles, behaviors, and expectations associated with being male or female"
+        },
+        {
+          "front": "What is race?",
+          "back": "A social construct based on physical characteristics and ancestry"
+        },
+        {
+          "front": "What is ethnicity?",
+          "back": "A shared cultural heritage, including language, religion, and customs"
+        },
+        {
+          "front": "What is prejudice?",
+          "back": "A negative attitude toward a group of people based on stereotypes"
+        },
+        {
+          "front": "What is discrimination?",
+          "back": "Unequal treatment of individuals or groups based on their characteristics"
+        },
+        {
+          "front": "What is deviance?",
+          "back": "Behavior that violates social norms"
+        },
+        {
+          "front": "What is social control?",
+          "back": "The mechanisms society uses to maintain order and conformity"
+        },
+        {
+          "front": "What is social change?",
+          "back": "The transformation of social institutions and relationships over time"
+        },
+        {
+          "front": "What is globalization?",
+          "back": "The process of increasing interconnectedness among societies worldwide"
+        }
+      ]
+    }
+  ]
+}

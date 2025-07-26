@@ -1,0 +1,96 @@
+{
+  "id": "philosophy-flashcards",
+  "title": "Philosophy Flashcards",
+  "subject": "Philosophy",
+  "difficulty": "Advanced",
+  "sets": [
+    {
+      "id": "philosophy-fundamentals",
+      "title": "Philosophy Fundamentals",
+      "cardCount": 20,
+      "difficulty": "Advanced",
+      "cards": [
+        {
+          "front": "What is philosophy?",
+          "back": "The study of fundamental questions about existence, knowledge, values, reason, and reality"
+        },
+        {
+          "front": "What is metaphysics?",
+          "back": "The branch of philosophy concerned with the nature of reality and existence"
+        },
+        {
+          "front": "What is epistemology?",
+          "back": "The branch of philosophy concerned with the nature and scope of knowledge"
+        },
+        {
+          "front": "What is ethics?",
+          "back": "The branch of philosophy concerned with moral principles and values"
+        },
+        {
+          "front": "What is logic?",
+          "back": "The branch of philosophy concerned with valid reasoning and argumentation"
+        },
+        {
+          "front": "What is aesthetics?",
+          "back": "The branch of philosophy concerned with beauty, art, and taste"
+        },
+        {
+          "front": "What is political philosophy?",
+          "back": "The branch of philosophy concerned with government, justice, and social organization"
+        },
+        {
+          "front": "What is ontology?",
+          "back": "The study of being and existence"
+        },
+        {
+          "front": "What is dualism?",
+          "back": "The belief that mind and body are fundamentally different substances"
+        },
+        {
+          "front": "What is materialism?",
+          "back": "The belief that only matter exists and everything can be explained in material terms"
+        },
+        {
+          "front": "What is idealism?",
+          "back": "The belief that reality is fundamentally mental or spiritual"
+        },
+        {
+          "front": "What is skepticism?",
+          "back": "The attitude of doubting knowledge claims and questioning assumptions"
+        },
+        {
+          "front": "What is rationalism?",
+          "back": "The belief that reason is the primary source of knowledge"
+        },
+        {
+          "front": "What is empiricism?",
+          "back": "The belief that experience is the primary source of knowledge"
+        },
+        {
+          "front": "What is utilitarianism?",
+          "back": "The ethical theory that actions are right if they promote the greatest happiness"
+        },
+        {
+          "front": "What is deontology?",
+          "back": "The ethical theory that actions are right or wrong based on duty and rules"
+        },
+        {
+          "front": "What is virtue ethics?",
+          "back": "The ethical theory that focuses on character and virtues rather than rules"
+        },
+        {
+          "front": "What is the Socratic method?",
+          "back": "A method of questioning to stimulate critical thinking and draw out ideas"
+        },
+        {
+          "front": "What is a syllogism?",
+          "back": "A form of deductive reasoning with two premises and a conclusion"
+        },
+        {
+          "front": "What is a paradox?",
+          "back": "A statement that contradicts itself or leads to a contradiction"
+        }
+      ]
+    }
+  ]
+}

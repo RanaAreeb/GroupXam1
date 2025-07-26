@@ -1,0 +1,176 @@
+{
+  "id": "micro-economics-flashcards",
+  "title": "Micro Economics Flashcards",
+  "subject": "Micro Economics",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "micro-fundamentals",
+      "title": "Micro Economics Fundamentals",
+      "cardCount": 20,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is microeconomics?",
+          "back": "The study of individual economic units like households, firms, and markets"
+        },
+        {
+          "front": "What is a demand curve?",
+          "back": "A graph showing the relationship between price and quantity demanded"
+        },
+        {
+          "front": "What is a supply curve?",
+          "back": "A graph showing the relationship between price and quantity supplied"
+        },
+        {
+          "front": "What is price elasticity of demand?",
+          "back": "The responsiveness of quantity demanded to changes in price"
+        },
+        {
+          "front": "What is income elasticity of demand?",
+          "back": "The responsiveness of quantity demanded to changes in income"
+        },
+        {
+          "front": "What is cross-price elasticity?",
+          "back": "The responsiveness of quantity demanded of one good to changes in price of another good"
+        },
+        {
+          "front": "What is total revenue?",
+          "back": "Price multiplied by quantity sold"
+        },
+        {
+          "front": "What is average revenue?",
+          "back": "Total revenue divided by quantity sold"
+        },
+        {
+          "front": "What is marginal revenue?",
+          "back": "The additional revenue from selling one more unit"
+        },
+        {
+          "front": "What is total cost?",
+          "back": "The sum of fixed costs and variable costs"
+        },
+        {
+          "front": "What is average cost?",
+          "back": "Total cost divided by quantity produced"
+        },
+        {
+          "front": "What is marginal cost?",
+          "back": "The additional cost of producing one more unit"
+        },
+        {
+          "front": "What is profit maximization?",
+          "back": "The goal of firms to maximize the difference between total revenue and total cost"
+        },
+        {
+          "front": "What is the profit maximization rule?",
+          "back": "Produce where marginal revenue equals marginal cost"
+        },
+        {
+          "front": "What is a perfectly competitive market?",
+          "back": "A market with many buyers and sellers of identical products with no barriers to entry"
+        },
+        {
+          "front": "What is a monopoly?",
+          "back": "A market with only one seller of a unique product with high barriers to entry"
+        },
+        {
+          "front": "What is monopolistic competition?",
+          "back": "A market with many sellers of differentiated products with low barriers to entry"
+        },
+        {
+          "front": "What is an oligopoly?",
+          "back": "A market with few sellers of similar or identical products"
+        },
+        {
+          "front": "What is price discrimination?",
+          "back": "Charging different prices to different customers for the same product"
+        },
+        {
+          "front": "What is consumer surplus?",
+          "back": "The difference between what consumers are willing to pay and what they actually pay"
+        }
+      ]
+    },
+    {
+      "id": "micro-production",
+      "title": "Production and Costs",
+      "cardCount": 18,
+      "difficulty": "Advanced",
+      "cards": [
+        {
+          "front": "What is the production function?",
+          "back": "The relationship between inputs and outputs in production"
+        },
+        {
+          "front": "What is total product?",
+          "back": "The total output produced by a given amount of inputs"
+        },
+        {
+          "front": "What is average product?",
+          "back": "Total product divided by the quantity of a variable input"
+        },
+        {
+          "front": "What is marginal product?",
+          "back": "The additional output from using one more unit of a variable input"
+        },
+        {
+          "front": "What is the law of diminishing returns?",
+          "back": "As more of a variable input is added, the marginal product eventually decreases"
+        },
+        {
+          "front": "What are fixed costs?",
+          "back": "Costs that do not change with the level of output"
+        },
+        {
+          "front": "What are variable costs?",
+          "back": "Costs that change with the level of output"
+        },
+        {
+          "front": "What is average fixed cost?",
+          "back": "Fixed costs divided by quantity produced"
+        },
+        {
+          "front": "What is average variable cost?",
+          "back": "Variable costs divided by quantity produced"
+        },
+        {
+          "front": "What is the short run?",
+          "back": "A period when at least one input is fixed"
+        },
+        {
+          "front": "What is the long run?",
+          "back": "A period when all inputs are variable"
+        },
+        {
+          "front": "What are economies of scale?",
+          "back": "Cost advantages that arise from increased production"
+        },
+        {
+          "front": "What are diseconomies of scale?",
+          "back": "Cost disadvantages that arise from increased production"
+        },
+        {
+          "front": "What is constant returns to scale?",
+          "back": "When output increases proportionally with inputs"
+        },
+        {
+          "front": "What is the shutdown point?",
+          "back": "The price at which a firm covers its average variable costs"
+        },
+        {
+          "front": "What is the break-even point?",
+          "back": "The price at which a firm covers its average total costs"
+        },
+        {
+          "front": "What is economic profit?",
+          "back": "Total revenue minus total costs (including opportunity costs)"
+        },
+        {
+          "front": "What is accounting profit?",
+          "back": "Total revenue minus explicit costs only"
+        }
+      ]
+    }
+  ]
+}

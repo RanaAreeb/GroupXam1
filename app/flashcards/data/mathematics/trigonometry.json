@@ -1,0 +1,96 @@
+{
+  "id": "trigonometry-flashcards",
+  "title": "Trigonometry Flashcards",
+  "subject": "Trigonometry",
+  "difficulty": "Advanced",
+  "sets": [
+    {
+      "id": "trigonometry-fundamentals",
+      "title": "Trigonometry Fundamentals",
+      "cardCount": 20,
+      "difficulty": "Advanced",
+      "cards": [
+        {
+          "front": "What is trigonometry?",
+          "back": "The branch of mathematics dealing with relationships between angles and sides of triangles"
+        },
+        {
+          "front": "What is a right triangle?",
+          "back": "A triangle with one angle measuring exactly 90 degrees"
+        },
+        {
+          "front": "What is the hypotenuse?",
+          "back": "The longest side of a right triangle, opposite the right angle"
+        },
+        {
+          "front": "What is an adjacent side?",
+          "back": "The side next to a given angle in a right triangle"
+        },
+        {
+          "front": "What is an opposite side?",
+          "back": "The side across from a given angle in a right triangle"
+        },
+        {
+          "front": "What is sine (sin)?",
+          "back": "The ratio of opposite side to hypotenuse in a right triangle"
+        },
+        {
+          "front": "What is cosine (cos)?",
+          "back": "The ratio of adjacent side to hypotenuse in a right triangle"
+        },
+        {
+          "front": "What is tangent (tan)?",
+          "back": "The ratio of opposite side to adjacent side in a right triangle"
+        },
+        {
+          "front": "What is cosecant (csc)?",
+          "back": "The reciprocal of sine (1/sin)"
+        },
+        {
+          "front": "What is secant (sec)?",
+          "back": "The reciprocal of cosine (1/cos)"
+        },
+        {
+          "front": "What is cotangent (cot)?",
+          "back": "The reciprocal of tangent (1/tan)"
+        },
+        {
+          "front": "What is the unit circle?",
+          "back": "A circle with radius 1 centered at the origin"
+        },
+        {
+          "front": "What is a radian?",
+          "back": "A unit of angle measurement based on the radius of a circle"
+        },
+        {
+          "front": "What is a degree?",
+          "back": "A unit of angle measurement where a full circle is 360 degrees"
+        },
+        {
+          "front": "What is the Pythagorean theorem?",
+          "back": "In a right triangle, a² + b² = c² where c is the hypotenuse"
+        },
+        {
+          "front": "What is the sine law?",
+          "back": "a/sin(A) = b/sin(B) = c/sin(C) for any triangle"
+        },
+        {
+          "front": "What is the cosine law?",
+          "back": "c² = a² + b² - 2ab cos(C) for any triangle"
+        },
+        {
+          "front": "What is an angle of elevation?",
+          "back": "The angle between the horizontal and a line of sight upward"
+        },
+        {
+          "front": "What is an angle of depression?",
+          "back": "The angle between the horizontal and a line of sight downward"
+        },
+        {
+          "front": "What is a reference angle?",
+          "back": "The acute angle between the terminal side and the x-axis"
+        }
+      ]
+    }
+  ]
+}

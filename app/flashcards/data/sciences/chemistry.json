@@ -1,0 +1,176 @@
+{
+  "id": "chemistry-flashcards",
+  "title": "Chemistry Flashcards",
+  "subject": "Chemistry",
+  "difficulty": "Beginner",
+  "sets": [
+    {
+      "id": "chemistry-fundamentals",
+      "title": "Chemistry Fundamentals",
+      "cardCount": 20,
+      "difficulty": "Beginner",
+      "cards": [
+        {
+          "front": "What is chemistry?",
+          "back": "The study of matter, its properties, and the changes it undergoes"
+        },
+        {
+          "front": "What is an atom?",
+          "back": "The smallest unit of an element that retains the properties of that element"
+        },
+        {
+          "front": "What is a molecule?",
+          "back": "A group of two or more atoms held together by chemical bonds"
+        },
+        {
+          "front": "What is an element?",
+          "back": "A pure substance that cannot be broken down into simpler substances"
+        },
+        {
+          "front": "What is a compound?",
+          "back": "A substance made up of two or more different elements chemically combined"
+        },
+        {
+          "front": "What is a mixture?",
+          "back": "A combination of two or more substances that are not chemically combined"
+        },
+        {
+          "front": "What is the atomic number?",
+          "back": "The number of protons in the nucleus of an atom"
+        },
+        {
+          "front": "What is the mass number?",
+          "back": "The sum of protons and neutrons in the nucleus of an atom"
+        },
+        {
+          "front": "What is an isotope?",
+          "back": "Atoms of the same element with different numbers of neutrons"
+        },
+        {
+          "front": "What is the periodic table?",
+          "back": "A table that organizes elements by their atomic number and properties"
+        },
+        {
+          "front": "What is a period?",
+          "back": "A horizontal row in the periodic table"
+        },
+        {
+          "front": "What is a group?",
+          "back": "A vertical column in the periodic table"
+        },
+        {
+          "front": "What is a metal?",
+          "back": "An element that is a good conductor of heat and electricity"
+        },
+        {
+          "front": "What is a nonmetal?",
+          "back": "An element that is a poor conductor of heat and electricity"
+        },
+        {
+          "front": "What is a metalloid?",
+          "back": "An element with properties intermediate between metals and nonmetals"
+        },
+        {
+          "front": "What is a chemical bond?",
+          "back": "A force that holds atoms together in a molecule or compound"
+        },
+        {
+          "front": "What is an ionic bond?",
+          "back": "A bond formed by the transfer of electrons between atoms"
+        },
+        {
+          "front": "What is a covalent bond?",
+          "back": "A bond formed by the sharing of electrons between atoms"
+        },
+        {
+          "front": "What is a chemical reaction?",
+          "back": "A process in which substances are transformed into new substances"
+        },
+        {
+          "front": "What is a chemical equation?",
+          "back": "A representation of a chemical reaction using symbols and formulas"
+        }
+      ]
+    },
+    {
+      "id": "chemistry-reactions",
+      "title": "Chemical Reactions",
+      "cardCount": 18,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is a synthesis reaction?",
+          "back": "A reaction in which two or more substances combine to form a single product"
+        },
+        {
+          "front": "What is a decomposition reaction?",
+          "back": "A reaction in which a single compound breaks down into two or more simpler substances"
+        },
+        {
+          "front": "What is a single replacement reaction?",
+          "back": "A reaction in which one element replaces another in a compound"
+        },
+        {
+          "front": "What is a double replacement reaction?",
+          "back": "A reaction in which ions exchange between two compounds"
+        },
+        {
+          "front": "What is a combustion reaction?",
+          "back": "A reaction in which a substance reacts with oxygen to produce heat and light"
+        },
+        {
+          "front": "What is oxidation?",
+          "back": "The loss of electrons by a substance"
+        },
+        {
+          "front": "What is reduction?",
+          "back": "The gain of electrons by a substance"
+        },
+        {
+          "front": "What is a redox reaction?",
+          "back": "A reaction involving both oxidation and reduction"
+        },
+        {
+          "front": "What is an acid?",
+          "back": "A substance that donates hydrogen ions (H⁺) in solution"
+        },
+        {
+          "front": "What is a base?",
+          "back": "A substance that accepts hydrogen ions (H⁺) or donates hydroxide ions (OH⁻)"
+        },
+        {
+          "front": "What is pH?",
+          "back": "A measure of the acidity or basicity of a solution"
+        },
+        {
+          "front": "What is neutralization?",
+          "back": "A reaction between an acid and a base to form salt and water"
+        },
+        {
+          "front": "What is a catalyst?",
+          "back": "A substance that speeds up a chemical reaction without being consumed"
+        },
+        {
+          "front": "What is activation energy?",
+          "back": "The minimum energy required for a chemical reaction to occur"
+        },
+        {
+          "front": "What is equilibrium?",
+          "back": "A state in which the forward and reverse reactions occur at equal rates"
+        },
+        {
+          "front": "What is Le Chatelier's principle?",
+          "back": "When a system at equilibrium is disturbed, it will shift to counteract the disturbance"
+        },
+        {
+          "front": "What is a precipitate?",
+          "back": "A solid that forms when two solutions are mixed"
+        },
+        {
+          "front": "What is a gas?",
+          "back": "A state of matter with no definite shape or volume"
+        }
+      ]
+    }
+  ]
+}

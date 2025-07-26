@@ -1,0 +1,176 @@
+{
+  "id": "finance-flashcards",
+  "title": "Finance Flashcards",
+  "subject": "Finance",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "finance-fundamentals",
+      "title": "Finance Fundamentals",
+      "cardCount": 20,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is finance?",
+          "back": "The study of how individuals, businesses, and organizations manage money"
+        },
+        {
+          "front": "What is the time value of money?",
+          "back": "The principle that money available now is worth more than the same amount in the future"
+        },
+        {
+          "front": "What is compound interest?",
+          "back": "Interest earned on both the principal and accumulated interest"
+        },
+        {
+          "front": "What is simple interest?",
+          "back": "Interest earned only on the principal amount"
+        },
+        {
+          "front": "What is the present value?",
+          "back": "The current value of a future sum of money"
+        },
+        {
+          "front": "What is the future value?",
+          "back": "The value of a current sum of money at a future date"
+        },
+        {
+          "front": "What is an annuity?",
+          "back": "A series of equal payments made at regular intervals"
+        },
+        {
+          "front": "What is a perpetuity?",
+          "back": "An infinite series of equal payments"
+        },
+        {
+          "front": "What is risk?",
+          "back": "The possibility of loss or uncertainty about future outcomes"
+        },
+        {
+          "front": "What is return?",
+          "back": "The gain or loss on an investment"
+        },
+        {
+          "front": "What is the risk-return tradeoff?",
+          "back": "The principle that higher potential returns come with higher risk"
+        },
+        {
+          "front": "What is diversification?",
+          "back": "Spreading investments across different assets to reduce risk"
+        },
+        {
+          "front": "What is a portfolio?",
+          "back": "A collection of investments held by an individual or institution"
+        },
+        {
+          "front": "What is a stock?",
+          "back": "A share of ownership in a corporation"
+        },
+        {
+          "front": "What is a bond?",
+          "back": "A debt security that represents a loan to a borrower"
+        },
+        {
+          "front": "What is a mutual fund?",
+          "back": "A pooled investment vehicle that invests in a diversified portfolio"
+        },
+        {
+          "front": "What is an ETF?",
+          "back": "Exchange-Traded Fund - a type of investment fund traded on stock exchanges"
+        },
+        {
+          "front": "What is a dividend?",
+          "back": "A distribution of profits to shareholders"
+        },
+        {
+          "front": "What is capital gains?",
+          "back": "Profit from selling an investment for more than its purchase price"
+        },
+        {
+          "front": "What is yield?",
+          "back": "The income return on an investment"
+        }
+      ]
+    },
+    {
+      "id": "finance-investment",
+      "title": "Investment Analysis",
+      "cardCount": 18,
+      "difficulty": "Advanced",
+      "cards": [
+        {
+          "front": "What is the CAPM?",
+          "back": "Capital Asset Pricing Model - a model for determining required return on investment"
+        },
+        {
+          "front": "What is beta?",
+          "back": "A measure of an investment's volatility relative to the market"
+        },
+        {
+          "front": "What is alpha?",
+          "back": "The excess return of an investment relative to its expected return"
+        },
+        {
+          "front": "What is the Sharpe ratio?",
+          "back": "A measure of risk-adjusted return"
+        },
+        {
+          "front": "What is the efficient market hypothesis?",
+          "back": "The theory that stock prices reflect all available information"
+        },
+        {
+          "front": "What is fundamental analysis?",
+          "back": "Analyzing a company's financial statements to determine its value"
+        },
+        {
+          "front": "What is technical analysis?",
+          "back": "Analyzing price patterns and market data to predict future movements"
+        },
+        {
+          "front": "What is a P/E ratio?",
+          "back": "Price-to-Earnings ratio - stock price divided by earnings per share"
+        },
+        {
+          "front": "What is a P/B ratio?",
+          "back": "Price-to-Book ratio - stock price divided by book value per share"
+        },
+        {
+          "front": "What is ROE?",
+          "back": "Return on Equity - net income divided by shareholders' equity"
+        },
+        {
+          "front": "What is ROA?",
+          "back": "Return on Assets - net income divided by total assets"
+        },
+        {
+          "front": "What is the debt-to-equity ratio?",
+          "back": "Total debt divided by total equity"
+        },
+        {
+          "front": "What is the current ratio?",
+          "back": "Current assets divided by current liabilities"
+        },
+        {
+          "front": "What is working capital?",
+          "back": "Current assets minus current liabilities"
+        },
+        {
+          "front": "What is free cash flow?",
+          "back": "Cash flow available for distribution to investors after capital expenditures"
+        },
+        {
+          "front": "What is the dividend yield?",
+          "back": "Annual dividend divided by stock price"
+        },
+        {
+          "front": "What is the payout ratio?",
+          "back": "Dividends paid divided by net income"
+        },
+        {
+          "front": "What is the retention ratio?",
+          "back": "Retained earnings divided by net income"
+        }
+      ]
+    }
+  ]
+}

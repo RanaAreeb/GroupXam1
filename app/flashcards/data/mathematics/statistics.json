@@ -1,0 +1,96 @@
+{
+  "id": "statistics-flashcards",
+  "title": "Statistics Flashcards",
+  "subject": "Statistics",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "statistics-fundamentals",
+      "title": "Statistics Fundamentals",
+      "cardCount": 20,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is statistics?",
+          "back": "The science of collecting, analyzing, and interpreting data"
+        },
+        {
+          "front": "What is descriptive statistics?",
+          "back": "Methods used to summarize and describe data"
+        },
+        {
+          "front": "What is inferential statistics?",
+          "back": "Methods used to make conclusions about populations from sample data"
+        },
+        {
+          "front": "What is a population?",
+          "back": "The entire group of individuals or objects being studied"
+        },
+        {
+          "front": "What is a sample?",
+          "back": "A subset of the population that is actually observed"
+        },
+        {
+          "front": "What is a variable?",
+          "back": "A characteristic that can vary among individuals or objects"
+        },
+        {
+          "front": "What is a qualitative variable?",
+          "back": "A variable that describes qualities or categories"
+        },
+        {
+          "front": "What is a quantitative variable?",
+          "back": "A variable that can be measured numerically"
+        },
+        {
+          "front": "What is discrete data?",
+          "back": "Data that can only take specific values (whole numbers)"
+        },
+        {
+          "front": "What is continuous data?",
+          "back": "Data that can take any value within a range"
+        },
+        {
+          "front": "What is the mean?",
+          "back": "The average of a set of numbers (sum divided by count)"
+        },
+        {
+          "front": "What is the median?",
+          "back": "The middle value when data is arranged in order"
+        },
+        {
+          "front": "What is the mode?",
+          "back": "The value that appears most frequently in a dataset"
+        },
+        {
+          "front": "What is range?",
+          "back": "The difference between the highest and lowest values"
+        },
+        {
+          "front": "What is variance?",
+          "back": "The average of squared deviations from the mean"
+        },
+        {
+          "front": "What is standard deviation?",
+          "back": "The square root of variance, measuring spread of data"
+        },
+        {
+          "front": "What is a frequency distribution?",
+          "back": "A table showing how often each value occurs"
+        },
+        {
+          "front": "What is a histogram?",
+          "back": "A bar graph showing the distribution of data"
+        },
+        {
+          "front": "What is a normal distribution?",
+          "back": "A bell-shaped distribution that is symmetric around the mean"
+        },
+        {
+          "front": "What is probability?",
+          "back": "The likelihood that an event will occur"
+        }
+      ]
+    }
+  ]
+}

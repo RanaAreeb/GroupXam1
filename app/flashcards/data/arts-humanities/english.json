@@ -1,0 +1,96 @@
+{
+  "id": "english-flashcards",
+  "title": "English Flashcards",
+  "subject": "English",
+  "difficulty": "Beginner",
+  "sets": [
+    {
+      "id": "english-fundamentals",
+      "title": "English Fundamentals",
+      "cardCount": 20,
+      "difficulty": "Beginner",
+      "cards": [
+        {
+          "front": "What is a noun?",
+          "back": "A word that names a person, place, thing, or idea"
+        },
+        {
+          "front": "What is a verb?",
+          "back": "A word that shows action or state of being"
+        },
+        {
+          "front": "What is an adjective?",
+          "back": "A word that describes a noun or pronoun"
+        },
+        {
+          "front": "What is an adverb?",
+          "back": "A word that describes a verb, adjective, or other adverb"
+        },
+        {
+          "front": "What is a pronoun?",
+          "back": "A word that takes the place of a noun"
+        },
+        {
+          "front": "What is a preposition?",
+          "back": "A word that shows the relationship between words"
+        },
+        {
+          "front": "What is a conjunction?",
+          "back": "A word that connects words, phrases, or clauses"
+        },
+        {
+          "front": "What is an interjection?",
+          "back": "A word that expresses strong emotion"
+        },
+        {
+          "front": "What is a sentence?",
+          "back": "A group of words that expresses a complete thought"
+        },
+        {
+          "front": "What is a subject?",
+          "back": "The person, place, or thing that performs the action"
+        },
+        {
+          "front": "What is a predicate?",
+          "back": "The part of the sentence that tells what the subject does"
+        },
+        {
+          "front": "What is a clause?",
+          "back": "A group of words with a subject and predicate"
+        },
+        {
+          "front": "What is a phrase?",
+          "back": "A group of words that does not have a subject and predicate"
+        },
+        {
+          "front": "What is a simple sentence?",
+          "back": "A sentence with one independent clause"
+        },
+        {
+          "front": "What is a compound sentence?",
+          "back": "A sentence with two or more independent clauses"
+        },
+        {
+          "front": "What is a complex sentence?",
+          "back": "A sentence with one independent clause and one or more dependent clauses"
+        },
+        {
+          "front": "What is a fragment?",
+          "back": "An incomplete sentence that is missing a subject or predicate"
+        },
+        {
+          "front": "What is a run-on sentence?",
+          "back": "Two or more sentences joined without proper punctuation"
+        },
+        {
+          "front": "What is a comma splice?",
+          "back": "Two sentences joined with only a comma"
+        },
+        {
+          "front": "What is parallel structure?",
+          "back": "Using the same grammatical form for similar ideas"
+        }
+      ]
+    }
+  ]
+}
