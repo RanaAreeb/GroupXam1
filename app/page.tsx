@@ -481,39 +481,41 @@ export default function HomePage() {
           </div>
 
           <div className="relative">
-            {/* Navigation arrows */}
+            {/* Navigation arrows - Hidden on mobile, visible on larger screens */}
             <button
               onClick={scrollLeft}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white rounded-full shadow-md flex items-center justify-center hover:shadow-lg transition-shadow"
+              className="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white rounded-full shadow-md items-center justify-center hover:shadow-lg transition-shadow"
             >
               <ChevronLeft className="w-5 h-5 text-gray-600" />
             </button>
             <button
               onClick={scrollRight}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white rounded-full shadow-md flex items-center justify-center hover:shadow-lg transition-shadow"
+              className="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white rounded-full shadow-md items-center justify-center hover:shadow-lg transition-shadow"
             >
               <ChevronRight className="w-5 h-5 text-gray-600" />
             </button>
 
-            {/* Cards container */}
+            {/* Cards container - Responsive padding */}
             <div
               ref={scrollContainerRef}
-              className="flex gap-4 overflow-x-auto px-16 pb-4"
+              className="flex gap-4 overflow-x-auto pb-4 px-4 sm:px-16"
               style={{ scrollbarWidth: "none" }}
             >
               {/* Quizzes Card */}
               <Link
                 href="/quiz"
-                className="flex-shrink-0 w-80 bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow cursor-pointer"
+                className="flex-shrink-0 w-72 sm:w-80 bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow cursor-pointer"
               >
-                <div className="bg-gradient-to-r from-green-400 to-emerald-500 px-6 py-4">
-                  <h3 className="text-xl font-bold text-white">Quizzes</h3>
+                <div className="bg-gradient-to-r from-green-400 to-emerald-500 px-4 sm:px-6 py-4">
+                  <h3 className="text-lg sm:text-xl font-bold text-white">
+                    Quizzes
+                  </h3>
                 </div>
-                <div className="p-6 bg-white h-48 flex flex-col items-center justify-center">
-                  <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-4">
-                    <Target className="w-8 h-8 text-green-600" />
+                <div className="p-4 sm:p-6 bg-white h-40 sm:h-48 flex flex-col items-center justify-center">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-3 sm:mb-4">
+                    <Target className="w-6 h-6 sm:w-8 sm:h-8 text-green-600" />
                   </div>
-                  <p className="text-sm text-gray-600 text-center">
+                  <p className="text-xs sm:text-sm text-gray-600 text-center">
                     Test your knowledge with interactive quizzes
                   </p>
                 </div>
@@ -522,16 +524,18 @@ export default function HomePage() {
               {/* Exam Prep Card */}
               <Link
                 href="/exams"
-                className="flex-shrink-0 w-80 bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow cursor-pointer"
+                className="flex-shrink-0 w-72 sm:w-80 bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow cursor-pointer"
               >
-                <div className="bg-gradient-to-r from-blue-400 to-indigo-500 px-6 py-4">
-                  <h3 className="text-xl font-bold text-white">Exam Prep</h3>
+                <div className="bg-gradient-to-r from-blue-400 to-indigo-500 px-4 sm:px-6 py-4">
+                  <h3 className="text-lg sm:text-xl font-bold text-white">
+                    Exam Prep
+                  </h3>
                 </div>
-                <div className="p-6 bg-white h-48 flex flex-col items-center justify-center">
-                  <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-4">
-                    <Clock className="w-8 h-8 text-blue-600" />
+                <div className="p-4 sm:p-6 bg-white h-40 sm:h-48 flex flex-col items-center justify-center">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-3 sm:mb-4">
+                    <Clock className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
                   </div>
-                  <p className="text-sm text-gray-600 text-center">
+                  <p className="text-xs sm:text-sm text-gray-600 text-center">
                     Simulate real exam conditions with timed tests
                   </p>
                 </div>
@@ -540,16 +544,18 @@ export default function HomePage() {
               {/* Whiteboard Card */}
               <Link
                 href="/whiteboard"
-                className="flex-shrink-0 w-80 bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow cursor-pointer"
+                className="flex-shrink-0 w-72 sm:w-80 bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow cursor-pointer"
               >
-                <div className="bg-gradient-to-r from-orange-400 to-amber-500 px-6 py-4">
-                  <h3 className="text-xl font-bold text-white">Whiteboard</h3>
+                <div className="bg-gradient-to-r from-orange-400 to-amber-500 px-4 sm:px-6 py-4">
+                  <h3 className="text-lg sm:text-xl font-bold text-white">
+                    Whiteboard
+                  </h3>
                 </div>
-                <div className="p-6 bg-white h-48 flex flex-col items-center justify-center">
-                  <div className="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mb-4">
-                    <FileText className="w-8 h-8 text-orange-600" />
+                <div className="p-4 sm:p-6 bg-white h-40 sm:h-48 flex flex-col items-center justify-center">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-orange-100 rounded-2xl flex items-center justify-center mb-3 sm:mb-4">
+                    <FileText className="w-6 h-6 sm:w-8 sm:h-8 text-orange-600" />
                   </div>
-                  <p className="text-sm text-gray-600 text-center">
+                  <p className="text-xs sm:text-sm text-gray-600 text-center">
                     Draw and solve problems with digital tools
                   </p>
                 </div>
@@ -558,16 +564,18 @@ export default function HomePage() {
               {/* Flashcards Card */}
               <Link
                 href="/flashcards"
-                className="flex-shrink-0 w-80 bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow cursor-pointer"
+                className="flex-shrink-0 w-72 sm:w-80 bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow cursor-pointer"
               >
-                <div className="bg-gradient-to-r from-purple-400 to-fuchsia-500 px-6 py-4">
-                  <h3 className="text-xl font-bold text-white">Flashcards</h3>
+                <div className="bg-gradient-to-r from-purple-400 to-fuchsia-500 px-4 sm:px-6 py-4">
+                  <h3 className="text-lg sm:text-xl font-bold text-white">
+                    Flashcards
+                  </h3>
                 </div>
-                <div className="p-6 bg-white h-48 flex flex-col items-center justify-center">
-                  <div className="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mb-4">
-                    <Brain className="w-8 h-8 text-purple-600" />
+                <div className="p-4 sm:p-6 bg-white h-40 sm:h-48 flex flex-col items-center justify-center">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-purple-100 rounded-2xl flex items-center justify-center mb-3 sm:mb-4">
+                    <Brain className="w-6 h-6 sm:w-8 sm:h-8 text-purple-600" />
                   </div>
-                  <p className="text-sm text-gray-600 text-center">
+                  <p className="text-xs sm:text-sm text-gray-600 text-center">
                     Memorize key concepts with smart flashcards
                   </p>
                 </div>
@@ -576,16 +584,18 @@ export default function HomePage() {
               {/* Study Groups Card */}
               <Link
                 href="/discussions"
-                className="flex-shrink-0 w-80 bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow cursor-pointer"
+                className="flex-shrink-0 w-72 sm:w-80 bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow cursor-pointer"
               >
-                <div className="bg-gradient-to-r from-cyan-400 to-teal-500 px-6 py-4">
-                  <h3 className="text-xl font-bold text-white">Study Groups</h3>
+                <div className="bg-gradient-to-r from-cyan-400 to-teal-500 px-4 sm:px-6 py-4">
+                  <h3 className="text-lg sm:text-xl font-bold text-white">
+                    Study Groups
+                  </h3>
                 </div>
-                <div className="p-6 bg-white h-48 flex flex-col items-center justify-center">
-                  <div className="w-16 h-16 bg-cyan-100 rounded-2xl flex items-center justify-center mb-4">
-                    <MessageSquare className="w-8 h-8 text-cyan-600" />
+                <div className="p-4 sm:p-6 bg-white h-40 sm:h-48 flex flex-col items-center justify-center">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-cyan-100 rounded-2xl flex items-center justify-center mb-3 sm:mb-4">
+                    <MessageSquare className="w-6 h-6 sm:w-8 sm:h-8 text-cyan-600" />
                   </div>
-                  <p className="text-sm text-gray-600 text-center">
+                  <p className="text-xs sm:text-sm text-gray-600 text-center">
                     Connect with peers and get community help
                   </p>
                 </div>
@@ -594,20 +604,34 @@ export default function HomePage() {
               {/* proctorIT Card */}
               <Link
                 href="/services"
-                className="flex-shrink-0 w-80 bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow cursor-pointer"
+                className="flex-shrink-0 w-72 sm:w-80 bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow cursor-pointer"
               >
-                <div className="bg-gradient-to-r from-emerald-400 to-lime-500 px-6 py-4">
-                  <h3 className="text-xl font-bold text-white">proctorIT</h3>
+                <div className="bg-gradient-to-r from-emerald-400 to-lime-500 px-4 sm:px-6 py-4">
+                  <h3 className="text-lg sm:text-xl font-bold text-white">
+                    proctorIT
+                  </h3>
                 </div>
-                <div className="p-6 bg-white h-48 flex flex-col items-center justify-center">
-                  <div className="w-16 h-16 bg-emerald-100 rounded-2xl flex items-center justify-center mb-4">
-                    <Star className="w-8 h-8 text-emerald-600" />
+                <div className="p-4 sm:p-6 bg-white h-40 sm:h-48 flex flex-col items-center justify-center">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-emerald-100 rounded-2xl flex items-center justify-center mb-3 sm:mb-4">
+                    <Star className="w-6 h-6 sm:w-8 sm:h-8 text-emerald-600" />
                   </div>
-                  <p className="text-sm text-gray-600 text-center">
+                  <p className="text-xs sm:text-sm text-gray-600 text-center">
                     Enterprise exam solutions for institutions
                   </p>
                 </div>
               </Link>
+            </div>
+
+            {/* Mobile navigation dots - Only visible on mobile */}
+            <div className="flex justify-center mt-6 sm:hidden">
+              <div className="flex space-x-2">
+                <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
+                <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
+                <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
+                <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
+                <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
+                <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
+              </div>
             </div>
           </div>
         </div>
