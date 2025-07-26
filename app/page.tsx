@@ -17,6 +17,8 @@ import {
   Users,
   FileText,
   Code,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import Header from "@/components/ui/header";
 import Image from "next/image";
@@ -214,6 +216,21 @@ export default function HomePage() {
       .then((res) => (res.ok ? res.json() : []))
       .then((data) => setReviews(Array.isArray(data) ? data : []));
   }, []);
+
+  // Scroll functionality for feature carousel
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  const scrollLeft = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: -320, behavior: "smooth" });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: 320, behavior: "smooth" });
+    }
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -449,162 +466,149 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Main Features - Interactive Cards */}
+      {/* Main Features - Quizlet Style */}
       <section id="features" className="py-12 sm:py-20 px-4 bg-white">
-        <div className="container mx-auto">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-3 sm:mb-4 px-4">
+        <div className="container mx-auto max-w-7xl">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-3">
               Everything You Need to{" "}
               <span className="text-emerald-600">Excel</span>
             </h2>
-            <p className="text-base sm:text-xl text-gray-600 max-w-2xl mx-auto px-4">
+            <p className="text-base sm:text-xl text-gray-600 max-w-2xl mx-auto">
               Comprehensive tools designed to help you master every aspect of
               your WAEC/WASSCE preparation
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4 sm:gap-6 mb-12">
-            {/* Quiz Card */}
-            <Card className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2 bg-gradient-to-br from-green-100 to-green-50 h-full">
-              <CardContent className="p-6 sm:p-8 text-center flex flex-col h-full justify-between">
-                <div className="flex-1 flex flex-col justify-center">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                    <Target className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
-                  </div>
-                  <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3">
-                    Quizzes
-                  </h3>
-                  <p className="text-gray-600 mb-4 sm:mb-6 text-xs sm:text-sm leading-relaxed">
-                    Test your knowledge with interactive quizzes and get instant
-                    feedback
-                  </p>
-                </div>
-                <Button
-                  asChild
-                  className="w-full bg-emerald-600 hover:bg-emerald-700 shadow-md text-sm sm:text-base mt-auto"
-                >
-                  <Link href="/quiz">Start Quiz</Link>
-                </Button>
-              </CardContent>
-            </Card>
+          <div className="relative">
+            {/* Navigation arrows */}
+            <button
+              onClick={scrollLeft}
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white rounded-full shadow-md flex items-center justify-center hover:shadow-lg transition-shadow"
+            >
+              <ChevronLeft className="w-5 h-5 text-gray-600" />
+            </button>
+            <button
+              onClick={scrollRight}
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white rounded-full shadow-md flex items-center justify-center hover:shadow-lg transition-shadow"
+            >
+              <ChevronRight className="w-5 h-5 text-gray-600" />
+            </button>
 
-            {/* Exam Card */}
-            <Card className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2 bg-gradient-to-br from-blue-100 to-blue-50 h-full">
-              <CardContent className="p-6 sm:p-8 text-center flex flex-col h-full justify-between">
-                <div className="flex-1 flex flex-col justify-center">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                    <Clock className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+            {/* Cards container */}
+            <div
+              ref={scrollContainerRef}
+              className="flex gap-4 overflow-x-auto px-16 pb-4"
+              style={{ scrollbarWidth: "none" }}
+            >
+              {/* Quizzes Card */}
+              <Link
+                href="/quiz"
+                className="flex-shrink-0 w-80 bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow cursor-pointer"
+              >
+                <div className="bg-gradient-to-r from-green-400 to-emerald-500 px-6 py-4">
+                  <h3 className="text-xl font-bold text-white">Quizzes</h3>
+                </div>
+                <div className="p-6 bg-white h-48 flex flex-col items-center justify-center">
+                  <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-4">
+                    <Target className="w-8 h-8 text-green-600" />
                   </div>
-                  <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3">
-                    Exam Prep
-                  </h3>
-                  <p className="text-gray-600 mb-4 sm:mb-6 text-xs sm:text-sm leading-relaxed">
-                    Simulate real exam conditions with our timed practice tests
+                  <p className="text-sm text-gray-600 text-center">
+                    Test your knowledge with interactive quizzes
                   </p>
                 </div>
-                <Button
-                  asChild
-                  className="w-full bg-blue-600 hover:bg-blue-700 shadow-md text-sm sm:text-base mt-auto"
-                >
-                  <Link href="/exams">Start Learning</Link>
-                </Button>
-              </CardContent>
-            </Card>
+              </Link>
 
-            {/* Whiteboard Card */}
-            <Card className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2 bg-gradient-to-br from-orange-100 to-amber-50 h-full">
-              <CardContent className="p-6 sm:p-8 text-center flex flex-col h-full justify-between">
-                <div className="flex-1 flex flex-col justify-center">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-orange-500 to-amber-500 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                    <FileText className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+              {/* Exam Prep Card */}
+              <Link
+                href="/exams"
+                className="flex-shrink-0 w-80 bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow cursor-pointer"
+              >
+                <div className="bg-gradient-to-r from-blue-400 to-indigo-500 px-6 py-4">
+                  <h3 className="text-xl font-bold text-white">Exam Prep</h3>
+                </div>
+                <div className="p-6 bg-white h-48 flex flex-col items-center justify-center">
+                  <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-4">
+                    <Clock className="w-8 h-8 text-blue-600" />
                   </div>
-                  <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3">
-                    Whiteboard
-                  </h3>
-                  <p className="text-gray-600 mb-4 sm:mb-6 text-xs sm:text-sm leading-relaxed">
-                    Draw, sketch, and solve problems with our digital whiteboard
-                    tools
+                  <p className="text-sm text-gray-600 text-center">
+                    Simulate real exam conditions with timed tests
                   </p>
                 </div>
-                <Button
-                  asChild
-                  className="w-full bg-orange-600 hover:bg-orange-700 shadow-md text-sm sm:text-base mt-auto"
-                >
-                  <Link href="/whiteboard">Open Whiteboard</Link>
-                </Button>
-              </CardContent>
-            </Card>
+              </Link>
 
-            {/* Flashcards Card */}
-            <Card className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2 bg-gradient-to-br from-purple-100 to-purple-50 h-full">
-              <CardContent className="p-6 sm:p-8 text-center flex flex-col h-full justify-between">
-                <div className="flex-1 flex flex-col justify-center">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-purple-500 to-fuchsia-500 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                    <Brain className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+              {/* Whiteboard Card */}
+              <Link
+                href="/whiteboard"
+                className="flex-shrink-0 w-80 bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow cursor-pointer"
+              >
+                <div className="bg-gradient-to-r from-orange-400 to-amber-500 px-6 py-4">
+                  <h3 className="text-xl font-bold text-white">Whiteboard</h3>
+                </div>
+                <div className="p-6 bg-white h-48 flex flex-col items-center justify-center">
+                  <div className="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mb-4">
+                    <FileText className="w-8 h-8 text-orange-600" />
                   </div>
-                  <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3">
-                    Flashcards
-                  </h3>
-                  <p className="text-gray-600 mb-4 sm:mb-6 text-xs sm:text-sm leading-relaxed">
-                    Memorize key concepts with our intelligent flashcard system
+                  <p className="text-sm text-gray-600 text-center">
+                    Draw and solve problems with digital tools
                   </p>
                 </div>
-                <Button
-                  asChild
-                  className="w-full bg-purple-600 hover:bg-purple-700 shadow-md text-sm sm:text-base mt-auto"
-                >
-                  <Link href="/flashcards">Study Cards</Link>
-                </Button>
-              </CardContent>
-            </Card>
+              </Link>
 
-            {/* Discussions Card */}
-            <Card className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2 bg-gradient-to-br from-cyan-100 to-teal-50 h-full">
-              <CardContent className="p-6 sm:p-8 text-center flex flex-col h-full justify-between">
-                <div className="flex-1 flex flex-col justify-center">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                    <MessageSquare className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+              {/* Flashcards Card */}
+              <Link
+                href="/flashcards"
+                className="flex-shrink-0 w-80 bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow cursor-pointer"
+              >
+                <div className="bg-gradient-to-r from-purple-400 to-fuchsia-500 px-6 py-4">
+                  <h3 className="text-xl font-bold text-white">Flashcards</h3>
+                </div>
+                <div className="p-6 bg-white h-48 flex flex-col items-center justify-center">
+                  <div className="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mb-4">
+                    <Brain className="w-8 h-8 text-purple-600" />
                   </div>
-                  <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3">
-                    Study Groups
-                  </h3>
-                  <p className="text-gray-600 mb-4 sm:mb-6 text-xs sm:text-sm leading-relaxed">
-                    Connect with peers and get help from the community
+                  <p className="text-sm text-gray-600 text-center">
+                    Memorize key concepts with smart flashcards
                   </p>
                 </div>
-                <Button
-                  asChild
-                  className="w-full bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 shadow-md text-sm sm:text-base mt-auto"
-                >
-                  <Link href="/discussions">Join Discussion</Link>
-                </Button>
-              </CardContent>
-            </Card>
+              </Link>
 
-            {/* Institutional Testing Service Card */}
-            <Card className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2 bg-gradient-to-br from-emerald-100 to-lime-50 h-full min-w-[280px]">
-              <CardContent className="p-6 sm:p-8 text-center flex flex-col h-full justify-between">
-                <div className="flex-1 flex flex-col justify-center">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-emerald-500 to-lime-500 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                    <Star className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+              {/* Study Groups Card */}
+              <Link
+                href="/discussions"
+                className="flex-shrink-0 w-80 bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow cursor-pointer"
+              >
+                <div className="bg-gradient-to-r from-cyan-400 to-teal-500 px-6 py-4">
+                  <h3 className="text-xl font-bold text-white">Study Groups</h3>
+                </div>
+                <div className="p-6 bg-white h-48 flex flex-col items-center justify-center">
+                  <div className="w-16 h-16 bg-cyan-100 rounded-2xl flex items-center justify-center mb-4">
+                    <MessageSquare className="w-8 h-8 text-cyan-600" />
                   </div>
-                  <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3">
-                    proctorIT
-                  </h3>
-                  <p className="text-gray-600 mb-4 sm:mb-6 text-xs sm:text-sm leading-relaxed">
-                    Comprehensive online exam and assessment solutions for
-                    schools, colleges, and universities. Empower your
-                    institution with secure, scalable, and customizable testing.
+                  <p className="text-sm text-gray-600 text-center">
+                    Connect with peers and get community help
                   </p>
                 </div>
-                <Button
-                  asChild
-                  className="w-full bg-emerald-600 hover:bg-emerald-700 shadow-md text-sm sm:text-base mt-auto"
-                >
-                  <Link href="/services">Learn More</Link>
-                </Button>
-              </CardContent>
-            </Card>
+              </Link>
+
+              {/* proctorIT Card */}
+              <Link
+                href="/services"
+                className="flex-shrink-0 w-80 bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow cursor-pointer"
+              >
+                <div className="bg-gradient-to-r from-emerald-400 to-lime-500 px-6 py-4">
+                  <h3 className="text-xl font-bold text-white">proctorIT</h3>
+                </div>
+                <div className="p-6 bg-white h-48 flex flex-col items-center justify-center">
+                  <div className="w-16 h-16 bg-emerald-100 rounded-2xl flex items-center justify-center mb-4">
+                    <Star className="w-8 h-8 text-emerald-600" />
+                  </div>
+                  <p className="text-sm text-gray-600 text-center">
+                    Enterprise exam solutions for institutions
+                  </p>
+                </div>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
