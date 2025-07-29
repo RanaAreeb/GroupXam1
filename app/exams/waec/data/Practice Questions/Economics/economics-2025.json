@@ -1,0 +1,146 @@
+{
+  "id": 1,
+  "title": "WAEC Economics Practice Questions",
+  "subject": "Economics",
+  "className": "SS3",
+  "department": "Arts",
+  "date": "2025-03-15",
+  "time": "09:00 AM",
+  "questions": [
+    {
+      "q": "What is the basic economic problem?",
+      "options": ["Scarcity", "Unemployment", "Inflation", "Deflation"],
+      "answer": 0
+    },
+    {
+      "q": "Which of the following is a factor of production?",
+      "options": ["Money", "Land", "Interest", "Profit"],
+      "answer": 1
+    },
+    {
+      "q": "What is the law of demand?",
+      "options": [
+        "As price increases, demand increases",
+        "As price increases, demand decreases",
+        "As price decreases, demand decreases",
+        "Price and demand are unrelated"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "Which of the following is NOT a type of market structure?",
+      "options": ["Perfect Competition", "Monopoly", "Oligopoly", "Democracy"],
+      "answer": 3
+    },
+    {
+      "q": "What is GDP?",
+      "options": [
+        "Gross Domestic Product",
+        "General Development Plan",
+        "Government Development Policy",
+        "Global Development Program"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "What is inflation?",
+      "options": [
+        "A general increase in prices",
+        "A general decrease in prices",
+        "A decrease in money supply",
+        "An increase in unemployment"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "Which of the following is a function of money?",
+      "options": [
+        "Medium of exchange",
+        "Store of value",
+        "Unit of account",
+        "All of the above"
+      ],
+      "answer": 3
+    },
+    {
+      "q": "What is opportunity cost?",
+      "options": [
+        "The cost of producing goods",
+        "The value of the next best alternative",
+        "The total cost of production",
+        "The price of goods"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "What is a recession?",
+      "options": [
+        "A period of economic growth",
+        "A period of economic decline",
+        "A period of stable prices",
+        "A period of high inflation"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "Which of the following is a characteristic of perfect competition?",
+      "options": [
+        "Many buyers and sellers",
+        "Product differentiation",
+        "Barriers to entry",
+        "Price control by firms"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "What is the law of supply?",
+      "options": [
+        "As price increases, supply decreases",
+        "As price increases, supply increases",
+        "As price decreases, supply increases",
+        "Price and supply are unrelated"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "What is elasticity of demand?",
+      "options": [
+        "The responsiveness of quantity demanded to price changes",
+        "The total amount demanded",
+        "The price of goods",
+        "The cost of production"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "What is a monopoly?",
+      "options": [
+        "A market with many sellers",
+        "A market with one seller",
+        "A market with few sellers",
+        "A market with no sellers"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "What is the role of the central bank?",
+      "options": [
+        "To control money supply",
+        "To produce goods",
+        "To sell products",
+        "To collect taxes"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "What is fiscal policy?",
+      "options": [
+        "Government spending and taxation",
+        "Central bank interest rates",
+        "Foreign exchange rates",
+        "Stock market regulation"
+      ],
+      "answer": 0
+    }
+  ]
+}

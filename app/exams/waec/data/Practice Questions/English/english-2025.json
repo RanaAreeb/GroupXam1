@@ -1,0 +1,91 @@
+{
+  "id": 2,
+  "title": "WAEC English Language Practice Questions",
+  "subject": "English Language",
+  "className": "SS3",
+  "department": "Arts",
+  "date": "2025-03-15",
+  "time": "09:00 AM",
+  "questions": [
+    {
+      "q": "Choose the correct form: 'Neither John nor his friends _____ going to the party.'",
+      "options": ["is", "are", "was", "were"],
+      "answer": 1
+    },
+    {
+      "q": "Identify the part of speech of 'quickly' in 'She quickly finished her homework.'",
+      "options": ["Noun", "Verb", "Adjective", "Adverb"],
+      "answer": 3
+    },
+    {
+      "q": "Which of the following is a conjunction?",
+      "options": ["Quickly", "Beautiful", "And", "Happy"],
+      "answer": 2
+    },
+    {
+      "q": "What is the past tense of 'go'?",
+      "options": ["Goed", "Went", "Gone", "Going"],
+      "answer": 1
+    },
+    {
+      "q": "Choose the correct spelling:",
+      "options": ["Recieve", "Receive", "Receeve", "Receve"],
+      "answer": 1
+    },
+    {
+      "q": "What is a synonym for 'happy'?",
+      "options": ["Sad", "Joyful", "Angry", "Tired"],
+      "answer": 1
+    },
+    {
+      "q": "Which sentence uses correct punctuation?",
+      "options": [
+        "The students, who were late, missed the lecture.",
+        "The students who were late missed the lecture.",
+        "The students who were late, missed the lecture.",
+        "The students, who were late missed the lecture."
+      ],
+      "answer": 0
+    },
+    {
+      "q": "What is the comparative form of 'good'?",
+      "options": ["Gooder", "More good", "Better", "Best"],
+      "answer": 2
+    },
+    {
+      "q": "Identify the type of sentence: 'What time is it?'",
+      "options": ["Declarative", "Interrogative", "Imperative", "Exclamatory"],
+      "answer": 1
+    },
+    {
+      "q": "What is the plural form of 'child'?",
+      "options": ["Childs", "Childes", "Children", "Child's"],
+      "answer": 2
+    },
+    {
+      "q": "Which word is an antonym of 'brave'?",
+      "options": ["Courageous", "Fearful", "Strong", "Bold"],
+      "answer": 1
+    },
+    {
+      "q": "What is the present participle of 'run'?",
+      "options": ["Ran", "Running", "Runs", "Runned"],
+      "answer": 1
+    },
+    {
+      "q": "Choose the correct word: 'She _____ to the store yesterday.'",
+      "options": ["go", "goes", "went", "gone"],
+      "answer": 2
+    },
+    {
+      "q": "What is a homophone of 'their'?",
+      "options": ["There", "They're", "Both A and B", "None of the above"],
+      "answer": 2
+    },
+    {
+      "q": "Identify the figure of speech: 'The wind whispered through the trees.'",
+      "options": ["Simile", "Metaphor", "Personification", "Hyperbole"],
+      "answer": 2
+    }
+  ]
+}

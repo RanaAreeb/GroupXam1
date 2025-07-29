@@ -1,0 +1,86 @@
+{
+  "id": 4,
+  "title": "WAEC General Mathematics Practice Questions",
+  "subject": "General Mathematics",
+  "className": "SS3",
+  "department": "Science",
+  "date": "2025-03-15",
+  "time": "09:00 AM",
+  "questions": [
+    {
+      "q": "What is the value of x in the equation 2x + 5 = 13?",
+      "options": ["3", "4", "5", "6"],
+      "answer": 1
+    },
+    {
+      "q": "What is the square root of 144?",
+      "options": ["10", "11", "12", "13"],
+      "answer": 2
+    },
+    {
+      "q": "What is the area of a circle with radius 7cm?",
+      "options": ["44π", "49π", "14π", "7π"],
+      "answer": 1
+    },
+    {
+      "q": "Solve for x: 3x - 6 = 15",
+      "options": ["5", "6", "7", "8"],
+      "answer": 2
+    },
+    {
+      "q": "What is the perimeter of a rectangle with length 8cm and width 6cm?",
+      "options": ["14cm", "28cm", "48cm", "56cm"],
+      "answer": 1
+    },
+    {
+      "q": "What is the value of π (pi)?",
+      "options": ["3.14", "3.14159", "22/7", "All of the above"],
+      "answer": 3
+    },
+    {
+      "q": "What is the formula for the area of a triangle?",
+      "options": ["A = l × w", "A = ½bh", "A = πr²", "A = 2πr"],
+      "answer": 1
+    },
+    {
+      "q": "What is the volume of a cube with side length 5cm?",
+      "options": ["25cm³", "75cm³", "125cm³", "150cm³"],
+      "answer": 2
+    },
+    {
+      "q": "What is the slope of the line y = 2x + 3?",
+      "options": ["2", "3", "5", "6"],
+      "answer": 0
+    },
+    {
+      "q": "What is the percentage of 25 out of 100?",
+      "options": ["15%", "20%", "25%", "30%"],
+      "answer": 2
+    },
+    {
+      "q": "What is the formula for the circumference of a circle?",
+      "options": ["C = πr", "C = 2πr", "C = πr²", "C = 2πr²"],
+      "answer": 1
+    },
+    {
+      "q": "What is the value of 2³?",
+      "options": ["4", "6", "8", "10"],
+      "answer": 2
+    },
+    {
+      "q": "What is the mean of the numbers 2, 4, 6, 8, 10?",
+      "options": ["4", "5", "6", "7"],
+      "answer": 2
+    },
+    {
+      "q": "What is the formula for the area of a rectangle?",
+      "options": ["A = l × w", "A = ½bh", "A = πr²", "A = 2πr"],
+      "answer": 0
+    },
+    {
+      "q": "What is the value of √16?",
+      "options": ["2", "4", "8", "16"],
+      "answer": 1
+    }
+  ]
+}

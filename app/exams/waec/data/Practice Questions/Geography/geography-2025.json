@@ -1,0 +1,101 @@
+{
+  "id": 3,
+  "title": "WAEC Geography Practice Questions",
+  "subject": "Geography",
+  "className": "SS3",
+  "department": "Arts",
+  "date": "2025-03-15",
+  "time": "09:00 AM",
+  "questions": [
+    {
+      "q": "What is the capital of Nigeria?",
+      "options": ["Lagos", "Abuja", "Kano", "Ibadan"],
+      "answer": 1
+    },
+    {
+      "q": "Which continent is the largest by land area?",
+      "options": ["Africa", "Asia", "North America", "Europe"],
+      "answer": 1
+    },
+    {
+      "q": "What is the longest river in Africa?",
+      "options": ["Nile", "Congo", "Niger", "Zambezi"],
+      "answer": 0
+    },
+    {
+      "q": "Which of the following is a type of climate?",
+      "options": ["Tropical", "Oceanic", "Desert", "All of the above"],
+      "answer": 3
+    },
+    {
+      "q": "What is the study of maps called?",
+      "options": ["Geology", "Cartography", "Meteorology", "Oceanography"],
+      "answer": 1
+    },
+    {
+      "q": "What is the highest mountain in Africa?",
+      "options": [
+        "Mount Kilimanjaro",
+        "Mount Kenya",
+        "Mount Elgon",
+        "Mount Cameroon"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "Which ocean is the largest?",
+      "options": ["Atlantic", "Pacific", "Indian", "Arctic"],
+      "answer": 1
+    },
+    {
+      "q": "What is the capital of Ghana?",
+      "options": ["Accra", "Kumasi", "Tamale", "Cape Coast"],
+      "answer": 0
+    },
+    {
+      "q": "What is the Sahara Desert?",
+      "options": [
+        "The largest hot desert in the world",
+        "A tropical rainforest",
+        "A mountain range",
+        "A river system"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "What is the study of weather called?",
+      "options": ["Geology", "Meteorology", "Oceanography", "Climatology"],
+      "answer": 1
+    },
+    {
+      "q": "Which country is known as the 'Giant of Africa'?",
+      "options": ["Nigeria", "South Africa", "Egypt", "Kenya"],
+      "answer": 0
+    },
+    {
+      "q": "What is the capital of South Africa?",
+      "options": ["Johannesburg", "Cape Town", "Pretoria", "Durban"],
+      "answer": 2
+    },
+    {
+      "q": "What is the Great Rift Valley?",
+      "options": [
+        "A mountain range",
+        "A geological feature in East Africa",
+        "A river system",
+        "A desert region"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "What is the capital of Kenya?",
+      "options": ["Nairobi", "Mombasa", "Kisumu", "Nakuru"],
+      "answer": 0
+    },
+    {
+      "q": "What is the study of rocks called?",
+      "options": ["Geology", "Geography", "Meteorology", "Oceanography"],
+      "answer": 0
+    }
+  ]
+}

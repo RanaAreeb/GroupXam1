@@ -1,0 +1,161 @@
+{
+  "id": 9,
+  "title": "WAEC Literature in English Practice Questions",
+  "subject": "Literature in English",
+  "className": "SS3",
+  "department": "Arts",
+  "date": "2025-03-15",
+  "time": "09:00 AM",
+  "questions": [
+    {
+      "q": "What is a sonnet?",
+      "options": [
+        "A 14-line poem",
+        "A type of novel",
+        "A dramatic monologue",
+        "A free verse poem"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "Who wrote 'Romeo and Juliet'?",
+      "options": [
+        "Charles Dickens",
+        "William Shakespeare",
+        "Jane Austen",
+        "Mark Twain"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "What is a metaphor?",
+      "options": [
+        "A direct comparison using 'like' or 'as'",
+        "A direct comparison without 'like' or 'as'",
+        "A word that imitates sound",
+        "A repeated consonant sound"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "What is dramatic irony?",
+      "options": [
+        "When the audience knows something characters don't",
+        "When a character says the opposite of what they mean",
+        "When the ending is unexpected",
+        "When there's a happy ending"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "What is a soliloquy?",
+      "options": [
+        "A conversation between two characters",
+        "A speech by one character alone on stage",
+        "A chorus speaking together",
+        "A narrator's commentary"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "What is alliteration?",
+      "options": [
+        "Repetition of vowel sounds",
+        "Repetition of consonant sounds",
+        "Repetition of words",
+        "Repetition of phrases"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "What is a simile?",
+      "options": [
+        "A comparison using 'like' or 'as'",
+        "A direct comparison",
+        "A word that imitates sound",
+        "An exaggeration"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "What is onomatopoeia?",
+      "options": [
+        "Words that imitate sounds",
+        "Words that mean the opposite",
+        "Words that sound the same",
+        "Words that rhyme"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "What is a protagonist?",
+      "options": [
+        "The main character",
+        "The villain",
+        "A minor character",
+        "The narrator"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "What is a stanza?",
+      "options": [
+        "A group of lines in a poem",
+        "A paragraph in prose",
+        "A chapter in a novel",
+        "A scene in a play"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "What is hyperbole?",
+      "options": [
+        "An exaggeration",
+        "An understatement",
+        "A comparison",
+        "A contradiction"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "What is personification?",
+      "options": [
+        "Giving human qualities to non-human things",
+        "Comparing two things",
+        "Using words that imitate sounds",
+        "Repeating consonant sounds"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "What is a rhyme scheme?",
+      "options": [
+        "The pattern of rhymes in a poem",
+        "The rhythm of a poem",
+        "The length of lines",
+        "The number of stanzas"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "What is foreshadowing?",
+      "options": [
+        "Hints about what will happen later",
+        "A flashback to the past",
+        "A description of setting",
+        "A character's thoughts"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "What is a theme?",
+      "options": [
+        "The main idea or message",
+        "The setting",
+        "The plot",
+        "The characters"
+      ],
+      "answer": 0
+    }
+  ]
+}

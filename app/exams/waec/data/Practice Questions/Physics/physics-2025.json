@@ -1,0 +1,96 @@
+{
+  "id": 8,
+  "title": "WAEC Physics Practice Questions",
+  "subject": "Physics",
+  "className": "SS3",
+  "department": "Science",
+  "date": "2025-03-15",
+  "time": "09:00 AM",
+  "questions": [
+    {
+      "q": "What is the SI unit of force?",
+      "options": ["Joule", "Watt", "Newton", "Pascal"],
+      "answer": 2
+    },
+    {
+      "q": "What is the formula for kinetic energy?",
+      "options": ["KE = mgh", "KE = ½mv²", "KE = mv", "KE = Fd"],
+      "answer": 1
+    },
+    {
+      "q": "What is the speed of light in vacuum?",
+      "options": ["3 × 10⁸ m/s", "3 × 10⁷ m/s", "3 × 10⁹ m/s", "3 × 10⁶ m/s"],
+      "answer": 0
+    },
+    {
+      "q": "Which of the following is a vector quantity?",
+      "options": ["Mass", "Temperature", "Velocity", "Time"],
+      "answer": 2
+    },
+    {
+      "q": "What is Ohm's Law?",
+      "options": ["V = IR", "P = VI", "F = ma", "E = mc²"],
+      "answer": 0
+    },
+    {
+      "q": "What is the SI unit of power?",
+      "options": ["Joule", "Watt", "Newton", "Volt"],
+      "answer": 1
+    },
+    {
+      "q": "What is the formula for density?",
+      "options": ["D = m/v", "D = v/m", "D = m×v", "D = m+v"],
+      "answer": 0
+    },
+    {
+      "q": "What is the acceleration due to gravity on Earth?",
+      "options": ["9.8 m/s²", "8.9 m/s²", "10 m/s²", "9.0 m/s²"],
+      "answer": 0
+    },
+    {
+      "q": "What is the SI unit of electric current?",
+      "options": ["Volt", "Ampere", "Ohm", "Watt"],
+      "answer": 1
+    },
+    {
+      "q": "What is the law of reflection?",
+      "options": [
+        "Angle of incidence equals angle of reflection",
+        "Light travels in straight lines",
+        "Light bends when it hits a surface",
+        "Light is absorbed by all surfaces"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "What is the SI unit of pressure?",
+      "options": ["Newton", "Pascal", "Joule", "Watt"],
+      "answer": 1
+    },
+    {
+      "q": "What is the formula for work done?",
+      "options": ["W = Fd", "W = F/d", "W = F×d", "W = F+d"],
+      "answer": 0
+    },
+    {
+      "q": "What is the SI unit of frequency?",
+      "options": ["Meter", "Second", "Hertz", "Watt"],
+      "answer": 2
+    },
+    {
+      "q": "What is the principle of conservation of energy?",
+      "options": [
+        "Energy cannot be created or destroyed",
+        "Energy can be created but not destroyed",
+        "Energy can be destroyed but not created",
+        "Energy is always increasing"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "What is the SI unit of temperature?",
+      "options": ["Celsius", "Fahrenheit", "Kelvin", "Rankine"],
+      "answer": 2
+    }
+  ]
+}

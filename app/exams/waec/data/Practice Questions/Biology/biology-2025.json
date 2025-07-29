@@ -1,0 +1,111 @@
+{
+  "id": 11,
+  "title": "WAEC Biology Practice Questions",
+  "subject": "Biology",
+  "className": "SS3",
+  "department": "Science",
+  "date": "2025-03-15",
+  "time": "09:00 AM",
+  "questions": [
+    {
+      "q": "What is the powerhouse of the cell?",
+      "options": ["Nucleus", "Mitochondria", "Ribosome", "Golgi apparatus"],
+      "answer": 1
+    },
+    {
+      "q": "What is the process by which plants make their own food?",
+      "options": ["Respiration", "Photosynthesis", "Digestion", "Excretion"],
+      "answer": 1
+    },
+    {
+      "q": "What is the study of heredity called?",
+      "options": ["Ecology", "Genetics", "Taxonomy", "Physiology"],
+      "answer": 1
+    },
+    {
+      "q": "Which of the following is NOT a type of blood cell?",
+      "options": ["Red blood cell", "White blood cell", "Platelet", "Neuron"],
+      "answer": 3
+    },
+    {
+      "q": "What is the largest organ in the human body?",
+      "options": ["Heart", "Liver", "Skin", "Brain"],
+      "answer": 2
+    },
+    {
+      "q": "What is the function of the heart?",
+      "options": [
+        "To pump blood around the body",
+        "To filter blood",
+        "To store blood",
+        "To produce blood"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "What is the study of classification called?",
+      "options": ["Ecology", "Genetics", "Taxonomy", "Physiology"],
+      "answer": 2
+    },
+    {
+      "q": "What is the function of the lungs?",
+      "options": [
+        "To pump blood",
+        "To exchange gases",
+        "To digest food",
+        "To filter waste"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "What is the basic unit of life?",
+      "options": ["Tissue", "Organ", "Cell", "System"],
+      "answer": 2
+    },
+    {
+      "q": "What is the function of the kidneys?",
+      "options": [
+        "To pump blood",
+        "To filter waste from blood",
+        "To digest food",
+        "To produce hormones"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "What is the study of the environment called?",
+      "options": ["Ecology", "Genetics", "Taxonomy", "Physiology"],
+      "answer": 0
+    },
+    {
+      "q": "What is the function of the brain?",
+      "options": [
+        "To pump blood",
+        "To control body functions",
+        "To digest food",
+        "To filter waste"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "What is the study of how organisms function called?",
+      "options": ["Ecology", "Genetics", "Taxonomy", "Physiology"],
+      "answer": 3
+    },
+    {
+      "q": "What is the function of the stomach?",
+      "options": [
+        "To pump blood",
+        "To digest food",
+        "To filter waste",
+        "To produce hormones"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "What is the study of diseases called?",
+      "options": ["Ecology", "Pathology", "Taxonomy", "Physiology"],
+      "answer": 1
+    }
+  ]
+}

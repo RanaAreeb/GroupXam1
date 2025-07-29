@@ -1,0 +1,111 @@
+{
+  "id": 6,
+  "title": "WAEC History Practice Questions",
+  "subject": "History",
+  "className": "SS3",
+  "department": "Arts",
+  "date": "2025-03-15",
+  "time": "09:00 AM",
+  "questions": [
+    {
+      "q": "In what year did Nigeria gain independence?",
+      "options": ["1957", "1960", "1963", "1966"],
+      "answer": 1
+    },
+    {
+      "q": "Who was the first Prime Minister of Nigeria?",
+      "options": [
+        "Nnamdi Azikiwe",
+        "Tafawa Balewa",
+        "Obafemi Awolowo",
+        "Ahmadu Bello"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "Which European country colonized Nigeria?",
+      "options": ["France", "Britain", "Portugal", "Germany"],
+      "answer": 1
+    },
+    {
+      "q": "What was the name of the first Nigerian political party?",
+      "options": ["NPC", "NCNC", "AG", "NEPU"],
+      "answer": 1
+    },
+    {
+      "q": "When did the Nigerian Civil War end?",
+      "options": ["1967", "1970", "1973", "1975"],
+      "answer": 1
+    },
+    {
+      "q": "Who was the first President of Nigeria?",
+      "options": [
+        "Nnamdi Azikiwe",
+        "Tafawa Balewa",
+        "Yakubu Gowon",
+        "Olusegun Obasanjo"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "What was the name of the Nigerian currency before the Naira?",
+      "options": ["Pound", "Shilling", "Dollar", "Franc"],
+      "answer": 0
+    },
+    {
+      "q": "When did Nigeria become a republic?",
+      "options": ["1960", "1963", "1966", "1970"],
+      "answer": 1
+    },
+    {
+      "q": "Who was the first military ruler of Nigeria?",
+      "options": [
+        "Yakubu Gowon",
+        "Murtala Mohammed",
+        "Ibrahim Babangida",
+        "Aguiyi Ironsi"
+      ],
+      "answer": 3
+    },
+    {
+      "q": "What was the capital of Nigeria before Abuja?",
+      "options": ["Lagos", "Kano", "Ibadan", "Kaduna"],
+      "answer": 0
+    },
+    {
+      "q": "When did Nigeria move its capital to Abuja?",
+      "options": ["1980", "1985", "1991", "1995"],
+      "answer": 2
+    },
+    {
+      "q": "Who was the first female senator in Nigeria?",
+      "options": [
+        "Funmilayo Ransome-Kuti",
+        "Margaret Ekpo",
+        "Gambo Sawaba",
+        "Hajiya Gambo Sawaba"
+      ],
+      "answer": 0
+    },
+    {
+      "q": "What was the name of the first Nigerian university?",
+      "options": [
+        "University of Lagos",
+        "University of Ibadan",
+        "University of Nigeria",
+        "Ahmadu Bello University"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "When was the University of Ibadan established?",
+      "options": ["1948", "1952", "1960", "1962"],
+      "answer": 0
+    },
+    {
+      "q": "What was the name of the first Nigerian airline?",
+      "options": ["Nigeria Airways", "Air Nigeria", "Arik Air", "Dana Air"],
+      "answer": 0
+    }
+  ]
+}

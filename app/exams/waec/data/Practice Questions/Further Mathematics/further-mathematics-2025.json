@@ -1,0 +1,91 @@
+{
+  "id": 11,
+  "title": "WAEC Further Mathematics Practice Questions",
+  "subject": "Further Mathematics",
+  "className": "SS3",
+  "department": "Science",
+  "date": "2025-03-15",
+  "time": "09:00 AM",
+  "questions": [
+    {
+      "q": "What is the derivative of x³?",
+      "options": ["x²", "2x²", "3x²", "4x²"],
+      "answer": 2
+    },
+    {
+      "q": "What is the integral of 3x²?",
+      "options": ["x³", "x³ + C", "3x³", "3x³ + C"],
+      "answer": 1
+    },
+    {
+      "q": "What is the derivative of sin(x)?",
+      "options": ["cos(x)", "-cos(x)", "sin(x)", "-sin(x)"],
+      "answer": 0
+    },
+    {
+      "q": "What is the integral of cos(x)?",
+      "options": ["sin(x)", "sin(x) + C", "-sin(x)", "-sin(x) + C"],
+      "answer": 1
+    },
+    {
+      "q": "What is the derivative of e^x?",
+      "options": ["e^x", "xe^x", "e^(x-1)", "ln(x)"],
+      "answer": 0
+    },
+    {
+      "q": "What is the integral of 1/x?",
+      "options": ["ln(x)", "ln(x) + C", "1/x²", "x"],
+      "answer": 1
+    },
+    {
+      "q": "What is the derivative of ln(x)?",
+      "options": ["1/x", "x", "e^x", "1"],
+      "answer": 0
+    },
+    {
+      "q": "What is the derivative of tan(x)?",
+      "options": ["sec²(x)", "csc²(x)", "cot²(x)", "sin²(x)"],
+      "answer": 0
+    },
+    {
+      "q": "What is the integral of sec²(x)?",
+      "options": ["tan(x)", "tan(x) + C", "cot(x)", "cot(x) + C"],
+      "answer": 1
+    },
+    {
+      "q": "What is the derivative of √x?",
+      "options": ["1/√x", "1/(2√x)", "√x", "x"],
+      "answer": 1
+    },
+    {
+      "q": "What is the integral of 1/√x?",
+      "options": ["2√x", "2√x + C", "√x", "√x + C"],
+      "answer": 1
+    },
+    {
+      "q": "What is the derivative of x^n?",
+      "options": ["nx^(n-1)", "nx^n", "x^(n-1)", "n"],
+      "answer": 0
+    },
+    {
+      "q": "What is the integral of x^n?",
+      "options": [
+        "x^(n+1)/(n+1)",
+        "x^(n+1)/(n+1) + C",
+        "nx^(n-1)",
+        "nx^(n-1) + C"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "What is the derivative of sec(x)?",
+      "options": ["sec(x)tan(x)", "csc(x)cot(x)", "sec²(x)", "csc²(x)"],
+      "answer": 0
+    },
+    {
+      "q": "What is the integral of sec(x)tan(x)?",
+      "options": ["sec(x)", "sec(x) + C", "tan(x)", "tan(x) + C"],
+      "answer": 1
+    }
+  ]
+}
