@@ -658,6 +658,50 @@ export default function JambExamsPage() {
     setSelectedYear(null);
   };
 
+  const handleSwitchToPractice = () => {
+    if (selectedSubject) {
+      // Find the corresponding practice exam for this subject
+      let practiceExam = practiceQuestions.find(
+        (exam) => exam.subject === selectedSubject
+      );
+
+      // If exact match not found, try to find by title
+      if (!practiceExam) {
+        practiceExam = practiceQuestions.find((exam) =>
+          exam.title.includes(selectedSubject)
+        );
+      }
+
+      if (practiceExam) {
+        setActiveTab("practice");
+        setSelectedSubject(null);
+        setSelectedYear(null);
+        setOpenExam(practiceExam.id);
+        if (!answers[practiceExam.id]) {
+          setAnswers((prev) => ({
+            ...prev,
+            [practiceExam.id]: Array(practiceExam.questions.length).fill(-1),
+          }));
+        }
+      } else {
+        // Fallback: open the first practice exam
+        if (practiceQuestions.length > 0) {
+          const firstExam = practiceQuestions[0];
+          setActiveTab("practice");
+          setSelectedSubject(null);
+          setSelectedYear(null);
+          setOpenExam(firstExam.id);
+          if (!answers[firstExam.id]) {
+            setAnswers((prev) => ({
+              ...prev,
+              [firstExam.id]: Array(firstExam.questions.length).fill(-1),
+            }));
+          }
+        }
+      }
+    }
+  };
+
   const handleAnswer = (examId: any, qIdx: number, optIdx: number) => {
     setAnswers((prev) => ({
       ...prev,
@@ -960,6 +1004,32 @@ export default function JambExamsPage() {
                   </CardContent>
                 </Card>
               ))}
+              <Card
+                className="relative overflow-hidden rounded-3xl shadow-xl border-0 bg-white/70 backdrop-blur-md transition-transform duration-300 hover:scale-105 hover:shadow-2xl group cursor-pointer"
+                onClick={handleSwitchToPractice}
+              >
+                <CardContent className="p-8 flex flex-col h-full items-center justify-center text-center">
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-emerald-500 to-blue-500 flex items-center justify-center shadow-lg border-4 border-white group-hover:scale-110 transition-transform">
+                    <Target className="w-7 h-7 text-white" />
+                  </div>
+                  <div className="font-bold text-lg text-gray-800 mt-4 mb-2">
+                    Practice Questions
+                  </div>
+                  <div className="text-sm text-gray-600 mb-4">
+                    Interactive practice for {selectedSubject}
+                  </div>
+                  <Button
+                    className="bg-emerald-600 hover:bg-emerald-700 text-white mt-auto w-full rounded-full shadow-lg"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleSwitchToPractice();
+                    }}
+                  >
+                    Start Practice
+                  </Button>
+                  <span className="absolute -top-10 -right-10 w-32 h-32 rounded-full opacity-20 blur-2xl bg-gradient-to-br from-emerald-500 to-blue-500"></span>
+                </CardContent>
+              </Card>
             </div>
           </div>
         ) : openExam !== null || isLoadingExam || examData !== null ? (

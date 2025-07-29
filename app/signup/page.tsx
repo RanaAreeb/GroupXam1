@@ -92,30 +92,6 @@ const institutionSubcategories = {
     "Engineering School",
     "Arts & Design School",
   ],
-  "Pre-employment": [
-    "Training Institute",
-    "Vocational School",
-    "Skill Development Center",
-    "Career Training Center",
-    "Professional Development Institute",
-    "Corporate Training Center",
-  ],
-  "Compliance assessments": [
-    "Certification Body",
-    "Accreditation Agency",
-    "Regulatory Authority",
-    "Professional Association",
-    "Industry Standards Organization",
-    "Quality Assurance Institute",
-  ],
-  "Professional certifications": [
-    "Certification Institute",
-    "Professional Training Center",
-    "Skill Assessment Center",
-    "Industry Certification Body",
-    "Professional Development Organization",
-    "Continuing Education Provider",
-  ],
 };
 
 const subjects: Subject[] = [
