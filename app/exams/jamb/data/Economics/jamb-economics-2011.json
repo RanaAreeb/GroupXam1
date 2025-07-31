@@ -1,0 +1,714 @@
+{
+  "examInfo": {
+    "title": "JAMB Economics 2011 Past Questions",
+    "subject": "Economics",
+    "examType": "Past Questions",
+    "year": 2011,
+    "paperType": "Type B",
+    "duration": "90 minutes",
+    "totalQuestions": 50,
+    "instructions": "Choose the correct option from A-D for each question."
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which question paper type of economics is given to you?",
+      "options": {
+        "A": "Type A",
+        "B": "Type B",
+        "C": "Type C",
+        "D": "Type D"
+      },
+      "correctAnswer": "B",
+      "explanation": "This question identifies the paper type for administrative purposes.",
+      "topic": "Administrative",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 2,
+      "question": "An effective way of controlling inflation in a mixed economy is to",
+      "options": {
+        "A": "increase productivity",
+        "B": "reduce income tax",
+        "C": "ration available output",
+        "D": "increase imports"
+      },
+      "correctAnswer": "A",
+      "explanation": "Increasing productivity increases supply of goods and services, which helps control inflation by reducing price pressures.",
+      "topic": "Inflation Control",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 3,
+      "question": "One of the limitations of PPC assumption is that there is",
+      "options": {
+        "A": "no indication of technological development",
+        "B": "no recognition of preferred goods for countries",
+        "C": "technical inefficiency",
+        "D": "abundant resources"
+      },
+      "correctAnswer": "A",
+      "explanation": "The Production Possibility Curve assumes technology remains constant, which is a limitation as it doesn't account for technological progress.",
+      "topic": "Production Possibility Curve",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 4,
+      "question": "A major disadvantage of the arithmetic mean is that it is",
+      "options": {
+        "A": "not useful for large data",
+        "B": "not suitable for further statistical analysis",
+        "C": "cumbersome to determine the actual value",
+        "D": "affected by extreme data"
+      },
+      "correctAnswer": "D",
+      "explanation": "The arithmetic mean is heavily influenced by extreme values (outliers), which can distort the representation of the data.",
+      "topic": "Statistics",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 5,
+      "question": "Demand patterns are determined by the market on the basis of",
+      "options": {
+        "A": "scale of preference",
+        "B": "consumer sovereignty",
+        "C": "consumer rationality",
+        "D": "price of the commodity"
+      },
+      "correctAnswer": "B",
+      "explanation": "Consumer sovereignty means consumers determine what goods are produced through their purchasing decisions, thus determining demand patterns.",
+      "topic": "Consumer Theory",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 6,
+      "question": "A consumer surplus measures the",
+      "options": {
+        "A": "benefits derived from consuming a cheap commodity",
+        "B": "excess of total expenditure over total utility",
+        "C": "difference between marginal utility and marginal cost",
+        "D": "excess of marginal utility over price"
+      },
+      "correctAnswer": "D",
+      "explanation": "Consumer surplus is the difference between what consumers are willing to pay (marginal utility) and what they actually pay (price).",
+      "topic": "Consumer Surplus",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 7,
+      "question": "If the demand for one commodity excludes another, it is said to be",
+      "options": {
+        "A": "complementary demand",
+        "B": "competitive demand",
+        "C": "composite demand",
+        "D": "derived demand"
+      },
+      "correctAnswer": "B",
+      "explanation": "Competitive demand occurs when goods are substitutes, and the demand for one excludes or reduces demand for another.",
+      "topic": "Types of Demand",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 8,
+      "question": "The graph of the schedule above will depict",
+      "options": {
+        "A": "a kinked demand curve",
+        "B": "a normal demand curve",
+        "C": "an abnormal demand curve",
+        "D": "a diminishing marginal utility curve"
+      },
+      "correctAnswer": "B",
+      "explanation": "Based on the price-quantity relationship shown, this represents a normal downward-sloping demand curve.",
+      "topic": "Demand Curves",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 9,
+      "question": "The median of an odd-numbered set of scores is the",
+      "options": {
+        "A": "Middle value in the set",
+        "B": "Highest value in the set",
+        "C": "Arithmetic mean of the set",
+        "D": "Most frequently occurring score"
+      },
+      "correctAnswer": "A",
+      "explanation": "For an odd-numbered set of scores arranged in order, the median is the middle value.",
+      "topic": "Statistics",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 10,
+      "question": "If demand increases without a change in supply, equilibrium price and quantity will",
+      "options": {
+        "A": "remain unchanged",
+        "B": "shift inward",
+        "C": "fall",
+        "D": "rise"
+      },
+      "correctAnswer": "D",
+      "explanation": "When demand increases while supply remains constant, both equilibrium price and quantity will rise.",
+      "topic": "Market Equilibrium",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 11,
+      "question": "In the process of production, total output is at maximum when",
+      "options": {
+        "A": "MP = 0",
+        "B": "MP > 0",
+        "C": "AP = 0",
+        "D": "AP > 0"
+      },
+      "correctAnswer": "A",
+      "explanation": "Total output is maximized when marginal product (MP) equals zero, as any additional input would reduce total output.",
+      "topic": "Production Theory",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 12,
+      "question": "From the table above, the price elasticity of supply is",
+      "options": {
+        "A": "4",
+        "B": "25",
+        "C": "1",
+        "D": "2"
+      },
+      "correctAnswer": "C",
+      "explanation": "Price elasticity of supply = (% change in quantity supplied)/(% change in price). Based on the given data, this equals 1.",
+      "topic": "Supply Elasticity",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 13,
+      "question": "When a consumer is at equilibrium, the MRSxy is equal to the",
+      "options": {
+        "A": "sum of the prices",
+        "B": "product of the two prices",
+        "C": "ratio of the two prices",
+        "D": "difference of the two prices"
+      },
+      "correctAnswer": "C",
+      "explanation": "At consumer equilibrium, the marginal rate of substitution (MRSxy) equals the ratio of the prices of the two goods (Px/Py).",
+      "topic": "Consumer Equilibrium",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 14,
+      "question": "Minimum price legislation by government will",
+      "options": {
+        "A": "reduce supply",
+        "B": "increase supply",
+        "C": "reduce demand and create surplus",
+        "D": "increase demand and create scarcity"
+      },
+      "correctAnswer": "C",
+      "explanation": "Minimum price (price floor) set above equilibrium reduces quantity demanded and creates a surplus.",
+      "topic": "Price Controls",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 15,
+      "question": "Ranking is the method used in measuring",
+      "options": {
+        "A": "marginal utility",
+        "B": "ordinal utility",
+        "C": "cardinal utility",
+        "D": "total utility"
+      },
+      "correctAnswer": "B",
+      "explanation": "Ordinal utility uses ranking to order preferences without measuring exact utility levels.",
+      "topic": "Utility Theory",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 16,
+      "question": "If a firm is faced with an elastic supply curve, its revenue will",
+      "options": {
+        "A": "be supplied at a higher price",
+        "B": "double at a higher price",
+        "C": "increase by more than the percentage increase in price",
+        "D": "equal percentage change in price"
+      },
+      "correctAnswer": "C",
+      "explanation": "With elastic supply, quantity supplied responds more than proportionally to price changes, leading to revenue increases greater than the price increase percentage.",
+      "topic": "Supply Elasticity and Revenue",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 17,
+      "question": "The optimal range of output for a perfectly competitive firm is",
+      "options": {
+        "A": "AC is lowest",
+        "B": "AVC is lowest",
+        "C": "MC is rising",
+        "D": "MC is falling"
+      },
+      "correctAnswer": "C",
+      "explanation": "A perfectly competitive firm operates optimally where marginal cost is rising and equals marginal revenue.",
+      "topic": "Perfect Competition",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 18,
+      "question": "A firm will experience diseconomies of scale when",
+      "options": {
+        "A": "there are difficulties in coordinating production",
+        "B": "there is shortage in labour supply",
+        "C": "the size of market is small",
+        "D": "there is an increase in the price of raw materials"
+      },
+      "correctAnswer": "A",
+      "explanation": "Diseconomies of scale occur when firms become too large to manage efficiently, leading to coordination difficulties.",
+      "topic": "Diseconomies of Scale",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 19,
+      "question": "The law of variable proportions is applicable only",
+      "options": {
+        "A": "in the long-run period",
+        "B": "to large-scale enterprises",
+        "C": "to small-scale enterprises",
+        "D": "in the short-run period"
+      },
+      "correctAnswer": "D",
+      "explanation": "The law of variable proportions (diminishing returns) applies in the short run when at least one factor is fixed.",
+      "topic": "Production Theory",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 20,
+      "question": "From the diagram above, the optimal point of production is",
+      "options": {
+        "A": "R",
+        "B": "T",
+        "C": "U",
+        "D": "S"
+      },
+      "correctAnswer": "D",
+      "explanation": "Based on the production diagram, point S represents the optimal production point.",
+      "topic": "Production Theory",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 21,
+      "question": "If real income increases while nominal income remains the same, it can be inferred that",
+      "options": {
+        "A": "Unemployment rate has decreased",
+        "B": "General prices have fallen",
+        "C": "Employment rate has risen",
+        "D": "General prices have risen"
+      },
+      "correctAnswer": "B",
+      "explanation": "If nominal income stays constant but real income increases, it means prices have fallen, increasing purchasing power.",
+      "topic": "Income and Prices",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 22,
+      "question": "One of the characteristics of oligopoly is the availability of",
+      "options": {
+        "A": "few sellers",
+        "B": "few buyers",
+        "C": "many sellers",
+        "D": "a single seller"
+      },
+      "correctAnswer": "A",
+      "explanation": "Oligopoly is characterized by a market with few sellers who have significant market power.",
+      "topic": "Market Structures",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 23,
+      "question": "The average total cost when 20 units are produced is",
+      "options": {
+        "A": "₦20.00",
+        "B": "₦23.00",
+        "C": "₦13.00",
+        "D": "₦15.00"
+      },
+      "correctAnswer": "D",
+      "explanation": "Based on the cost diagram provided, the average total cost at 20 units of output is ₦15.00.",
+      "topic": "Cost Analysis",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 24,
+      "question": "When 20 units of output is produced, TC will be",
+      "options": {
+        "A": "₦360",
+        "B": "₦300",
+        "C": "₦460",
+        "D": "₦400"
+      },
+      "correctAnswer": "B",
+      "explanation": "Total Cost = Average Total Cost × Quantity = ₦15 × 20 = ₦300",
+      "topic": "Cost Analysis",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 25,
+      "question": "The profit of a monopolist can be eliminated where price equals",
+      "options": {
+        "A": "AFC",
+        "B": "MC",
+        "C": "AC",
+        "D": "AVC"
+      },
+      "correctAnswer": "C",
+      "explanation": "A monopolist's profit is eliminated when price equals average cost (AC), resulting in normal profit only.",
+      "topic": "Monopoly",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 26,
+      "question": "Bank consolidation policy in Nigeria is a measure to increase",
+      "options": {
+        "A": "the capital base of banks",
+        "B": "employment opportunities in banks",
+        "C": "the number of shareholders",
+        "D": "the number of branches"
+      },
+      "correctAnswer": "A",
+      "explanation": "Bank consolidation policy aims to increase the capital base of banks to make them more stable and competitive.",
+      "topic": "Banking Policy",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 27,
+      "question": "An increase in the circulation of money without a corresponding increase in output will lead to",
+      "options": {
+        "A": "a rise in income levels",
+        "B": "stagflation",
+        "C": "inflation",
+        "D": "deflation"
+      },
+      "correctAnswer": "C",
+      "explanation": "When money supply increases without corresponding increase in output, it leads to inflation as more money chases the same goods.",
+      "topic": "Inflation",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 28,
+      "question": "In national income accounts, an item counted as part of government spending is",
+      "options": {
+        "A": "salaries and wages",
+        "B": "pension",
+        "C": "scholarship",
+        "D": "social welfare"
+      },
+      "correctAnswer": "A",
+      "explanation": "Salaries and wages paid by government are counted as government spending in national income accounts.",
+      "topic": "National Income Accounting",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 29,
+      "question": "If aggregate demand is lower than total output in an economy national income will",
+      "options": {
+        "A": "be constant",
+        "B": "be at equilibrium",
+        "C": "increase",
+        "D": "fall"
+      },
+      "correctAnswer": "D",
+      "explanation": "When aggregate demand is less than total output, there is excess supply, leading to a fall in national income.",
+      "topic": "Macroeconomic Equilibrium",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 30,
+      "question": "During the era of barter, money was generally in the form of",
+      "options": {
+        "A": "notes",
+        "B": "precious metals",
+        "C": "coins",
+        "D": "commodities"
+      },
+      "correctAnswer": "D",
+      "explanation": "In the barter era, commodities like cattle, grains, and shells served as money before the development of metallic money.",
+      "topic": "History of Money",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 31,
+      "question": "A country achieves economic development when there is",
+      "options": {
+        "A": "an increase in military expenditure",
+        "B": "an increase in capacity utilization",
+        "C": "a sustained increase in per capita income",
+        "D": "an even distribution of goods and services"
+      },
+      "correctAnswer": "C",
+      "explanation": "Economic development is characterized by sustained increases in per capita income, indicating improved living standards.",
+      "topic": "Economic Development",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 32,
+      "question": "An indicator of growth in an economy over a period of time is the",
+      "options": {
+        "A": "GDP gap",
+        "B": "GDP at factor cost",
+        "C": "GDP at market price",
+        "D": "GDP deflator"
+      },
+      "correctAnswer": "C",
+      "explanation": "GDP at market price is the most commonly used indicator to measure economic growth over time.",
+      "topic": "Economic Growth",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 33,
+      "question": "A country embarks on deficit financing in order to",
+      "options": {
+        "A": "increase revenue",
+        "B": "reduce aggregate demand",
+        "C": "curb inflation",
+        "D": "stimulate investment"
+      },
+      "correctAnswer": "D",
+      "explanation": "Deficit financing is used to stimulate investment and economic activity by increasing government spending beyond revenue.",
+      "topic": "Fiscal Policy",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 34,
+      "question": "The deflationary gap is defined by",
+      "options": {
+        "A": "X",
+        "B": "K",
+        "C": "X + K",
+        "D": "X - K"
+      },
+      "correctAnswer": "A",
+      "explanation": "Based on the diagram, X represents the deflationary gap.",
+      "topic": "Macroeconomic Gaps",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 35,
+      "question": "What does X represent?",
+      "options": {
+        "A": "recessionary gap",
+        "B": "GNP gap",
+        "C": "inflationary gap",
+        "D": "deflationary gap"
+      },
+      "correctAnswer": "D",
+      "explanation": "X represents the deflationary gap in the macroeconomic diagram.",
+      "topic": "Macroeconomic Gaps",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 36,
+      "question": "The import-substitution strategy of industrialization is to encourage",
+      "options": {
+        "A": "domestic production",
+        "B": "large-scale production",
+        "C": "importation",
+        "D": "exportation"
+      },
+      "correctAnswer": "A",
+      "explanation": "Import substitution strategy aims to encourage domestic production to replace imported goods.",
+      "topic": "Industrialization Strategy",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 37,
+      "question": "Upstream oil activities involve the",
+      "options": {
+        "A": "management of pollution",
+        "B": "marketing of refined products",
+        "C": "exploration of crude oil",
+        "D": "refining of crude oil"
+      },
+      "correctAnswer": "C",
+      "explanation": "Upstream oil activities involve exploration and extraction of crude oil from the ground.",
+      "topic": "Oil Industry",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 38,
+      "question": "Agricultural production in Nigeria is constrained by",
+      "options": {
+        "A": "ineffective use of stabilization measures",
+        "B": "inadequate demand",
+        "C": "poor implementation of policies",
+        "D": "balance of payments deficits"
+      },
+      "correctAnswer": "C",
+      "explanation": "Poor implementation of agricultural policies has been a major constraint to agricultural production in Nigeria.",
+      "topic": "Agricultural Policy",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 39,
+      "question": "The main function of NNPC is to",
+      "options": {
+        "A": "oversee the development of the oil sector",
+        "B": "develop the oil producing area",
+        "C": "fix the price of products",
+        "D": "ensure regular supply of products"
+      },
+      "correctAnswer": "A",
+      "explanation": "The Nigerian National Petroleum Corporation (NNPC) oversees the development and regulation of Nigeria's oil sector.",
+      "topic": "Oil Industry",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 40,
+      "question": "Investing heavily in the agricultural sector will lead to",
+      "options": {
+        "A": "sufficient food production",
+        "B": "a vibrant commodity market",
+        "C": "capital inflow",
+        "D": "stable export prices"
+      },
+      "correctAnswer": "A",
+      "explanation": "Heavy investment in agriculture primarily leads to sufficient food production to meet domestic needs.",
+      "topic": "Agricultural Investment",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 41,
+      "question": "Industrial development in Nigeria can be encouraged through",
+      "options": {
+        "A": "signing WTO treaty",
+        "B": "granting subsidies",
+        "C": "the provision of efficient infrastructure",
+        "D": "direct government participation"
+      },
+      "correctAnswer": "C",
+      "explanation": "Efficient infrastructure is crucial for industrial development as it reduces production and transportation costs.",
+      "topic": "Industrial Development",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 42,
+      "question": "The record of a country's transactions in international trade is her",
+      "options": {
+        "A": "capital account",
+        "B": "balance of payments",
+        "C": "current account",
+        "D": "balance of trade"
+      },
+      "correctAnswer": "B",
+      "explanation": "Balance of payments records all economic transactions between a country and the rest of the world.",
+      "topic": "International Trade",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 43,
+      "question": "The transfer of public shareholding corporations to private enterprises is",
+      "options": {
+        "A": "concession",
+        "B": "incorporation",
+        "C": "commercialization",
+        "D": "privatization"
+      },
+      "correctAnswer": "D",
+      "explanation": "Privatization is the transfer of ownership of public enterprises to private entities.",
+      "topic": "Privatization",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 44,
+      "question": "A condition in which official and autonomous exchange rate coexist is",
+      "options": {
+        "A": "dual exchange rate system",
+        "B": "managed floating rate system",
+        "C": "market determined exchange rate system",
+        "D": "multiple exchange rate system"
+      },
+      "correctAnswer": "D",
+      "explanation": "Multiple exchange rate system exists when there are different official and autonomous exchange rates operating simultaneously.",
+      "topic": "Exchange Rate Systems",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 45,
+      "question": "In modern economies, the Malthusian theory of population is ineffective because of",
+      "options": {
+        "A": "birth control measures",
+        "B": "technical progress",
+        "C": "government policies",
+        "D": "natural disasters"
+      },
+      "correctAnswer": "B",
+      "explanation": "Technical progress has increased food production capacity, making Malthusian predictions about population outgrowing food supply less relevant.",
+      "topic": "Population Theory",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 46,
+      "question": "Optimum population enables an economy to attain the highest level of",
+      "options": {
+        "A": "Industrial development",
+        "B": "Income per head",
+        "C": "Revenue generation",
+        "D": "Economic development"
+      },
+      "correctAnswer": "B",
+      "explanation": "Optimum population is the population size that maximizes income per head (per capita income).",
+      "topic": "Population Theory",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 47,
+      "question": "A change from one industry to another by a worker is an example of",
+      "options": {
+        "A": "geographical mobility",
+        "B": "horizontal mobility",
+        "C": "professional advancement",
+        "D": "vertical mobility"
+      },
+      "correctAnswer": "B",
+      "explanation": "Horizontal mobility refers to movement between different industries or occupations at the same skill level.",
+      "topic": "Labour Mobility",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 48,
+      "question": "The money paid per hour for work done is",
+      "options": {
+        "A": "salary",
+        "B": "wage rate",
+        "C": "cost",
+        "D": "bonus"
+      },
+      "correctAnswer": "B",
+      "explanation": "Wage rate is the amount paid per unit of time (hour) for work performed.",
+      "topic": "Labour Economics",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 49,
+      "question": "Trade takes place because of",
+      "options": {
+        "A": "marginal utility",
+        "B": "inefficiency in production",
+        "C": "opportunity cost",
+        "D": "comparative advantage"
+      },
+      "correctAnswer": "D",
+      "explanation": "International trade occurs because countries have comparative advantages in producing different goods.",
+      "topic": "International Trade",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 50,
+      "question": "The World Trade Organization is responsible for",
+      "options": {
+        "A": "stabilizing and harmonization oil prices",
+        "B": "ensuring equal participation of countries in trade",
+        "C": "modernising world economies",
+        "D": "minimizing obstacles to international trade and investment"
+      },
+      "correctAnswer": "D",
+      "explanation": "The WTO's primary function is to reduce barriers and obstacles to international trade and investment.",
+      "topic": "International Organizations",
+      "difficulty": "Medium"
+    }
+  ]
+}

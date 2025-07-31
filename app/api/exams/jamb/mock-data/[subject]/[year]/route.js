@@ -75,6 +75,39 @@ const loadExamData = (subject, year) => {
             } else if (year === 2013) {
                 fileName = 'government-2013.json';
             }
+        } else if (subject === 'Biology') {
+            folderName = 'Biology';
+            if (year === 2010) {
+                fileName = 'jamb-biology-2010.json';
+            } else if (year === 2011) {
+                fileName = 'jamb-biology-2011.json';
+            } else if (year === 2012) {
+                fileName = 'jamb-biology-2012.json';
+            } else if (year === 2013) {
+                fileName = 'jamb-biology-2013.json';
+            }
+        } else if (subject === 'Physics') {
+            folderName = 'Physics';
+            if (year === 2010) {
+                fileName = 'jamb-physics-2010.json';
+            } else if (year === 2011) {
+                fileName = 'jamb-physics-2011.json';
+            } else if (year === 2012) {
+                fileName = 'jamb-physics-2012.json';
+            } else if (year === 2013) {
+                fileName = 'jamb-physics-2013.json';
+            }
+        } else if (subject === 'Economics') {
+            folderName = 'Economics';
+            if (year === 2010) {
+                fileName = 'jamb-economics-2010.json';
+            } else if (year === 2011) {
+                fileName = 'jamb-economics-2011.json';
+            } else if (year === 2012) {
+                fileName = 'jamb-economics-2012.json';
+            } else if (year === 2013) {
+                fileName = 'jamb-economics-2013.json';
+            }
         }
 
         if (folderName && fileName) {
@@ -93,6 +126,29 @@ const loadExamData = (subject, year) => {
                         questions: parsed
                     };
                 }
+
+                // Transform options from object format to array format if needed
+                if (parsed.questions && Array.isArray(parsed.questions)) {
+                    parsed.questions = parsed.questions.map(question => {
+                        if (question.options && typeof question.options === 'object' && !Array.isArray(question.options)) {
+                            // Convert options object to array
+                            const optionsArray = Object.values(question.options);
+                            const correctAnswerKey = question.correct_answer || question.correctAnswer;
+                            const correctAnswerIndex = correctAnswerKey ?
+                                optionsArray.indexOf(question.options[correctAnswerKey]) :
+                                question.correctAnswer;
+
+                            return {
+                                ...question,
+                                question: question.question || question.q,
+                                options: optionsArray,
+                                correctAnswer: correctAnswerIndex
+                            };
+                        }
+                        return question;
+                    });
+                }
+
                 return parsed;
             }
         }

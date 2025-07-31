@@ -1,0 +1,709 @@
+{
+  "exam": "JAMB",
+  "subject": "Biology",
+  "year": 2012,
+  "paper_type": "Red",
+  "total_questions": 50,
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which Question Paper Type of Biology as indicated above is given to you?",
+      "options": {
+        "A": "Type Green",
+        "B": "Type Purple",
+        "C": "Type Red",
+        "D": "Type Yellow"
+      },
+      "correct_answer": "C",
+      "explanation": "This is a paper identification question. The correct answer is Type Red as indicated in the paper header.",
+      "topic": "Paper Identification",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 2,
+      "question": "The organelle responsible for heredity is labelled",
+      "options": {
+        "A": "I",
+        "B": "II",
+        "C": "III",
+        "D": "IV"
+      },
+      "correct_answer": "B",
+      "explanation": "The nucleus (labelled II) contains the genetic material and is responsible for heredity.",
+      "topic": "Cell Biology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 3,
+      "question": "The part labelled IV is the",
+      "options": {
+        "A": "mitochondrion",
+        "B": "cell wall",
+        "C": "endoplasmic reticulum",
+        "D": "nucleus"
+      },
+      "correct_answer": "C",
+      "explanation": "Based on the diagram, part IV represents the endoplasmic reticulum, which is involved in protein and lipid synthesis.",
+      "topic": "Cell Biology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 4,
+      "question": "Which of the following is most advanced in the evolutionary trend of animals?",
+      "options": {
+        "A": "Liver fluke",
+        "B": "Earthworm",
+        "C": "Snail",
+        "D": "Cockroach"
+      },
+      "correct_answer": "D",
+      "explanation": "Cockroach (arthropod) is most evolutionarily advanced with jointed appendages, segmented body, and complex organ systems.",
+      "topic": "Evolution",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 5,
+      "question": "Which of the following is the lowest category of classification?",
+      "options": {
+        "A": "Class",
+        "B": "Species",
+        "C": "Family",
+        "D": "Genus"
+      },
+      "correct_answer": "B",
+      "explanation": "Species is the lowest and most specific category in biological classification.",
+      "topic": "Taxonomy",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 6,
+      "question": "Plants that show secondary growth are usually found among the",
+      "options": {
+        "A": "thallophytes",
+        "B": "pteridophytes",
+        "C": "monocotyledons",
+        "D": "dicotyledons"
+      },
+      "correct_answer": "B",
+      "explanation": "Dicotyledons typically show secondary growth due to the presence of cambium tissue.",
+      "topic": "Plant Biology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 7,
+      "question": "The fungi are distinct group of eukaryotes mainly because they have",
+      "options": {
+        "A": "spores",
+        "B": "no chlorophyll",
+        "C": "many fruiting bodies",
+        "D": "sexual and asexual reproduction"
+      },
+      "correct_answer": "B",
+      "explanation": "Fungi are distinguished from plants primarily by their lack of chlorophyll and heterotrophic nutrition.",
+      "topic": "Microbiology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 8,
+      "question": "An arthropod that is destructive at early stage of its life cycle is",
+      "options": {
+        "A": "butterfly",
+        "B": "mosquito",
+        "C": "bee",
+        "D": "millipede"
+      },
+      "correct_answer": "A",
+      "explanation": "Butterfly larvae (caterpillars) are often destructive to crops and plants during their feeding stage.",
+      "topic": "Entomology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 9,
+      "question": "An animal body that can be cut along its axis in any plane to give two identical parts is said to be",
+      "options": {
+        "A": "radially symmetrical",
+        "B": "bilaterally symmetrical",
+        "C": "asymmetrical",
+        "D": "symmetrical"
+      },
+      "correct_answer": "A",
+      "explanation": "Radial symmetry allows an organism to be divided into identical parts along multiple planes through the central axis.",
+      "topic": "Animal Morphology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 10,
+      "question": "Which of the following possesses mammary glands?",
+      "options": {
+        "A": "Dogfish",
+        "B": "whale",
+        "C": "shark",
+        "D": "catfish"
+      },
+      "correct_answer": "B",
+      "explanation": "Whales are mammals and possess mammary glands for nursing their young.",
+      "topic": "Animal Classification",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 11,
+      "question": "The feature that links birds to reptiles in evolution is the possession of",
+      "options": {
+        "A": "feathers",
+        "B": "beak",
+        "C": "skeleton",
+        "D": "scales"
+      },
+      "correct_answer": "D",
+      "explanation": "Birds and reptiles share the common feature of having scales, indicating their evolutionary relationship.",
+      "topic": "Evolution",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 12,
+      "question": "Countershading is an adaptive feature that enables animals to",
+      "options": {
+        "A": "fight enemies",
+        "B": "remain undetected",
+        "C": "warn enemies",
+        "D": "attract mates"
+      },
+      "correct_answer": "B",
+      "explanation": "Countershading is a form of camouflage where animals have darker coloration on top and lighter below to remain undetected.",
+      "topic": "Animal Adaptations",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 13,
+      "question": "Which of the following plant structures lacks a waterproof cuticle?",
+      "options": {
+        "A": "leaf",
+        "B": "stem",
+        "C": "root",
+        "D": "shoot"
+      },
+      "correct_answer": "C",
+      "explanation": "Roots lack a waterproof cuticle to allow for water and mineral absorption from the soil.",
+      "topic": "Plant Anatomy",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 14,
+      "question": "In the mammalian male reproductive system, the part that serves as a passage for both urine and semen is the",
+      "options": {
+        "A": "urethra",
+        "B": "ureter",
+        "C": "bladder",
+        "D": "seminal vesicle"
+      },
+      "correct_answer": "A",
+      "explanation": "The urethra serves as a common passage for both urine from the bladder and semen during ejaculation.",
+      "topic": "Reproductive System",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 15,
+      "question": "In plants which of the following is required in minute quantities for growth?",
+      "options": {
+        "A": "Copper",
+        "B": "Potassium",
+        "C": "Phosphorus",
+        "D": "Sodium"
+      },
+      "correct_answer": "A",
+      "explanation": "Copper is a micronutrient required in very small quantities for plant growth and enzyme function.",
+      "topic": "Plant Nutrition",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 16,
+      "question": "Which of the following organisms is both parasitic and autotrophic?",
+      "options": {
+        "A": "Sundew",
+        "B": "Loranthus",
+        "C": "Rhizopus",
+        "D": "Tapeworm"
+      },
+      "correct_answer": "A",
+      "explanation": "Loranthus (mistletoe) is a partial parasite that can photosynthesize but also derives nutrients from its host.",
+      "topic": "Plant Nutrition",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 17,
+      "question": "A function of the hydrochloric acid produced in the human stomach during digestion is to",
+      "options": {
+        "A": "neutralise the effect of bile",
+        "B": "coagulate milk protein and emulsify fats",
+        "C": "stop the action of ptyalin",
+        "D": "break up food into smaller particles"
+      },
+      "correct_answer": "C",
+      "explanation": "Hydrochloric acid in the stomach stops the action of ptyalin (salivary amylase) and activates pepsinogen to pepsin.",
+      "topic": "Digestive System",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 18,
+      "question": "Which of the following is a polysaccharide?",
+      "options": {
+        "A": "Glucose",
+        "B": "Sucrose",
+        "C": "Maltose",
+        "D": "Cellulose"
+      },
+      "correct_answer": "D",
+      "explanation": "Cellulose is a polysaccharide made up of many glucose units linked together.",
+      "topic": "Biochemistry",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 19,
+      "question": "Transportation in the xylem is represented by",
+      "options": {
+        "A": "I",
+        "B": "II",
+        "C": "III",
+        "D": "IV"
+      },
+      "correct_answer": "D",
+      "explanation": "Based on the diagram, arrow IV represents upward movement of water and minerals in the xylem.",
+      "topic": "Plant Physiology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 20,
+      "question": "The arrow labelled II represents the",
+      "options": {
+        "A": "release of oxygen",
+        "B": "intake of carbon (IV) oxide",
+        "C": "movement of photosynthates",
+        "D": "movement of nutrients"
+      },
+      "correct_answer": "A",
+      "explanation": "Arrow II represents the release of oxygen as a byproduct of photosynthesis.",
+      "topic": "Plant Physiology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 21,
+      "question": "In the kidney of mammals, the site of ultrafiltration is the",
+      "options": {
+        "A": "uriniferous tubule",
+        "B": "Bowman's capsule",
+        "C": "loop of Henle",
+        "D": "renal tubule"
+      },
+      "correct_answer": "B",
+      "explanation": "Ultrafiltration occurs in the Bowman's capsule where blood is filtered to form the glomerular filtrate.",
+      "topic": "Excretory System",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 22,
+      "question": "Which of the following is involved in secondary thickening in plants?",
+      "options": {
+        "A": "Collenchyma and xylem cells",
+        "B": "Vascular cambium",
+        "C": "Vascular cambium and cork cambium",
+        "D": "Cork cambium and sclerenchyma"
+      },
+      "correct_answer": "C",
+      "explanation": "Secondary thickening involves both vascular cambium (producing secondary xylem and phloem) and cork cambium (producing bark).",
+      "topic": "Plant Anatomy",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 23,
+      "question": "An example of a fruit that develops from a single carpel is",
+      "options": {
+        "A": "okra",
+        "B": "tomato",
+        "C": "bean",
+        "D": "orange"
+      },
+      "correct_answer": "C",
+      "explanation": "Bean pods develop from a single carpel, making them simple fruits.",
+      "topic": "Plant Biology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 24,
+      "question": "The developing embryo is usually contained in the part labelled",
+      "options": {
+        "A": "IV",
+        "B": "III",
+        "C": "II",
+        "D": "I"
+      },
+      "correct_answer": "C",
+      "explanation": "Based on the diagram, part II represents the area where the developing embryo is located.",
+      "topic": "Reproductive Biology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 25,
+      "question": "The function of the part labelled III is to",
+      "options": {
+        "A": "produce egg cells",
+        "B": "protect sperms during fertilization",
+        "C": "secrete hormones during coitus",
+        "D": "protect the developing embryo"
+      },
+      "correct_answer": "A",
+      "explanation": "Part III represents the ovary which produces egg cells (ova).",
+      "topic": "Reproductive System",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 26,
+      "question": "Plant growth can be artificially stimulated by the addition of",
+      "options": {
+        "A": "gibberellin",
+        "B": "kinin",
+        "C": "abscisic acid",
+        "D": "ethylene"
+      },
+      "correct_answer": "A",
+      "explanation": "Gibberellins are plant hormones that promote stem elongation and overall plant growth.",
+      "topic": "Plant Hormones",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 27,
+      "question": "The autonomic nervous system consists of neurons that control the",
+      "options": {
+        "A": "voluntary muscles",
+        "B": "heart beat",
+        "C": "tongue",
+        "D": "hands"
+      },
+      "correct_answer": "B",
+      "explanation": "The autonomic nervous system controls involuntary functions like heartbeat, breathing, and digestion.",
+      "topic": "Nervous System",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 28,
+      "question": "Plants of temperate origin can be grown in tropical areas in the vegetation zones of the",
+      "options": {
+        "A": "rain forest",
+        "B": "Guinea savanna",
+        "C": "Sudan savanna",
+        "D": "montane forest"
+      },
+      "correct_answer": "B",
+      "explanation": "Montane forests have cooler temperatures at higher altitudes, making them suitable for temperate plants.",
+      "topic": "Plant Geography",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 29,
+      "question": "The water cycle is maintained mainly by",
+      "options": {
+        "A": "evaporation of water in the environment",
+        "B": "evaporation and condensation of water in the environment",
+        "C": "condensation of water in the environment",
+        "D": "transpiration and respiration in plants"
+      },
+      "correct_answer": "B",
+      "explanation": "The water cycle is maintained by the continuous processes of evaporation and condensation of water.",
+      "topic": "Ecology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 30,
+      "question": "Organisms living in an estuarine habitat are adapted to",
+      "options": {
+        "A": "withstand wide fluctuations in temperature",
+        "B": "survive only in water with low salinity",
+        "C": "withstand wide fluctuations in salinity",
+        "D": "feed only on phytoplankton and dead organic matter"
+      },
+      "correct_answer": "C",
+      "explanation": "Estuarine organisms must tolerate varying salinity levels as freshwater mixes with seawater.",
+      "topic": "Marine Biology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 31,
+      "question": "The presence of stilt roots, pneumatophores, sunken stomata and salt glands are adaptive features of plants found in the",
+      "options": {
+        "A": "tropical rainforest",
+        "B": "mangrove swamps",
+        "C": "grassland",
+        "D": "montane forest"
+      },
+      "correct_answer": "B",
+      "explanation": "These are adaptations of mangrove plants to survive in saline, waterlogged conditions.",
+      "topic": "Plant Adaptations",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 32,
+      "question": "Which of the following animals can exist solely on the water they get from food and metabolic reactions?",
+      "options": {
+        "A": "forest arboreal dwellers",
+        "B": "desert dwellers",
+        "C": "forest-ground dwellers",
+        "D": "rainforest dwellers"
+      },
+      "correct_answer": "B",
+      "explanation": "Desert animals have evolved to obtain all their water needs from food and metabolic processes.",
+      "topic": "Animal Adaptations",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 33,
+      "question": "The most likely first colonizers of a bare rock are",
+      "options": {
+        "A": "mosses",
+        "B": "ferns",
+        "C": "lichen",
+        "D": "fungi"
+      },
+      "correct_answer": "D",
+      "explanation": "Lichens are pioneer species that can colonize bare rock surfaces and begin the process of primary succession.",
+      "topic": "Ecology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 34,
+      "question": "The carrying capacity of a habitat is reached when the population growth begins to",
+      "options": {
+        "A": "increase slowly",
+        "B": "increase exponentially",
+        "C": "slow down",
+        "D": "remain steady"
+      },
+      "correct_answer": "C",
+      "explanation": "Carrying capacity is reached when population growth slows down due to environmental resistance.",
+      "topic": "Population Ecology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 35,
+      "question": "The abiotic factors that control human population include",
+      "options": {
+        "A": "disease and famine",
+        "B": "space and rainfall",
+        "C": "flooding and earthquake",
+        "D": "temperature and disease"
+      },
+      "correct_answer": "C",
+      "explanation": "Flooding and earthquakes are abiotic (non-living) factors that can control human population size.",
+      "topic": "Population Ecology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 36,
+      "question": "An indigenous method of renewing and maintaining soil fertility is by",
+      "options": {
+        "A": "clearing farms by burning",
+        "B": "planting one crop type",
+        "C": "adding inorganic fertilizers yearly",
+        "D": "crop rotation and shifting cultivation"
+      },
+      "correct_answer": "D",
+      "explanation": "Crop rotation and shifting cultivation are traditional methods that help maintain soil fertility naturally.",
+      "topic": "Agriculture",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 37,
+      "question": "The diseases caused by water-borne pathogens include",
+      "options": {
+        "A": "gonorrhoea and poliomyelitis",
+        "B": "typhoid and syphilis",
+        "C": "tuberculosis and cholera",
+        "D": "typhoid and cholera"
+      },
+      "correct_answer": "D",
+      "explanation": "Typhoid and cholera are both diseases caused by water-borne bacterial pathogens.",
+      "topic": "Disease Transmission",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 38,
+      "question": "The graph illustrates",
+      "options": {
+        "A": "the highest frequency for height of 2 metres",
+        "B": "a discontinuously varying character",
+        "C": "a continuously varying character",
+        "D": "total yield in a cassava farm"
+      },
+      "correct_answer": "B",
+      "explanation": "The graph shows a discontinuous distribution pattern with distinct categories.",
+      "topic": "Statistics",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 39,
+      "question": "The largest number of cassava plants has an approximate height of",
+      "options": {
+        "A": "1.4m",
+        "B": "1.6m",
+        "C": "1.8m",
+        "D": "2.0m"
+      },
+      "correct_answer": "B",
+      "explanation": "From the graph, the peak frequency occurs at approximately 1.6m height.",
+      "topic": "Data Analysis",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 40,
+      "question": "Which of the following is true in blood transfusion?",
+      "options": {
+        "A": "a person of blood group AB can donate blood only to another person of blood group AB",
+        "B": "persons of blood groups A and B can donate or receive blood from each other",
+        "C": "A person of blood group AB can receive blood only from persons of blood group A or B",
+        "D": "A person of blood group O can donate only to a person of blood group O"
+      },
+      "correct_answer": "A",
+      "explanation": "Blood group AB individuals can only donate to other AB individuals but can receive from all groups (universal recipients).",
+      "topic": "Blood Groups",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 41,
+      "question": "A yellow maize is planted and all the fruits obtained are of yellow seeds. When they are cross-bred, yellow seeds and white seeds are obtained in a ratio 3:1. The yellow seed is said to be",
+      "options": {
+        "A": "non-heritable",
+        "B": "sex-linked",
+        "C": "a recessive trait",
+        "D": "a dominant trait"
+      },
+      "correct_answer": "D",
+      "explanation": "The 3:1 ratio indicates that yellow is dominant over white in this monohybrid cross.",
+      "topic": "Genetics",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 42,
+      "question": "When a colour-blind man marries a carrier woman. What is the probability of their offspring being colour blind?",
+      "options": {
+        "A": "25%",
+        "B": "50%",
+        "C": "75%",
+        "D": "100%"
+      },
+      "correct_answer": "B",
+      "explanation": "In this sex-linked cross, 50% of offspring (25% of all children) will be colour-blind males.",
+      "topic": "Genetics",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 43,
+      "question": "The correct base pairing for DNA is",
+      "options": {
+        "A": "adenine → thymine and guanine → cytosine",
+        "B": "adenine → guanine and thymine → cytosine",
+        "C": "adenine → cytosine and guanine → thymine",
+        "D": "adenine → adenine and cytosine → cytosine"
+      },
+      "correct_answer": "A",
+      "explanation": "In DNA, adenine pairs with thymine and guanine pairs with cytosine through hydrogen bonding.",
+      "topic": "Molecular Biology",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 44,
+      "question": "The type of interaction shown is referred to as",
+      "options": {
+        "A": "interspecific competition",
+        "B": "intraspecific competition",
+        "C": "mutualism",
+        "D": "cooperation"
+      },
+      "correct_answer": "A",
+      "explanation": "The diagram shows competition between different species (interspecific competition).",
+      "topic": "Ecology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 45,
+      "question": "Which of the following statements is true of the interaction?",
+      "options": {
+        "A": "P. aurelia is better adapted for obtaining food than P. caudatum",
+        "B": "P. caudatum is better adapted for obtaining food than P. aurelia",
+        "C": "both organisms cannot coexist",
+        "D": "both organisms cannot reproduce"
+      },
+      "correct_answer": "C",
+      "explanation": "The competitive exclusion principle states that two species competing for the same resources cannot coexist.",
+      "topic": "Ecology",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 46,
+      "question": "The short thick beak in birds is an adaptation for",
+      "options": {
+        "A": "crushing seeds",
+        "B": "sucking nectar",
+        "C": "tearing flesh",
+        "D": "straining mud"
+      },
+      "correct_answer": "A",
+      "explanation": "Short, thick beaks are adaptations for crushing hard seeds and nuts.",
+      "topic": "Animal Adaptations",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 47,
+      "question": "The basking of Agama lizards in the sun is to",
+      "options": {
+        "A": "change the colour of their body",
+        "B": "raise their body temperature to become active",
+        "C": "fight to defend their territories",
+        "D": "attract the female for courtship"
+      },
+      "correct_answer": "D",
+      "explanation": "Agama lizards are ectothermic and bask in the sun to raise their body temperature for optimal activity.",
+      "topic": "Animal Behavior",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 48,
+      "question": "The significance of a very large number of termites involved in nuptial swarming is to",
+      "options": {
+        "A": "provide birds with plenty of food",
+        "B": "ensure their perpetuation despite predatory pressure",
+        "C": "search for a favourable place to breed",
+        "D": "ensure that every individual gets a mate"
+      },
+      "correct_answer": "B",
+      "explanation": "Large numbers during nuptial flights ensure species survival despite high predation rates.",
+      "topic": "Animal Behavior",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 49,
+      "question": "The use and disuse of body parts and the inheritance of acquired traits were used to explain",
+      "options": {
+        "A": "Darwin's theory",
+        "B": "Lamarck's theory",
+        "C": "genetic drift",
+        "D": "gene flow"
+      },
+      "correct_answer": "B",
+      "explanation": "Lamarck's theory of evolution was based on the use and disuse of body parts and inheritance of acquired characteristics.",
+      "topic": "Evolution",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 50,
+      "question": "From his study of Galapagos finches, Darwin derived his theory of evolution from",
+      "options": {
+        "A": "comparative anatomy",
+        "B": "comparative physiology",
+        "C": "fossil remains",
+        "D": "comparative embryology"
+      },
+      "correct_answer": "B",
+      "explanation": "Darwin's study of Galapagos finches focused on comparative anatomy, particularly beak structures adapted to different food sources.",
+      "topic": "Evolution",
+      "difficulty": "Medium"
+    }
+  ]
+}

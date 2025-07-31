@@ -342,6 +342,39 @@ const pastPaperSubjects = [
     gradient: "from-violet-500 to-purple-500",
     badge: "bg-violet-100 text-violet-700",
   },
+  {
+    id: 106,
+    title: "Biology",
+    subject: "Biology",
+    className: "UTME",
+    department: "Science",
+    years: "2010-2013",
+    icon: <Dna className="w-7 h-7" />,
+    gradient: "from-emerald-500 to-green-500",
+    badge: "bg-emerald-100 text-emerald-700",
+  },
+  {
+    id: 107,
+    title: "Physics",
+    subject: "Physics",
+    className: "UTME",
+    department: "Science",
+    years: "2010-2013",
+    icon: <Atom className="w-7 h-7" />,
+    gradient: "from-orange-500 to-red-500",
+    badge: "bg-orange-100 text-orange-700",
+  },
+  {
+    id: 108,
+    title: "Economics",
+    subject: "Economics",
+    className: "UTME",
+    department: "Arts",
+    years: "2010-2013",
+    icon: <DollarSign className="w-7 h-7" />,
+    gradient: "from-yellow-500 to-orange-500",
+    badge: "bg-yellow-100 text-yellow-700",
+  },
 ];
 
 // Year-specific past papers
@@ -373,11 +406,6 @@ const yearSpecificPapers = {
     { year: 2011, questions: 50, duration: "2 hours" },
     { year: 2012, questions: 50, duration: "2 hours" },
     { year: 2013, questions: 50, duration: "2 hours" },
-    { year: 2014, questions: 50, duration: "2 hours" },
-    { year: 2015, questions: 50, duration: "2 hours" },
-    { year: 2016, questions: 50, duration: "2 hours" },
-    { year: 2017, questions: 50, duration: "2 hours" },
-    { year: 2018, questions: 50, duration: "2 hours" },
   ],
   Chemistry: [
     { year: 2010, questions: 50, duration: "2 hours" },
@@ -395,22 +423,12 @@ const yearSpecificPapers = {
     { year: 2011, questions: 50, duration: "2 hours" },
     { year: 2012, questions: 50, duration: "2 hours" },
     { year: 2013, questions: 50, duration: "2 hours" },
-    { year: 2014, questions: 50, duration: "2 hours" },
-    { year: 2015, questions: 50, duration: "2 hours" },
-    { year: 2016, questions: 50, duration: "2 hours" },
-    { year: 2017, questions: 50, duration: "2 hours" },
-    { year: 2018, questions: 50, duration: "2 hours" },
   ],
   Economics: [
     { year: 2010, questions: 50, duration: "2 hours" },
     { year: 2011, questions: 50, duration: "2 hours" },
     { year: 2012, questions: 50, duration: "2 hours" },
     { year: 2013, questions: 50, duration: "2 hours" },
-    { year: 2014, questions: 50, duration: "2 hours" },
-    { year: 2015, questions: 50, duration: "2 hours" },
-    { year: 2016, questions: 50, duration: "2 hours" },
-    { year: 2017, questions: 50, duration: "2 hours" },
-    { year: 2018, questions: 50, duration: "2 hours" },
   ],
   "Literature in English": [
     { year: 2010, questions: 50, duration: "2 hours" },
@@ -576,10 +594,15 @@ export default function JambExamsPage() {
       const response = await fetch(
         `/api/exams/jamb/mock-data/${encodeURIComponent(
           selectedSubject!
-        )}/${year}`
+        )}/${year}?t=${Date.now()}`
       );
       if (response.ok) {
         const loadedExamData = await response.json();
+        console.log("Loaded exam data:", loadedExamData);
+        console.log(
+          "First question options:",
+          loadedExamData.questions?.[0]?.options
+        );
         setExamData(loadedExamData);
 
         if (typeof window !== "undefined") {

@@ -1,0 +1,709 @@
+{
+  "exam": "JAMB",
+  "subject": "Biology",
+  "year": 2011,
+  "paper_type": "C",
+  "total_questions": 50,
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which Question Paper Type of Biology is given to you?",
+      "options": {
+        "A": "Type A",
+        "B": "Type B",
+        "C": "Type C",
+        "D": "Type D"
+      },
+      "correct_answer": "C",
+      "explanation": "This is a paper identification question. The correct answer is Type C as indicated in the paper header.",
+      "topic": "Paper Identification",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 2,
+      "question": "The function of the red head in male Agama lizards is to",
+      "options": {
+        "A": "conceal and camouflage the animal from predators",
+        "B": "scare other males from the territory",
+        "C": "attract female lizards for mating purposes",
+        "D": "warn predators of the distastefulness of the animal"
+      },
+      "correct_answer": "C",
+      "explanation": "The bright red head of male Agama lizards is a sexual display characteristic used to attract females during mating season.",
+      "topic": "Animal Behavior",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 3,
+      "question": "In which of the following species is the biomass of an individual the smallest?",
+      "options": {
+        "A": "Agama sp.",
+        "B": "Bufo sp.",
+        "C": "Spirogyra sp.",
+        "D": "Tilapia sp."
+      },
+      "correct_answer": "D",
+      "explanation": "Spirogyra is a microscopic algae with the smallest individual biomass compared to the other larger organisms listed.",
+      "topic": "Ecology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 4,
+      "question": "Seed plants are divided into",
+      "options": {
+        "A": "tracheophytes and ferns",
+        "B": "angiosperms and gymnosperms",
+        "C": "monocotyledons and dicotyledons",
+        "D": "thallophytes and bryophytes"
+      },
+      "correct_answer": "C",
+      "explanation": "Seed plants (spermatophytes) are classified into angiosperms (flowering plants) and gymnosperms (cone-bearing plants).",
+      "topic": "Plant Classification",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 5,
+      "question": "In which of the following groups of vertebrates is parental care mostly exhibited?",
+      "options": {
+        "A": "Reptilia",
+        "B": "Amphibia",
+        "C": "Aves",
+        "D": "Mammalia"
+      },
+      "correct_answer": "D",
+      "explanation": "Mammals show the most extensive parental care, including gestation, nursing, and extended care of young.",
+      "topic": "Animal Behavior",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 6,
+      "question": "Which of the organisms represented are notable agricultural pests?",
+      "options": {
+        "A": "II and IV",
+        "B": "I and IV",
+        "C": "II and III",
+        "D": "I and III"
+      },
+      "correct_answer": "A",
+      "explanation": "Based on the diagram, organisms II and IV represent agricultural pests that damage crops.",
+      "topic": "Agricultural Biology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 7,
+      "question": "An economic importance of the organism represented by IV is that",
+      "options": {
+        "A": "it transmits water borne disease to humans",
+        "B": "it is destructive to farm crops",
+        "C": "its faeces pollutes drinking water",
+        "D": "it helps in the control of mosquito larvae"
+      },
+      "correct_answer": "B",
+      "explanation": "Organism IV represents an agricultural pest that causes economic damage by destroying farm crops.",
+      "topic": "Agricultural Biology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 8,
+      "question": "The adult form of III is a vector of",
+      "options": {
+        "A": "sleeping sickness",
+        "B": "river blindness",
+        "C": "cholera",
+        "D": "elephantiasis"
+      },
+      "correct_answer": "D",
+      "explanation": "The adult form of organism III (likely a blackfly) is a vector for elephantiasis (lymphatic filariasis).",
+      "topic": "Disease Vectors",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 9,
+      "question": "The adaptive importance of nuptial flight from termite colonies is to",
+      "options": {
+        "A": "disperse the reproductives in order to establish new colonies",
+        "B": "provide abundant food for birds and other animals during the early rains",
+        "C": "ensure cross-breeding between members of one colony and another",
+        "D": "expel the reproductives so as to provide enough food for other members"
+      },
+      "correct_answer": "A",
+      "explanation": "Nuptial flights allow reproductive termites to disperse and establish new colonies in different locations.",
+      "topic": "Animal Behavior",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 10,
+      "question": "The gas evolved in the process is",
+      "options": {
+        "A": "carbon (IV) oxide",
+        "B": "nitrogen",
+        "C": "oxygen",
+        "D": "carbon (II) oxide"
+      },
+      "correct_answer": "A",
+      "explanation": "Based on the experimental setup, carbon dioxide is the gas evolved during the process shown.",
+      "topic": "Plant Physiology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 11,
+      "question": "The experimental set-up above is used to demonstrate the process of",
+      "options": {
+        "A": "diffusion",
+        "B": "photosynthesis",
+        "C": "fermentation",
+        "D": "plasmolysis"
+      },
+      "correct_answer": "C",
+      "explanation": "The experimental setup demonstrates fermentation, where organisms produce carbon dioxide as a byproduct.",
+      "topic": "Biochemistry",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 12,
+      "question": "Which of the following can cause shrinkage of living cells?",
+      "options": {
+        "A": "Hypotonic solution",
+        "B": "Isotonic solution",
+        "C": "Deionized water",
+        "D": "Hypertonic solution"
+      },
+      "correct_answer": "D",
+      "explanation": "Hypertonic solutions cause water to move out of cells, leading to cell shrinkage (plasmolysis in plants).",
+      "topic": "Cell Biology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 13,
+      "question": "Which of the following is true of leucocytes?",
+      "options": {
+        "A": "they are respiratory pigments",
+        "B": "they are most numerous and ramify all cells",
+        "C": "they are large and nucleated",
+        "D": "they are involved in blood clotting"
+      },
+      "correct_answer": "B",
+      "explanation": "Leucocytes (white blood cells) are large, nucleated cells involved in immune responses.",
+      "topic": "Circulatory System",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 14,
+      "question": "The conversion of a nutrient into a molecule in the body of a consumer is referred to as",
+      "options": {
+        "A": "digestion",
+        "B": "assimilation",
+        "C": "absorption",
+        "D": "inhibition"
+      },
+      "correct_answer": "A",
+      "explanation": "Assimilation is the process by which absorbed nutrients are converted into body molecules.",
+      "topic": "Nutrition",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 15,
+      "question": "The ability of living organisms to detect and respond to changes in the environment is referred to as",
+      "options": {
+        "A": "locomotion",
+        "B": "irritability",
+        "C": "growth",
+        "D": "taxis"
+      },
+      "correct_answer": "B",
+      "explanation": "Irritability is the ability of living organisms to detect and respond to environmental stimuli.",
+      "topic": "Life Processes",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 16,
+      "question": "In mammals, the exchange of nutrients and metabolic products occurs in the",
+      "options": {
+        "A": "lungs",
+        "B": "oesophagus",
+        "C": "trachea",
+        "D": "lymph"
+      },
+      "correct_answer": "D",
+      "explanation": "The lymphatic system facilitates the exchange of nutrients and metabolic products between blood and tissues.",
+      "topic": "Circulatory System",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 17,
+      "question": "An example of an endospermous seed is",
+      "options": {
+        "A": "maize grain",
+        "B": "cashew nut",
+        "C": "cotton seed",
+        "D": "bean seed"
+      },
+      "correct_answer": "A",
+      "explanation": "Maize grain is endospermous, containing endosperm tissue that provides nutrition to the developing embryo.",
+      "topic": "Plant Biology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 18,
+      "question": "Which of the above modes of nutrition is correctly matched with the organism that exhibits it?",
+      "options": {
+        "A": "II",
+        "B": "III",
+        "C": "II",
+        "D": "I"
+      },
+      "correct_answer": "C",
+      "explanation": "Based on the options given, option II correctly matches the nutritional mode with the appropriate organism.",
+      "topic": "Nutrition",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 19,
+      "question": "In which of the test tubes will glucose be detected after complete hydrolysis?",
+      "options": {
+        "A": "I and II only",
+        "B": "II and III only",
+        "C": "I only",
+        "D": "I, II and III"
+      },
+      "correct_answer": "B",
+      "explanation": "Glucose will be detected in test tubes II and III where hydrolysis can occur due to acid and enzyme respectively.",
+      "topic": "Biochemistry",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 20,
+      "question": "The enzyme involved in the hydrolysis is",
+      "options": {
+        "A": "rennin",
+        "B": "erepsin",
+        "C": "sucrase",
+        "D": "maltase"
+      },
+      "correct_answer": "C",
+      "explanation": "Sucrase is the enzyme that hydrolyzes sucrose (cane sugar) into glucose and fructose.",
+      "topic": "Biochemistry",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 21,
+      "question": "The part of the mammalian ear responsible for the maintenance of balance is the",
+      "options": {
+        "A": "cochlea",
+        "B": "pinna",
+        "C": "perilymph",
+        "D": "ossicles"
+      },
+      "correct_answer": "A",
+      "explanation": "The semicircular canals in the inner ear (part of the cochlear complex) are responsible for balance.",
+      "topic": "Sensory System",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 22,
+      "question": "The path followed by air as it passes through the lungs in mammals is",
+      "options": {
+        "A": "trachea → bronchi → bronchioles → alveoli",
+        "B": "bronchi → trachea → alveoli → bronchioles",
+        "C": "trachea → bronchioles → bronchi → alveoli",
+        "D": "bronchioles → alveoli → bronchi → trachea"
+      },
+      "correct_answer": "A",
+      "explanation": "Air flows from trachea to bronchi to bronchioles and finally to alveoli where gas exchange occurs.",
+      "topic": "Respiratory System",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 23,
+      "question": "The movement response of a cockroach away from a light source can be described as",
+      "options": {
+        "A": "positive phototaxism",
+        "B": "negative phototaxism",
+        "C": "negative phototropism",
+        "D": "positive phototropism"
+      },
+      "correct_answer": "C",
+      "explanation": "Movement away from light is negative phototaxis (or negative phototaxism).",
+      "topic": "Animal Behavior",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 24,
+      "question": "The vascular tissues in higher plants are responsible for",
+      "options": {
+        "A": "the movement of food and water",
+        "B": "suction pressure",
+        "C": "transpiration pull",
+        "D": "the transport of gases and water"
+      },
+      "correct_answer": "A",
+      "explanation": "Vascular tissues (xylem and phloem) transport water, minerals, and food throughout the plant.",
+      "topic": "Plant Physiology",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 25,
+      "question": "Which of the following organs regulates the levels of water, salts, hydrogen ions and urea in the mammalian blood?",
+      "options": {
+        "A": "Liver",
+        "B": "Kidney",
+        "C": "Bladder",
+        "D": "Colon"
+      },
+      "correct_answer": "B",
+      "explanation": "The kidneys regulate blood composition by filtering waste products and maintaining water and salt balance.",
+      "topic": "Excretory System",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 26,
+      "question": "The sequence of the one-way gaseous exchange mechanism in a fish is",
+      "options": {
+        "A": "operculum → gills → mouth",
+        "B": "gills → operculum → mouth",
+        "C": "mouth → operculum → gills",
+        "D": "mouth → gills → operculum"
+      },
+      "correct_answer": "D",
+      "explanation": "Water flows from mouth through gills (where gas exchange occurs) and exits through the operculum.",
+      "topic": "Respiratory System",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 27,
+      "question": "The type of asexual reproduction that is common to both Paramecium and protists is",
+      "options": {
+        "A": "budding",
+        "B": "sporulation",
+        "C": "fragmentation",
+        "D": "fission"
+      },
+      "correct_answer": "D",
+      "explanation": "Binary fission is the common form of asexual reproduction in Paramecium and many other protists.",
+      "topic": "Reproduction",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 28,
+      "question": "In nature, plants and animals are perpetually engaged in mutualism because",
+      "options": {
+        "A": "they are rivals",
+        "B": "all animals rely on food produced by plants",
+        "C": "they utilize respiratory wastes of each other",
+        "D": "they are neighbours"
+      },
+      "correct_answer": "B",
+      "explanation": "Plants and animals have a mutualistic relationship where animals depend on plants for food and oxygen, while plants benefit from carbon dioxide and pollination services.",
+      "topic": "Ecology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 29,
+      "question": "The percentage of humus in the soil sample is",
+      "options": {
+        "A": "16.7%",
+        "B": "17.6%",
+        "C": "26.7%",
+        "D": "16.2%"
+      },
+      "correct_answer": "A",
+      "explanation": "Calculating from the given data: Humus = (99.0 - 95.5)/(101.5 - 80.5) × 100 = 3.5/21 × 100 = 16.7%",
+      "topic": "Soil Science",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 30,
+      "question": "An example of a filter-feeding animal is",
+      "options": {
+        "A": "shark",
+        "B": "butterfly",
+        "C": "whale",
+        "D": "mosquito"
+      },
+      "correct_answer": "C",
+      "explanation": "Baleen whales are filter feeders that strain small organisms from water through their baleen plates.",
+      "topic": "Animal Nutrition",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 31,
+      "question": "Which of the following is a feature of the population pyramid of a developing country?",
+      "options": {
+        "A": "long lifespan",
+        "B": "low birth rate",
+        "C": "low death rate",
+        "D": "short lifespan"
+      },
+      "correct_answer": "C",
+      "explanation": "Developing countries typically have population pyramids with broad bases (high birth rates) and shorter lifespans.",
+      "topic": "Population Ecology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 32,
+      "question": "The interaction of a community of organisms with its abiotic environment constitutes",
+      "options": {
+        "A": "niche",
+        "B": "a food chain",
+        "C": "an ecosystem",
+        "D": "a microhabitat"
+      },
+      "correct_answer": "C",
+      "explanation": "An ecosystem consists of a community of organisms interacting with their physical environment.",
+      "topic": "Ecology",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 33,
+      "question": "The vector of the malaria parasite is",
+      "options": {
+        "A": "female Aedes mosquito",
+        "B": "female Anopheles mosquito",
+        "C": "male Culex mosquito",
+        "D": "female Culex mosquito"
+      },
+      "correct_answer": "B",
+      "explanation": "Female Anopheles mosquitoes are the vectors that transmit malaria parasites to humans.",
+      "topic": "Disease Vectors",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 34,
+      "question": "Which of the following instruments is used to measure relative humidity?",
+      "options": {
+        "A": "Hydrometer",
+        "B": "Thermometer",
+        "C": "Hygrometer",
+        "D": "Anemometer"
+      },
+      "correct_answer": "C",
+      "explanation": "A hygrometer is the instrument used to measure relative humidity in the air.",
+      "topic": "Environmental Science",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 35,
+      "question": "Exo-erythrocytic phase of the life cycle of malaria parasite occurs in the",
+      "options": {
+        "A": "liver of humans",
+        "B": "reticuloendothelial cells of humans",
+        "C": "Malpighian tubules of mosquito",
+        "D": "brain of humans"
+      },
+      "correct_answer": "A",
+      "explanation": "The exo-erythrocytic phase of malaria parasite development occurs in liver cells before entering red blood cells.",
+      "topic": "Parasitology",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 36,
+      "question": "Habitats are generally classified into",
+      "options": {
+        "A": "biotic and abiotic",
+        "B": "aquatic and terrestrial",
+        "C": "arboreal and marine biomes",
+        "D": "microhabitats and macrohabitats"
+      },
+      "correct_answer": "B",
+      "explanation": "Habitats are broadly classified into aquatic (water-based) and terrestrial (land-based) environments.",
+      "topic": "Ecology",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 37,
+      "question": "Dracunculiasis can be contacted through",
+      "options": {
+        "A": "eating contaminated food",
+        "B": "drinking contaminated water",
+        "C": "bathing in contaminated water",
+        "D": "bites of blackfly"
+      },
+      "correct_answer": "B",
+      "explanation": "Dracunculiasis (Guinea worm disease) is contracted by drinking water contaminated with infected copepods.",
+      "topic": "Disease Transmission",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 38,
+      "question": "Which of the following groups of environmental factors are density-dependent?",
+      "options": {
+        "A": "Food, salinity, accumulation of metabolites and light",
+        "B": "Temperature, salinity predation and disease",
+        "C": "Food predation, disease and accumulation of metabolites",
+        "D": "Temperature food disease and light"
+      },
+      "correct_answer": "C",
+      "explanation": "Density-dependent factors like food availability, predation, disease, and waste accumulation vary with population density.",
+      "topic": "Population Ecology",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 39,
+      "question": "Millet, sorghum, maize and onions are common crops grown in Nigeria in the",
+      "options": {
+        "A": "tropical rainforests",
+        "B": "Sudan savanna",
+        "C": "montane forests",
+        "D": "Sahel savanna"
+      },
+      "correct_answer": "B",
+      "explanation": "These crops are commonly grown in the Sudan savanna region of Nigeria due to suitable climate conditions.",
+      "topic": "Agricultural Geography",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 40,
+      "question": "In which of the following biomes is the south western part of Nigeria located?",
+      "options": {
+        "A": "Temperate forest",
+        "B": "Tropical rainforest",
+        "C": "Tropical woodland",
+        "D": "Desert"
+      },
+      "correct_answer": "B",
+      "explanation": "Southwestern Nigeria is located in the tropical rainforest biome characterized by high rainfall and dense vegetation.",
+      "topic": "Biogeography",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 41,
+      "question": "The inheritable characters that are determined by a gene located on the X-chromosome is",
+      "options": {
+        "A": "recessive",
+        "B": "sex-linked",
+        "C": "homozygous",
+        "D": "dominant"
+      },
+      "correct_answer": "C",
+      "explanation": "Traits controlled by genes on the X-chromosome are called sex-linked traits.",
+      "topic": "Genetics",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 42,
+      "question": "Lack of space in a population could lead to an increase in",
+      "options": {
+        "A": "water scarcity",
+        "B": "birth rate",
+        "C": "disease rate",
+        "D": "drought"
+      },
+      "correct_answer": "B",
+      "explanation": "Overcrowding due to lack of space increases competition and stress, leading to higher disease rates.",
+      "topic": "Population Ecology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 43,
+      "question": "If the cross of a red-flowered plant with a white-flowered plant produces a pink-flowered plant, it is an example of",
+      "options": {
+        "A": "codominance",
+        "B": "incomplete dominance",
+        "C": "mutation",
+        "D": "linkage"
+      },
+      "correct_answer": "A",
+      "explanation": "When neither allele is completely dominant, resulting in a blended phenotype, it demonstrates incomplete dominance.",
+      "topic": "Genetics",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 44,
+      "question": "Which of the following theories was NOT considered by Darwin in his evolutionary theory?",
+      "options": {
+        "A": "Variation",
+        "B": "Survival of the fittest",
+        "C": "Use and disuse",
+        "D": "Competition"
+      },
+      "correct_answer": "A",
+      "explanation": "Use and disuse was part of Lamarck's theory, not Darwin's. Darwin focused on variation, natural selection, and survival of the fittest.",
+      "topic": "Evolution",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 45,
+      "question": "The crossing of individuals of the same species with different genetic characters is",
+      "options": {
+        "A": "cross breeding",
+        "B": "polygenic inheritance",
+        "C": "non-disjunction",
+        "D": "inbreeding"
+      },
+      "correct_answer": "D",
+      "explanation": "Cross breeding involves mating individuals of the same species with different genetic characteristics.",
+      "topic": "Genetics",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 46,
+      "question": "The number of alleles controlling blood groups in humans",
+      "options": {
+        "A": "3",
+        "B": "4",
+        "C": "5",
+        "D": "2"
+      },
+      "correct_answer": "A",
+      "explanation": "Human ABO blood groups are controlled by three alleles: IA, IB, and i.",
+      "topic": "Genetics",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 47,
+      "question": "During blood transfusion, agglutination may occur as a result of the reaction between",
+      "options": {
+        "A": "contrasting antigens and antibodies",
+        "B": "two different antigens",
+        "C": "two different antibodies",
+        "D": "similar antigens and antibodies"
+      },
+      "correct_answer": "A",
+      "explanation": "Agglutination occurs when incompatible antigens on donor red blood cells react with corresponding antibodies in recipient plasma.",
+      "topic": "Immunology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 48,
+      "question": "The fallacy in Lamarck's evolutionary theory was the assumption that",
+      "options": {
+        "A": "traits are acquired through disuse of body parts",
+        "B": "acquired traits are heritable",
+        "C": "acquired traits are seldom formed",
+        "D": "traits are acquired through the use of body parts"
+      },
+      "correct_answer": "A",
+      "explanation": "Lamarck incorrectly assumed that traits acquired during an organism's lifetime could be inherited by offspring.",
+      "topic": "Evolution",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 49,
+      "question": "The bright coloured eye spots on the wings of moths are an example of",
+      "options": {
+        "A": "warning colouration",
+        "B": "disruptive colouration",
+        "C": "crypsis",
+        "D": "mimicry"
+      },
+      "correct_answer": "D",
+      "explanation": "Eye spots on moth wings are examples of mimicry, resembling the eyes of larger predators to deter attackers.",
+      "topic": "Animal Adaptations",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 50,
+      "question": "The wings of a bat and those of a bird are examples of",
+      "options": {
+        "A": "convergent evolution",
+        "B": "continuous variation",
+        "C": "coevolution",
+        "D": "divergent evolution"
+      },
+      "correct_answer": "D",
+      "explanation": "Bat wings and bird wings are examples of convergent evolution - similar structures that evolved independently for flight.",
+      "topic": "Evolution",
+      "difficulty": "Hard"
+    }
+  ]
+}

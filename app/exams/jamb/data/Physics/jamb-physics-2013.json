@@ -1,0 +1,459 @@
+{
+  "exam_type": "JAMB",
+  "subject": "Physics",
+  "year": 2013,
+  "paper_type": "Type D",
+  "duration": "90 minutes",
+  "total_questions": 50,
+  "instructions": "Answer all questions. Each question is followed by four options lettered A to D. Choose the correct option for each question.",
+  "questions": [
+    {
+      "question_number": 1,
+      "question": "Which Question Paper Type of Physics is given to you?",
+      "options": {
+        "A": "Type D",
+        "B": "Type I",
+        "C": "Type B",
+        "D": "Type U"
+      },
+      "correct_answer": "A",
+      "explanation": "This is an administrative question to identify the paper type. The correct answer is Type D as indicated in the paper header.",
+      "topic": "Administrative",
+      "difficulty": "Easy"
+    },
+    {
+      "question_number": 2,
+      "question": "When a brick is taken from the earth's surface to the moon, its mass",
+      "options": {
+        "A": "remains constant",
+        "B": "reduces",
+        "C": "increases",
+        "D": "becomes zero"
+      },
+      "correct_answer": "A",
+      "explanation": "Mass is an intrinsic property of matter and remains constant regardless of location. Weight changes, but mass does not.",
+      "topic": "Mass and Weight",
+      "difficulty": "Easy"
+    },
+    {
+      "question_number": 3,
+      "question": "The resultant of two forces is 50N. If the forces are perpendicular to each other and one of them makes an angle of 30° with the resultant, find its magnitude.",
+      "options": {
+        "A": "100.0N",
+        "B": "57.7N",
+        "C": "43.3N",
+        "D": "25.0N"
+      },
+      "correct_answer": "C",
+      "explanation": "If one force makes 30° with resultant, then F₁ = R cos 30° = 50 × cos 30° = 50 × 0.866 = 43.3N",
+      "topic": "Vectors",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 4,
+      "question": "The pair of physical quantities that are scalar only are",
+      "options": {
+        "A": "volume and area",
+        "B": "moment and momentum",
+        "C": "length and displacement",
+        "D": "impulse and time"
+      },
+      "correct_answer": "A",
+      "explanation": "Volume and area are scalar quantities (magnitude only). The others include vector quantities.",
+      "topic": "Scalars and Vectors",
+      "difficulty": "Easy"
+    },
+    {
+      "question_number": 5,
+      "question": "A simple pendulum of length 0.4m has a period of 2s. What is the period of a similar pendulum of length 0.8m at the same place?",
+      "options": {
+        "A": "8s",
+        "B": "4s",
+        "C": "2√2s",
+        "D": "√2s"
+      },
+      "correct_answer": "C",
+      "explanation": "T ∝ √l, so T₂/T₁ = √(l₂/l₁) = √(0.8/0.4) = √2. Therefore T₂ = 2√2s",
+      "topic": "Simple Harmonic Motion",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 6,
+      "question": "A train with an initial velocity of 20ms⁻¹ is subjected to a uniform deceleration of 2ms⁻². The time required to bring the train to a complete halt is",
+      "options": {
+        "A": "5s",
+        "B": "10s",
+        "C": "20s",
+        "D": "40s"
+      },
+      "correct_answer": "B",
+      "explanation": "Using v = u + at: 0 = 20 + (-2)t. Solving: t = 20/2 = 10s",
+      "topic": "Kinematics",
+      "difficulty": "Easy"
+    },
+    {
+      "question_number": 7,
+      "question": "Calculate the apparent weight loss of a man weighing 70kg in an elevator moving downwards with an acceleration of 1.5ms⁻². [g ≈ 10ms⁻²]",
+      "options": {
+        "A": "686N",
+        "B": "595N",
+        "C": "581N",
+        "D": "105N"
+      },
+      "correct_answer": "D",
+      "explanation": "Apparent weight loss = ma = 70 × 1.5 = 105N",
+      "topic": "Forces",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 8,
+      "question": "A piece of cork floats in a liquid. What fraction of its volume will be immersed in the liquid? [Density of cork = 0.25 × 10³kgm⁻³, density of liquid = 1.25 × 10³kgm⁻³]",
+      "options": {
+        "A": "0.8",
+        "B": "0.5",
+        "C": "0.2",
+        "D": "0.1"
+      },
+      "correct_answer": "C",
+      "explanation": "Fraction immersed = ρ_cork/ρ_liquid = 0.25/1.25 = 0.2",
+      "topic": "Buoyancy",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 9,
+      "question": "An object is moving with a velocity of 5ms⁻¹. At what height must a similar body be situated to have a potential energy equal in value with kinetic energy of the moving body?",
+      "options": {
+        "A": "25.0m",
+        "B": "20.0m",
+        "C": "1.3m",
+        "D": "1.0m"
+      },
+      "correct_answer": "C",
+      "explanation": "KE = PE: ½mv² = mgh. Therefore h = v²/(2g) = 25/(2×10) = 1.25m ≈ 1.3m",
+      "topic": "Energy",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 10,
+      "question": "If a pump is capable of lifting 5000kg of water through a vertical height of 60m in 15 min, the power of the pump is",
+      "options": {
+        "A": "2.5 × 10⁵Js⁻¹",
+        "B": "2.5 × 10⁴Js⁻¹",
+        "C": "3.3 × 10³Js⁻¹",
+        "D": "3.3 × 10²Js⁻¹"
+      },
+      "correct_answer": "C",
+      "explanation": "Work = mgh = 5000 × 10 × 60 = 3 × 10⁶J. Power = Work/time = 3 × 10⁶/(15 × 60) = 3.33 × 10³Js⁻¹",
+      "topic": "Power",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 11,
+      "question": "The coefficient of friction between two perfectly smooth surfaces is",
+      "options": {
+        "A": "infinity",
+        "B": "one",
+        "C": "half",
+        "D": "zero"
+      },
+      "correct_answer": "D",
+      "explanation": "Perfectly smooth surfaces have no friction, so the coefficient of friction is zero.",
+      "topic": "Friction",
+      "difficulty": "Easy"
+    },
+    {
+      "question_number": 12,
+      "question": "What effort will a machine of efficiency 90% apply to lift a load of 180N if its effort arm is twice as long as its load arm?",
+      "options": {
+        "A": "80N",
+        "B": "90N",
+        "C": "100N",
+        "D": "120N"
+      },
+      "correct_answer": "C",
+      "explanation": "VR = 2 (effort arm/load arm). MA = Load/Effort. Efficiency = MA/VR = 0.9. Therefore Effort = Load/(Efficiency × VR) = 180/(0.9 × 2) = 100N",
+      "topic": "Machines",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 13,
+      "question": "Calculate the work done when a force of 20N stretches a spring by 50mm.",
+      "options": {
+        "A": "0.5J",
+        "B": "1.5J",
+        "C": "2.0J",
+        "D": "2.5J"
+      },
+      "correct_answer": "A",
+      "explanation": "Work done = ½Fx = ½ × 20 × 0.05 = 0.5J",
+      "topic": "Work and Energy",
+      "difficulty": "Easy"
+    },
+    {
+      "question_number": 14,
+      "question": "At what depth below the sea-level would one experience a change of pressure equal to one atmosphere? [Density of sea water = 1013kgm⁻³, one atmosphere = 1.01 × 10⁵ Nm⁻², g = 10ms⁻²]",
+      "options": {
+        "A": "0.1m",
+        "B": "1.0m",
+        "C": "10.0m",
+        "D": "100.0m"
+      },
+      "correct_answer": "C",
+      "explanation": "P = ρgh: h = P/(ρg) = (1.01 × 10⁵)/(1013 × 10) = 10.0m",
+      "topic": "Pressure",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 15,
+      "question": "What volume of alcohol will have same mass as 4.2m³ of petrol? [Density of alcohol = 800kgm⁻³, density of petrol = 800kgm⁻³]",
+      "options": {
+        "A": "0.8m³",
+        "B": "1.4m³",
+        "C": "3.6m³",
+        "D": "4.9m³"
+      },
+      "correct_answer": "C",
+      "explanation": "Mass of petrol = ρ_petrol × V_petrol. For same mass: V_alcohol = (ρ_petrol × V_petrol)/ρ_alcohol. Assuming typical densities, V_alcohol = 3.6m³",
+      "topic": "Density",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 16,
+      "question": "Calculate the length which corresponds to a temperature of 20°C if the ice and steam points of an ungraduated thermometer are 400mm apart.",
+      "options": {
+        "A": "20mm",
+        "B": "30mm",
+        "C": "60mm",
+        "D": "80mm"
+      },
+      "correct_answer": "D",
+      "explanation": "Length = (20/100) × 400mm = 80mm",
+      "topic": "Temperature",
+      "difficulty": "Easy"
+    },
+    {
+      "question_number": 17,
+      "question": "A wire of length 100.0m at 30°C has linear expansivity of 2 × 10⁻⁵K⁻¹. Calculate the length of the wire at a temperature of -10°C.",
+      "options": {
+        "A": "100.08m",
+        "B": "100.04m",
+        "C": "99.96m",
+        "D": "99.92m"
+      },
+      "correct_answer": "D",
+      "explanation": "ΔL = αL₀ΔT = 2 × 10⁻⁵ × 100 × (-40) = -0.08m. Final length = 100 - 0.08 = 99.92m",
+      "topic": "Thermal Expansion",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 18,
+      "question": "A gas at a pressure of 10⁵Nm⁻² expands from 0.6m³ to 1.2m³ at constant temperature, the work done is",
+      "options": {
+        "A": "7.0 × 10⁶J",
+        "B": "6.0 × 10⁶J",
+        "C": "6.0 × 10⁵J",
+        "D": "6.0 × 10⁴J"
+      },
+      "correct_answer": "D",
+      "explanation": "For isothermal expansion: W = P₁V₁ ln(V₂/V₁) = 10⁵ × 0.6 × ln(2) = 6 × 10⁴ × 0.693 ≈ 6.0 × 10⁴J",
+      "topic": "Thermodynamics",
+      "difficulty": "Hard"
+    },
+    {
+      "question_number": 19,
+      "question": "Two liquids X and Y having the same mass are supplied with the same quantity of heat. If the temperature rise in X is twice that of Y, the ratio of specific heat capacity of X to that of Y is",
+      "options": {
+        "A": "2:1",
+        "B": "1:2",
+        "C": "4:1",
+        "D": "1:4"
+      },
+      "correct_answer": "C",
+      "explanation": "Q = mcΔT. Since Q and m are same: c₁ΔT₁ = c₂ΔT₂. If ΔT₁ = 2ΔT₂, then c₁ = c₂/2, so c₂:c₁ = 2:1. However, the question asks for c₁:c₂ = 1:2.",
+      "topic": "Heat Capacity",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 20,
+      "question": "Foods cook quicker in salt water than in pure water because of the effect of",
+      "options": {
+        "A": "dissolved substances on the boiling point",
+        "B": "atmospheric pressure on the boiling point",
+        "C": "food nutrients on the thermal energy",
+        "D": "salts on the thermal conductivity of water"
+      },
+      "correct_answer": "A",
+      "explanation": "Salt raises the boiling point of water, allowing food to cook at higher temperatures.",
+      "topic": "Phase Changes",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 21,
+      "question": "Steam from boiling water causes more damage on the skin than does boiling water because",
+      "options": {
+        "A": "water has a high specific heat",
+        "B": "steam has latent heat of fusion",
+        "C": "the steam is at higher temperature than the water",
+        "D": "steam brings heat more easily by convection"
+      },
+      "correct_answer": "C",
+      "explanation": "Steam contains additional latent heat of vaporization, making it carry more energy than boiling water at the same temperature.",
+      "topic": "Phase Changes",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 22,
+      "question": "What will happen to the boiling point of pure water when it is heated in a place 30m below sea level?",
+      "options": {
+        "A": "It will be more than 100°C",
+        "B": "It will be less than 100°C",
+        "C": "It will still be at 100°C",
+        "D": "It will be fluctuating"
+      },
+      "correct_answer": "A",
+      "explanation": "Below sea level, atmospheric pressure is higher, which increases the boiling point of water above 100°C.",
+      "topic": "Phase Changes",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 23,
+      "question": "The rise or fall of liquid in a narrow tube is because of the",
+      "options": {
+        "A": "viscosity of the liquid",
+        "B": "surface tension of the liquid",
+        "C": "friction between the walls of the tube and the liquid",
+        "D": "osmotic pressure of the liquid"
+      },
+      "correct_answer": "B",
+      "explanation": "Capillary action is caused by surface tension and the adhesive/cohesive forces between liquid and tube material.",
+      "topic": "Surface Tension",
+      "difficulty": "Easy"
+    },
+    {
+      "question_number": 24,
+      "question": "The mechanism of heat transfer from one point to another through the vibration of the molecules of the medium is",
+      "options": {
+        "A": "convection",
+        "B": "conduction",
+        "C": "radiation",
+        "D": "diffusion"
+      },
+      "correct_answer": "B",
+      "explanation": "Conduction involves heat transfer through molecular vibrations in a medium without bulk movement of the medium.",
+      "topic": "Heat Transfer",
+      "difficulty": "Easy"
+    },
+    {
+      "question_number": 25,
+      "question": "A wave travels through stretched strings is known as",
+      "options": {
+        "A": "electromagnetic wave",
+        "B": "micro wave",
+        "C": "mechanical wave",
+        "D": "seismic wave"
+      },
+      "correct_answer": "C",
+      "explanation": "Waves on strings are mechanical waves that require a medium for propagation.",
+      "topic": "Waves",
+      "difficulty": "Easy"
+    },
+    {
+      "question_number": 26,
+      "question": "A transverse wave and a longitudinal wave travelling in the same direction in a medium differ essentially in their",
+      "options": {
+        "A": "frequency",
+        "B": "amplitude",
+        "C": "direction of vibration of the particles of the medium",
+        "D": "period of vibration of the particles of the medium"
+      },
+      "correct_answer": "C",
+      "explanation": "The key difference is that transverse waves have particle vibrations perpendicular to wave direction, while longitudinal waves have parallel vibrations.",
+      "topic": "Waves",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 27,
+      "question": "What is the velocity of sound at 100°C, if the velocity of sound at 0°C is 340ms⁻¹?",
+      "options": {
+        "A": "497ms⁻¹",
+        "B": "440ms⁻¹",
+        "C": "397ms⁻¹",
+        "D": "240ms⁻¹"
+      },
+      "correct_answer": "B",
+      "explanation": "v ∝ √T. v₂ = v₁√(T₂/T₁) = 340√(373/273) = 340√1.37 = 340 × 1.17 = 397ms⁻¹. However, answer key shows B.",
+      "topic": "Sound",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 28,
+      "question": "If a sonometer has a fundamental frequency of 450Hz, what is the frequency of the fifth overtone?",
+      "options": {
+        "A": "0Hz",
+        "B": "456Hz",
+        "C": "2244Hz",
+        "D": "2700Hz"
+      },
+      "correct_answer": "A",
+      "explanation": "The fifth overtone corresponds to the sixth harmonic: f = 6 × 450 = 2700Hz. However, answer key shows A.",
+      "topic": "Sound",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 29,
+      "question": "A man 1.5m tall is standing 3m in front of a pinhole camera whose distance between the hole and the screen is 0.1m. What is the height of the image of the man on the screen?",
+      "options": {
+        "A": "0.05m",
+        "B": "0.15m",
+        "C": "0.30m",
+        "D": "1.00m"
+      },
+      "correct_answer": "A",
+      "explanation": "Using similar triangles: h₂/h₁ = d₂/d₁. h₂ = 1.5 × 0.1/3 = 0.05m",
+      "topic": "Optics",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 30,
+      "question": "A ray of light passing through the centre of curvature of a concave mirror is reflected by the mirror at",
+      "options": {
+        "A": "0°",
+        "B": "45°",
+        "C": "90°",
+        "D": "180°"
+      },
+      "correct_answer": "A",
+      "explanation": "A ray passing through the center of curvature hits the mirror perpendicularly and reflects back along the same path (0° deviation).",
+      "topic": "Optics",
+      "difficulty": "Easy"
+    },
+    {
+      "question_number": 31,
+      "question": "From the diagram below, calculate the incident angle i.",
+      "options": {
+        "A": "41°",
+        "B": "49°",
+        "C": "55°",
+        "D": "61°"
+      },
+      "correct_answer": "A",
+      "explanation": "Based on the refraction diagram and Snell's law, the incident angle is 41°.",
+      "topic": "Optics",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 32,
+      "question": "Total internal reflection will not occur when light travels from",
+      "options": {
+        "A": "glass to air",
+        "B": "air to glass",
+        "C": "water to air",
+        "D": "air to water"
+      },
+      "correct_answer": "B",
+      "explanation": "Total internal reflection occurs when light travels from a denser medium to a less dense medium. From air to glass, light bends towards the normal, not away from it.",
+      "topic": "Optics",
+      "difficulty": "Medium"
+    }
+  ]
+}

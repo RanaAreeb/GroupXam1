@@ -71,7 +71,7 @@ const examTypes = [
     description: "Joint Admissions and Matriculation Board",
     icon: BookOpen,
     color: "purple",
-    count: 15,
+    count: 42,
     difficulty: "Advanced",
     gradient: "from-purple-400 to-purple-600",
   },

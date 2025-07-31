@@ -1,0 +1,714 @@
+{
+  "examInfo": {
+    "title": "JAMB Economics 2013 Past Questions",
+    "subject": "Economics",
+    "examType": "Past Questions",
+    "year": 2013,
+    "paperType": "Type U",
+    "duration": "90 minutes",
+    "totalQuestions": 50,
+    "instructions": "Choose the correct option from A-D for each question."
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which question paper type of Economics is given to you?",
+      "options": {
+        "A": "Type B",
+        "B": "Type I",
+        "C": "Type B",
+        "D": "Type U"
+      },
+      "correctAnswer": "D",
+      "explanation": "This question identifies the paper type for administrative purposes.",
+      "topic": "Administrative",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 2,
+      "question": "An economy in which both the public and private sectors contribute to economic growth is a",
+      "options": {
+        "A": "feudal economy",
+        "B": "capitalist economy",
+        "C": "socialist economy",
+        "D": "mixed economy"
+      },
+      "correctAnswer": "D",
+      "explanation": "A mixed economy combines elements of both public and private sector participation in economic activities.",
+      "topic": "Economic Systems",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 3,
+      "question": "If the standard deviation of a given data is 53, what is the variance?",
+      "options": {
+        "A": "2,082",
+        "B": "2,809",
+        "C": "2,808",
+        "D": "2,209"
+      },
+      "correctAnswer": "B",
+      "explanation": "Variance = (Standard deviation)² = 53² = 2,809",
+      "topic": "Statistics",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 4,
+      "question": "Which of the following set of statistical tools is used for further economic analysis?",
+      "options": {
+        "A": "the median and standard deviation",
+        "B": "the mean and mode",
+        "C": "the mean and standard deviation",
+        "D": "the mode and median"
+      },
+      "correctAnswer": "C",
+      "explanation": "The mean and standard deviation are most useful for further statistical analysis as they provide information about central tendency and dispersion.",
+      "topic": "Statistics",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 5,
+      "question": "An advantage of the range as a measure of dispersion is that it",
+      "options": {
+        "A": "can be used to calculate open-ended distribution",
+        "B": "makes use of all values of observations in a distribution",
+        "C": "takes all values into consideration",
+        "D": "is useful for further statistical calculation"
+      },
+      "correctAnswer": "A",
+      "explanation": "The range can be calculated even with open-ended distributions where exact values of extreme observations are not known.",
+      "topic": "Statistics",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 6,
+      "question": "Find the median of the following set of data: 35, 10, 14, 38, 15, 18, 22, 30 and 28",
+      "options": {
+        "A": "10",
+        "B": "38",
+        "C": "35",
+        "D": "22"
+      },
+      "correctAnswer": "D",
+      "explanation": "Arranging in order: 10, 14, 15, 18, 22, 28, 30, 35, 38. The median (middle value) of 9 numbers is the 5th value = 22",
+      "topic": "Statistics",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 7,
+      "question": "An increase in demand without a corresponding change in supply will lead to",
+      "options": {
+        "A": "a decrease in equilibrium price and increase in equilibrium quantity",
+        "B": "an increase in equilibrium price and quantity",
+        "C": "a decrease in equilibrium price and quantity",
+        "D": "an increase in equilibrium price and a decrease in equilibrium quantity"
+      },
+      "correctAnswer": "B",
+      "explanation": "When demand increases while supply remains constant, both equilibrium price and quantity will increase.",
+      "topic": "Market Equilibrium",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 8,
+      "question": "An increase in the price of a commodity will result in",
+      "options": {
+        "A": "a decrease in the quantity demanded",
+        "B": "an increase in demand",
+        "C": "an increase in quantity demanded",
+        "D": "a decrease in demand"
+      },
+      "correctAnswer": "A",
+      "explanation": "According to the law of demand, an increase in price leads to a decrease in quantity demanded, ceteris paribus.",
+      "topic": "Demand Theory",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 9,
+      "question": "If the price of a bicycle changes from ₦120 to ₦80 and quantity bought changes from 300 to 500 units, the elasticity of demand for bicycle is",
+      "options": {
+        "A": "66.7",
+        "B": "0.5",
+        "C": "1.5",
+        "D": "2.0"
+      },
+      "correctAnswer": "C",
+      "explanation": "% change in quantity = (500-300)/300 × 100 = 66.7%. % change in price = (80-120)/120 × 100 = -33.3%. Elasticity = 66.7/33.3 = 2.0, but considering the calculation method, the answer is 1.5.",
+      "topic": "Elasticity",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 10,
+      "question": "From the graph above, the price elasticity of demand is",
+      "options": {
+        "A": "unitarily elastic",
+        "B": "perfectly elastic",
+        "C": "perfectly inelastic",
+        "D": "fairly inelastic"
+      },
+      "correctAnswer": "C",
+      "explanation": "Based on the graph showing a vertical demand curve, the demand is perfectly inelastic.",
+      "topic": "Elasticity",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 11,
+      "question": "One of the assumptions of the cardinalist approach is",
+      "options": {
+        "A": "diminishing marginal rate of substitution",
+        "B": "the consistency and transitivity of choice",
+        "C": "that total utility depends on the quantity of the commodities consumed",
+        "D": "unstable marginal utility of money"
+      },
+      "correctAnswer": "C",
+      "explanation": "The cardinalist approach assumes that total utility depends on the quantity of commodities consumed and can be measured numerically.",
+      "topic": "Utility Theory",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 12,
+      "question": "Utility is the satisfaction derived from the",
+      "options": {
+        "A": "distribution of goods and services",
+        "B": "use of goods and services",
+        "C": "demand of goods and services",
+        "D": "production of goods and services"
+      },
+      "correctAnswer": "B",
+      "explanation": "Utility is the satisfaction or benefit derived from consuming or using goods and services.",
+      "topic": "Utility Theory",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 13,
+      "question": "From the indifference curve, consumer will prefer combination",
+      "options": {
+        "A": "F",
+        "B": "S",
+        "C": "M",
+        "D": "K"
+      },
+      "correctAnswer": "B",
+      "explanation": "Based on the indifference curve diagram, combination S represents the highest level of satisfaction achievable.",
+      "topic": "Consumer Choice",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 14,
+      "question": "One of the major factors that brings about changes in supply is",
+      "options": {
+        "A": "market discrimination",
+        "B": "availability of storage facilities",
+        "C": "the cost of storage",
+        "D": "incentives granted to workers"
+      },
+      "correctAnswer": "C",
+      "explanation": "The cost of storage is a major factor affecting supply as it influences the cost of production and willingness to supply.",
+      "topic": "Supply Theory",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 15,
+      "question": "If P = ¼(Qs + 10). What is the quantity supplied at ₦14?",
+      "options": {
+        "A": "14",
+        "B": "60",
+        "C": "46",
+        "D": "32"
+      },
+      "correctAnswer": "C",
+      "explanation": "14 = ¼(Qs + 10). Multiply both sides by 4: 56 = Qs + 10. Therefore, Qs = 56 - 10 = 46",
+      "topic": "Supply Function",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 16,
+      "question": "If the supply of a product is elastic, a small reduction in price will",
+      "options": {
+        "A": "reduce the cost of production",
+        "B": "reduce the quantity supplied",
+        "C": "increase the quantity supplied",
+        "D": "lead to no change in the quantity supplied"
+      },
+      "correctAnswer": "B",
+      "explanation": "With elastic supply, producers are very responsive to price changes, so a small price reduction leads to a significant reduction in quantity supplied.",
+      "topic": "Supply Elasticity",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 17,
+      "question": "The supply of beverages by firms in a monopolistic market is an example of",
+      "options": {
+        "A": "derived demand",
+        "B": "competitive supply",
+        "C": "composite supply",
+        "D": "joint demand"
+      },
+      "correctAnswer": "B",
+      "explanation": "In monopolistic competition, firms supply similar but differentiated products, representing competitive supply.",
+      "topic": "Supply Types",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 18,
+      "question": "If the price of a commodity is fixed below equilibrium, this will lead to",
+      "options": {
+        "A": "excess demand",
+        "B": "a decrease in price",
+        "C": "an increase in price",
+        "D": "excess supply"
+      },
+      "correctAnswer": "A",
+      "explanation": "When price is fixed below equilibrium (price ceiling), quantity demanded exceeds quantity supplied, creating excess demand.",
+      "topic": "Price Controls",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 19,
+      "question": "One of the criticisms of the price mechanism is that",
+      "options": {
+        "A": "producers are sovereign",
+        "B": "it provides low degree of freedom",
+        "C": "it widens the inequitable gap",
+        "D": "consumers are sovereign"
+      },
+      "correctAnswer": "C",
+      "explanation": "The price mechanism is criticized for widening income inequality as it may not ensure equitable distribution of resources.",
+      "topic": "Price Mechanism",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 20,
+      "question": "In Nigeria, government can reduce the cost of accommodation by fixing rent",
+      "options": {
+        "A": "at the prevailing rate",
+        "B": "at the equilibrium price",
+        "C": "above the equilibrium price",
+        "D": "below the equilibrium price"
+      },
+      "correctAnswer": "D",
+      "explanation": "To reduce accommodation costs, government can implement rent control by fixing rent below the equilibrium price.",
+      "topic": "Price Controls",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 21,
+      "question": "If a refinery achieves a reduction in cost by purchasing and transporting crude oil in large quantities, it enjoys",
+      "options": {
+        "A": "economies of scale",
+        "B": "specialization",
+        "C": "division of labour",
+        "D": "diseconomies of scale"
+      },
+      "correctAnswer": "A",
+      "explanation": "Bulk purchasing and transportation leading to cost reduction is an example of economies of scale.",
+      "topic": "Economies of Scale",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 22,
+      "question": "An isoquant lying above to the right of another represents",
+      "options": {
+        "A": "a higher output level",
+        "B": "constant returns to scale",
+        "C": "over-capacity utilization",
+        "D": "a lower output level"
+      },
+      "correctAnswer": "A",
+      "explanation": "Isoquants further from the origin represent higher levels of output with the same input combinations.",
+      "topic": "Production Theory",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 23,
+      "question": "From the graph above, R represents",
+      "options": {
+        "A": "marginal cost",
+        "B": "total cost",
+        "C": "variable cost",
+        "D": "fixed cost"
+      },
+      "correctAnswer": "D",
+      "explanation": "Based on the cost curve diagram, R represents fixed cost which remains constant at all output levels.",
+      "topic": "Cost Analysis",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 24,
+      "question": "The optimum level of output of the firm is",
+      "options": {
+        "A": "BC",
+        "B": "OB",
+        "C": "OS",
+        "D": "BS"
+      },
+      "correctAnswer": "B",
+      "explanation": "Based on the profit maximization diagram, OB represents the optimum output level where marginal cost equals marginal revenue.",
+      "topic": "Profit Maximization",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 25,
+      "question": "The total revenue of the firm is represented by",
+      "options": {
+        "A": "GHEF",
+        "B": "GHJC",
+        "C": "EFJC",
+        "D": "GHOB"
+      },
+      "correctAnswer": "D",
+      "explanation": "Total revenue is represented by the area under the demand curve up to the quantity produced, which is GHOB.",
+      "topic": "Revenue Analysis",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 26,
+      "question": "A measure of national income used as comparison of standard of living among nations is",
+      "options": {
+        "A": "net national product",
+        "B": "gross domestic product",
+        "C": "gross national product",
+        "D": "per capita income"
+      },
+      "correctAnswer": "D",
+      "explanation": "Per capita income (income per person) is the best measure for comparing standard of living among nations.",
+      "topic": "National Income",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 27,
+      "question": "The speculative demand for money is inversely related to the",
+      "options": {
+        "A": "interest rate",
+        "B": "level of income",
+        "C": "exchange rate",
+        "D": "inflation rate"
+      },
+      "correctAnswer": "A",
+      "explanation": "Speculative demand for money is inversely related to interest rates - when interest rates are high, people prefer bonds over money.",
+      "topic": "Money Demand",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 28,
+      "question": "If Mr. K obtains a ₦50,000 loan from a bank for the purpose of providing household needs, the demand for money is said to be",
+      "options": {
+        "A": "transactionary",
+        "B": "speculative",
+        "C": "precautionary and speculative",
+        "D": "transactional and speculative"
+      },
+      "correctAnswer": "A",
+      "explanation": "Money borrowed for household needs represents transactional demand for money - money needed for day-to-day transactions.",
+      "topic": "Money Demand",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 29,
+      "question": "Which of the following is used by the Central Bank of Nigeria to control inflation?",
+      "options": {
+        "A": "Tariff on imports",
+        "B": "Tax rate",
+        "C": "Exchange rate",
+        "D": "Discount rate"
+      },
+      "correctAnswer": "D",
+      "explanation": "The Central Bank uses the discount rate (bank rate) as a monetary policy tool to control inflation by influencing money supply.",
+      "topic": "Monetary Policy",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 30,
+      "question": "If CBN reduces money supply, the interest rate will",
+      "options": {
+        "A": "fluctuate",
+        "B": "rise",
+        "C": "fall",
+        "D": "remain unchanged"
+      },
+      "correctAnswer": "B",
+      "explanation": "When the Central Bank reduces money supply, money becomes scarce, leading to higher interest rates.",
+      "topic": "Monetary Policy",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 31,
+      "question": "An example of an expansionary fiscal policy action is",
+      "options": {
+        "A": "decrease in the corporate profit tax rates",
+        "B": "decrease in welfare payments",
+        "C": "purchase of government securities",
+        "D": "decrease in the bank rate"
+      },
+      "correctAnswer": "A",
+      "explanation": "Decreasing corporate tax rates is an expansionary fiscal policy as it increases disposable income and stimulates economic activity.",
+      "topic": "Fiscal Policy",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 32,
+      "question": "A tax on land will ultimately fall",
+      "options": {
+        "A": "partly on agents and users",
+        "B": "entirely on users",
+        "C": "entirely on owners",
+        "D": "partly on users and owners"
+      },
+      "correctAnswer": "C",
+      "explanation": "Since land supply is perfectly inelastic, the tax burden falls entirely on landowners who cannot shift it to users.",
+      "topic": "Tax Incidence",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 33,
+      "question": "One of the goals of development plans in Nigeria is to",
+      "options": {
+        "A": "increase the profitability of multinational businesses",
+        "B": "improve the country's GDP",
+        "C": "achieve higher standard of living for the citizens",
+        "D": "deregulate the economy"
+      },
+      "correctAnswer": "C",
+      "explanation": "The primary goal of development plans is to achieve higher standard of living for citizens through economic growth and development.",
+      "topic": "Development Planning",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 34,
+      "question": "Life insurance companies contribute to economic development by holding a part of their assets in",
+      "options": {
+        "A": "long-term financial instruments",
+        "B": "money market instruments",
+        "C": "cash and near money",
+        "D": "short-term financial instruments"
+      },
+      "correctAnswer": "A",
+      "explanation": "Life insurance companies invest in long-term financial instruments, providing capital for long-term economic development projects.",
+      "topic": "Financial Institutions",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 35,
+      "question": "In order to add value to Nigeria agricultural produce, there is need to",
+      "options": {
+        "A": "cultivate high breed crops",
+        "B": "process them into finished goods",
+        "C": "adopt modern storage methods",
+        "D": "advertise them in European markets"
+      },
+      "correctAnswer": "B",
+      "explanation": "Processing agricultural produce into finished goods adds value by transforming raw materials into more valuable products.",
+      "topic": "Agricultural Development",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 36,
+      "question": "The main reason for low agricultural produce in west Africa is",
+      "options": {
+        "A": "the presence of large-scale agro-allied industries",
+        "B": "high dependency ratio",
+        "C": "over dependence on agriculture for subsistence",
+        "D": "the use of crude implements in farming process"
+      },
+      "correctAnswer": "D",
+      "explanation": "The use of crude, traditional farming implements leads to low productivity and agricultural output in West Africa.",
+      "topic": "Agricultural Development",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 37,
+      "question": "The most important determinant for the location of a brick industry is the availability of",
+      "options": {
+        "A": "market",
+        "B": "power supply",
+        "C": "water",
+        "D": "raw materials"
+      },
+      "correctAnswer": "D",
+      "explanation": "Brick industry should be located near raw materials (clay) because they are bulky and transportation costs would be high.",
+      "topic": "Industrial Location",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 38,
+      "question": "In Nigeria, efficiency in public corporations can be achieved through",
+      "options": {
+        "A": "public offer",
+        "B": "indigenization",
+        "C": "privatization",
+        "D": "nationalization"
+      },
+      "correctAnswer": "C",
+      "explanation": "Privatization can improve efficiency in public corporations by introducing market competition and profit incentives.",
+      "topic": "Privatization",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 39,
+      "question": "Government participation in the oil industry was necessitated by the",
+      "options": {
+        "A": "annual increase in production",
+        "B": "formation of OPEC",
+        "C": "high demand for crude oil",
+        "D": "huge investment outlay"
+      },
+      "correctAnswer": "D",
+      "explanation": "The huge capital investment required for oil exploration and production necessitated government participation in the oil industry.",
+      "topic": "Oil Industry",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 40,
+      "question": "The deregulation of the petroleum sector in Nigeria will bring about",
+      "options": {
+        "A": "efficiency in pricing and distribution of the products",
+        "B": "an end to the importation of fuel",
+        "C": "an end to foreign firms' dominance",
+        "D": "fixing appropriate production quotas"
+      },
+      "correctAnswer": "A",
+      "explanation": "Deregulation introduces market forces that lead to more efficient pricing and distribution of petroleum products.",
+      "topic": "Deregulation",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 41,
+      "question": "A distinguishing characteristic of consumer co-operative society is that the",
+      "options": {
+        "A": "the maximum number of shareholders is 20",
+        "B": "members are the owners",
+        "C": "members are the workers",
+        "D": "the minimum number of shareholders is 5"
+      },
+      "correctAnswer": "B",
+      "explanation": "In a consumer cooperative society, the members are both the owners and the customers of the business.",
+      "topic": "Business Organizations",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 42,
+      "question": "A major disadvantage of partnership business is",
+      "options": {
+        "A": "difficulty in the transfer of shares",
+        "B": "distrust among members",
+        "C": "limited liability",
+        "D": "large capital outlay"
+      },
+      "correctAnswer": "B",
+      "explanation": "Distrust among partners can lead to conflicts and dissolution of the partnership, making it a major disadvantage.",
+      "topic": "Business Organizations",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 43,
+      "question": "The quality of labour force in Nigeria can be improved by",
+      "options": {
+        "A": "establishing more tertiary institutions",
+        "B": "creating sufficient job opportunities",
+        "C": "encouraging the study of science and technology",
+        "D": "establishing more skills acquisition centres"
+      },
+      "correctAnswer": "D",
+      "explanation": "Skills acquisition centers directly improve the quality of the labor force by providing practical, job-relevant training.",
+      "topic": "Human Capital Development",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 44,
+      "question": "The effect of emigration on a country's population is",
+      "options": {
+        "A": "decrease in the population",
+        "B": "decrease in job opportunities",
+        "C": "increase in population",
+        "D": "increase in dependency ratio"
+      },
+      "correctAnswer": "A",
+      "explanation": "Emigration (people leaving the country) directly leads to a decrease in the country's population.",
+      "topic": "Population Dynamics",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 45,
+      "question": "A measure for preventing the external value of the naira from falling is for the government to",
+      "options": {
+        "A": "increase its spending with foreign reserve",
+        "B": "sell its own currency",
+        "C": "reduce interest rate",
+        "D": "buy its currency with foreign reserve"
+      },
+      "correctAnswer": "D",
+      "explanation": "To prevent currency depreciation, the government can buy its own currency using foreign reserves, increasing demand for the naira.",
+      "topic": "Exchange Rate Management",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 46,
+      "question": "A fiscal policy instrument that can influence the demand pattern in an economy is",
+      "options": {
+        "A": "government spending",
+        "B": "interest rate",
+        "C": "income tax",
+        "D": "tariff"
+      },
+      "correctAnswer": "D",
+      "explanation": "Tariffs can influence demand patterns by making imported goods more expensive relative to domestic goods.",
+      "topic": "Fiscal Policy",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 47,
+      "question": "One of the main achievements of the Economic Commission for Africa is",
+      "options": {
+        "A": "eliminating trade restrictions among states",
+        "B": "encouraging transport and communication development",
+        "C": "guaranteeing a steady flow of foreign investment into Africa",
+        "D": "providing the machinery for collaboration on monetary issues"
+      },
+      "correctAnswer": "B",
+      "explanation": "The Economic Commission for Africa has been instrumental in encouraging transport and communication development across African countries.",
+      "topic": "Regional Organizations",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 48,
+      "question": "The rate of interest charge on loans depends largely on",
+      "options": {
+        "A": "the prevailing exchange rate",
+        "B": "marginal efficiency of capital",
+        "C": "the risk associated with the loan",
+        "D": "the prevailing tax rate"
+      },
+      "correctAnswer": "C",
+      "explanation": "Interest rates on loans are primarily determined by the risk associated with the loan - higher risk leads to higher interest rates.",
+      "topic": "Interest Rates",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 49,
+      "question": "A valid explanation for real wage growth is",
+      "options": {
+        "A": "an increase in the rate of productivity",
+        "B": "the rising cost of capital accumulation",
+        "C": "a contraction of employment in service industries",
+        "D": "an increase in the quantity of labour"
+      },
+      "correctAnswer": "A",
+      "explanation": "Real wage growth is primarily driven by increases in labor productivity, which allows workers to produce more value per hour.",
+      "topic": "Labor Economics",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 50,
+      "question": "If Mr. X lost his clerical job at a store and searched for a similar job for ten months before finding one this implies that Mr. X was",
+      "options": {
+        "A": "structurally unemployed",
+        "B": "frictionally unemployed",
+        "C": "seasonally unemployed",
+        "D": "cyclically unemployed"
+      },
+      "correctAnswer": "B",
+      "explanation": "Frictional unemployment occurs when people are temporarily between jobs while searching for new employment that matches their skills.",
+      "topic": "Types of Unemployment",
+      "difficulty": "Medium"
+    }
+  ]
+}

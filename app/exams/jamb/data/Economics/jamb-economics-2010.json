@@ -1,0 +1,714 @@
+{
+  "examInfo": {
+    "title": "JAMB Economics 2010 Past Questions",
+    "subject": "Economics",
+    "examType": "Past Questions",
+    "year": 2010,
+    "paperType": "Type C",
+    "duration": "90 minutes",
+    "totalQuestions": 50,
+    "instructions": "Choose the correct option from A-D for each question."
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which Economics question paper type is given to you?",
+      "options": {
+        "A": "Type A",
+        "B": "Type B",
+        "C": "Type C",
+        "D": "Type D"
+      },
+      "correctAnswer": "C",
+      "explanation": "This question identifies the paper type for administrative purposes.",
+      "topic": "Administrative",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 2,
+      "question": "Economics is the study of human behaviour as it relates to the",
+      "options": {
+        "A": "efficient allocation of resources",
+        "B": "production of goods",
+        "C": "operation of companies",
+        "D": "generation of income"
+      },
+      "correctAnswer": "A",
+      "explanation": "Economics is fundamentally concerned with how societies allocate scarce resources to satisfy unlimited wants.",
+      "topic": "Introduction to Economics",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 3,
+      "question": "The downturn in the prices of shares on stock markets is a highlight of",
+      "options": {
+        "A": "efficient allocation of resources",
+        "B": "the invisible hand",
+        "C": "the regulatory nature of the market",
+        "D": "consumer rationality"
+      },
+      "correctAnswer": "B",
+      "explanation": "The invisible hand concept explains how market forces naturally regulate prices, including stock market fluctuations.",
+      "topic": "Market Mechanisms",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 4,
+      "question": "If x̄ = 6 and N = 6, determine the value of Σfx",
+      "options": {
+        "A": "36",
+        "B": "12",
+        "C": "1",
+        "D": "72"
+      },
+      "correctAnswer": "A",
+      "explanation": "Since x̄ = Σfx/N, then Σfx = x̄ × N = 6 × 6 = 36",
+      "topic": "Statistics",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 5,
+      "question": "The standard deviation of a set of data is",
+      "options": {
+        "A": "always measured from the mode",
+        "B": "the most representative of averages",
+        "C": "always measured from the median",
+        "D": "a measure of dispersion"
+      },
+      "correctAnswer": "D",
+      "explanation": "Standard deviation measures how spread out data points are from the mean, making it a measure of dispersion.",
+      "topic": "Statistics",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 6,
+      "question": "The mean is the best measure of central tendency because it",
+      "options": {
+        "A": "is not affected by extreme values in a data",
+        "B": "is a midpoint value in an array of data",
+        "C": "is a balancing point in an observation",
+        "D": "can be calculated from incomplete data"
+      },
+      "correctAnswer": "C",
+      "explanation": "The mean acts as a balancing point where the sum of deviations above and below it equals zero.",
+      "topic": "Statistics",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 7,
+      "question": "The most popular sizes of dresses and shoes are determined by the",
+      "options": {
+        "A": "range",
+        "B": "mean",
+        "C": "mode",
+        "D": "median"
+      },
+      "correctAnswer": "C",
+      "explanation": "The mode represents the most frequently occurring value, which indicates the most popular sizes.",
+      "topic": "Statistics",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 8,
+      "question": "If the demand for a good is more elastic than its supply, the tax burden is borne",
+      "options": {
+        "A": "equally by consumers and producers",
+        "B": "more by producers",
+        "C": "more by consumers",
+        "D": "more by retailers and producers"
+      },
+      "correctAnswer": "B",
+      "explanation": "When demand is more elastic than supply, producers bear more of the tax burden because consumers are more responsive to price changes.",
+      "topic": "Taxation and Elasticity",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 9,
+      "question": "If the price of a commodity with elastic demand increases, the revenue accruing to the producer will",
+      "options": {
+        "A": "double",
+        "B": "increase",
+        "C": "be constant",
+        "D": "decrease"
+      },
+      "correctAnswer": "D",
+      "explanation": "With elastic demand, the percentage decrease in quantity demanded exceeds the percentage increase in price, leading to decreased total revenue.",
+      "topic": "Elasticity and Revenue",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 10,
+      "question": "An excess demand for beans will result from",
+      "options": {
+        "A": "an increase in the price of beans",
+        "B": "a decrease in the price of beans",
+        "C": "an increase in the supply of beans",
+        "D": "a decrease in the supply of beans"
+      },
+      "correctAnswer": "B",
+      "explanation": "A decrease in price increases quantity demanded while quantity supplied decreases, creating excess demand.",
+      "topic": "Market Equilibrium",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 11,
+      "question": "Consumer surplus tends to be higher when demand is",
+      "options": {
+        "A": "inelastic",
+        "B": "perfectly elastic",
+        "C": "elastic",
+        "D": "unitarily elastic"
+      },
+      "correctAnswer": "C",
+      "explanation": "With elastic demand, consumers are more responsive to price changes, allowing them to capture more surplus when prices are favorable.",
+      "topic": "Consumer Surplus",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 12,
+      "question": "One of the assumptions of ordinal utility theory is that",
+      "options": {
+        "A": "choice is not consistent",
+        "B": "utility can be ranked",
+        "C": "total utility is a function of price",
+        "D": "satisfaction is measurable"
+      },
+      "correctAnswer": "B",
+      "explanation": "Ordinal utility theory assumes that consumers can rank their preferences in order without measuring exact utility levels.",
+      "topic": "Utility Theory",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 13,
+      "question": "The law of diminishing marginal utility explains why",
+      "options": {
+        "A": "the slope of a normal demand curve is negative",
+        "B": "an abnormal demand curve slopes upwards",
+        "C": "the slope of a normal demand curve is positive",
+        "D": "the consumption of inferior goods increases with income"
+      },
+      "correctAnswer": "A",
+      "explanation": "As marginal utility decreases with additional consumption, consumers are willing to pay less for additional units, creating a downward-sloping demand curve.",
+      "topic": "Utility Theory",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 14,
+      "question": "If a consumer plans to spend ₦120 on four oranges but spent ₦80, his consumer surplus is",
+      "options": {
+        "A": "₦1.50",
+        "B": "₦0.40",
+        "C": "₦1.00",
+        "D": "₦2.00"
+      },
+      "correctAnswer": "C",
+      "explanation": "Consumer surplus = What consumer was willing to pay - What consumer actually paid = ₦120 - ₦80 = ₦40. Per orange = ₦40/4 = ₦10 = ₦1.00",
+      "topic": "Consumer Surplus",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 15,
+      "question": "A set of factors that can shift the supply curve are changes in",
+      "options": {
+        "A": "weather, price and technology",
+        "B": "technology, weather and population",
+        "C": "technology, price and taste",
+        "D": "population, price and taste"
+      },
+      "correctAnswer": "B",
+      "explanation": "Technology, weather, and population are non-price factors that can shift the entire supply curve. Price causes movement along the curve, not a shift.",
+      "topic": "Supply Theory",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 16,
+      "question": "If the coefficient of price elasticity of supply is greater than one, the supply is said to be",
+      "options": {
+        "A": "perfectly elastic",
+        "B": "fairly inelastic",
+        "C": "infinitely inelastic",
+        "D": "fairly elastic"
+      },
+      "correctAnswer": "D",
+      "explanation": "When the coefficient of price elasticity of supply is greater than 1, supply is elastic or fairly elastic.",
+      "topic": "Supply Elasticity",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 17,
+      "question": "If commodity X is a by-product of commodity Y, this implies that both commodities are",
+      "options": {
+        "A": "in competitive supply",
+        "B": "in composite supply",
+        "C": "jointly supplied",
+        "D": "in excess supply"
+      },
+      "correctAnswer": "C",
+      "explanation": "When one commodity is a by-product of another, they are produced together, making them jointly supplied.",
+      "topic": "Supply Relationships",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 18,
+      "question": "In perfect competition, price is determined by the",
+      "options": {
+        "A": "government",
+        "B": "sellers",
+        "C": "buyers",
+        "D": "market"
+      },
+      "correctAnswer": "D",
+      "explanation": "In perfect competition, price is determined by the interaction of market forces (supply and demand), not by individual participants.",
+      "topic": "Market Structures",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 19,
+      "question": "In order to reduce hardship faced by consumers due to high prices government can introduce",
+      "options": {
+        "A": "maximum prices",
+        "B": "commodity boards",
+        "C": "minimum prices",
+        "D": "price control boards"
+      },
+      "correctAnswer": "A",
+      "explanation": "Maximum prices (price ceilings) set below market equilibrium help reduce consumer hardship by keeping prices affordable.",
+      "topic": "Price Controls",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 20,
+      "question": "Average product is less than marginal product when",
+      "options": {
+        "A": "there is constant returns to scale",
+        "B": "there is increasing returns to scale",
+        "C": "there is decreasing returns to scale",
+        "D": "diminishing returns set in"
+      },
+      "correctAnswer": "B",
+      "explanation": "When there are increasing returns to scale, marginal product is greater than average product, pulling the average up.",
+      "topic": "Production Theory",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 21,
+      "question": "A firm enjoying economies of scale is said to be",
+      "options": {
+        "A": "reducing average cost as production increases",
+        "B": "benefiting from the activities of other firms",
+        "C": "maximizing profits as production increases",
+        "D": "having an upward-sloping average cost curve"
+      },
+      "correctAnswer": "A",
+      "explanation": "Economies of scale occur when average costs decrease as the scale of production increases.",
+      "topic": "Economies of Scale",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 22,
+      "question": "The rising portion of the long-run average cost curve of a firm is an indication that it is experiencing",
+      "options": {
+        "A": "increasing efficiency",
+        "B": "economies of scale",
+        "C": "diseconomies of scale",
+        "D": "increasing marginal returns"
+      },
+      "correctAnswer": "C",
+      "explanation": "When the long-run average cost curve is rising, the firm is experiencing diseconomies of scale.",
+      "topic": "Diseconomies of Scale",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 23,
+      "question": "An industry's supply curve is more likely to be elastic when firms are",
+      "options": {
+        "A": "enjoying free entry and exit",
+        "B": "operating at full capacity",
+        "C": "operating below capacity",
+        "D": "maximizing profits"
+      },
+      "correctAnswer": "C",
+      "explanation": "When firms operate below capacity, they can easily increase output in response to price changes, making supply more elastic.",
+      "topic": "Supply Elasticity",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 24,
+      "question": "One of the characteristics of monopolistic competition is that",
+      "options": {
+        "A": "there is mobility of factors of production",
+        "B": "no single seller dominates the market",
+        "C": "the firms are price-takers",
+        "D": "consumers have perfect knowledge of price"
+      },
+      "correctAnswer": "B",
+      "explanation": "In monopolistic competition, there are many sellers, so no single seller can dominate the market.",
+      "topic": "Market Structures",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 25,
+      "question": "The demand curve for factors of production",
+      "options": {
+        "A": "is perfectly elastic",
+        "B": "slopes upwards",
+        "C": "slopes downwards",
+        "D": "is perfectly inelastic"
+      },
+      "correctAnswer": "C",
+      "explanation": "The demand curve for factors of production slopes downwards due to the law of diminishing marginal productivity.",
+      "topic": "Factor Markets",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 26,
+      "question": "An agreement among firms on price and segmentation is termed",
+      "options": {
+        "A": "cartel",
+        "B": "collusion",
+        "C": "haggling",
+        "D": "specialization"
+      },
+      "correctAnswer": "A",
+      "explanation": "A cartel is a formal agreement among firms to coordinate prices and market segmentation.",
+      "topic": "Market Structures",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 27,
+      "question": "In national income accounting, tax is determined by the",
+      "options": {
+        "A": "level of income",
+        "B": "level of consumption",
+        "C": "level of investment",
+        "D": "rate of savings"
+      },
+      "correctAnswer": "A",
+      "explanation": "In national income accounting, tax is typically a function of the level of income earned.",
+      "topic": "National Income",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 28,
+      "question": "A decrease in aggregate spending in an economy will ultimately lead to",
+      "options": {
+        "A": "boom",
+        "B": "inflation",
+        "C": "deflation",
+        "D": "recession"
+      },
+      "correctAnswer": "D",
+      "explanation": "A decrease in aggregate spending reduces economic activity, leading to recession.",
+      "topic": "Macroeconomics",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 29,
+      "question": "If MPC is 0.7 while government expenditure increased by ₦150m, the equilibrium national income is",
+      "options": {
+        "A": "₦214 million",
+        "B": "₦45 million",
+        "C": "₦105 million",
+        "D": "₦500 million"
+      },
+      "correctAnswer": "D",
+      "explanation": "Multiplier = 1/(1-MPC) = 1/(1-0.7) = 1/0.3 = 3.33. Change in income = 3.33 × ₦150m = ₦500m",
+      "topic": "Multiplier Effect",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 30,
+      "question": "The function of money which makes division of labour possible is its",
+      "options": {
+        "A": "unit of account",
+        "B": "store of value",
+        "C": "medium of exchange",
+        "D": "standard of deferred payment"
+      },
+      "correctAnswer": "C",
+      "explanation": "Money as a medium of exchange facilitates trade and specialization, making division of labour possible.",
+      "topic": "Functions of Money",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 31,
+      "question": "By buying treasury bills, the Central Bank of Nigeria intends to",
+      "options": {
+        "A": "increase money supply in the economy",
+        "B": "reduce the cash reserve ratio for banks",
+        "C": "reduce money supply in the economy",
+        "D": "increase the capital base of commercial banks"
+      },
+      "correctAnswer": "C",
+      "explanation": "When the central bank buys treasury bills, it removes money from circulation, reducing money supply.",
+      "topic": "Monetary Policy",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 32,
+      "question": "The velocity of money is represented as",
+      "options": {
+        "A": "Money supply/Real GDP",
+        "B": "Real GDP/Money supply",
+        "C": "Nominal GDP/Money supply",
+        "D": "Real GDP/Nominal GDP"
+      },
+      "correctAnswer": "C",
+      "explanation": "Velocity of money = Nominal GDP/Money supply, showing how many times money changes hands in the economy.",
+      "topic": "Money and Banking",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 33,
+      "question": "One of the functions of commercial banks is",
+      "options": {
+        "A": "maintaining stable price in the economy",
+        "B": "regulating monetary policies",
+        "C": "granting loans to customers",
+        "D": "issuing bank notes and coins"
+      },
+      "correctAnswer": "C",
+      "explanation": "Commercial banks primarily function to accept deposits and grant loans to customers.",
+      "topic": "Banking",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 34,
+      "question": "A strategy for curbing unemployment is to",
+      "options": {
+        "A": "implement government stabilization policy",
+        "B": "increase taxes and decrease government expenditure",
+        "C": "increase government expenditure and decrease taxes",
+        "D": "ensure even distribution of job opportunities"
+      },
+      "correctAnswer": "C",
+      "explanation": "Expansionary fiscal policy (increasing government expenditure and decreasing taxes) stimulates economic activity and reduces unemployment.",
+      "topic": "Fiscal Policy",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 35,
+      "question": "In Nigeria, the distribution of job opportunities",
+      "options": {
+        "A": "balanced budgeting",
+        "B": "deficit budgeting",
+        "C": "surplus budgeting",
+        "D": "zero budgeting"
+      },
+      "correctAnswer": "B",
+      "explanation": "This question appears incomplete in the original, but deficit budgeting is often used to stimulate employment.",
+      "topic": "Government Policy",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 36,
+      "question": "National development plans in Nigeria fail mainly because of",
+      "options": {
+        "A": "overdependence on foreign aids",
+        "B": "inadequate funding of projects",
+        "C": "poor implementation strategies",
+        "D": "shortage of skilled manpower"
+      },
+      "correctAnswer": "C",
+      "explanation": "Poor implementation strategies have been identified as a major reason for the failure of development plans in Nigeria.",
+      "topic": "Development Planning",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 37,
+      "question": "The ultimate aim of agricultural policies in Nigeria is to achieve",
+      "options": {
+        "A": "food sufficiency",
+        "B": "industrialization",
+        "C": "full employment",
+        "D": "industrial capacity utilization"
+      },
+      "correctAnswer": "A",
+      "explanation": "The primary goal of agricultural policies is to achieve food sufficiency and security for the population.",
+      "topic": "Agricultural Policy",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 38,
+      "question": "Government can boost agricultural output in Nigeria primarily by",
+      "options": {
+        "A": "embarking on buffer stock programmes",
+        "B": "placing embargo on food importation",
+        "C": "granting subsidies on farm inputs",
+        "D": "placing farmers on monthly income"
+      },
+      "correctAnswer": "C",
+      "explanation": "Subsidies on farm inputs reduce production costs and encourage increased agricultural output.",
+      "topic": "Agricultural Policy",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 39,
+      "question": "Localization of industries refers to the",
+      "options": {
+        "A": "spread of firms producing different products",
+        "B": "siting of industries near the market",
+        "C": "concentration of firms of an industry",
+        "D": "siting of firms producing different products"
+      },
+      "correctAnswer": "C",
+      "explanation": "Localization of industries refers to the concentration of similar firms in a particular geographical area.",
+      "topic": "Industrial Location",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 40,
+      "question": "In developing countries, governments influence the location of industries in order to",
+      "options": {
+        "A": "spread development",
+        "B": "redistribute wealth",
+        "C": "encourage entrepreneurs",
+        "D": "encourage industries to earn high profits"
+      },
+      "correctAnswer": "A",
+      "explanation": "Governments influence industrial location to ensure balanced regional development and spread economic benefits.",
+      "topic": "Industrial Policy",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 41,
+      "question": "A disadvantage of Nigeria's dependence on imported petroleum products is the",
+      "options": {
+        "A": "instability in the demand for the products",
+        "B": "dominance of multinational firms",
+        "C": "instability in the supply of the product",
+        "D": "poor maintenance of the refineries"
+      },
+      "correctAnswer": "C",
+      "explanation": "Dependence on imports creates supply instability due to external factors beyond the country's control.",
+      "topic": "International Trade",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 42,
+      "question": "The maximum number of shareholders for a limited liability company is",
+      "options": {
+        "A": "twenty",
+        "B": "five",
+        "C": "seven",
+        "D": "infinite"
+      },
+      "correctAnswer": "D",
+      "explanation": "A limited liability company can have an unlimited number of shareholders.",
+      "topic": "Business Organizations",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 43,
+      "question": "The primary motive for an individual engaging in production is to",
+      "options": {
+        "A": "make profit",
+        "B": "satisfy basic human wants",
+        "C": "redistribute wealth",
+        "D": "put inputs into use"
+      },
+      "correctAnswer": "A",
+      "explanation": "The primary motive for production in a market economy is profit maximization.",
+      "topic": "Production Theory",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 44,
+      "question": "What is the population growth rate in 2003?",
+      "options": {
+        "A": "33.3%",
+        "B": "20.0%",
+        "C": "11.0%",
+        "D": "50%"
+      },
+      "correctAnswer": "D",
+      "explanation": "Based on the table provided, the population growth rate calculation would yield 50%.",
+      "topic": "Population Statistics",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 45,
+      "question": "The percentage of working population in 2002 is?",
+      "options": {
+        "A": "50%",
+        "B": "25%",
+        "C": "8%",
+        "D": "80%"
+      },
+      "correctAnswer": "D",
+      "explanation": "Based on the table, the working population percentage in 2002 is 80%.",
+      "topic": "Population Statistics",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 46,
+      "question": "One of the characteristics of free trade zone is",
+      "options": {
+        "A": "common tariff against non-member countries",
+        "B": "different trade policies of non-member countries",
+        "C": "free factor mobility within the zone",
+        "D": "harmonized trade among member countries"
+      },
+      "correctAnswer": "D",
+      "explanation": "Free trade zones are characterized by harmonized trade policies and reduced barriers among member countries.",
+      "topic": "International Trade",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 47,
+      "question": "If Nigeria imports vehicles from Japan the transaction will appear as a",
+      "options": {
+        "A": "debit on Japan's balance of payments",
+        "B": "credit on Japan's balance of payments",
+        "C": "credit on Nigeria's balance of trade",
+        "D": "credit on Nigeria's balance of payment"
+      },
+      "correctAnswer": "B",
+      "explanation": "Japan's export to Nigeria appears as a credit (positive) entry on Japan's balance of payments.",
+      "topic": "Balance of Payments",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 48,
+      "question": "One of the objectives of ADB is to",
+      "options": {
+        "A": "provide subsidies on imported goods to member countries",
+        "B": "mobilize short-term loans for member countries",
+        "C": "promote economic and social development of member countries",
+        "D": "provide technical assistance to only poor member countries"
+      },
+      "correctAnswer": "C",
+      "explanation": "The African Development Bank's primary objective is to promote economic and social development of member countries.",
+      "topic": "International Organizations",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 49,
+      "question": "The choice of the method of production in an economy is determined by the",
+      "options": {
+        "A": "level of technical know-how",
+        "B": "rate of population growth",
+        "C": "availability of natural resources",
+        "D": "level of income"
+      },
+      "correctAnswer": "A",
+      "explanation": "The method of production is primarily determined by the level of technical knowledge and technology available.",
+      "topic": "Production Theory",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 50,
+      "question": "The amount of labour hired depends on the",
+      "options": {
+        "A": "number of skilled labour available",
+        "B": "skill of labour",
+        "C": "marginal productivity of labour",
+        "D": "price of the inputs"
+      },
+      "correctAnswer": "C",
+      "explanation": "Firms hire labour up to the point where the marginal productivity of labour equals the wage rate.",
+      "topic": "Factor Markets",
+      "difficulty": "Medium"
+    }
+  ]
+}

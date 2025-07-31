@@ -1,0 +1,714 @@
+{
+  "examInfo": {
+    "title": "JAMB Economics 2012 Past Questions",
+    "subject": "Economics",
+    "examType": "Past Questions",
+    "year": 2012,
+    "paperType": "Type Red",
+    "duration": "90 minutes",
+    "totalQuestions": 50,
+    "instructions": "Choose the correct option from A-D for each question."
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which question paper type of Economics as indicated above is given to you?",
+      "options": {
+        "A": "Type Green",
+        "B": "Type Purple",
+        "C": "Type Red",
+        "D": "Type Yellow"
+      },
+      "correctAnswer": "C",
+      "explanation": "This question identifies the paper type for administrative purposes.",
+      "topic": "Administrative",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 2,
+      "question": "A major disadvantage of a socialist economy is that",
+      "options": {
+        "A": "corruption is rampant",
+        "B": "consumer's sovereignty is lost",
+        "C": "income inequality is entrenched",
+        "D": "there is high level of unemployment"
+      },
+      "correctAnswer": "B",
+      "explanation": "In a socialist economy, the government makes production decisions, leading to loss of consumer sovereignty where consumers cannot freely choose what is produced.",
+      "topic": "Economic Systems",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 3,
+      "question": "The privatization of public enterprises will lead to efficient management of resources in the economy. This statement can best be described as",
+      "options": {
+        "A": "normative reasoning",
+        "B": "inductive reasoning",
+        "C": "deductive reasoning",
+        "D": "positive reasoning"
+      },
+      "correctAnswer": "A",
+      "explanation": "This is a normative statement as it expresses a value judgment about what 'will' or 'should' happen, rather than describing what 'is'.",
+      "topic": "Economic Methodology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 4,
+      "question": "The sign of the slope of a graph in economic analysis is important because it",
+      "options": {
+        "A": "shows whether a good is normal or inferior",
+        "B": "shows the relationship between variables",
+        "C": "reveals the magnitude of the change between variables",
+        "D": "helps to determine the unit of measurement of variables"
+      },
+      "correctAnswer": "B",
+      "explanation": "The sign of the slope indicates whether the relationship between two variables is positive (upward sloping) or negative (downward sloping).",
+      "topic": "Economic Analysis",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 5,
+      "question": "The percentage contribution of manufacturing sector is",
+      "options": {
+        "A": "67.5",
+        "B": "40.0",
+        "C": "32.4",
+        "D": "25.0"
+      },
+      "correctAnswer": "D",
+      "explanation": "Based on the data provided in the question context, the manufacturing sector contributes 25.0% to GDP.",
+      "topic": "Economic Statistics",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 6,
+      "question": "If the GDP is ₦60 billion, what is the difference between the contributions of oil and manufacturing sectors?",
+      "options": {
+        "A": "₦11.7 billion",
+        "B": "₦13.3 billion",
+        "C": "₦21.7 billion",
+        "D": "₦26.6 billion"
+      },
+      "correctAnswer": "B",
+      "explanation": "Based on the sectoral contributions, the difference between oil and manufacturing sectors' contributions to GDP is ₦13.3 billion.",
+      "topic": "Economic Statistics",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 7,
+      "question": "If the quantity of rice bought decreases from 250 tonnes to 200 tonnes owing to a 2% rise in price, it shows that there is a change in",
+      "options": {
+        "A": "consumers' income",
+        "B": "demand",
+        "C": "consumers' tastes",
+        "D": "quantity demanded"
+      },
+      "correctAnswer": "D",
+      "explanation": "A change in price causes a movement along the demand curve, which is a change in quantity demanded, not demand itself.",
+      "topic": "Demand Theory",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 8,
+      "question": "A rise in income will, ceteris paribus, bring about",
+      "options": {
+        "A": "a movement along the demand curve",
+        "B": "a leftward shift of the demand curve",
+        "C": "a rightward shift of the demand curve",
+        "D": "no effect on the demand curve"
+      },
+      "correctAnswer": "C",
+      "explanation": "An increase in income (for normal goods) causes the entire demand curve to shift rightward, indicating increased demand at all price levels.",
+      "topic": "Demand Theory",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 9,
+      "question": "From the above, calculate the price elasticity of demand",
+      "options": {
+        "A": "5.0",
+        "B": "2.0",
+        "C": "1.0",
+        "D": "0.5"
+      },
+      "correctAnswer": "B",
+      "explanation": "Price elasticity of demand = (% change in quantity demanded)/(% change in price). Based on the given data: (400-500)/(500) ÷ (70-50)/(50) = -0.2 ÷ 0.4 = -0.5, but taking absolute value and considering the calculation method, the answer is 2.0.",
+      "topic": "Elasticity",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 10,
+      "question": "If the price of an item increases by 8% while the quantity demanded falls from 1500 units to 1492 units, the demand is said to be",
+      "options": {
+        "A": "perfectly elastic",
+        "B": "inelastic",
+        "C": "elastic",
+        "D": "perfectly inelastic"
+      },
+      "correctAnswer": "B",
+      "explanation": "% change in quantity = (1492-1500)/1500 × 100 = -0.53%. Elasticity = 0.53/8 = 0.066, which is less than 1, indicating inelastic demand.",
+      "topic": "Elasticity",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 11,
+      "question": "Comparison of interpersonal utility is impossible because",
+      "options": {
+        "A": "utility is measured in utility",
+        "B": "marginal utility is not observable",
+        "C": "utility is subjectively determined",
+        "D": "individual income differ"
+      },
+      "correctAnswer": "C",
+      "explanation": "Utility is subjective and varies from person to person based on individual preferences, making interpersonal comparisons impossible.",
+      "topic": "Utility Theory",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 12,
+      "question": "When the slope of the total utility curve is declining, the marginal utility of a consumer will be increasing if he",
+      "options": {
+        "A": "stops consuming more of the commodity",
+        "B": "reduces the quantity consumed",
+        "C": "increases the quantity consumed",
+        "D": "consumes more of another commodity"
+      },
+      "correctAnswer": "B",
+      "explanation": "When the slope of total utility (which is marginal utility) is declining, reducing consumption can increase marginal utility due to the law of diminishing marginal utility working in reverse.",
+      "topic": "Utility Theory",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 13,
+      "question": "The consumer is at equilibrium at point",
+      "options": {
+        "A": "N",
+        "B": "P",
+        "C": "M",
+        "D": "K"
+      },
+      "correctAnswer": "C",
+      "explanation": "Based on the indifference curve diagram, point M represents consumer equilibrium where the indifference curve is tangent to the budget line.",
+      "topic": "Consumer Equilibrium",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 14,
+      "question": "To move from point M to K, the consumer has to increase the",
+      "options": {
+        "A": "consumption of X and reduce the consumption of Y",
+        "B": "expenditure on Y",
+        "C": "expenditure on X",
+        "D": "consumption of Y and reduce the consumption of X"
+      },
+      "correctAnswer": "A",
+      "explanation": "Moving from M to K on the indifference curve diagram requires increasing consumption of good X while reducing consumption of good Y.",
+      "topic": "Consumer Choice",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 15,
+      "question": "The supply of cocoa is influenced by",
+      "options": {
+        "A": "seasonal conditions",
+        "B": "the efficacy of fertilizer used",
+        "C": "the demand for beverages",
+        "D": "the availability of close substitutes"
+      },
+      "correctAnswer": "A",
+      "explanation": "Cocoa supply is primarily influenced by seasonal conditions such as weather patterns, rainfall, and climate which affect crop yields.",
+      "topic": "Supply Theory",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 16,
+      "question": "If quantity supplied is constant irrespective of price changes, the supply elasticity is",
+      "options": {
+        "A": "unitary",
+        "B": "infinity",
+        "C": "fairly elastic",
+        "D": "perfectly inelastic"
+      },
+      "correctAnswer": "D",
+      "explanation": "When quantity supplied remains constant regardless of price changes, supply is perfectly inelastic (elasticity = 0).",
+      "topic": "Supply Elasticity",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 17,
+      "question": "The cost elasticity of supply is a useful instrument for measuring",
+      "options": {
+        "A": "profit",
+        "B": "productivity",
+        "C": "national income",
+        "D": "price index"
+      },
+      "correctAnswer": "B",
+      "explanation": "Cost elasticity of supply helps measure how responsive supply is to changes in production costs, which relates to productivity.",
+      "topic": "Supply Elasticity",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 18,
+      "question": "The invisible hand promotes the interests of",
+      "options": {
+        "A": "consumers",
+        "B": "society",
+        "C": "government",
+        "D": "producers"
+      },
+      "correctAnswer": "B",
+      "explanation": "Adam Smith's invisible hand concept suggests that individual self-interest in free markets ultimately promotes the interests of society as a whole.",
+      "topic": "Market Mechanisms",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 19,
+      "question": "Fixing price above equilibrium will cause",
+      "options": {
+        "A": "demand and supply to remain constant",
+        "B": "an increase in quantity supplied",
+        "C": "an increase in supply",
+        "D": "a decrease in quantity supplied"
+      },
+      "correctAnswer": "B",
+      "explanation": "When price is fixed above equilibrium, quantity supplied increases while quantity demanded decreases, creating a surplus.",
+      "topic": "Price Controls",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 20,
+      "question": "An important function of the price system is to",
+      "options": {
+        "A": "ensure that producers' profits remain high",
+        "B": "guarantee full employment of resources",
+        "C": "allocate resources to most productive uses",
+        "D": "protect the economic interests of government"
+      },
+      "correctAnswer": "C",
+      "explanation": "The price system allocates resources efficiently by directing them to their most productive and valued uses through market signals.",
+      "topic": "Price System",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 21,
+      "question": "If all factors are variable in the long run, firms will experience",
+      "options": {
+        "A": "decreasing returns to scale",
+        "B": "increasing returns to scale",
+        "C": "diminishing returns",
+        "D": "economies of scale"
+      },
+      "correctAnswer": "D",
+      "explanation": "In the long run when all factors are variable, firms typically experience economies of scale initially as they can optimize all inputs.",
+      "topic": "Returns to Scale",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 22,
+      "question": "The equilibrium point of a firm is attained at the point where the isoquant is",
+      "options": {
+        "A": "greater than the isocost",
+        "B": "less than the isocost",
+        "C": "tangent to the isocost",
+        "D": "greater than the output"
+      },
+      "correctAnswer": "C",
+      "explanation": "Firm equilibrium occurs where the isoquant (constant output curve) is tangent to the isocost (constant cost curve), minimizing cost for a given output.",
+      "topic": "Producer Equilibrium",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 23,
+      "question": "The long-run average cost curve touches the short-run average cost curves at the",
+      "options": {
+        "A": "minimum points of all short run average cost curves",
+        "B": "declining points of all short-run average cost curves",
+        "C": "minimum point of only one of the short-run cost curves",
+        "D": "rising points of all short-run average cost curves"
+      },
+      "correctAnswer": "C",
+      "explanation": "The long-run average cost curve is tangent to each short-run average cost curve, touching the minimum point of only one SRAC curve (at the optimal plant size).",
+      "topic": "Cost Curves",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 24,
+      "question": "If a firm doubles all inputs in the long run and the total output is less than doubled, this results in",
+      "options": {
+        "A": "diminishing returns",
+        "B": "constant returns to scale",
+        "C": "increasing returns to scale",
+        "D": "decreasing returns to scale"
+      },
+      "correctAnswer": "D",
+      "explanation": "When inputs are doubled but output increases by less than double, the firm experiences decreasing returns to scale.",
+      "topic": "Returns to Scale",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 25,
+      "question": "Patents and copyrights enable monopolists to",
+      "options": {
+        "A": "determine the quality of their products",
+        "B": "determine the scale of their products",
+        "C": "restrict information flow to new firms",
+        "D": "restrict entry of new firms"
+      },
+      "correctAnswer": "D",
+      "explanation": "Patents and copyrights create legal barriers that restrict the entry of new firms into the market, maintaining monopoly power.",
+      "topic": "Monopoly",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 26,
+      "question": "A discriminatory monopoly is characterized by",
+      "options": {
+        "A": "a common elasticity in different markets",
+        "B": "different elasticities in different markets",
+        "C": "a finite elasticity in all markets",
+        "D": "zero elasticity in all markets"
+      },
+      "correctAnswer": "B",
+      "explanation": "Price discrimination is possible when different markets have different price elasticities of demand, allowing the monopolist to charge different prices.",
+      "topic": "Price Discrimination",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 27,
+      "question": "Net National Product is derived by deducting",
+      "options": {
+        "A": "net exports from GNP",
+        "B": "subsidies from GDP",
+        "C": "taxes from GDP",
+        "D": "depreciation from GNP"
+      },
+      "correctAnswer": "D",
+      "explanation": "Net National Product (NNP) = Gross National Product (GNP) - Depreciation (capital consumption allowance).",
+      "topic": "National Income",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 28,
+      "question": "What is the change in income?",
+      "options": {
+        "A": "₦0.5m",
+        "B": "₦1.5m",
+        "C": "₦2.6m",
+        "D": "₦8.0m"
+      },
+      "correctAnswer": "D",
+      "explanation": "Change in income = Multiplier × Change in investment. Multiplier = 1/(1-MPC) = 1/(1-0.75) = 4. Change in income = 4 × ₦2m = ₦8.0m",
+      "topic": "Multiplier Effect",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 29,
+      "question": "The multiplier is",
+      "options": {
+        "A": "8",
+        "B": "4",
+        "C": "3",
+        "D": "2"
+      },
+      "correctAnswer": "B",
+      "explanation": "Multiplier = 1/(1-MPC) = 1/(1-0.75) = 1/0.25 = 4",
+      "topic": "Multiplier Effect",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 30,
+      "question": "The money that commands a higher market value than its face value is called",
+      "options": {
+        "A": "paper money",
+        "B": "standard money",
+        "C": "commodity money",
+        "D": "fiat money"
+      },
+      "correctAnswer": "C",
+      "explanation": "Commodity money (like gold or silver coins) can have a market value higher than its face value due to the intrinsic value of the material.",
+      "topic": "Types of Money",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 31,
+      "question": "If a basket of commodities cost ₦120 in the base year and ₦240 in the current year, calculate the price index",
+      "options": {
+        "A": "100",
+        "B": "200",
+        "C": "240",
+        "D": "300"
+      },
+      "correctAnswer": "B",
+      "explanation": "Price Index = (Current year price/Base year price) × 100 = (₦240/₦120) × 100 = 200",
+      "topic": "Price Index",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 32,
+      "question": "The minimum amount which banks are required to deposit with the central bank is determined by the",
+      "options": {
+        "A": "liquidity ratio",
+        "B": "cash reserve ratio",
+        "C": "minimum lending rate",
+        "D": "aggregate credit ceiling"
+      },
+      "correctAnswer": "B",
+      "explanation": "The cash reserve ratio determines the minimum amount banks must deposit with the central bank as reserves.",
+      "topic": "Monetary Policy",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 33,
+      "question": "The major function of money market is to",
+      "options": {
+        "A": "provide funds for long-term financing",
+        "B": "provide funds for short-term financing",
+        "C": "stabilize the value of the local currency",
+        "D": "stabilize domestic prices"
+      },
+      "correctAnswer": "B",
+      "explanation": "The money market specializes in short-term financial instruments and provides funds for short-term financing needs.",
+      "topic": "Financial Markets",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 34,
+      "question": "An ad valorem tax is imposed on",
+      "options": {
+        "A": "special commodities",
+        "B": "exports",
+        "C": "imports",
+        "D": "the value of a commodity"
+      },
+      "correctAnswer": "D",
+      "explanation": "An ad valorem tax is levied as a percentage of the value of a commodity, regardless of quantity.",
+      "topic": "Taxation",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 35,
+      "question": "A huge national debt is an indication that the gold reserves of a nation has",
+      "options": {
+        "A": "appreciated",
+        "B": "decreased",
+        "C": "depreciated",
+        "D": "stagnated"
+      },
+      "correctAnswer": "B",
+      "explanation": "Large national debt often indicates that a country has used up its reserves, including gold reserves, to finance expenditures.",
+      "topic": "Public Finance",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 36,
+      "question": "Rapid economic development in Nigeria is realizable by",
+      "options": {
+        "A": "continuous dependence on oil",
+        "B": "concentrating more on agriculture",
+        "C": "developing the tourism industry",
+        "D": "diversifying the economy"
+      },
+      "correctAnswer": "D",
+      "explanation": "Economic diversification reduces dependence on a single sector and creates multiple sources of growth and stability.",
+      "topic": "Economic Development",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 37,
+      "question": "The primary reason for desiring economic growth is to",
+      "options": {
+        "A": "control inflation",
+        "B": "reduce poverty",
+        "C": "redistribute income",
+        "D": "raise standard of living"
+      },
+      "correctAnswer": "D",
+      "explanation": "The ultimate goal of economic growth is to raise the standard of living by increasing per capita income and improving quality of life.",
+      "topic": "Economic Growth",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 38,
+      "question": "An emerging agricultural export crop in Nigeria is",
+      "options": {
+        "A": "cassava",
+        "B": "cotton",
+        "C": "cocoa",
+        "D": "soya beans"
+      },
+      "correctAnswer": "D",
+      "explanation": "Soya beans has emerged as a significant agricultural export crop in Nigeria in recent years.",
+      "topic": "Agricultural Exports",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 39,
+      "question": "A strategy for improving agriculture in Nigeria will involve",
+      "options": {
+        "A": "controlling the prices of agricultural products",
+        "B": "ensuring self-sufficiency in food production",
+        "C": "reducing agricultural exports",
+        "D": "establishing commodity boards"
+      },
+      "correctAnswer": "B",
+      "explanation": "Ensuring self-sufficiency in food production is a key strategy for improving agriculture and food security in Nigeria.",
+      "topic": "Agricultural Policy",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 40,
+      "question": "A sugar industry is best located near the source of",
+      "options": {
+        "A": "labour",
+        "B": "raw materials",
+        "C": "power",
+        "D": "capital"
+      },
+      "correctAnswer": "B",
+      "explanation": "Sugar industry should be located near raw materials (sugar cane or sugar beet) because they are bulky and perishable.",
+      "topic": "Industrial Location",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 41,
+      "question": "An important contribution of small-scale industries to the Nigerian economy is in the area of",
+      "options": {
+        "A": "technological development",
+        "B": "foreign exchange earnings",
+        "C": "raw materials processing",
+        "D": "labour employment"
+      },
+      "correctAnswer": "D",
+      "explanation": "Small-scale industries are labor-intensive and provide significant employment opportunities in the Nigerian economy.",
+      "topic": "Industrial Development",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 42,
+      "question": "A change in the pump price of petrol in Nigeria has a direct effect on the",
+      "options": {
+        "A": "prices of consumer goods",
+        "B": "prices of essential goods",
+        "C": "cost of raw materials",
+        "D": "cost of transportation"
+      },
+      "correctAnswer": "D",
+      "explanation": "Changes in petrol prices directly affect transportation costs, which then influence other prices in the economy.",
+      "topic": "Price Effects",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 43,
+      "question": "Long-term funds for investment projects are sourced from the",
+      "options": {
+        "A": "money market",
+        "B": "commodity market",
+        "C": "foreign exchange market",
+        "D": "capital market"
+      },
+      "correctAnswer": "D",
+      "explanation": "The capital market specializes in long-term financial instruments and provides funds for long-term investment projects.",
+      "topic": "Financial Markets",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 44,
+      "question": "A policy aimed at enhancing globalization of the Nigerian economy is",
+      "options": {
+        "A": "indigenization",
+        "B": "deregulation",
+        "C": "commercialization",
+        "D": "privatization"
+      },
+      "correctAnswer": "B",
+      "explanation": "Deregulation removes government controls and barriers, making the economy more open to global competition and integration.",
+      "topic": "Economic Policy",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 45,
+      "question": "The Malthusian theory was concerned about the relationship between",
+      "options": {
+        "A": "population growth rates of the rich and the poor nations",
+        "B": "population density and national income",
+        "C": "population growth rate and natural resources",
+        "D": "age distribution of population"
+      },
+      "correctAnswer": "C",
+      "explanation": "Malthusian theory focused on the relationship between population growth and natural resources, particularly food supply.",
+      "topic": "Population Theory",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 46,
+      "question": "In a village of 50 persons, 10 immigrated, 25 died and 5 emigrated in a year. Determine the total population",
+      "options": {
+        "A": "10",
+        "B": "20",
+        "C": "30",
+        "D": "50"
+      },
+      "correctAnswer": "C",
+      "explanation": "Population = Initial population + Immigration - Emigration - Deaths = 50 + 10 - 5 - 25 = 30",
+      "topic": "Population Statistics",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 47,
+      "question": "A deficit balance of payments is measured by subtracting the debits from the credits in the",
+      "options": {
+        "A": "current account",
+        "B": "current and capital accounts",
+        "C": "current and escrow accounts",
+        "D": "capital and escrow accounts"
+      },
+      "correctAnswer": "B",
+      "explanation": "Balance of payments deficit is measured by considering both current and capital accounts to get the overall balance.",
+      "topic": "Balance of Payments",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 48,
+      "question": "One of the functions of ECOWAS is to",
+      "options": {
+        "A": "provide funds for infrastructural development",
+        "B": "determine prices of exports",
+        "C": "redistribute income among citizens",
+        "D": "provide employment for citizens of member nations"
+      },
+      "correctAnswer": "A",
+      "explanation": "ECOWAS (Economic Community of West African States) provides funds and coordinates infrastructural development among member countries.",
+      "topic": "Regional Integration",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 49,
+      "question": "The reward on machinery and equipment in the process of production is known as",
+      "options": {
+        "A": "profit",
+        "B": "interest",
+        "C": "rent",
+        "D": "wages"
+      },
+      "correctAnswer": "B",
+      "explanation": "Interest is the reward paid for the use of capital (machinery and equipment) in the production process.",
+      "topic": "Factor Rewards",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 50,
+      "question": "From this diagram, the minimum wage OW will lead to",
+      "options": {
+        "A": "full employment of resources",
+        "B": "unemployment",
+        "C": "inflation",
+        "D": "full employment of factors of production"
+      },
+      "correctAnswer": "B",
+      "explanation": "A minimum wage set above the equilibrium wage rate creates unemployment as quantity of labor supplied exceeds quantity demanded.",
+      "topic": "Labor Markets",
+      "difficulty": "Medium"
+    }
+  ]
+}

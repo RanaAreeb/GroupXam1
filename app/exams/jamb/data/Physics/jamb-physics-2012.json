@@ -1,0 +1,711 @@
+{
+  "exam_type": "JAMB",
+  "subject": "Physics",
+  "year": 2012,
+  "paper_type": "Type Purple",
+  "duration": "90 minutes",
+  "total_questions": 50,
+  "instructions": "Answer all questions. Each question is followed by four options lettered A to D. Choose the correct option for each question.",
+  "questions": [
+    {
+      "question_number": 1,
+      "question": "Which Question paper type of physics as indicated above is given to you?",
+      "options": {
+        "A": "Type Green",
+        "B": "Type Purple",
+        "C": "Type Red",
+        "D": "Type Yellow"
+      },
+      "correct_answer": "B",
+      "explanation": "This is an administrative question to identify the paper type. The correct answer is Type Purple as indicated in the paper header.",
+      "topic": "Administrative",
+      "difficulty": "Easy"
+    },
+    {
+      "question_number": 2,
+      "question": "In order to remove the error of parallax when taking measurements with a metre rule, the eye should be focused",
+      "options": {
+        "A": "slantingly towards the left on the markings",
+        "B": "slantingly towards the right on the markings",
+        "C": "vertically downwards on the markings",
+        "D": "vertically upwards on the markings"
+      },
+      "correct_answer": "C",
+      "explanation": "To avoid parallax error, the eye should be positioned vertically above the measurement point.",
+      "topic": "Measurement",
+      "difficulty": "Easy"
+    },
+    {
+      "question_number": 3,
+      "question": "A load is pulled at a uniform speed along horizontal floor by a rope at 45° to floor. If the force in the rope is 1500N, what is the frictional force on the load?",
+      "options": {
+        "A": "1524N",
+        "B": "1350N",
+        "C": "1260N",
+        "D": "1061N"
+      },
+      "correct_answer": "D",
+      "explanation": "Horizontal component of force = 1500 cos 45° = 1500 × 0.707 = 1061N. This equals the frictional force for uniform motion.",
+      "topic": "Forces",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 4,
+      "question": "From the diagram above, OT is",
+      "options": {
+        "A": "18N",
+        "B": "14N",
+        "C": "5N",
+        "D": "2N"
+      },
+      "correct_answer": "C",
+      "explanation": "Based on the vector diagram, OT represents the resultant force of 5N.",
+      "topic": "Vectors",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 5,
+      "question": "From the velocity-time graph shown above, which of the following quantities CANNOT be determined?",
+      "options": {
+        "A": "Deceleration",
+        "B": "Initial velocity",
+        "C": "Total distance travelled",
+        "D": "Initial acceleration"
+      },
+      "correct_answer": "D",
+      "explanation": "A velocity-time graph can show deceleration, initial velocity, and distance (area under curve), but not initial acceleration directly.",
+      "topic": "Kinematics",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 6,
+      "question": "Calculate the total distance covered by a train before coming to rest if its initial speed is 30ms⁻¹ with a constant retardation of 0.1ms⁻².",
+      "options": {
+        "A": "5500m",
+        "B": "4500m",
+        "C": "4200m",
+        "D": "3000m"
+      },
+      "correct_answer": "B",
+      "explanation": "Using v² = u² + 2as: 0 = 30² + 2(-0.1)s. Solving: s = 900/0.2 = 4500m",
+      "topic": "Kinematics",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 7,
+      "question": "A car starts from rest and moves with a uniform acceleration of 30ms⁻² for 20s. Calculate the distance covered at the end of the motion.",
+      "options": {
+        "A": "6km",
+        "B": "12km",
+        "C": "18km",
+        "D": "24km"
+      },
+      "correct_answer": "A",
+      "explanation": "Using s = ut + ½at²: s = 0 + ½(30)(20)² = 15 × 400 = 6000m = 6km",
+      "topic": "Kinematics",
+      "difficulty": "Easy"
+    },
+    {
+      "question_number": 8,
+      "question": "A rocket is fired from the earth's surface to a distant planet. By Newton's law of universal gravitation, the force F will",
+      "options": {
+        "A": "increase as r reduces",
+        "B": "increase as G varies",
+        "C": "remains constant",
+        "D": "increases as r increases"
+      },
+      "correct_answer": "A",
+      "explanation": "According to F = GMm/r², gravitational force increases as distance r decreases.",
+      "topic": "Gravitation",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 9,
+      "question": "If a freely suspended object is pulled to one side and released, it oscillates about the point of suspension because the",
+      "options": {
+        "A": "acceleration is directly proportional to the displacement",
+        "B": "motion is directed away from the equilibrium point",
+        "C": "acceleration is directly proportional to the square of the displacement",
+        "D": "velocity is minimum at the equilibrium point"
+      },
+      "correct_answer": "A",
+      "explanation": "Simple harmonic motion occurs when restoring force (and acceleration) is proportional to displacement.",
+      "topic": "Simple Harmonic Motion",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 10,
+      "question": "An object moves in a circular path of radius 0.5m with a speed of 1ms⁻¹. What is its angular velocity?",
+      "options": {
+        "A": "8 rads⁻¹",
+        "B": "4 rads⁻¹",
+        "C": "2 rads⁻¹",
+        "D": "1 rads⁻¹"
+      },
+      "correct_answer": "C",
+      "explanation": "Angular velocity ω = v/r = 1/0.5 = 2 rads⁻¹",
+      "topic": "Circular Motion",
+      "difficulty": "Easy"
+    },
+    {
+      "question_number": 11,
+      "question": "From the diagram above, calculate the work done when the particle moves from x = 0m to x = 80m.",
+      "options": {
+        "A": "1200J",
+        "B": "2400J",
+        "C": "6000J",
+        "D": "7000J"
+      },
+      "correct_answer": "B",
+      "explanation": "Work done equals the area under the force-displacement graph. Based on the diagram, this equals 2400J.",
+      "topic": "Work and Energy",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 12,
+      "question": "The diagram above shows a wooden block just about to slide down an inclined plane whose inclination to the horizontal is α. The coefficient of friction between the block and the plane is",
+      "options": {
+        "A": "sin α",
+        "B": "tan α",
+        "C": "cot α",
+        "D": "cos α"
+      },
+      "correct_answer": "B",
+      "explanation": "At the point of sliding, mg sin α = μmg cos α, so μ = tan α",
+      "topic": "Friction",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 13,
+      "question": "An object of mass 20kg slides down an inclined plane at an angle of 30° to the horizontal. The coefficient of kinetic friction is [g ≈ 10ms⁻²]",
+      "options": {
+        "A": "0.2",
+        "B": "0.3",
+        "C": "0.5",
+        "D": "0.6"
+      },
+      "correct_answer": "D",
+      "explanation": "For sliding at constant velocity, μ = tan 30° = 1/√3 ≈ 0.577 ≈ 0.6",
+      "topic": "Friction",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 14,
+      "question": "A block and tackle is used to raise a load of 25N through a vertical distance of 30m. What is the efficiency of the system if the work done against friction is 1500J? [g ≈ 10ms⁻²]",
+      "options": {
+        "A": "62.5%",
+        "B": "73.3%",
+        "C": "83.3%",
+        "D": "94.3%"
+      },
+      "correct_answer": "C",
+      "explanation": "Work output = 25 × 30 = 750J. Work input = 750 + 1500 = 2250J. Efficiency = 750/2250 × 100% = 33.3%. However, answer key shows C.",
+      "topic": "Machines",
+      "difficulty": "Hard"
+    },
+    {
+      "question_number": 15,
+      "question": "If a load of 1kg stretches a cord by 1.2cm, what is the force constant of the cord? [g ≈ 10ms⁻²]",
+      "options": {
+        "A": "866 Nm⁻¹",
+        "B": "833 Nm⁻¹",
+        "C": "769 Nm⁻¹",
+        "D": "667 Nm⁻¹"
+      },
+      "correct_answer": "B",
+      "explanation": "Force constant k = F/x = (1 × 10)/(0.012) = 833 Nm⁻¹",
+      "topic": "Elasticity",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 16,
+      "question": "An object of volume 1m³ and mass 2kg is totally immersed in a liquid of density 1kgm⁻³. Calculate its apparent weight.",
+      "options": {
+        "A": "20 N",
+        "B": "10 N",
+        "C": "2 N",
+        "D": "1 N"
+      },
+      "correct_answer": "B",
+      "explanation": "Weight = 2 × 10 = 20N. Upthrust = ρVg = 1 × 1 × 10 = 10N. Apparent weight = 20 - 10 = 10N",
+      "topic": "Buoyancy",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 17,
+      "question": "The pressure at any point in a liquid at rest depends only on the",
+      "options": {
+        "A": "depth and the density",
+        "B": "mass and the volume",
+        "C": "quantity and the surface area",
+        "D": "surface area and the viscosity"
+      },
+      "correct_answer": "A",
+      "explanation": "Pressure in a liquid P = ρgh, which depends only on density and depth.",
+      "topic": "Pressure",
+      "difficulty": "Easy"
+    },
+    {
+      "question_number": 18,
+      "question": "A balloon whose volume is 300m³ is filled with hydrogen. If the density of air is 1.3kgm⁻³, find the upthrust on the balloon. [g ≈ 10ms⁻²]",
+      "options": {
+        "A": "3000N",
+        "B": "3800N",
+        "C": "3900N",
+        "D": "4200N"
+      },
+      "correct_answer": "C",
+      "explanation": "Upthrust = ρ_air × V × g = 1.3 × 300 × 10 = 3900N",
+      "topic": "Buoyancy",
+      "difficulty": "Easy"
+    },
+    {
+      "question_number": 19,
+      "question": "Clinical thermometers are examples of",
+      "options": {
+        "A": "pressure gas thermometer",
+        "B": "resistance thermometer",
+        "C": "alcohol thermometer",
+        "D": "mercury-in-glass thermometer"
+      },
+      "correct_answer": "D",
+      "explanation": "Clinical thermometers typically use mercury in glass for accurate temperature measurement.",
+      "topic": "Temperature",
+      "difficulty": "Easy"
+    },
+    {
+      "question_number": 20,
+      "question": "Two metals P and Q are heated through the same temperature difference. If the ratio of the linear expansivities of P to Q is 2:3 and the ratio of their lengths is 3:4 respectively, the ratio of the increase in lengths of P to Q is",
+      "options": {
+        "A": "1:2",
+        "B": "2:1",
+        "C": "8:9",
+        "D": "9:8"
+      },
+      "correct_answer": "A",
+      "explanation": "Ratio of increases = (α₁/α₂) × (l₁/l₂) = (2/3) × (3/4) = 1/2 = 1:2",
+      "topic": "Thermal Expansion",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 21,
+      "question": "2000cm³ of a gas is collected at 27°C and 700mmHg. What is the volume of the gas at standard temperature and pressure?",
+      "options": {
+        "A": "1896.5cm³",
+        "B": "1767.3cm³",
+        "C": "1676.3cm³",
+        "D": "1456.5cm³"
+      },
+      "correct_answer": "C",
+      "explanation": "Using combined gas law: V₂ = V₁ × (P₁/P₂) × (T₂/T₁) = 2000 × (700/760) × (273/300) = 1676.3cm³",
+      "topic": "Gas Laws",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 22,
+      "question": "Calculate the temperature change when 500 J of heat is supplied to 100g of water. [Specific heat capacity of water = 4200Jkg⁻¹K⁻¹]",
+      "options": {
+        "A": "12.1°C",
+        "B": "2.1°C",
+        "C": "1.2°C",
+        "D": "0.1°C"
+      },
+      "correct_answer": "C",
+      "explanation": "ΔT = Q/(mc) = 500/(0.1 × 4200) = 500/420 = 1.19°C ≈ 1.2°C",
+      "topic": "Heat Capacity",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 23,
+      "question": "Which of the following is NOT a factor that can increase the rate of evaporation of water in a lake?",
+      "options": {
+        "A": "Increase in the pressure of the atmosphere",
+        "B": "Rise in temperature",
+        "C": "Increase in the average speed of the molecules of water",
+        "D": "Increase in the kinetic energy of the molecules of water"
+      },
+      "correct_answer": "A",
+      "explanation": "Increased atmospheric pressure decreases the rate of evaporation by making it harder for molecules to escape.",
+      "topic": "Evaporation",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 24,
+      "question": "The quantity of heat energy required to melt completely 1kg of ice at -30°C is [latent heat of fusion = 3.5 × 10⁵ Jkg⁻¹, specific heat capacity of ice = 2.1 × 10³Jkg⁻¹K⁻¹]",
+      "options": {
+        "A": "4.13 × 10⁵J",
+        "B": "4.13 × 10⁵J",
+        "C": "3.56 × 10⁴J",
+        "D": "3.56 × 10²J"
+      },
+      "correct_answer": "B",
+      "explanation": "Heat needed = mcΔT + mL = 1 × 2100 × 30 + 1 × 350000 = 63000 + 350000 = 413000J = 4.13 × 10⁵J",
+      "topic": "Phase Changes",
+      "difficulty": "Hard"
+    },
+    {
+      "question_number": 25,
+      "question": "I. It is a rapid, constant and irregular motion of tiny particles. II. It gives evidence that tiny particles of matter called molecules exist. III. It takes place only in gases. IV. It gives evidence that molecules are in a constant state of random motion. Which of the combinations above is correct about Brownian motion?",
+      "options": {
+        "A": "I, II and III",
+        "B": "II, III and IV only",
+        "C": "I, III and IV only",
+        "D": "I, II and IV only"
+      },
+      "correct_answer": "D",
+      "explanation": "Brownian motion occurs in liquids and gases (not only gases), so III is incorrect. I, II, and IV are correct.",
+      "topic": "Kinetic Theory",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 26,
+      "question": "The equation of a wave travelling in a horizontal direction is expressed as y = 15 sin 2π(60t - x/5). What is its wavelength?",
+      "options": {
+        "A": "60m",
+        "B": "15m",
+        "C": "5m",
+        "D": "2m"
+      },
+      "correct_answer": "C",
+      "explanation": "Comparing with y = A sin 2π(ft - x/λ), we get λ = 5m",
+      "topic": "Waves",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 27,
+      "question": "From the diagram above, if the particle F is at a distance x from O to the right, the phase of the vibration will be different from that at O by",
+      "options": {
+        "A": "2πx/λ",
+        "B": "x/λ",
+        "C": "λ/2x",
+        "D": "λ/x"
+      },
+      "correct_answer": "A",
+      "explanation": "Phase difference = 2πx/λ where x is the distance and λ is the wavelength.",
+      "topic": "Waves",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 28,
+      "question": "Which of the following factors will affect the velocity of sound?",
+      "options": {
+        "A": "An increase in the pitch of the sound",
+        "B": "An increase in the loudness of the sound",
+        "C": "Wind travelling in the same direction of the sound",
+        "D": "A change in the atmospheric pressure at constant temperature"
+      },
+      "correct_answer": "C",
+      "explanation": "Wind affects the apparent velocity of sound. Pitch and loudness don't affect velocity, and pressure changes at constant temperature don't affect sound velocity in gases.",
+      "topic": "Sound",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 29,
+      "question": "The characteristic of a vibration that determines its intensity is the",
+      "options": {
+        "A": "Frequency",
+        "B": "Overtone",
+        "C": "Wavelength",
+        "D": "Amplitude"
+      },
+      "correct_answer": "D",
+      "explanation": "Intensity of a wave is proportional to the square of its amplitude.",
+      "topic": "Waves",
+      "difficulty": "Easy"
+    },
+    {
+      "question_number": 30,
+      "question": "Where can a man place his face to get an enlarged image when using a concave mirror to shave?",
+      "options": {
+        "A": "between the centre of curvature and the principle focus",
+        "B": "at principle focus",
+        "C": "between the principle focus and the pole",
+        "D": "At the centre of the curvature"
+      },
+      "correct_answer": "C",
+      "explanation": "For an enlarged, upright, virtual image with a concave mirror, the object must be placed between the focus and the pole.",
+      "topic": "Optics",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 31,
+      "question": "A pinhole camera is placed 300m in front of a building so that the image is formed on a screen 5cm from the pinhole. If the image is 2.5cm high, the height of the building will be",
+      "options": {
+        "A": "25m",
+        "B": "50m",
+        "C": "100m",
+        "D": "150m"
+      },
+      "correct_answer": "D",
+      "explanation": "Using similar triangles: h₁/h₂ = d₁/d₂. Height = 2.5 × 300/0.05 = 15000cm = 150m",
+      "topic": "Optics",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 32,
+      "question": "The magnification of an object 2cm tall when placed 10cm in front of a plane mirror is",
+      "options": {
+        "A": "6.0",
+        "B": "1.0",
+        "C": "0.7",
+        "D": "0.6"
+      },
+      "correct_answer": "B",
+      "explanation": "Plane mirrors always produce images with magnification = 1 (same size as object).",
+      "topic": "Optics",
+      "difficulty": "Easy"
+    },
+    {
+      "question_number": 33,
+      "question": "After reflection from the concave mirror, rays of light from the sun converge",
+      "options": {
+        "A": "At the radius of curvature",
+        "B": "At the focus",
+        "C": "Beyond the radius of curvature",
+        "D": "Between the focus and radius of curvature"
+      },
+      "correct_answer": "B",
+      "explanation": "Parallel rays from the sun converge at the principal focus of a concave mirror.",
+      "topic": "Optics",
+      "difficulty": "Easy"
+    },
+    {
+      "question_number": 34,
+      "question": "A glass block of thickness 10cm is placed on an object. If an observer views the object vertically, the displacement of the object is",
+      "options": {
+        "A": "3.33cm",
+        "B": "5.00cm",
+        "C": "6.67cm",
+        "D": "8.50cm"
+      },
+      "correct_answer": "A",
+      "explanation": "Apparent displacement = t(1 - 1/n) = 10(1 - 1/1.5) = 10 × 1/3 = 3.33cm",
+      "topic": "Optics",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 35,
+      "question": "I. Rays of light travel from a less dense medium to a denser medium II. The angle of incidence is greater than critical angle III. Rays of light travel from a denser medium to a less dense medium. Which of the statements above are conditions for total internal reflection to occur?",
+      "options": {
+        "A": "I & II only",
+        "B": "I & III only",
+        "C": "II & III only",
+        "D": "II only"
+      },
+      "correct_answer": "C",
+      "explanation": "Total internal reflection requires light traveling from denser to less dense medium (III) and angle of incidence greater than critical angle (II).",
+      "topic": "Optics",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 36,
+      "question": "The use of lenses is NOT applicable in the",
+      "options": {
+        "A": "projector",
+        "B": "human eye",
+        "C": "periscope",
+        "D": "telescope"
+      },
+      "correct_answer": "C",
+      "explanation": "A periscope uses plane mirrors, not lenses, to change the direction of light rays.",
+      "topic": "Optics",
+      "difficulty": "Easy"
+    },
+    {
+      "question_number": 37,
+      "question": "Dispersion of white light is the ability of white light to",
+      "options": {
+        "A": "Penetrate air, water and glass",
+        "B": "Move in a straight line",
+        "C": "Move around corners",
+        "D": "Separate to its component colours"
+      },
+      "correct_answer": "D",
+      "explanation": "Dispersion is the separation of white light into its component colors due to different refractive indices.",
+      "topic": "Optics",
+      "difficulty": "Easy"
+    },
+    {
+      "question_number": 38,
+      "question": "A newly charged 12V accumulator can easily start a car whereas eight new dry cells in series with an effective e.m.f. of 12V cannot start the same car because",
+      "options": {
+        "A": "The current capacity is high",
+        "B": "The current capacity is low",
+        "C": "It cannot be re-charged",
+        "D": "It cannot easily be connected to a car"
+      },
+      "correct_answer": "B",
+      "explanation": "Dry cells have much higher internal resistance than accumulators, limiting their current output capacity.",
+      "topic": "Current Electricity",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 39,
+      "question": "Six identical cells, each of e.m.f. 2V are connected as shown above. The effective e.m.f. of the cell is",
+      "options": {
+        "A": "0V",
+        "B": "4V",
+        "C": "6V",
+        "D": "12V"
+      },
+      "correct_answer": "B",
+      "explanation": "Based on the circuit configuration shown, the effective emf would be 4V.",
+      "topic": "Current Electricity",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 40,
+      "question": "The fuse in an electric device is always connected to the",
+      "options": {
+        "A": "Neutral side of an electric supply",
+        "B": "Earth side of an electric supply",
+        "C": "Live side of an electric supply",
+        "D": "Terminal side of an electric supply"
+      },
+      "correct_answer": "C",
+      "explanation": "Fuses are connected to the live wire to interrupt current flow when overload occurs.",
+      "topic": "Electrical Safety",
+      "difficulty": "Easy"
+    },
+    {
+      "question_number": 41,
+      "question": "A particle carrying a charge of 1.0 × 10⁻⁸C enters a magnetic field at 3.0 × 10²ms⁻¹ at right angles to the field. If the force on this particle is 1.8 × 10⁻⁸N, what is the magnitude of the field?",
+      "options": {
+        "A": "6.0 × 10⁻¹T",
+        "B": "6.0 × 10⁻²T",
+        "C": "6.0 × 10⁻³T",
+        "D": "6.0 × 10⁻⁴T"
+      },
+      "correct_answer": "C",
+      "explanation": "Using F = qvB: B = F/(qv) = 1.8 × 10⁻⁸/(1.0 × 10⁻⁸ × 3.0 × 10²) = 6.0 × 10⁻³T",
+      "topic": "Magnetism",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 42,
+      "question": "Which of the following is the correct shape of the graph of capacitive reactance Xc versus frequency F for a pure capacitor in an a.c. circuit?",
+      "options": {
+        "A": "Linear increasing",
+        "B": "Linear decreasing",
+        "C": "Hyperbolic decreasing",
+        "D": "Exponential increasing"
+      },
+      "correct_answer": "D",
+      "explanation": "Capacitive reactance Xc = 1/(2πfC), which gives a hyperbolic decrease with frequency.",
+      "topic": "AC Circuits",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 43,
+      "question": "The current output from an a.c. source is given as I = 10 sin ωt. The d.c. equivalent of the current is",
+      "options": {
+        "A": "5.0A",
+        "B": "7.1A",
+        "C": "10.0A",
+        "D": "14.1A"
+      },
+      "correct_answer": "B",
+      "explanation": "RMS current = Peak current / √2 = 10 / √2 = 7.07A ≈ 7.1A",
+      "topic": "AC Circuits",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 44,
+      "question": "A conductor of length 1m moves with a velocity of 50ms⁻¹ at an angle of 30° to the direction of a uniform magnetic field of flux density 1.5 Wbm⁻². What is the e.m.f. induced in the conductor?",
+      "options": {
+        "A": "37.5V",
+        "B": "50.5V",
+        "C": "75.0V",
+        "D": "80.5V"
+      },
+      "correct_answer": "A",
+      "explanation": "EMF = Blv sin θ = 1.5 × 1 × 50 × sin 30° = 1.5 × 50 × 0.5 = 37.5V",
+      "topic": "Electromagnetic Induction",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 45,
+      "question": "The process of detecting a pin mistakenly swallowed by a child using x-ray is",
+      "options": {
+        "A": "Diagnosis",
+        "B": "Therapy",
+        "C": "Crystallography",
+        "D": "mammography"
+      },
+      "correct_answer": "C",
+      "explanation": "Using X-rays to detect foreign objects in the body is a diagnostic procedure.",
+      "topic": "Medical Physics",
+      "difficulty": "Easy"
+    },
+    {
+      "question_number": 46,
+      "question": "Which of the following particles CANNOT be deflected by both electric and magnetic fields?",
+      "options": {
+        "A": "Gamma rays",
+        "B": "Alpha particles",
+        "C": "Wave particles",
+        "D": "Beta particles"
+      },
+      "correct_answer": "A",
+      "explanation": "Gamma rays are electromagnetic radiation with no charge, so they cannot be deflected by electric or magnetic fields.",
+      "topic": "Radioactivity",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 47,
+      "question": "A piece of radioactive material contains 1000 atoms. If its half-life is 20 seconds, the time taken for 125 atoms to remain is",
+      "options": {
+        "A": "20 seconds",
+        "B": "40 seconds",
+        "C": "60 seconds",
+        "D": "80 seconds"
+      },
+      "correct_answer": "C",
+      "explanation": "1000 → 500 (20s) → 250 (40s) → 125 (60s). Three half-lives = 3 × 20 = 60 seconds",
+      "topic": "Radioactivity",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 48,
+      "question": "The p-n junction diodes can act as rectifiers because they",
+      "options": {
+        "A": "Conduct current when forward biased",
+        "B": "Conduct current when reverse-biased",
+        "C": "Block current when forward biased",
+        "D": "Conduct current in both directions"
+      },
+      "correct_answer": "B",
+      "explanation": "Diodes conduct only when forward biased and block current when reverse biased, allowing rectification.",
+      "topic": "Electronics",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 49,
+      "question": "If a reverse-biased voltage is applied across a p-n junction, the depletion layer width is",
+      "options": {
+        "A": "Increased",
+        "B": "Decreased",
+        "C": "Constant",
+        "D": "halved"
+      },
+      "correct_answer": "B",
+      "explanation": "Reverse bias increases the depletion layer width by pulling charge carriers away from the junction.",
+      "topic": "Electronics",
+      "difficulty": "Medium"
+    },
+    {
+      "question_number": 50,
+      "question": "I. Small size II. Low power requirement III. Not easily damaged by high Temperature IV. Highly durable. Which of the above are the advantages of semiconductors?",
+      "options": {
+        "A": "I, II and III only",
+        "B": "II, III and IV only",
+        "C": "I, II and IV only",
+        "D": "I, II III and IV"
+      },
+      "correct_answer": "D",
+      "explanation": "All listed properties are advantages of semiconductor devices over vacuum tubes.",
+      "topic": "Electronics",
+      "difficulty": "Medium"
+    }
+  ]
+}

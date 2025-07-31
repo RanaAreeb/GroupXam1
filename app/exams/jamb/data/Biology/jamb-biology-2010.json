@@ -1,0 +1,709 @@
+{
+  "exam": "JAMB",
+  "subject": "Biology",
+  "year": 2010,
+  "paper_type": "C",
+  "total_questions": 50,
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which Biology Question Paper Type is given to you?",
+      "options": {
+        "A": "Type A",
+        "B": "Type B",
+        "C": "Type C",
+        "D": "Type D"
+      },
+      "correct_answer": "C",
+      "explanation": "This is a paper identification question. The correct answer is Type C as indicated in the paper header.",
+      "topic": "Paper Identification",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 2,
+      "question": "Which of the following characterizes a mature plant cell?",
+      "options": {
+        "A": "the cytoplasm fills up the entire cell space",
+        "B": "the nucleus is pushed to the centre of the cell",
+        "C": "the cell wall is made up of cellulose",
+        "D": "the nucleus is small and irregular in shape"
+      },
+      "correct_answer": "C",
+      "explanation": "Mature plant cells are characterized by having a cell wall made of cellulose, which provides structural support and protection.",
+      "topic": "Cell Biology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 3,
+      "question": "Which of the following is NOT a function of the nucleus of a cell?",
+      "options": {
+        "A": "it controls the life processes of the cell",
+        "B": "it translates genetic information for the manufacture of proteins",
+        "C": "it stores and carries hereditary information",
+        "D": "it is reservoir of energy for the cell"
+      },
+      "correct_answer": "D",
+      "explanation": "The nucleus is not a reservoir of energy for the cell. Energy storage and production are functions of mitochondria and chloroplasts.",
+      "topic": "Cell Biology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 4,
+      "question": "The dominant phase in the life cycle of a fern is the?",
+      "options": {
+        "A": "gametophyte",
+        "B": "prothallus",
+        "C": "sporophyte",
+        "D": "antheridium"
+      },
+      "correct_answer": "C",
+      "explanation": "In ferns, the sporophyte (the leafy plant we commonly see) is the dominant phase, while the gametophyte is small and inconspicuous.",
+      "topic": "Plant Biology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 5,
+      "question": "Parental care is exhibited by",
+      "options": {
+        "A": "toads",
+        "B": "snails",
+        "C": "earthworms",
+        "D": "birds"
+      },
+      "correct_answer": "D",
+      "explanation": "Birds exhibit extensive parental care including nest building, incubation of eggs, and feeding of young.",
+      "topic": "Animal Behavior",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 6,
+      "question": "With respect to their decreasing dependence on aquatic conditions for reproduction, which of the following is the correct arrangement of the animals represented?",
+      "options": {
+        "A": "I, IV, II and III",
+        "B": "IV, III, II and I",
+        "C": "I, II, IV and III",
+        "D": "III, II, IV and I"
+      },
+      "correct_answer": "B",
+      "explanation": "The arrangement shows decreasing dependence on water for reproduction, from aquatic animals to fully terrestrial ones.",
+      "topic": "Evolution",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 7,
+      "question": "Which of the animals represents the oldest creatures in terms of evolutionary history?",
+      "options": {
+        "A": "III",
+        "B": "II",
+        "C": "I",
+        "D": "IV"
+      },
+      "correct_answer": "D",
+      "explanation": "In evolutionary terms, simpler aquatic organisms appeared earlier than more complex terrestrial ones.",
+      "topic": "Evolution",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 8,
+      "question": "Which of the following groups of cells is devoid of true nuclei?",
+      "options": {
+        "A": "algae",
+        "B": "monera",
+        "C": "fungi",
+        "D": "viruses"
+      },
+      "correct_answer": "D",
+      "explanation": "Viruses are not cellular organisms and lack nuclei. They consist only of genetic material surrounded by a protein coat.",
+      "topic": "Cell Biology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 9,
+      "question": "The main function of the feathers covering the part labelled I is to",
+      "options": {
+        "A": "prevent ectoparasites from attacking the animal",
+        "B": "generate heat to keep the animal warm",
+        "C": "provide some power for flight",
+        "D": "serve as insulator to maintain body heat"
+      },
+      "correct_answer": "D",
+      "explanation": "Down feathers serve as insulation to maintain body temperature in birds.",
+      "topic": "Animal Physiology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 10,
+      "question": "Based on the shape and structure of the beak and feet, the bird represented is likely to feed mainly on",
+      "options": {
+        "A": "flesh",
+        "B": "fruits",
+        "C": "seeds",
+        "D": "nectar"
+      },
+      "correct_answer": "A",
+      "explanation": "Sharp, hooked beaks and strong talons are adaptations for catching and tearing flesh, characteristic of birds of prey.",
+      "topic": "Animal Adaptations",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 11,
+      "question": "Which of the following is true of the transverse section of a dicot stem?",
+      "options": {
+        "A": "the epidermis is completely encircled by the cortex",
+        "B": "the xylem is more interiorly located than the phloem",
+        "C": "the cambium lies between the cortex and the vascular bundles",
+        "D": "the vascular bundles are randomly scattered within the cortex"
+      },
+      "correct_answer": "B",
+      "explanation": "In dicot stems, xylem is located towards the center (interior) while phloem is located towards the outside.",
+      "topic": "Plant Anatomy",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 12,
+      "question": "The movement of material in the xylem and phloem tissues of the plant are represented by the arrows labelled",
+      "options": {
+        "A": "III and IV respectively",
+        "B": "II and I respectively",
+        "C": "I and II respectively",
+        "D": "I and III respectively"
+      },
+      "correct_answer": "A",
+      "explanation": "Xylem transports water and minerals upward, while phloem transports organic compounds in various directions.",
+      "topic": "Plant Physiology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 13,
+      "question": "During photosynthesis, the arrow labelled II represents the",
+      "options": {
+        "A": "escape of mineral salts",
+        "B": "absorption of energy from the sun",
+        "C": "release of carbon (IV) oxide",
+        "D": "release of oxygen as a by-product"
+      },
+      "correct_answer": "D",
+      "explanation": "During photosynthesis, oxygen is released as a by-product when water molecules are split.",
+      "topic": "Plant Physiology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 14,
+      "question": "Which of the following is lacking in the diet of a person with kwashiorkor?",
+      "options": {
+        "A": "vitamins",
+        "B": "proteins",
+        "C": "carbohydrates",
+        "D": "minerals"
+      },
+      "correct_answer": "B",
+      "explanation": "Kwashiorkor is a form of malnutrition caused by protein deficiency, especially in children.",
+      "topic": "Human Nutrition",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 15,
+      "question": "The mode of nutrition of sun dew and bladder wort can be described as",
+      "options": {
+        "A": "autotrophic",
+        "B": "saprophytic",
+        "C": "holozoic",
+        "D": "chemosynthetic"
+      },
+      "correct_answer": "C",
+      "explanation": "Sundew and bladderwort are carnivorous plants that exhibit holozoic nutrition by trapping and digesting insects.",
+      "topic": "Plant Nutrition",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 16,
+      "question": "When the mixture of a food substance and Benedict's solution was warmed, the solution changed from blue to brick-red. This indicates the presence of",
+      "options": {
+        "A": "reducing sugar",
+        "B": "fatty acid",
+        "C": "sucrose",
+        "D": "amino acid"
+      },
+      "correct_answer": "A",
+      "explanation": "Benedict's test shows a color change from blue to brick-red in the presence of reducing sugars like glucose.",
+      "topic": "Biochemistry",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 17,
+      "question": "The primary structure responsible for pumping blood for circulation through the mammalian circulatory system is the",
+      "options": {
+        "A": "veins",
+        "B": "right auricle",
+        "C": "arteries",
+        "D": "left ventricle"
+      },
+      "correct_answer": "C",
+      "explanation": "The left ventricle is the main pumping chamber that forces oxygenated blood into the systemic circulation.",
+      "topic": "Circulatory System",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 18,
+      "question": "Circulation of blood to all parts of the body except the lungs is through",
+      "options": {
+        "A": "the pulmonary artery",
+        "B": "systemic circulation",
+        "C": "the lymphatic system",
+        "D": "pulmonary circulation"
+      },
+      "correct_answer": "B",
+      "explanation": "Systemic circulation carries blood to all body parts except the lungs, which are served by pulmonary circulation.",
+      "topic": "Circulatory System",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 19,
+      "question": "Yeast respires anaerobically to convert simple sugar to carbon(IV) oxide and",
+      "options": {
+        "A": "alcohol",
+        "B": "acid",
+        "C": "oxygen",
+        "D": "water"
+      },
+      "correct_answer": "A",
+      "explanation": "During anaerobic respiration (fermentation), yeast converts sugar to carbon dioxide and ethyl alcohol.",
+      "topic": "Respiration",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 20,
+      "question": "The sheet of muscle that separates the thoracic and the abdominal cavities is the",
+      "options": {
+        "A": "diaphragm",
+        "B": "intercostal muscle",
+        "C": "pleural membrane",
+        "D": "pericardium"
+      },
+      "correct_answer": "A",
+      "explanation": "The diaphragm is a dome-shaped muscle that separates the thoracic cavity from the abdominal cavity.",
+      "topic": "Respiratory System",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 21,
+      "question": "The oily substance that lubricates the mammalian hair to keep it flexible and water repellent is secreted by the",
+      "options": {
+        "A": "sweat glands",
+        "B": "sebaceous glands",
+        "C": "fatty cells",
+        "D": "granular layer"
+      },
+      "correct_answer": "B",
+      "explanation": "Sebaceous glands secrete sebum, an oily substance that lubricates hair and skin.",
+      "topic": "Integumentary System",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 22,
+      "question": "The outer layer of the kidney where the Bowman's capsules are found is the",
+      "options": {
+        "A": "cortex",
+        "B": "pelvis",
+        "C": "medulla",
+        "D": "pyramid"
+      },
+      "correct_answer": "A",
+      "explanation": "The renal cortex is the outer layer of the kidney containing the Bowman's capsules and glomeruli.",
+      "topic": "Excretory System",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 23,
+      "question": "Which of the following stimuli is likely to elicit a nastic response in an organism?",
+      "options": {
+        "A": "Touch",
+        "B": "Light intensity",
+        "C": "Chemical substances",
+        "D": "Gravity"
+      },
+      "correct_answer": "C",
+      "explanation": "Nastic movements are non-directional responses to stimuli, often triggered by chemical substances or touch.",
+      "topic": "Plant Responses",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 24,
+      "question": "In the male reproductive system of a mammal, sperm is stored in the",
+      "options": {
+        "A": "vas deferens",
+        "B": "urethra",
+        "C": "epididymis",
+        "D": "seminiferous tubules"
+      },
+      "correct_answer": "C",
+      "explanation": "The epididymis is where sperm mature and are stored before ejaculation.",
+      "topic": "Reproductive System",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 25,
+      "question": "Chemosynthetic organisms are capable of manufacturing their food from simple inorganic substances through the process of",
+      "options": {
+        "A": "oxidation",
+        "B": "denitrification",
+        "C": "reduction",
+        "D": "phosphorylation"
+      },
+      "correct_answer": "D",
+      "explanation": "Chemosynthetic organisms use energy from chemical reactions, often involving phosphorylation, to produce food.",
+      "topic": "Nutrition",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 26,
+      "question": "The part of the human gut that has an acidic content is the",
+      "options": {
+        "A": "stomach",
+        "B": "duodenum",
+        "C": "ileum",
+        "D": "colon"
+      },
+      "correct_answer": "A",
+      "explanation": "The stomach produces hydrochloric acid, making it the most acidic part of the digestive system.",
+      "topic": "Digestive System",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 27,
+      "question": "Which of the following structures is correctly matched with the organism in which it is found?",
+      "options": {
+        "A": "Stomata → Spirogyra",
+        "B": "Alveoli → Earthworm",
+        "C": "Malpighian tubule → Mammal",
+        "D": "Contractile vacuole → Protozoa"
+      },
+      "correct_answer": "D",
+      "explanation": "Contractile vacuoles are found in protozoans and help regulate water balance.",
+      "topic": "Comparative Biology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 28,
+      "question": "A food chain always begins with a",
+      "options": {
+        "A": "consumer",
+        "B": "decomposer",
+        "C": "producer",
+        "D": "primary consumer"
+      },
+      "correct_answer": "C",
+      "explanation": "Food chains always begin with producers (autotrophs) that convert solar energy into chemical energy.",
+      "topic": "Ecology",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 29,
+      "question": "Mycorrhizae promote plant growth by",
+      "options": {
+        "A": "absorbing inorganic ions from the soil",
+        "B": "protecting it from infection",
+        "C": "helping it to utilize atmospheric nitrogen",
+        "D": "serving as a growth regulator"
+      },
+      "correct_answer": "A",
+      "explanation": "Mycorrhizae are symbiotic fungi that help plants absorb minerals and water from the soil.",
+      "topic": "Plant Biology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 30,
+      "question": "The barrier between maternal and foetal blood is the",
+      "options": {
+        "A": "placenta",
+        "B": "liver",
+        "C": "umbilical cord",
+        "D": "uterine wall"
+      },
+      "correct_answer": "A",
+      "explanation": "The placenta acts as a selective barrier allowing exchange of nutrients and waste between maternal and fetal blood.",
+      "topic": "Reproductive Biology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 31,
+      "question": "The blood component that has the greatest affinity for oxygen is the",
+      "options": {
+        "A": "lymphocytes",
+        "B": "leucocytes",
+        "C": "erythrocytes",
+        "D": "thrombocytes"
+      },
+      "correct_answer": "C",
+      "explanation": "Erythrocytes (red blood cells) contain hemoglobin which has a high affinity for oxygen.",
+      "topic": "Circulatory System",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 32,
+      "question": "Which of the following organisms is mainly found in the marine habitat?",
+      "options": {
+        "A": "Achatina",
+        "B": "Tilapia",
+        "C": "Dog fish",
+        "D": "Tortoise"
+      },
+      "correct_answer": "C",
+      "explanation": "Dogfish is a marine shark found in ocean environments.",
+      "topic": "Ecology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 33,
+      "question": "The two halves of the pelvic girdle are joined together at the",
+      "options": {
+        "A": "pubic symphysis",
+        "B": "ilium",
+        "C": "pubis",
+        "D": "obturator foramen"
+      },
+      "correct_answer": "A",
+      "explanation": "The pubic symphysis is the joint where the two halves of the pelvic girdle meet.",
+      "topic": "Skeletal System",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 34,
+      "question": "Which of the following are ways in which desert animals adapt to extreme heat?",
+      "options": {
+        "A": "I and IV only",
+        "B": "II and III only",
+        "C": "I and II only",
+        "D": "I, II and III only"
+      },
+      "correct_answer": "C",
+      "explanation": "Desert animals adapt through nocturnal habits and burrowing to avoid extreme heat.",
+      "topic": "Animal Adaptations",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 35,
+      "question": "Low annual rainfall, sparse vegetation, high diurnal temperatures and cold nights are characteristic features of the",
+      "options": {
+        "A": "tropical rainforest",
+        "B": "desert",
+        "C": "montane forest",
+        "D": "guinea savanna"
+      },
+      "correct_answer": "D",
+      "explanation": "These characteristics describe the guinea savanna biome found in parts of West Africa.",
+      "topic": "Ecology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 36,
+      "question": "The activity of an organism which affects the survival of another organism in the same habitat constitutes",
+      "options": {
+        "A": "an edaphic factor",
+        "B": "an abiotic factor",
+        "C": "a biotic factor",
+        "D": "a physiographic factor"
+      },
+      "correct_answer": "A",
+      "explanation": "Biotic factors involve the interactions between living organisms in an ecosystem.",
+      "topic": "Ecology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 37,
+      "question": "The average number of individuals of a species per unit area of the habitat is the",
+      "options": {
+        "A": "population density",
+        "B": "population frequency",
+        "C": "population size",
+        "D": "population distribution"
+      },
+      "correct_answer": "C",
+      "explanation": "Population density is defined as the number of individuals per unit area or volume.",
+      "topic": "Population Ecology",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 38,
+      "question": "The vector for yellow fever is",
+      "options": {
+        "A": "Aedes mosquito",
+        "B": "Anopheles mosquito",
+        "C": "tsetse fly",
+        "D": "blackfly"
+      },
+      "correct_answer": "B",
+      "explanation": "Yellow fever is transmitted by Aedes aegypti mosquitoes.",
+      "topic": "Disease Vectors",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 39,
+      "question": "The loss of soil through erosion can be reduced by",
+      "options": {
+        "A": "watering",
+        "B": "crop rotation",
+        "C": "manuring",
+        "D": "irrigation"
+      },
+      "correct_answer": "A",
+      "explanation": "Crop rotation helps maintain soil structure and prevents erosion by keeping the soil covered.",
+      "topic": "Soil Conservation",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 40,
+      "question": "The protozoan plasmodium falciparum is transmitted by",
+      "options": {
+        "A": "female Anopheles mosquitoes",
+        "B": "female Aedes mosquitoes",
+        "C": "female Culex mosquitoes",
+        "D": "female blackfly"
+      },
+      "correct_answer": "A",
+      "explanation": "Plasmodium falciparum, which causes malaria, is transmitted by female Anopheles mosquitoes.",
+      "topic": "Disease Vectors",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 41,
+      "question": "A dilute solution of phenylthiocarbamide tastes bitter to some people and is tasteless to others. This is an example of",
+      "options": {
+        "A": "taste bud variation",
+        "B": "discontinuous variation",
+        "C": "morphological variation",
+        "D": "continuous variation"
+      },
+      "correct_answer": "B",
+      "explanation": "The ability to taste PTC shows discontinuous variation - people either can or cannot taste it.",
+      "topic": "Genetics",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 42,
+      "question": "In which plantation are all the trees between the height of 2-4m?",
+      "options": {
+        "A": "III",
+        "B": "II",
+        "C": "I",
+        "D": "IV"
+      },
+      "correct_answer": "A",
+      "explanation": "Based on the diagram, plantation III shows all trees within the 2-4m height range.",
+      "topic": "Data Analysis",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 43,
+      "question": "Which of the following is a true feature of plantation II?",
+      "options": {
+        "A": "it has the highest number of trees of about 2m high",
+        "B": "it has highest number of trees",
+        "C": "it has the highest number of tall trees",
+        "D": "the height of all its trees range between 2m and 6m"
+      },
+      "correct_answer": "A",
+      "explanation": "From the graph, plantation II shows the highest frequency of trees at approximately 2m height.",
+      "topic": "Data Analysis",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 44,
+      "question": "Thyroxine and adrenalin are examples of hormones which control",
+      "options": {
+        "A": "blood grouping",
+        "B": "tongue rolling",
+        "C": "behavioural patterns",
+        "D": "colour variation"
+      },
+      "correct_answer": "C",
+      "explanation": "Thyroxine and adrenalin are hormones that influence metabolic rate and behavioral responses.",
+      "topic": "Endocrine System",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 45,
+      "question": "A pair of genes that control a trait is referred to as",
+      "options": {
+        "A": "an allele",
+        "B": "recessive",
+        "C": "dominant",
+        "D": "a hybrid"
+      },
+      "correct_answer": "A",
+      "explanation": "Alleles are alternative forms of a gene that control the same trait.",
+      "topic": "Genetics",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 46,
+      "question": "The chromosome number of a cell before and after the process of meiosis is conventionally represented as",
+      "options": {
+        "A": "2n → 2n",
+        "B": "n → n",
+        "C": "n → 2n",
+        "D": "2n → n"
+      },
+      "correct_answer": "D",
+      "explanation": "Meiosis reduces chromosome number from diploid (2n) to haploid (n).",
+      "topic": "Cell Division",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 47,
+      "question": "If both parents are heterozygous for a trait, the probability that an offspring will be recessive for that trait is",
+      "options": {
+        "A": "3/4",
+        "B": "1/2",
+        "C": "1/4",
+        "D": "1"
+      },
+      "correct_answer": "C",
+      "explanation": "In a cross between two heterozygotes (Aa × Aa), the probability of recessive offspring (aa) is 1/4.",
+      "topic": "Genetics",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 48,
+      "question": "At what stage in the life history of a mammal is the sex of an individual set?",
+      "options": {
+        "A": "at adolescence",
+        "B": "at puberty",
+        "C": "at birth",
+        "D": "at conception"
+      },
+      "correct_answer": "B",
+      "explanation": "Sex is determined at conception when the sperm contributes either an X or Y chromosome.",
+      "topic": "Reproductive Biology",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 49,
+      "question": "The main distinguishing features between the soldier termite and other members of the caste are the",
+      "options": {
+        "A": "presence of wings, possession of a small head and large thorax",
+        "B": "presence of wings, possession of a large thorax and a small head",
+        "C": "absence of wings, possession of strong mandibles and a large head",
+        "D": "absence of wings, possession of big head and the absence of mandible"
+      },
+      "correct_answer": "C",
+      "explanation": "Soldier termites are wingless with enlarged heads and strong mandibles for defense.",
+      "topic": "Animal Behavior",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 50,
+      "question": "The flippers of a whale and the fins of a fish are examples of",
+      "options": {
+        "A": "divergent evolution",
+        "B": "coevolution",
+        "C": "continuous variation",
+        "D": "convergent evolution"
+      },
+      "correct_answer": "A",
+      "explanation": "Whale flippers and fish fins are examples of convergent evolution - similar structures evolved independently for similar functions.",
+      "topic": "Evolution",
+      "difficulty": "Hard"
+    }
+  ]
+}
