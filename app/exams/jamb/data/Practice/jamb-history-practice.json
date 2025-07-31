@@ -1,0 +1,362 @@
+{
+  "examInfo": {
+    "title": "JAMB History Practice Questions",
+    "subject": "History",
+    "examType": "Practice",
+    "duration": "60 minutes",
+    "totalQuestions": 25,
+    "instructions": "Choose the correct option from A-D for each question."
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "The Berlin Conference of 1884-1885 was organized to",
+      "options": {
+        "A": "End World War I",
+        "B": "Partition Africa among European powers",
+        "C": "Establish trade routes to Asia",
+        "D": "Create the League of Nations"
+      },
+      "correctAnswer": "B",
+      "explanation": "The Berlin Conference was convened to regulate European colonization and trade in Africa during the New Imperialism period.",
+      "topic": "Colonial History",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 2,
+      "question": "The ancient kingdom of Kush was located in",
+      "options": {
+        "A": "Egypt",
+        "B": "Sudan",
+        "C": "Ethiopia",
+        "D": "Libya"
+      },
+      "correctAnswer": "B",
+      "explanation": "The Kingdom of Kush was an ancient African kingdom situated on the Nile River in what is now northern Sudan.",
+      "topic": "Ancient African Civilizations",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 3,
+      "question": "The Trans-Atlantic slave trade was officially abolished by Britain in",
+      "options": {
+        "A": "1807",
+        "B": "1833",
+        "C": "1845",
+        "D": "1865"
+      },
+      "correctAnswer": "A",
+      "explanation": "Britain abolished the slave trade (not slavery itself) in 1807 with the Slave Trade Act, though slavery in British colonies continued until 1833.",
+      "topic": "Slave Trade",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 4,
+      "question": "The Sokoto Caliphate was founded by",
+      "options": {
+        "A": "Usman dan Fodio",
+        "B": "Muhammadu Bello",
+        "C": "Abdullahi dan Fodio",
+        "D": "Aliyu Babba"
+      },
+      "correctAnswer": "A",
+      "explanation": "Usman dan Fodio founded the Sokoto Caliphate in 1804 after leading a successful jihad in northern Nigeria.",
+      "topic": "West African History",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 5,
+      "question": "The Great Depression began in",
+      "options": {
+        "A": "1925",
+        "B": "1929",
+        "C": "1932",
+        "D": "1935"
+      },
+      "correctAnswer": "B",
+      "explanation": "The Great Depression began with the Wall Street Crash in October 1929 and lasted through the 1930s.",
+      "topic": "World History",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 6,
+      "question": "The first European to reach India by sea was",
+      "options": {
+        "A": "Christopher Columbus",
+        "B": "Vasco da Gama",
+        "C": "Ferdinand Magellan",
+        "D": "Bartholomeu Dias"
+      },
+      "correctAnswer": "B",
+      "explanation": "Vasco da Gama was the first European to reach India by sailing around Africa, arriving in Calicut in 1498.",
+      "topic": "Age of Exploration",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 7,
+      "question": "Nigeria gained independence from Britain in",
+      "options": {
+        "A": "1958",
+        "B": "1960",
+        "C": "1962",
+        "D": "1963"
+      },
+      "correctAnswer": "B",
+      "explanation": "Nigeria gained independence from British colonial rule on October 1, 1960.",
+      "topic": "Nigerian History",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 8,
+      "question": "The Cold War was primarily between",
+      "options": {
+        "A": "Britain and France",
+        "B": "USA and Soviet Union",
+        "C": "Germany and Italy",
+        "D": "China and Japan"
+      },
+      "correctAnswer": "B",
+      "explanation": "The Cold War (1947-1991) was a period of geopolitical tension between the United States and the Soviet Union and their respective allies.",
+      "topic": "Modern World History",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 9,
+      "question": "The Benin Empire was famous for its",
+      "options": {
+        "A": "Bronze sculptures",
+        "B": "Gold mining",
+        "C": "Textile production",
+        "D": "Salt trade"
+      },
+      "correctAnswer": "A",
+      "explanation": "The Benin Empire was renowned for its sophisticated bronze sculptures and plaques, which are now displayed in museums worldwide.",
+      "topic": "West African History",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 10,
+      "question": "The Scramble for Africa took place during the",
+      "options": {
+        "A": "16th century",
+        "B": "17th century",
+        "C": "18th century",
+        "D": "19th century"
+      },
+      "correctAnswer": "D",
+      "explanation": "The Scramble for Africa occurred in the late 19th century (1880s-1914) when European powers rapidly colonized African territories.",
+      "topic": "Colonial History",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 11,
+      "question": "The Maji Maji Rebellion occurred in",
+      "options": {
+        "A": "Kenya",
+        "B": "Tanzania",
+        "C": "Uganda",
+        "D": "Zimbabwe"
+      },
+      "correctAnswer": "B",
+      "explanation": "The Maji Maji Rebellion (1905-1907) was an armed resistance by indigenous peoples against German colonial rule in German East Africa (now Tanzania).",
+      "topic": "Colonial Resistance",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 12,
+      "question": "The Renaissance began in",
+      "options": {
+        "A": "France",
+        "B": "England",
+        "C": "Italy",
+        "D": "Spain"
+      },
+      "correctAnswer": "C",
+      "explanation": "The Renaissance began in Italy in the 14th century, starting in cities like Florence, Venice, and Rome.",
+      "topic": "European History",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 13,
+      "question": "The Ashanti Empire was located in present-day",
+      "options": {
+        "A": "Nigeria",
+        "B": "Ghana",
+        "C": "Mali",
+        "D": "Senegal"
+      },
+      "correctAnswer": "B",
+      "explanation": "The Ashanti Empire was a powerful West African state located in what is now Ghana, with its capital at Kumasi.",
+      "topic": "West African History",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 14,
+      "question": "World War I ended in",
+      "options": {
+        "A": "1917",
+        "B": "1918",
+        "C": "1919",
+        "D": "1920"
+      },
+      "correctAnswer": "B",
+      "explanation": "World War I ended on November 11, 1918, with the signing of the Armistice between Germany and the Allied forces.",
+      "topic": "World Wars",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 15,
+      "question": "The ancient city of Timbuktu was a center of",
+      "options": {
+        "A": "Gold mining",
+        "B": "Islamic learning",
+        "C": "Slave trading",
+        "D": "Weapon manufacturing"
+      },
+      "correctAnswer": "B",
+      "explanation": "Timbuktu was a major center of Islamic learning and scholarship, home to the famous University of Sankore and numerous manuscripts.",
+      "topic": "Medieval African History",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 16,
+      "question": "The Suez Canal was opened in",
+      "options": {
+        "A": "1859",
+        "B": "1869",
+        "C": "1879",
+        "D": "1889"
+      },
+      "correctAnswer": "B",
+      "explanation": "The Suez Canal was officially opened on November 17, 1869, connecting the Mediterranean and Red Seas.",
+      "topic": "Modern History",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 17,
+      "question": "The Biafran War in Nigeria lasted from",
+      "options": {
+        "A": "1965-1968",
+        "B": "1967-1970",
+        "C": "1969-1972",
+        "D": "1971-1974"
+      },
+      "correctAnswer": "B",
+      "explanation": "The Nigerian Civil War, also known as the Biafran War, lasted from July 6, 1967, to January 15, 1970.",
+      "topic": "Nigerian History",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 18,
+      "question": "The Industrial Revolution began in",
+      "options": {
+        "A": "France",
+        "B": "Germany",
+        "C": "Britain",
+        "D": "United States"
+      },
+      "correctAnswer": "C",
+      "explanation": "The Industrial Revolution began in Britain in the late 18th century before spreading to other parts of Europe and North America.",
+      "topic": "Economic History",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 19,
+      "question": "The Organization of African Unity (OAU) was founded in",
+      "options": {
+        "A": "1960",
+        "B": "1963",
+        "C": "1965",
+        "D": "1967"
+      },
+      "correctAnswer": "B",
+      "explanation": "The Organization of African Unity was founded on May 25, 1963, in Addis Ababa, Ethiopia, to promote unity among African states.",
+      "topic": "Pan-Africanism",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 20,
+      "question": "The French Revolution began in",
+      "options": {
+        "A": "1789",
+        "B": "1790",
+        "C": "1791",
+        "D": "1792"
+      },
+      "correctAnswer": "A",
+      "explanation": "The French Revolution began in 1789 with the convening of the Estates-General and the storming of the Bastille on July 14, 1789.",
+      "topic": "European History",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 21,
+      "question": "The Zulu Kingdom was founded by",
+      "options": {
+        "A": "Shaka Zulu",
+        "B": "Cetshwayo",
+        "C": "Senzangakhona",
+        "D": "Dingane"
+      },
+      "correctAnswer": "A",
+      "explanation": "Shaka Zulu founded and expanded the Zulu Kingdom in the early 19th century, transforming it into a powerful military state.",
+      "topic": "Southern African History",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 22,
+      "question": "The United Nations was established in",
+      "options": {
+        "A": "1944",
+        "B": "1945",
+        "C": "1946",
+        "D": "1947"
+      },
+      "correctAnswer": "B",
+      "explanation": "The United Nations was officially established on October 24, 1945, when the UN Charter came into force after World War II.",
+      "topic": "International Relations",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 23,
+      "question": "The Apartheid system in South Africa was officially dismantled in",
+      "options": {
+        "A": "1990",
+        "B": "1991",
+        "C": "1993",
+        "D": "1994"
+      },
+      "correctAnswer": "D",
+      "explanation": "Apartheid officially ended in 1994 with South Africa's first democratic elections, which brought Nelson Mandela to power.",
+      "topic": "Southern African History",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 24,
+      "question": "The Mongol Empire was founded by",
+      "options": {
+        "A": "Kublai Khan",
+        "B": "Genghis Khan",
+        "C": "Ogedei Khan",
+        "D": "Hulagu Khan"
+      },
+      "correctAnswer": "B",
+      "explanation": "Genghis Khan founded the Mongol Empire in 1206, which became the largest contiguous land empire in history.",
+      "topic": "Asian History",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 25,
+      "question": "The Rwandan Genocide occurred in",
+      "options": {
+        "A": "1992",
+        "B": "1993",
+        "C": "1994",
+        "D": "1995"
+      },
+      "correctAnswer": "C",
+      "explanation": "The Rwandan Genocide took place over approximately 100 days from April to July 1994, resulting in the mass killing of Tutsi and moderate Hutu populations.",
+      "topic": "Modern African History",
+      "difficulty": "Medium"
+    }
+  ]
+}

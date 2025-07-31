@@ -1,0 +1,362 @@
+{
+  "id": "mathematics-2010",
+  "title": "JAMB Mathematics 2010",
+  "subject": "Mathematics",
+  "year": 2010,
+  "duration": "2 hours",
+  "paperType": "B",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which Mathematics Question Paper Type is given to you?",
+      "options": ["Type A", "Type B", "Type C", "Type D"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 2,
+      "question": "Find r, if 6r7₈ = 511₉",
+      "options": ["5", "2", "3", "6"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 3,
+      "question": "Simplify (3/4 of 7/9) ÷ (9/2)⁶",
+      "options": ["1/25", "1/4", "1/5", "1/36"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 4,
+      "question": "A student measures a piece of rope and found that it was 1.26 m long. If the actual length of the rope was 1.25 m, what was the percentage error in the measurement?",
+      "options": ["0.40%", "0.01%", "0.25%", "0.80%"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 5,
+      "question": "At what rate will the interest on ₦400 increase to ₦24 in 3 years reckoning in simple interest?",
+      "options": ["4%", "2%", "3%", "5%"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 6,
+      "question": "If p : q = 2/3 : 4/5 and q : r = 3/6 : 4/1, find p : q : r.",
+      "options": ["9:10:15", "12:15:16", "12:15:10", "10:15:24"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 7,
+      "question": "Evaluate 81^(1/4) × 2^(-1)",
+      "options": ["1/3", "6", "3", "16"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 8,
+      "question": "Given that log 2 = 0.3010, log 7 = 0.8451. Evaluate log 112.",
+      "options": ["2.5441", "2.0491", "2.1461", "3.1461"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 9,
+      "question": "Rationalise (2√3 + √5)/(√5 - √3)",
+      "options": ["(3√15 + 11)/2", "(3√15 - 11)/2", "3√15 - 11", "3√15 + 11"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 10,
+      "question": "Express the product of 0.21 and 0.34 in standard form",
+      "options": ["7.14 × 10⁻³", "7.14 × 10⁻¹", "7.14 × 10⁻²", "7.14 × 10⁻⁴"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 11,
+      "question": "Which of the Venn diagrams below represents P' ∩ Q' ∩ R'?",
+      "options": ["A", "B", "C", "D"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 12,
+      "question": "In a survey of 50 newspaper readers, 40 read Champion and 30 read Guardian, how many read both papers?",
+      "options": ["15", "5", "10", "20"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 13,
+      "question": "Make Q the subject of formula if P = M(X + Q) + 15",
+      "options": ["(5P + MX - 5M)/5", "(5P - MX - 5M)/5", "(5P - MX + 5M)/5", "(5P + MX + 5M)/5"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 14,
+      "question": "If 9x² + 6xy + 4y² is a factor of 27x³ - 8y³, find the other factor.",
+      "options": ["3x - 2y", "2y - 3x", "2y + 3x", "3x + 2y"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 15,
+      "question": "Factorize completely (x² + 3x² - 10x)/(2x² - 8)",
+      "options": ["(x² + 5)/(2x + 4)", "x(x + 5)/(2(x + 2))", "x(x - 5)/(2(x + 2))", "x(x - 5)/(2(x - 2))"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 16,
+      "question": "Solve for x and y if x - y = 2 and x² - y² = 8",
+      "options": ["(1, 3)", "(3, 1)", "(-1, 3)", "(-3, 1)"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 17,
+      "question": "If y varies directly as the square root of x and y = 3 when x = 16, calculate y when x = 64",
+      "options": ["5", "12", "6", "3"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 18,
+      "question": "If x is inversely proportional to y and x = 2½ when y = 2, find x if y = 4",
+      "options": ["2¼", "5", "4", "1¼"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 19,
+      "question": "For what range of values of x is ½x + ¼ > ½x + ⅓",
+      "options": ["x > -3/2", "x > 3/2", "x < 2/3", "x > -2/3"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 20,
+      "question": "Solve the inequalities -6 ≤ 4 - 2x < 5 - x",
+      "options": ["-1 ≤ x < 6", "-1 < x ≤ 5", "-1 < x < 5", "-1 ≤ x ≤ 6"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 21,
+      "question": "Find the sum to infinity of the following series: 0.5 + 0.05 + 0.005 + 0.0005 + .....",
+      "options": ["5/9", "5/7", "5/8", "5/11"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 22,
+      "question": "The 3rd term of an arithmetic progression is -9 and the 7th term is -29. Find the 10th term of the progression",
+      "options": ["44", "-165", "-44", "165"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 23,
+      "question": "If x * y = x + y², find the value of (2*3)*5",
+      "options": ["36", "11", "25", "26"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 24,
+      "question": "If p and q are two non-zero numbers and 18(p + q) = (18 + p)q, which of the following must be true?",
+      "options": ["q = 18", "p = 18", "p < 1", "q < 1"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 25,
+      "question": "If |x - 3/2| = 15/7, find the value of x",
+      "options": ["3", "5", "4", "2"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 26,
+      "question": "Evaluate |4  6  3|\n        |8  9  1|\n        |2 -3  5|",
+      "options": ["-42", "102", "18", "-102"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 27,
+      "question": "If P = [2 -3; 1  1], what is P⁻¹?",
+      "options": ["[1/5  3/5; -1/5  2/5]", "[5/5  3/5; -1/5  2/5]", "[-1/5  3/5; -1/5  2/5]", "[-1/5  -3/5; 1/5  2/5]"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 28,
+      "question": "From the diagram above, find x",
+      "options": ["65°", "50°", "55°", "75°"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 29,
+      "question": "The interior angles of a quadrilateral are (x + 15)°, (2x - 45)° and (x + 10)°. Find the value of the least interior angle.",
+      "options": ["102°", "52°", "82°", "112°"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 30,
+      "question": "From the cyclic quadrilateral TUVW above, find the value of x",
+      "options": ["23°", "26°", "24°", "20°"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 31,
+      "question": "If the two smaller sides of a right-angled triangle are 4 cm and 5 cm, find its area.",
+      "options": ["10 cm²", "6 cm²", "8 cm²", "24 cm²"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 32,
+      "question": "An arc subtends an angle of 50° at the centre of circle of radius 6cm. Calculate the area of the sector formed",
+      "options": ["90π/7 cm²", "110π/7 cm²", "100π/7 cm²", "80π/7 cm²"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 33,
+      "question": "A cylindrical pipe 50cm long with radius 7m has one end open. What is the total surface area of the pipe?",
+      "options": ["700πm²", "98πm²", "350πm²", "749πm²"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 34,
+      "question": "What is the locus of point that is equidistant from points P(1,3) and Q(3,5)?",
+      "options": ["y = -x + 6", "y = -x + 6", "y = -x - 6", "y = x - 6"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 35,
+      "question": "Find the distance between the points (½, 1) and (-½, -1)",
+      "options": ["√2", "1", "1", "√3"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 36,
+      "question": "Find the gradient of the line passing through the points P(1, 1) and Q(2, 5).",
+      "options": ["4", "2", "3", "5"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 37,
+      "question": "Find the equation of a line parallel to y = -4x + 2 passing through (2,3)",
+      "options": ["y - 4x + 11 = 0", "y - 4x - 11 = 0", "y + 4x + 11 = 0", "y + 4x - 11 = 0"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 38,
+      "question": "If cot θ = 8/15, where θ is acute, find sin θ",
+      "options": ["13/15", "15/17", "8/17", "16/17"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 39,
+      "question": "If the area of ΔPQR above is 12√3 cm², find the value of q?",
+      "options": ["6 cm", "8 cm", "7 cm", "5 cm"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 40,
+      "question": "If y = (2x + 1)³, find dy/dx",
+      "options": ["3(2x+1)²", "3(2x + 1)", "6(2x + 1)", "6(2x+1)²"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 41,
+      "question": "If y = x sin x, find dy/dx",
+      "options": ["sin x + x cos x", "sin x + x cos x", "sin x - x cos x", "sin x - cos x"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 42,
+      "question": "At what value of x does the function y = -3 - 2x + x² attain a minimum value?",
+      "options": ["1", "-4", "-1", "4"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 43,
+      "question": "Evaluate ∫₀² (x³ + x²) dx",
+      "options": ["25/6", "62/3", "45/6", "125/6"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 44,
+      "question": "Find ∫ (sin x + 2) dx",
+      "options": ["cos x + x² + k", "cos x + 2x + k", "-cos x + 2x + k", "-cos x + x² + k"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 45,
+      "question": "From the table above, if the pass mark is 5, how many students failed the test?",
+      "options": ["7", "2", "6", "9"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 46,
+      "question": "The table above shows the marks obtained in a given test. How many students failed the test?",
+      "options": ["15", "20", "16", "13"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 47,
+      "question": "Find the mean mark",
+      "options": ["3.2", "3.0", "3.1", "3.3"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 48,
+      "question": "Find the standard deviation of 2, 3, 5 and 6",
+      "options": ["√5/2", "√10", "√6", "√2"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 49,
+      "question": "In how many ways can a committee of 2 women and 3 men be chosen from 6 men and 5 women?",
+      "options": ["50", "200", "100", "30"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 50,
+      "question": "If three unbiased coins are tossed, find the probability that they are all heads.",
+      "options": ["1/8", "1/3", "1/6", "1/9"],
+      "correctAnswer": 0
+    }
+  ],
+  "answerKey": {
+    "1": "B",
+    "2": "C",
+    "3": "D",
+    "4": "D",
+    "5": "B",
+    "6": "C",
+    "7": "A",
+    "8": "B",
+    "9": "A",
+    "10": "C",
+    "11": "A",
+    "12": "D",
+    "13": "B",
+    "14": "A",
+    "15": "A",
+    "16": "B",
+    "17": "C",
+    "18": "D",
+    "19": "B",
+    "20": "B",
+    "21": "A",
+    "22": "C",
+    "23": "A",
+    "24": "A",
+    "25": "A",
+    "26": "D",
+    "27": "B",
+    "28": "A",
+    "29": "B",
+    "30": "C",
+    "31": "A",
+    "32": "B",
+    "33": "D",
+    "34": "A",
+    "35": "A",
+    "36": "A",
+    "37": "D",
+    "38": "B",
+    "39": "A",
+    "40": "D",
+    "41": "B",
+    "42": "C",
+    "43": "B",
+    "44": "C",
+    "45": "D",
+    "46": "B",
+    "47": "D",
+    "48": "A",
+    "49": "B",
+    "50": "A"
+  }
+}

@@ -1,0 +1,165 @@
+{
+  "id": "wassce-english-mock-2024",
+  "title": "WASSCE English Language Mock Examination",
+  "subject": "English Language",
+  "examType": "WASSCE Mock",
+  "year": 2024,
+  "duration": "3 hours",
+  "instructions": "Answer ALL questions in Section A and any THREE questions from Section B",
+  "sections": {
+    "sectionA": {
+      "title": "SECTION A - OBJECTIVE TEST",
+      "instruction": "Answer ALL questions in this section",
+      "timeAllocation": "1 hour",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Choose the word that is most nearly opposite in meaning to the underlined word: The student gave a COHERENT explanation of the concept.",
+          "options": ["clear", "logical", "confused", "detailed"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 2,
+          "question": "Choose the option that best completes the sentence: Neither John nor his brothers _____ present at the meeting.",
+          "options": ["was", "were", "is", "are"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 3,
+          "question": "Identify the figure of speech in: 'The wind whispered through the trees.'",
+          "options": ["Metaphor", "Simile", "Personification", "Hyperbole"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 4,
+          "question": "Choose the correct spelling:",
+          "options": ["Accomodate", "Accommodate", "Acomodate", "Acommodate"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 5,
+          "question": "What is the meaning of the idiom 'to break the ice'?",
+          "options": ["To start a conversation", "To destroy something", "To be very cold", "To make a mistake"],
+          "correctAnswer": 0
+        },
+        {
+          "id": 6,
+          "question": "Choose the word that best fits: The _____ of the building was impressive.",
+          "options": ["architect", "architecture", "architectural", "architecting"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 7,
+          "question": "Identify the type of sentence: 'What a beautiful day it is!'",
+          "options": ["Declarative", "Interrogative", "Imperative", "Exclamatory"],
+          "correctAnswer": 3
+        },
+        {
+          "id": 8,
+          "question": "Choose the correct punctuation: 'The teacher said _____ You must submit your assignments on time ___'",
+          "options": [": .", ", .", ": !", ", !"],
+          "correctAnswer": 0
+        },
+        {
+          "id": 9,
+          "question": "What is the past participle of 'swim'?",
+          "options": ["swam", "swum", "swimming", "swims"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 10,
+          "question": "Choose the word that is most similar in meaning to 'ABUNDANT':",
+          "options": ["scarce", "plentiful", "limited", "insufficient"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 11,
+          "question": "Identify the subject in: 'The tall man in the blue shirt is my uncle.'",
+          "options": ["The tall man", "man", "The tall man in the blue shirt", "uncle"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 12,
+          "question": "Choose the correct form: 'If I _____ you, I would study harder.'",
+          "options": ["am", "was", "were", "will be"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 13,
+          "question": "What is the plural form of 'analysis'?",
+          "options": ["analysises", "analysies", "analyses", "analysis"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 14,
+          "question": "Choose the option with correct capitalization:",
+          "options": [
+            "i went to Lagos last Summer",
+            "I went to lagos last summer",
+            "I went to Lagos last summer",
+            "I Went To Lagos Last Summer"
+          ],
+          "correctAnswer": 2
+        },
+        {
+          "id": 15,
+          "question": "Identify the clause type: 'Because it was raining heavily'",
+          "options": ["Independent clause", "Dependent clause", "Noun clause", "Relative clause"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 16,
+          "question": "Choose the correct preposition: 'She is good _____ mathematics.'",
+          "options": ["in", "at", "on", "with"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 17,
+          "question": "What is the comparative form of 'bad'?",
+          "options": ["badder", "worse", "worst", "more bad"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 18,
+          "question": "Choose the word that does NOT belong: happy, joyful, elated, sorrowful",
+          "options": ["happy", "joyful", "elated", "sorrowful"],
+          "correctAnswer": 3
+        },
+        {
+          "id": 19,
+          "question": "Identify the voice: 'The cake was eaten by the children.'",
+          "options": ["Active voice", "Passive voice", "Subjunctive mood", "Imperative mood"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 20,
+          "question": "Choose the correct article: '_____ honest man is respected by all.'",
+          "options": ["A", "An", "The", "No article needed"],
+          "correctAnswer": 1
+        }
+      ]
+    }
+  },
+  "answerKey": {
+    "1": "C",
+    "2": "B",
+    "3": "C",
+    "4": "B",
+    "5": "A",
+    "6": "B",
+    "7": "D",
+    "8": "A",
+    "9": "B",
+    "10": "B",
+    "11": "C",
+    "12": "C",
+    "13": "C",
+    "14": "C",
+    "15": "B",
+    "16": "B",
+    "17": "B",
+    "18": "D",
+    "19": "B",
+    "20": "B"
+  }
+}

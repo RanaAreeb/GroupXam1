@@ -1,0 +1,347 @@
+{
+  "id": "jamb-physics-practice",
+  "title": "JAMB Physics Practice Questions",
+  "subject": "Physics",
+  "examType": "JAMB",
+  "practiceType": "Topic-focused Practice",
+  "totalQuestions": 55,
+  "sections": [
+    {
+      "name": "Mechanics",
+      "questions": [
+        {
+          "id": 1,
+          "topic": "Motion",
+          "question": "A car travels 60 km in 2 hours. What is its average speed?",
+          "options": ["20 km/h", "25 km/h", "30 km/h", "35 km/h"],
+          "correctAnswer": 2,
+          "explanation": "Average speed = Total distance / Total time = 60 km / 2 h = 30 km/h",
+          "workingSteps": [
+            "Step 1: Average speed = Total distance / Total time",
+            "Step 2: Distance = 60 km, Time = 2 hours",
+            "Step 3: Average speed = 60 km / 2 h",
+            "Step 4: = 30 km/h"
+          ]
+        },
+        {
+          "id": 2,
+          "topic": "Acceleration",
+          "question": "A body starts from rest and reaches a velocity of 20 m/s in 4 seconds. Find its acceleration.",
+          "options": ["4 m/s²", "5 m/s²", "6 m/s²", "8 m/s²"],
+          "correctAnswer": 1,
+          "explanation": "a = (v - u) / t = (20 - 0) / 4 = 5 m/s²",
+          "workingSteps": [
+            "Step 1: Use equation a = (v - u) / t",
+            "Step 2: Initial velocity u = 0 m/s (starts from rest)",
+            "Step 3: Final velocity v = 20 m/s, time t = 4 s",
+            "Step 4: a = (20 - 0) / 4 = 5 m/s²"
+          ]
+        },
+        {
+          "id": 3,
+          "topic": "Newton's Laws",
+          "question": "A force of 10 N acts on a mass of 2 kg. What is the acceleration produced?",
+          "options": ["5 m/s²", "8 m/s²", "12 m/s²", "20 m/s²"],
+          "correctAnswer": 0,
+          "explanation": "Using F = ma, a = F/m = 10 N / 2 kg = 5 m/s²",
+          "workingSteps": [
+            "Step 1: Apply Newton's second law: F = ma",
+            "Step 2: Rearrange to find acceleration: a = F/m",
+            "Step 3: F = 10 N, m = 2 kg",
+            "Step 4: a = 10/2 = 5 m/s²"
+          ]
+        },
+        {
+          "id": 4,
+          "topic": "Work and Energy",
+          "question": "Calculate the work done when a force of 50 N moves an object 10 m in the direction of the force.",
+          "options": ["500 J", "400 J", "600 J", "5 J"],
+          "correctAnswer": 0,
+          "explanation": "Work = Force × Distance = 50 N × 10 m = 500 J",
+          "workingSteps": [
+            "Step 1: Work = Force × Distance (when force is in direction of motion)",
+            "Step 2: Force = 50 N, Distance = 10 m",
+            "Step 3: Work = 50 × 10",
+            "Step 4: = 500 J"
+          ]
+        },
+        {
+          "id": 5,
+          "topic": "Power",
+          "question": "If 1000 J of work is done in 20 seconds, what is the power?",
+          "options": ["50 W", "20 W", "1020 W", "980 W"],
+          "correctAnswer": 0,
+          "explanation": "Power = Work / Time = 1000 J / 20 s = 50 W",
+          "workingSteps": [
+            "Step 1: Power = Work done / Time taken",
+            "Step 2: Work = 1000 J, Time = 20 s",
+            "Step 3: Power = 1000 / 20",
+            "Step 4: = 50 W"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Waves and Sound",
+      "questions": [
+        {
+          "id": 6,
+          "topic": "Wave Properties",
+          "question": "A wave has frequency 50 Hz and wavelength 4 m. Find its speed.",
+          "options": ["200 m/s", "150 m/s", "100 m/s", "50 m/s"],
+          "correctAnswer": 0,
+          "explanation": "Wave speed = frequency × wavelength = 50 Hz × 4 m = 200 m/s",
+          "workingSteps": [
+            "Step 1: Wave equation: v = fλ",
+            "Step 2: f = 50 Hz, λ = 4 m",
+            "Step 3: v = 50 × 4",
+            "Step 4: = 200 m/s"
+          ]
+        },
+        {
+          "id": 7,
+          "topic": "Sound Waves",
+          "question": "Sound travels at 340 m/s. If a sound wave has frequency 170 Hz, find its wavelength.",
+          "options": ["1 m", "2 m", "3 m", "4 m"],
+          "correctAnswer": 1,
+          "explanation": "λ = v/f = 340 m/s / 170 Hz = 2 m",
+          "workingSteps": [
+            "Step 1: Rearrange wave equation: λ = v/f",
+            "Step 2: v = 340 m/s, f = 170 Hz",
+            "Step 3: λ = 340 / 170",
+            "Step 4: = 2 m"
+          ]
+        },
+        {
+          "id": 8,
+          "topic": "Reflection",
+          "question": "The angle of incidence is 30°. What is the angle of reflection?",
+          "options": ["30°", "60°", "90°", "0°"],
+          "correctAnswer": 0,
+          "explanation": "By law of reflection, angle of incidence = angle of reflection = 30°",
+          "workingSteps": [
+            "Step 1: Apply law of reflection",
+            "Step 2: Angle of incidence = Angle of reflection",
+            "Step 3: Given angle of incidence = 30°",
+            "Step 4: Therefore angle of reflection = 30°"
+          ]
+        },
+        {
+          "id": 9,
+          "topic": "Refraction",
+          "question": "Light travels from air (n=1) into glass (n=1.5). If the angle of incidence is 60°, find the angle of refraction.",
+          "options": ["35.3°", "40.9°", "45°", "30°"],
+          "correctAnswer": 0,
+          "explanation": "Using Snell's law: n₁sin θ₁ = n₂sin θ₂",
+          "workingSteps": [
+            "Step 1: Apply Snell's law: n₁sin θ₁ = n₂sin θ₂",
+            "Step 2: n₁ = 1, θ₁ = 60°, n₂ = 1.5",
+            "Step 3: 1 × sin 60° = 1.5 × sin θ₂",
+            "Step 4: sin θ₂ = sin 60° / 1.5 = 0.577, θ₂ = 35.3°"
+          ]
+        },
+        {
+          "id": 10,
+          "topic": "Interference",
+          "question": "Two waves of the same frequency and amplitude meet in phase. The result is:",
+          "options": [
+            "destructive interference",
+            "constructive interference",
+            "no interference",
+            "partial interference"
+          ],
+          "correctAnswer": 1,
+          "explanation": "When waves meet in phase, they add constructively, producing constructive interference",
+          "workingSteps": [
+            "Step 1: Waves have same frequency and amplitude",
+            "Step 2: They meet in phase (crests align with crests)",
+            "Step 3: Amplitudes add together",
+            "Step 4: This is constructive interference"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Electricity and Magnetism",
+      "questions": [
+        {
+          "id": 11,
+          "topic": "Ohm's Law",
+          "question": "A resistor has resistance 10 Ω and current 2 A flows through it. Find the voltage across it.",
+          "options": ["5 V", "12 V", "20 V", "22 V"],
+          "correctAnswer": 2,
+          "explanation": "Using Ohm's law: V = IR = 2 A × 10 Ω = 20 V",
+          "workingSteps": [
+            "Step 1: Apply Ohm's law: V = IR",
+            "Step 2: I = 2 A, R = 10 Ω",
+            "Step 3: V = 2 × 10",
+            "Step 4: = 20 V"
+          ]
+        },
+        {
+          "id": 12,
+          "topic": "Power in Circuits",
+          "question": "A 100 W bulb operates at 200 V. What current does it draw?",
+          "options": ["0.5 A", "2 A", "50 A", "20000 A"],
+          "correctAnswer": 0,
+          "explanation": "Using P = VI, I = P/V = 100 W / 200 V = 0.5 A",
+          "workingSteps": [
+            "Step 1: Use power equation: P = VI",
+            "Step 2: Rearrange to find current: I = P/V",
+            "Step 3: P = 100 W, V = 200 V",
+            "Step 4: I = 100 / 200 = 0.5 A"
+          ]
+        },
+        {
+          "id": 13,
+          "topic": "Series Circuits",
+          "question": "Two resistors of 4 Ω and 6 Ω are connected in series. Find the total resistance.",
+          "options": ["2.4 Ω", "5 Ω", "10 Ω", "24 Ω"],
+          "correctAnswer": 2,
+          "explanation": "In series: R_total = R₁ + R₂ = 4 Ω + 6 Ω = 10 Ω",
+          "workingSteps": [
+            "Step 1: For resistors in series: R_total = R₁ + R₂ + ...",
+            "Step 2: R₁ = 4 Ω, R₂ = 6 Ω",
+            "Step 3: R_total = 4 + 6",
+            "Step 4: = 10 Ω"
+          ]
+        },
+        {
+          "id": 14,
+          "topic": "Parallel Circuits",
+          "question": "Two resistors of 6 Ω and 3 Ω are connected in parallel. Find the equivalent resistance.",
+          "options": ["2 Ω", "4.5 Ω", "9 Ω", "18 Ω"],
+          "correctAnswer": 0,
+          "explanation": "In parallel: 1/R = 1/R₁ + 1/R₂ = 1/6 + 1/3 = 1/2, so R = 2 Ω",
+          "workingSteps": [
+            "Step 1: For parallel resistors: 1/R = 1/R₁ + 1/R₂",
+            "Step 2: 1/R = 1/6 + 1/3",
+            "Step 3: 1/R = 1/6 + 2/6 = 3/6 = 1/2",
+            "Step 4: R = 2 Ω"
+          ]
+        },
+        {
+          "id": 15,
+          "topic": "Magnetic Fields",
+          "question": "The SI unit of magnetic flux density is:",
+          "options": ["Weber", "Tesla", "Henry", "Gauss"],
+          "correctAnswer": 1,
+          "explanation": "Tesla (T) is the SI unit of magnetic flux density (magnetic field strength)",
+          "workingSteps": [
+            "Step 1: Magnetic flux density = magnetic field strength",
+            "Step 2: SI unit is Tesla (T)",
+            "Step 3: Weber is unit of magnetic flux",
+            "Step 4: Henry is unit of inductance"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Modern Physics",
+      "questions": [
+        {
+          "id": 16,
+          "topic": "Atomic Structure",
+          "question": "Which particle has no electric charge?",
+          "options": ["Proton", "Electron", "Neutron", "Alpha particle"],
+          "correctAnswer": 2,
+          "explanation": "Neutrons are electrically neutral (no charge)",
+          "workingSteps": [
+            "Step 1: Review charges of particles",
+            "Step 2: Proton: +1 charge",
+            "Step 3: Electron: -1 charge",
+            "Step 4: Neutron: 0 charge (neutral)"
+          ]
+        },
+        {
+          "id": 17,
+          "topic": "Radioactivity",
+          "question": "Alpha particles consist of:",
+          "options": ["2 protons", "2 electrons", "2 protons + 2 neutrons", "2 neutrons"],
+          "correctAnswer": 2,
+          "explanation": "Alpha particles are helium nuclei containing 2 protons and 2 neutrons",
+          "workingSteps": [
+            "Step 1: Alpha particle = helium nucleus",
+            "Step 2: Helium has atomic number 2 (2 protons)",
+            "Step 3: Mass number 4, so 4 - 2 = 2 neutrons",
+            "Step 4: Alpha particle = 2 protons + 2 neutrons"
+          ]
+        },
+        {
+          "id": 18,
+          "topic": "Photoelectric Effect",
+          "question": "The photoelectric effect demonstrates that light has:",
+          "options": [
+            "wave properties only",
+            "particle properties only",
+            "both wave and particle properties",
+            "neither wave nor particle properties"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Photoelectric effect shows light behaves as particles (photons)",
+          "workingSteps": [
+            "Step 1: Photoelectric effect: electrons emitted when light hits metal",
+            "Step 2: Classical wave theory couldn't explain observations",
+            "Step 3: Einstein explained using photon concept",
+            "Step 4: Demonstrates particle nature of light"
+          ]
+        },
+        {
+          "id": 19,
+          "topic": "Energy Levels",
+          "question": "When an electron moves from a higher to lower energy level, it:",
+          "options": ["absorbs energy", "emits energy", "gains mass", "loses mass"],
+          "correctAnswer": 1,
+          "explanation": "Electron emits energy (as photon) when moving to lower energy level",
+          "workingSteps": [
+            "Step 1: Higher energy level → Lower energy level",
+            "Step 2: Energy difference must be released",
+            "Step 3: Energy released as electromagnetic radiation (photon)",
+            "Step 4: Electron emits energy"
+          ]
+        },
+        {
+          "id": 20,
+          "topic": "Nuclear Reactions",
+          "question": "In nuclear fission, a heavy nucleus:",
+          "options": [
+            "combines with another nucleus",
+            "splits into lighter nuclei",
+            "gains neutrons",
+            "loses protons only"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Nuclear fission involves a heavy nucleus splitting into two or more lighter nuclei",
+          "workingSteps": [
+            "Step 1: Fission = splitting process",
+            "Step 2: Heavy nucleus (like uranium) absorbs neutron",
+            "Step 3: Becomes unstable and splits",
+            "Step 4: Forms lighter nuclei + neutrons + energy"
+          ]
+        }
+      ]
+    }
+  ],
+  "practiceAnswers": {
+    "1": "C - 30 km/h",
+    "2": "B - 5 m/s²",
+    "3": "A - 5 m/s²",
+    "4": "A - 500 J",
+    "5": "A - 50 W",
+    "6": "A - 200 m/s",
+    "7": "B - 2 m",
+    "8": "A - 30°",
+    "9": "A - 35.3°",
+    "10": "B - constructive interference",
+    "11": "C - 20 V",
+    "12": "A - 0.5 A",
+    "13": "C - 10 Ω",
+    "14": "A - 2 Ω",
+    "15": "B - Tesla",
+    "16": "C - Neutron",
+    "17": "C - 2 protons + 2 neutrons",
+    "18": "B - particle properties only",
+    "19": "B - emits energy",
+    "20": "B - splits into lighter nuclei"
+  }
+}

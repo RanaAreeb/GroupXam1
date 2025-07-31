@@ -1,0 +1,332 @@
+{
+  "id": "jamb-biology-practice",
+  "title": "JAMB Biology Practice Questions",
+  "subject": "Biology",
+  "examType": "JAMB",
+  "practiceType": "Topic-focused Practice",
+  "totalQuestions": 55,
+  "sections": [
+    {
+      "name": "Cell Biology and Genetics",
+      "questions": [
+        {
+          "id": 1,
+          "topic": "Cell Structure",
+          "question": "Which organelle is responsible for protein synthesis?",
+          "options": ["Mitochondria", "Ribosome", "Nucleus", "Golgi apparatus"],
+          "correctAnswer": 1,
+          "explanation": "Ribosomes are the sites of protein synthesis in cells",
+          "workingSteps": [
+            "Step 1: Identify function of each organelle",
+            "Step 2: Mitochondria - energy production",
+            "Step 3: Nucleus - controls cell activities",
+            "Step 4: Ribosomes - protein synthesis"
+          ]
+        },
+        {
+          "id": 2,
+          "topic": "Cell Division",
+          "question": "How many chromosomes are in human gametes?",
+          "options": ["46", "23", "92", "12"],
+          "correctAnswer": 1,
+          "explanation": "Human gametes are haploid with 23 chromosomes (half of 46)",
+          "workingSteps": [
+            "Step 1: Humans have 46 chromosomes (diploid)",
+            "Step 2: Gametes are produced by meiosis",
+            "Step 3: Meiosis reduces chromosome number by half",
+            "Step 4: Gametes have 23 chromosomes (haploid)"
+          ]
+        },
+        {
+          "id": 3,
+          "topic": "DNA Structure",
+          "question": "The complementary base pair to adenine in DNA is:",
+          "options": ["Guanine", "Cytosine", "Thymine", "Uracil"],
+          "correctAnswer": 2,
+          "explanation": "In DNA, adenine pairs with thymine through hydrogen bonds",
+          "workingSteps": [
+            "Step 1: DNA has four bases: A, T, G, C",
+            "Step 2: Base pairing rules: A pairs with T",
+            "Step 3: G pairs with C",
+            "Step 4: Adenine (A) pairs with Thymine (T)"
+          ]
+        },
+        {
+          "id": 4,
+          "topic": "Genetics",
+          "question": "In a cross between Aa × Aa, what percentage of offspring will be homozygous recessive?",
+          "options": ["0%", "25%", "50%", "75%"],
+          "correctAnswer": 1,
+          "explanation": "Aa × Aa gives 1 AA : 2 Aa : 1 aa, so 25% are aa (homozygous recessive)",
+          "workingSteps": [
+            "Step 1: Set up Punnett square for Aa × Aa",
+            "Step 2: Possible offspring: AA, Aa, Aa, aa",
+            "Step 3: Ratio is 1 AA : 2 Aa : 1 aa",
+            "Step 4: aa (homozygous recessive) = 1/4 = 25%"
+          ]
+        },
+        {
+          "id": 5,
+          "topic": "Mutation",
+          "question": "A change in the DNA sequence is called:",
+          "options": ["Translation", "Transcription", "Mutation", "Replication"],
+          "correctAnswer": 2,
+          "explanation": "Mutation is any change in the DNA sequence",
+          "workingSteps": [
+            "Step 1: Define each process",
+            "Step 2: Translation - protein synthesis from mRNA",
+            "Step 3: Transcription - DNA to mRNA",
+            "Step 4: Mutation - change in DNA sequence"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Plant Biology",
+      "questions": [
+        {
+          "id": 6,
+          "topic": "Photosynthesis",
+          "question": "The raw materials for photosynthesis are:",
+          "options": ["CO₂ and H₂O", "O₂ and glucose", "CO₂ and O₂", "H₂O and glucose"],
+          "correctAnswer": 0,
+          "explanation": "Photosynthesis uses CO₂ and H₂O to produce glucose and O₂",
+          "workingSteps": [
+            "Step 1: Photosynthesis equation: 6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂",
+            "Step 2: Raw materials are on the left side",
+            "Step 3: CO₂ (carbon dioxide) and H₂O (water)",
+            "Step 4: Products are glucose and oxygen"
+          ]
+        },
+        {
+          "id": 7,
+          "topic": "Plant Transport",
+          "question": "Water moves up from roots to leaves through:",
+          "options": ["Phloem", "Xylem", "Cambium", "Epidermis"],
+          "correctAnswer": 1,
+          "explanation": "Xylem tissue transports water and minerals from roots to leaves",
+          "workingSteps": [
+            "Step 1: Identify plant transport tissues",
+            "Step 2: Xylem - transports water and minerals upward",
+            "Step 3: Phloem - transports sugars and nutrients",
+            "Step 4: Water moves through xylem vessels"
+          ]
+        },
+        {
+          "id": 8,
+          "topic": "Plant Hormones",
+          "question": "Which hormone promotes cell elongation in plants?",
+          "options": ["Auxin", "Cytokinin", "Gibberellin", "Abscisic acid"],
+          "correctAnswer": 0,
+          "explanation": "Auxin promotes cell elongation and is involved in tropisms",
+          "workingSteps": [
+            "Step 1: Review plant hormone functions",
+            "Step 2: Auxin - cell elongation, tropisms",
+            "Step 3: Cytokinin - cell division",
+            "Step 4: Gibberellin - stem elongation, seed germination"
+          ]
+        },
+        {
+          "id": 9,
+          "topic": "Plant Reproduction",
+          "question": "The male reproductive part of a flower is the:",
+          "options": ["Pistil", "Stamen", "Sepal", "Petal"],
+          "correctAnswer": 1,
+          "explanation": "Stamen consists of anther and filament, producing pollen (male gametes)",
+          "workingSteps": [
+            "Step 1: Identify flower parts",
+            "Step 2: Stamen = anther + filament (male)",
+            "Step 3: Pistil = stigma + style + ovary (female)",
+            "Step 4: Sepals and petals are accessory parts"
+          ]
+        },
+        {
+          "id": 10,
+          "topic": "Plant Nutrition",
+          "question": "Which element is essential for chlorophyll formation?",
+          "options": ["Nitrogen", "Phosphorus", "Magnesium", "Potassium"],
+          "correctAnswer": 2,
+          "explanation": "Magnesium is the central atom in the chlorophyll molecule",
+          "workingSteps": [
+            "Step 1: Chlorophyll structure has central metal atom",
+            "Step 2: This central atom is magnesium (Mg)",
+            "Step 3: Without Mg, chlorophyll cannot form",
+            "Step 4: Mg deficiency causes chlorosis (yellowing)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Animal Biology",
+      "questions": [
+        {
+          "id": 11,
+          "topic": "Circulatory System",
+          "question": "Which blood vessel carries oxygenated blood from the heart to the body?",
+          "options": ["Pulmonary artery", "Pulmonary vein", "Aorta", "Vena cava"],
+          "correctAnswer": 2,
+          "explanation": "The aorta is the main artery carrying oxygenated blood from the left ventricle to the body",
+          "workingSteps": [
+            "Step 1: Identify blood vessels and their functions",
+            "Step 2: Aorta - carries oxygenated blood to body",
+            "Step 3: Pulmonary artery - carries deoxygenated blood to lungs",
+            "Step 4: Vena cava - returns deoxygenated blood to heart"
+          ]
+        },
+        {
+          "id": 12,
+          "topic": "Respiratory System",
+          "question": "Gas exchange in the lungs occurs in the:",
+          "options": ["Bronchi", "Bronchioles", "Alveoli", "Trachea"],
+          "correctAnswer": 2,
+          "explanation": "Alveoli are tiny air sacs where gas exchange between air and blood occurs",
+          "workingSteps": [
+            "Step 1: Trace path of air in respiratory system",
+            "Step 2: Trachea → Bronchi → Bronchioles → Alveoli",
+            "Step 3: Alveoli have thin walls and rich blood supply",
+            "Step 4: Perfect for gas exchange"
+          ]
+        },
+        {
+          "id": 13,
+          "topic": "Digestive System",
+          "question": "Which enzyme breaks down proteins in the stomach?",
+          "options": ["Amylase", "Lipase", "Pepsin", "Trypsin"],
+          "correctAnswer": 2,
+          "explanation": "Pepsin is the protein-digesting enzyme produced in the stomach",
+          "workingSteps": [
+            "Step 1: Identify digestive enzymes and their substrates",
+            "Step 2: Amylase - breaks down starch",
+            "Step 3: Lipase - breaks down fats",
+            "Step 4: Pepsin - breaks down proteins in stomach"
+          ]
+        },
+        {
+          "id": 14,
+          "topic": "Nervous System",
+          "question": "The basic functional unit of the nervous system is the:",
+          "options": ["Neuron", "Synapse", "Dendrite", "Axon"],
+          "correctAnswer": 0,
+          "explanation": "Neurons are the basic structural and functional units of the nervous system",
+          "workingSteps": [
+            "Step 1: Identify components of nervous system",
+            "Step 2: Neuron = complete nerve cell",
+            "Step 3: Dendrite and axon are parts of neuron",
+            "Step 4: Synapse is junction between neurons"
+          ]
+        },
+        {
+          "id": 15,
+          "topic": "Excretory System",
+          "question": "The functional unit of the kidney is the:",
+          "options": ["Glomerulus", "Nephron", "Ureter", "Bladder"],
+          "correctAnswer": 1,
+          "explanation": "Nephrons are the functional units where filtration and urine formation occur",
+          "workingSteps": [
+            "Step 1: Kidney structure and function",
+            "Step 2: Nephron = functional unit of kidney",
+            "Step 3: Contains glomerulus and tubules",
+            "Step 4: Filters blood and forms urine"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ecology and Evolution",
+      "questions": [
+        {
+          "id": 16,
+          "topic": "Food Chains",
+          "question": "In a food chain, organisms that make their own food are called:",
+          "options": ["Primary consumers", "Secondary consumers", "Producers", "Decomposers"],
+          "correctAnswer": 2,
+          "explanation": "Producers (autotrophs) make their own food through photosynthesis",
+          "workingSteps": [
+            "Step 1: Identify trophic levels",
+            "Step 2: Producers - make own food (plants)",
+            "Step 3: Primary consumers - eat producers",
+            "Step 4: Secondary consumers - eat primary consumers"
+          ]
+        },
+        {
+          "id": 17,
+          "topic": "Population Dynamics",
+          "question": "The maximum number of individuals an environment can support is called:",
+          "options": ["Population density", "Carrying capacity", "Birth rate", "Growth rate"],
+          "correctAnswer": 1,
+          "explanation": "Carrying capacity is the maximum population size an environment can sustain",
+          "workingSteps": [
+            "Step 1: Define population terms",
+            "Step 2: Carrying capacity = maximum sustainable population",
+            "Step 3: Limited by resources and environmental factors",
+            "Step 4: Population stabilizes around this level"
+          ]
+        },
+        {
+          "id": 18,
+          "topic": "Symbiosis",
+          "question": "A relationship where both organisms benefit is called:",
+          "options": ["Parasitism", "Commensalism", "Mutualism", "Competition"],
+          "correctAnswer": 2,
+          "explanation": "Mutualism is a symbiotic relationship where both species benefit",
+          "workingSteps": [
+            "Step 1: Types of symbiotic relationships",
+            "Step 2: Mutualism - both benefit (+/+)",
+            "Step 3: Commensalism - one benefits, other unaffected (+/0)",
+            "Step 4: Parasitism - one benefits, other harmed (+/-)"
+          ]
+        },
+        {
+          "id": 19,
+          "topic": "Evolution",
+          "question": "The process by which organisms with favorable traits survive and reproduce is:",
+          "options": ["Genetic drift", "Natural selection", "Mutation", "Gene flow"],
+          "correctAnswer": 1,
+          "explanation": "Natural selection favors organisms with advantageous traits for survival and reproduction",
+          "workingSteps": [
+            "Step 1: Darwin's theory of evolution",
+            "Step 2: Variation exists in populations",
+            "Step 3: Favorable traits increase survival/reproduction",
+            "Step 4: This is natural selection"
+          ]
+        },
+        {
+          "id": 20,
+          "topic": "Biodiversity",
+          "question": "The variety of life forms in an ecosystem is called:",
+          "options": ["Population", "Community", "Biodiversity", "Habitat"],
+          "correctAnswer": 2,
+          "explanation": "Biodiversity refers to the variety of species, genes, and ecosystems",
+          "workingSteps": [
+            "Step 1: Define ecological terms",
+            "Step 2: Biodiversity = variety of life",
+            "Step 3: Includes species, genetic, and ecosystem diversity",
+            "Step 4: Important for ecosystem stability"
+          ]
+        }
+      ]
+    }
+  ],
+  "practiceAnswers": {
+    "1": "B - Ribosome",
+    "2": "B - 23",
+    "3": "C - Thymine",
+    "4": "B - 25%",
+    "5": "C - Mutation",
+    "6": "A - CO₂ and H₂O",
+    "7": "B - Xylem",
+    "8": "A - Auxin",
+    "9": "B - Stamen",
+    "10": "C - Magnesium",
+    "11": "C - Aorta",
+    "12": "C - Alveoli",
+    "13": "C - Pepsin",
+    "14": "A - Neuron",
+    "15": "B - Nephron",
+    "16": "C - Producers",
+    "17": "B - Carrying capacity",
+    "18": "C - Mutualism",
+    "19": "B - Natural selection",
+    "20": "C - Biodiversity"
+  }
+}

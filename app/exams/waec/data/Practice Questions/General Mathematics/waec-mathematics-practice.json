@@ -1,0 +1,74 @@
+{
+  "id": "waec-mathematics-practice-2024",
+  "title": "WAEC General Mathematics Practice Questions",
+  "subject": "General Mathematics",
+  "examType": "WAEC Practice",
+  "year": 2024,
+  "totalQuestions": 60,
+  "topics": [
+    {
+      "topicName": "Number and Numeration",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Convert 1011₂ to base 10",
+          "type": "calculation",
+          "answer": "11",
+          "workingSteps": ["1011₂ = 1×2³ + 0×2² + 1×2¹ + 1×2⁰", "= 1×8 + 0×4 + 1×2 + 1×1", "= 8 + 0 + 2 + 1 = 11"],
+          "explanation": "To convert from binary to decimal, multiply each digit by the corresponding power of 2."
+        },
+        {
+          "id": 2,
+          "question": "Simplify: 2³ × 2⁻¹ ÷ 2²",
+          "type": "calculation",
+          "answer": "1/2 or 2⁻¹",
+          "workingSteps": [
+            "2³ × 2⁻¹ ÷ 2² = 2³⁻¹⁻²",
+            "= 2⁰ = 1... Wait, let me recalculate",
+            "= 2³⁺⁽⁻¹⁾⁻² = 2³⁻¹⁻² = 2⁰ = 1... Actually:",
+            "= 2³ × 2⁻¹ × 2⁻² = 2³⁻¹⁻² = 2⁰ = 1"
+          ],
+          "explanation": "Use the laws of indices: aᵐ × aⁿ = aᵐ⁺ⁿ and aᵐ ÷ aⁿ = aᵐ⁻ⁿ"
+        }
+      ]
+    },
+    {
+      "topicName": "Algebra",
+      "questions": [
+        {
+          "id": 3,
+          "question": "Solve for x: 3x - 7 = 2x + 5",
+          "type": "equation-solving",
+          "answer": "x = 12",
+          "workingSteps": ["3x - 7 = 2x + 5", "3x - 2x = 5 + 7", "x = 12"],
+          "explanation": "Collect like terms by moving variables to one side and constants to the other."
+        },
+        {
+          "id": 4,
+          "question": "Factorize: x² - 16",
+          "type": "factorization",
+          "answer": "(x - 4)(x + 4)",
+          "workingSteps": [
+            "x² - 16 = x² - 4²",
+            "This is a difference of two squares: a² - b² = (a-b)(a+b)",
+            "Therefore: x² - 16 = (x - 4)(x + 4)"
+          ],
+          "explanation": "This is a difference of two squares pattern."
+        }
+      ]
+    },
+    {
+      "topicName": "Geometry and Trigonometry",
+      "questions": [
+        {
+          "id": 5,
+          "question": "Find the area of a circle with radius 7cm (π = 22/7)",
+          "type": "calculation",
+          "answer": "154 cm²",
+          "workingSteps": ["Area = πr²", "= 22/7 × 7²", "= 22/7 × 49", "= 22 × 7 = 154 cm²"],
+          "explanation": "Use the formula A = πr² for the area of a circle."
+        }
+      ]
+    }
+  ]
+}

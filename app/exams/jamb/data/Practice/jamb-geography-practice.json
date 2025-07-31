@@ -1,0 +1,362 @@
+{
+  "examInfo": {
+    "title": "JAMB Geography Practice Questions",
+    "subject": "Geography",
+    "examType": "Practice",
+    "duration": "60 minutes",
+    "totalQuestions": 25,
+    "instructions": "Choose the correct option from A-D for each question."
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "The imaginary line that divides the Earth into Northern and Southern hemispheres is the",
+      "options": {
+        "A": "Prime Meridian",
+        "B": "Tropic of Cancer",
+        "C": "Equator",
+        "D": "International Date Line"
+      },
+      "correctAnswer": "C",
+      "explanation": "The Equator is the imaginary line at 0° latitude that divides the Earth into Northern and Southern hemispheres.",
+      "topic": "Map Reading and Coordinates",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 2,
+      "question": "The process by which rocks are broken down by physical and chemical means is called",
+      "options": {
+        "A": "Erosion",
+        "B": "Weathering",
+        "C": "Deposition",
+        "D": "Transportation"
+      },
+      "correctAnswer": "B",
+      "explanation": "Weathering is the breakdown of rocks at or near the Earth's surface through physical and chemical processes.",
+      "topic": "Geomorphology",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 3,
+      "question": "The scale 1:50,000 means that",
+      "options": {
+        "A": "1 cm on the map represents 50,000 cm on the ground",
+        "B": "1 cm on the map represents 500 m on the ground",
+        "C": "1 cm on the map represents 5 km on the ground",
+        "D": "1 cm on the map represents 50 km on the ground"
+      },
+      "correctAnswer": "A",
+      "explanation": "A scale of 1:50,000 means that 1 unit on the map represents 50,000 of the same units on the ground (1 cm = 50,000 cm = 500 m).",
+      "topic": "Map Reading",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 4,
+      "question": "The layer of the atmosphere closest to the Earth's surface is the",
+      "options": {
+        "A": "Stratosphere",
+        "B": "Mesosphere",
+        "C": "Troposphere",
+        "D": "Thermosphere"
+      },
+      "correctAnswer": "C",
+      "explanation": "The troposphere is the lowest layer of the atmosphere, extending from the Earth's surface to about 8-15 km altitude.",
+      "topic": "Climatology",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 5,
+      "question": "Which of the following is NOT a renewable energy source?",
+      "options": {
+        "A": "Solar energy",
+        "B": "Wind energy",
+        "C": "Natural gas",
+        "D": "Hydroelectric power"
+      },
+      "correctAnswer": "C",
+      "explanation": "Natural gas is a fossil fuel and therefore a non-renewable energy source, while solar, wind, and hydroelectric power are renewable.",
+      "topic": "Resources and Energy",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 6,
+      "question": "The movement of people from rural areas to urban areas is called",
+      "options": {
+        "A": "Immigration",
+        "B": "Emigration",
+        "C": "Rural-urban migration",
+        "D": "International migration"
+      },
+      "correctAnswer": "C",
+      "explanation": "Rural-urban migration refers to the movement of people from countryside areas to cities and towns.",
+      "topic": "Population Geography",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 7,
+      "question": "The type of rainfall that occurs when warm, moist air is forced to rise over mountains is called",
+      "options": {
+        "A": "Convectional rainfall",
+        "B": "Cyclonic rainfall",
+        "C": "Orographic rainfall",
+        "D": "Frontal rainfall"
+      },
+      "correctAnswer": "C",
+      "explanation": "Orographic rainfall occurs when moist air is forced to rise over topographic barriers like mountains, causing cooling and precipitation.",
+      "topic": "Climatology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 8,
+      "question": "The largest desert in the world is the",
+      "options": {
+        "A": "Sahara Desert",
+        "B": "Arabian Desert",
+        "C": "Gobi Desert",
+        "D": "Antarctic Desert"
+      },
+      "correctAnswer": "D",
+      "explanation": "Antarctica is technically the world's largest desert, being a cold desert. The Sahara is the largest hot desert.",
+      "topic": "Physical Geography",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 9,
+      "question": "The process by which soil particles are carried away by wind or water is called",
+      "options": {
+        "A": "Weathering",
+        "B": "Erosion",
+        "C": "Leaching",
+        "D": "Sedimentation"
+      },
+      "correctAnswer": "B",
+      "explanation": "Erosion is the process by which weathered rock and soil particles are transported by agents like wind, water, or ice.",
+      "topic": "Geomorphology",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 10,
+      "question": "The imaginary lines running from North Pole to South Pole are called",
+      "options": {
+        "A": "Latitudes",
+        "B": "Longitudes",
+        "C": "Meridians",
+        "D": "Both B and C"
+      },
+      "correctAnswer": "D",
+      "explanation": "Lines running from North Pole to South Pole are called both longitudes and meridians. They measure distance east or west of the Prime Meridian.",
+      "topic": "Map Reading and Coordinates",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 11,
+      "question": "The zone between the Tropic of Cancer and the Tropic of Capricorn is called the",
+      "options": {
+        "A": "Temperate zone",
+        "B": "Tropical zone",
+        "C": "Arctic zone",
+        "D": "Polar zone"
+      },
+      "correctAnswer": "B",
+      "explanation": "The tropical zone lies between the Tropic of Cancer (23.5°N) and the Tropic of Capricorn (23.5°S), receiving direct sunlight year-round.",
+      "topic": "Climatology",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 12,
+      "question": "Which of the following is a characteristic of igneous rocks?",
+      "options": {
+        "A": "Formed from sediments",
+        "B": "Formed from cooling magma or lava",
+        "C": "Always contain fossils",
+        "D": "Formed under high pressure only"
+      },
+      "correctAnswer": "B",
+      "explanation": "Igneous rocks are formed from the cooling and solidification of magma (intrusive) or lava (extrusive).",
+      "topic": "Geology",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 13,
+      "question": "The wearing away of the coastline by wave action is called",
+      "options": {
+        "A": "Coastal deposition",
+        "B": "Coastal erosion",
+        "C": "Longshore drift",
+        "D": "Tidal action"
+      },
+      "correctAnswer": "B",
+      "explanation": "Coastal erosion is the process by which waves wear away the coastline through hydraulic action, abrasion, and other processes.",
+      "topic": "Coastal Geography",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 14,
+      "question": "The study of population characteristics is called",
+      "options": {
+        "A": "Demography",
+        "B": "Cartography",
+        "C": "Topography",
+        "D": "Climatology"
+      },
+      "correctAnswer": "A",
+      "explanation": "Demography is the statistical study of populations, including their size, distribution, density, and vital statistics.",
+      "topic": "Population Geography",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 15,
+      "question": "The boundary between two air masses of different temperatures is called a",
+      "options": {
+        "A": "Isobar",
+        "B": "Isotherm",
+        "C": "Front",
+        "D": "Ridge"
+      },
+      "correctAnswer": "C",
+      "explanation": "A front is the boundary zone between two air masses with different temperature and humidity characteristics.",
+      "topic": "Meteorology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 16,
+      "question": "The process by which plants lose water through their leaves is called",
+      "options": {
+        "A": "Evaporation",
+        "B": "Transpiration",
+        "C": "Condensation",
+        "D": "Precipitation"
+      },
+      "correctAnswer": "B",
+      "explanation": "Transpiration is the process by which plants absorb water through their roots and release water vapor through their leaves.",
+      "topic": "Biogeography",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 17,
+      "question": "The most abundant gas in the Earth's atmosphere is",
+      "options": {
+        "A": "Oxygen",
+        "B": "Carbon dioxide",
+        "C": "Nitrogen",
+        "D": "Argon"
+      },
+      "correctAnswer": "C",
+      "explanation": "Nitrogen makes up about 78% of the Earth's atmosphere, making it the most abundant gas.",
+      "topic": "Climatology",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 18,
+      "question": "A settlement pattern where houses are scattered irregularly is called",
+      "options": {
+        "A": "Linear settlement",
+        "B": "Nucleated settlement",
+        "C": "Dispersed settlement",
+        "D": "Planned settlement"
+      },
+      "correctAnswer": "C",
+      "explanation": "Dispersed settlement is characterized by scattered, isolated buildings with no clear pattern or central focus.",
+      "topic": "Settlement Geography",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 19,
+      "question": "The point on the Earth's surface directly above the focus of an earthquake is called the",
+      "options": {
+        "A": "Focus",
+        "B": "Epicenter",
+        "C": "Fault line",
+        "D": "Seismic zone"
+      },
+      "correctAnswer": "B",
+      "explanation": "The epicenter is the point on the Earth's surface directly above the focus (hypocenter) where an earthquake originates.",
+      "topic": "Geology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 20,
+      "question": "The gradual increase in the Earth's average temperature is called",
+      "options": {
+        "A": "Climate change",
+        "B": "Global warming",
+        "C": "Greenhouse effect",
+        "D": "Ozone depletion"
+      },
+      "correctAnswer": "B",
+      "explanation": "Global warming specifically refers to the long-term increase in Earth's average surface temperature due to human activities and natural factors.",
+      "topic": "Environmental Geography",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 21,
+      "question": "The cultivation of crops and rearing of animals is called",
+      "options": {
+        "A": "Horticulture",
+        "B": "Agriculture",
+        "C": "Silviculture",
+        "D": "Aquaculture"
+      },
+      "correctAnswer": "B",
+      "explanation": "Agriculture is the practice of cultivating plants and livestock for food, fiber, and other products used to sustain life.",
+      "topic": "Economic Geography",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 22,
+      "question": "The seasonal reversal of wind direction that brings heavy rainfall to parts of Asia is called",
+      "options": {
+        "A": "Trade winds",
+        "B": "Westerlies",
+        "C": "Monsoon",
+        "D": "Polar easterlies"
+      },
+      "correctAnswer": "C",
+      "explanation": "Monsoons are seasonal wind patterns that reverse direction and bring heavy rainfall, particularly important in South and Southeast Asia.",
+      "topic": "Climatology",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 23,
+      "question": "The natural home or environment of an organism is called its",
+      "options": {
+        "A": "Ecosystem",
+        "B": "Habitat",
+        "C": "Biome",
+        "D": "Niche"
+      },
+      "correctAnswer": "B",
+      "explanation": "A habitat is the natural environment where an organism lives and meets all its needs for survival.",
+      "topic": "Biogeography",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 24,
+      "question": "The process of soil formation is called",
+      "options": {
+        "A": "Pedogenesis",
+        "B": "Weathering",
+        "C": "Erosion",
+        "D": "Sedimentation"
+      },
+      "correctAnswer": "A",
+      "explanation": "Pedogenesis is the process of soil formation through the weathering of rock and the accumulation of organic matter over time.",
+      "topic": "Soil Geography",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 25,
+      "question": "The line on a map connecting points of equal elevation is called",
+      "options": {
+        "A": "Isobar",
+        "B": "Isotherm",
+        "C": "Contour line",
+        "D": "Isohyet"
+      },
+      "correctAnswer": "C",
+      "explanation": "Contour lines connect points of equal elevation on a topographic map, showing the shape and steepness of the land.",
+      "topic": "Map Reading",
+      "difficulty": "Easy"
+    }
+  ]
+}

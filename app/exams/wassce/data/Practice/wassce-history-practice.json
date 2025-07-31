@@ -1,0 +1,119 @@
+{
+  "id": "wassce-history-practice-2024",
+  "title": "WASSCE History Practice Questions",
+  "subject": "History",
+  "examType": "WASSCE Practice",
+  "year": 2024,
+  "totalQuestions": 45,
+  "topics": [
+    {
+      "topicName": "Pre-Colonial African Societies",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Analyze the factors that led to the rise of the Ghana Empire",
+          "type": "analytical-essay",
+          "answer": "1. Strategic location controlling trans-Saharan trade routes\n2. Control of gold mines in Bambuk and Bure\n3. Strong military organization with iron weapons\n4. Effective taxation system on trade\n5. Political stability under strong leadership",
+          "explanation": "The Ghana Empire's success was built on trade control and military strength."
+        },
+        {
+          "id": 2,
+          "question": "Compare the political systems of the Yoruba and Igbo peoples",
+          "type": "comparison",
+          "answer": "Yoruba: Centralized monarchy with Oba as divine king, hierarchical structure, city-states\nIgbo: Decentralized republican system, age grades, council of elders, village assemblies",
+          "explanation": "These represent different approaches to governance in pre-colonial Nigeria."
+        },
+        {
+          "id": 3,
+          "question": "The trans-Saharan trade was based on the exchange of ______ from the south and ______ from the north",
+          "type": "fill-in-blank",
+          "answer": "gold, salt",
+          "explanation": "This trade formed the economic foundation of West African empires."
+        }
+      ]
+    },
+    {
+      "topicName": "European Exploration and Trade",
+      "questions": [
+        {
+          "id": 4,
+          "question": "Explain the motives behind European exploration of Africa in the 15th century",
+          "type": "explanation",
+          "answer": "1. Economic - search for gold, spices, and new trade routes\n2. Religious - spread Christianity (God)\n3. Political - national prestige and competition (Glory)\n4. Technological - improved navigation and shipbuilding\n5. Intellectual - geographical curiosity",
+          "explanation": "Often summarized as 'Gold, God, and Glory' - the three main driving forces."
+        },
+        {
+          "id": 5,
+          "question": "Assess the impact of the Atlantic slave trade on African societies",
+          "type": "assessment",
+          "answer": "Negative: Population loss, social disruption, political instability, economic dependence\nPositive: Introduction of new crops (cassava, maize), some technological exchange\nOverall: Devastating impact that hindered African development",
+          "explanation": "The slave trade had profound and lasting negative effects on African societies."
+        }
+      ]
+    },
+    {
+      "topicName": "Colonial Period",
+      "questions": [
+        {
+          "id": 6,
+          "question": "What were the main decisions of the Berlin Conference (1884-1885)?",
+          "type": "factual-recall",
+          "answer": "1. Partition of Africa among European powers\n2. Principle of effective occupation\n3. Free navigation of Congo and Niger rivers\n4. Abolition of slave trade\n5. Notification of new acquisitions",
+          "explanation": "The Berlin Conference formalized the 'Scramble for Africa'."
+        },
+        {
+          "id": 7,
+          "question": "Distinguish between direct and indirect rule",
+          "type": "comparison",
+          "answer": "Direct rule: Europeans directly administered colonies, replaced traditional rulers, imposed European laws and culture\nIndirect rule: Governed through traditional rulers, preserved local customs, cheaper and more practical",
+          "explanation": "These were two different approaches to colonial administration."
+        },
+        {
+          "id": 8,
+          "question": "The policy of racial segregation in South Africa was called ______",
+          "type": "fill-in-blank",
+          "answer": "apartheid",
+          "explanation": "Apartheid was a system of institutionalized racial segregation and discrimination."
+        }
+      ]
+    },
+    {
+      "topicName": "Resistance and Independence Movements",
+      "questions": [
+        {
+          "id": 9,
+          "question": "Analyze the causes and consequences of the Maji Maji rebellion in German East Africa",
+          "type": "analytical-essay",
+          "answer": "Causes: Forced labor, taxation, land alienation, cultural suppression\nConsequences: Brutal suppression, famine, population decline, changes in German colonial policy",
+          "explanation": "The Maji Maji rebellion was one of the largest African resistance movements against colonial rule."
+        },
+        {
+          "id": 10,
+          "question": "Evaluate the role of Kwame Nkrumah in Ghana's independence movement",
+          "type": "evaluation",
+          "answer": "Positive contributions: Organized mass movements, founded CPP, promoted pan-Africanism, achieved independence\nMethods: Non-violent resistance, political organization, international diplomacy\nLegacy: First sub-Saharan African country to gain independence, inspired other movements",
+          "explanation": "Nkrumah was a key figure in African independence and pan-African movements."
+        }
+      ]
+    },
+    {
+      "topicName": "Post-Independence Africa",
+      "questions": [
+        {
+          "id": 11,
+          "question": "Identify the challenges faced by African countries after independence",
+          "type": "identification",
+          "answer": "1. Economic dependence on former colonizers\n2. Artificial boundaries creating ethnic conflicts\n3. Lack of skilled personnel\n4. Political instability and military coups\n5. Neo-colonialism\n6. Debt burden",
+          "explanation": "Independence brought freedom but also significant challenges that persist today."
+        },
+        {
+          "id": 12,
+          "question": "The Organization of African Unity (OAU) was founded in ______",
+          "type": "fill-in-blank",
+          "answer": "1963",
+          "explanation": "The OAU was established to promote unity and cooperation among African states."
+        }
+      ]
+    }
+  ]
+}

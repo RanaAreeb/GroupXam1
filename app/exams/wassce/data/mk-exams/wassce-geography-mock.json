@@ -1,0 +1,170 @@
+{
+  "id": "wassce-geography-mock-2024",
+  "title": "WASSCE Geography Mock Examination",
+  "subject": "Geography",
+  "examType": "WASSCE Mock",
+  "year": 2024,
+  "duration": "3 hours",
+  "instructions": "Answer ALL questions in Section A and any FOUR questions from Section B",
+  "sections": {
+    "sectionA": {
+      "title": "SECTION A - OBJECTIVE TEST",
+      "instruction": "Answer ALL questions in this section",
+      "timeAllocation": "1 hour",
+      "questions": [
+        {
+          "id": 1,
+          "question": "The imaginary line that divides the Earth into Northern and Southern hemispheres is the",
+          "options": ["Prime Meridian", "Equator", "Tropic of Cancer", "International Date Line"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 2,
+          "question": "Which of the following is NOT a renewable natural resource?",
+          "options": ["Solar energy", "Wind energy", "Coal", "Hydroelectric power"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 3,
+          "question": "The process by which rocks are broken down by physical and chemical means is called",
+          "options": ["Erosion", "Weathering", "Deposition", "Transportation"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 4,
+          "question": "Which climate type is characterized by hot, wet summers and mild, dry winters?",
+          "options": ["Tropical", "Mediterranean", "Continental", "Polar"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 5,
+          "question": "The scale 1:50,000 means that",
+          "options": [
+            "1 cm on the map represents 50,000 cm on the ground",
+            "1 km on the map represents 50,000 km on the ground",
+            "the map is 50,000 times larger than reality",
+            "the map covers 50,000 square kilometers"
+          ],
+          "correctAnswer": 0
+        },
+        {
+          "id": 6,
+          "question": "Which of the following is a primary economic activity?",
+          "options": ["Manufacturing", "Banking", "Mining", "Transportation"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 7,
+          "question": "The movement of people from rural to urban areas is called",
+          "options": ["Immigration", "Emigration", "Rural-urban migration", "Urbanization"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 8,
+          "question": "Which type of rainfall occurs when warm, moist air is forced to rise over mountains?",
+          "options": ["Convectional rainfall", "Relief rainfall", "Frontal rainfall", "Cyclonic rainfall"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 9,
+          "question": "The layer of the atmosphere closest to Earth's surface is the",
+          "options": ["Stratosphere", "Mesosphere", "Troposphere", "Thermosphere"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 10,
+          "question": "Which of the following is a characteristic of developing countries?",
+          "options": ["High per capita income", "Advanced technology", "High birth rates", "Low population density"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 11,
+          "question": "The Great Rift Valley is an example of",
+          "options": ["Folded mountains", "Fault valley", "River valley", "Glacial valley"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 12,
+          "question": "Which ocean current brings warm water to Western Europe?",
+          "options": ["Gulf Stream", "Labrador Current", "California Current", "Canary Current"],
+          "correctAnswer": 0
+        },
+        {
+          "id": 13,
+          "question": "The process of soil formation is called",
+          "options": ["Pedogenesis", "Leaching", "Eluviation", "Illuviation"],
+          "correctAnswer": 0
+        },
+        {
+          "id": 14,
+          "question": "Which of the following is a push factor in migration?",
+          "options": ["Better job opportunities", "Good climate", "Political persecution", "Better education"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 15,
+          "question": "The study of population is called",
+          "options": ["Demography", "Cartography", "Topography", "Climatology"],
+          "correctAnswer": 0
+        },
+        {
+          "id": 16,
+          "question": "Which type of farming involves growing crops and rearing animals for family consumption?",
+          "options": ["Commercial farming", "Subsistence farming", "Plantation farming", "Market gardening"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 17,
+          "question": "The wearing away of the Earth's surface by running water, wind, or ice is called",
+          "options": ["Weathering", "Mass wasting", "Erosion", "Deposition"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 18,
+          "question": "Which of the following is a tertiary economic activity?",
+          "options": ["Fishing", "Steel production", "Banking", "Logging"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 19,
+          "question": "The imaginary lines running from North to South pole are called",
+          "options": ["Latitudes", "Longitudes", "Meridians", "Both B and C"],
+          "correctAnswer": 3
+        },
+        {
+          "id": 20,
+          "question": "Which of the following best describes sustainable development?",
+          "options": [
+            "Rapid economic growth at any cost",
+            "Development that meets present needs without compromising future generations",
+            "Development focused only on environmental protection",
+            "Development that ignores social factors"
+          ],
+          "correctAnswer": 1
+        }
+      ]
+    }
+  },
+  "answerKey": {
+    "1": "B",
+    "2": "C",
+    "3": "B",
+    "4": "B",
+    "5": "A",
+    "6": "C",
+    "7": "C",
+    "8": "B",
+    "9": "C",
+    "10": "C",
+    "11": "B",
+    "12": "A",
+    "13": "A",
+    "14": "C",
+    "15": "A",
+    "16": "B",
+    "17": "C",
+    "18": "C",
+    "19": "D",
+    "20": "B"
+  }
+}

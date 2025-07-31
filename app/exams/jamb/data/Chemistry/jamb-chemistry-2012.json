@@ -1,0 +1,422 @@
+{
+  "id": "chemistry-2012",
+  "title": "JAMB Chemistry 2012",
+  "subject": "Chemistry",
+  "year": 2012,
+  "duration": "2 hours",
+  "paperType": "RED",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which Question Paper Type of Chemistry is given to you?",
+      "options": ["Type Green", "Type Purple", "Type Red", "Type Yellow"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 2,
+      "question": "Which of the following methods can be used to obtain pure water from a mixture of sand, water and methanoic acid?",
+      "options": [
+        "neutralization with NaOH followed by filtration",
+        "neutralization with NaOH followed by distillation",
+        "fractional distillation",
+        "filtration followed by distillation"
+      ],
+      "correctAnswer": 3
+    },
+    {
+      "id": 3,
+      "question": "How many atoms are present in 6.0g of magnesium? [Mg = 24, NA = 6.02 x 10²³ mol⁻¹]",
+      "options": ["1.20 x 10²²", "2.41 x 10²²", "1.51 x 10²³", "3.02 x 10²³"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 4,
+      "question": "50 cm³ of gas was collected over water at 10°C and 765 mmHg. Calculate the volume of the gas at s.t.p. if the saturated vapour pressure of water at 10°C is 5mm Hg",
+      "options": ["49.19 cm³", "48.87 cm³", "48.55 cm³", "48.23 cm³"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 5,
+      "question": "An increase in the pressure exerted on gas at a constant temperature result in",
+      "options": [
+        "a decrease in the number of effective collisions",
+        "a decrease in volume",
+        "an increase in the average intermolecular distance",
+        "an increase in volume"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 6,
+      "question": "2H₂(g) + O₂(g) → 2H₂O(g). In the reaction above, what volume of hydrogen would be left over when 300 cm³ of oxygen and 1000 cm³ of hydrogen are exploded in a sealed tube?",
+      "options": ["200 cm³", "400 cm³", "600 cm³", "700 cm³"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 7,
+      "question": "I. Evaporation. II. Sublimation. III. Diffusion. IV. Brownian motion. Which of the above can correctly be listed as evidences for the particulate nature of matter?",
+      "options": ["I and III only", "II and IV only", "I, II and III only", "I, II, III and IV"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 8,
+      "question": "If the elements X and Y have atomic numbers 11 and 17 respectively, what type of bond can they form?",
+      "options": ["Dative", "Covalent", "Ionic", "Metallic"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 9,
+      "question": "A hydrogen atom which has lost an electron contains",
+      "options": [
+        "one proton only",
+        "one neutron only",
+        "one proton and one neutron",
+        "one proton, one electron and one neutron"
+      ],
+      "correctAnswer": 2
+    },
+    {
+      "id": 10,
+      "question": "The electronic configuration of Mg²⁺ is",
+      "options": ["1s² 2s² 2p⁶ 3s² 3p²", "1s² 2s² 2p⁶ 3s²", "1s² 2s² 2p⁶", "1s² 2s² 2p⁴"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 11,
+      "question": "Group VII elements are",
+      "options": ["monoatomic", "good oxidizing agents", "highly electropositive", "electron donors"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 12,
+      "question": "Which of the following is used to study the arrangement of particles in crystal lattices?",
+      "options": ["Alpha-particles", "Beta-particles", "Gamma-rays", "X-rays"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 13,
+      "question": "I. It has a varied composition from one place to another. II. Its constituents can be separated by physical means. III. It contains unreactive noble gases. Which of the above shows that air is a mixture?",
+      "options": ["I and II only", "II and III only", "I and III only", "I, II and III"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 14,
+      "question": "The chemicals used to soften hard water involves the addition of",
+      "options": [
+        "insoluble sodium compounds which form soluble solutions of calcium and magnesium",
+        "soluble sodium compounds which form soluble solutions of calcium and magnesium ions",
+        "soluble sodium compounds which form insoluble precipitates of calcium and magnesium ions",
+        "insoluble precipitates of calcium and magnesium ions"
+      ],
+      "correctAnswer": 2
+    },
+    {
+      "id": 15,
+      "question": "Chlorination of water for town supply is carried out to",
+      "options": [
+        "make the water colourless",
+        "remove germs from the water",
+        "make the water tasteful",
+        "remove odour from the water"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 16,
+      "question": "The solubilities of different solutes in a given solvent can be compared by",
+      "options": [
+        "plotting their solubility curves on separate axes",
+        "plotting their solubility curves on the same axes",
+        "plotting some of the solubility curves on the x-axis and others on the y-axis",
+        "plotting their solubility curves on the x-axis only"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 17,
+      "question": "Potassium trioxochlorate (V) has a solubility of 1.5 moldm⁻³ at 45°C. On cooling this solution to a temperature of 20°C, the solubility was found to be 0.5 mol dm⁻³. What mass of KClO₃ was crystallized out? [K = 39, Cl = 35.5, O = 16]",
+      "options": ["1.00g", "10.00g", "12.25g", "122.50g"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 18,
+      "question": "Which of the following pollutants is associated with brain damage?",
+      "options": ["Carbon (II) oxide", "Radioactive fallout", "Biodegradable waste", "Sulphur (IV) oxide"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 19,
+      "question": "Which of the following will produce a solution with pH less than 7 at equivalent point?",
+      "options": ["HNO₃ + NaOH", "H₂SO₄ + KOH", "HCl + Mg(OH)₂", "HNO₃ + KOH"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 20,
+      "question": "The number of hydroxonium ions produced by one molecule of an acid in aqueous solution is its",
+      "options": ["basicity", "acid strength", "pH", "concentration"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 21,
+      "question": "During a titration experiment, 0.05 moles of carbon (IV) oxide is liberated. What is the volume of gas liberated?",
+      "options": ["22.40 dm³", "11.20 dm³", "2.24 dm³", "1.12 dm³"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 22,
+      "question": "A major factor considered in selecting a suitable method for preparing a simple salt is its",
+      "options": ["crystalline form", "melting point", "reactivity with dilute acids", "solubility in water"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 23,
+      "question": "The oxidation number of boron in NaBH₄ is",
+      "options": ["-3", "-1", "+1", "+3"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 24,
+      "question": "2Na₂O₂(s) + 2H₂O(l) → 4NaOH(s) + O₂(g). The substance that is oxidized in the reaction above is",
+      "options": ["Na₂O₂(s)", "NaOH(aq)", "H₂O(l)", "O₂(g)"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 25,
+      "question": "What number of moles of Cu²⁺ will be deposited by 360 coulombs of electricity? [F = 96500 C mol⁻¹]",
+      "options": ["5.36 x 10⁻⁴ mole", "1.87 x 10⁻³ mole", "9.35 x 10⁻⁴ mole", "3.73 x 10⁻³ mole"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 26,
+      "question": "A metal M displaces zinc from ZnCl₂ solution. This shows that",
+      "options": [
+        "electrons flow from zinc to M",
+        "M is more electropositive than zinc",
+        "M is more electronegative than zinc",
+        "zinc is more electropositive than M"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 27,
+      "question": "CO(g) + H₂O(g) → CO₂(g) + H₂(g). Calculate the standard heat change of the reaction above, if the standard enthalpies of formation of CO₂(g), H₂O(g) and CO(g) in KJ mol⁻¹ are -394, -242 and -110 respectively.",
+      "options": ["+262 KJ mol⁻¹", "-262 KJ mol⁻¹", "+42 KJ mol⁻¹", "-42 KJ mol⁻¹"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 28,
+      "question": "An increase in entropy can best be illustrated by",
+      "options": ["mixing of gases", "freezing of water", "the condensation of vapour", "solidifying candle wax"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 29,
+      "question": "The highest rate of production of carbon (IV) oxide can be achieved using",
+      "options": [
+        "0.05 mol dm⁻³ HCl and 5g powdered CaCO₃",
+        "0.05 mol dm⁻³ HCl and 5g lump CaCO₃",
+        "0.10 mol dm⁻³ HCl and 5g powdered CaCO₃",
+        "0.025 mol dm⁻³ HCl and 5g powdered CaCO₃"
+      ],
+      "correctAnswer": 2
+    },
+    {
+      "id": 30,
+      "question": "2HCl(aq) + CaCO₃(s) → CaCl₂(s) + CO₂(g) + H₂O(l). From the reaction above, which of the curves represents the production of CO₂ gas as dilute HCl is added?",
+      "options": ["L", "M", "N", "P"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 31,
+      "question": "2CO(g) + O₂(g) ⇋ 2CO₂(g). In the reaction above, high pressure will favour the forward reaction because",
+      "options": [
+        "high pressure favours gas formation",
+        "the reaction is in dynamic equilibrium",
+        "the reaction is exothermic",
+        "the process occurs with a decrease in volume"
+      ],
+      "correctAnswer": 3
+    },
+    {
+      "id": 32,
+      "question": "A piece of filter paper moistened with lead (II) ethanoate solution turns black when the paper is dropped into a gas likely to be",
+      "options": ["sulphur (VI) oxide", "hydrogen chloride", "sulphur (IV) oxide", "hydrogen sulphide"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 33,
+      "question": "Which of the following gases has a characteristic pungent smell, turns red litmus paper blue and forms dense white fumes with hydrogen chloride gas?",
+      "options": ["N₂", "N₂O", "Cl₂", "NH₃"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 34,
+      "question": "Commercial bleaching can be carried out using",
+      "options": [
+        "sulphur (IV) oxide and ammonia",
+        "hydrogen sulphide and chlorine",
+        "chlorine and sulphur (IV) oxide",
+        "ammonia and chlorine"
+      ],
+      "correctAnswer": 2
+    },
+    {
+      "id": 35,
+      "question": "Mineral acids are usually added to commercial hydrogen peroxide to",
+      "options": ["oxidize it", "decompose it", "minimize its decomposition", "reduce it to water and oxygen"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 36,
+      "question": "Which of the following compounds will burn with a brick-red colour in a nonluminous Bunsen flame?",
+      "options": ["LiCl", "NaCl", "CaCl₂", "MgCl₂"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 37,
+      "question": "The purest form of iron which contains only about 0.1% carbon is",
+      "options": ["pig iron", "wrought iron", "cast iron", "iron pyrite"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 38,
+      "question": "A common characteristic between zinc and the other transition elements is the ability to",
+      "options": ["have variable oxidation states", "form complex ions", "act as a catalyst", "form coloured ions"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 39,
+      "question": "Which of the following metals is the least reactive?",
+      "options": ["Pb", "Sn", "Hg", "Au"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 40,
+      "question": "Geometric isomerism can exist in",
+      "options": ["hex-3-ene", "hexane", "prop-1-ene", "3-methyl but-1-ene"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 41,
+      "question": "Alkanals can be distinguished from alkanones by the reaction with",
+      "options": [
+        "Sudan III stain",
+        "starch iodide paper",
+        "lithium tetrahydrido aluminate (III)",
+        "Fehling's solution"
+      ],
+      "correctAnswer": 3
+    },
+    {
+      "id": 42,
+      "question": "The isomers of C₃H₈O are",
+      "options": [
+        "1-propanol and 2-propanol",
+        "1-propanol and 1-propanol",
+        "2-propanol and 2-propanone",
+        "2-propanol and 1-propanol"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 43,
+      "question": "Carbohydrates are large molecules with the molecular formula Cₓ(H₂O)ᵧ. In which of the following pairs is x not equal to y?",
+      "options": ["glucose and starch", "maltose and starch", "sucrose and fructose", "maltose and lactose"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 44,
+      "question": "A compound contains 40.0% C, 6.7% H, 53.3% O. If the molecular mass of the compound is 180, its molecular formula is [C = 12, H = 1, O = 16]",
+      "options": ["CH₂O", "C₃H₆O₃", "C₆H₆O₃", "C₆H₁₂O₆"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 45,
+      "question": "The alkyne that will give a white precipitate with silver trioxonitrate (V) is",
+      "options": ["CH₃CH₂C≡CCH₂CH₃", "CH₃C≡CCH₂CH₂CH₃", "CH₃CH₂CH₂CH₂C≡CH", "CH₃CH₂CH₂C≡CCH₂CH₃"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 46,
+      "question": "The saponification of an alkanoate to produce soap and alkanol involves",
+      "options": ["dehydration", "esterification", "hydrolysis", "oxidation"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 47,
+      "question": "2-methyl propan-2-ol is an example of a",
+      "options": ["primary alkanol", "secondary alkanol", "tertiary alkanol", "quaternary alkanol"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 48,
+      "question": "The final oxidation product of alkanol, alkanal and alkanones is",
+      "options": ["alkanoic acid", "alkanoyl halide", "alkanoate", "alkanamide"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 49,
+      "question": "Ethanol reacts with concentrated tetraoxosulphate (VI) acid at a temperature above 170°C to form",
+      "options": ["ethanone", "ethene", "ethyne", "ethanal"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 50,
+      "question": "An example of oxidation-reduction enzyme is",
+      "options": ["amylase", "protease", "lipase", "dehydrogenase"],
+      "correctAnswer": 3
+    }
+  ],
+  "answerKey": {
+    "1": "C",
+    "2": "D",
+    "3": "C",
+    "4": "D",
+    "5": "B",
+    "6": "B",
+    "7": "D",
+    "8": "C",
+    "9": "C",
+    "10": "C",
+    "11": "B",
+    "12": "D",
+    "13": "A",
+    "14": "C",
+    "15": "B",
+    "16": "B",
+    "17": "D",
+    "18": "B",
+    "19": "C",
+    "20": "B",
+    "21": "D",
+    "22": "D",
+    "23": "D",
+    "24": "A",
+    "25": "B",
+    "26": "B",
+    "27": "C",
+    "28": "A",
+    "29": "C",
+    "30": "A",
+    "31": "D",
+    "32": "D",
+    "33": "D",
+    "34": "C",
+    "35": "C",
+    "36": "C",
+    "37": "B",
+    "38": "B",
+    "39": "D",
+    "40": "A",
+    "41": "D",
+    "42": "A",
+    "43": "A",
+    "44": "D",
+    "45": "C",
+    "46": "C",
+    "47": "C",
+    "48": "A",
+    "49": "B",
+    "50": "D"
+  }
+}

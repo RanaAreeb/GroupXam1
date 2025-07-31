@@ -1,0 +1,160 @@
+{
+  "id": "wassce-chemistry-mock-2024",
+  "title": "WASSCE Chemistry Mock Examination",
+  "subject": "Chemistry",
+  "examType": "WASSCE Mock",
+  "year": 2024,
+  "duration": "3 hours",
+  "instructions": "Answer ALL questions in Section A and any FOUR questions from Section B",
+  "sections": {
+    "sectionA": {
+      "title": "SECTION A - OBJECTIVE TEST",
+      "instruction": "Answer ALL questions in this section",
+      "timeAllocation": "1 hour",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Which of the following is NOT a physical change?",
+          "options": ["Melting of ice", "Boiling of water", "Rusting of iron", "Sublimation of iodine"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 2,
+          "question": "The atomic number of an element is determined by the number of",
+          "options": ["neutrons", "protons", "electrons", "nucleons"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 3,
+          "question": "Which gas is produced when zinc reacts with dilute hydrochloric acid?",
+          "options": ["Oxygen", "Carbon dioxide", "Hydrogen", "Chlorine"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 4,
+          "question": "The molecular formula of glucose is",
+          "options": ["C₆H₁₂O₆", "C₆H₁₀O₅", "C₁₂H₂₂O₁₁", "C₂H₆O"],
+          "correctAnswer": 0
+        },
+        {
+          "id": 5,
+          "question": "Which of the following is an alkali metal?",
+          "options": ["Magnesium", "Aluminum", "Sodium", "Calcium"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 6,
+          "question": "The pH of pure water at 25°C is",
+          "options": ["0", "7", "14", "1"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 7,
+          "question": "Which type of bond is formed between sodium and chlorine in NaCl?",
+          "options": ["Covalent bond", "Ionic bond", "Metallic bond", "Hydrogen bond"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 8,
+          "question": "The process of converting a solid directly to gas is called",
+          "options": ["Evaporation", "Condensation", "Sublimation", "Fusion"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 9,
+          "question": "Which of the following is a noble gas?",
+          "options": ["Nitrogen", "Oxygen", "Argon", "Carbon dioxide"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 10,
+          "question": "The valency of carbon in methane (CH₄) is",
+          "options": ["1", "2", "3", "4"],
+          "correctAnswer": 3
+        },
+        {
+          "id": 11,
+          "question": "Which indicator turns red in acidic solution?",
+          "options": ["Litmus", "Phenolphthalein", "Methyl orange", "Universal indicator"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 12,
+          "question": "The chemical symbol for iron is",
+          "options": ["Ir", "Fe", "In", "Fr"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 13,
+          "question": "Which of the following is an endothermic process?",
+          "options": ["Combustion", "Respiration", "Photosynthesis", "Neutralization"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 14,
+          "question": "The number of electrons in the outermost shell of chlorine is",
+          "options": ["5", "6", "7", "8"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 15,
+          "question": "Which of the following is used to test for carbon dioxide?",
+          "options": ["Lime water", "Litmus paper", "Benedict's solution", "Iodine solution"],
+          "correctAnswer": 0
+        },
+        {
+          "id": 16,
+          "question": "The molecular mass of water (H₂O) is [H = 1, O = 16]",
+          "options": ["16", "17", "18", "19"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 17,
+          "question": "Which of the following is a reducing agent?",
+          "options": ["Oxygen", "Chlorine", "Hydrogen", "Fluorine"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 18,
+          "question": "The electronic configuration of sodium (Na, atomic number 11) is",
+          "options": ["2, 8, 1", "2, 7, 2", "2, 6, 3", "1, 8, 2"],
+          "correctAnswer": 0
+        },
+        {
+          "id": 19,
+          "question": "Which of the following is an example of a homogeneous mixture?",
+          "options": ["Sand and water", "Oil and water", "Salt solution", "Iron filings and sulfur"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 20,
+          "question": "The catalyst used in the Haber process for ammonia production is",
+          "options": ["Platinum", "Iron", "Nickel", "Vanadium pentoxide"],
+          "correctAnswer": 1
+        }
+      ]
+    }
+  },
+  "answerKey": {
+    "1": "C",
+    "2": "B",
+    "3": "C",
+    "4": "A",
+    "5": "C",
+    "6": "B",
+    "7": "B",
+    "8": "C",
+    "9": "C",
+    "10": "D",
+    "11": "C",
+    "12": "B",
+    "13": "C",
+    "14": "C",
+    "15": "A",
+    "16": "C",
+    "17": "C",
+    "18": "A",
+    "19": "C",
+    "20": "B"
+  }
+}

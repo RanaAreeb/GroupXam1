@@ -1,0 +1,417 @@
+{
+  "id": "chemistry-2011",
+  "title": "JAMB Chemistry 2011",
+  "subject": "Chemistry",
+  "year": 2011,
+  "duration": "2 hours",
+  "paperType": "B",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which question Paper Type of Chemistry is given to you?",
+      "options": ["Type A", "Type B", "Type C", "Type D"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 2,
+      "question": "What is the concentration of a solution containing 2g of NaOH in 100cm³ of solution? [Na = 23, O = 16, H = 1]",
+      "options": ["0.40 mol dm⁻³", "0.50 mol dm⁻³", "0.05 mol dm⁻³", "0.30 mol dm⁻³"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 3,
+      "question": "Which of the following properties is NOT peculiar to matter?",
+      "options": [
+        "kinetic energy of particles increases from solid to gas",
+        "Random motion of particles increases from liquid to gas",
+        "Orderliness of particles increases from gas to liquid",
+        "Random motion of particles increases from gas to solid"
+      ],
+      "correctAnswer": 3
+    },
+    {
+      "id": 4,
+      "question": "The principle of column chromatography is based on the ability of the constituents to",
+      "options": [
+        "move at different speeds in the column",
+        "dissolve in each other in the column",
+        "react with the solvent in the column",
+        "react with each other in the column"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 5,
+      "question": "From the diagram above, an ideal gas can be represented by",
+      "options": ["M", "N", "K", "L"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 6,
+      "question": "Which of the following statements is correct about the periodic table?",
+      "options": [
+        "The non-metallic properties of the elements tend to decrease across each period",
+        "The valence electrons of the elements increase progressively across the period",
+        "Elements in the same group have the same number of electron shells",
+        "Elements in the same period have the same number of valence electrons"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 7,
+      "question": "The relative atomic mass of a naturally occurring lithium consisting of 90% ⁶Li and 10% ⁷Li is",
+      "options": ["6.9", "7.1", "6.2", "6.8"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 8,
+      "question": "An isotope has an atomic number of 15 and a mass number of 31. The number of protons it contains is",
+      "options": ["16", "15", "46", "31"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 9,
+      "question": "The molecular lattice of iodine is held together by",
+      "options": ["dative bond", "metallic bond", "hydrogen bond", "van der Waal's forces"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 10,
+      "question": "The arrangement of particles in crystal lattices can be studied using",
+      "options": ["X-rays", "γ-rays", "α-rays", "β-rays"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 11,
+      "question": "From the diagram above, find the amount of solute deposited when 200 cm³ of the solution is cooled from 55°C to 40°C",
+      "options": ["0.10 mole", "0.20 mole", "0.01 mole", "0.02 mole"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 12,
+      "question": "The importance of sodium aluminate (III) in the treatment of water is to",
+      "options": ["cause coagulation", "neutralize acidity", "prevent goitre and tooth decay", "kill germs"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 13,
+      "question": "What type of bond exists between an element X with atomic number 12 and Y with atomic number 17?",
+      "options": ["Electrovalent", "Metallic", "Covalent", "Dative"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 14,
+      "question": "Hardness of water is mainly due to the presence of",
+      "options": [
+        "calcium hydroxide or magnesium hydroxide",
+        "calcium trioxocarbonate (IV) or calcium tetraoxosulphate (VI)",
+        "sodium hydroxide or magnesium hydroxide",
+        "calcium chloride or sodium chloride salts"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 15,
+      "question": "A suitable solvent for iodine and naphthalene is",
+      "options": ["carbon (IV) sulphide", "ethanol", "water", "benzene"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 16,
+      "question": "Which of the following noble gases is commonly found in the atmosphere?",
+      "options": ["Xenon", "Neon", "Helium", "Argon"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 17,
+      "question": "N₂O₄(g) ⇋ 2NO₂(g) ΔH = +ve. In the reaction above, an increase in temperature will",
+      "options": [
+        "increase the value of the equilibrium constant",
+        "decrease the value of the equilibrium constant",
+        "increase in the reactant production",
+        "shift the equilibrium to the left"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 18,
+      "question": "CH₃COOH(aq) + OH⁻(aq) ⇋ CH₃COO⁻(aq) + H₂O(l). In the reaction above, CH₃COO⁻(aq) is",
+      "options": ["conjugate base", "acid", "base", "conjugate acid"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 19,
+      "question": "How many cations will be produced from a solution of potassium aluminium tetraoxosulphate (VI)?",
+      "options": ["3", "4", "1", "2"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 20,
+      "question": "Which of the following is NOT an alkali?",
+      "options": ["NH₃", "Mg(OH)₂", "Ca(OH)₂", "NaOH"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 21,
+      "question": "An effect of thermal pollution on water bodies is that the",
+      "options": [
+        "volume of water reduces",
+        "volume of chemical waste increases",
+        "level of oxides of nitrogen increases",
+        "level of oxygen reduces"
+      ],
+      "correctAnswer": 3
+    },
+    {
+      "id": 22,
+      "question": "Which of the following is a deliquescent compound?",
+      "options": ["Na₂CO₃", "CaCl₂", "CuO", "Na₂CO₃·10H₂O"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 23,
+      "question": "A chemical reaction in which the hydration energy is greater than the lattice energy is referred to as",
+      "options": [
+        "a spontaneous reaction",
+        "an endothermic reaction",
+        "an exothermic reaction",
+        "a reversible reaction"
+      ],
+      "correctAnswer": 2
+    },
+    {
+      "id": 24,
+      "question": "The function of zinc electrode in a galvanic cell is that it",
+      "options": ["undergoes reduction", "serves as the positive electrode", "produces electrons", "uses up electrons"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 25,
+      "question": "CH₄(g) + Cl₂(g) → CH₃Cl(s) + HCl(g). The major factor that influences the rate of the reaction above is",
+      "options": ["catalyst", "temperature", "concentration", "light"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 26,
+      "question": "The condition required for corrosion to take place is the presence of",
+      "options": [
+        "water and carbon (IV) oxide",
+        "water, carbon (IV) oxide and oxygen",
+        "oxygen and carbon (IV) oxide",
+        "water and oxygen"
+      ],
+      "correctAnswer": 3
+    },
+    {
+      "id": 27,
+      "question": "In the diagram above, X is the",
+      "options": ["enthalpy", "enthalpy change", "activation energy", "activated complex"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 28,
+      "question": "The diagram above best illustrates the effect of decrease in",
+      "options": ["concentration", "temperature", "surface area", "pressure"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 29,
+      "question": "MnO₄⁻(aq) + Y + 5Fe²⁺(aq) → Mn²⁺(aq) + 5Fe³⁺(aq) + 4H₂O(l). In the equation above, Y is",
+      "options": ["5H⁺(aq)", "4H⁺(aq)", "10H⁺(aq)", "8H⁺(aq)"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 30,
+      "question": "Given that M is the mass of a substance deposited during electrolysis and Q is the quantity of electricity consumed, then Faraday's first law can be written as",
+      "options": ["M = EQ", "M = E/Q", "M = QE", "M = E²Q"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 31,
+      "question": "The impurities formed during the laboratory preparation of chlorine gas are removed by",
+      "options": ["H₂O", "NH₃", "H₂SO₄", "HCl"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 32,
+      "question": "The effect of the presence of impurities such as carbon and sulphur on iron is that they",
+      "options": [
+        "give it high tensile strength",
+        "make it malleable and ductile",
+        "increase its melting point",
+        "lower its melting point"
+      ],
+      "correctAnswer": 3
+    },
+    {
+      "id": 33,
+      "question": "A few drops of concentrated HNO₃ is added to an unknown solution and boiled for a while. If this produces a brown solution, the cation present is likely to be",
+      "options": ["Pb²⁺", "Cu²⁺", "Fe³⁺", "Fe²⁺"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 34,
+      "question": "The bleaching action of chlorine gas is effective due to the presence of",
+      "options": ["hydrogen chloride", "water", "air", "oxygen"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 35,
+      "question": "In the laboratory preparation of oxygen, dried oxygen is usually collected over",
+      "options": ["hydrochloric acid", "mercury", "calcium chloride", "tetraoxosulphate (VI) acid"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 36,
+      "question": "The property of concentrated H₂SO₄ that makes it suitable for preparing HNO₃ is its",
+      "options": ["boiling point", "density", "oxidizing properties", "dehydrating properties"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 37,
+      "question": "Bronze is preferred to copper in the making of medals because it",
+      "options": ["is stronger", "can withstand low temperature", "is lighter", "has low tensile strength"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 38,
+      "question": "The constituent of baking powder that makes the dough to rise is",
+      "options": ["NaHCO₃", "NaOH", "Na₂CO₃", "NaCl"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 39,
+      "question": "Which of the following compounds is used as a gaseous fuel?",
+      "options": ["CH₃-C≡CH", "CH₃-CH₂-CH₂OH", "CH₃-CH₂-CH₂-COOH", "CH₃-CH₂-CH₂-CH₃"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 40,
+      "question": "The ability of carbon to form long chains is referred to as",
+      "options": ["alkylation", "acylation", "catenation", "carbonation"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 41,
+      "question": "Which of the following compounds will undergo polymerization reaction?",
+      "options": ["C₂H₄", "C₂H₅COOH", "C₂H₆", "C₂H₅OH"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 42,
+      "question": "The compound above exhibits",
+      "options": ["geometric isomerism", "optical isomerism", "structural isomerism", "positional isomerism"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 43,
+      "question": "An organic compound has an empirical formula CH₂O and vapour density of 45. What is the molecular formula? [C = 12, H = 1, O = 16]",
+      "options": ["C₃H₇OH", "C₂H₅OH", "C₃H₆O₃", "C₂H₄O₂"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 44,
+      "question": "C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂ + energy at 25°C. The reaction above is useful in the production of",
+      "options": ["propanol", "butanol", "methanol", "ethanol"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 45,
+      "question": "The number of isomers that can be obtained from C₄H₁₀ is",
+      "options": ["3", "4", "1", "2"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 46,
+      "question": "The functional groups present in the compound above are",
+      "options": [
+        "alkene and halo-group",
+        "hydroxyl and chloro-group",
+        "alkene and chloro-group",
+        "hydroxyl and halo-group"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 47,
+      "question": "Which of the following is a primary amine?",
+      "options": ["A", "B", "C", "D"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 48,
+      "question": "Two organic compounds K and L were treated with a few drops of Fehling's solution respectively. K formed a brick red precipitate while L remains unaffected. The compound K is an",
+      "options": ["alkanol", "alkane", "alkanal", "alkanone"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 49,
+      "question": "Which of the following statements is true about 2-methylpropane and butane?",
+      "options": [
+        "They are members of the same homologous series",
+        "They have the same boiling point",
+        "They have different number of carbon atoms",
+        "They have the same chemical properties"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 50,
+      "question": "CH₃COOH + C₂H₅OH → CH₃COOC₂H₅ + H₂O (conc. H₂SO₄). The reaction above is best described as",
+      "options": ["esterification", "condensation", "saponification", "neutralization"],
+      "correctAnswer": 0
+    }
+  ],
+  "answerKey": {
+    "1": "B",
+    "2": "B",
+    "3": "D",
+    "4": "A",
+    "5": "B",
+    "6": "B",
+    "7": "A",
+    "8": "B",
+    "9": "D",
+    "10": "A",
+    "11": "B",
+    "12": "A",
+    "13": "A",
+    "14": "B",
+    "15": "B",
+    "16": "D",
+    "17": "A",
+    "18": "A",
+    "19": "D",
+    "20": "A",
+    "21": "D",
+    "22": "B",
+    "23": "C",
+    "24": "C",
+    "25": "D",
+    "26": "D",
+    "27": "B",
+    "28": "A",
+    "29": "A",
+    "30": "B",
+    "31": "A",
+    "32": "D",
+    "33": "D",
+    "34": "B",
+    "35": "D",
+    "36": "C",
+    "37": "C",
+    "38": "A",
+    "39": "D",
+    "40": "C",
+    "41": "A",
+    "42": "B",
+    "43": "C",
+    "44": "D",
+    "45": "D",
+    "46": "B",
+    "47": "B",
+    "48": "C",
+    "49": "A",
+    "50": "A"
+  }
+}

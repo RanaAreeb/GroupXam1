@@ -1,0 +1,165 @@
+{
+  "id": "wassce-literature-english-mock-2024",
+  "title": "WASSCE Literature in English Mock Examination",
+  "subject": "Literature in English",
+  "examType": "WASSCE Mock",
+  "year": 2024,
+  "duration": "3 hours",
+  "instructions": "Answer ALL questions in Section A and any FOUR questions from Section B",
+  "sections": {
+    "sectionA": {
+      "title": "SECTION A - OBJECTIVE TEST",
+      "instruction": "Answer ALL questions in this section",
+      "timeAllocation": "1 hour",
+      "questions": [
+        {
+          "id": 1,
+          "question": "A literary work that tells a story through dialogue and action is called a",
+          "options": ["Novel", "Poem", "Drama", "Essay"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 2,
+          "question": "The main character in a literary work is called the",
+          "options": ["Antagonist", "Protagonist", "Narrator", "Author"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 3,
+          "question": "Which of the following is a figure of speech that compares two unlike things using 'like' or 'as'?",
+          "options": ["Metaphor", "Simile", "Personification", "Hyperbole"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 4,
+          "question": "The repetition of initial consonant sounds in a series of words is called",
+          "options": ["Assonance", "Consonance", "Alliteration", "Onomatopoeia"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 5,
+          "question": "A 14-line poem with a specific rhyme scheme is called a",
+          "options": ["Haiku", "Limerick", "Sonnet", "Ballad"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 6,
+          "question": "The time and place where a story occurs is called the",
+          "options": ["Plot", "Theme", "Setting", "Conflict"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 7,
+          "question": "Which of the following is NOT a type of irony?",
+          "options": ["Verbal irony", "Situational irony", "Dramatic irony", "Literal irony"],
+          "correctAnswer": 3
+        },
+        {
+          "id": 8,
+          "question": "The central message or lesson of a literary work is its",
+          "options": ["Plot", "Setting", "Character", "Theme"],
+          "correctAnswer": 3
+        },
+        {
+          "id": 9,
+          "question": "A story told by a character within the story is called",
+          "options": ["First-person narration", "Third-person narration", "Frame narrative", "Stream of consciousness"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 10,
+          "question": "Which literary device gives human characteristics to non-human things?",
+          "options": ["Metaphor", "Simile", "Personification", "Alliteration"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 11,
+          "question": "The climax of a story is",
+          "options": [
+            "the introduction of characters",
+            "the turning point or highest point of tension",
+            "the resolution of conflicts",
+            "the background information"
+          ],
+          "correctAnswer": 1
+        },
+        {
+          "id": 12,
+          "question": "A long narrative poem that tells of heroic deeds is called an",
+          "options": ["Ode", "Elegy", "Epic", "Lyric"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 13,
+          "question": "The use of words that imitate sounds is called",
+          "options": ["Alliteration", "Assonance", "Onomatopoeia", "Consonance"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 14,
+          "question": "A play that ends in disaster for the main character is called a",
+          "options": ["Comedy", "Tragedy", "Satire", "Farce"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 15,
+          "question": "The attitude of the author toward the subject matter is called",
+          "options": ["Mood", "Tone", "Style", "Voice"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 16,
+          "question": "Which of the following is a characteristic of African oral literature?",
+          "options": ["Written form only", "Individual authorship", "Community participation", "Fixed text"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 17,
+          "question": "A brief story that teaches a moral lesson is called a",
+          "options": ["Fable", "Myth", "Legend", "Folktale"],
+          "correctAnswer": 0
+        },
+        {
+          "id": 18,
+          "question": "The repetition of vowel sounds within words is called",
+          "options": ["Alliteration", "Assonance", "Consonance", "Rhyme"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 19,
+          "question": "A character who contrasts with another character to highlight particular qualities is called a",
+          "options": ["Protagonist", "Antagonist", "Foil", "Narrator"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 20,
+          "question": "The pattern of stressed and unstressed syllables in poetry is called",
+          "options": ["Rhyme scheme", "Meter", "Stanza", "Verse"],
+          "correctAnswer": 1
+        }
+      ]
+    }
+  },
+  "answerKey": {
+    "1": "C",
+    "2": "B",
+    "3": "B",
+    "4": "C",
+    "5": "C",
+    "6": "C",
+    "7": "D",
+    "8": "D",
+    "9": "C",
+    "10": "C",
+    "11": "B",
+    "12": "C",
+    "13": "C",
+    "14": "B",
+    "15": "B",
+    "16": "C",
+    "17": "A",
+    "18": "B",
+    "19": "C",
+    "20": "B"
+  }
+}

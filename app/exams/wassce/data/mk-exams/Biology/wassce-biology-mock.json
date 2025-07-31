@@ -1,0 +1,160 @@
+{
+  "id": "wassce-biology-mock-2024",
+  "title": "WASSCE Biology Mock Examination",
+  "subject": "Biology",
+  "examType": "WASSCE Mock",
+  "year": 2024,
+  "duration": "3 hours",
+  "instructions": "Answer ALL questions in Section A and any FOUR questions from Section B",
+  "sections": {
+    "sectionA": {
+      "title": "SECTION A - OBJECTIVE TEST",
+      "instruction": "Answer ALL questions in this section",
+      "timeAllocation": "1 hour",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Which of the following is the basic unit of life?",
+          "options": ["Tissue", "Organ", "Cell", "Organism"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 2,
+          "question": "The process by which green plants make their own food is called",
+          "options": ["Respiration", "Photosynthesis", "Transpiration", "Digestion"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 3,
+          "question": "Which organelle is known as the 'powerhouse of the cell'?",
+          "options": ["Nucleus", "Ribosome", "Mitochondria", "Chloroplast"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 4,
+          "question": "The genetic material in most organisms is",
+          "options": ["RNA", "DNA", "Protein", "Carbohydrate"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 5,
+          "question": "Which blood group is known as the universal donor?",
+          "options": ["A", "B", "AB", "O"],
+          "correctAnswer": 3
+        },
+        {
+          "id": 6,
+          "question": "The process of cell division that produces gametes is",
+          "options": ["Mitosis", "Meiosis", "Binary fission", "Budding"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 7,
+          "question": "Which of the following is NOT a function of the liver?",
+          "options": ["Detoxification", "Bile production", "Insulin production", "Protein synthesis"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 8,
+          "question": "The exchange of gases in plants occurs through",
+          "options": ["Stomata", "Lenticels", "Root hairs", "Both A and B"],
+          "correctAnswer": 3
+        },
+        {
+          "id": 9,
+          "question": "Which hormone regulates blood sugar levels?",
+          "options": ["Adrenaline", "Insulin", "Thyroxine", "Growth hormone"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 10,
+          "question": "The scientific study of heredity is called",
+          "options": ["Ecology", "Genetics", "Taxonomy", "Physiology"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 11,
+          "question": "Which of the following is a characteristic of mammals?",
+          "options": ["Cold-blooded", "Lay eggs", "Have hair or fur", "Breathe through gills"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 12,
+          "question": "The process by which water moves up from roots to leaves is",
+          "options": ["Osmosis", "Diffusion", "Transpiration", "Active transport"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 13,
+          "question": "Which part of the brain controls balance and coordination?",
+          "options": ["Cerebrum", "Cerebellum", "Medulla", "Hypothalamus"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 14,
+          "question": "The enzyme that breaks down starch is",
+          "options": ["Pepsin", "Amylase", "Lipase", "Trypsin"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 15,
+          "question": "Which of the following is a communicable disease?",
+          "options": ["Diabetes", "Hypertension", "Malaria", "Cancer"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 16,
+          "question": "The normal human body temperature is approximately",
+          "options": ["35°C", "37°C", "39°C", "40°C"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 17,
+          "question": "Which of the following is a producer in an ecosystem?",
+          "options": ["Lion", "Rabbit", "Grass", "Mushroom"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 18,
+          "question": "The process of breaking down food into simpler substances is",
+          "options": ["Absorption", "Digestion", "Excretion", "Circulation"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 19,
+          "question": "Which vitamin is produced when skin is exposed to sunlight?",
+          "options": ["Vitamin A", "Vitamin B", "Vitamin C", "Vitamin D"],
+          "correctAnswer": 3
+        },
+        {
+          "id": 20,
+          "question": "The largest organ in the human body is",
+          "options": ["Liver", "Brain", "Skin", "Lungs"],
+          "correctAnswer": 2
+        }
+      ]
+    }
+  },
+  "answerKey": {
+    "1": "C",
+    "2": "B",
+    "3": "C",
+    "4": "B",
+    "5": "D",
+    "6": "B",
+    "7": "C",
+    "8": "D",
+    "9": "B",
+    "10": "B",
+    "11": "C",
+    "12": "C",
+    "13": "B",
+    "14": "B",
+    "15": "C",
+    "16": "B",
+    "17": "C",
+    "18": "B",
+    "19": "D",
+    "20": "C"
+  }
+}

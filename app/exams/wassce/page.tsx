@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AppHeader from "@/components/ui/app-header";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -27,6 +27,7 @@ import {
   Monitor,
 } from "lucide-react";
 import Link from "next/link";
+import Whiteboard from "@/components/Whiteboard";
 
 const subjectMeta: Record<
   string,
@@ -354,7 +355,7 @@ const mockExams = [
     department: "Arts",
     date: "2025-03-15",
     time: "09:00 AM",
-    dataFile: "economics-mock.json",
+    dataFile: "wassce-economics-mock.json",
   },
   {
     id: 102,
@@ -364,7 +365,7 @@ const mockExams = [
     department: "Arts",
     date: "2025-03-15",
     time: "09:00 AM",
-    dataFile: "english-mock.json",
+    dataFile: "wassce-english-mock.json",
   },
   {
     id: 103,
@@ -374,7 +375,7 @@ const mockExams = [
     department: "Arts",
     date: "2025-03-15",
     time: "09:00 AM",
-    dataFile: "geography-mock.json",
+    dataFile: "wassce-geography-mock.json",
   },
   {
     id: 104,
@@ -384,7 +385,7 @@ const mockExams = [
     department: "Science",
     date: "2025-03-15",
     time: "09:00 AM",
-    dataFile: "general-math-mock.json",
+    dataFile: "wassce-mathematics-mock.json",
   },
   {
     id: 105,
@@ -394,7 +395,7 @@ const mockExams = [
     department: "Science",
     date: "2025-03-15",
     time: "09:00 AM",
-    dataFile: "further-math-mock.json",
+    dataFile: "wassce-further-mathematics-mock.json",
   },
   {
     id: 106,
@@ -404,7 +405,7 @@ const mockExams = [
     department: "Arts",
     date: "2025-03-15",
     time: "09:00 AM",
-    dataFile: "history-mock.json",
+    dataFile: "wassce-history-mock.json",
   },
   {
     id: 107,
@@ -414,7 +415,7 @@ const mockExams = [
     department: "Science",
     date: "2025-03-15",
     time: "09:00 AM",
-    dataFile: "computer-studies-mock.json",
+    dataFile: "wassce-computer-studies-mock.json",
   },
   {
     id: 108,
@@ -434,7 +435,7 @@ const mockExams = [
     department: "Arts",
     date: "2025-03-15",
     time: "09:00 AM",
-    dataFile: "literature-mock.json",
+    dataFile: "wassce-literature-english-mock.json",
   },
   {
     id: 110,
@@ -542,6 +543,18 @@ export default function WassceExamsPage() {
     {}
   );
   const [loadingMockExam, setLoadingMockExam] = useState(false);
+  // Mock exam answers state
+  const [mockAnswers, setMockAnswers] = useState<{
+    [examId: string | number]: number[];
+  }>({});
+  const [mockScore, setMockScore] = useState(0);
+  const [mockFeedbackEmoji, setMockFeedbackEmoji] = useState("🎉");
+  const [showMockFeedback, setShowMockFeedback] = useState(false);
+  const [showMockExamFeedback, setShowMockExamFeedback] = useState(false);
+  // Whiteboard state
+  const [whiteboardOpen, setWhiteboardOpen] = useState(false);
+  const [whiteboardBg, setWhiteboardBg] = useState<"white" | "black">("white");
+  const [whiteboardTemplate, setWhiteboardTemplate] = useState("blank");
 
   const handleStart = async (examId: number) => {
     setOpenExam(examId);
@@ -575,6 +588,12 @@ export default function WassceExamsPage() {
         ...prev,
         [examId]: Array(questionCount).fill(-1),
       }));
+    } else if (activeTab === "mock" && !mockAnswers[examId]) {
+      // Initialize mock answers with a large array to handle any number of questions
+      setMockAnswers((prev) => ({
+        ...prev,
+        [examId]: Array(100).fill(-1),
+      }));
     }
   };
 
@@ -582,6 +601,21 @@ export default function WassceExamsPage() {
     setAnswers((prev) => ({
       ...prev,
       [examId]: prev[examId].map((a, i) => (i === qIdx ? optIdx : a)),
+    }));
+  };
+
+  const handleMockAnswer = (
+    examId: string | number,
+    qIdx: number,
+    optIdx: number
+  ) => {
+    setMockAnswers((prev) => ({
+      ...prev,
+      [examId]: prev[examId]
+        ? prev[examId].map((a, i) => (i === qIdx ? optIdx : a))
+        : Array(100)
+            .fill(-1)
+            .map((a, i) => (i === qIdx ? optIdx : a)),
     }));
   };
 
@@ -598,6 +632,37 @@ export default function WassceExamsPage() {
     setShowFeedback(true);
   };
 
+  const handleMockSubmit = (exam: any) => {
+    const mockData = mockExamData[exam.id];
+    if (!mockData) return;
+
+    const questions = (() => {
+      if (mockData.questions) {
+        return mockData.questions;
+      } else if (mockData.sections) {
+        const allQuestions: any[] = [];
+        Object.values(mockData.sections).forEach((section: any) => {
+          if (section.questions) {
+            allQuestions.push(...section.questions);
+          }
+        });
+        return allQuestions;
+      }
+      return [];
+    })();
+
+    const userAnswers = mockAnswers[exam.id] || [];
+    let correct = 0;
+    questions.forEach((q: any, i: number) => {
+      if (userAnswers[i] === q.correctAnswer) correct++;
+    });
+    setMockScore(correct);
+    setMockFeedbackEmoji(
+      correct === questions.length ? "🎉" : correct > 0 ? "👍" : "😅"
+    );
+    setShowMockFeedback(true);
+  };
+
   const getCurrentExams = () => {
     switch (activeTab) {
       case "practice":
@@ -609,7 +674,13 @@ export default function WassceExamsPage() {
     }
   };
 
-  const currentExams = getCurrentExams();
+  const [currentExams, setCurrentExams] = useState(getCurrentExams());
+
+  // Update currentExams when activeTab changes
+  useEffect(() => {
+    const newExams = getCurrentExams();
+    setCurrentExams(newExams);
+  }, [activeTab]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50">
@@ -630,7 +701,14 @@ export default function WassceExamsPage() {
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
           <Button
-            onClick={() => setActiveTab("syllabus")}
+            onClick={() => {
+              setActiveTab("syllabus");
+              setOpenExam(null);
+              setShowFeedback(false);
+              setShowMockFeedback(false);
+              setShowMockExamFeedback(false);
+              setMockExamData({});
+            }}
             variant={activeTab === "syllabus" ? "default" : "outline"}
             className={`px-8 py-3 rounded-full transition-all duration-300 ${
               activeTab === "syllabus"
@@ -643,7 +721,16 @@ export default function WassceExamsPage() {
             {activeTab === "syllabus" && <span className="ml-2">✓</span>}
           </Button>
           <Button
-            onClick={() => setActiveTab("practice")}
+            onClick={() => {
+              setActiveTab("practice");
+              setOpenExam(null);
+              setShowFeedback(false);
+              setShowMockFeedback(false);
+              setShowMockExamFeedback(false);
+              setMockExamData({});
+              // Force immediate update of currentExams
+              setCurrentExams(practiceQuestions);
+            }}
             variant={activeTab === "practice" ? "default" : "outline"}
             className={`px-8 py-3 rounded-full transition-all duration-300 ${
               activeTab === "practice"
@@ -656,7 +743,16 @@ export default function WassceExamsPage() {
             {activeTab === "practice" && <span className="ml-2">✓</span>}
           </Button>
           <Button
-            onClick={() => setActiveTab("mock")}
+            onClick={() => {
+              setActiveTab("mock");
+              setOpenExam(null);
+              setShowFeedback(false);
+              setShowMockFeedback(false);
+              setShowMockExamFeedback(false);
+              setMockExamData({});
+              // Force immediate update of currentExams
+              setCurrentExams(mockExams);
+            }}
             variant={activeTab === "mock" ? "default" : "outline"}
             className={`px-8 py-3 rounded-full transition-all duration-300 ${
               activeTab === "mock"
@@ -739,16 +835,20 @@ export default function WassceExamsPage() {
               </div>
               <h2 className="text-3xl font-bold text-gray-800 mb-6">
                 Available{" "}
-                {activeTab === "practice" ? "Practice Questions" : "Mock Exams"}
+                {activeTab === "practice" ? "Practice Questions" : "Mock Exams"}{" "}
+                ({currentExams.length})
               </h2>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-12">
-              {currentExams.map((exam: any) => {
+            <div
+              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-12"
+              key={`${activeTab}-${currentExams.length}`}
+            >
+              {currentExams.map((exam: any, index: number) => {
                 const meta =
                   subjectMeta[exam.subject] || subjectMeta["Economics"];
                 return (
                   <Card
-                    key={exam.id}
+                    key={`${activeTab}-${exam.id}`}
                     className={`relative overflow-hidden rounded-3xl shadow-xl border-0 bg-white/70 backdrop-blur-md transition-transform duration-300 hover:scale-105 hover:shadow-2xl group`}
                   >
                     <CardContent className="p-8 flex flex-col h-full">
@@ -804,134 +904,324 @@ export default function WassceExamsPage() {
             const questions =
               activeTab === "practice"
                 ? (exam as any).questions
-                : mockExamData[exam.id]?.questions || [];
+                : (() => {
+                    const mockData = mockExamData[exam.id];
+                    if (!mockData) return [];
+
+                    // Handle different data structures
+                    if (mockData.questions) {
+                      return mockData.questions;
+                    } else if (mockData.sections) {
+                      // Flatten questions from all sections
+                      const allQuestions: any[] = [];
+                      Object.values(mockData.sections).forEach(
+                        (section: any) => {
+                          if (section.questions) {
+                            allQuestions.push(...section.questions);
+                          }
+                        }
+                      );
+                      return allQuestions;
+                    }
+                    return [];
+                  })();
 
             return (
-              <div className="max-w-2xl mx-auto mb-12">
-                <Card className="relative overflow-hidden rounded-3xl shadow-xl border-0 bg-white/80 backdrop-blur-md">
-                  <CardContent className="p-8 flex flex-col h-full">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div
-                        className={`w-14 h-14 rounded-xl bg-gradient-to-br ${meta.gradient} flex items-center justify-center shadow-lg border-4 border-white`}
-                      >
-                        {meta.icon}
-                      </div>
-                      <div>
-                        <div className="text-xl font-bold text-gray-800 mb-1">
-                          {exam.title}
+              <div
+                className={`transition-all duration-700 ease-in-out ${
+                  whiteboardOpen ? "max-w-7xl" : "max-w-2xl"
+                } mx-auto mb-12 px-4`}
+              >
+                <div
+                  className={`flex ${
+                    whiteboardOpen ? "flex-col lg:flex-row" : "flex-col"
+                  } gap-4 lg:gap-6 relative`}
+                >
+                  {/* Exam Section - Left Side / Top on Mobile */}
+                  <div
+                    className={`transition-all duration-700 ease-in-out ${
+                      whiteboardOpen ? "w-full lg:w-1/2" : "w-full"
+                    } min-w-0`}
+                  >
+                    <Card className="relative overflow-hidden rounded-3xl shadow-xl border-0 bg-white/80 backdrop-blur-md">
+                      <CardContent className="p-8 flex flex-col h-full">
+                        {/* Whiteboard Toggle Button */}
+                        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-4">
+                          <h2 className="text-xl sm:text-2xl font-bold text-gray-800">
+                            {exam?.title}
+                          </h2>
+                          <Button
+                            variant={whiteboardOpen ? "default" : "outline"}
+                            onClick={() => setWhiteboardOpen(!whiteboardOpen)}
+                            className={`transition-all duration-300 w-full sm:w-auto ${
+                              whiteboardOpen
+                                ? "bg-emerald-600 text-white hover:bg-emerald-700"
+                                : "border-emerald-500 text-emerald-700 hover:bg-emerald-50"
+                            }`}
+                          >
+                            {whiteboardOpen ? "Hide" : "Show"} Whiteboard
+                          </Button>
                         </div>
-                        <Badge className={`${meta.badge} px-3 py-1 shadow`}>
-                          {exam.subject}
-                        </Badge>
-                      </div>
-                    </div>
-
-                    <Button
-                      variant="secondary"
-                      className="mb-6 w-fit self-start"
-                      onClick={() => setOpenExam(null)}
-                    >
-                      ← Back
-                    </Button>
-
-                    {loadingMockExam ? (
-                      <div className="text-center py-8">
-                        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-600 mx-auto mb-4"></div>
-                        <p className="text-gray-600">
-                          Loading mock exam data...
-                        </p>
-                      </div>
-                    ) : (
-                      <div className="mt-4 space-y-6">
-                        {/* Show instructions only once for mock exams */}
-                        {activeTab === "mock" && (
-                          <div className="bg-blue-50 p-4 rounded-lg border border-blue-200 mb-6">
-                            <p className="text-blue-700 text-sm font-medium">
-                              📝 This is a full paper mock exam. Write your
-                              answers on paper or in your preferred format.
-                            </p>
-                            <div className="mt-2 text-xs text-blue-600">
-                              <p>• Read each question carefully</p>
-                              <p>• Plan your response before writing</p>
-                              <p>• Use appropriate examples and evidence</p>
-                              <p>• Check your work for accuracy and clarity</p>
-                              <p>• Manage your time effectively</p>
-                            </div>
+                        <div className="flex items-center gap-3 mb-4">
+                          <div
+                            className={`w-14 h-14 rounded-xl bg-gradient-to-br ${meta.gradient} flex items-center justify-center shadow-lg border-4 border-white`}
+                          >
+                            {meta.icon}
                           </div>
-                        )}
+                          <div>
+                            <div className="text-xl font-bold text-gray-800 mb-1">
+                              {exam.title}
+                            </div>
+                            <Badge className={`${meta.badge} px-3 py-1 shadow`}>
+                              {exam.subject}
+                            </Badge>
+                          </div>
+                        </div>
 
-                        {questions.map(
-                          (
-                            q: { q: string; options: string[]; answer: number },
-                            qIdx: number
-                          ) => (
-                            <div key={qIdx} className="mb-4">
-                              <div className="font-semibold mb-2">
-                                Q{qIdx + 1}. {q.q}
+                        <Button
+                          variant="secondary"
+                          className="mb-6 w-fit self-start"
+                          onClick={() => setOpenExam(null)}
+                        >
+                          ← Back
+                        </Button>
+
+                        {loadingMockExam ? (
+                          <div className="text-center py-8">
+                            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-600 mx-auto mb-4"></div>
+                            <p className="text-gray-600">
+                              Loading mock exam data...
+                            </p>
+                          </div>
+                        ) : (
+                          <div className="mt-4 space-y-6">
+                            {/* Show instructions only once for mock exams */}
+                            {activeTab === "mock" && (
+                              <div className="bg-blue-50 p-4 rounded-lg border border-blue-200 mb-6">
+                                <p className="text-blue-700 text-sm font-medium">
+                                  📝 This is a full paper mock exam. Write your
+                                  answers on paper or in your preferred format.
+                                </p>
+                                <div className="mt-2 text-xs text-blue-600">
+                                  <p>• Read each question carefully</p>
+                                  <p>• Plan your response before writing</p>
+                                  <p>• Use appropriate examples and evidence</p>
+                                  <p>
+                                    • Check your work for accuracy and clarity
+                                  </p>
+                                  <p>• Manage your time effectively</p>
+                                </div>
                               </div>
-                              {activeTab === "practice" &&
-                              q.options &&
-                              q.options.length > 0 ? (
-                                <div className="flex flex-col gap-2">
-                                  {q.options.map(
-                                    (opt: string, optIdx: number) => (
-                                      <label
-                                        key={optIdx}
-                                        className={`flex items-center gap-2 p-2 rounded cursor-pointer transition-all ${
-                                          answers[exam.id]?.[qIdx] === optIdx
-                                            ? "bg-emerald-100 border-emerald-400"
-                                            : "bg-white border border-gray-200 hover:border-emerald-300"
-                                        }`}
-                                      >
-                                        <input
-                                          type="radio"
-                                          name={`q${exam.id}_${qIdx}`}
-                                          checked={
-                                            answers[exam.id]?.[qIdx] === optIdx
+                            )}
+
+                            {questions.map(
+                              (
+                                q: {
+                                  q?: string;
+                                  question?: string;
+                                  options: string[];
+                                  answer?: number;
+                                  correctAnswer?: number;
+                                },
+                                qIdx: number
+                              ) => (
+                                <div key={qIdx} className="mb-4">
+                                  <div className="font-semibold mb-2">
+                                    Q{qIdx + 1}. {q.q || q.question}
+                                  </div>
+                                  {q.options && q.options.length > 0 ? (
+                                    <div className="flex flex-col gap-2">
+                                      {q.options.map(
+                                        (opt: string, optIdx: number) => {
+                                          const isSelected =
+                                            activeTab === "practice"
+                                              ? answers[exam.id]?.[qIdx] ===
+                                                optIdx
+                                              : mockAnswers[exam.id]?.[qIdx] ===
+                                                optIdx;
+                                          const isCorrect =
+                                            q.correctAnswer === optIdx;
+
+                                          let optionClass =
+                                            "flex items-center gap-2 p-2 rounded cursor-pointer transition-all";
+
+                                          if (
+                                            activeTab === "mock" &&
+                                            showMockExamFeedback
+                                          ) {
+                                            if (isCorrect) {
+                                              optionClass +=
+                                                " bg-green-100 border-green-400";
+                                            } else if (
+                                              isSelected &&
+                                              !isCorrect
+                                            ) {
+                                              optionClass +=
+                                                " bg-red-100 border-red-400";
+                                            } else {
+                                              optionClass +=
+                                                " bg-gray-50 border-gray-200";
+                                            }
+                                          } else {
+                                            if (isSelected) {
+                                              optionClass +=
+                                                " bg-emerald-100 border-emerald-400";
+                                            } else {
+                                              optionClass +=
+                                                " bg-white border border-gray-200 hover:border-emerald-300";
+                                            }
                                           }
-                                          onChange={() =>
-                                            handleAnswer(exam.id, qIdx, optIdx)
-                                          }
-                                          className="accent-emerald-600"
-                                        />
-                                        <span>{opt}</span>
-                                      </label>
-                                    )
+
+                                          return (
+                                            <label
+                                              key={optIdx}
+                                              className={optionClass}
+                                            >
+                                              <input
+                                                type="radio"
+                                                name={`q${exam.id}_${qIdx}`}
+                                                checked={isSelected}
+                                                onChange={() =>
+                                                  activeTab === "practice"
+                                                    ? handleAnswer(
+                                                        exam.id,
+                                                        qIdx,
+                                                        optIdx
+                                                      )
+                                                    : handleMockAnswer(
+                                                        exam.id,
+                                                        qIdx,
+                                                        optIdx
+                                                      )
+                                                }
+                                                className="accent-emerald-600"
+                                                disabled={
+                                                  activeTab === "mock" &&
+                                                  showMockExamFeedback
+                                                }
+                                              />
+                                              <span className="flex-1">
+                                                {opt}
+                                              </span>
+                                              {activeTab === "mock" &&
+                                                showMockExamFeedback &&
+                                                isCorrect && (
+                                                  <span className="text-green-600 font-bold">
+                                                    ✓
+                                                  </span>
+                                                )}
+                                              {activeTab === "mock" &&
+                                                showMockExamFeedback &&
+                                                isSelected &&
+                                                !isCorrect && (
+                                                  <span className="text-red-600 font-bold">
+                                                    ✗
+                                                  </span>
+                                                )}
+                                            </label>
+                                          );
+                                        }
+                                      )}
+                                    </div>
+                                  ) : (
+                                    <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                                      <p className="text-gray-600 text-sm">
+                                        This is an essay question. Write your
+                                        answer in the space provided.
+                                      </p>
+                                      <textarea
+                                        className="w-full mt-2 p-3 border border-gray-300 rounded-lg resize-none"
+                                        rows={4}
+                                        placeholder="Write your answer here..."
+                                      />
+                                    </div>
                                   )}
                                 </div>
-                              ) : activeTab === "practice" &&
-                                (!q.options || q.options.length === 0) ? (
-                                <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                                  <p className="text-gray-600 text-sm">
-                                    This is an essay question. Write your answer
-                                    in the space provided.
-                                  </p>
-                                  <textarea
-                                    className="w-full mt-2 p-3 border border-gray-300 rounded-lg resize-none"
-                                    rows={4}
-                                    placeholder="Write your answer here..."
-                                  />
-                                </div>
-                              ) : null}
-                            </div>
-                          )
+                              )
+                            )}
+                            {(activeTab === "practice" ||
+                              activeTab === "mock") && (
+                              <>
+                                {activeTab === "mock" &&
+                                showMockExamFeedback ? (
+                                  <div className="mt-2 space-y-2">
+                                    <Button
+                                      variant="outline"
+                                      className="w-full rounded-full"
+                                      onClick={() =>
+                                        setShowMockExamFeedback(false)
+                                      }
+                                    >
+                                      Hide Answers
+                                    </Button>
+                                    <Button
+                                      className="bg-purple-600 hover:bg-purple-700 text-white w-full rounded-full shadow-lg"
+                                      onClick={() => {
+                                        setShowMockExamFeedback(false);
+                                        setOpenExam(null);
+                                      }}
+                                    >
+                                      Back to Exams
+                                    </Button>
+                                  </div>
+                                ) : (
+                                  <Button
+                                    className={`${
+                                      activeTab === "practice"
+                                        ? "bg-emerald-600 hover:bg-emerald-700"
+                                        : "bg-purple-600 hover:bg-purple-700"
+                                    } text-white mt-2 w-full rounded-full shadow-lg`}
+                                    onClick={() =>
+                                      activeTab === "practice"
+                                        ? handleSubmit(exam)
+                                        : handleMockSubmit(exam)
+                                    }
+                                  >
+                                    Submit
+                                  </Button>
+                                )}
+                              </>
+                            )}
+                          </div>
                         )}
-                        {activeTab === "practice" && (
-                          <Button
-                            className="bg-emerald-600 hover:bg-emerald-700 text-white mt-2 w-full rounded-full shadow-lg"
-                            onClick={() => handleSubmit(exam)}
-                          >
-                            Submit
-                          </Button>
-                        )}
+                        {/* Decorative gradient blob */}
+                        <span
+                          className={`absolute -top-10 -right-10 w-32 h-32 rounded-full opacity-20 blur-2xl bg-gradient-to-br ${meta.gradient}`}
+                        ></span>
+                      </CardContent>
+                    </Card>
+                  </div>
+                  {/* Whiteboard Section - Right Side / Bottom on Mobile */}
+                  <div
+                    className={`transition-all duration-700 ease-in-out ${
+                      whiteboardOpen
+                        ? "w-full lg:w-1/2 opacity-100 translate-x-0"
+                        : "w-0 lg:w-0 opacity-0 translate-x-full lg:translate-x-full hidden lg:block"
+                    } min-w-0 overflow-hidden`}
+                  >
+                    {whiteboardOpen && (
+                      <div className="h-[50vh] sm:h-[60vh] lg:h-screen sticky top-0">
+                        <Whiteboard
+                          width={
+                            typeof window !== "undefined"
+                              ? Math.min(600, window.innerWidth - 32)
+                              : 400
+                          }
+                          height={
+                            typeof window !== "undefined"
+                              ? Math.min(500, window.innerHeight * 0.5)
+                              : 300
+                          }
+                          initialBackground={whiteboardBg}
+                          className="h-full w-full border-t lg:border-t-0 lg:border-l border-gray-200"
+                          title="Exam Whiteboard"
+                          showHeader={true}
+                          template={whiteboardTemplate}
+                        />
                       </div>
                     )}
-                    {/* Decorative gradient blob */}
-                    <span
-                      className={`absolute -top-10 -right-10 w-32 h-32 rounded-full opacity-20 blur-2xl bg-gradient-to-br ${meta.gradient}`}
-                    ></span>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               </div>
             );
           })()
@@ -981,6 +1271,112 @@ export default function WassceExamsPage() {
                   setAnswers((prev) => ({
                     ...prev,
                     [openExam!]: Array(2).fill(-1),
+                  }));
+                }}
+              >
+                Try Again
+              </Button>
+            </div>
+          </DialogContent>
+        </Dialog>
+
+        {/* Mock Feedback Modal */}
+        <Dialog open={showMockFeedback} onOpenChange={setShowMockFeedback}>
+          <DialogContent className="max-w-md text-center bg-white/80 backdrop-blur-md rounded-3xl shadow-2xl">
+            <DialogHeader>
+              <DialogTitle className="text-3xl flex items-center justify-center gap-2">
+                {mockFeedbackEmoji}{" "}
+                {(() => {
+                  const mockData = mockExamData[openExam!];
+                  if (!mockData) return "Keep Practicing!";
+                  let totalQuestions = 0;
+                  if (mockData.questions)
+                    totalQuestions = mockData.questions.length;
+                  if (mockData.sections) {
+                    Object.values(mockData.sections).forEach((section: any) => {
+                      if (section.questions)
+                        totalQuestions += section.questions.length;
+                    });
+                  }
+                  return mockScore === totalQuestions
+                    ? "Perfect Score!"
+                    : mockScore > totalQuestions * 0.7
+                    ? "Excellent!"
+                    : mockScore > totalQuestions * 0.5
+                    ? "Good Job!"
+                    : "Keep Practicing!";
+                })()}
+              </DialogTitle>
+            </DialogHeader>
+            <div className="my-4 text-lg font-semibold text-purple-700">
+              You scored {mockScore} out of{" "}
+              {(() => {
+                const mockData = mockExamData[openExam!];
+                if (!mockData) return 0;
+                if (mockData.questions) return mockData.questions.length;
+                if (mockData.sections) {
+                  let totalQuestions = 0;
+                  Object.values(mockData.sections).forEach((section: any) => {
+                    if (section.questions)
+                      totalQuestions += section.questions.length;
+                  });
+                  return totalQuestions;
+                }
+                return 0;
+              })()}
+            </div>
+            <Progress
+              value={
+                (mockScore /
+                  (() => {
+                    const mockData = mockExamData[openExam!];
+                    if (!mockData) return 1;
+                    if (mockData.questions) return mockData.questions.length;
+                    if (mockData.sections) {
+                      let totalQuestions = 0;
+                      Object.values(mockData.sections).forEach(
+                        (section: any) => {
+                          if (section.questions)
+                            totalQuestions += section.questions.length;
+                        }
+                      );
+                      return totalQuestions || 1;
+                    }
+                    return 1;
+                  })()) *
+                100
+              }
+              className="mb-4 h-3 bg-gray-200"
+            />
+            <div className="space-y-3">
+              <Button
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-full"
+                onClick={() => {
+                  setShowMockFeedback(false);
+                  setShowMockExamFeedback(true);
+                }}
+              >
+                Show Correct Answers
+              </Button>
+              <Button
+                className="w-full bg-purple-600 hover:bg-purple-700 text-white rounded-full"
+                onClick={() => {
+                  setShowMockFeedback(false);
+                  setShowMockExamFeedback(false);
+                  setOpenExam(null);
+                }}
+              >
+                Back to Exams
+              </Button>
+              <Button
+                variant="outline"
+                className="w-full rounded-full"
+                onClick={() => {
+                  setShowMockFeedback(false);
+                  setShowMockExamFeedback(false);
+                  setMockAnswers((prev) => ({
+                    ...prev,
+                    [openExam!]: Array(100).fill(-1),
                   }));
                 }}
               >

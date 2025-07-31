@@ -1,0 +1,362 @@
+{
+  "examInfo": {
+    "title": "JAMB Economics Practice Questions",
+    "subject": "Economics",
+    "examType": "Practice",
+    "duration": "60 minutes",
+    "totalQuestions": 25,
+    "instructions": "Choose the correct option from A-D for each question."
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "Economics is defined as the study of",
+      "options": {
+        "A": "Money and banking",
+        "B": "Scarcity and choice",
+        "C": "Production and consumption",
+        "D": "Supply and demand"
+      },
+      "correctAnswer": "B",
+      "explanation": "Economics is fundamentally the study of how societies allocate scarce resources among unlimited wants, making it the study of scarcity and choice.",
+      "topic": "Introduction to Economics",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 2,
+      "question": "The opportunity cost of a choice is",
+      "options": {
+        "A": "The money cost of the choice",
+        "B": "The time spent making the choice",
+        "C": "The value of the next best alternative forgone",
+        "D": "The total cost of all alternatives"
+      },
+      "correctAnswer": "C",
+      "explanation": "Opportunity cost is the value of the next best alternative that must be given up when making a choice.",
+      "topic": "Basic Economic Concepts",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 3,
+      "question": "When demand increases and supply remains constant, the price will",
+      "options": {
+        "A": "Decrease",
+        "B": "Increase",
+        "C": "Remain the same",
+        "D": "Fluctuate randomly"
+      },
+      "correctAnswer": "B",
+      "explanation": "When demand increases while supply remains constant, there is excess demand, which drives the price upward.",
+      "topic": "Demand and Supply",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 4,
+      "question": "The law of demand states that",
+      "options": {
+        "A": "As price increases, quantity demanded increases",
+        "B": "As price decreases, quantity demanded decreases",
+        "C": "As price increases, quantity demanded decreases",
+        "D": "Price and quantity demanded are unrelated"
+      },
+      "correctAnswer": "C",
+      "explanation": "The law of demand states that there is an inverse relationship between price and quantity demanded, ceteris paribus.",
+      "topic": "Demand Theory",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 5,
+      "question": "Elasticity of demand measures",
+      "options": {
+        "A": "The change in demand over time",
+        "B": "The responsiveness of quantity demanded to price changes",
+        "C": "The total demand for a product",
+        "D": "The maximum price consumers will pay"
+      },
+      "correctAnswer": "B",
+      "explanation": "Price elasticity of demand measures how responsive quantity demanded is to changes in price.",
+      "topic": "Elasticity",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 6,
+      "question": "In perfect competition, firms are",
+      "options": {
+        "A": "Price makers",
+        "B": "Price takers",
+        "C": "Price controllers",
+        "D": "Price manipulators"
+      },
+      "correctAnswer": "B",
+      "explanation": "In perfect competition, individual firms have no control over price and must accept the market price, making them price takers.",
+      "topic": "Market Structures",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 7,
+      "question": "Gross Domestic Product (GDP) measures",
+      "options": {
+        "A": "The total income of citizens",
+        "B": "The total value of goods and services produced within a country",
+        "C": "The total exports of a country",
+        "D": "The total government spending"
+      },
+      "correctAnswer": "B",
+      "explanation": "GDP measures the total monetary value of all finished goods and services produced within a country's borders in a specific time period.",
+      "topic": "National Income",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 8,
+      "question": "Inflation is defined as",
+      "options": {
+        "A": "A decrease in the general price level",
+        "B": "An increase in the general price level",
+        "C": "Stability in prices",
+        "D": "Fluctuation in individual prices"
+      },
+      "correctAnswer": "B",
+      "explanation": "Inflation is a sustained increase in the general price level of goods and services in an economy over time.",
+      "topic": "Inflation",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 9,
+      "question": "The central bank's main function is to",
+      "options": {
+        "A": "Provide loans to individuals",
+        "B": "Control the money supply and monetary policy",
+        "C": "Collect taxes",
+        "D": "Regulate international trade"
+      },
+      "correctAnswer": "B",
+      "explanation": "The central bank's primary function is to control the money supply and implement monetary policy to maintain economic stability.",
+      "topic": "Money and Banking",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 10,
+      "question": "Unemployment that occurs due to changes in technology is called",
+      "options": {
+        "A": "Frictional unemployment",
+        "B": "Structural unemployment",
+        "C": "Cyclical unemployment",
+        "D": "Seasonal unemployment"
+      },
+      "correctAnswer": "B",
+      "explanation": "Structural unemployment occurs when there is a mismatch between workers' skills and job requirements, often due to technological changes.",
+      "topic": "Unemployment",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 11,
+      "question": "The production possibility curve shows",
+      "options": {
+        "A": "The relationship between price and quantity",
+        "B": "The maximum combinations of goods that can be produced",
+        "C": "The minimum cost of production",
+        "D": "The profit maximization point"
+      },
+      "correctAnswer": "B",
+      "explanation": "The production possibility curve (PPC) shows the maximum combinations of two goods that can be produced with available resources and technology.",
+      "topic": "Production Theory",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 12,
+      "question": "A monopoly is characterized by",
+      "options": {
+        "A": "Many sellers and many buyers",
+        "B": "Few sellers and many buyers",
+        "C": "One seller and many buyers",
+        "D": "Many sellers and few buyers"
+      },
+      "correctAnswer": "C",
+      "explanation": "A monopoly is a market structure with only one seller (producer) and many buyers, giving the seller significant market power.",
+      "topic": "Market Structures",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 13,
+      "question": "Fiscal policy involves",
+      "options": {
+        "A": "Control of money supply",
+        "B": "Government spending and taxation",
+        "C": "Interest rate manipulation",
+        "D": "Exchange rate control"
+      },
+      "correctAnswer": "B",
+      "explanation": "Fiscal policy refers to government's use of spending and taxation to influence the economy.",
+      "topic": "Government Policy",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 14,
+      "question": "The marginal utility of a good",
+      "options": {
+        "A": "Always increases with consumption",
+        "B": "Always decreases with consumption",
+        "C": "Remains constant with consumption",
+        "D": "May increase or decrease with consumption"
+      },
+      "correctAnswer": "B",
+      "explanation": "According to the law of diminishing marginal utility, the marginal utility of a good decreases as more units are consumed.",
+      "topic": "Consumer Theory",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 15,
+      "question": "Balance of payments records",
+      "options": {
+        "A": "Only exports and imports",
+        "B": "All economic transactions between a country and the rest of the world",
+        "C": "Only government transactions",
+        "D": "Only private sector transactions"
+      },
+      "correctAnswer": "B",
+      "explanation": "Balance of payments is a comprehensive record of all economic transactions between residents of a country and the rest of the world.",
+      "topic": "International Trade",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 16,
+      "question": "Economic growth is measured by",
+      "options": {
+        "A": "Increase in population",
+        "B": "Increase in real GDP",
+        "C": "Decrease in unemployment",
+        "D": "Increase in government spending"
+      },
+      "correctAnswer": "B",
+      "explanation": "Economic growth is typically measured by the percentage increase in real GDP over time.",
+      "topic": "Economic Growth",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 17,
+      "question": "The multiplier effect refers to",
+      "options": {
+        "A": "The effect of price changes on demand",
+        "B": "The amplified impact of initial spending on total income",
+        "C": "The effect of interest rates on investment",
+        "D": "The impact of taxes on consumption"
+      },
+      "correctAnswer": "B",
+      "explanation": "The multiplier effect describes how an initial change in spending leads to a larger change in total income and output.",
+      "topic": "Macroeconomic Theory",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 18,
+      "question": "Public goods are characterized by",
+      "options": {
+        "A": "Rivalry and excludability",
+        "B": "Non-rivalry and non-excludability",
+        "C": "Rivalry and non-excludability",
+        "D": "Non-rivalry and excludability"
+      },
+      "correctAnswer": "B",
+      "explanation": "Public goods are non-rival (one person's consumption doesn't reduce availability to others) and non-excludable (difficult to prevent people from using them).",
+      "topic": "Public Economics",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 19,
+      "question": "The law of supply states that",
+      "options": {
+        "A": "As price increases, quantity supplied decreases",
+        "B": "As price increases, quantity supplied increases",
+        "C": "Price and quantity supplied are unrelated",
+        "D": "Supply is always constant"
+      },
+      "correctAnswer": "B",
+      "explanation": "The law of supply states that there is a positive relationship between price and quantity supplied, ceteris paribus.",
+      "topic": "Supply Theory",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 20,
+      "question": "Comparative advantage refers to",
+      "options": {
+        "A": "Producing everything more efficiently than others",
+        "B": "Producing at the lowest opportunity cost",
+        "C": "Having the most resources",
+        "D": "Being the largest producer"
+      },
+      "correctAnswer": "B",
+      "explanation": "Comparative advantage exists when a country can produce a good at a lower opportunity cost than other countries.",
+      "topic": "International Trade",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 21,
+      "question": "Market failure occurs when",
+      "options": {
+        "A": "Markets are perfectly competitive",
+        "B": "Markets fail to allocate resources efficiently",
+        "C": "Prices are too high",
+        "D": "Supply equals demand"
+      },
+      "correctAnswer": "B",
+      "explanation": "Market failure occurs when the free market fails to allocate resources efficiently, often due to externalities, public goods, or market power.",
+      "topic": "Market Failure",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 22,
+      "question": "The Phillips curve shows the relationship between",
+      "options": {
+        "A": "Inflation and unemployment",
+        "B": "Price and quantity",
+        "C": "Income and consumption",
+        "D": "Investment and interest rates"
+      },
+      "correctAnswer": "A",
+      "explanation": "The Phillips curve illustrates the inverse relationship between inflation and unemployment rates in the short run.",
+      "topic": "Macroeconomic Relationships",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 23,
+      "question": "Externalities are",
+      "options": {
+        "A": "Costs or benefits that affect only the producer",
+        "B": "Costs or benefits that affect third parties",
+        "C": "Government interventions in markets",
+        "D": "International trade effects"
+      },
+      "correctAnswer": "B",
+      "explanation": "Externalities are costs or benefits that affect parties who did not choose to incur those costs or benefits.",
+      "topic": "Market Failure",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 24,
+      "question": "The marginal propensity to consume (MPC) is",
+      "options": {
+        "A": "Total consumption divided by total income",
+        "B": "Change in consumption divided by change in income",
+        "C": "Total savings divided by total income",
+        "D": "Change in savings divided by change in income"
+      },
+      "correctAnswer": "B",
+      "explanation": "MPC is the fraction of additional income that is spent on consumption, calculated as the change in consumption divided by the change in income.",
+      "topic": "Consumption Theory",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 25,
+      "question": "Devaluation of a currency means",
+      "options": {
+        "A": "The currency becomes stronger",
+        "B": "The currency becomes weaker",
+        "C": "The currency remains stable",
+        "D": "The currency is removed from circulation"
+      },
+      "correctAnswer": "B",
+      "explanation": "Devaluation is a deliberate downward adjustment of a country's currency value relative to other currencies, making it weaker.",
+      "topic": "Exchange Rates",
+      "difficulty": "Easy"
+    }
+  ]
+}

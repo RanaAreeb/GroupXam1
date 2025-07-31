@@ -1,0 +1,136 @@
+{
+  "id": "wassce-geography-practice-2024",
+  "title": "WASSCE Geography Practice Questions",
+  "subject": "Geography",
+  "examType": "WASSCE Practice",
+  "year": 2024,
+  "totalQuestions": 50,
+  "topics": [
+    {
+      "topicName": "Physical Geography - Landforms",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Explain the formation of a river meander with a labeled diagram",
+          "type": "process-explanation",
+          "answer": "River meanders form due to lateral erosion and deposition. Fast-flowing water on the outer bend (river cliff) erodes the bank, while slow-flowing water on the inner bend deposits sediment (slip-off slope). Over time, this creates the characteristic curved shape.",
+          "explanation": "Meanders result from the river's tendency to follow the path of least resistance and energy distribution."
+        },
+        {
+          "id": 2,
+          "question": "List and explain three types of weathering",
+          "type": "classification",
+          "answer": "1. Physical/Mechanical - rock breakdown without chemical change (freeze-thaw, thermal expansion)\n2. Chemical - rock breakdown through chemical reactions (oxidation, carbonation, hydrolysis)\n3. Biological - rock breakdown by living organisms (root action, burrowing animals)",
+          "explanation": "Weathering processes work together to break down rocks in different ways."
+        },
+        {
+          "id": 3,
+          "question": "The process by which soil particles are removed by wind or water is called ______",
+          "type": "fill-in-blank",
+          "answer": "erosion",
+          "explanation": "Erosion involves the transportation of weathered material from one place to another."
+        }
+      ]
+    },
+    {
+      "topicName": "Climate and Weather",
+      "questions": [
+        {
+          "id": 4,
+          "question": "Distinguish between weather and climate",
+          "type": "comparison",
+          "answer": "Weather refers to short-term atmospheric conditions (daily/hourly), while climate refers to long-term average weather patterns over 30+ years for a region",
+          "explanation": "Weather is what you experience today; climate is what you expect based on long-term patterns."
+        },
+        {
+          "id": 5,
+          "question": "Explain how relief rainfall occurs",
+          "type": "process-explanation",
+          "answer": "Warm, moist air is forced to rise over mountains/hills → air cools as it rises → reaches dew point → condensation occurs → precipitation falls on windward side → dry air descends on leeward side (rain shadow)",
+          "explanation": "Relief rainfall is orographic precipitation caused by topographic lifting of air masses."
+        },
+        {
+          "id": 6,
+          "question": "Name the instrument used to measure atmospheric pressure",
+          "type": "identification",
+          "answer": "Barometer",
+          "explanation": "Barometers measure atmospheric pressure, which helps predict weather changes."
+        }
+      ]
+    },
+    {
+      "topicName": "Human Geography - Population",
+      "questions": [
+        {
+          "id": 7,
+          "question": "Calculate the population density if a country has 50 million people in an area of 200,000 km²",
+          "type": "calculation",
+          "answer": "250 people per km²",
+          "workingSteps": [
+            "Population density = Total population ÷ Total area",
+            "= 50,000,000 ÷ 200,000",
+            "= 250 people per km²"
+          ],
+          "explanation": "Population density shows how crowded an area is."
+        },
+        {
+          "id": 8,
+          "question": "List four push factors that cause migration",
+          "type": "listing",
+          "answer": "1. Unemployment/poverty\n2. Political persecution/war\n3. Natural disasters\n4. Poor living conditions/lack of services",
+          "explanation": "Push factors are negative conditions that force people to leave their origin."
+        },
+        {
+          "id": 9,
+          "question": "The study of population is called ______",
+          "type": "fill-in-blank",
+          "answer": "demography",
+          "explanation": "Demography analyzes population size, structure, distribution, and changes over time."
+        }
+      ]
+    },
+    {
+      "topicName": "Economic Geography",
+      "questions": [
+        {
+          "id": 10,
+          "question": "Classify the following as primary, secondary, or tertiary activities: farming, banking, steel production, fishing",
+          "type": "classification",
+          "answer": "Farming - Primary, Banking - Tertiary, Steel production - Secondary, Fishing - Primary",
+          "explanation": "Primary extracts raw materials, secondary processes them, tertiary provides services."
+        },
+        {
+          "id": 11,
+          "question": "Explain three factors that influence the location of industries",
+          "type": "explanation",
+          "answer": "1. Raw materials - proximity reduces transport costs\n2. Market access - nearness to consumers reduces distribution costs\n3. Transportation - good transport links for inputs and outputs",
+          "explanation": "Industrial location depends on minimizing costs and maximizing accessibility."
+        }
+      ]
+    },
+    {
+      "topicName": "Map Reading and GIS",
+      "questions": [
+        {
+          "id": 12,
+          "question": "If a map scale is 1:25,000, what distance on the ground does 4cm on the map represent?",
+          "type": "calculation",
+          "answer": "1 km",
+          "workingSteps": [
+            "Scale 1:25,000 means 1 cm = 25,000 cm",
+            "4 cm = 4 × 25,000 cm = 100,000 cm",
+            "100,000 cm = 1,000 m = 1 km"
+          ],
+          "explanation": "Use the scale ratio to convert map distance to ground distance."
+        },
+        {
+          "id": 13,
+          "question": "What do contour lines on a map represent?",
+          "type": "definition",
+          "answer": "Lines joining points of equal height/elevation above sea level",
+          "explanation": "Contour lines show the shape and steepness of the land surface."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "id": "waec-further-mathematics-mock-2024",
+  "title": "WAEC Further Mathematics Mock Examination",
+  "subject": "Further Mathematics",
+  "examType": "WAEC Mock",
+  "year": 2024,
+  "duration": "3 hours",
+  "instructions": "Answer ALL questions in Section A and any FOUR questions from Section B",
+  "sections": {
+    "sectionA": {
+      "title": "SECTION A - OBJECTIVE TEST",
+      "instruction": "Answer ALL questions in this section",
+      "timeAllocation": "1 hour",
+      "questions": [
+        {
+          "id": 1,
+          "question": "If f(x) = 3x² - 2x + 1, find f'(x)",
+          "options": ["6x - 2", "6x + 2", "3x - 2", "6x² - 2x"],
+          "correctAnswer": 0
+        },
+        {
+          "id": 2,
+          "question": "The integral of 2x dx is",
+          "options": ["x² + C", "2x² + C", "x²/2 + C", "2x + C"],
+          "correctAnswer": 0
+        },
+        {
+          "id": 3,
+          "question": "If matrix A = [2 3; 1 4], find det(A)",
+          "options": ["5", "8", "11", "14"],
+          "correctAnswer": 0
+        },
+        {
+          "id": 4,
+          "question": "The modulus of the complex number 3 + 4i is",
+          "options": ["5", "7", "12", "25"],
+          "correctAnswer": 0
+        },
+        {
+          "id": 5,
+          "question": "If log₂ x = 3, then x =",
+          "options": ["6", "8", "9", "16"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 6,
+          "question": "The coefficient of x² in the expansion of (1 + x)⁵ is",
+          "options": ["5", "10", "15", "20"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 7,
+          "question": "If sin θ = 3/5, find cos θ (θ is acute)",
+          "options": ["3/4", "4/5", "5/4", "4/3"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 8,
+          "question": "The sum of the first n natural numbers is",
+          "options": ["n(n+1)", "n(n+1)/2", "n(n-1)/2", "n²"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 9,
+          "question": "If vectors a = (2, 3) and b = (1, -2), find a · b",
+          "options": ["-4", "-2", "2", "4"],
+          "correctAnswer": 0
+        },
+        {
+          "id": 10,
+          "question": "The equation of a circle with center (2, 3) and radius 5 is",
+          "options": ["(x-2)² + (y-3)² = 25", "(x+2)² + (y+3)² = 25", "(x-2)² + (y-3)² = 5", "x² + y² = 25"],
+          "correctAnswer": 0
+        },
+        {
+          "id": 11,
+          "question": "If P(A) = 0.3 and P(B) = 0.4, and A and B are independent, find P(A ∩ B)",
+          "options": ["0.12", "0.7", "0.1", "0.24"],
+          "correctAnswer": 0
+        },
+        {
+          "id": 12,
+          "question": "The limit of (x² - 4)/(x - 2) as x approaches 2 is",
+          "options": ["0", "2", "4", "undefined"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 13,
+          "question": "If y = e^(2x), find dy/dx",
+          "options": ["e^(2x)", "2e^(2x)", "2x·e^(2x)", "e^(2x)/2"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 14,
+          "question": "The area under the curve y = x from x = 0 to x = 2 is",
+          "options": ["1", "2", "3", "4"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 15,
+          "question": "If z = 2 + 3i, find z*",
+          "options": ["2 - 3i", "-2 + 3i", "-2 - 3i", "3 + 2i"],
+          "correctAnswer": 0
+        },
+        {
+          "id": 16,
+          "question": "The inverse of matrix [1 2; 3 4] is",
+          "options": ["[-2 1; 1.5 -0.5]", "[4 -2; -3 1]/(-2)", "[4 -2; -3 1]/2", "[-4 2; 3 -1]/2"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 17,
+          "question": "If f(x) = ln(x), find f'(x)",
+          "options": ["1/x", "ln(x)", "x", "e^x"],
+          "correctAnswer": 0
+        },
+        {
+          "id": 18,
+          "question": "The period of sin(2x) is",
+          "options": ["π/2", "π", "2π", "4π"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 19,
+          "question": "If the mean of a normal distribution is 50 and standard deviation is 10, what percentage of data lies within one standard deviation?",
+          "options": ["68%", "95%", "99.7%", "50%"],
+          "correctAnswer": 0
+        },
+        {
+          "id": 20,
+          "question": "The equation x² + y² - 4x + 6y - 3 = 0 represents",
+          "options": ["A line", "A parabola", "A circle", "An ellipse"],
+          "correctAnswer": 2
+        }
+      ]
+    }
+  },
+  "answerKey": {
+    "1": "A",
+    "2": "A",
+    "3": "A",
+    "4": "A",
+    "5": "B",
+    "6": "B",
+    "7": "B",
+    "8": "B",
+    "9": "A",
+    "10": "A",
+    "11": "A",
+    "12": "C",
+    "13": "B",
+    "14": "B",
+    "15": "A",
+    "16": "B",
+    "17": "A",
+    "18": "B",
+    "19": "A",
+    "20": "C"
+  }
+}

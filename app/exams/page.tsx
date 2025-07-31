@@ -51,7 +51,7 @@ const examTypes = [
     description: "West African Examinations Council",
     icon: GraduationCap,
     color: "emerald",
-    count: 45,
+    count: 33,
     difficulty: "Advanced",
     gradient: "from-green-400 to-emerald-500",
   },
@@ -61,7 +61,7 @@ const examTypes = [
     description: "West African Senior School Certificate Examination",
     icon: School,
     color: "blue",
-    count: 38,
+    count: 22,
     difficulty: "Advanced",
     gradient: "from-blue-400 to-blue-600",
   },
@@ -71,7 +71,7 @@ const examTypes = [
     description: "Joint Admissions and Matriculation Board",
     icon: BookOpen,
     color: "purple",
-    count: 42,
+    count: 15,
     difficulty: "Advanced",
     gradient: "from-purple-400 to-purple-600",
   },
@@ -281,7 +281,7 @@ export default function ExamsPage() {
                 <Trophy className="w-6 h-6 text-white" />
               </div>
               <div className="text-2xl font-bold text-emerald-600 mb-1">
-                200+
+                66+
               </div>
               <div className="text-sm text-gray-600">Exams Available</div>
             </CardContent>

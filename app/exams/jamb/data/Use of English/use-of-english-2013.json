@@ -1,0 +1,116 @@
+{
+  "id": "use-of-english-2013",
+  "title": "2013 JAMB USE OF ENGLISH QUESTIONS",
+  "subject": "Use of English",
+  "year": 2013,
+  "duration": "2 hours",
+  "totalQuestions": 100,
+  "instructions": "COMPREHENSION: Read each passage carefully and answer the questions that follow it",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which question Paper Type of Uses of English is given to you?",
+      "options": ["Type D", "Type I", "Type B", "Type U"],
+      "answer": 2,
+      "explanation": "The paper type is clearly stated as Type B in the question."
+    },
+    {
+      "id": 2,
+      "question": "Which of the following is true according to the passage?",
+      "options": [
+        "Anyone, with almost no training, can run pots on a wheel",
+        "Pots can be made quickly and correctly",
+        "A pot thrown on a wheel is less likely to break",
+        "The potter does not have to work hard if he uses the wheel"
+      ],
+      "answer": 1,
+      "explanation": "The passage states that 'a small and medium-sized pot can be made more quickly and accurately' using the wheel method."
+    },
+    {
+      "id": 3,
+      "question": "From the passage, how does a potter make several pots of almost identical size?",
+      "options": [
+        "By having the knowledge of different pots",
+        "By weighing the lumps of clay",
+        "By having the right tools",
+        "By knowing what to do from experience"
+      ],
+      "answer": 1,
+      "explanation": "The passage states that 'They are weighed out so that each pot will be roughly the same size'."
+    },
+    {
+      "id": 4,
+      "question": "The phrase 'trims off any waste clay', as used in the passage, means to",
+      "options": [
+        "cut away unnecessary parts",
+        "force the clay to the centre",
+        "divide the clay into two",
+        "wash away different colours"
+      ],
+      "answer": 0,
+      "explanation": "To trim off waste clay means to remove or cut away the unnecessary or excess parts of the clay."
+    },
+    {
+      "id": 5,
+      "question": "The word 'congenial', as used in the passage, means",
+      "options": ["congested", "precise", "similar", "nice"],
+      "answer": 3,
+      "explanation": "Congenial means pleasant, agreeable, or nice - suitable for a temporary home environment."
+    },
+    {
+      "id": 6,
+      "question": "Which of the following is true according to the passage?",
+      "options": [
+        "Music can enhance evaluation performance",
+        "All listeners are music makers",
+        "All artistes are objective in their feelings",
+        "Music influences feelings at different levels"
+      ],
+      "answer": 0,
+      "explanation": "The passage discusses how music can enhance various activities and performances."
+    },
+    {
+      "id": 7,
+      "question": "The expression 'stage and hall', as used in the passage, means the",
+      "options": [
+        "artiste and his music",
+        "artiste and the audience",
+        "producer and the director",
+        "director and the audience"
+      ],
+      "answer": 1,
+      "explanation": "Stage and hall refers to the interaction between the performer (stage) and the audience (hall)."
+    },
+    {
+      "id": 8,
+      "question": "From the passage, it can be deduced that music is",
+      "options": [
+        "appreciated as the environment dictates",
+        "better appreciated in a crowd",
+        "better appreciated when we are happy",
+        "better appreciated by professional critics"
+      ],
+      "answer": 0,
+      "explanation": "The passage shows that music appreciation varies according to different environments and contexts."
+    },
+    {
+      "id": 9,
+      "question": "According to the writer, live performances provide a special excitement because they are",
+      "options": [
+        "unique and unrepeatable",
+        "expensive and exclusive",
+        "loud and energetic",
+        "long and detailed"
+      ],
+      "answer": 0,
+      "explanation": "Live performances are special because each one is unique and cannot be exactly repeated."
+    },
+    {
+      "id": 10,
+      "question": "The word 'resonance', as used in the passage, means",
+      "options": ["echo", "sound", "vibration", "harmony"],
+      "answer": 0,
+      "explanation": "Resonance refers to the echo or reverberation of sound."
+    }
+  ]
+}

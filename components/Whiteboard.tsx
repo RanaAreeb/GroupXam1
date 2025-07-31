@@ -33,6 +33,12 @@ import {
   Save,
   Upload,
   Download,
+  Bold,
+  Italic,
+  Underline,
+  ZoomIn,
+  ZoomOut,
+  Move,
 } from "lucide-react";
 
 interface WhiteboardProps {
@@ -62,6 +68,10 @@ export default function Whiteboard({
     initialBackground
   );
   const [isDrawing, setIsDrawing] = useState(false);
+  const [drawStartPos, setDrawStartPos] = useState<{
+    x: number;
+    y: number;
+  } | null>(null);
   const [currentTool, setCurrentTool] = useState<
     | "pen"
     | "eraser"
@@ -71,6 +81,7 @@ export default function Whiteboard({
     | "line"
     | "arrow"
     | "select"
+    | "pan"
   >("pen");
   const [strokeWidth, setStrokeWidth] = useState(2);
   const [strokeColor, setStrokeColor] = useState("#000000");
@@ -78,6 +89,8 @@ export default function Whiteboard({
   const [fontSize, setFontSize] = useState(16);
   const [showGrid, setShowGrid] = useState(false);
   const [showRuler, setShowRuler] = useState(false);
+  const [scale, setScale] = useState(1);
+  const [panOffset, setPanOffset] = useState({ x: 0, y: 0 });
   const [brushType, setBrushType] = useState<
     "solid" | "dashed" | "dotted" | "marker" | "pencil" | "spray"
   >("solid");
@@ -103,15 +116,29 @@ export default function Whiteboard({
   const [textHistory, setTextHistory] = useState<any[][]>([]);
   const [textRedoStack, setTextRedoStack] = useState<any[][]>([]);
 
-  // Add to state:
-  const [textBoxes, setTextBoxes] = useState<any[]>([]); // {text, x, y, w, h, font, color, bold, italic, underline, align, selected}
-  const [addingText, setAddingText] = useState(false);
-  const [selectedTextBox, setSelectedTextBox] = useState<number | null>(null);
-  const [draggingBox, setDraggingBox] = useState<number | null>(null);
-  const [resizingBox, setResizingBox] = useState<{
-    index: number;
-    dir: string;
-  } | null>(null);
+  // Text input state variables
+  const [isTyping, setIsTyping] = useState(false);
+  const [textInput, setTextInput] = useState("");
+  const [textPosition, setTextPosition] = useState({ x: 0, y: 0 });
+
+  // Text objects management for better quality and interactivity
+  const [textObjects, setTextObjects] = useState<
+    Array<{
+      id: string;
+      text: string;
+      x: number;
+      y: number;
+      fontWeight: "normal" | "bold";
+      fontStyle: "normal" | "italic";
+      textDecoration: "none" | "underline";
+      fontFamily: string;
+      fontSize: number;
+      color: string;
+      isSelected: boolean;
+    }>
+  >([]);
+  const [selectedTextId, setSelectedTextId] = useState<string | null>(null);
+  const [draggingTextId, setDraggingTextId] = useState<string | null>(null);
 
   const saveCanvasState = () => {
     const canvas = canvasRef.current;
@@ -178,37 +205,37 @@ export default function Whiteboard({
 
   const startDrawing = (e: React.MouseEvent<HTMLCanvasElement>) => {
     const canvas = canvasRef.current;
-    if (!canvas) {
-      console.log("Canvas not found in startDrawing");
+    if (!canvas) return;
+
+    const rect = canvas.getBoundingClientRect();
+    // Calculate coordinates accounting for scale and pan
+    const x = (e.clientX - rect.left - panOffset.x) / scale;
+    const y = (e.clientY - rect.top - panOffset.y) / scale;
+
+    if (currentTool === "text") {
+      setTextPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+      setIsTyping(true);
+      setIsDrawing(false);
       return;
     }
 
-    const rect = canvas.getBoundingClientRect();
-    const x = (e.clientX - rect.left) * (canvas.width / rect.width);
-    const y = (e.clientY - rect.top) * (canvas.height / rect.height);
-
-    console.log("Mouse clicked at:", e.clientX, e.clientY);
-    console.log("Canvas rect:", rect);
-    console.log("Calculated canvas coordinates:", x, y);
-    console.log("Current tool:", currentTool);
-
-    if (currentTool === "text") {
-      console.log("Text tool detected - activating text input");
-      // For text tool, don't save canvas state until text is actually added
-      setIsTyping(true);
-      setIsDrawing(false); // Don't set drawing mode for text
-      console.log("Text input should now be visible");
+    if (currentTool === "pan") {
+      // For pan tool, track mouse movement
+      setIsDrawing(true);
       return;
     }
 
     // For other tools, save state and start drawing
     saveCanvasState();
     setIsDrawing(true);
+    setDrawStartPos({ x, y });
 
     const ctx = canvas.getContext("2d");
     if (ctx) {
-      ctx.beginPath();
-      ctx.moveTo(x, y);
+      if (currentTool === "pen") {
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+      }
     }
   };
 
@@ -220,25 +247,36 @@ export default function Whiteboard({
     if (!canvas) return;
 
     const rect = canvas.getBoundingClientRect();
-    const x = (e.clientX - rect.left) * (canvas.width / rect.width);
-    const y = (e.clientY - rect.top) * (canvas.height / rect.height);
+    // Calculate coordinates accounting for scale and pan
+    const x = (e.clientX - rect.left - panOffset.x) / scale;
+    const y = (e.clientY - rect.top - panOffset.y) / scale;
 
     // For shapes, draw preview on preview canvas
     if (
       ["rectangle", "circle", "line", "arrow"].includes(currentTool) &&
-      previewCanvas
+      previewCanvas &&
+      drawStartPos
     ) {
       const previewCtx = previewCanvas.getContext("2d");
       if (previewCtx) {
         previewCtx.clearRect(0, 0, previewCanvas.width, previewCanvas.height);
         setupDrawingContext(previewCtx);
-        drawPreviewShape(previewCtx, x, y);
+        drawPreviewShape(previewCtx, drawStartPos.x, drawStartPos.y, x, y);
       }
       return;
     }
 
     const ctx = canvas.getContext("2d");
     if (ctx) {
+      if (currentTool === "pan") {
+        // Handle panning
+        setPanOffset((prev) => ({
+          x: prev.x + e.movementX,
+          y: prev.y + e.movementY,
+        }));
+        return;
+      }
+
       setupDrawingContext(ctx);
 
       if (currentTool === "pen") {
@@ -247,39 +285,35 @@ export default function Whiteboard({
         ctx.stroke();
         ctx.beginPath();
         ctx.moveTo(x, y);
-
-        // Redraw ruler periodically during pen drawing (every 5th stroke to avoid performance issues)
-        if (showRuler && Math.random() < 0.2) {
-          drawRuler(ctx);
-        }
       } else if (currentTool === "eraser") {
         ctx.globalCompositeOperation = "destination-out";
         ctx.beginPath();
         ctx.arc(x, y, strokeWidth * 2, 0, Math.PI * 2);
         ctx.fill();
-
-        // Always redraw ruler after erasing
-        if (showRuler) {
-          drawRuler(ctx);
-        }
       }
+
+      ctx.restore();
     }
   };
 
   const drawPreviewShape = (
     ctx: CanvasRenderingContext2D,
     startX: number,
-    startY: number
+    startY: number,
+    endX: number,
+    endY: number
   ) => {
     if (currentTool === "rectangle") {
-      ctx.strokeRect(startX, startY, x - startX, y - startY);
+      const width = endX - startX;
+      const height = endY - startY;
+      ctx.strokeRect(startX, startY, width, height);
       if (fillColor !== "#transparent") {
         ctx.fillStyle = fillColor;
-        ctx.fillRect(startX, startY, x - startX, y - startY);
+        ctx.fillRect(startX, startY, width, height);
       }
     } else if (currentTool === "circle") {
       const radius = Math.sqrt(
-        Math.pow(x - startX, 2) + Math.pow(y - startY, 2)
+        Math.pow(endX - startX, 2) + Math.pow(endY - startY, 2)
       );
       ctx.beginPath();
       ctx.arc(startX, startY, radius, 0, Math.PI * 2);
@@ -291,10 +325,10 @@ export default function Whiteboard({
     } else if (currentTool === "line") {
       ctx.beginPath();
       ctx.moveTo(startX, startY);
-      ctx.lineTo(x, y);
+      ctx.lineTo(endX, endY);
       ctx.stroke();
     } else if (currentTool === "arrow") {
-      drawArrowPreview(ctx, startX, startY, x, y);
+      drawArrowPreview(ctx, startX, startY, endX, endY);
     }
   };
 
@@ -334,16 +368,17 @@ export default function Whiteboard({
     if (!canvas) return;
 
     const rect = canvas.getBoundingClientRect();
-    const x = (e.clientX - rect.left) * (canvas.width / rect.width);
-    const y = (e.clientY - rect.top) * (canvas.height / rect.height);
+    // Calculate coordinates accounting for scale and pan
+    const x = (e.clientX - rect.left - panOffset.x) / scale;
+    const y = (e.clientY - rect.top - panOffset.y) / scale;
 
     const ctx = canvas.getContext("2d");
     const previewCanvas = previewCanvasRef.current;
 
-    if (ctx) {
+    if (ctx && drawStartPos) {
       if (["rectangle", "circle", "line", "arrow"].includes(currentTool)) {
         setupDrawingContext(ctx);
-        drawPreviewShape(ctx, x, y);
+        drawPreviewShape(ctx, drawStartPos.x, drawStartPos.y, x, y);
 
         if (previewCanvas) {
           const previewCtx = previewCanvas.getContext("2d");
@@ -357,12 +392,10 @@ export default function Whiteboard({
           }
         }
       }
-
-      // Redraw ruler on top after drawing
-      drawRuler(ctx);
     }
 
     setIsDrawing(false);
+    setDrawStartPos(null);
   };
 
   const addText = () => {
@@ -372,46 +405,25 @@ export default function Whiteboard({
       return;
     }
 
-    const canvas = canvasRef.current;
-    if (!canvas) {
-      console.log("Canvas not found");
-      return;
-    }
+    // Create a new text object
+    const newTextObject = {
+      id: `text-${Date.now()}-${Math.random()}`,
+      text: textInput,
+      x: textPosition.x,
+      y: textPosition.y,
+      fontWeight,
+      fontStyle,
+      textDecoration,
+      fontFamily,
+      fontSize,
+      color: strokeColor,
+      isSelected: false,
+    };
 
-    // Save canvas state before adding text
-    saveCanvasState();
+    // Add to text objects array
+    setTextObjects((prev) => [...prev, newTextObject]);
 
-    const ctx = canvas.getContext("2d");
-    if (ctx) {
-      // Set font with all formatting options
-      const fontWeightStr = fontWeight === "bold" ? "bold" : "normal";
-      const fontStyleStr = fontStyle === "italic" ? "italic" : "normal";
-      ctx.font = `${fontStyleStr} ${fontWeightStr} ${fontSize}px ${fontFamily}`;
-      ctx.fillStyle = strokeColor;
-      ctx.textBaseline = "top";
-
-      // Draw the text
-      ctx.fillText(textInput, textPosition.x, textPosition.y);
-
-      // Add underline if needed
-      if (textDecoration === "underline") {
-        const textMetrics = ctx.measureText(textInput);
-        const textWidth = textMetrics.width;
-        ctx.beginPath();
-        ctx.moveTo(textPosition.x, textPosition.y + fontSize + 2);
-        ctx.lineTo(textPosition.x + textWidth, textPosition.y + fontSize + 2);
-        ctx.strokeStyle = strokeColor;
-        ctx.lineWidth = 1;
-        ctx.stroke();
-      }
-
-      // Redraw ruler on top after adding text
-      drawRuler(ctx);
-
-      console.log("Text added successfully:", textInput, "at", textPosition);
-    } else {
-      console.log("Could not get canvas context");
-    }
+    console.log("Text object added:", newTextObject);
 
     setTextInput("");
     setIsTyping(false);
@@ -462,9 +474,6 @@ export default function Whiteboard({
     const rulerWidth = 20;
     const majorTick = 50; // Major tick every 50px
     const minorTick = 10; // Minor tick every 10px
-
-    // Save current context state
-    ctx.save();
 
     // Set ruler styles
     ctx.fillStyle = whiteboardBg === "white" ? "#f5f5f5" : "#2a2a2a";
@@ -530,9 +539,6 @@ export default function Whiteboard({
     ctx.moveTo(rulerWidth, rulerHeight);
     ctx.lineTo(rulerWidth, ctx.canvas.height);
     ctx.stroke();
-
-    // Restore context state
-    ctx.restore();
   };
 
   // Draw lined paper
@@ -787,17 +793,6 @@ export default function Whiteboard({
 
     const ctx = canvas.getContext("2d");
     if (ctx) {
-      // Save all drawing content (but not rulers/grid)
-      const tempCanvas = document.createElement("canvas");
-      tempCanvas.width = canvas.width;
-      tempCanvas.height = canvas.height;
-      const tempCtx = tempCanvas.getContext("2d");
-
-      if (tempCtx) {
-        // Copy only the actual drawings (skip background elements)
-        tempCtx.drawImage(canvas, 0, 0);
-      }
-
       // Clear canvas and redraw background
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.fillStyle = whiteboardBg === "white" ? "#ffffff" : "#111111";
@@ -846,34 +841,37 @@ export default function Whiteboard({
           break;
       }
 
-      // Restore the drawing content
-      if (tempCtx) {
-        ctx.globalCompositeOperation = "source-over";
-        ctx.drawImage(tempCanvas, 0, 0);
+      // Draw grid if enabled (regardless of template)
+      if (showGrid) {
+        drawGrid(ctx);
       }
 
       // Draw ruler on top as overlay
-      drawRuler(ctx);
-
-      // Draw all text overlays
-      textOverlays.forEach((t) => {
-        ctx.save();
-        ctx.font = t.font;
-        ctx.fillStyle = t.color;
-        ctx.textAlign = t.align;
-        ctx.textBaseline = "top";
-        ctx.fillText(t.text, t.x, t.y);
-        ctx.restore();
-      });
+      if (showRuler) {
+        drawRuler(ctx);
+      }
     }
   };
 
   const toggleRuler = () => {
     setShowRuler(!showRuler);
-    // Force immediate redraw
-    setTimeout(() => {
-      redrawBackground();
-    }, 50);
+  };
+
+  const toggleGrid = () => {
+    setShowGrid(!showGrid);
+  };
+
+  const zoomIn = () => {
+    setScale((prev) => Math.min(prev * 1.2, 5)); // Max zoom 5x
+  };
+
+  const zoomOut = () => {
+    setScale((prev) => Math.max(prev / 1.2, 0.1)); // Min zoom 0.1x
+  };
+
+  const resetZoom = () => {
+    setScale(1);
+    setPanOffset({ x: 0, y: 0 });
   };
 
   // Initialize canvas
@@ -1007,219 +1005,64 @@ export default function Whiteboard({
     }
   }, [draggingTextIndex, dragOffset]);
 
-  // Drag and resize logic
+  // Text dragging functionality
   useEffect(() => {
-    if (draggingBox !== null) {
-      const handleMove = (e: MouseEvent) => {
-        setTextBoxes((tb) =>
-          tb.map((b, i) =>
-            i === draggingBox
+    if (draggingTextId) {
+      const handleMouseMove = (e: MouseEvent) => {
+        setTextObjects((prev) =>
+          prev.map((obj) =>
+            obj.id === draggingTextId
               ? {
-                  ...b,
+                  ...obj,
                   x: e.clientX - dragOffset.x,
                   y: e.clientY - dragOffset.y,
                 }
-              : b
+              : obj
           )
         );
       };
-      const handleUp = () => setDraggingBox(null);
-      window.addEventListener("mousemove", handleMove);
-      window.addEventListener("mouseup", handleUp);
+
+      const handleMouseUp = () => {
+        setDraggingTextId(null);
+      };
+
+      window.addEventListener("mousemove", handleMouseMove);
+      window.addEventListener("mouseup", handleMouseUp);
+
       return () => {
-        window.removeEventListener("mousemove", handleMove);
-        window.removeEventListener("mouseup", handleUp);
+        window.removeEventListener("mousemove", handleMouseMove);
+        window.removeEventListener("mouseup", handleMouseUp);
       };
     }
-  }, [draggingBox, dragOffset]);
+  }, [draggingTextId, dragOffset]);
+
+  // Keyboard shortcuts for text objects
   useEffect(() => {
-    if (resizingBox) {
-      const handleMove = (e: MouseEvent) => {
-        setTextBoxes((tb) =>
-          tb.map((b, i) =>
-            i === resizingBox.index
-              ? {
-                  ...b,
-                  w: Math.max(60, e.clientX - b.x),
-                  h: Math.max(24, e.clientY - b.y),
-                }
-              : b
-          )
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Delete" || e.key === "Backspace") {
+        if (selectedTextId) {
+          setTextObjects((prev) =>
+            prev.filter((obj) => obj.id !== selectedTextId)
+          );
+          setSelectedTextId(null);
+        }
+      }
+      // Deselect text when clicking outside
+      if (e.key === "Escape") {
+        setSelectedTextId(null);
+        setTextObjects((prev) =>
+          prev.map((obj) => ({ ...obj, isSelected: false }))
         );
-      };
-      const handleUp = () => setResizingBox(null);
-      window.addEventListener("mousemove", handleMove);
-      window.addEventListener("mouseup", handleUp);
-      return () => {
-        window.removeEventListener("mousemove", handleMove);
-        window.removeEventListener("mouseup", handleUp);
-      };
-    }
-  }, [resizingBox]);
+      }
+    };
 
-  // Formatting toolbar for selected text box
-  {
-    selectedTextBox !== null && textBoxes[selectedTextBox] && (
-      <div
-        style={{
-          position: "absolute",
-          left: textBoxes[selectedTextBox].x,
-          top: textBoxes[selectedTextBox].y - 48,
-          zIndex: 2000,
-          background: "#fff",
-          borderRadius: 8,
-          boxShadow: "0 2px 8px #0002",
-          padding: 8,
-          display: "flex",
-          gap: 8,
-        }}
-      >
-        <button
-          onClick={() =>
-            setTextBoxes((tb) =>
-              tb.map((b, i) =>
-                i === selectedTextBox ? { ...b, bold: !b.bold } : b
-              )
-            )
-          }
-        >
-          <b>B</b>
-        </button>
-        <button
-          onClick={() =>
-            setTextBoxes((tb) =>
-              tb.map((b, i) =>
-                i === selectedTextBox ? { ...b, italic: !b.italic } : b
-              )
-            )
-          }
-        >
-          <i>I</i>
-        </button>
-        <button
-          onClick={() =>
-            setTextBoxes((tb) =>
-              tb.map((b, i) =>
-                i === selectedTextBox ? { ...b, underline: !b.underline } : b
-              )
-            )
-          }
-        >
-          <u>U</u>
-        </button>
-        <button
-          onClick={() =>
-            setTextBoxes((tb) =>
-              tb.map((b, i) =>
-                i === selectedTextBox ? { ...b, align: "left" } : b
-              )
-            )
-          }
-        >
-          L
-        </button>
-        <button
-          onClick={() =>
-            setTextBoxes((tb) =>
-              tb.map((b, i) =>
-                i === selectedTextBox ? { ...b, align: "center" } : b
-              )
-            )
-          }
-        >
-          C
-        </button>
-        <button
-          onClick={() =>
-            setTextBoxes((tb) =>
-              tb.map((b, i) =>
-                i === selectedTextBox ? { ...b, align: "right" } : b
-              )
-            )
-          }
-        >
-          R
-        </button>
-        <input
-          type="color"
-          value={textBoxes[selectedTextBox].color}
-          onChange={(e) =>
-            setTextBoxes((tb) =>
-              tb.map((b, i) =>
-                i === selectedTextBox ? { ...b, color: e.target.value } : b
-              )
-            )
-          }
-        />
-        <select
-          value={textBoxes[selectedTextBox].font}
-          onChange={(e) =>
-            setTextBoxes((tb) =>
-              tb.map((b, i) =>
-                i === selectedTextBox ? { ...b, font: e.target.value } : b
-              )
-            )
-          }
-        >
-          <option value="16px Arial">Arial</option>
-          <option value="16px Times New Roman">Times</option>
-          <option value="16px Courier New">Courier</option>
-          <option value="20px Arial">Large Arial</option>
-          <option value="24px Arial">Extra Large Arial</option>
-        </select>
-        <button
-          onClick={() =>
-            setTextBoxes((tb) => tb.filter((_, i) => i !== selectedTextBox))
-          }
-        >
-          🗑️
-        </button>
-        <button
-          onClick={() =>
-            setTextBoxes((tb) => [
-              ...tb,
-              {
-                ...textBoxes[selectedTextBox],
-                x: textBoxes[selectedTextBox].x + 40,
-                y: textBoxes[selectedTextBox].y + 40,
-                selected: false,
-              },
-            ])
-          }
-        >
-          ⧉
-        </button>
-      </div>
-    );
-  }
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [selectedTextId]);
 
-  // When addingText is true, click/tap on canvas to place a new text box
-  const handleCanvasClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
-    if (currentTool === "text") {
-      const rect = e.currentTarget.getBoundingClientRect();
-      const x = (e.clientX - rect.left) * (e.currentTarget.width / rect.width);
-      const y = (e.clientY - rect.top) * (e.currentTarget.height / rect.height);
-      setTextBoxes([
-        ...textBoxes,
-        {
-          text: "",
-          x,
-          y,
-          w: 180,
-          h: 40,
-          font: "16px Arial",
-          color: "#222",
-          bold: false,
-          italic: false,
-          underline: false,
-          align: "left",
-          selected: true,
-        },
-      ]);
-      setSelectedTextBox(textBoxes.length);
-      setAddingText(false);
-    }
-  };
+  // Old formatting toolbar removed - using new modal system
+
+  // Old text box click handler removed - using new modal system
 
   // Render all text boxes as absolutely positioned overlays
   return (
@@ -1295,6 +1138,15 @@ export default function Whiteboard({
                     className="p-1 sm:p-2 h-8 w-8 sm:h-auto sm:w-auto"
                   >
                     <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant={currentTool === "pan" ? "default" : "outline"}
+                    onClick={() => setCurrentTool("pan")}
+                    className="p-1 sm:p-2 h-8 w-8 sm:h-auto sm:w-auto"
+                    title="Pan Tool"
+                  >
+                    <Move className="w-3 h-3 sm:w-4 sm:h-4" />
                   </Button>
                 </div>
               </div>
@@ -1434,8 +1286,8 @@ export default function Whiteboard({
                 </Button>
                 <Button
                   size="sm"
-                  variant="outline"
-                  onClick={() => setShowGrid(!showGrid)}
+                  variant={showGrid ? "default" : "outline"}
+                  onClick={toggleGrid}
                   className="h-8 w-8 p-1"
                 >
                   <Grid3X3 className="w-3 h-3 sm:w-4 sm:h-4" />
@@ -1447,6 +1299,33 @@ export default function Whiteboard({
                   className="h-8 w-8 p-1"
                 >
                   <Ruler className="w-3 h-3 sm:w-4 sm:h-4" />
+                </Button>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={zoomIn}
+                  className="h-8 w-8 p-1"
+                  title="Zoom In"
+                >
+                  <ZoomIn className="w-3 h-3 sm:w-4 sm:h-4" />
+                </Button>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={zoomOut}
+                  className="h-8 w-8 p-1"
+                  title="Zoom Out"
+                >
+                  <ZoomOut className="w-3 h-3 sm:w-4 sm:h-4" />
+                </Button>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={resetZoom}
+                  className="h-8 px-2 text-xs"
+                  title="Reset Zoom"
+                >
+                  {Math.round(scale * 100)}%
                 </Button>
               </div>
 
@@ -1523,6 +1402,8 @@ export default function Whiteboard({
                   ? "cursor-text"
                   : currentTool === "eraser"
                   ? "cursor-crosshair"
+                  : currentTool === "pan"
+                  ? "cursor-grab"
                   : "cursor-crosshair"
               }`}
               style={{
@@ -1536,6 +1417,20 @@ export default function Whiteboard({
               onMouseMove={draw}
               onMouseUp={stopDrawing}
               onMouseLeave={stopDrawing}
+              onWheel={(e) => {
+                e.preventDefault();
+                if (e.ctrlKey || e.metaKey) {
+                  // Zoom with Ctrl/Cmd + wheel
+                  const delta = e.deltaY > 0 ? 0.9 : 1.1;
+                  setScale((prev) => Math.min(Math.max(prev * delta, 0.1), 5));
+                } else {
+                  // Pan with wheel
+                  setPanOffset((prev) => ({
+                    x: prev.x - e.deltaX,
+                    y: prev.y - e.deltaY,
+                  }));
+                }
+              }}
               onTouchStart={(e) => {
                 e.preventDefault();
                 const touch = e.touches[0];
@@ -1563,7 +1458,7 @@ export default function Whiteboard({
                 });
                 stopDrawing(mouseEvent as any);
               }}
-              onClick={handleCanvasClick}
+              // onClick removed - text functionality now handled by startDrawing
             />
             <canvas
               ref={previewCanvasRef}
@@ -1577,262 +1472,184 @@ export default function Whiteboard({
                 zIndex: 2,
               }}
             />
-            {/* Render all text boxes as absolutely positioned overlays */}
-            <div
-              style={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                width: "100%",
-                height: "100%",
-                pointerEvents: "none",
-                zIndex: 10,
-              }}
-            >
-              {textBoxes.map((box, i) => (
-                <div
-                  key={i}
-                  style={{
-                    position: "absolute",
-                    left: box.x,
-                    top: box.y,
-                    width: box.w,
-                    height: box.h,
-                    border: box.selected
-                      ? "2px solid #007aff"
-                      : "1px solid #ccc",
-                    borderRadius: 6,
-                    background: box.selected ? "#fff" : "transparent",
-                    boxShadow: box.selected ? "0 2px 8px #007aff22" : "none",
-                    zIndex: box.selected ? 100 : 10,
-                    pointerEvents: "auto",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: box.align,
-                    overflow: "hidden",
-                    userSelect: box.selected ? "text" : "none",
-                  }}
-                  onMouseDown={(e) => {
-                    setSelectedTextBox(i);
-                    setDraggingBox(i);
-                    setDragOffset({
-                      x: e.clientX - box.x,
-                      y: e.clientY - box.y,
-                    });
-                  }}
-                  onDoubleClick={() => setSelectedTextBox(i)}
-                >
-                  {box.selected ? (
-                    <textarea
-                      value={box.text}
-                      onChange={(e) =>
-                        setTextBoxes((tb) =>
-                          tb.map((b, j) =>
-                            j === i ? { ...b, text: e.target.value } : b
-                          )
-                        )
-                      }
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        font: box.font,
-                        color: box.color,
-                        fontWeight: box.bold ? "bold" : "normal",
-                        fontStyle: box.italic ? "italic" : "normal",
-                        textDecoration: box.underline ? "underline" : "none",
-                        textAlign: box.align,
-                        background: "transparent",
-                        border: "none",
-                        outline: "none",
-                        resize: "none",
-                        padding: 4,
-                      }}
-                      autoFocus
-                    />
-                  ) : (
-                    <span
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        font: box.font,
-                        color: box.color,
-                        fontWeight: box.bold ? "bold" : "normal",
-                        fontStyle: box.italic ? "italic" : "normal",
-                        textDecoration: box.underline ? "underline" : "none",
-                        textAlign: box.align,
-                        padding: 4,
-                        whiteSpace: "pre-wrap",
-                        wordBreak: "break-word",
-                        cursor: "pointer",
-                      }}
-                    >
-                      {box.text}
-                    </span>
-                  )}
-                  {/* Resize handle (bottom right) */}
-                  {box.selected && (
-                    <div
-                      style={{
-                        position: "absolute",
-                        right: 0,
-                        bottom: 0,
-                        width: 16,
-                        height: 16,
-                        background: "#007aff",
-                        borderRadius: 8,
-                        cursor: "nwse-resize",
-                        zIndex: 200,
-                      }}
-                      onMouseDown={(e) => {
-                        e.stopPropagation();
-                        setResizingBox({ index: i, dir: "se" });
-                      }}
-                    />
-                  )}
-                </div>
-              ))}
-            </div>
-            {/* Formatting toolbar for selected text box */}
-            {selectedTextBox !== null && textBoxes[selectedTextBox] && (
+
+            {/* Text Input UI - appears when isTyping is true */}
+            {isTyping && (
               <div
+                className="absolute bg-white border-2 border-blue-500 rounded-lg shadow-lg p-4"
                 style={{
-                  position: "absolute",
-                  left: textBoxes[selectedTextBox].x,
-                  top: textBoxes[selectedTextBox].y - 48,
-                  zIndex: 2000,
-                  background: "#fff",
-                  borderRadius: 8,
-                  boxShadow: "0 2px 8px #0002",
-                  padding: 8,
-                  display: "flex",
-                  gap: 8,
+                  left: textPosition.x,
+                  top: textPosition.y,
+                  zIndex: 1000,
+                  minWidth: "200px",
                 }}
               >
-                <button
-                  onClick={() =>
-                    setTextBoxes((tb) =>
-                      tb.map((b, i) =>
-                        i === selectedTextBox ? { ...b, bold: !b.bold } : b
-                      )
-                    )
-                  }
-                >
-                  <b>B</b>
-                </button>
-                <button
-                  onClick={() =>
-                    setTextBoxes((tb) =>
-                      tb.map((b, i) =>
-                        i === selectedTextBox ? { ...b, italic: !b.italic } : b
-                      )
-                    )
-                  }
-                >
-                  <i>I</i>
-                </button>
-                <button
-                  onClick={() =>
-                    setTextBoxes((tb) =>
-                      tb.map((b, i) =>
-                        i === selectedTextBox
-                          ? { ...b, underline: !b.underline }
-                          : b
-                      )
-                    )
-                  }
-                >
-                  <u>U</u>
-                </button>
-                <button
-                  onClick={() =>
-                    setTextBoxes((tb) =>
-                      tb.map((b, i) =>
-                        i === selectedTextBox ? { ...b, align: "left" } : b
-                      )
-                    )
-                  }
-                >
-                  L
-                </button>
-                <button
-                  onClick={() =>
-                    setTextBoxes((tb) =>
-                      tb.map((b, i) =>
-                        i === selectedTextBox ? { ...b, align: "center" } : b
-                      )
-                    )
-                  }
-                >
-                  C
-                </button>
-                <button
-                  onClick={() =>
-                    setTextBoxes((tb) =>
-                      tb.map((b, i) =>
-                        i === selectedTextBox ? { ...b, align: "right" } : b
-                      )
-                    )
-                  }
-                >
-                  R
-                </button>
-                <input
-                  type="color"
-                  value={textBoxes[selectedTextBox].color}
-                  onChange={(e) =>
-                    setTextBoxes((tb) =>
-                      tb.map((b, i) =>
-                        i === selectedTextBox
-                          ? { ...b, color: e.target.value }
-                          : b
-                      )
-                    )
-                  }
-                />
-                <select
-                  value={textBoxes[selectedTextBox].font}
-                  onChange={(e) =>
-                    setTextBoxes((tb) =>
-                      tb.map((b, i) =>
-                        i === selectedTextBox
-                          ? { ...b, font: e.target.value }
-                          : b
-                      )
-                    )
-                  }
-                >
-                  <option value="16px Arial">Arial</option>
-                  <option value="16px Times New Roman">Times</option>
-                  <option value="16px Courier New">Courier</option>
-                  <option value="20px Arial">Large Arial</option>
-                  <option value="24px Arial">Extra Large Arial</option>
-                </select>
-                <button
-                  onClick={() =>
-                    setTextBoxes((tb) =>
-                      tb.filter((_, i) => i !== selectedTextBox)
-                    )
-                  }
-                >
-                  🗑️
-                </button>
-                <button
-                  onClick={() =>
-                    setTextBoxes((tb) => [
-                      ...tb,
-                      {
-                        ...textBoxes[selectedTextBox],
-                        x: textBoxes[selectedTextBox].x + 40,
-                        y: textBoxes[selectedTextBox].y + 40,
-                        selected: false,
-                      },
-                    ])
-                  }
-                >
-                  ⧉
-                </button>
+                <div className="flex flex-col gap-2">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Button
+                      size="sm"
+                      variant={fontWeight === "bold" ? "default" : "outline"}
+                      onClick={() =>
+                        setFontWeight(fontWeight === "bold" ? "normal" : "bold")
+                      }
+                      className="h-6 w-6 p-0"
+                    >
+                      <Bold className="w-3 h-3" />
+                    </Button>
+                    <Button
+                      size="sm"
+                      variant={fontStyle === "italic" ? "default" : "outline"}
+                      onClick={() =>
+                        setFontStyle(
+                          fontStyle === "italic" ? "normal" : "italic"
+                        )
+                      }
+                      className="h-6 w-6 p-0"
+                    >
+                      <Italic className="w-3 h-3" />
+                    </Button>
+                    <Button
+                      size="sm"
+                      variant={
+                        textDecoration === "underline" ? "default" : "outline"
+                      }
+                      onClick={() =>
+                        setTextDecoration(
+                          textDecoration === "underline" ? "none" : "underline"
+                        )
+                      }
+                      className="h-6 w-6 p-0"
+                    >
+                      <Underline className="w-3 h-3" />
+                    </Button>
+                    <input
+                      type="color"
+                      value={strokeColor}
+                      onChange={(e) => setStrokeColor(e.target.value)}
+                      className="w-6 h-6 border rounded"
+                    />
+                    <Select value={fontFamily} onValueChange={setFontFamily}>
+                      <SelectTrigger className="w-24 h-6 text-xs">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="Arial">Arial</SelectItem>
+                        <SelectItem value="Times New Roman">Times</SelectItem>
+                        <SelectItem value="Courier New">Courier</SelectItem>
+                        <SelectItem value="Georgia">Georgia</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <Select
+                      value={fontSize.toString()}
+                      onValueChange={(value) => setFontSize(parseInt(value))}
+                    >
+                      <SelectTrigger className="w-16 h-6 text-xs">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="12">12</SelectItem>
+                        <SelectItem value="14">14</SelectItem>
+                        <SelectItem value="16">16</SelectItem>
+                        <SelectItem value="18">18</SelectItem>
+                        <SelectItem value="20">20</SelectItem>
+                        <SelectItem value="24">24</SelectItem>
+                        <SelectItem value="32">32</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <textarea
+                    value={textInput}
+                    onChange={(e) => setTextInput(e.target.value)}
+                    placeholder="Enter your text here..."
+                    className="w-full min-h-[80px] p-2 border border-gray-300 rounded resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    style={{
+                      fontFamily: fontFamily,
+                      fontSize: `${fontSize}px`,
+                      fontWeight: fontWeight,
+                      fontStyle: fontStyle,
+                      textDecoration: textDecoration,
+                      color: strokeColor,
+                    }}
+                    autoFocus
+                  />
+                  <div className="flex justify-end gap-2">
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      onClick={() => {
+                        setIsTyping(false);
+                        setTextInput("");
+                      }}
+                    >
+                      Cancel
+                    </Button>
+                    <Button
+                      size="sm"
+                      onClick={addText}
+                      disabled={!textInput.trim()}
+                    >
+                      Add Text
+                    </Button>
+                  </div>
+                </div>
               </div>
             )}
+            {/* Text Objects Overlay - renders text as HTML for better quality and interactivity */}
+            {textObjects.map((textObj) => (
+              <div
+                key={textObj.id}
+                className={`absolute cursor-pointer select-none ${
+                  textObj.isSelected ? "ring-2 ring-blue-500" : ""
+                }`}
+                style={{
+                  left: textObj.x,
+                  top: textObj.y,
+                  fontFamily: textObj.fontFamily,
+                  fontSize: `${textObj.fontSize}px`,
+                  fontWeight: textObj.fontWeight,
+                  fontStyle: textObj.fontStyle,
+                  textDecoration: textObj.textDecoration,
+                  color: textObj.color,
+                  zIndex: textObj.isSelected ? 1000 : 100,
+                  userSelect: "none",
+                }}
+                onMouseDown={(e) => {
+                  e.stopPropagation();
+                  setSelectedTextId(textObj.id);
+                  setTextObjects((prev) =>
+                    prev.map((obj) =>
+                      obj.id === textObj.id
+                        ? { ...obj, isSelected: true }
+                        : { ...obj, isSelected: false }
+                    )
+                  );
+                  setDraggingTextId(textObj.id);
+                  setDragOffset({
+                    x: e.clientX - textObj.x,
+                    y: e.clientY - textObj.y,
+                  });
+                }}
+                onDoubleClick={(e) => {
+                  e.stopPropagation();
+                  // Enable editing mode
+                  setTextInput(textObj.text);
+                  setTextPosition({ x: textObj.x, y: textObj.y });
+                  setFontWeight(textObj.fontWeight);
+                  setFontStyle(textObj.fontStyle);
+                  setTextDecoration(textObj.textDecoration);
+                  setFontFamily(textObj.fontFamily);
+                  setFontSize(textObj.fontSize);
+                  setStrokeColor(textObj.color);
+                  setIsTyping(true);
+                  // Remove the old text object
+                  setTextObjects((prev) =>
+                    prev.filter((obj) => obj.id !== textObj.id)
+                  );
+                }}
+              >
+                {textObj.text}
+              </div>
+            ))}
           </div>
         </div>
       </CardContent>

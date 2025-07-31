@@ -1,0 +1,123 @@
+{
+  "id": "wassce-economics-practice-2024",
+  "title": "WASSCE Economics Practice Questions",
+  "subject": "Economics",
+  "examType": "WASSCE Practice",
+  "year": 2024,
+  "totalQuestions": 55,
+  "topics": [
+    {
+      "topicName": "Basic Economic Concepts",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Define economics in your own words",
+          "type": "short-answer",
+          "answer": "Economics is the study of how societies allocate scarce resources to satisfy unlimited wants and needs",
+          "explanation": "Economics deals with the fundamental problem of scarcity and choice in resource allocation."
+        },
+        {
+          "id": 2,
+          "question": "The fundamental economic problem arises due to ______",
+          "type": "fill-in-blank",
+          "answer": "scarcity",
+          "explanation": "Scarcity occurs when unlimited wants exceed limited resources available to satisfy them."
+        },
+        {
+          "id": 3,
+          "question": "List the four factors of production and give an example of each",
+          "type": "detailed-answer",
+          "answer": "1. Land (natural resources) - e.g., oil, minerals, forests\n2. Labor (human effort) - e.g., workers, managers\n3. Capital (man-made resources) - e.g., machinery, buildings\n4. Entrepreneurship (business organization) - e.g., business owners, innovators",
+          "explanation": "These are the basic inputs used in the production of goods and services."
+        },
+        {
+          "id": 4,
+          "question": "What is opportunity cost?",
+          "type": "multiple-choice",
+          "options": [
+            "The total cost of production",
+            "The value of the next best alternative forgone",
+            "The cost of raw materials",
+            "The profit from an investment"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Opportunity cost represents the value of the best alternative that must be sacrificed when making a choice."
+        }
+      ]
+    },
+    {
+      "topicName": "Demand and Supply",
+      "questions": [
+        {
+          "id": 5,
+          "question": "State the law of demand and explain one exception",
+          "type": "detailed-answer",
+          "answer": "Law of demand: As price increases, quantity demanded decreases, ceteris paribus. Exception: Giffen goods - inferior goods where demand increases as price increases due to income effect outweighing substitution effect",
+          "explanation": "The law of demand shows the inverse relationship between price and quantity demanded."
+        },
+        {
+          "id": 6,
+          "question": "If the price of tea increases, what happens to the demand for coffee?",
+          "type": "analysis",
+          "answer": "The demand for coffee increases because tea and coffee are substitute goods",
+          "explanation": "When the price of a substitute good increases, demand for the alternative increases."
+        },
+        {
+          "id": 7,
+          "question": "Calculate the price elasticity of demand if quantity demanded falls from 100 to 80 units when price rises from $10 to $12",
+          "type": "calculation",
+          "answer": "-1.0 (unit elastic)",
+          "workingSteps": [
+            "% change in quantity = (80-100)/100 × 100 = -20%",
+            "% change in price = (12-10)/10 × 100 = 20%",
+            "PED = -20%/20% = -1.0"
+          ],
+          "explanation": "Price elasticity of demand measures responsiveness of quantity demanded to price changes."
+        }
+      ]
+    },
+    {
+      "topicName": "Market Structures",
+      "questions": [
+        {
+          "id": 8,
+          "question": "Compare perfect competition and monopoly in terms of number of sellers, product differentiation, and barriers to entry",
+          "type": "comparison",
+          "answer": "Perfect Competition: Many sellers, homogeneous products, no barriers to entry\nMonopoly: One seller, unique product, high barriers to entry",
+          "explanation": "These represent opposite ends of the market structure spectrum."
+        },
+        {
+          "id": 9,
+          "question": "A market with few sellers and differentiated products is called ______",
+          "type": "fill-in-blank",
+          "answer": "oligopoly",
+          "explanation": "Oligopoly is characterized by few large firms with some product differentiation and interdependence."
+        }
+      ]
+    },
+    {
+      "topicName": "National Income",
+      "questions": [
+        {
+          "id": 10,
+          "question": "Distinguish between GDP and GNP",
+          "type": "comparison",
+          "answer": "GDP measures total value of goods and services produced within a country's borders. GNP measures total value of goods and services produced by a country's citizens regardless of location",
+          "explanation": "GDP is location-based while GNP is citizenship-based measurement."
+        },
+        {
+          "id": 11,
+          "question": "If C = 500, I = 200, G = 150, X = 100, M = 80, calculate GDP using expenditure approach",
+          "type": "calculation",
+          "answer": "870",
+          "workingSteps": [
+            "GDP = C + I + G + (X - M)",
+            "GDP = 500 + 200 + 150 + (100 - 80)",
+            "GDP = 500 + 200 + 150 + 20 = 870"
+          ],
+          "explanation": "The expenditure approach sums consumption, investment, government spending, and net exports."
+        }
+      ]
+    }
+  ]
+}

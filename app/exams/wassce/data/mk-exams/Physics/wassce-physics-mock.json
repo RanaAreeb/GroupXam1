@@ -1,0 +1,175 @@
+{
+  "id": "wassce-physics-mock-2024",
+  "title": "WASSCE Physics Mock Examination",
+  "subject": "Physics",
+  "examType": "WASSCE Mock",
+  "year": 2024,
+  "duration": "3 hours",
+  "instructions": "Answer ALL questions in Section A and any FOUR questions from Section B",
+  "sections": {
+    "sectionA": {
+      "title": "SECTION A - OBJECTIVE TEST",
+      "instruction": "Answer ALL questions in this section",
+      "timeAllocation": "1 hour",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Which of the following is a scalar quantity?",
+          "options": ["Velocity", "Acceleration", "Force", "Energy"],
+          "correctAnswer": 3
+        },
+        {
+          "id": 2,
+          "question": "The SI unit of electric current is",
+          "options": ["Volt", "Ampere", "Ohm", "Watt"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 3,
+          "question": "A body moving with constant velocity has",
+          "options": [
+            "zero acceleration",
+            "constant acceleration",
+            "increasing acceleration",
+            "decreasing acceleration"
+          ],
+          "correctAnswer": 0
+        },
+        {
+          "id": 4,
+          "question": "The frequency of a wave is 50 Hz. Its period is",
+          "options": ["0.02 s", "0.2 s", "2 s", "20 s"],
+          "correctAnswer": 0
+        },
+        {
+          "id": 5,
+          "question": "Which of the following obeys Ohm's law?",
+          "options": ["Diode", "Transistor", "Metallic conductor", "Thermistor"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 6,
+          "question": "The gravitational acceleration on Earth is approximately",
+          "options": ["9.8 m/s", "9.8 m/s²", "9.8 m²/s", "9.8 s/m²"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 7,
+          "question": "Which color of light has the highest frequency?",
+          "options": ["Red", "Green", "Blue", "Violet"],
+          "correctAnswer": 3
+        },
+        {
+          "id": 8,
+          "question": "The power dissipated in a resistor is given by",
+          "options": ["P = VI", "P = I²R", "P = V²/R", "All of the above"],
+          "correctAnswer": 3
+        },
+        {
+          "id": 9,
+          "question": "Sound waves are",
+          "options": ["transverse waves", "longitudinal waves", "electromagnetic waves", "standing waves"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 10,
+          "question": "The refractive index of a medium is the ratio of",
+          "options": [
+            "speed of light in vacuum to speed of light in the medium",
+            "speed of light in the medium to speed of light in vacuum",
+            "wavelength in vacuum to wavelength in the medium",
+            "frequency in vacuum to frequency in the medium"
+          ],
+          "correctAnswer": 0
+        },
+        {
+          "id": 11,
+          "question": "Which of the following is NOT a renewable source of energy?",
+          "options": ["Solar energy", "Wind energy", "Nuclear energy", "Hydroelectric energy"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 12,
+          "question": "The unit of magnetic flux density is",
+          "options": ["Weber", "Tesla", "Henry", "Gauss"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 13,
+          "question": "A concave mirror can produce",
+          "options": [
+            "only real images",
+            "only virtual images",
+            "both real and virtual images",
+            "neither real nor virtual images"
+          ],
+          "correctAnswer": 2
+        },
+        {
+          "id": 14,
+          "question": "The kinetic energy of a moving object depends on",
+          "options": ["mass only", "velocity only", "both mass and velocity", "neither mass nor velocity"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 15,
+          "question": "Which of the following particles has no electric charge?",
+          "options": ["Proton", "Electron", "Neutron", "Alpha particle"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 16,
+          "question": "The efficiency of a machine is always",
+          "options": ["greater than 100%", "equal to 100%", "less than 100%", "zero"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 17,
+          "question": "Which type of electromagnetic radiation has the longest wavelength?",
+          "options": ["X-rays", "Ultraviolet", "Infrared", "Radio waves"],
+          "correctAnswer": 3
+        },
+        {
+          "id": 18,
+          "question": "The momentum of an object is the product of its",
+          "options": ["mass and acceleration", "mass and velocity", "force and time", "force and distance"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 19,
+          "question": "Which of the following is a good conductor of electricity?",
+          "options": ["Glass", "Rubber", "Copper", "Wood"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 20,
+          "question": "The temperature at which all molecular motion ceases is",
+          "options": ["0°C", "0 K", "-273°C", "Both B and C"],
+          "correctAnswer": 3
+        }
+      ]
+    }
+  },
+  "answerKey": {
+    "1": "D",
+    "2": "B",
+    "3": "A",
+    "4": "A",
+    "5": "C",
+    "6": "B",
+    "7": "D",
+    "8": "D",
+    "9": "B",
+    "10": "A",
+    "11": "C",
+    "12": "B",
+    "13": "C",
+    "14": "C",
+    "15": "C",
+    "16": "C",
+    "17": "D",
+    "18": "B",
+    "19": "C",
+    "20": "D"
+  }
+}

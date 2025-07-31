@@ -1,0 +1,362 @@
+{
+  "examInfo": {
+    "title": "JAMB Literature in English Practice Questions",
+    "subject": "Literature in English",
+    "examType": "Practice",
+    "duration": "60 minutes",
+    "totalQuestions": 25,
+    "instructions": "Choose the correct option from A-D for each question."
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "A literary work that teaches moral lessons through the use of animals as characters is called",
+      "options": {
+        "A": "Allegory",
+        "B": "Fable",
+        "C": "Parable",
+        "D": "Satire"
+      },
+      "correctAnswer": "B",
+      "explanation": "A fable is a short story that uses animals as characters to teach moral lessons, such as Aesop's Fables.",
+      "topic": "Literary Terms",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 2,
+      "question": "The repetition of initial consonant sounds in a line of poetry is called",
+      "options": {
+        "A": "Assonance",
+        "B": "Consonance",
+        "C": "Alliteration",
+        "D": "Onomatopoeia"
+      },
+      "correctAnswer": "C",
+      "explanation": "Alliteration is the repetition of initial consonant sounds in words that are close together, often used in poetry for effect.",
+      "topic": "Poetic Devices",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 3,
+      "question": "In Chinua Achebe's 'Things Fall Apart', the protagonist is",
+      "options": {
+        "A": "Obierika",
+        "B": "Okonkwo",
+        "C": "Ikemefuna",
+        "D": "Nwoye"
+      },
+      "correctAnswer": "B",
+      "explanation": "Okonkwo is the main character and protagonist of Chinua Achebe's novel 'Things Fall Apart'.",
+      "topic": "African Literature",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 4,
+      "question": "A sonnet traditionally has how many lines?",
+      "options": {
+        "A": "12",
+        "B": "14",
+        "C": "16",
+        "D": "18"
+      },
+      "correctAnswer": "B",
+      "explanation": "A sonnet is a 14-line poem, typically written in iambic pentameter with a specific rhyme scheme.",
+      "topic": "Poetry Forms",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 5,
+      "question": "The use of words that imitate sounds is called",
+      "options": {
+        "A": "Metaphor",
+        "B": "Simile",
+        "C": "Onomatopoeia",
+        "D": "Personification"
+      },
+      "correctAnswer": "C",
+      "explanation": "Onomatopoeia is the use of words that phonetically imitate the sound they describe, such as 'buzz', 'hiss', or 'bang'.",
+      "topic": "Literary Devices",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 6,
+      "question": "Shakespeare's 'Romeo and Juliet' is an example of",
+      "options": {
+        "A": "Comedy",
+        "B": "Tragedy",
+        "C": "History",
+        "D": "Romance"
+      },
+      "correctAnswer": "B",
+      "explanation": "Romeo and Juliet is classified as a tragedy because it ends with the death of the main characters and explores themes of fate and suffering.",
+      "topic": "Drama",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 7,
+      "question": "The main character in a literary work is called the",
+      "options": {
+        "A": "Antagonist",
+        "B": "Protagonist",
+        "C": "Narrator",
+        "D": "Foil"
+      },
+      "correctAnswer": "B",
+      "explanation": "The protagonist is the main character around whom the story revolves and with whom the audience is meant to sympathize.",
+      "topic": "Character Types",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 8,
+      "question": "A comparison between two unlike things using 'like' or 'as' is called",
+      "options": {
+        "A": "Metaphor",
+        "B": "Simile",
+        "C": "Hyperbole",
+        "D": "Irony"
+      },
+      "correctAnswer": "B",
+      "explanation": "A simile is a figure of speech that compares two different things using the words 'like' or 'as'.",
+      "topic": "Figures of Speech",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 9,
+      "question": "The author of 'The Lion and the Jewel' is",
+      "options": {
+        "A": "Chinua Achebe",
+        "B": "Wole Soyinka",
+        "C": "Amos Tutuola",
+        "D": "Gabriel Okara"
+      },
+      "correctAnswer": "B",
+      "explanation": "Wole Soyinka wrote 'The Lion and the Jewel', a play that explores the conflict between tradition and modernity in African society.",
+      "topic": "African Literature",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 10,
+      "question": "The deliberate exaggeration for effect is called",
+      "options": {
+        "A": "Understatement",
+        "B": "Hyperbole",
+        "C": "Litotes",
+        "D": "Euphemism"
+      },
+      "correctAnswer": "B",
+      "explanation": "Hyperbole is a figure of speech that uses deliberate exaggeration for emphasis or dramatic effect.",
+      "topic": "Figures of Speech",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 11,
+      "question": "In poetry, a group of lines forming a unit is called a",
+      "options": {
+        "A": "Verse",
+        "B": "Stanza",
+        "C": "Canto",
+        "D": "Refrain"
+      },
+      "correctAnswer": "B",
+      "explanation": "A stanza is a grouped set of lines within a poem, usually set off from other stanzas by a blank line or indentation.",
+      "topic": "Poetry Structure",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 12,
+      "question": "The turning point in a story is called the",
+      "options": {
+        "A": "Exposition",
+        "B": "Rising action",
+        "C": "Climax",
+        "D": "Resolution"
+      },
+      "correctAnswer": "C",
+      "explanation": "The climax is the turning point or highest point of tension in a story, where the main conflict reaches its peak.",
+      "topic": "Plot Structure",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 13,
+      "question": "A story told by one of the characters using 'I' is written in",
+      "options": {
+        "A": "First person",
+        "B": "Second person",
+        "C": "Third person limited",
+        "D": "Third person omniscient"
+      },
+      "correctAnswer": "A",
+      "explanation": "First person narration uses 'I' and tells the story from the perspective of one character who is part of the story.",
+      "topic": "Narrative Techniques",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 14,
+      "question": "The contrast between appearance and reality is called",
+      "options": {
+        "A": "Paradox",
+        "B": "Irony",
+        "C": "Oxymoron",
+        "D": "Antithesis"
+      },
+      "correctAnswer": "B",
+      "explanation": "Irony involves a contrast between expectation and reality, or between what is said and what is meant.",
+      "topic": "Literary Devices",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 15,
+      "question": "The author of 'Purple Hibiscus' is",
+      "options": {
+        "A": "Chimamanda Ngozi Adichie",
+        "B": "Buchi Emecheta",
+        "C": "Flora Nwapa",
+        "D": "Zaynab Alkali"
+      },
+      "correctAnswer": "A",
+      "explanation": "Chimamanda Ngozi Adichie wrote 'Purple Hibiscus', her debut novel published in 2003.",
+      "topic": "Contemporary African Literature",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 16,
+      "question": "A play that ends happily is called a",
+      "options": {
+        "A": "Tragedy",
+        "B": "Comedy",
+        "C": "Melodrama",
+        "D": "Farce"
+      },
+      "correctAnswer": "B",
+      "explanation": "A comedy is a dramatic work that is light and often humorous in tone and typically ends happily.",
+      "topic": "Drama Types",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 17,
+      "question": "The repetition of vowel sounds within words is called",
+      "options": {
+        "A": "Alliteration",
+        "B": "Consonance",
+        "C": "Assonance",
+        "D": "Rhyme"
+      },
+      "correctAnswer": "C",
+      "explanation": "Assonance is the repetition of vowel sounds within words in close proximity, often used in poetry for musical effect.",
+      "topic": "Sound Devices",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 18,
+      "question": "The time and place where a story occurs is called the",
+      "options": {
+        "A": "Plot",
+        "B": "Theme",
+        "C": "Setting",
+        "D": "Mood"
+      },
+      "correctAnswer": "C",
+      "explanation": "Setting refers to the time and place in which the events of a story occur, providing context for the narrative.",
+      "topic": "Story Elements",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 19,
+      "question": "In 'The Merchant of Venice', Shylock is",
+      "options": {
+        "A": "A merchant",
+        "B": "A moneylender",
+        "C": "A duke",
+        "D": "A lawyer"
+      },
+      "correctAnswer": "B",
+      "explanation": "Shylock is a Jewish moneylender in Shakespeare's 'The Merchant of Venice' who demands a pound of flesh as collateral for a loan.",
+      "topic": "Shakespearean Drama",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 20,
+      "question": "A long narrative poem about heroic deeds is called",
+      "options": {
+        "A": "Ballad",
+        "B": "Epic",
+        "C": "Ode",
+        "D": "Elegy"
+      },
+      "correctAnswer": "B",
+      "explanation": "An epic is a long narrative poem that tells the story of heroic deeds and adventures, often involving supernatural elements.",
+      "topic": "Poetry Types",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 21,
+      "question": "The central message or meaning of a literary work is its",
+      "options": {
+        "A": "Plot",
+        "B": "Setting",
+        "C": "Theme",
+        "D": "Style"
+      },
+      "correctAnswer": "C",
+      "explanation": "Theme is the central idea, message, or meaning that the author wants to convey through the literary work.",
+      "topic": "Literary Analysis",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 22,
+      "question": "The author of 'Death and the King's Horseman' is",
+      "options": {
+        "A": "Chinua Achebe",
+        "B": "Wole Soyinka",
+        "C": "J.P. Clark",
+        "D": "Ola Rotimi"
+      },
+      "correctAnswer": "B",
+      "explanation": "Wole Soyinka wrote 'Death and the King's Horseman', a play based on real events that occurred in colonial Nigeria.",
+      "topic": "African Drama",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 23,
+      "question": "A speech delivered by a character alone on stage is called",
+      "options": {
+        "A": "Dialogue",
+        "B": "Monologue",
+        "C": "Soliloquy",
+        "D": "Aside"
+      },
+      "correctAnswer": "C",
+      "explanation": "A soliloquy is a speech delivered by a character alone on stage, revealing their inner thoughts to the audience.",
+      "topic": "Dramatic Techniques",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 24,
+      "question": "The use of symbols to represent ideas or concepts is called",
+      "options": {
+        "A": "Allegory",
+        "B": "Symbolism",
+        "C": "Imagery",
+        "D": "Metaphor"
+      },
+      "correctAnswer": "B",
+      "explanation": "Symbolism is the use of symbols to represent ideas, concepts, or qualities beyond their literal meaning.",
+      "topic": "Literary Techniques",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 25,
+      "question": "A poem of mourning or lamentation is called",
+      "options": {
+        "A": "Ode",
+        "B": "Sonnet",
+        "C": "Elegy",
+        "D": "Ballad"
+      },
+      "correctAnswer": "C",
+      "explanation": "An elegy is a poem of mourning, lamentation, or regret, typically written in memory of someone who has died.",
+      "topic": "Poetry Types",
+      "difficulty": "Medium"
+    }
+  ]
+}

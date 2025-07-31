@@ -1,0 +1,71 @@
+{
+  "id": "waec-physics-practice-2024",
+  "title": "WAEC Physics Practice Questions",
+  "subject": "Physics",
+  "examType": "WAEC Practice",
+  "year": 2024,
+  "totalQuestions": 50,
+  "topics": [
+    {
+      "topicName": "Mechanics",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Calculate the velocity of a car that travels 100m in 20s",
+          "type": "calculation",
+          "answer": "5 m/s",
+          "workingSteps": ["Velocity = Distance/Time", "v = 100m/20s = 5 m/s"],
+          "explanation": "Velocity is the rate of change of displacement with time."
+        },
+        {
+          "id": 2,
+          "question": "State Newton's first law of motion",
+          "type": "short-answer",
+          "answer": "An object at rest stays at rest, and an object in motion stays in motion at constant velocity, unless acted upon by an unbalanced force",
+          "explanation": "This is also known as the law of inertia."
+        },
+        {
+          "id": 3,
+          "question": "The SI unit of force is:",
+          "type": "multiple-choice",
+          "options": ["Joule", "Newton", "Watt", "Pascal"],
+          "correctAnswer": 1,
+          "explanation": "The Newton (N) is the SI unit of force, named after Sir Isaac Newton."
+        }
+      ]
+    },
+    {
+      "topicName": "Electricity",
+      "questions": [
+        {
+          "id": 4,
+          "question": "Calculate the current when 240C of charge flows through a conductor in 60s",
+          "type": "calculation",
+          "answer": "4 A",
+          "workingSteps": ["Current = Charge/Time", "I = Q/t = 240C/60s = 4 A"],
+          "explanation": "Current is the rate of flow of electric charge."
+        },
+        {
+          "id": 5,
+          "question": "State Ohm's law",
+          "type": "short-answer",
+          "answer": "The current through a conductor is directly proportional to the voltage across it, provided temperature remains constant",
+          "explanation": "Mathematically expressed as V = IR, where V is voltage, I is current, and R is resistance."
+        }
+      ]
+    },
+    {
+      "topicName": "Waves",
+      "questions": [
+        {
+          "id": 6,
+          "question": "If a wave has frequency 50Hz, what is its period?",
+          "type": "calculation",
+          "answer": "0.02 s",
+          "workingSteps": ["Period = 1/Frequency", "T = 1/f = 1/50 = 0.02 s"],
+          "explanation": "Period and frequency are reciprocals of each other."
+        }
+      ]
+    }
+  ]
+}

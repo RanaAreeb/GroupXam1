@@ -88,6 +88,8 @@ import {
   MousePointer,
   Save,
   Upload,
+  Globe,
+  BookMarked,
 } from "lucide-react";
 import Link from "next/link";
 import {
@@ -103,6 +105,11 @@ const subjectMeta: Record<
   { icon: JSX.Element; gradient: string; badge: string }
 > = {
   "Use of English": {
+    icon: <MessageSquare className="w-7 h-7" />,
+    gradient: "from-blue-500 to-cyan-500",
+    badge: "bg-blue-100 text-blue-700",
+  },
+  "English Language": {
     icon: <MessageSquare className="w-7 h-7" />,
     gradient: "from-blue-500 to-cyan-500",
     badge: "bg-blue-100 text-blue-700",
@@ -142,201 +149,143 @@ const subjectMeta: Record<
     gradient: "from-indigo-500 to-purple-500",
     badge: "bg-indigo-100 text-indigo-700",
   },
+  Geography: {
+    icon: <Globe className="w-7 h-7" />,
+    gradient: "from-teal-500 to-cyan-500",
+    badge: "bg-teal-100 text-teal-700",
+  },
+  History: {
+    icon: <BookMarked className="w-7 h-7" />,
+    gradient: "from-amber-500 to-orange-500",
+    badge: "bg-amber-100 text-amber-700",
+  },
 };
 
-// Practice Questions data
+// Practice Questions data - Only practice questions
 const practiceQuestions = [
   {
     id: 1,
-    title: "JAMB Use of English Practice Questions",
-    subject: "Use of English",
+    title: "JAMB English Language Practice",
+    subject: "English Language",
     className: "UTME",
     department: "General",
     date: "2025-03-15",
     time: "09:00 AM",
-    questions: [
-      {
-        q: "Choose the word that best completes the sentence: 'The students _____ their assignments on time.'",
-        options: ["submitted", "submits", "submitting", "submit"],
-        answer: 0,
-      },
-      {
-        q: "Identify the part of speech of 'quickly' in 'She quickly finished her homework.'",
-        options: ["Noun", "Verb", "Adjective", "Adverb"],
-        answer: 3,
-      },
-    ],
+    examType: "practice",
+    practiceFile: "jamb-english-practice.json",
+    questions: [],
   },
   {
     id: 2,
-    title: "JAMB Mathematics Practice Questions",
+    title: "JAMB Mathematics Practice",
     subject: "Mathematics",
     className: "UTME",
     department: "Science",
     date: "2025-03-15",
     time: "09:00 AM",
-    questions: [
-      {
-        q: "What is the value of x in the equation 2x + 5 = 13?",
-        options: ["3", "4", "5", "6"],
-        answer: 1,
-      },
-      {
-        q: "What is the square root of 144?",
-        options: ["10", "11", "12", "13"],
-        answer: 2,
-      },
-    ],
+    examType: "practice",
+    practiceFile: "jamb-mathematics-practice.json",
+    questions: [],
   },
   {
     id: 3,
-    title: "JAMB Physics Practice Questions",
+    title: "JAMB Physics Practice",
     subject: "Physics",
     className: "UTME",
     department: "Science",
     date: "2025-03-15",
     time: "09:00 AM",
-    questions: [
-      {
-        q: "What is the SI unit of force?",
-        options: ["Joule", "Watt", "Newton", "Pascal"],
-        answer: 2,
-      },
-      {
-        q: "What is the formula for kinetic energy?",
-        options: ["KE = mgh", "KE = ½mv²", "KE = mv", "KE = Fd"],
-        answer: 1,
-      },
-    ],
+    examType: "practice",
+    practiceFile: "jamb-physics-practice.json",
+    questions: [],
   },
   {
     id: 4,
-    title: "JAMB Chemistry Practice Questions",
+    title: "JAMB Chemistry Practice",
     subject: "Chemistry",
     className: "UTME",
     department: "Science",
     date: "2025-03-15",
     time: "09:00 AM",
-    questions: [
-      {
-        q: "What is the chemical symbol for gold?",
-        options: ["Ag", "Au", "Fe", "Cu"],
-        answer: 1,
-      },
-      {
-        q: "What is the pH of a neutral solution?",
-        options: ["0", "7", "14", "10"],
-        answer: 1,
-      },
-    ],
+    examType: "practice",
+    practiceFile: "jamb-chemistry-practice.json",
+    questions: [],
   },
   {
     id: 5,
-    title: "JAMB Biology Practice Questions",
+    title: "JAMB Biology Practice",
     subject: "Biology",
     className: "UTME",
     department: "Science",
     date: "2025-03-15",
     time: "09:00 AM",
-    questions: [
-      {
-        q: "What is the powerhouse of the cell?",
-        options: ["Nucleus", "Mitochondria", "Ribosome", "Golgi apparatus"],
-        answer: 1,
-      },
-      {
-        q: "What is the process by which plants make their own food?",
-        options: ["Respiration", "Photosynthesis", "Digestion", "Excretion"],
-        answer: 1,
-      },
-    ],
+    examType: "practice",
+    practiceFile: "jamb-biology-practice.json",
+    questions: [],
   },
   {
     id: 6,
-    title: "JAMB Economics Practice Questions",
+    title: "JAMB Economics Practice",
     subject: "Economics",
     className: "UTME",
     department: "Arts",
     date: "2025-03-15",
     time: "09:00 AM",
-    questions: [
-      {
-        q: "What is the basic economic problem?",
-        options: ["Scarcity", "Unemployment", "Inflation", "Deflation"],
-        answer: 0,
-      },
-      {
-        q: "Which of the following is a factor of production?",
-        options: ["Money", "Land", "Interest", "Profit"],
-        answer: 1,
-      },
-    ],
+    examType: "practice",
+    practiceFile: "jamb-economics-practice.json",
+    questions: [],
   },
   {
     id: 7,
-    title: "JAMB Literature in English Practice Questions",
-    subject: "Literature in English",
-    className: "UTME",
-    department: "Arts",
-    date: "2025-03-15",
-    time: "09:00 AM",
-    questions: [
-      {
-        q: "What is a sonnet?",
-        options: [
-          "A 14-line poem",
-          "A type of novel",
-          "A dramatic monologue",
-          "A free verse poem",
-        ],
-        answer: 0,
-      },
-      {
-        q: "Who wrote 'Romeo and Juliet'?",
-        options: [
-          "Charles Dickens",
-          "William Shakespeare",
-          "Jane Austen",
-          "Mark Twain",
-        ],
-        answer: 1,
-      },
-    ],
-  },
-  {
-    id: 8,
-    title: "JAMB Government Practice Questions",
+    title: "JAMB Government Practice",
     subject: "Government",
     className: "UTME",
     department: "Arts",
     date: "2025-03-15",
     time: "09:00 AM",
-    questions: [
-      {
-        q: "What is democracy?",
-        options: [
-          "Rule by one person",
-          "Rule by the people",
-          "Rule by the military",
-          "Rule by the wealthy",
-        ],
-        answer: 1,
-      },
-      {
-        q: "What is the main function of the legislature?",
-        options: [
-          "To execute laws",
-          "To make laws",
-          "To interpret laws",
-          "To enforce laws",
-        ],
-        answer: 1,
-      },
-    ],
+    examType: "practice",
+    practiceFile: "jamb-government-practice.json",
+    questions: [],
+  },
+  {
+    id: 8,
+    title: "JAMB Literature Practice",
+    subject: "Literature in English",
+    className: "UTME",
+    department: "Arts",
+    date: "2025-03-15",
+    time: "09:00 AM",
+    examType: "practice",
+    practiceFile: "jamb-literature-practice.json",
+    questions: [],
+  },
+  {
+    id: 9,
+    title: "JAMB Geography Practice",
+    subject: "Geography",
+    className: "UTME",
+    department: "Arts",
+    date: "2025-03-15",
+    time: "09:00 AM",
+    examType: "practice",
+    practiceFile: "jamb-geography-practice.json",
+    questions: [],
+  },
+  {
+    id: 10,
+    title: "JAMB History Practice",
+    subject: "History",
+    className: "UTME",
+    department: "Arts",
+    date: "2025-03-15",
+    time: "09:00 AM",
+    examType: "practice",
+    practiceFile: "jamb-history-practice.json",
+    questions: [],
   },
 ];
 
-// Past Papers data
+// Past Papers data - All available past papers
 const pastPaperSubjects = [
   {
     id: 101,
@@ -344,87 +293,54 @@ const pastPaperSubjects = [
     subject: "Use of English",
     className: "UTME",
     department: "General",
-    years: "2010-2018",
+    years: "2010-2013",
     icon: <MessageSquare className="w-7 h-7" />,
     gradient: "from-blue-500 to-cyan-500",
     badge: "bg-blue-100 text-blue-700",
   },
   {
     id: 102,
-    title: "Mathematics",
-    subject: "Mathematics",
-    className: "UTME",
-    department: "Science",
-    years: "2010-2018",
-    icon: <Calculator className="w-7 h-7" />,
-    gradient: "from-pink-500 to-purple-500",
-    badge: "bg-pink-100 text-pink-700",
-  },
-  {
-    id: 103,
-    title: "Physics",
-    subject: "Physics",
-    className: "UTME",
-    department: "Science",
-    years: "2010-2018",
-    icon: <Atom className="w-7 h-7" />,
-    gradient: "from-blue-500 to-indigo-500",
-    badge: "bg-blue-100 text-blue-700",
-  },
-  {
-    id: 104,
     title: "Chemistry",
     subject: "Chemistry",
     className: "UTME",
     department: "Science",
-    years: "2010-2018",
+    years: "2010-2014",
     icon: <FlaskConical className="w-7 h-7" />,
     gradient: "from-green-500 to-teal-500",
     badge: "bg-green-100 text-green-700",
   },
   {
-    id: 105,
-    title: "Biology",
-    subject: "Biology",
+    id: 103,
+    title: "Mathematics",
+    subject: "Mathematics",
     className: "UTME",
     department: "Science",
-    years: "2010-2018",
-    icon: <Leaf className="w-7 h-7" />,
-    gradient: "from-emerald-500 to-green-500",
-    badge: "bg-emerald-100 text-emerald-700",
+    years: "2010-2013",
+    icon: <Calculator className="w-7 h-7" />,
+    gradient: "from-pink-500 to-purple-500",
+    badge: "bg-pink-100 text-pink-700",
   },
   {
-    id: 106,
-    title: "Economics",
-    subject: "Economics",
-    className: "UTME",
-    department: "Arts",
-    years: "2010-2018",
-    icon: <DollarSign className="w-7 h-7" />,
-    gradient: "from-green-500 to-emerald-500",
-    badge: "bg-green-100 text-green-700",
-  },
-  {
-    id: 107,
-    title: "Literature in English",
-    subject: "Literature in English",
-    className: "UTME",
-    department: "Arts",
-    years: "2010-2018",
-    icon: <BookOpen className="w-7 h-7" />,
-    gradient: "from-violet-500 to-purple-500",
-    badge: "bg-violet-100 text-violet-700",
-  },
-  {
-    id: 108,
+    id: 104,
     title: "Government",
     subject: "Government",
     className: "UTME",
     department: "Arts",
-    years: "2010-2018",
+    years: "2010-2013",
     icon: <Vote className="w-7 h-7" />,
     gradient: "from-indigo-500 to-purple-500",
     badge: "bg-indigo-100 text-indigo-700",
+  },
+  {
+    id: 105,
+    title: "Literature in English",
+    subject: "Literature in English",
+    className: "UTME",
+    department: "Arts",
+    years: "2011-2015",
+    icon: <BookOpen className="w-7 h-7" />,
+    gradient: "from-violet-500 to-purple-500",
+    badge: "bg-violet-100 text-violet-700",
   },
 ];
 
@@ -599,14 +515,55 @@ export default function JambExamsPage() {
         return;
       }
     } else if (activeTab === "practice") {
-      setOpenExam(examId);
-      if (!answers[examId]) {
-        const exam = practiceQuestions.find((e) => e.id === examId);
-        const questionCount = exam?.questions.length || 2;
-        setAnswers((prev) => ({
-          ...prev,
-          [examId]: Array(questionCount).fill(-1),
-        }));
+      const exam = practiceQuestions.find((e) => e.id === examId);
+
+      // All practice questions are practice file exams
+      if (exam?.examType === "practice") {
+        setIsLoadingExam(true);
+        try {
+          const response = await fetch(
+            `/api/exams/jamb/practice-data/${exam.practiceFile}`
+          );
+          if (response.ok) {
+            const loadedExamData = await response.json();
+            setExamData(loadedExamData);
+
+            if (typeof window !== "undefined") {
+              localStorage.setItem(
+                "currentJambExam",
+                JSON.stringify(loadedExamData)
+              );
+            }
+
+            if (!answers[loadedExamData.id]) {
+              setAnswers((prev) => ({
+                ...prev,
+                [loadedExamData.id]: Array(
+                  loadedExamData.totalQuestions || 60
+                ).fill(-1),
+              }));
+            }
+
+            setOpenExam(999);
+            setIsLoadingExam(false);
+          } else {
+            console.error("Failed to load practice data");
+            setIsLoadingExam(false);
+          }
+        } catch (error) {
+          console.error("Error loading practice data:", error);
+          setIsLoadingExam(false);
+        }
+      } else {
+        // Regular practice exam
+        setOpenExam(examId);
+        if (!answers[examId]) {
+          const questionCount = exam?.questions.length || 2;
+          setAnswers((prev) => ({
+            ...prev,
+            [examId]: Array(questionCount).fill(-1),
+          }));
+        }
       }
     }
   };
@@ -735,7 +692,12 @@ export default function JambExamsPage() {
     }
   };
 
-  const currentExams = getCurrentExams();
+  const [currentExams, setCurrentExams] = useState(getCurrentExams());
+
+  useEffect(() => {
+    const newExams = getCurrentExams();
+    setCurrentExams(newExams);
+  }, [activeTab]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50">
@@ -756,7 +718,15 @@ export default function JambExamsPage() {
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
           <Button
-            onClick={() => setActiveTab("syllabus")}
+            onClick={() => {
+              setActiveTab("syllabus");
+              setOpenExam(null);
+              setExamData(null);
+              setSelectedSubject(null);
+              setSelectedYear(null);
+              setShowFeedback(false);
+              setShowModal(false);
+            }}
             variant={activeTab === "syllabus" ? "default" : "outline"}
             className={`px-8 py-3 rounded-full transition-all duration-300 ${
               activeTab === "syllabus"
@@ -769,30 +739,56 @@ export default function JambExamsPage() {
             {activeTab === "syllabus" && <span className="ml-2">✓</span>}
           </Button>
           <Button
-            onClick={() => setActiveTab("practice")}
-            variant={activeTab === "practice" ? "default" : "outline"}
+            onClick={() => {
+              setActiveTab("practice");
+              setOpenExam(null);
+              setExamData(null);
+              setSelectedSubject(null);
+              setSelectedYear(null);
+              setShowFeedback(false);
+              setShowModal(false);
+            }}
+            variant={
+              activeTab === "practice" && !selectedSubject
+                ? "default"
+                : "outline"
+            }
             className={`px-8 py-3 rounded-full transition-all duration-300 ${
-              activeTab === "practice"
+              activeTab === "practice" && !selectedSubject
                 ? "bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg scale-105"
                 : "bg-white hover:bg-gray-50 text-emerald-600 border-2 border-emerald-600 hover:border-emerald-700"
             }`}
           >
             <Target className="w-5 h-5 mr-2" />
             Practice Questions
-            {activeTab === "practice" && <span className="ml-2">✓</span>}
+            {activeTab === "practice" && !selectedSubject && (
+              <span className="ml-2">✓</span>
+            )}
           </Button>
           <Button
-            onClick={() => setActiveTab("mock")}
-            variant={activeTab === "mock" ? "default" : "outline"}
+            onClick={() => {
+              setActiveTab("mock");
+              setOpenExam(null);
+              setExamData(null);
+              setSelectedSubject(null);
+              setSelectedYear(null);
+              setShowFeedback(false);
+              setShowModal(false);
+            }}
+            variant={
+              activeTab === "mock" || selectedSubject ? "default" : "outline"
+            }
             className={`px-8 py-3 rounded-full transition-all duration-300 ${
-              activeTab === "mock"
+              activeTab === "mock" || selectedSubject
                 ? "bg-purple-600 hover:bg-purple-700 text-white shadow-lg scale-105"
                 : "bg-white hover:bg-gray-50 text-purple-600 border-2 border-purple-600 hover:border-purple-700"
             }`}
           >
             <BookOpen className="w-5 h-5 mr-2" />
             Mock Exams
-            {activeTab === "mock" && <span className="ml-2">✓</span>}
+            {(activeTab === "mock" || selectedSubject) && (
+              <span className="ml-2">✓</span>
+            )}
           </Button>
         </div>
 
@@ -868,31 +864,37 @@ export default function JambExamsPage() {
               </div>
               <h2 className="text-3xl font-bold text-gray-800 mb-6">
                 Available{" "}
-                {activeTab === "practice" ? "Practice Questions" : "Mock Exams"}
+                {activeTab === "practice" ? "Practice Questions" : "Mock Exams"}{" "}
+                ({currentExams.length})
               </h2>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-12">
-              {currentExams.map((exam: any) => {
+
+            <div
+              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-12"
+              key={`${activeTab}-${currentExams.length}`}
+            >
+              {currentExams.map((exam: any, index: number) => {
                 const meta =
                   activeTab === "practice"
                     ? subjectMeta[exam.subject] || subjectMeta["Use of English"]
-                    : exam;
+                    : subjectMeta[exam.subject] ||
+                      subjectMeta["Use of English"];
                 const cardGradient =
                   activeTab === "practice"
-                    ? meta.gradient
+                    ? (meta?.gradient || "from-emerald-500 to-blue-500")
                         .replace("purple", "emerald")
                         .replace("pink", "emerald")
-                    : meta.gradient
+                    : (meta?.gradient || "from-blue-500 to-emerald-500")
                         .replace("purple", "blue")
                         .replace("violet", "blue")
                         .replace("indigo", "emerald");
                 const badgeClass =
                   activeTab === "practice"
-                    ? meta.badge
+                    ? (meta?.badge || "bg-emerald-100 text-emerald-700")
                         .replace("pink", "emerald")
                         .replace("violet", "emerald")
                         .replace("purple", "emerald")
-                    : meta.badge
+                    : (meta?.badge || "bg-blue-100 text-blue-700")
                         .replace("purple", "blue")
                         .replace("violet", "blue")
                         .replace("indigo", "emerald");
@@ -903,7 +905,7 @@ export default function JambExamsPage() {
                 const blobGradient = cardGradient;
                 return (
                   <Card
-                    key={exam.id}
+                    key={`${activeTab}-${exam.id}`}
                     className={`relative overflow-hidden rounded-3xl shadow-xl border-0 bg-white/70 backdrop-blur-md transition-transform duration-300 hover:scale-105 hover:shadow-2xl group`}
                   >
                     <CardContent className="p-8 flex flex-col h-full">
@@ -911,7 +913,7 @@ export default function JambExamsPage() {
                         <div
                           className={`w-14 h-14 rounded-xl bg-gradient-to-br ${cardGradient} flex items-center justify-center shadow-lg border-4 border-white group-hover:scale-110 transition-transform`}
                         >
-                          {meta.icon}
+                          {meta?.icon || <BookOpen className="w-7 h-7" />}
                         </div>
                         <div>
                           <div className="text-xl font-bold text-gray-800 mb-1">
@@ -924,9 +926,13 @@ export default function JambExamsPage() {
                       </div>
                       <div className="text-sm text-gray-600 mb-4">
                         {activeTab === "practice"
-                          ? `${exam.questions?.length || 0} Questions • ${
-                              exam.duration || "2 hours"
-                            }`
+                          ? exam.examType === "past-paper"
+                            ? `50 Questions • 2 hours`
+                            : exam.examType === "practice"
+                            ? `60 Questions • 2 hours`
+                            : `${exam.questions?.length || 0} Questions • ${
+                                exam.duration || "2 hours"
+                              }`
                           : `${exam.years} • Past Papers`}
                       </div>
 
@@ -1004,32 +1010,6 @@ export default function JambExamsPage() {
                   </CardContent>
                 </Card>
               ))}
-              <Card
-                className="relative overflow-hidden rounded-3xl shadow-xl border-0 bg-white/70 backdrop-blur-md transition-transform duration-300 hover:scale-105 hover:shadow-2xl group cursor-pointer"
-                onClick={handleSwitchToPractice}
-              >
-                <CardContent className="p-8 flex flex-col h-full items-center justify-center text-center">
-                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-emerald-500 to-blue-500 flex items-center justify-center shadow-lg border-4 border-white group-hover:scale-110 transition-transform">
-                    <Target className="w-7 h-7 text-white" />
-                  </div>
-                  <div className="font-bold text-lg text-gray-800 mt-4 mb-2">
-                    Practice Questions
-                  </div>
-                  <div className="text-sm text-gray-600 mb-4">
-                    Interactive practice for {selectedSubject}
-                  </div>
-                  <Button
-                    className="bg-emerald-600 hover:bg-emerald-700 text-white mt-auto w-full rounded-full shadow-lg"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleSwitchToPractice();
-                    }}
-                  >
-                    Start Practice
-                  </Button>
-                  <span className="absolute -top-10 -right-10 w-32 h-32 rounded-full opacity-20 blur-2xl bg-gradient-to-br from-emerald-500 to-blue-500"></span>
-                </CardContent>
-              </Card>
             </div>
           </div>
         ) : openExam !== null || isLoadingExam || examData !== null ? (

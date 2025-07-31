@@ -1,0 +1,146 @@
+{
+  "id": "wassce-biology-practice-2024",
+  "title": "WASSCE Biology Practice Questions",
+  "subject": "Biology",
+  "examType": "WASSCE Practice",
+  "year": 2024,
+  "totalQuestions": 55,
+  "topics": [
+    {
+      "topicName": "Cell Biology",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Compare plant and animal cells, highlighting five differences",
+          "type": "comparison",
+          "answer": "Plant cells: Cell wall, chloroplasts, large central vacuole, rectangular shape, starch storage\nAnimal cells: No cell wall, no chloroplasts, small vacuoles, irregular shape, glycogen storage",
+          "explanation": "These differences reflect the different lifestyles and functions of plants and animals."
+        },
+        {
+          "id": 2,
+          "question": "Explain the function of mitochondria and why they are called 'powerhouses of the cell'",
+          "type": "explanation",
+          "answer": "Mitochondria produce ATP through cellular respiration, converting glucose and oxygen into energy that cells can use for all metabolic processes. They contain enzymes for the Krebs cycle and electron transport chain.",
+          "explanation": "ATP is the universal energy currency of cells, making mitochondria essential for life."
+        },
+        {
+          "id": 3,
+          "question": "Describe the process of osmosis and give a biological example",
+          "type": "process-description",
+          "answer": "Osmosis is the movement of water molecules through a semi-permeable membrane from a region of high water potential to low water potential.\nExample: Water uptake by plant roots from soil, or water movement in and out of red blood cells",
+          "explanation": "Osmosis is crucial for maintaining water balance in living organisms."
+        }
+      ]
+    },
+    {
+      "topicName": "Genetics and Heredity",
+      "questions": [
+        {
+          "id": 4,
+          "question": "In pea plants, tall (T) is dominant over short (t). Cross a heterozygous tall plant with a short plant. Show the genetic cross and predict the offspring ratio.",
+          "type": "genetic-cross",
+          "answer": "Cross: Tt × tt\nGametes: T, t × t, t\nOffspring: Tt, Tt, tt, tt\nPhenotype ratio: 1 tall : 1 short (50% each)\nGenotype ratio: 1 Tt : 1 tt",
+          "workingSteps": [
+            "Parent genotypes: Tt × tt",
+            "Gametes: T, t from first parent; t, t from second",
+            "Punnett square shows: Tt, Tt, tt, tt",
+            "Result: 50% tall (Tt), 50% short (tt)"
+          ],
+          "explanation": "This is a test cross used to determine the genotype of the heterozygous parent."
+        },
+        {
+          "id": 5,
+          "question": "Explain the difference between genotype and phenotype with examples",
+          "type": "comparison",
+          "answer": "Genotype: The genetic makeup/allele combination (e.g., TT, Tt, tt for height)\nPhenotype: The observable characteristics/physical expression (e.g., tall or short plant)\nGenotype determines phenotype, but environment can also influence expression",
+          "explanation": "Genotype is the blueprint; phenotype is what we actually observe."
+        },
+        {
+          "id": 6,
+          "question": "What is the difference between mitosis and meiosis?",
+          "type": "comparison",
+          "answer": "Mitosis: Produces 2 identical diploid cells, for growth and repair, maintains chromosome number\nMeiosis: Produces 4 genetically different haploid gametes, for reproduction, reduces chromosome number by half",
+          "explanation": "These two types of cell division serve different purposes in multicellular organisms."
+        }
+      ]
+    },
+    {
+      "topicName": "Plant Biology",
+      "questions": [
+        {
+          "id": 7,
+          "question": "Write the equation for photosynthesis and explain its significance",
+          "type": "equation-explanation",
+          "answer": "6CO₂ + 6H₂O + light energy → C₆H₁₂O₆ + 6O₂ + ATP\nSignificance: Converts light energy to chemical energy, produces oxygen for respiration, forms the base of food chains, removes CO₂ from atmosphere",
+          "explanation": "Photosynthesis is fundamental to life on Earth, providing energy and oxygen."
+        },
+        {
+          "id": 8,
+          "question": "Explain how water moves from roots to leaves in plants",
+          "type": "process-explanation",
+          "answer": "Transpiration-cohesion-tension theory:\n1. Water evaporates from leaf stomata (transpiration)\n2. Creates tension/suction in xylem\n3. Water molecules stick together (cohesion)\n4. Water column pulled up from roots\n5. Root pressure also helps push water upward",
+          "explanation": "This mechanism allows tall trees to transport water against gravity."
+        },
+        {
+          "id": 9,
+          "question": "List four factors affecting the rate of photosynthesis",
+          "type": "listing",
+          "answer": "1. Light intensity - more light increases rate up to saturation point\n2. Carbon dioxide concentration - higher CO₂ increases rate\n3. Temperature - optimal range exists, too high denatures enzymes\n4. Chlorophyll concentration - more chlorophyll captures more light",
+          "explanation": "These factors can be limiting factors that control the overall rate of photosynthesis."
+        }
+      ]
+    },
+    {
+      "topicName": "Human Biology",
+      "questions": [
+        {
+          "id": 10,
+          "question": "Describe the path of blood through the human heart",
+          "type": "process-description",
+          "answer": "Deoxygenated blood → right atrium → right ventricle → pulmonary artery → lungs → pulmonary vein → left atrium → left ventricle → aorta → body tissues",
+          "explanation": "The heart has two circuits: pulmonary (to lungs) and systemic (to body)."
+        },
+        {
+          "id": 11,
+          "question": "Explain the role of insulin in blood sugar regulation",
+          "type": "explanation",
+          "answer": "When blood glucose rises (after eating), pancreas releases insulin. Insulin:\n1. Increases glucose uptake by cells\n2. Promotes glucose storage as glycogen in liver\n3. Reduces blood glucose to normal levels\nWithout insulin (diabetes), blood sugar remains dangerously high",
+          "explanation": "Insulin is crucial for maintaining glucose homeostasis in the body."
+        },
+        {
+          "id": 12,
+          "question": "Name the four main components of blood and their functions",
+          "type": "listing-functions",
+          "answer": "1. Red blood cells - carry oxygen and some CO₂\n2. White blood cells - fight infections and disease\n3. Platelets - blood clotting and wound healing\n4. Plasma - transports nutrients, hormones, waste products",
+          "explanation": "Each blood component has specialized functions essential for survival."
+        }
+      ]
+    },
+    {
+      "topicName": "Ecology and Environment",
+      "questions": [
+        {
+          "id": 13,
+          "question": "Construct a food chain with four trophic levels and explain energy transfer",
+          "type": "construction-explanation",
+          "answer": "Grass → Grasshopper → Frog → Snake\nTrophic levels: Producer → Primary consumer → Secondary consumer → Tertiary consumer\nEnergy transfer: Only 10% of energy passes to next level (10% rule), rest lost as heat, movement, waste",
+          "explanation": "Energy flows in one direction through ecosystems, decreasing at each level."
+        },
+        {
+          "id": 14,
+          "question": "Explain the carbon cycle and its importance",
+          "type": "cycle-explanation",
+          "answer": "Carbon moves between atmosphere, organisms, and Earth:\n1. CO₂ absorbed by plants (photosynthesis)\n2. Carbon passed through food chains\n3. CO₂ released by respiration and decomposition\n4. Fossil fuel burning adds CO₂\nImportance: Maintains atmospheric CO₂ balance, supports life",
+          "explanation": "The carbon cycle is essential for climate regulation and life processes."
+        },
+        {
+          "id": 15,
+          "question": "Define biodiversity and explain why it's important",
+          "type": "definition-importance",
+          "answer": "Biodiversity: The variety of life forms in an ecosystem (genetic, species, and ecosystem diversity)\nImportance:\n1. Ecosystem stability and resilience\n2. Food security and medicine sources\n3. Climate regulation\n4. Economic value (tourism, resources)\n5. Ethical responsibility to preserve life",
+          "explanation": "Biodiversity is crucial for ecosystem health and human survival."
+        }
+      ]
+    }
+  ]
+}

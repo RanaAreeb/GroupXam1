@@ -1,0 +1,367 @@
+{
+  "id": "mathematics-2011",
+  "title": "JAMB Mathematics 2011",
+  "subject": "Mathematics",
+  "year": 2011,
+  "duration": "2 hours",
+  "paperType": "D",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which Mathematics Question Paper Type is given to you?",
+      "options": ["Type A", "Type B", "Type C", "Type D"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 2,
+      "question": "If 2q35₈ = 77₈, find q",
+      "options": ["2", "1", "4", "0"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 3,
+      "question": "Simplify (2/5 × 5/2) × (11/3 × 2/7) × (3/3 × 6/15)",
+      "options": ["2/3", "1/2", "8/9", "1/3"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 4,
+      "question": "A man invested ₦5,000 for 9 months at 4%. What is the simple interest?",
+      "options": ["₦150", "₦220", "₦130", "₦250"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 5,
+      "question": "If the numbers M, N, Q are in the ratio 5:4:3, find the value of (2N-Q)/M",
+      "options": ["2", "3", "1", "4"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 6,
+      "question": "Simplify (1/16)^(-1/4) ÷ (9/81)^(-1/2)",
+      "options": ["5/23", "30", "4/13", "50/2"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 7,
+      "question": "If log₃ 18 + log₃ 3 - log₃ x = 3, find x.",
+      "options": ["1", "2", "0", "3"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 8,
+      "question": "Rationalize (2-√5)/(3-√5)",
+      "options": ["(1-√5)/2", "(1-√5)/4", "(√5-1)/2", "(1+√5)/4"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 9,
+      "question": "Simplify [√2 + 1/√3] [√2 - 1/√3]",
+      "options": ["4/9", "17/0", "2/1", "21/0"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 10,
+      "question": "From the Venn diagram above, the complement of the set P ∩ Q is given by",
+      "options": ["{a, b, d, e}", "{b, d}", "{a, e}", "{c}"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 11,
+      "question": "Raial has 7 different posters to be hanged in her bedroom, living room and kitchen. Assuming she has plans to place at least a poster in each of the 3 rooms, how many choices does she have?",
+      "options": ["7³", "5³", "5²", "3²"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 12,
+      "question": "Make R the subject of the formula if T = KR² + M/3",
+      "options": ["√((3T-K)/M)", "√((3T+M)/K)", "√((3T+K)/M)", "√((3T-K)/K)"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 13,
+      "question": "Find the remainder when x³ - 2x² + 3x - 3 is divided by x² + 1",
+      "options": ["2x - 1", "x + 3", "2x + 1", "x - 3"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 14,
+      "question": "Factorize completely 9y² - 16x²",
+      "options": ["(3y - 2x)(3y + 4x)", "(3y + 4x)(3y + 4x)", "(3y + 2x)(3y - 4x)", "(3y - 4x)(3y + 4x)"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 15,
+      "question": "Solve for x and y respectively in the simultaneous equations -2x - 5y = 3, x + 3y = 0",
+      "options": ["-3, -9", "9, -3", "-9, 3", "3, -9"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 16,
+      "question": "If x varies directly as square root of y and x = 81 when y = 9, Find x when y = 1/79",
+      "options": ["20/14", "2/7", "2/14", "3/6"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 17,
+      "question": "T varies inversely as the cube of R. When R = 3, T = 2/81, find T when R = 2",
+      "options": ["1/18", "1/12", "1/24", "1/6"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 18,
+      "question": "Which of the following diagrams represents the solution of the inequalities y ≤ x - 2 and y ≥ x² - 4?",
+      "options": ["A", "B", "C", "D"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 19,
+      "question": "Solve the inequality -6(x + 3) ≤ 4(x - 2)",
+      "options": ["x ≤ 2", "x ≥ -1", "x ≥ -2", "x ≤ -1"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 20,
+      "question": "Solve the inequality x² + 2x > 15.",
+      "options": ["x < -3 or x > 5", "-5 < x < 3", "x < 3 or x > 5", "x > 3 or x < -5"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 21,
+      "question": "Find the sum of the first 18 terms of the series 3, 6, 9..., 36.",
+      "options": ["505", "513", "433", "635"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 22,
+      "question": "The second term of a geometric series is 4 while the fourth term is 16. Find the sum of the first five terms",
+      "options": ["60", "62", "54", "64"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 23,
+      "question": "A binary operation ⊕ on real numbers is defined by x ⊕ y = xy + x + y for two real numbers x and y. Find the value of 3 ⊕ (-2/3)",
+      "options": ["-1/2", "1/3", "-1", "2"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 24,
+      "question": "If |2  3| = |4  1|, find the value of x.",
+      "options": ["-6", "6", "-12", "12"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 25,
+      "question": "Evaluate |1  2x  4|\n        |2  -1  2|\n        |-1  1  3|",
+      "options": ["25", "45", "15", "55"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 26,
+      "question": "The inverse of matrix N = [2  3; 1  4] is",
+      "options": ["[2/5  -3/5; -1/5  2/5]", "[4/5  -3/5; -1/5  2/5]", "[2/5  -1/5; -3/5  4/5]", "[4/5  1/5; 3/5  2/5]"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 27,
+      "question": "What is the size of each interior angle of a 12-sided regular polygon?",
+      "options": ["120°", "150°", "30°", "180°"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 28,
+      "question": "A circle of perimeter 28cm is opened to form a square. What is the maximum possible area of the square?",
+      "options": ["56 cm²", "49 cm²", "98 cm²", "28 cm²"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 29,
+      "question": "A chord of circle of radius 7 cm is 5 cm from the centre of the circle. Find the maximum possible area of the square?",
+      "options": ["4√6 cm²", "3√6 cm²", "6√6 cm²", "2√6 cm²"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 30,
+      "question": "A solid metal cube of side 3 cm is placed in a rectangular tank of dimension 3, 4 and 5 cm. What volume of water can the tank now hold?",
+      "options": ["48 cm³", "33 cm³", "60 cm³", "27 cm³"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 31,
+      "question": "The perpendicular bisector of a line XY is the locus of a point",
+      "options": [
+        "whose distance from X is always twice its distance from Y",
+        "whose distance from Y is always twice its distance from X",
+        "which moves on the line XY",
+        "which is equidistant from the points X and Y"
+      ],
+      "correctAnswer": 3
+    },
+    {
+      "id": 32,
+      "question": "The midpoint of P(x, y) and Q(8, 6). Find x and y. midpoint = (5, 8)",
+      "options": ["(2, 10)", "(2, 8)", "(2, 12)", "(2, 6)"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 33,
+      "question": "Find the equation of a line perpendicular to line 2y = 5x + 4 which passes through (4, 2).",
+      "options": ["5y - 2x - 18 = 0", "5y + 2x - 18 = 0", "5y - 2x + 18 = 0", "5y + 2x - 2 = 0"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 34,
+      "question": "In a right-angled triangle, if tan θ = 3/4. What is cos θ - sin θ?",
+      "options": ["2/5", "3/5", "1/5", "4/5"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 35,
+      "question": "A man walks 100 m due West from a point X to Y, he then walks 100 m due North to a point Z. Find the bearing of X from Z.",
+      "options": ["195°", "135°", "225°", "045°"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 36,
+      "question": "The derivatives of (2x + 1)(3x + 1) is",
+      "options": ["12x + 1", "6x + 5", "6x + 1", "12x + 5"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 37,
+      "question": "Find the derivative of sin θ cos θ",
+      "options": ["sec² θ", "tan θ cosec θ", "cosec θ sec θ", "cosec² θ"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 38,
+      "question": "Find the value of x at the minimum point of the curve y = x³ + x² - x + 1",
+      "options": ["1/3", "-1/3", "1", "1"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 39,
+      "question": "Evaluate ∫₀¹ (3 - 2x) dx",
+      "options": ["3", "5", "2", "6"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 40,
+      "question": "Find ∫ cos 4x dx",
+      "options": ["3/4 sin 4x + k", "-1/4 sin 4x + k", "-3/4 sin 4x + k", "1/4 sin 4x + k"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 41,
+      "question": "The pie chart shows the distribution of courses offered by students. What percentage of the students offer English?",
+      "options": ["30%", "25%", "35%", "20%"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 42,
+      "question": "The bar chart above shows the distribution of SS2 students in a school. Find the total number of students",
+      "options": ["180", "135", "210", "105"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 43,
+      "question": "The sum of four consecutive integers is 34. Find the least of these numbers",
+      "options": ["7", "6", "8", "5"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 44,
+      "question": "From the table above, find the median and range of the data respectively.",
+      "options": ["(8,5)", "(3, 5)", "(5, 8)", "(5, 3)"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 45,
+      "question": "Find the mode of the above distribution",
+      "options": ["9", "8", "10", "7"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 46,
+      "question": "Find the standard deviation of the above distribution.",
+      "options": ["√5", "√3", "√7", "√2"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 47,
+      "question": "In how many ways can the letters of the word ELATION be arranged?",
+      "options": ["6!", "7!", "5!", "8!"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 48,
+      "question": "In how many ways can five people sit round a circular table?",
+      "options": ["24", "60", "12", "120"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 49,
+      "question": "Find the probability that a number picked at random from the set (43, 44, 45, ..., 60) is a prime number.",
+      "options": ["2/3", "1/3", "2/9", "7/9"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 50,
+      "question": "In a class of 60 students, 30 offer Physics and 40 offer Chemistry. If a student is picked at random from the class, what is the probability that the student offers both Physics and Chemistry?",
+      "options": ["1/3", "1/4", "1/2", "1/6"],
+      "correctAnswer": 0
+    }
+  ],
+  "answerKey": {
+    "1": "D",
+    "2": "A",
+    "3": "D",
+    "4": "A",
+    "5": "C",
+    "6": "B",
+    "7": "B",
+    "8": "B",
+    "9": "B",
+    "10": "A",
+    "11": "D",
+    "12": "D",
+    "13": "A",
+    "14": "D",
+    "15": "C",
+    "16": "D",
+    "17": "B",
+    "18": "B",
+    "19": "B",
+    "20": "B",
+    "21": "B",
+    "22": "B",
+    "23": "B",
+    "24": "A",
+    "25": "A",
+    "26": "B",
+    "27": "B",
+    "28": "B",
+    "29": "A",
+    "30": "B",
+    "31": "D",
+    "32": "A",
+    "33": "B",
+    "34": "C",
+    "35": "B",
+    "36": "D",
+    "37": "A",
+    "38": "B",
+    "39": "C",
+    "40": "A",
+    "41": "B",
+    "42": "A",
+    "43": "A",
+    "44": "B",
+    "45": "D",
+    "46": "B",
+    "47": "B",
+    "48": "B",
+    "49": "C",
+    "50": "A"
+  }
+}

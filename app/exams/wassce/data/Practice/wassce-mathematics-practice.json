@@ -1,0 +1,143 @@
+{
+  "id": "wassce-mathematics-practice-2024",
+  "title": "WASSCE General Mathematics Practice Questions",
+  "subject": "General Mathematics",
+  "examType": "WASSCE Practice",
+  "year": 2024,
+  "totalQuestions": 65,
+  "topics": [
+    {
+      "topicName": "Number and Numeration",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Convert 1101₂ to base 10",
+          "type": "calculation",
+          "answer": "13",
+          "workingSteps": ["1101₂ = 1×2³ + 1×2² + 0×2¹ + 1×2⁰", "= 1×8 + 1×4 + 0×2 + 1×1", "= 8 + 4 + 0 + 1 = 13"],
+          "explanation": "To convert from binary to decimal, multiply each digit by the corresponding power of 2."
+        },
+        {
+          "id": 2,
+          "question": "Express 0.125 as a fraction in its simplest form",
+          "type": "calculation",
+          "answer": "1/8",
+          "workingSteps": [
+            "0.125 = 125/1000",
+            "Divide both by 125: 125÷125 = 1, 1000÷125 = 8",
+            "Therefore: 0.125 = 1/8"
+          ],
+          "explanation": "Convert decimal to fraction and simplify by finding the GCD."
+        },
+        {
+          "id": 3,
+          "question": "Simplify: 2⁴ × 2⁻² ÷ 2³",
+          "type": "calculation",
+          "answer": "2⁻¹ or 1/2",
+          "workingSteps": ["2⁴ × 2⁻² ÷ 2³ = 2⁴⁺⁽⁻²⁾⁻³", "= 2⁴⁻²⁻³ = 2⁻¹", "= 1/2"],
+          "explanation": "Use laws of indices: aᵐ × aⁿ = aᵐ⁺ⁿ and aᵐ ÷ aⁿ = aᵐ⁻ⁿ"
+        }
+      ]
+    },
+    {
+      "topicName": "Algebra",
+      "questions": [
+        {
+          "id": 4,
+          "question": "Solve the simultaneous equations: 2x + 3y = 13, x - y = 1",
+          "type": "equation-solving",
+          "answer": "x = 4, y = 3",
+          "workingSteps": [
+            "From equation 2: x = y + 1",
+            "Substitute into equation 1: 2(y + 1) + 3y = 13",
+            "2y + 2 + 3y = 13",
+            "5y = 11, y = 3",
+            "x = 3 + 1 = 4"
+          ],
+          "explanation": "Use substitution method to solve simultaneous equations."
+        },
+        {
+          "id": 5,
+          "question": "Factorize completely: x² - 5x + 6",
+          "type": "factorization",
+          "answer": "(x - 2)(x - 3)",
+          "workingSteps": [
+            "Find two numbers that multiply to 6 and add to -5",
+            "These numbers are -2 and -3",
+            "x² - 5x + 6 = (x - 2)(x - 3)"
+          ],
+          "explanation": "Look for two numbers that multiply to give the constant term and add to give the coefficient of x."
+        },
+        {
+          "id": 6,
+          "question": "If y varies directly as x² and y = 12 when x = 2, find y when x = 3",
+          "type": "variation",
+          "answer": "27",
+          "workingSteps": [
+            "y ∝ x², so y = kx²",
+            "When y = 12, x = 2: 12 = k(2²) = 4k",
+            "k = 3",
+            "When x = 3: y = 3(3²) = 3(9) = 27"
+          ],
+          "explanation": "Direct variation means y = kx² where k is the constant of variation."
+        }
+      ]
+    },
+    {
+      "topicName": "Geometry and Trigonometry",
+      "questions": [
+        {
+          "id": 7,
+          "question": "Find the area of a triangle with sides 3cm, 4cm, and 5cm",
+          "type": "calculation",
+          "answer": "6 cm²",
+          "workingSteps": [
+            "Check if it's a right triangle: 3² + 4² = 9 + 16 = 25 = 5²",
+            "It's a right triangle with legs 3cm and 4cm",
+            "Area = ½ × base × height = ½ × 3 × 4 = 6 cm²"
+          ],
+          "explanation": "This is a right triangle (3-4-5 Pythagorean triple), so use the simple area formula."
+        },
+        {
+          "id": 8,
+          "question": "If sin θ = 3/5 and θ is acute, find cos θ and tan θ",
+          "type": "trigonometry",
+          "answer": "cos θ = 4/5, tan θ = 3/4",
+          "workingSteps": [
+            "Using Pythagoras: sin²θ + cos²θ = 1",
+            "(3/5)² + cos²θ = 1",
+            "9/25 + cos²θ = 1",
+            "cos²θ = 16/25, cos θ = 4/5 (positive since θ is acute)",
+            "tan θ = sin θ/cos θ = (3/5)/(4/5) = 3/4"
+          ],
+          "explanation": "Use the Pythagorean identity and basic trigonometric ratios."
+        }
+      ]
+    },
+    {
+      "topicName": "Statistics and Probability",
+      "questions": [
+        {
+          "id": 9,
+          "question": "Find the mean, median, and mode of: 2, 3, 3, 4, 5, 5, 5, 6",
+          "type": "statistics",
+          "answer": "Mean = 4.125, Median = 4.5, Mode = 5",
+          "workingSteps": [
+            "Mean = (2+3+3+4+5+5+5+6)/8 = 33/8 = 4.125",
+            "Median = (4+5)/2 = 4.5 (middle values of ordered data)",
+            "Mode = 5 (appears most frequently - 3 times)"
+          ],
+          "explanation": "Mean is average, median is middle value, mode is most frequent value."
+        },
+        {
+          "id": 10,
+          "question": "A bag contains 3 red balls and 2 blue balls. Find the probability of drawing 2 red balls without replacement",
+          "type": "probability",
+          "answer": "3/10",
+          "workingSteps": ["P(1st red) = 3/5", "P(2nd red | 1st red) = 2/4 = 1/2", "P(both red) = 3/5 × 1/2 = 3/10"],
+          "explanation": "Multiply probabilities for dependent events (without replacement)."
+        }
+      ]
+    }
+  ]
+}

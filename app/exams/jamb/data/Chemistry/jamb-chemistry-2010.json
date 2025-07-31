@@ -1,0 +1,432 @@
+{
+  "id": "chemistry-2010",
+  "title": "JAMB Chemistry 2010",
+  "subject": "Chemistry",
+  "year": 2010,
+  "duration": "2 hours",
+  "paperType": "A",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which chemistry paper type is given to you?",
+      "options": ["Type A", "Type B", "Type C", "Type D"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 2,
+      "question": "Which of the following is an example of a mixture?",
+      "options": ["Common salt", "Blood", "Sand", "Washing soda"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 3,
+      "question": "Calculate the percentage by mass of nitrogen in calcium trioxonitrate (V) [Ca = 40, N = 14, O = 16]",
+      "options": ["8.5%", "13.1%", "17.1%", "27.6%"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 4,
+      "question": "The droplets of water observed around a bottle of milk taken out of the refrigerator is due to the fact that the",
+      "options": [
+        "water vapour in the air around the bottle gains some energy from the bottle",
+        "temperature of the milk drops as it loses heat into the surroundings",
+        "saturated vapour pressure of the milk is equal to the atmospheric pressure",
+        "water vapour in the air around the bottle loses some of its energy to the bottle"
+      ],
+      "correctAnswer": 3
+    },
+    {
+      "id": 5,
+      "question": "The volume of a given gas is V cm³ at P mm Hg. What is the new volume of the gas if the pressure is reduced to half at constant temperature?",
+      "options": ["4V cm³", "2V cm³", "V/2 cm³", "V cm³"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 6,
+      "question": "Moving from left to right across a period, the general rise in the first ionization energy can be attributed to the",
+      "options": [
+        "decrease in nuclear charge",
+        "increase in nuclear charge",
+        "decrease in screening effect",
+        "increase in screening effect"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 7,
+      "question": "How many unpaired electron(s) are there in the nitrogen sub-levels?",
+      "options": ["3", "2", "1", "none"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 8,
+      "question": "The stability of the noble gases is due to the fact that they",
+      "options": [
+        "have no electron in their outermost shells",
+        "have duplet or octet electron configurations",
+        "belong to group zero of the periodic table",
+        "are volatile in nature"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 9,
+      "question": "The maximum number of electrons in the L shell of an atom is",
+      "options": ["2", "8", "18", "32"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 10,
+      "question": "Elements in the same period in the periodic table have the same",
+      "options": ["number of shells", "atomic number", "chemical properties", "physical properties"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 11,
+      "question": "²¹D + ³¹T → ⁴²He + ¹⁰n + energy. The reaction above illustrates",
+      "options": ["alpha decay", "artificial transmutation", "nuclear fusion", "nuclear fission"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 12,
+      "question": "A noble gas with a high power of fog penetration used in aerodrome beacons is",
+      "options": ["krypton", "argon", "helium", "neon"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 13,
+      "question": "Permanent hardness of water can be removed by",
+      "options": ["filtration", "adding slaked lime", "adding caustic soda", "boiling"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 14,
+      "question": "Substances employed as drying agents are usually",
+      "options": ["amphoteric", "hygroscopic", "efflorescent", "acidic"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 15,
+      "question": "Calculate the solubility in mol dm⁻³ of 40g of CuSO₄ dissolved in 100g of water at 120°C. [Cu = 64, S = 32, O = 16]",
+      "options": ["4.00", "2.50", "0.40", "0.25"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 16,
+      "question": "Coffee stains can best be removed by",
+      "options": ["Kerosene", "turpentine", "a solution of borax in water", "ammonia solution"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 17,
+      "question": "Carbon (II) oxide is considered dangerous if inhaled mainly because it",
+      "options": [
+        "can cause injury to the nervous system",
+        "competes with oxygen in the blood",
+        "competes with carbon (IV) oxide in the blood",
+        "can cause lung cancer"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 18,
+      "question": "The acid that is used to remove rust is",
+      "options": ["boric", "hydrochloric", "trioxonitrate (V)", "tetraoxosulphate (VI)"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 19,
+      "question": "Calculate the volume of 0.5 mol dm⁻³ H₂SO₄ that is neutralized by 25 cm³ of 0.1 mol dm⁻³ NaOH",
+      "options": ["5.0 cm³", "2.5 cm³", "0.4 cm³", "0.1 cm³"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 20,
+      "question": "The colour of methyl orange in alkaline medium is",
+      "options": ["yellow", "pink", "orange", "red"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 21,
+      "question": "Which of the following salts is slightly soluble in water?",
+      "options": ["AgCl", "CaSO₄", "Na₂CO₃", "PbCl₂"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 22,
+      "question": "6AgNO₃(aq) + PH₃(g) + 3H₂O(l) → 6Ag(s) + H₃PO₃(g) + 6HNO₃(aq). In the above reaction, the reducing agent is",
+      "options": ["HNO₃(aq)", "H₂O(l)", "PH₃(g)", "AgNO₃(aq)"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 23,
+      "question": "The IUPAC nomenclature of the compound LiAlH₄ is",
+      "options": [
+        "lithium tetrahydridoaluminate (III)",
+        "aluminium tetrahydrido lithium",
+        "tetrahydrido lithium aluminate (III)",
+        "lithium aluminium hydride"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 24,
+      "question": "Iron can be protected from corrosion by coating the surface with",
+      "options": ["gold", "silver", "copper", "zinc"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 25,
+      "question": "What quantity of aluminium is deposited when a current of 10A is passed through a solution of an aluminium salt for 1930s? [Al = 27, F = 96500 C mol⁻¹]",
+      "options": ["0.2 g", "1.8 g", "5.4 g", "14.2 g"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 26,
+      "question": "In which of the following is the entropy change positive?",
+      "options": [
+        "Thermal dissociation of ammonium chloride",
+        "Reaction between an acid and a base",
+        "Addition of concentrated acid to water",
+        "Dissolution of sodium metal in water"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 27,
+      "question": "If a reaction is exothermic and there is a great disorder, it means that",
+      "options": [
+        "the reaction is static",
+        "the reaction is in a state of equilibrium",
+        "there will be a large increase in free energy",
+        "there will be a large decrease in free energy"
+      ],
+      "correctAnswer": 2
+    },
+    {
+      "id": 28,
+      "question": "In the preparation of oxygen by heating KClO₃ in the presence of MnO₂, only moderate heat is needed because the catalyst acts by",
+      "options": [
+        "lowering the pressure of the reaction",
+        "increasing the surface area of the reactant",
+        "increase the rate of the reaction",
+        "lowering the energy barrier of the reaction"
+      ],
+      "correctAnswer": 3
+    },
+    {
+      "id": 29,
+      "question": "The graph above demonstrates the effect of",
+      "options": [
+        "surface area on the rate of reaction",
+        "catalyst on the rate of reaction",
+        "pressure on the rate reaction",
+        "concentration on the rate of reaction"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 30,
+      "question": "2H₂(g) + O₂(g) ⇋ 2H₂O(g) ΔH = -ve. What happens to the equilibrium constant of the reaction above if the temperature is increased?",
+      "options": ["it is unaffected", "it becomes zero", "it decreases", "it increases"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 31,
+      "question": "To a solution of an unknown compound, a little dilute tetraoxosulphate (VI) acid was added with some freshly prepared iron (II) tetraoxosulphate (VI) solution. The brown ring observed after the addition of a stream of concentrated tetraoxosulphate(VI) acid confirmed the presence of",
+      "options": ["CO", "Cl⁻", "SO₄²⁻", "NO₃⁻"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 32,
+      "question": "In the diagram above, the gas produced is",
+      "options": ["NO", "NO₂", "N₂O", "N₂O₄"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 33,
+      "question": "Which of the following is used in rocket fuels?",
+      "options": ["HNO₃", "CH₃COOH", "H₂SO₄", "HCl"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 34,
+      "question": "In the diagram below, the purpose of the asbestos is to",
+      "options": ["absorb impurities", "catalyse the reaction", "solidify the gas", "dry the gas"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 35,
+      "question": "A constituent common to bronze and solder is",
+      "options": ["lead", "silver", "copper", "tin"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 36,
+      "question": "When iron is exposed to moist air, it gradually rusts. This is due to the formation of",
+      "options": [
+        "hydrated iron (III) oxide",
+        "anhydrous iron (III) oxide",
+        "anhydrous iron (II) oxide",
+        "hydrated iron (II) oxide"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 37,
+      "question": "A compound gives an orange-red colour to non-luminous flame. This compound is likely to contain",
+      "options": ["Na⁺", "Ca²⁺", "Fe³⁺", "Fe²⁺"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 38,
+      "question": "Stainless steel is used for making",
+      "options": ["magnets", "tools", "coins and medals", "moving parts of clocks"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 39,
+      "question": "The residual solids from the fractional distillation of petroleum are used as",
+      "options": [
+        "coatings of pipes",
+        "raw materials for the cracking process",
+        "fuel for driving tractors",
+        "fuel for jet engines"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 40,
+      "question": "The IUPAC nomenclature of the compound above is",
+      "options": ["4-ethyloctane", "5-ethyloctane", "5-propylheptane", "3-propylheptane"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 41,
+      "question": "Which of the following is used as fuel in miners' lamp?",
+      "options": ["Ethanol", "Ethyne", "Ethene", "Ethane"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 42,
+      "question": "Which of the following organic compounds is very soluble in water?",
+      "options": ["CH₃COOH", "C₂H₂", "C₂H₄", "CH₃COOC₂H₅"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 43,
+      "question": "Benzene reacts with hydrogen in the presence of nickel catalyst at 180°C to give",
+      "options": ["xylene", "toluene", "cyclopentane", "cyclohexane"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 44,
+      "question": "Which of the following is used to hasten the ripening of fruit?",
+      "options": ["Ethene", "Ethanol", "Ethyne", "Ethane"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 45,
+      "question": "The final products of the reaction between methane and chlorine in the presence of ultraviolet light are hydrogen chloride and",
+      "options": ["trichloromethane", "dichloromethane", "tetrachloromethane", "chloromethane"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 46,
+      "question": "The correct order of increasing boiling points of the following compounds C₃H₇OH, C₇H₁₆ and C₄H₁₀ is",
+      "options": [
+        "C₃H₇OH → C₄H₁₀ → C₇H₁₆",
+        "C₄H₁₀ → C₇H₁₆ → C₃H₇OH",
+        "C₇H₁₆ → C₃H₇OH → C₄H₁₀",
+        "C₄H₁₀ → C₃H₇OH → C₇H₁₆"
+      ],
+      "correctAnswer": 3
+    },
+    {
+      "id": 47,
+      "question": "One of the major uses of alkanes is",
+      "options": [
+        "as domestic and industrial fuel",
+        "in the hydrogenation of oils",
+        "in the textile industries",
+        "in the production of plastics"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 48,
+      "question": "The haloalkanes used in dry-cleaning industries are",
+      "options": [
+        "trichloromethane and tetrachloromethane",
+        "chloroethene and dichloroethene",
+        "trichloroethene and tetrachloroethene",
+        "chloroethane and dichloroethane"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 49,
+      "question": "Two hydrocarbons X and Y were treated with bromine water. X decolorized the solution and Y did not. Which class of compound does Y belong?",
+      "options": ["Benzene", "Alkynes", "Alkenes", "Alkanes"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 50,
+      "question": "The compound that is used as an anaesthetic is",
+      "options": ["CCl₄", "CHCl₃", "CH₂Cl₂", "CH₃Cl"],
+      "correctAnswer": 1
+    }
+  ],
+  "answerKey": {
+    "1": "A",
+    "2": "B",
+    "3": "C",
+    "4": "D",
+    "5": "B",
+    "6": "B",
+    "7": "A",
+    "8": "B",
+    "9": "B",
+    "10": "A",
+    "11": "C",
+    "12": "A",
+    "13": "C",
+    "14": "B",
+    "15": "B",
+    "16": "D",
+    "17": "B",
+    "18": "B",
+    "19": "B",
+    "20": "A",
+    "21": "B",
+    "22": "C",
+    "23": "A",
+    "24": "D",
+    "25": "B",
+    "26": "A",
+    "27": "C",
+    "28": "D",
+    "29": "A",
+    "30": "C",
+    "31": "D",
+    "32": "A",
+    "33": "A",
+    "34": "B",
+    "35": "D",
+    "36": "A",
+    "37": "B",
+    "38": "C",
+    "39": "A",
+    "40": "D",
+    "41": "B",
+    "42": "A",
+    "43": "D",
+    "44": "A",
+    "45": "C",
+    "46": "D",
+    "47": "A",
+    "48": "A",
+    "49": "D",
+    "50": "B"
+  }
+}

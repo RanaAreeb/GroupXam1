@@ -1,0 +1,336 @@
+{
+  "id": "jamb-chemistry-practice",
+  "title": "JAMB Chemistry Practice Questions",
+  "subject": "Chemistry",
+  "examType": "JAMB",
+  "practiceType": "Topic-focused Practice",
+  "totalQuestions": 55,
+  "sections": [
+    {
+      "name": "Atomic Structure and Bonding",
+      "questions": [
+        {
+          "id": 1,
+          "topic": "Atomic Structure",
+          "question": "An atom has 17 protons and 18 neutrons. What is its mass number?",
+          "options": ["17", "18", "35", "36"],
+          "correctAnswer": 2,
+          "explanation": "Mass number = protons + neutrons = 17 + 18 = 35",
+          "workingSteps": [
+            "Step 1: Mass number = Number of protons + Number of neutrons",
+            "Step 2: Protons = 17, Neutrons = 18",
+            "Step 3: Mass number = 17 + 18 = 35"
+          ]
+        },
+        {
+          "id": 2,
+          "topic": "Electronic Configuration",
+          "question": "What is the electronic configuration of sodium (Na, atomic number 11)?",
+          "options": ["2, 8, 1", "2, 7, 2", "2, 6, 3", "1, 8, 2"],
+          "correctAnswer": 0,
+          "explanation": "Sodium has 11 electrons arranged as 2 in first shell, 8 in second shell, 1 in third shell",
+          "workingSteps": [
+            "Step 1: Sodium has atomic number 11, so 11 electrons",
+            "Step 2: First shell can hold maximum 2 electrons",
+            "Step 3: Second shell can hold maximum 8 electrons",
+            "Step 4: Remaining 1 electron goes to third shell: 2, 8, 1"
+          ]
+        },
+        {
+          "id": 3,
+          "topic": "Chemical Bonding",
+          "question": "What type of bond exists in sodium chloride (NaCl)?",
+          "options": ["Covalent", "Ionic", "Metallic", "Hydrogen"],
+          "correctAnswer": 1,
+          "explanation": "NaCl is formed by electron transfer from Na to Cl, creating ionic bond",
+          "workingSteps": [
+            "Step 1: Na loses 1 electron to become Na⁺",
+            "Step 2: Cl gains 1 electron to become Cl⁻",
+            "Step 3: Electrostatic attraction between Na⁺ and Cl⁻",
+            "Step 4: This is an ionic bond"
+          ]
+        },
+        {
+          "id": 4,
+          "topic": "Isotopes",
+          "question": "Two isotopes of chlorine are ³⁵Cl and ³⁷Cl. They differ in their number of:",
+          "options": ["protons", "electrons", "neutrons", "valence electrons"],
+          "correctAnswer": 2,
+          "explanation": "Isotopes have same number of protons but different numbers of neutrons",
+          "workingSteps": [
+            "Step 1: Both isotopes have atomic number 17 (same protons)",
+            "Step 2: ³⁵Cl has mass number 35, ³⁷Cl has mass number 37",
+            "Step 3: Neutrons in ³⁵Cl = 35 - 17 = 18",
+            "Step 4: Neutrons in ³⁷Cl = 37 - 17 = 20 (different)"
+          ]
+        },
+        {
+          "id": 5,
+          "topic": "Periodic Table",
+          "question": "Elements in the same group of the periodic table have the same:",
+          "options": ["atomic number", "mass number", "number of electron shells", "number of valence electrons"],
+          "correctAnswer": 3,
+          "explanation": "Elements in the same group have the same number of valence electrons",
+          "workingSteps": [
+            "Step 1: Groups are vertical columns in periodic table",
+            "Step 2: Elements in same group have similar properties",
+            "Step 3: This is because they have same number of valence electrons",
+            "Step 4: Valence electrons determine chemical behavior"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Chemical Reactions and Equations",
+      "questions": [
+        {
+          "id": 6,
+          "topic": "Balancing Equations",
+          "question": "Balance the equation: H₂ + O₂ → H₂O",
+          "options": ["H₂ + O₂ → H₂O", "2H₂ + O₂ → 2H₂O", "H₂ + 2O₂ → H₂O", "2H₂ + 2O₂ → 2H₂O"],
+          "correctAnswer": 1,
+          "explanation": "2H₂ + O₂ → 2H₂O balances with 4H and 2O on each side",
+          "workingSteps": [
+            "Step 1: Count atoms on each side",
+            "Step 2: Left: 2H, 2O; Right: 2H, 1O (unbalanced)",
+            "Step 3: Put coefficient 2 before H₂O: H₂ + O₂ → 2H₂O",
+            "Step 4: Put coefficient 2 before H₂: 2H₂ + O₂ → 2H₂O (balanced)"
+          ]
+        },
+        {
+          "id": 7,
+          "topic": "Types of Reactions",
+          "question": "The reaction CaCO₃ → CaO + CO₂ is an example of:",
+          "options": ["synthesis", "decomposition", "single replacement", "double replacement"],
+          "correctAnswer": 1,
+          "explanation": "One compound breaks down into two or more simpler substances",
+          "workingSteps": [
+            "Step 1: Identify reactants and products",
+            "Step 2: One reactant (CaCO₃) breaks into two products",
+            "Step 3: This is characteristic of decomposition reaction",
+            "Step 4: General form: AB → A + B"
+          ]
+        },
+        {
+          "id": 8,
+          "topic": "Oxidation and Reduction",
+          "question": "In the reaction Zn + CuSO₄ → ZnSO₄ + Cu, which element is oxidized?",
+          "options": ["Zn", "Cu", "S", "O"],
+          "correctAnswer": 0,
+          "explanation": "Zn loses electrons (0 to +2 oxidation state), so it is oxidized",
+          "workingSteps": [
+            "Step 1: Determine oxidation states",
+            "Step 2: Zn: 0 → +2 (loses electrons)",
+            "Step 3: Cu: +2 → 0 (gains electrons)",
+            "Step 4: Loss of electrons = oxidation, so Zn is oxidized"
+          ]
+        },
+        {
+          "id": 9,
+          "topic": "Acids and Bases",
+          "question": "What is the pH of a solution with [H⁺] = 1 × 10⁻³ M?",
+          "options": ["3", "11", "-3", "1"],
+          "correctAnswer": 0,
+          "explanation": "pH = -log[H⁺] = -log(1 × 10⁻³) = 3",
+          "workingSteps": [
+            "Step 1: pH = -log[H⁺]",
+            "Step 2: [H⁺] = 1 × 10⁻³ M",
+            "Step 3: pH = -log(1 × 10⁻³)",
+            "Step 4: pH = -(-3) = 3"
+          ]
+        },
+        {
+          "id": 10,
+          "topic": "Stoichiometry",
+          "question": "How many moles of O₂ are needed to react with 2 moles of H₂ in: 2H₂ + O₂ → 2H₂O?",
+          "options": ["1 mole", "2 moles", "3 moles", "4 moles"],
+          "correctAnswer": 0,
+          "explanation": "From the balanced equation, 2 moles H₂ react with 1 mole O₂",
+          "workingSteps": [
+            "Step 1: Write balanced equation: 2H₂ + O₂ → 2H₂O",
+            "Step 2: Mole ratio H₂ : O₂ = 2 : 1",
+            "Step 3: If 2 moles H₂ react, then O₂ needed = 2 × (1/2)",
+            "Step 4: O₂ needed = 1 mole"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "States of Matter and Gas Laws",
+      "questions": [
+        {
+          "id": 11,
+          "topic": "Kinetic Theory",
+          "question": "According to kinetic theory, gas molecules:",
+          "options": [
+            "are closely packed",
+            "have strong intermolecular forces",
+            "move randomly in all directions",
+            "have fixed positions"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Gas molecules move randomly in all directions with high kinetic energy",
+          "workingSteps": [
+            "Step 1: Kinetic theory describes gas behavior",
+            "Step 2: Gas molecules are far apart (not closely packed)",
+            "Step 3: Intermolecular forces are negligible",
+            "Step 4: Molecules move randomly in all directions"
+          ]
+        },
+        {
+          "id": 12,
+          "topic": "Boyle's Law",
+          "question": "If the pressure of a gas is doubled at constant temperature, its volume:",
+          "options": ["doubles", "halves", "remains constant", "quadruples"],
+          "correctAnswer": 1,
+          "explanation": "Boyle's Law: P₁V₁ = P₂V₂. If P doubles, V halves",
+          "workingSteps": [
+            "Step 1: Boyle's Law: P₁V₁ = P₂V₂ (at constant T)",
+            "Step 2: If P₂ = 2P₁, then P₁V₁ = 2P₁V₂",
+            "Step 3: Divide both sides by P₁: V₁ = 2V₂",
+            "Step 4: Therefore V₂ = V₁/2 (volume halves)"
+          ]
+        },
+        {
+          "id": 13,
+          "topic": "Charles' Law",
+          "question": "A gas occupies 100 mL at 27°C. What volume will it occupy at 127°C (pressure constant)?",
+          "options": ["133 mL", "150 mL", "200 mL", "400 mL"],
+          "correctAnswer": 0,
+          "explanation": "Using Charles' Law: V₁/T₁ = V₂/T₂",
+          "workingSteps": [
+            "Step 1: Convert temperatures to Kelvin",
+            "Step 2: T₁ = 27 + 273 = 300 K, T₂ = 127 + 273 = 400 K",
+            "Step 3: V₁/T₁ = V₂/T₂, so 100/300 = V₂/400",
+            "Step 4: V₂ = (100 × 400)/300 = 133 mL"
+          ]
+        },
+        {
+          "id": 14,
+          "topic": "Ideal Gas Equation",
+          "question": "Which of the following represents the ideal gas equation?",
+          "options": ["PV = nRT", "P₁V₁ = P₂V₂", "V₁/T₁ = V₂/T₂", "P₁/T₁ = P₂/T₂"],
+          "correctAnswer": 0,
+          "explanation": "PV = nRT is the ideal gas equation combining all gas laws",
+          "workingSteps": [
+            "Step 1: Ideal gas equation combines Boyle's, Charles', and Avogadro's laws",
+            "Step 2: P = pressure, V = volume, n = moles, R = gas constant, T = temperature",
+            "Step 3: PV = nRT is the complete form",
+            "Step 4: Other options are specific gas laws for constant conditions"
+          ]
+        },
+        {
+          "id": 15,
+          "topic": "Molar Volume",
+          "question": "At STP, one mole of any gas occupies:",
+          "options": ["22.4 L", "24.5 L", "11.2 L", "44.8 L"],
+          "correctAnswer": 0,
+          "explanation": "At STP (0°C, 1 atm), one mole of any gas occupies 22.4 L",
+          "workingSteps": [
+            "Step 1: STP = Standard Temperature and Pressure",
+            "Step 2: STP conditions: 0°C (273 K) and 1 atm pressure",
+            "Step 3: Avogadro's law: equal moles of gases occupy equal volumes",
+            "Step 4: Molar volume at STP = 22.4 L/mol"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Organic Chemistry",
+      "questions": [
+        {
+          "id": 16,
+          "topic": "Hydrocarbons",
+          "question": "The general formula for alkanes is:",
+          "options": ["CₙH₂ₙ₊₂", "CₙH₂ₙ", "CₙH₂ₙ₋₂", "CₙHₙ"],
+          "correctAnswer": 0,
+          "explanation": "Alkanes are saturated hydrocarbons with general formula CₙH₂ₙ₊₂",
+          "workingSteps": [
+            "Step 1: Alkanes are saturated hydrocarbons (single bonds only)",
+            "Step 2: Examples: CH₄ (n=1), C₂H₆ (n=2), C₃H₈ (n=3)",
+            "Step 3: Pattern: for n carbons, hydrogens = 2n + 2",
+            "Step 4: General formula: CₙH₂ₙ₊₂"
+          ]
+        },
+        {
+          "id": 17,
+          "topic": "Functional Groups",
+          "question": "The functional group in alcohols is:",
+          "options": ["-COOH", "-OH", "-CHO", "-CO-"],
+          "correctAnswer": 1,
+          "explanation": "Alcohols contain the hydroxyl group (-OH)",
+          "workingSteps": [
+            "Step 1: Identify functional groups",
+            "Step 2: -COOH is carboxyl group (carboxylic acids)",
+            "Step 3: -CHO is aldehyde group",
+            "Step 4: -OH is hydroxyl group (alcohols)"
+          ]
+        },
+        {
+          "id": 18,
+          "topic": "Isomerism",
+          "question": "Compounds with the same molecular formula but different structural arrangements are called:",
+          "options": ["isotopes", "isomers", "allotropes", "polymers"],
+          "correctAnswer": 1,
+          "explanation": "Isomers have same molecular formula but different structural arrangements",
+          "workingSteps": [
+            "Step 1: Same molecular formula = same number and type of atoms",
+            "Step 2: Different structural arrangements = different connectivity",
+            "Step 3: This defines isomerism",
+            "Step 4: Examples: butane and methylpropane (both C₄H₁₀)"
+          ]
+        },
+        {
+          "id": 19,
+          "topic": "Combustion",
+          "question": "Complete combustion of methane produces:",
+          "options": ["CO + H₂O", "CO₂ + H₂O", "C + H₂O", "CO₂ + H₂"],
+          "correctAnswer": 1,
+          "explanation": "Complete combustion produces CO₂ and H₂O",
+          "workingSteps": [
+            "Step 1: Complete combustion equation: CH₄ + 2O₂ → CO₂ + 2H₂O",
+            "Step 2: Carbon is completely oxidized to CO₂",
+            "Step 3: Hydrogen is oxidized to H₂O",
+            "Step 4: Products are CO₂ and H₂O"
+          ]
+        },
+        {
+          "id": 20,
+          "topic": "Polymerization",
+          "question": "The process of joining small molecules to form large molecules is called:",
+          "options": ["hydrolysis", "polymerization", "fermentation", "cracking"],
+          "correctAnswer": 1,
+          "explanation": "Polymerization is the process of joining monomers to form polymers",
+          "workingSteps": [
+            "Step 1: Small molecules = monomers",
+            "Step 2: Large molecules = polymers",
+            "Step 3: Process of joining = polymerization",
+            "Step 4: Example: ethene → polyethene"
+          ]
+        }
+      ]
+    }
+  ],
+  "practiceAnswers": {
+    "1": "C - 35",
+    "2": "A - 2, 8, 1",
+    "3": "B - Ionic",
+    "4": "C - neutrons",
+    "5": "D - number of valence electrons",
+    "6": "B - 2H₂ + O₂ → 2H₂O",
+    "7": "B - decomposition",
+    "8": "A - Zn",
+    "9": "A - 3",
+    "10": "A - 1 mole",
+    "11": "C - move randomly in all directions",
+    "12": "B - halves",
+    "13": "A - 133 mL",
+    "14": "A - PV = nRT",
+    "15": "A - 22.4 L",
+    "16": "A - CₙH₂ₙ₊₂",
+    "17": "B - -OH",
+    "18": "B - isomers",
+    "19": "B - CO₂ + H₂O",
+    "20": "B - polymerization"
+  }
+}

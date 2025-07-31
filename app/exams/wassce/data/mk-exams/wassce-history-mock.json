@@ -1,0 +1,170 @@
+{
+  "id": "wassce-history-mock-2024",
+  "title": "WASSCE History Mock Examination",
+  "subject": "History",
+  "examType": "WASSCE Mock",
+  "year": 2024,
+  "duration": "3 hours",
+  "instructions": "Answer ALL questions in Section A and any FOUR questions from Section B",
+  "sections": {
+    "sectionA": {
+      "title": "SECTION A - OBJECTIVE TEST",
+      "instruction": "Answer ALL questions in this section",
+      "timeAllocation": "1 hour",
+      "questions": [
+        {
+          "id": 1,
+          "question": "The earliest known human ancestors in Africa are associated with",
+          "options": ["Homo sapiens", "Homo erectus", "Australopithecus", "Neanderthals"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 2,
+          "question": "The trans-Saharan trade was primarily based on the exchange of",
+          "options": ["gold and salt", "ivory and spices", "slaves and textiles", "copper and iron"],
+          "correctAnswer": 0
+        },
+        {
+          "id": 3,
+          "question": "Which ancient African kingdom was famous for its rock-hewn churches?",
+          "options": ["Ghana", "Mali", "Ethiopia", "Songhai"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 4,
+          "question": "The Berlin Conference of 1884-1885 was primarily concerned with",
+          "options": [
+            "ending World War I",
+            "partitioning Africa among European powers",
+            "establishing trade routes",
+            "abolishing slavery"
+          ],
+          "correctAnswer": 1
+        },
+        {
+          "id": 5,
+          "question": "Who was the first President of Ghana after independence?",
+          "options": ["Kwame Nkrumah", "Jerry Rawlings", "Kofi Busia", "John Kufuor"],
+          "correctAnswer": 0
+        },
+        {
+          "id": 6,
+          "question": "The policy of apartheid was practiced in",
+          "options": ["Nigeria", "Kenya", "South Africa", "Zimbabwe"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 7,
+          "question": "The Atlantic slave trade was officially abolished by Britain in",
+          "options": ["1807", "1833", "1865", "1888"],
+          "correctAnswer": 0
+        },
+        {
+          "id": 8,
+          "question": "Which European explorer is credited with 'discovering' the source of the Nile?",
+          "options": ["David Livingstone", "Henry Morton Stanley", "John Speke", "Richard Burton"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 9,
+          "question": "The Maji Maji rebellion occurred in",
+          "options": ["Kenya", "Tanzania", "Uganda", "Mozambique"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 10,
+          "question": "Which ancient civilization built the pyramids of Giza?",
+          "options": ["Mesopotamians", "Greeks", "Egyptians", "Romans"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 11,
+          "question": "The Organization of African Unity (OAU) was founded in",
+          "options": ["1960", "1963", "1965", "1970"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 12,
+          "question": "Who led the resistance against Italian invasion in Ethiopia?",
+          "options": ["Haile Selassie", "Menelik II", "Yohannes IV", "Tewodros II"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 13,
+          "question": "The Great Trek in South African history refers to",
+          "options": [
+            "the migration of Bantu peoples",
+            "the movement of Boers inland",
+            "the arrival of British settlers",
+            "the discovery of gold"
+          ],
+          "correctAnswer": 1
+        },
+        {
+          "id": 14,
+          "question": "Which West African empire was known for its wealth in gold?",
+          "options": ["Songhai", "Mali", "Ghana", "All of the above"],
+          "correctAnswer": 3
+        },
+        {
+          "id": 15,
+          "question": "The Suez Canal was opened in",
+          "options": ["1859", "1869", "1879", "1889"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 16,
+          "question": "Who was known as the 'Father of African Nationalism'?",
+          "options": ["Marcus Garvey", "W.E.B. Du Bois", "Kwame Nkrumah", "Jomo Kenyatta"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 17,
+          "question": "The Scramble for Africa took place primarily during the",
+          "options": ["18th century", "19th century", "20th century", "17th century"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 18,
+          "question": "Which ancient African city was a center of learning and trade?",
+          "options": ["Cairo", "Timbuktu", "Alexandria", "Carthage"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 19,
+          "question": "The Mau Mau uprising occurred in",
+          "options": ["Nigeria", "Ghana", "Kenya", "Tanzania"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 20,
+          "question": "Who was the last Pharaoh of ancient Egypt?",
+          "options": ["Cleopatra VII", "Tutankhamun", "Ramesses II", "Akhenaten"],
+          "correctAnswer": 0
+        }
+      ]
+    }
+  },
+  "answerKey": {
+    "1": "C",
+    "2": "A",
+    "3": "C",
+    "4": "B",
+    "5": "A",
+    "6": "C",
+    "7": "A",
+    "8": "C",
+    "9": "B",
+    "10": "C",
+    "11": "B",
+    "12": "B",
+    "13": "B",
+    "14": "D",
+    "15": "B",
+    "16": "C",
+    "17": "B",
+    "18": "B",
+    "19": "C",
+    "20": "A"
+  }
+}

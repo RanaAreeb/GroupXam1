@@ -1,0 +1,151 @@
+{
+  "id": "wassce-further-mathematics-practice-2024",
+  "title": "WASSCE Further Mathematics Practice Questions",
+  "subject": "Further Mathematics",
+  "examType": "WASSCE Practice",
+  "year": 2024,
+  "totalQuestions": 55,
+  "topics": [
+    {
+      "topicName": "Calculus - Differentiation",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Find dy/dx if y = 3x⁴ - 2x³ + 5x - 7",
+          "type": "differentiation",
+          "answer": "12x³ - 6x² + 5",
+          "workingSteps": [
+            "dy/dx = d/dx(3x⁴) - d/dx(2x³) + d/dx(5x) - d/dx(7)",
+            "= 3(4x³) - 2(3x²) + 5(1) - 0",
+            "= 12x³ - 6x² + 5"
+          ],
+          "explanation": "Use the power rule: d/dx(xⁿ) = nxⁿ⁻¹"
+        },
+        {
+          "id": 2,
+          "question": "Find the derivative of y = (2x + 1)³",
+          "type": "chain-rule",
+          "answer": "6(2x + 1)²",
+          "workingSteps": [
+            "Let u = 2x + 1, then y = u³",
+            "dy/du = 3u², du/dx = 2",
+            "dy/dx = dy/du × du/dx = 3u² × 2 = 6u²",
+            "= 6(2x + 1)²"
+          ],
+          "explanation": "Use the chain rule for composite functions."
+        },
+        {
+          "id": 3,
+          "question": "Find the equation of the tangent to y = x² - 4x + 3 at x = 2",
+          "type": "application",
+          "answer": "y = -3",
+          "workingSteps": [
+            "dy/dx = 2x - 4",
+            "At x = 2: gradient = 2(2) - 4 = 0",
+            "At x = 2: y = 2² - 4(2) + 3 = -1",
+            "Point is (2, -1), gradient = 0",
+            "Equation: y - (-1) = 0(x - 2), so y = -1"
+          ],
+          "explanation": "Find the gradient at the point and use point-slope form."
+        }
+      ]
+    },
+    {
+      "topicName": "Calculus - Integration",
+      "questions": [
+        {
+          "id": 4,
+          "question": "Evaluate ∫(3x² - 4x + 2)dx",
+          "type": "integration",
+          "answer": "x³ - 2x² + 2x + C",
+          "workingSteps": [
+            "∫(3x² - 4x + 2)dx = ∫3x²dx - ∫4x dx + ∫2 dx",
+            "= 3∫x²dx - 4∫x dx + 2∫1 dx",
+            "= 3(x³/3) - 4(x²/2) + 2x + C",
+            "= x³ - 2x² + 2x + C"
+          ],
+          "explanation": "Use the power rule for integration: ∫xⁿ dx = xⁿ⁺¹/(n+1) + C"
+        },
+        {
+          "id": 5,
+          "question": "Evaluate ∫₀² (x² + 1)dx",
+          "type": "definite-integration",
+          "answer": "14/3",
+          "workingSteps": [
+            "∫(x² + 1)dx = x³/3 + x + C",
+            "∫₀² (x² + 1)dx = [x³/3 + x]₀²",
+            "= (2³/3 + 2) - (0³/3 + 0)",
+            "= 8/3 + 2 = 8/3 + 6/3 = 14/3"
+          ],
+          "explanation": "Evaluate the antiderivative at the limits and subtract."
+        }
+      ]
+    },
+    {
+      "topicName": "Complex Numbers",
+      "questions": [
+        {
+          "id": 6,
+          "question": "Find the modulus and argument of z = 3 + 4i",
+          "type": "complex-analysis",
+          "answer": "|z| = 5, arg(z) = arctan(4/3)",
+          "workingSteps": [
+            "|z| = √(3² + 4²) = √(9 + 16) = √25 = 5",
+            "arg(z) = arctan(4/3) (since z is in first quadrant)"
+          ],
+          "explanation": "Modulus is the distance from origin, argument is the angle with positive x-axis."
+        },
+        {
+          "id": 7,
+          "question": "Express z = 2 + 2i in polar form",
+          "type": "polar-form",
+          "answer": "z = 2√2(cos(π/4) + i sin(π/4))",
+          "workingSteps": [
+            "|z| = √(2² + 2²) = √8 = 2√2",
+            "arg(z) = arctan(2/2) = arctan(1) = π/4",
+            "z = 2√2(cos(π/4) + i sin(π/4))"
+          ],
+          "explanation": "Polar form is r(cos θ + i sin θ) where r is modulus and θ is argument."
+        }
+      ]
+    },
+    {
+      "topicName": "Matrices",
+      "questions": [
+        {
+          "id": 8,
+          "question": "Find the determinant of A = [3 2; 1 4]",
+          "type": "determinant",
+          "answer": "10",
+          "workingSteps": ["For 2×2 matrix [a b; c d], det = ad - bc", "det(A) = (3)(4) - (2)(1) = 12 - 2 = 10"],
+          "explanation": "Use the formula for 2×2 determinant."
+        },
+        {
+          "id": 9,
+          "question": "Find the inverse of B = [2 1; 3 2]",
+          "type": "matrix-inverse",
+          "answer": "[2 -1; -3 2]",
+          "workingSteps": [
+            "det(B) = (2)(2) - (1)(3) = 4 - 3 = 1",
+            "B⁻¹ = (1/det(B)) × [d -b; -c a]",
+            "= (1/1) × [2 -1; -3 2] = [2 -1; -3 2]"
+          ],
+          "explanation": "Use the formula for 2×2 matrix inverse."
+        }
+      ]
+    },
+    {
+      "topicName": "Vectors",
+      "questions": [
+        {
+          "id": 10,
+          "question": "Find the magnitude of vector a = 3i + 4j",
+          "type": "vector-magnitude",
+          "answer": "5",
+          "workingSteps": ["|a| = √(3² + 4²)", "= √(9 + 16) = √25 = 5"],
+          "explanation": "Magnitude of vector ai + bj is √(a² + b²)."
+        }
+      ]
+    }
+  ]
+}

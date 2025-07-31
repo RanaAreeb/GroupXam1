@@ -1,0 +1,233 @@
+{
+  "id": "jamb-english-practice",
+  "title": "JAMB English Language Practice Questions",
+  "subject": "English Language",
+  "examType": "JAMB",
+  "practiceType": "Topic-focused Practice",
+  "totalQuestions": 60,
+  "sections": [
+    {
+      "name": "Lexis and Structure",
+      "questions": [
+        {
+          "id": 1,
+          "topic": "Synonyms and Antonyms",
+          "question": "Choose the word that is most nearly opposite in meaning to the word in capital letters: METICULOUS",
+          "options": ["Careful", "Careless", "Precise", "Thorough"],
+          "correctAnswer": 1,
+          "explanation": "Meticulous means extremely careful and precise. The opposite would be careless."
+        },
+        {
+          "id": 2,
+          "topic": "Word Formation",
+          "question": "From the words lettered A to D, choose the word that best completes the sentence: The _____ of the building was completed last year.",
+          "options": ["construct", "construction", "constructive", "constructor"],
+          "correctAnswer": 1,
+          "explanation": "Construction (noun) is needed to complete the sentence grammatically."
+        },
+        {
+          "id": 3,
+          "topic": "Phrasal Verbs",
+          "question": "The meeting was _____ due to the chairman's illness.",
+          "options": ["called off", "called on", "called up", "called out"],
+          "correctAnswer": 0,
+          "explanation": "Called off means cancelled, which fits the context."
+        },
+        {
+          "id": 4,
+          "topic": "Idiomatic Expressions",
+          "question": "When he heard the news, he was _____ the moon.",
+          "options": ["over", "under", "beside", "beyond"],
+          "correctAnswer": 0,
+          "explanation": "Over the moon is an idiom meaning extremely happy."
+        },
+        {
+          "id": 5,
+          "topic": "Sentence Completion",
+          "question": "The student was _____ for his outstanding performance in mathematics.",
+          "options": ["rewarded", "awarded", "presented", "given"],
+          "correctAnswer": 1,
+          "explanation": "Awarded is the correct word for recognizing academic achievement."
+        },
+        {
+          "id": 6,
+          "topic": "Grammar - Tenses",
+          "question": "By the time you arrive, I _____ the work.",
+          "options": ["will finish", "will have finished", "would finish", "have finished"],
+          "correctAnswer": 1,
+          "explanation": "Future perfect tense is used for actions completed before a future time."
+        },
+        {
+          "id": 7,
+          "topic": "Concord",
+          "question": "Neither the teacher nor the students _____ present.",
+          "options": ["was", "were", "is", "are"],
+          "correctAnswer": 1,
+          "explanation": "With 'neither...nor', the verb agrees with the subject closer to it (students - plural)."
+        },
+        {
+          "id": 8,
+          "topic": "Prepositions",
+          "question": "She is good _____ mathematics.",
+          "options": ["in", "at", "on", "with"],
+          "correctAnswer": 1,
+          "explanation": "We use 'good at' when referring to skills or subjects."
+        },
+        {
+          "id": 9,
+          "topic": "Articles",
+          "question": "_____ honest man is respected by all.",
+          "options": ["A", "An", "The", "No article"],
+          "correctAnswer": 1,
+          "explanation": "Use 'an' before words beginning with vowel sounds (honest starts with 'o' sound)."
+        },
+        {
+          "id": 10,
+          "topic": "Voice",
+          "question": "The cake was eaten by the children. This sentence is in _____ voice.",
+          "options": ["active", "passive", "subjunctive", "imperative"],
+          "correctAnswer": 1,
+          "explanation": "Passive voice uses 'be' + past participle with the doer in a 'by' phrase."
+        }
+      ]
+    },
+    {
+      "name": "Comprehension",
+      "passage": "The rapid advancement of technology has transformed the way we communicate, work, and live. Social media platforms have connected people across the globe, enabling instant communication and information sharing. However, this digital revolution has also brought challenges, including privacy concerns, cyberbullying, and the spread of misinformation. As we navigate this digital age, it is crucial to develop digital literacy skills to maximize benefits while minimizing risks. Educational institutions must adapt their curricula to include digital literacy training, ensuring students can critically evaluate online information and use technology responsibly.",
+      "questions": [
+        {
+          "id": 11,
+          "topic": "Main Idea",
+          "question": "What is the main idea of the passage?",
+          "options": [
+            "Technology has only positive effects",
+            "Social media is dangerous",
+            "Technology brings both benefits and challenges",
+            "Digital literacy is unnecessary"
+          ],
+          "correctAnswer": 2,
+          "explanation": "The passage discusses both positive and negative aspects of technological advancement."
+        },
+        {
+          "id": 12,
+          "topic": "Inference",
+          "question": "According to the passage, what can be inferred about digital literacy?",
+          "options": [
+            "It is optional in the digital age",
+            "It helps people use technology safely and effectively",
+            "It is only for young people",
+            "It prevents all online problems"
+          ],
+          "correctAnswer": 1,
+          "explanation": "The passage suggests digital literacy helps maximize benefits while minimizing risks."
+        },
+        {
+          "id": 13,
+          "topic": "Vocabulary in Context",
+          "question": "In the passage, 'navigate' most likely means:",
+          "options": ["sail through", "find direction", "manage or deal with", "avoid completely"],
+          "correctAnswer": 2,
+          "explanation": "In this context, navigate means to manage or deal with the challenges of the digital age."
+        },
+        {
+          "id": 14,
+          "topic": "Supporting Details",
+          "question": "Which of the following is NOT mentioned as a challenge of the digital revolution?",
+          "options": ["Privacy concerns", "Cyberbullying", "High costs", "Misinformation"],
+          "correctAnswer": 2,
+          "explanation": "High costs are not mentioned in the passage as a challenge."
+        },
+        {
+          "id": 15,
+          "topic": "Author's Purpose",
+          "question": "The author's primary purpose is to:",
+          "options": [
+            "criticize technology",
+            "promote social media",
+            "highlight the need for digital literacy",
+            "discourage technology use"
+          ],
+          "correctAnswer": 2,
+          "explanation": "The passage emphasizes the importance of developing digital literacy skills."
+        }
+      ]
+    },
+    {
+      "name": "Summary and Comprehension Skills",
+      "questions": [
+        {
+          "id": 16,
+          "topic": "Summary Techniques",
+          "question": "Which of the following is NOT a good summary writing technique?",
+          "options": [
+            "Identifying main points",
+            "Using your own words",
+            "Including personal opinions",
+            "Maintaining the original meaning"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Personal opinions should not be included in a summary."
+        },
+        {
+          "id": 17,
+          "topic": "Word Count",
+          "question": "A good summary should typically be _____ of the original text length.",
+          "options": ["one-quarter", "one-third", "half", "two-thirds"],
+          "correctAnswer": 1,
+          "explanation": "A summary should typically be about one-third the length of the original text."
+        },
+        {
+          "id": 18,
+          "topic": "Paraphrasing",
+          "question": "Paraphrasing involves:",
+          "options": [
+            "copying the original text exactly",
+            "expressing ideas in your own words",
+            "changing only a few words",
+            "adding your own opinions"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Paraphrasing means expressing the same ideas using different words and sentence structures."
+        },
+        {
+          "id": 19,
+          "topic": "Literary Devices",
+          "question": "The phrase 'time flies' is an example of:",
+          "options": ["simile", "metaphor", "personification", "alliteration"],
+          "correctAnswer": 1,
+          "explanation": "This is a metaphor comparing time to something that flies."
+        },
+        {
+          "id": 20,
+          "topic": "Register and Style",
+          "question": "Which register is most appropriate for a formal letter?",
+          "options": ["colloquial", "formal", "slang", "informal"],
+          "correctAnswer": 1,
+          "explanation": "Formal register uses standard, polite language appropriate for official communication."
+        }
+      ]
+    }
+  ],
+  "practiceAnswers": {
+    "1": "B - Careless",
+    "2": "B - construction",
+    "3": "A - called off",
+    "4": "A - over",
+    "5": "B - awarded",
+    "6": "B - will have finished",
+    "7": "B - were",
+    "8": "B - at",
+    "9": "B - An",
+    "10": "B - passive",
+    "11": "C - Technology brings both benefits and challenges",
+    "12": "B - It helps people use technology safely and effectively",
+    "13": "C - manage or deal with",
+    "14": "C - High costs",
+    "15": "C - highlight the need for digital literacy",
+    "16": "C - Including personal opinions",
+    "17": "B - one-third",
+    "18": "B - expressing ideas in your own words",
+    "19": "B - metaphor",
+    "20": "B - formal"
+  }
+}

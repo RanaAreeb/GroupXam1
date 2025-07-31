@@ -1,0 +1,175 @@
+{
+  "id": "wassce-computer-studies-mock-2024",
+  "title": "WASSCE Computer Studies Mock Examination",
+  "subject": "Computer Studies",
+  "examType": "WASSCE Mock",
+  "year": 2024,
+  "duration": "3 hours",
+  "instructions": "Answer ALL questions in Section A and any FOUR questions from Section B",
+  "sections": {
+    "sectionA": {
+      "title": "SECTION A - OBJECTIVE TEST",
+      "instruction": "Answer ALL questions in this section",
+      "timeAllocation": "1 hour",
+      "questions": [
+        {
+          "id": 1,
+          "question": "The brain of a computer system is the",
+          "options": ["Monitor", "Keyboard", "CPU", "Mouse"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 2,
+          "question": "Which of the following is NOT an input device?",
+          "options": ["Keyboard", "Mouse", "Scanner", "Printer"],
+          "correctAnswer": 3
+        },
+        {
+          "id": 3,
+          "question": "The smallest unit of data in a computer is a",
+          "options": ["Bit", "Byte", "Kilobyte", "Megabyte"],
+          "correctAnswer": 0
+        },
+        {
+          "id": 4,
+          "question": "Which of the following is system software?",
+          "options": ["Microsoft Word", "Operating System", "Adobe Photoshop", "Google Chrome"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 5,
+          "question": "RAM stands for",
+          "options": ["Read Access Memory", "Random Access Memory", "Rapid Access Memory", "Real Access Memory"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 6,
+          "question": "Which programming language is known as the 'mother of all languages'?",
+          "options": ["FORTRAN", "COBOL", "C", "Assembly"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 7,
+          "question": "The process of finding and correcting errors in a program is called",
+          "options": ["Compiling", "Debugging", "Executing", "Interpreting"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 8,
+          "question": "Which of the following is a web browser?",
+          "options": ["Microsoft Word", "Mozilla Firefox", "Adobe Reader", "WinRAR"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 9,
+          "question": "The binary number system uses only",
+          "options": ["0 and 1", "0, 1, and 2", "1 and 2", "0 through 9"],
+          "correctAnswer": 0
+        },
+        {
+          "id": 10,
+          "question": "Which of the following is a type of computer network?",
+          "options": ["LAN", "WAN", "MAN", "All of the above"],
+          "correctAnswer": 3
+        },
+        {
+          "id": 11,
+          "question": "The Internet uses which protocol for web pages?",
+          "options": ["FTP", "HTTP", "SMTP", "POP3"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 12,
+          "question": "Which of the following is NOT a type of computer virus?",
+          "options": ["Trojan", "Worm", "Spyware", "Firewall"],
+          "correctAnswer": 3
+        },
+        {
+          "id": 13,
+          "question": "The extension .docx is associated with",
+          "options": ["Image files", "Video files", "Microsoft Word documents", "Audio files"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 14,
+          "question": "Which of the following is a database management system?",
+          "options": ["MySQL", "Photoshop", "PowerPoint", "Notepad"],
+          "correctAnswer": 0
+        },
+        {
+          "id": 15,
+          "question": "The term 'booting' refers to",
+          "options": [
+            "shutting down the computer",
+            "starting up the computer",
+            "installing software",
+            "connecting to the internet"
+          ],
+          "correctAnswer": 1
+        },
+        {
+          "id": 16,
+          "question": "Which of the following is a cloud storage service?",
+          "options": ["Google Drive", "Microsoft Paint", "Calculator", "Notepad"],
+          "correctAnswer": 0
+        },
+        {
+          "id": 17,
+          "question": "The process of converting source code into machine code is called",
+          "options": ["Debugging", "Compilation", "Execution", "Interpretation"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 18,
+          "question": "Which of the following is an example of artificial intelligence?",
+          "options": ["Calculator", "Word processor", "Chatbot", "Spreadsheet"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 19,
+          "question": "The term 'URL' stands for",
+          "options": [
+            "Universal Resource Locator",
+            "Uniform Resource Locator",
+            "Universal Reference Link",
+            "Uniform Reference Link"
+          ],
+          "correctAnswer": 1
+        },
+        {
+          "id": 20,
+          "question": "Which of the following is a characteristic of fourth-generation computers?",
+          "options": [
+            "Use of vacuum tubes",
+            "Use of transistors",
+            "Use of integrated circuits",
+            "Use of microprocessors"
+          ],
+          "correctAnswer": 3
+        }
+      ]
+    }
+  },
+  "answerKey": {
+    "1": "C",
+    "2": "D",
+    "3": "A",
+    "4": "B",
+    "5": "B",
+    "6": "C",
+    "7": "B",
+    "8": "B",
+    "9": "A",
+    "10": "D",
+    "11": "B",
+    "12": "D",
+    "13": "C",
+    "14": "A",
+    "15": "B",
+    "16": "A",
+    "17": "B",
+    "18": "C",
+    "19": "B",
+    "20": "D"
+  }
+}

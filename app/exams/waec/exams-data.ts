@@ -6,6 +6,7 @@ import math2025 from "./data/Practice Questions/General Mathematics/math-2025.js
 import furtherMath2025 from "./data/Practice Questions/Further Mathematics/further-mathematics-2025.json";
 import history2025 from "./data/Practice Questions/History/history-2025.json";
 import computerStudies2025 from "./data/Practice Questions/Computer Studies/computer-studies-2025.json";
+import computerStudiesPractice2025 from "./data/Practice Questions/Computer Studies/computer-studies-practice-2025.json";
 import physics2025 from "./data/Practice Questions/Physics/physics-2025.json";
 import literature2025 from "./data/Practice Questions/Literature in English/literature-2025.json";
 import chemistry2025 from "./data/Practice Questions/Chemistry/chemistry-2025.json";
@@ -19,6 +20,7 @@ export const waecExams = [
   furtherMath2025,
   history2025,
   computerStudies2025,
+  computerStudiesPractice2025,
   physics2025,
   literature2025,
   chemistry2025,

@@ -1,0 +1,230 @@
+{
+  "id": "wassce-economics-mock-2024",
+  "title": "WASSCE Economics Mock Examination",
+  "subject": "Economics",
+  "examType": "WASSCE Mock",
+  "year": 2024,
+  "duration": "3 hours",
+  "instructions": "Answer ALL questions in Section A and any FOUR questions from Section B",
+  "sections": {
+    "sectionA": {
+      "title": "SECTION A - OBJECTIVE TEST",
+      "instruction": "Answer ALL questions in this section",
+      "timeAllocation": "1 hour",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Economics is defined as the study of",
+          "options": ["how to make money", "scarcity and choice", "business management", "government policies"],
+          "correctAnswer": 1
+        },
+        {
+          "id": 2,
+          "question": "The basic economic problem arises because",
+          "options": [
+            "people are greedy",
+            "resources are unlimited",
+            "wants are unlimited but resources are limited",
+            "governments make poor decisions"
+          ],
+          "correctAnswer": 2
+        },
+        {
+          "id": 3,
+          "question": "Which of the following is NOT a factor of production?",
+          "options": ["Land", "Labor", "Capital", "Money"],
+          "correctAnswer": 3
+        },
+        {
+          "id": 4,
+          "question": "The law of demand states that",
+          "options": [
+            "as price increases, quantity demanded increases",
+            "as price decreases, quantity demanded decreases",
+            "as price increases, quantity demanded decreases",
+            "price and quantity demanded are unrelated"
+          ],
+          "correctAnswer": 2
+        },
+        {
+          "id": 5,
+          "question": "A market structure characterized by many sellers and identical products is",
+          "options": ["Monopoly", "Oligopoly", "Perfect competition", "Monopolistic competition"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 6,
+          "question": "Gross Domestic Product (GDP) measures",
+          "options": [
+            "total government spending",
+            "total value of goods and services produced in a country",
+            "total population of a country",
+            "total exports minus imports"
+          ],
+          "correctAnswer": 1
+        },
+        {
+          "id": 7,
+          "question": "Inflation is defined as",
+          "options": [
+            "a decrease in the general price level",
+            "an increase in the general price level",
+            "an increase in unemployment",
+            "a decrease in economic growth"
+          ],
+          "correctAnswer": 1
+        },
+        {
+          "id": 8,
+          "question": "The central bank's main function is to",
+          "options": [
+            "provide loans to individuals",
+            "control the money supply and monetary policy",
+            "collect taxes",
+            "regulate international trade"
+          ],
+          "correctAnswer": 1
+        },
+        {
+          "id": 9,
+          "question": "Which of the following is an example of fiscal policy?",
+          "options": [
+            "Changing interest rates",
+            "Controlling money supply",
+            "Government spending on infrastructure",
+            "Regulating bank reserves"
+          ],
+          "correctAnswer": 2
+        },
+        {
+          "id": 10,
+          "question": "The opportunity cost of a choice is",
+          "options": [
+            "the money spent on the choice",
+            "the time taken to make the choice",
+            "the next best alternative forgone",
+            "the total cost of the choice"
+          ],
+          "correctAnswer": 2
+        },
+        {
+          "id": 11,
+          "question": "Which of the following would cause a rightward shift in the demand curve?",
+          "options": [
+            "Decrease in consumer income",
+            "Increase in the price of substitutes",
+            "Decrease in population",
+            "Increase in the price of the good"
+          ],
+          "correctAnswer": 1
+        },
+        {
+          "id": 12,
+          "question": "Unemployment that occurs due to changes in technology is called",
+          "options": [
+            "Frictional unemployment",
+            "Structural unemployment",
+            "Cyclical unemployment",
+            "Seasonal unemployment"
+          ],
+          "correctAnswer": 1
+        },
+        {
+          "id": 13,
+          "question": "The price elasticity of demand measures",
+          "options": [
+            "how responsive quantity demanded is to changes in price",
+            "how responsive price is to changes in quantity demanded",
+            "the relationship between income and demand",
+            "the relationship between supply and demand"
+          ],
+          "correctAnswer": 0
+        },
+        {
+          "id": 14,
+          "question": "Which of the following is a characteristic of a public good?",
+          "options": ["Rivalry in consumption", "Excludability", "Non-rivalry and non-excludability", "High price"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 15,
+          "question": "The balance of payments includes",
+          "options": [
+            "only exports and imports of goods",
+            "current account and capital account",
+            "only government transactions",
+            "only private sector transactions"
+          ],
+          "correctAnswer": 1
+        },
+        {
+          "id": 16,
+          "question": "Economic development differs from economic growth in that development",
+          "options": [
+            "only measures GDP increase",
+            "includes improvements in living standards and welfare",
+            "is measured only in monetary terms",
+            "excludes social indicators"
+          ],
+          "correctAnswer": 1
+        },
+        {
+          "id": 17,
+          "question": "Which of the following is an indirect tax?",
+          "options": ["Income tax", "Corporate tax", "Value Added Tax (VAT)", "Property tax"],
+          "correctAnswer": 2
+        },
+        {
+          "id": 18,
+          "question": "The multiplier effect in economics refers to",
+          "options": [
+            "the effect of population growth on GDP",
+            "how an initial change in spending leads to a larger change in total income",
+            "the effect of inflation on purchasing power",
+            "the relationship between exports and imports"
+          ],
+          "correctAnswer": 1
+        },
+        {
+          "id": 19,
+          "question": "Which international organization promotes free trade?",
+          "options": [
+            "World Bank",
+            "International Monetary Fund (IMF)",
+            "World Trade Organization (WTO)",
+            "United Nations (UN)"
+          ],
+          "correctAnswer": 2
+        },
+        {
+          "id": 20,
+          "question": "The Lorenz curve is used to measure",
+          "options": ["Economic growth", "Income inequality", "Inflation rate", "Unemployment rate"],
+          "correctAnswer": 1
+        }
+      ]
+    }
+  },
+  "answerKey": {
+    "1": "B",
+    "2": "C",
+    "3": "D",
+    "4": "C",
+    "5": "C",
+    "6": "B",
+    "7": "B",
+    "8": "B",
+    "9": "C",
+    "10": "C",
+    "11": "B",
+    "12": "B",
+    "13": "A",
+    "14": "C",
+    "15": "B",
+    "16": "B",
+    "17": "C",
+    "18": "B",
+    "19": "C",
+    "20": "B"
+  }
+}

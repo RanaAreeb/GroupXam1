@@ -1,0 +1,160 @@
+{
+  "id": "wassce-physics-practice-2024",
+  "title": "WASSCE Physics Practice Questions",
+  "subject": "Physics",
+  "examType": "WASSCE Practice",
+  "year": 2024,
+  "totalQuestions": 55,
+  "topics": [
+    {
+      "topicName": "Mechanics - Motion",
+      "questions": [
+        {
+          "id": 1,
+          "question": "A car accelerates from rest to 30 m/s in 10 seconds. Calculate its acceleration.",
+          "type": "calculation",
+          "answer": "3 m/s²",
+          "workingSteps": [
+            "Given: u = 0 m/s, v = 30 m/s, t = 10 s",
+            "Using: a = (v - u)/t",
+            "a = (30 - 0)/10 = 30/10 = 3 m/s²"
+          ],
+          "explanation": "Acceleration is the rate of change of velocity with time."
+        },
+        {
+          "id": 2,
+          "question": "A stone is thrown vertically upward with initial velocity 20 m/s. Calculate the maximum height reached. (g = 10 m/s²)",
+          "type": "calculation",
+          "answer": "20 m",
+          "workingSteps": [
+            "At maximum height, final velocity v = 0",
+            "Using: v² = u² - 2gh (negative because against gravity)",
+            "0² = 20² - 2(10)h",
+            "0 = 400 - 20h",
+            "h = 400/20 = 20 m"
+          ],
+          "explanation": "At maximum height, the velocity becomes zero before the object starts falling back."
+        },
+        {
+          "id": 3,
+          "question": "State Newton's three laws of motion",
+          "type": "laws-principles",
+          "answer": "1st Law: An object at rest stays at rest, and an object in motion stays in motion at constant velocity, unless acted upon by an unbalanced force\n2nd Law: F = ma (Force equals mass times acceleration)\n3rd Law: For every action, there is an equal and opposite reaction",
+          "explanation": "Newton's laws form the foundation of classical mechanics."
+        }
+      ]
+    },
+    {
+      "topicName": "Waves and Sound",
+      "questions": [
+        {
+          "id": 4,
+          "question": "A wave has frequency 50 Hz and wavelength 6 m. Calculate its speed.",
+          "type": "calculation",
+          "answer": "300 m/s",
+          "workingSteps": ["Given: f = 50 Hz, λ = 6 m", "Using: v = fλ", "v = 50 × 6 = 300 m/s"],
+          "explanation": "Wave speed equals frequency times wavelength."
+        },
+        {
+          "id": 5,
+          "question": "Explain the difference between transverse and longitudinal waves with examples",
+          "type": "comparison",
+          "answer": "Transverse waves: Particles vibrate perpendicular to wave direction (e.g., light waves, water waves)\nLongitudinal waves: Particles vibrate parallel to wave direction (e.g., sound waves, seismic P-waves)",
+          "explanation": "The direction of particle vibration relative to wave propagation determines wave type."
+        },
+        {
+          "id": 6,
+          "question": "Sound travels at 340 m/s in air. If a sound wave has frequency 680 Hz, find its wavelength.",
+          "type": "calculation",
+          "answer": "0.5 m",
+          "workingSteps": ["Given: v = 340 m/s, f = 680 Hz", "Using: λ = v/f", "λ = 340/680 = 0.5 m"],
+          "explanation": "Wavelength is inversely proportional to frequency for a given wave speed."
+        }
+      ]
+    },
+    {
+      "topicName": "Electricity and Magnetism",
+      "questions": [
+        {
+          "id": 7,
+          "question": "Calculate the current when 120 C of charge flows through a conductor in 30 seconds.",
+          "type": "calculation",
+          "answer": "4 A",
+          "workingSteps": ["Given: Q = 120 C, t = 30 s", "Using: I = Q/t", "I = 120/30 = 4 A"],
+          "explanation": "Current is the rate of flow of electric charge."
+        },
+        {
+          "id": 8,
+          "question": "A resistor of 10 Ω carries a current of 2 A. Calculate the voltage across it and the power dissipated.",
+          "type": "calculation",
+          "answer": "V = 20 V, P = 40 W",
+          "workingSteps": [
+            "Given: R = 10 Ω, I = 2 A",
+            "Using Ohm's law: V = IR = 2 × 10 = 20 V",
+            "Power: P = VI = 20 × 2 = 40 W",
+            "Or P = I²R = 2² × 10 = 40 W"
+          ],
+          "explanation": "Ohm's law relates voltage, current, and resistance. Power can be calculated using P = VI or P = I²R."
+        },
+        {
+          "id": 9,
+          "question": "State Ohm's law and give its limitations",
+          "type": "laws-principles",
+          "answer": "Ohm's Law: The current through a conductor is directly proportional to the voltage across it, provided temperature remains constant (V = IR)\nLimitations: Only applies to ohmic materials, temperature must be constant, doesn't apply to semiconductors or non-linear devices",
+          "explanation": "Ohm's law is fundamental but has specific conditions for validity."
+        }
+      ]
+    },
+    {
+      "topicName": "Light and Optics",
+      "questions": [
+        {
+          "id": 10,
+          "question": "An object is placed 20 cm from a concave mirror of focal length 15 cm. Find the image distance and magnification.",
+          "type": "calculation",
+          "answer": "Image distance = 60 cm, Magnification = -3",
+          "workingSteps": [
+            "Given: u = 20 cm, f = 15 cm",
+            "Using mirror formula: 1/f = 1/u + 1/v",
+            "1/15 = 1/20 + 1/v",
+            "1/v = 1/15 - 1/20 = (4-3)/60 = 1/60",
+            "v = 60 cm",
+            "Magnification: m = -v/u = -60/20 = -3"
+          ],
+          "explanation": "The mirror formula relates object distance, image distance, and focal length."
+        },
+        {
+          "id": 11,
+          "question": "Explain total internal reflection and state its conditions",
+          "type": "explanation",
+          "answer": "Total internal reflection occurs when light traveling from a denser to a rarer medium is completely reflected back into the denser medium.\nConditions: 1) Light must travel from denser to rarer medium, 2) Angle of incidence must be greater than the critical angle",
+          "explanation": "This phenomenon is used in optical fibers and prisms."
+        }
+      ]
+    },
+    {
+      "topicName": "Heat and Thermodynamics",
+      "questions": [
+        {
+          "id": 12,
+          "question": "Calculate the heat required to raise the temperature of 2 kg of water from 20°C to 80°C. (Specific heat capacity of water = 4200 J/kg°C)",
+          "type": "calculation",
+          "answer": "504,000 J or 504 kJ",
+          "workingSteps": [
+            "Given: m = 2 kg, ΔT = 80 - 20 = 60°C, c = 4200 J/kg°C",
+            "Using: Q = mcΔT",
+            "Q = 2 × 4200 × 60 = 504,000 J = 504 kJ"
+          ],
+          "explanation": "Heat energy required depends on mass, specific heat capacity, and temperature change."
+        },
+        {
+          "id": 13,
+          "question": "Explain the three methods of heat transfer with examples",
+          "type": "explanation",
+          "answer": "1. Conduction: Heat transfer through direct contact (e.g., metal spoon in hot soup)\n2. Convection: Heat transfer through fluid movement (e.g., heating water, air currents)\n3. Radiation: Heat transfer through electromagnetic waves (e.g., sun's heat, fire warmth)",
+          "explanation": "Heat can be transferred through matter (conduction, convection) or through space (radiation)."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,362 @@
+{
+  "examInfo": {
+    "title": "JAMB Government Practice Questions",
+    "subject": "Government",
+    "examType": "Practice",
+    "duration": "60 minutes",
+    "totalQuestions": 25,
+    "instructions": "Choose the correct option from A-D for each question."
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "The concept of separation of powers was first propounded by",
+      "options": {
+        "A": "John Locke",
+        "B": "Baron de Montesquieu",
+        "C": "Jean Jacques Rousseau",
+        "D": "Thomas Hobbes"
+      },
+      "correctAnswer": "B",
+      "explanation": "Baron de Montesquieu in his book 'The Spirit of Laws' (1748) first articulated the theory of separation of powers into executive, legislative, and judicial branches.",
+      "topic": "Political Theory",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 2,
+      "question": "Which of the following is NOT a feature of federalism?",
+      "options": {
+        "A": "Division of powers between central and regional governments",
+        "B": "Written constitution",
+        "C": "Unitary system of government",
+        "D": "Independent judiciary"
+      },
+      "correctAnswer": "C",
+      "explanation": "A unitary system concentrates power in the central government, which is opposite to federalism that divides power between levels of government.",
+      "topic": "Federalism",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 3,
+      "question": "The Nigerian constitution that introduced the presidential system of government was the",
+      "options": {
+        "A": "1960 Constitution",
+        "B": "1963 Constitution",
+        "C": "1979 Constitution",
+        "D": "1999 Constitution"
+      },
+      "correctAnswer": "C",
+      "explanation": "The 1979 Constitution introduced the presidential system in Nigeria, replacing the parliamentary system used in the First Republic.",
+      "topic": "Nigerian Government",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 4,
+      "question": "Universal adult suffrage means",
+      "options": {
+        "A": "Only educated adults can vote",
+        "B": "All adults regardless of sex, race, or property can vote",
+        "C": "Only property owners can vote",
+        "D": "Only men can vote"
+      },
+      "correctAnswer": "B",
+      "explanation": "Universal adult suffrage grants voting rights to all adult citizens regardless of gender, race, religion, or economic status.",
+      "topic": "Electoral Systems",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 5,
+      "question": "The United Nations Organization was established in",
+      "options": {
+        "A": "1944",
+        "B": "1945",
+        "C": "1946",
+        "D": "1947"
+      },
+      "correctAnswer": "B",
+      "explanation": "The United Nations was officially established on October 24, 1945, when the UN Charter came into force.",
+      "topic": "International Relations",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 6,
+      "question": "Which organ of government is responsible for law-making?",
+      "options": {
+        "A": "Executive",
+        "B": "Judiciary",
+        "C": "Legislature",
+        "D": "Civil Service"
+      },
+      "correctAnswer": "C",
+      "explanation": "The legislature is the law-making organ of government, responsible for enacting, amending, and repealing laws.",
+      "topic": "Organs of Government",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 7,
+      "question": "The principle of rule of law was popularized by",
+      "options": {
+        "A": "A.V. Dicey",
+        "B": "Montesquieu",
+        "C": "John Austin",
+        "D": "Jeremy Bentham"
+      },
+      "correctAnswer": "A",
+      "explanation": "A.V. Dicey, a British constitutional lawyer, popularized the concept of rule of law in his work 'Introduction to the Study of the Law of the Constitution' (1885).",
+      "topic": "Constitutional Law",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 8,
+      "question": "In a parliamentary system, the head of government is the",
+      "options": {
+        "A": "President",
+        "B": "Prime Minister",
+        "C": "Speaker",
+        "D": "Chief Justice"
+      },
+      "correctAnswer": "B",
+      "explanation": "In a parliamentary system, the Prime Minister is the head of government and leads the executive branch.",
+      "topic": "Systems of Government",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 9,
+      "question": "The Economic Community of West African States (ECOWAS) was established in",
+      "options": {
+        "A": "1973",
+        "B": "1975",
+        "C": "1977",
+        "D": "1979"
+      },
+      "correctAnswer": "B",
+      "explanation": "ECOWAS was established on May 28, 1975, by the Treaty of Lagos to promote economic integration among West African countries.",
+      "topic": "International Organizations",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 10,
+      "question": "Which of the following is a merit of the multi-party system?",
+      "options": {
+        "A": "It promotes national unity",
+        "B": "It is less expensive to operate",
+        "C": "It provides alternative policies",
+        "D": "It prevents political competition"
+      },
+      "correctAnswer": "C",
+      "explanation": "The multi-party system allows different parties to present alternative policies and programs, giving voters choices.",
+      "topic": "Political Parties",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 11,
+      "question": "The process of removing a president from office is called",
+      "options": {
+        "A": "Dissolution",
+        "B": "Impeachment",
+        "C": "Recall",
+        "D": "Referendum"
+      },
+      "correctAnswer": "B",
+      "explanation": "Impeachment is the constitutional process of removing a president or other high officials from office for misconduct.",
+      "topic": "Constitutional Processes",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 12,
+      "question": "The African Union (AU) replaced the",
+      "options": {
+        "A": "Organization of African Unity (OAU)",
+        "B": "Economic Commission for Africa (ECA)",
+        "C": "African Development Bank (ADB)",
+        "D": "New Partnership for Africa's Development (NEPAD)"
+      },
+      "correctAnswer": "A",
+      "explanation": "The African Union was established in 2001 to replace the Organization of African Unity, which had been founded in 1963.",
+      "topic": "International Organizations",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 13,
+      "question": "Which of the following is NOT a function of political parties?",
+      "options": {
+        "A": "Political education",
+        "B": "Recruitment of political leaders",
+        "C": "Interpretation of laws",
+        "D": "Aggregation of interests"
+      },
+      "correctAnswer": "C",
+      "explanation": "Interpretation of laws is a function of the judiciary, not political parties. Political parties focus on political education, leadership recruitment, and interest aggregation.",
+      "topic": "Political Parties",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 14,
+      "question": "The concept of sovereignty was first developed by",
+      "options": {
+        "A": "Jean Bodin",
+        "B": "Thomas Hobbes",
+        "C": "John Locke",
+        "D": "Niccolo Machiavelli"
+      },
+      "correctAnswer": "A",
+      "explanation": "Jean Bodin, a French political philosopher, first developed the modern concept of sovereignty in his work 'Six Books of the Commonwealth' (1576).",
+      "topic": "Political Theory",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 15,
+      "question": "In Nigeria, the body responsible for conducting elections is",
+      "options": {
+        "A": "National Assembly",
+        "B": "Independent National Electoral Commission (INEC)",
+        "C": "Federal Electoral Commission (FEDECO)",
+        "D": "National Electoral Commission (NEC)"
+      },
+      "correctAnswer": "B",
+      "explanation": "The Independent National Electoral Commission (INEC) is the constitutional body responsible for conducting elections in Nigeria.",
+      "topic": "Nigerian Government",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 16,
+      "question": "The theory that government exists by the consent of the governed was propounded by",
+      "options": {
+        "A": "Thomas Hobbes",
+        "B": "John Locke",
+        "C": "Jean Jacques Rousseau",
+        "D": "Montesquieu"
+      },
+      "correctAnswer": "B",
+      "explanation": "John Locke in his 'Two Treatises of Government' argued that legitimate government exists only with the consent of the governed.",
+      "topic": "Political Theory",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 17,
+      "question": "Which of the following is a feature of a confederation?",
+      "options": {
+        "A": "Strong central government",
+        "B": "Weak central government",
+        "C": "Unitary system",
+        "D": "No state governments"
+      },
+      "correctAnswer": "B",
+      "explanation": "In a confederation, the central government is weak while the component states retain most of their sovereignty and powers.",
+      "topic": "Systems of Government",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 18,
+      "question": "The headquarters of the United Nations is located in",
+      "options": {
+        "A": "Geneva, Switzerland",
+        "B": "The Hague, Netherlands",
+        "C": "New York, USA",
+        "D": "Vienna, Austria"
+      },
+      "correctAnswer": "C",
+      "explanation": "The United Nations headquarters is located in New York City, USA, on the East River in Manhattan.",
+      "topic": "International Relations",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 19,
+      "question": "The principle of checks and balances ensures that",
+      "options": {
+        "A": "One organ of government dominates others",
+        "B": "All organs of government are equal",
+        "C": "No organ of government becomes too powerful",
+        "D": "The executive controls other organs"
+      },
+      "correctAnswer": "C",
+      "explanation": "Checks and balances prevent any single organ of government from becoming too powerful by allowing each organ to limit the powers of others.",
+      "topic": "Constitutional Principles",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 20,
+      "question": "Which of the following countries practices a unitary system of government?",
+      "options": {
+        "A": "Nigeria",
+        "B": "United States",
+        "C": "Ghana",
+        "D": "Canada"
+      },
+      "correctAnswer": "C",
+      "explanation": "Ghana practices a unitary system where power is concentrated in the central government, unlike federal systems in Nigeria, USA, and Canada.",
+      "topic": "Systems of Government",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 21,
+      "question": "The process by which people acquire political attitudes and beliefs is called",
+      "options": {
+        "A": "Political participation",
+        "B": "Political socialization",
+        "C": "Political culture",
+        "D": "Political recruitment"
+      },
+      "correctAnswer": "B",
+      "explanation": "Political socialization is the process through which individuals acquire their political attitudes, beliefs, and values from family, school, media, and society.",
+      "topic": "Political Behavior",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 22,
+      "question": "The first military coup in Nigeria took place in",
+      "options": {
+        "A": "January 1966",
+        "B": "July 1966",
+        "C": "July 1975",
+        "D": "December 1983"
+      },
+      "correctAnswer": "A",
+      "explanation": "The first military coup in Nigeria occurred on January 15, 1966, led by Major Chukwuma Kaduna Nzeogwu and other young officers.",
+      "topic": "Nigerian Government",
+      "difficulty": "Medium"
+    },
+    {
+      "id": 23,
+      "question": "Which of the following is NOT a source of the Nigerian constitution?",
+      "options": {
+        "A": "Colonial constitutions",
+        "B": "Independence constitution",
+        "C": "Military decrees",
+        "D": "Customary law only"
+      },
+      "correctAnswer": "D",
+      "explanation": "While customary law influences Nigerian law, it is not a direct source of the constitution. The constitution draws from colonial constitutions, independence constitution, and military decrees.",
+      "topic": "Nigerian Government",
+      "difficulty": "Hard"
+    },
+    {
+      "id": 24,
+      "question": "The International Court of Justice is located in",
+      "options": {
+        "A": "New York, USA",
+        "B": "Geneva, Switzerland",
+        "C": "The Hague, Netherlands",
+        "D": "Vienna, Austria"
+      },
+      "correctAnswer": "C",
+      "explanation": "The International Court of Justice, the principal judicial organ of the UN, is located in The Hague, Netherlands.",
+      "topic": "International Relations",
+      "difficulty": "Easy"
+    },
+    {
+      "id": 25,
+      "question": "Which of the following best describes democracy?",
+      "options": {
+        "A": "Government by the few",
+        "B": "Government by one person",
+        "C": "Government by the people",
+        "D": "Government by the military"
+      },
+      "correctAnswer": "C",
+      "explanation": "Democracy is defined as government by the people, where citizens participate directly or through elected representatives in decision-making.",
+      "topic": "Political Systems",
+      "difficulty": "Easy"
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "id": "wassce-computer-studies-practice-2024",
+  "title": "WASSCE Computer Studies Practice Questions",
+  "subject": "Computer Studies",
+  "examType": "WASSCE Practice",
+  "year": 2024,
+  "totalQuestions": 50,
+  "topics": [
+    {
+      "topicName": "Computer Systems and Hardware",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Explain the difference between RAM and ROM",
+          "type": "comparison",
+          "answer": "RAM (Random Access Memory): Volatile, temporary storage, stores data being currently used, can be read and written\nROM (Read Only Memory): Non-volatile, permanent storage, stores boot instructions, can only be read",
+          "explanation": "RAM is temporary working memory while ROM stores permanent system instructions."
+        },
+        {
+          "id": 2,
+          "question": "List five input devices and five output devices",
+          "type": "listing",
+          "answer": "Input: Keyboard, Mouse, Scanner, Microphone, Webcam\nOutput: Monitor, Printer, Speakers, Headphones, Projector",
+          "explanation": "Input devices send data to the computer; output devices receive data from the computer."
+        },
+        {
+          "id": 3,
+          "question": "The ______ is considered the brain of the computer system",
+          "type": "fill-in-blank",
+          "answer": "CPU (Central Processing Unit)",
+          "explanation": "The CPU executes instructions and performs calculations, controlling all computer operations."
+        },
+        {
+          "id": 4,
+          "question": "Calculate the storage capacity: How many bytes are in 2 GB?",
+          "type": "calculation",
+          "answer": "2,147,483,648 bytes",
+          "workingSteps": [
+            "1 KB = 1,024 bytes",
+            "1 MB = 1,024 KB = 1,048,576 bytes",
+            "1 GB = 1,024 MB = 1,073,741,824 bytes",
+            "2 GB = 2 × 1,073,741,824 = 2,147,483,648 bytes"
+          ],
+          "explanation": "Computer storage uses binary (base-2) calculations, not decimal."
+        }
+      ]
+    },
+    {
+      "topicName": "Software and Operating Systems",
+      "questions": [
+        {
+          "id": 5,
+          "question": "Distinguish between system software and application software with examples",
+          "type": "comparison",
+          "answer": "System Software: Manages computer resources, includes OS, device drivers, utilities (e.g., Windows, Linux, antivirus)\nApplication Software: Performs specific tasks for users (e.g., MS Word, Photoshop, games)",
+          "explanation": "System software runs the computer; application software helps users accomplish tasks."
+        },
+        {
+          "id": 6,
+          "question": "List four functions of an operating system",
+          "type": "listing",
+          "answer": "1. Process management\n2. Memory management\n3. File management\n4. Device management\n5. User interface provision\n6. Security management",
+          "explanation": "The OS coordinates all computer resources and provides a platform for other software."
+        },
+        {
+          "id": 7,
+          "question": "The process of finding and correcting errors in a program is called ______",
+          "type": "fill-in-blank",
+          "answer": "debugging",
+          "explanation": "Debugging is essential for creating reliable, error-free programs."
+        }
+      ]
+    },
+    {
+      "topicName": "Number Systems and Data Representation",
+      "questions": [
+        {
+          "id": 8,
+          "question": "Convert 1011₂ to decimal",
+          "type": "calculation",
+          "answer": "11",
+          "workingSteps": ["1011₂ = 1×2³ + 0×2² + 1×2¹ + 1×2⁰", "= 1×8 + 0×4 + 1×2 + 1×1", "= 8 + 0 + 2 + 1 = 11"],
+          "explanation": "Binary uses powers of 2 for place values."
+        },
+        {
+          "id": 9,
+          "question": "Convert decimal 25 to binary",
+          "type": "calculation",
+          "answer": "11001₂",
+          "workingSteps": [
+            "25 ÷ 2 = 12 remainder 1",
+            "12 ÷ 2 = 6 remainder 0",
+            "6 ÷ 2 = 3 remainder 0",
+            "3 ÷ 2 = 1 remainder 1",
+            "1 ÷ 2 = 0 remainder 1",
+            "Reading remainders upward: 11001₂"
+          ],
+          "explanation": "Divide by 2 repeatedly and collect remainders from bottom to top."
+        },
+        {
+          "id": 10,
+          "question": "What is the largest decimal number that can be represented with 4 bits?",
+          "type": "calculation",
+          "answer": "15",
+          "workingSteps": [
+            "4 bits can represent 2⁴ = 16 different values",
+            "Range: 0 to 15 (since we start counting from 0)",
+            "Largest number = 1111₂ = 8+4+2+1 = 15"
+          ],
+          "explanation": "n bits can represent 2ⁿ different values, from 0 to 2ⁿ-1."
+        }
+      ]
+    },
+    {
+      "topicName": "Programming Concepts",
+      "questions": [
+        {
+          "id": 11,
+          "question": "Explain the difference between a compiler and an interpreter",
+          "type": "comparison",
+          "answer": "Compiler: Translates entire program at once, creates executable file, faster execution, detects all errors before execution\nInterpreter: Translates line by line during execution, no executable file created, slower execution, stops at first error",
+          "explanation": "Both translate high-level code to machine code but use different approaches."
+        },
+        {
+          "id": 12,
+          "question": "Draw a flowchart to find the largest of three numbers",
+          "type": "flowchart",
+          "answer": "Start → Input A,B,C → Is A>B? → Yes: Is A>C? → Yes: Print A → End\n                                    → No: Is B>C? → Yes: Print B → End\n                                                   → No: Print C → End",
+          "explanation": "Flowcharts use standard symbols to represent program logic visually."
+        },
+        {
+          "id": 13,
+          "question": "What is an algorithm?",
+          "type": "definition",
+          "answer": "A step-by-step procedure or set of rules for solving a problem or completing a task",
+          "explanation": "Algorithms are the foundation of all computer programs and problem-solving."
+        }
+      ]
+    },
+    {
+      "topicName": "Networks and Internet",
+      "questions": [
+        {
+          "id": 14,
+          "question": "Compare LAN, MAN, and WAN networks",
+          "type": "comparison",
+          "answer": "LAN (Local Area Network): Small area (building/campus), high speed, low cost\nMAN (Metropolitan Area Network): City-wide coverage, medium speed and cost\nWAN (Wide Area Network): Large geographical area, lower speed, high cost",
+          "explanation": "Networks are classified by their geographical coverage and characteristics."
+        },
+        {
+          "id": 15,
+          "question": "List four advantages of computer networks",
+          "type": "listing",
+          "answer": "1. Resource sharing (printers, files)\n2. Communication (email, messaging)\n3. Data backup and security\n4. Cost reduction\n5. Centralized management",
+          "explanation": "Networks enable sharing and communication between connected devices."
+        }
+      ]
+    }
+  ]
+}

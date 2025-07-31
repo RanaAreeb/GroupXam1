@@ -1,0 +1,86 @@
+{
+  "id": "waec-physics-mock",
+  "title": "WAEC Physics Mock Exam 2025",
+  "subject": "Physics",
+  "year": 2025,
+  "duration": "2 hours 30 minutes",
+  "totalQuestions": 50,
+  "instructions": "Answer all questions. Each question carries equal marks.",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which of the following is a vector quantity?",
+      "options": ["Mass", "Temperature", "Velocity", "Time"],
+      "answer": 2,
+      "explanation": "Velocity has both magnitude and direction, making it a vector quantity."
+    },
+    {
+      "id": 2,
+      "question": "A body moving with uniform acceleration has a velocity of 12 m/s at a certain instant. If it comes to rest after 4 seconds, what is the retardation?",
+      "options": ["3 m/s²", "4 m/s²", "6 m/s²", "8 m/s²"],
+      "answer": 0,
+      "explanation": "Retardation = (final velocity - initial velocity) / time = (0 - 12) / 4 = -3 m/s²"
+    },
+    {
+      "id": 3,
+      "question": "The unit of electric current is:",
+      "options": ["Volt", "Ampere", "Ohm", "Watt"],
+      "answer": 1,
+      "explanation": "The SI unit of electric current is the Ampere (A)."
+    },
+    {
+      "id": 4,
+      "question": "Which of the following is NOT a fundamental unit?",
+      "options": ["Meter", "Second", "Newton", "Kilogram"],
+      "answer": 2,
+      "explanation": "Newton is a derived unit (kg⋅m/s²), not a fundamental unit."
+    },
+    {
+      "id": 5,
+      "question": "A force of 10 N acts on a body of mass 2 kg. What is the acceleration?",
+      "options": ["2 m/s²", "5 m/s²", "10 m/s²", "20 m/s²"],
+      "answer": 1,
+      "explanation": "F = ma, so a = F/m = 10/2 = 5 m/s²"
+    },
+    {
+      "id": 6,
+      "question": "The principle of conservation of energy states that:",
+      "options": [
+        "Energy can be created but not destroyed",
+        "Energy can be destroyed but not created",
+        "Energy cannot be created or destroyed",
+        "Energy can be created and destroyed"
+      ],
+      "answer": 2,
+      "explanation": "Energy can neither be created nor destroyed, only transformed from one form to another."
+    },
+    {
+      "id": 7,
+      "question": "Which of the following waves requires a medium for propagation?",
+      "options": ["Light waves", "Radio waves", "Sound waves", "X-rays"],
+      "answer": 2,
+      "explanation": "Sound waves are mechanical waves that require a medium (solid, liquid, or gas) for propagation."
+    },
+    {
+      "id": 8,
+      "question": "The SI unit of power is:",
+      "options": ["Joule", "Watt", "Newton", "Pascal"],
+      "answer": 1,
+      "explanation": "The SI unit of power is the Watt (W), which is equal to one joule per second."
+    },
+    {
+      "id": 9,
+      "question": "A body of mass 5 kg is lifted through a height of 10 m. What is the work done? (g = 10 m/s²)",
+      "options": ["50 J", "100 J", "500 J", "1000 J"],
+      "answer": 2,
+      "explanation": "Work done = mgh = 5 × 10 × 10 = 500 J"
+    },
+    {
+      "id": 10,
+      "question": "Which of the following is a scalar quantity?",
+      "options": ["Force", "Displacement", "Speed", "Velocity"],
+      "answer": 2,
+      "explanation": "Speed has only magnitude, making it a scalar quantity."
+    }
+  ]
+}

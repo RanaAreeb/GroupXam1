@@ -1,0 +1,106 @@
+{
+  "id": "computer-studies-practice-2025",
+  "title": "WAEC Computer Studies Practice Exam 2025",
+  "subject": "Computer Studies",
+  "year": 2025,
+  "duration": "2 hours",
+  "totalQuestions": 40,
+  "instructions": "Answer all questions. Each question carries equal marks.",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which of the following is NOT a type of computer memory?",
+      "options": ["RAM", "ROM", "CPU", "Cache"],
+      "answer": 2,
+      "explanation": "CPU (Central Processing Unit) is the processor, not a type of memory."
+    },
+    {
+      "id": 2,
+      "question": "What does CPU stand for?",
+      "options": [
+        "Central Processing Unit",
+        "Computer Personal Unit",
+        "Central Personal Unit",
+        "Computer Processing Unit"
+      ],
+      "answer": 0,
+      "explanation": "CPU stands for Central Processing Unit, the main processor of a computer."
+    },
+    {
+      "id": 3,
+      "question": "Which programming language is commonly used for web development?",
+      "options": ["Java", "Python", "HTML", "C++"],
+      "answer": 2,
+      "explanation": "HTML (HyperText Markup Language) is the standard language for creating web pages."
+    },
+    {
+      "id": 4,
+      "question": "What is the primary function of an operating system?",
+      "options": [
+        "To run applications",
+        "To manage hardware and software resources",
+        "To connect to the internet",
+        "To store data"
+      ],
+      "answer": 1,
+      "explanation": "The primary function of an OS is to manage hardware and software resources."
+    },
+    {
+      "id": 5,
+      "question": "Which of the following is an input device?",
+      "options": ["Monitor", "Printer", "Keyboard", "Speaker"],
+      "answer": 2,
+      "explanation": "Keyboard is an input device that allows users to enter data into the computer."
+    },
+    {
+      "id": 6,
+      "question": "What does RAM stand for?",
+      "options": [
+        "Random Access Memory",
+        "Read Access Memory",
+        "Random Available Memory",
+        "Read Available Memory"
+      ],
+      "answer": 0,
+      "explanation": "RAM stands for Random Access Memory, which is volatile memory."
+    },
+    {
+      "id": 7,
+      "question": "Which of the following is a programming language?",
+      "options": ["Word", "Excel", "Python", "PowerPoint"],
+      "answer": 2,
+      "explanation": "Python is a high-level programming language."
+    },
+    {
+      "id": 8,
+      "question": "What is the function of a firewall?",
+      "options": [
+        "To speed up internet connection",
+        "To protect against unauthorized access",
+        "To store files",
+        "To print documents"
+      ],
+      "answer": 1,
+      "explanation": "A firewall is a security system that protects against unauthorized network access."
+    },
+    {
+      "id": 9,
+      "question": "Which of the following is NOT a storage device?",
+      "options": ["Hard Disk", "USB Drive", "Monitor", "CD-ROM"],
+      "answer": 2,
+      "explanation": "Monitor is an output device, not a storage device."
+    },
+    {
+      "id": 10,
+      "question": "What does URL stand for?",
+      "options": [
+        "Uniform Resource Locator",
+        "Universal Resource Link",
+        "Uniform Resource Link",
+        "Universal Resource Locator"
+      ],
+      "answer": 0,
+      "explanation": "URL stands for Uniform Resource Locator, the address of a web page."
+    }
+  ]
+}

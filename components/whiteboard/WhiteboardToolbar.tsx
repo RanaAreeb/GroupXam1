@@ -65,13 +65,9 @@ import {
   AlignLeft,
   AlignCenter,
   AlignRight,
-  AlignTop,
-  AlignMiddle,
-  AlignBottom,
   Group,
   Ungroup,
   Copy,
-  Paste,
   Scissors,
   Bold,
   Italic,
@@ -93,11 +89,9 @@ import {
   Eye as EyeIcon,
   EyeOff as EyeOffIcon,
   Layers as LayersIcon,
-  Layer,
   BringToFront,
   SendToBack,
-  BringForward,
-  SendBackward,
+  ArrowRight,
 } from "lucide-react";
 
 interface Tool {

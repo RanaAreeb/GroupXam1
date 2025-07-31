@@ -1,0 +1,114 @@
+{
+  "id": "wassce-english-practice-2024",
+  "title": "WASSCE English Language Practice Questions",
+  "subject": "English Language",
+  "examType": "WASSCE Practice",
+  "year": 2024,
+  "totalQuestions": 60,
+  "topics": [
+    {
+      "topicName": "Grammar and Usage",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Identify and correct the error: 'The committee have reached their decision after much deliberation.'",
+          "type": "error-correction",
+          "answer": "'have' should be 'has' - The committee has reached its decision after much deliberation.",
+          "explanation": "Committee is a collective noun treated as singular, requiring singular verb and pronoun."
+        },
+        {
+          "id": 2,
+          "question": "Choose the correct form: 'Neither the teacher nor the students _____ satisfied with the results.'",
+          "type": "multiple-choice",
+          "options": ["was", "were", "is", "are"],
+          "correctAnswer": 1,
+          "explanation": "With 'neither...nor', the verb agrees with the subject closer to it (students - plural)."
+        },
+        {
+          "id": 3,
+          "question": "Complete with the appropriate modal: 'You _____ have told me about the meeting earlier.'",
+          "type": "fill-in-blank",
+          "answer": "should",
+          "explanation": "'Should have' expresses regret or criticism about a past action that didn't happen."
+        },
+        {
+          "id": 4,
+          "question": "Transform to passive voice: 'The storm destroyed many houses.'",
+          "type": "transformation",
+          "answer": "Many houses were destroyed by the storm.",
+          "explanation": "In passive voice, the object becomes the subject and the verb changes to 'be + past participle'."
+        }
+      ]
+    },
+    {
+      "topicName": "Vocabulary and Word Formation",
+      "questions": [
+        {
+          "id": 5,
+          "question": "Form the noun from: analyze, criticize, sympathize",
+          "type": "word-formation",
+          "answer": "analysis, criticism, sympathy",
+          "explanation": "These verbs form nouns by changing their endings according to specific patterns."
+        },
+        {
+          "id": 6,
+          "question": "Choose the word closest in meaning to 'meticulous':",
+          "type": "multiple-choice",
+          "options": ["careless", "thorough", "quick", "expensive"],
+          "correctAnswer": 1,
+          "explanation": "Meticulous means showing great attention to detail; very careful and precise."
+        },
+        {
+          "id": 7,
+          "question": "Use 'break' in two different contexts showing different meanings",
+          "type": "contextual-usage",
+          "answer": "1. Physical: 'Don't break the glass.' 2. Interruption: 'Let's take a break from work.'",
+          "explanation": "Many English words have multiple meanings depending on context."
+        }
+      ]
+    },
+    {
+      "topicName": "Reading Comprehension",
+      "questions": [
+        {
+          "id": 8,
+          "question": "Read the passage and answer: 'Education is the most powerful weapon which you can use to change the world. It is through education that the daughter of a peasant can become a doctor, that the son of a mineworker can become the head of the mine.' What is the main theme?",
+          "type": "comprehension",
+          "answer": "The transformative power of education in changing social status and circumstances",
+          "explanation": "The passage emphasizes how education can break social barriers and enable upward mobility."
+        }
+      ]
+    },
+    {
+      "topicName": "Essay Writing",
+      "questions": [
+        {
+          "id": 9,
+          "question": "Write an outline for an argumentative essay on 'Social Media: Blessing or Curse?'",
+          "type": "essay-planning",
+          "answer": "I. Introduction - Hook, background, thesis\nII. Benefits - Communication, education, business\nIII. Drawbacks - Addiction, privacy, misinformation\nIV. Counter-argument and rebuttal\nV. Conclusion - Balanced view, call to action",
+          "explanation": "A good argumentative essay presents both sides before taking a position."
+        }
+      ]
+    },
+    {
+      "topicName": "Literary Appreciation",
+      "questions": [
+        {
+          "id": 10,
+          "question": "Identify the literary device: 'The wind whispered secrets through the trees.'",
+          "type": "identification",
+          "answer": "Personification",
+          "explanation": "Personification gives human qualities (whispering) to non-human things (wind)."
+        },
+        {
+          "id": 11,
+          "question": "Explain the difference between theme and plot",
+          "type": "literary-analysis",
+          "answer": "Plot is the sequence of events in a story (what happens), while theme is the central message or meaning (what the story is about)",
+          "explanation": "Plot is the structure; theme is the deeper meaning or lesson."
+        }
+      ]
+    }
+  ]
+}

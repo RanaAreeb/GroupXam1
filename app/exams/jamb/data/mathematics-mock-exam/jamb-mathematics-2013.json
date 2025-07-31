@@ -1,0 +1,372 @@
+{
+  "id": "mathematics-2013",
+  "title": "JAMB Mathematics 2013",
+  "subject": "Mathematics",
+  "year": 2013,
+  "duration": "2 hours",
+  "paperType": "U",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which Mathematics Question Paper Type is given to you?",
+      "options": ["Type D", "Type I", "Type B", "Type U"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 2,
+      "question": "Convert 27₁₀ to another number in base three",
+      "options": ["1100₃", "1000₃", "1001₃", "1010₃"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 3,
+      "question": "3 girls share a number of apples in the ratio 5:3:2. If the highest share is 40 apples, find the smallest share",
+      "options": ["16", "38", "36", "24"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 4,
+      "question": "Evaluate 1.25 × 0.025, correct to 1 decimal place",
+      "options": ["6.3", "0.5", "0.6", "6.2"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 5,
+      "question": "Calculate the time taken for ₦3000 to earn ₦600 if invested at 8% simple interest",
+      "options": ["3½ years", "1½ years", "2½ years", "3 years"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 6,
+      "question": "Simplify 3⁻⁵ⁿ/9¹⁻ⁿ × 27ⁿ⁺¹",
+      "options": ["3²", "3³", "3⁵", "3"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 7,
+      "question": "If log₁₀ 4 = 0.6021, evaluate log₁₀ 4³",
+      "options": ["1.8063", "0.2007", "0.3011", "0.9021"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 8,
+      "question": "Simplify √5(√147 - √12)/√15",
+      "options": ["19", "9", "5", "15"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 9,
+      "question": "P, Q and R are subsets of the universal set U. The Venn diagram showing the relationship (P∩Q)∪R is",
+      "options": ["A", "B", "C", "D"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 10,
+      "question": "If P = {x: x is odd, -1 < x ≤ 20} and Q = {y: y is prime, -2 < y ≤ 25}, find P ∩ Q",
+      "options": [
+        "{3, 5, 7, 11, 13, 17, 19}",
+        "{2, 3, 5, 7, 11, 13, 17, 19}",
+        "{3, 5, 7, 11, 17, 19}",
+        "{3, 5, 11, 13, 17, 19}"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 11,
+      "question": "If S = √(t² - 4t + 4), find t in terms of S",
+      "options": ["S - 2", "S² + 2", "S² - 2", "S + 2"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 12,
+      "question": "If x - 4 is a factor of x² - x - k, then k is",
+      "options": ["20", "2", "4", "12"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 13,
+      "question": "The remainder when 6p³ - p² - 47p + 30 is divided by p - 3 is",
+      "options": ["63", "18", "21", "42"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 14,
+      "question": "P varies jointly as m and u, and varies inversely as q. Given that p = 4, m = 3 and u = 2 and q = 1, find the value of p when m = 6, u = 4 and q = 8/5",
+      "options": ["10", "28/5", "12/5", "15"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 15,
+      "question": "If r varies inversely as the square root of s and t, how does s vary with r and t?",
+      "options": [
+        "s varies directly as r² and t²",
+        "s varies directly as r and t",
+        "s varies inversely as r and t²",
+        "s varies inversely as r² and t"
+      ],
+      "correctAnswer": 3
+    },
+    {
+      "id": 16,
+      "question": "Evaluate 3(x + 2) > 6(x + 3)",
+      "options": ["x < -4", "x > 4", "x < 4", "x > -4"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 17,
+      "question": "The graph above is correctly represented by",
+      "options": ["y = x² - x - 1", "y = x² + x - 2", "y = x² - x - 2", "y = x² - 3x + 2"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 18,
+      "question": "Solve for x: |x - 2| < 3",
+      "options": ["-1 < x < 5", "x < 1", "x < 5", "-1 < x < 3"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 19,
+      "question": "If the sum of the first two terms of a G.P. is 3, and the sum of the second and the third terms is -6, find the sum of the first term and the common ratio",
+      "options": ["-5", "5", "-2", "-3"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 20,
+      "question": "The nth term of the progression 4/2, 7/3, 10/4, 13/5, ... is",
+      "options": ["(3n+1)/(n+1)", "(3n+1)/(n+1)", "(1-3n)/(n+1)", "(3n+1)/(n+1)"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 21,
+      "question": "If a binary operation * is defined by x * y = x + 2y, find 2 * (3 * 4)",
+      "options": ["14", "26", "24", "16"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 22,
+      "question": "If P = [5 3; 2 1] and Q = [4 2; 3 5], find 2P + Q",
+      "options": ["[7 7; 8 14]", "[8 14; 7 7]", "[7 7; 14 8]", "[14 8; 7 7]"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 23,
+      "question": "Find the inverse [5 3; 6 4]",
+      "options": ["[2 -3; -3 5/2]", "[-3 -5/2; 2 3]", "[2 -3/2; -3 5/2]", "[2; -3 5/2]"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 24,
+      "question": "In the diagram above, find the value of x.",
+      "options": ["5°", "15°", "30°", "40°"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 25,
+      "question": "The value of x in the figure above is",
+      "options": ["70°", "130°", "110°", "100°"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 26,
+      "question": "If the angles of a quadrilateral are (3y+10)°, (2y+30)°, (y+20)° and 4y°, find the value of y.",
+      "options": ["66°", "12°", "30°", "42°"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 27,
+      "question": "A square tile has side 30cm. How many of these tiles will cover a rectangular floor of length 7.2m and width 4.2m?",
+      "options": ["720", "336", "420", "576"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 28,
+      "question": "Find the length of a chord which subtends an angle of 90° at the centre of a circle whose radius is 8cm.",
+      "options": ["8√3 cm", "4 cm", "8 cm", "8√2 cm"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 29,
+      "question": "A chord of a circle subtends an angle of 120° at the centre of a circle of diameter 4√3cm. Calculate the area of the major sector",
+      "options": ["32π cm²", "4π cm²", "8π cm²", "16π cm²"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 30,
+      "question": "The locus of the points which is equidistant from the line PQ forms a",
+      "options": ["perpendicular line to PQ", "circle centre P", "circle centre Q", "pair of parallel lines to PQ"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 31,
+      "question": "If the mid-point of the line PQ is (2,3) and the point P is (-2,1). find the coordinate of the point Q.",
+      "options": ["(8,6)", "(5, 6)", "(0, 4)", "(6, 5)"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 32,
+      "question": "Find the equation of the perpendicular bisector of the line joining P (2, 3) to Q(-5, 1)",
+      "options": ["8y + 14x + 13 = 0", "8y - 14x + 13 = 0", "8y - 14x - 13 = 0", "8y + 14x - 13 = 0"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 33,
+      "question": "In triangle PQR, q = 8cm, r = 6cm and cos p = 1/12",
+      "options": ["√108 cm", "√9 cm", "√92 cm", "10 cm"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 34,
+      "question": "If tan θ = 3/4, find the value of sin θ + cos θ",
+      "options": ["1/13", "12/3", "13/5", "12/5"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 35,
+      "question": "If y = (2x + 2)³, find dy/dx",
+      "options": ["3(2x + 2)", "6(2x + 2)²", "3(2x + 2)²", "6(2x+2)"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 36,
+      "question": "If y = x sin x, find dy/dx",
+      "options": ["cos x + x sin x", "sin x + x cos x", "sin x - cos x", "cos x - x sin x"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 37,
+      "question": "The radius of a circle is increasing at the rate of 0.02cms⁻¹. Find the rate at which the area is increasing when the radius of the circle is 7cm.",
+      "options": ["0.35 cm²s⁻¹", "0.88cm²s⁻¹", "0.75 cm²s⁻¹", "0.55 cm²s⁻¹"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 38,
+      "question": "Integrate (1+x)/x³ dx",
+      "options": ["2x² - 1/x + k", "-1/(2x²) - 1/x + k", "-x²/(2x) - 1/x + k", "x²/2 - 1/x + k"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 39,
+      "question": "Evaluate ∫₀² sin x dx",
+      "options": ["-2", "2", "1", "-1"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 40,
+      "question": "The bar chart above shows the allotment of time (in minutes) per week for selected subjects in a certain school. What is the total time allocated to the six subjects per week?",
+      "options": ["960 mins", "200 mins", "460 mins", "720 mins"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 41,
+      "question": "The pie chart above shows the statistical distribution of 80 students in five subjects in an examination. Calculate how many students offer Mathematics.",
+      "options": ["50", "20", "30", "40"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 42,
+      "question": "Find the mean of t + 2, 2t - 4, 3t + 2 and 2t.",
+      "options": ["2t + 1", "t", "t + 1", "2t"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 43,
+      "question": "The mean of seven numbers is 10. If six of the numbers are 2, 4, 8, 14, 16 and 18, find the mode.",
+      "options": ["14", "2", "6", "8"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 44,
+      "question": "Calculate the median age of the frequency distribution in the table above",
+      "options": ["35", "20", "25", "30"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 45,
+      "question": "If the variance of 3 + x, 6, 4, x and 7 - x is 4 and the mean is 5, find the standard deviation",
+      "options": ["3", "√2", "√3", "2"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 46,
+      "question": "The table above shows the scores of 20 students in further mathematics test. What is the range of the distribution?",
+      "options": ["3", "10", "7", "6"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 47,
+      "question": "In how many ways can a student select 2 subjects from 5 subjects?",
+      "options": ["5!/(2!3!)", "5!/2!", "5!/3!", "5!/(2!2!)"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 48,
+      "question": "In how many ways can 3 seats be occupied if 5 people are willing to sit?",
+      "options": ["5", "120", "60", "20"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 49,
+      "question": "What is the probability that an integer x (1≤x≤25) chosen at random is divisible by both 2 and 3?",
+      "options": ["4/25", "3/4", "1/25", "1/5"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 50,
+      "question": "A basket contains 9 apples, 8 bananas and 7 oranges. A fruit is picked from the basket, find the probability that it is neither an apple nor an orange.",
+      "options": ["7/24", "2/3", "3/8", "1/3"],
+      "correctAnswer": 3
+    }
+  ],
+  "answerKey": {
+    "1": "D",
+    "2": "A",
+    "3": "A",
+    "4": "A",
+    "5": "C",
+    "6": "B",
+    "7": "A",
+    "8": "B",
+    "9": "A",
+    "10": "A",
+    "11": "D",
+    "12": "D",
+    "13": "C",
+    "14": "B",
+    "15": "D",
+    "16": "A",
+    "17": "C",
+    "18": "A",
+    "19": "A",
+    "20": "A",
+    "21": "A",
+    "22": "B",
+    "23": "A",
+    "24": "B",
+    "25": "C",
+    "26": "C",
+    "27": "B",
+    "28": "D",
+    "29": "C",
+    "30": "D",
+    "31": "D",
+    "32": "B",
+    "33": "C",
+    "34": "C",
+    "35": "B",
+    "36": "B",
+    "37": "B",
+    "38": "B",
+    "39": "C",
+    "40": "A",
+    "41": "B",
+    "42": "D",
+    "43": "D",
+    "44": "D",
+    "45": "D",
+    "46": "C",
+    "47": "A",
+    "48": "C",
+    "49": "A",
+    "50": "D"
+  }
+}

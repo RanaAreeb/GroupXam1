@@ -1,0 +1,133 @@
+{
+  "id": "wassce-literature-practice-2024",
+  "title": "WASSCE Literature in English Practice Questions",
+  "subject": "Literature in English",
+  "examType": "WASSCE Practice",
+  "year": 2024,
+  "totalQuestions": 45,
+  "topics": [
+    {
+      "topicName": "Poetry Analysis",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Analyze the use of imagery in the following lines: 'The golden sun kissed the emerald hills, while silver streams danced through the valley.'",
+          "type": "literary-analysis",
+          "answer": "Visual imagery: 'golden sun,' 'emerald hills,' 'silver streams' - creates a vivid, colorful landscape\nPersonification: 'sun kissed,' 'streams danced' - gives human qualities to nature\nEffect: Creates a beautiful, harmonious natural scene that appeals to the senses",
+          "explanation": "Imagery appeals to the senses to create vivid mental pictures and emotional responses."
+        },
+        {
+          "id": 2,
+          "question": "Identify and explain the rhyme scheme in this stanza: 'Roses are red / Violets are blue / Sugar is sweet / And so are you'",
+          "type": "technical-analysis",
+          "answer": "Rhyme scheme: ABAB\nred (A) - blue (B) - sweet (A) - you (B)\nThis creates a musical quality and helps with memorability",
+          "explanation": "Rhyme scheme is the pattern of rhymes at the end of each line, labeled with letters."
+        },
+        {
+          "id": 3,
+          "question": "What is the difference between a metaphor and a simile? Give examples.",
+          "type": "comparison",
+          "answer": "Simile: Compares using 'like' or 'as' (e.g., 'She sings like an angel')\nMetaphor: Direct comparison without 'like' or 'as' (e.g., 'She is an angel when she sings')\nBoth create comparisons but metaphors are more direct and powerful",
+          "explanation": "Both are figures of speech that compare unlike things but use different methods."
+        }
+      ]
+    },
+    {
+      "topicName": "Drama Analysis",
+      "questions": [
+        {
+          "id": 4,
+          "question": "Explain the concept of dramatic irony with an example",
+          "type": "explanation",
+          "answer": "Dramatic irony occurs when the audience knows something that the characters don't.\nExample: In Romeo and Juliet, the audience knows Juliet is only sleeping, but Romeo thinks she's dead and kills himself.\nEffect: Creates tension, suspense, and emotional engagement",
+          "explanation": "Dramatic irony is a powerful tool that engages the audience by giving them superior knowledge."
+        },
+        {
+          "id": 5,
+          "question": "Distinguish between protagonist and antagonist",
+          "type": "comparison",
+          "answer": "Protagonist: The main character, usually the hero, around whom the story revolves\nAntagonist: The character or force that opposes the protagonist, creating conflict\nNote: The antagonist isn't always a villain - can be society, nature, or internal conflict",
+          "explanation": "These roles create the central conflict that drives the dramatic action."
+        },
+        {
+          "id": 6,
+          "question": "What is a soliloquy and what is its purpose?",
+          "type": "definition-purpose",
+          "answer": "A soliloquy is a speech delivered by a character alone on stage, expressing inner thoughts aloud.\nPurpose: Reveals character's true feelings, motivations, and internal conflicts to the audience\nExample: Hamlet's 'To be or not to be' speech",
+          "explanation": "Soliloquies provide insight into characters' minds that wouldn't be available through dialogue."
+        }
+      ]
+    },
+    {
+      "topicName": "Prose Analysis",
+      "questions": [
+        {
+          "id": 7,
+          "question": "Analyze the narrative technique in this passage: 'John walked slowly down the street. He didn't know that Mary was watching him from her window, tears streaming down her face.'",
+          "type": "narrative-analysis",
+          "answer": "Third-person omniscient narrator: The narrator knows the thoughts and feelings of multiple characters\nShifts perspective: From John's limited awareness to Mary's emotional state\nEffect: Provides complete picture of the situation, creating dramatic irony",
+          "explanation": "Narrative technique affects how information is revealed and how readers connect with characters."
+        },
+        {
+          "id": 8,
+          "question": "Explain the difference between plot and theme",
+          "type": "comparison",
+          "answer": "Plot: The sequence of events in a story (what happens)\nTheme: The central message, lesson, or meaning (what the story is about)\nExample: Plot - A man struggles to survive on a deserted island; Theme - Human resilience and adaptation",
+          "explanation": "Plot is the story structure; theme is the deeper meaning or message."
+        },
+        {
+          "id": 9,
+          "question": "What is characterization and what are its two main types?",
+          "type": "definition-classification",
+          "answer": "Characterization: The method by which authors reveal character traits\nDirect characterization: Author directly tells us about the character\nIndirect characterization: Character revealed through actions, speech, thoughts, appearance, and others' reactions",
+          "explanation": "Authors use various techniques to develop believable, complex characters."
+        }
+      ]
+    },
+    {
+      "topicName": "Literary Devices and Techniques",
+      "questions": [
+        {
+          "id": 10,
+          "question": "Identify and explain the literary devices in: 'The classroom was a zoo during the substitute teacher's lesson.'",
+          "type": "device-identification",
+          "answer": "Metaphor: Directly compares the classroom to a zoo without using 'like' or 'as'\nImplication: The classroom was chaotic, noisy, and uncontrolled\nEffect: Creates a vivid image of disorder and emphasizes the lack of discipline",
+          "explanation": "Metaphors create powerful comparisons that help readers visualize and understand situations."
+        },
+        {
+          "id": 11,
+          "question": "Explain alliteration and provide three examples",
+          "type": "definition-examples",
+          "answer": "Alliteration: Repetition of initial consonant sounds in successive words\nExamples:\n1. 'Peter Piper picked a peck of pickled peppers'\n2. 'She sells seashells by the seashore'\n3. 'Big brown bears'\nEffect: Creates rhythm, emphasis, and memorability",
+          "explanation": "Alliteration is often used in poetry, tongue twisters, and advertising for its musical quality."
+        },
+        {
+          "id": 12,
+          "question": "What is symbolism? Give an example and explain its meaning.",
+          "type": "definition-analysis",
+          "answer": "Symbolism: Using objects, colors, or actions to represent deeper meanings or ideas\nExample: A dove symbolizes peace\nIn literature: A storm might symbolize internal conflict or turmoil\nEffect: Adds layers of meaning and allows for multiple interpretations",
+          "explanation": "Symbols allow writers to convey complex ideas through concrete images."
+        }
+      ]
+    },
+    {
+      "topicName": "African Literature",
+      "questions": [
+        {
+          "id": 13,
+          "question": "Discuss the characteristics of African oral literature",
+          "type": "discussion",
+          "answer": "1. Community participation - audience involvement in storytelling\n2. Moral instruction - teaches values and life lessons\n3. Cultural preservation - maintains traditions and history\n4. Performance-based - includes music, dance, and dramatic elements\n5. Flexible structure - stories adapt to audience and context\n6. Use of proverbs and riddles - wisdom through concise expressions",
+          "explanation": "African oral literature serves multiple functions beyond entertainment, acting as education and cultural transmission."
+        },
+        {
+          "id": 14,
+          "question": "Analyze the role of the griot in West African literature",
+          "type": "analysis",
+          "answer": "Griots are traditional storytellers, historians, and musicians who:\n1. Preserve historical narratives and genealogies\n2. Provide entertainment through songs and stories\n3. Serve as cultural memory keepers\n4. Act as praise singers for rulers and important figures\n5. Bridge oral and written traditions\nSignificance: Essential for maintaining cultural continuity",
+          "explanation": "Griots are living libraries who maintain the cultural heritage of their communities."
+        }
+      ]
+    }
+  ]
+}

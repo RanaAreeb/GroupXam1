@@ -1,0 +1,362 @@
+{
+  "id": "mathematics-2012",
+  "title": "JAMB Mathematics 2012",
+  "subject": "Mathematics",
+  "year": 2012,
+  "duration": "2 hours",
+  "paperType": "GREEN",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which Question Paper Type of Mathematics as indicated above is given to you?",
+      "options": ["Type Green", "Type Purple", "Type Red", "Type Yellow"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 2,
+      "question": "Convert 72₆ to a number in base three",
+      "options": ["221₃", "212₃", "121₃", "112₃"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 3,
+      "question": "Simplify 3²/₃ × 1⁴/₅",
+      "options": ["1¹/₄", "1¹/₆", "⁵/₆", "⁴/₅"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 4,
+      "question": "Evaluate 2¹/₉ to 3 significant figures",
+      "options": ["2.30", "2.31", "2.32", "2.33"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 5,
+      "question": "A man earns ₦3,500 per month out of which he spends 15% on his children's education. If he spends additional ₦1,950 on food, how much does he have left?",
+      "options": ["₦525", "₦1,025", "₦1,950", "₦2,975"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 6,
+      "question": "If 27ˣ⁺² ÷ 9ˣ⁺¹ = 3²ˣ, find x",
+      "options": ["3", "4", "5", "6"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 7,
+      "question": "If log₃ x² = -8, what is x?",
+      "options": ["1/3", "1/9", "1/27", "1/81"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 8,
+      "question": "Simplify (√6 + 2)² - (√6 - 2)²",
+      "options": ["2√6", "4√6", "8√6", "16√6"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 9,
+      "question": "If P is a set of all prime factors of 30 and Q is a set of all factors of 18 less than 10, find P ∩ Q",
+      "options": ["{3}", "{2,3}", "{2,3,5}", "{1,2}"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 10,
+      "question": "In a class of 46 students, 22 play football and 26 play volleyball. If 3 students play both games, how many play neither?",
+      "options": ["1", "2", "3", "4"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 11,
+      "question": "Make 'n' the subject of the formula if w = v(2+cn)/(1-cn)",
+      "options": ["(1/c)(w-2v)/(v+w)", "(1/c)(w-2v)/(v-w)", "(1/c)(w+2v)/(v-w)", "(1/c)(w+2v)/(v+w)"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 12,
+      "question": "Find the remainder when 2x³ - 11x² + 8x - 1 is divided by x + 3",
+      "options": ["-871", "-781", "-187", "-178"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 13,
+      "question": "Solve for x and y in the equations below: x² - y² = 4, x + y = 2",
+      "options": ["x = 0, y = -2", "x = 0, y = 2", "x = 2, y = 0", "x = -2, y = 0"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 14,
+      "question": "If y varies directly as √n and y = 4 when n = 4, find y when n = 1/79",
+      "options": ["√17", "4/3", "8/3", "2/3"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 15,
+      "question": "U is inversely proportional to the cube of V and U = 81 when V = 2. Find U when V = 3",
+      "options": ["24", "27", "32", "36"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 16,
+      "question": "The value of y for which (1/2)y + (1/5) < (1/2)y + (1/2) is",
+      "options": ["y > 2/3", "y < 2/3", "y > -2/3", "y < -2/3"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 17,
+      "question": "Find the range of values of m which satisfy (m - 3)(m - 4) < 0",
+      "options": ["2 < m < 5", "-3 < m < 4", "3 < m < 4", "-4 < m < 3"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 18,
+      "question": "The shaded region above is represented by the equation",
+      "options": ["y ≤ 4x + 2", "y ≥ 4x + 2", "y ≤ -4x + 4", "y ≤ 4x + 4"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 19,
+      "question": "The nth term of a sequence is n² - 6n - 4. Find the sum of the 3rd and 4th terms.",
+      "options": ["24", "23", "-24", "-25"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 20,
+      "question": "The sum to infinity of a geometric progression is -1/10 and the first term is -1. Find the common ratio of the progression.",
+      "options": ["-1/5", "-1/4", "-1/3", "-1/2"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 21,
+      "question": "The binary operation * is defined on the set of integers such that p * q = pq + p - q. Find 2 * (3 * 4)",
+      "options": ["11", "13", "15", "22"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 22,
+      "question": "The binary operation on the set of real numbers is defined by m*n = mn² for all m, n ∈ R. If the identity element is 2, find the inverse of -5",
+      "options": ["-4/5", "-2/5", "4", "5"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 23,
+      "question": "If |5  3| = |3  5|, find the value of x",
+      "options": ["3", "4", "5", "7"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 24,
+      "question": "Given that I₃ is a unit matrix of order 3, find |I₃|",
+      "options": ["-1", "0", "1", "2"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 25,
+      "question": "In diagram above, QR//TU, ∠PQR = 80° and ∠PSU = 95°. Calculate ∠SUT.",
+      "options": ["15°", "25°", "30°", "80°"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 26,
+      "question": "The angles of a polygon are given by x, 2x, 3x, 4x and 5x respectively. Find the value of x.",
+      "options": ["24°", "30°", "33°", "36°"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 27,
+      "question": "In the diagram above, PQR is a circle centre O. If ∠QPR is x°, find ∠QRP.",
+      "options": ["x°", "(90 - x)°", "(90 + x)°", "(180 - x)°"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 28,
+      "question": "Find the area of the trapezium above.",
+      "options": ["91 cm²", "78 cm²", "60 cm²", "19 cm²"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 29,
+      "question": "A circular arc subtends angle 150° at the centre of a circle of radius 12 cm. Calculate the area of the sector of the arc?",
+      "options": ["30π cm²", "60π cm²", "120π cm²", "150π cm²"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 30,
+      "question": "Calculate the volume of a cuboid of length 0.76 cm, breadth 2.6 cm and height 0.82 cm.",
+      "options": ["3.92 cm³", "2.13 cm³", "1.97 cm³", "1.62 cm³"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 31,
+      "question": "The locus of a point equidistant from the intersection of lines 3x - 7y + 7 = 0 and 4x - 6y + 1 = 0 is a",
+      "options": ["line parallel to 7x + 13y + 8 = 0", "circle", "semicircle", "bisector of the line 7x + 13y + 8 = 0"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 32,
+      "question": "The gradient of the straight line joining the points P(5, -7) and Q(-2, -3) is",
+      "options": ["1/2", "2/5", "-4/7", "-2/3"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 33,
+      "question": "The distance between the point (4, 3) and the intersection of y = 2x + 4 and y = 7 - x is",
+      "options": ["√13", "3√2", "√26", "10√5"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 34,
+      "question": "Find the equation of the line through the points (-2, 1) and (-1/2, 4)",
+      "options": ["y = 2x - 3", "y = 2x + 5", "y = 3x - 2", "y = 2x + 1"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 35,
+      "question": "If angle θ is 135°, evaluate cos θ",
+      "options": ["1/2", "√2/2", "-√2/2", "-1/2"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 36,
+      "question": "A man stands on a tree 150cm high and sees a boat at an angle of depression of 74°. Find the distance of the boat from the base of the tree.",
+      "options": ["52 cm", "43 cm", "40 cm", "15 cm"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 37,
+      "question": "If y = x² - 1/x, find dy/dx",
+      "options": ["2x - 1/x²", "2x + 1/x²", "2x - 1/x²", "2x + 1/x²"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 38,
+      "question": "Find dy/dx if y = cos x",
+      "options": ["sin x", "-sin x", "tan x", "-tan x"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 39,
+      "question": "Evaluate ∫₁² (x² - 4x) dx",
+      "options": ["1/13", "3/11", "-3/11", "-1/13"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 40,
+      "question": "Evaluate ∫₀^(π/4) sec² θ dθ",
+      "options": ["1", "2", "3", "4"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 41,
+      "question": "The grades of 36 students in a class test are as shown in the pie chart above. How many students have excellent?",
+      "options": ["12", "9", "8", "7"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 42,
+      "question": "The bar chart above shows the distribution of marks in a class test. If the pass mark is 5, what percentage of students failed the test?",
+      "options": ["10%", "20%", "50%", "60%"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 43,
+      "question": "The mean of seven numbers is 96. If an eighth number is added, the mean becomes 112. Find the eighth number.",
+      "options": ["126", "180", "216", "224"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 44,
+      "question": "Find the median of 2, 3, 7, 3, 4, 5, 8, 9, 9, 4, 5, 3, 4, 2, 4 and 5",
+      "options": ["9", "8", "7", "4"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 45,
+      "question": "Find the range of 4, 9, 6, 3, 2, 8, 10 and 11",
+      "options": ["11", "9", "8", "4"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 46,
+      "question": "Find the standard deviation of 2, 3, 8, 10 and 12",
+      "options": ["3.9", "4.9", "5.9", "6.9"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 47,
+      "question": "Evaluate ₙ₊₁Cₙ₋₂ If n = 15",
+      "options": ["3630", "3360", "1120", "560"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 48,
+      "question": "In how many ways can the letters of the word TOTALITY be arranged?",
+      "options": ["6720", "6270", "6207", "6027"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 49,
+      "question": "The probability that a student passes a physics test is 2/3. If he takes three physics tests, what is the probability that he passes two of the tests?",
+      "options": ["4/9", "6/9", "4/27", "2/27"],
+      "correctAnswer": 3
+    },
+    {
+      "id": 50,
+      "question": "The probabilities that a man and his wife live for 80 years are 2/3 and 3/5 respectively. Find the probability that at least one of them will live up to 80 years",
+      "options": ["2/15", "3/15", "7/15", "13/15"],
+      "correctAnswer": 3
+    }
+  ],
+  "answerKey": {
+    "1": "A",
+    "2": "D",
+    "3": "D",
+    "4": "D",
+    "5": "B",
+    "6": "B",
+    "7": "D",
+    "8": "C",
+    "9": "B",
+    "10": "A",
+    "11": "A",
+    "12": "D",
+    "13": "C",
+    "14": "C",
+    "15": "A",
+    "16": "C",
+    "17": "B",
+    "18": "C",
+    "19": "D",
+    "20": "B",
+    "21": "B",
+    "22": "A",
+    "23": "C",
+    "24": "C",
+    "25": "A",
+    "26": "D",
+    "27": "B",
+    "28": "C",
+    "29": "B",
+    "30": "D",
+    "31": "B",
+    "32": "C",
+    "33": "B",
+    "34": "B",
+    "35": "C",
+    "36": "B",
+    "37": "D",
+    "38": "B",
+    "39": "D",
+    "40": "A",
+    "41": "D",
+    "42": "C",
+    "43": "D",
+    "44": "D",
+    "45": "B",
+    "46": "A",
+    "47": "D",
+    "48": "A",
+    "49": "D",
+    "50": "D"
+  }
+}

@@ -10,14 +10,46 @@ const loadExamData = (subject, year) => {
         let fileName = '';
 
         if (subject === 'Use of English') {
-            folderName = 'english-mock-exam';
+            // First try the new "Use of English" folder
+            folderName = 'Use of English';
             if (year === 2010) {
-                fileName = 'english-2010.json';
+                fileName = 'use-of-english-2010.json';
+            } else if (year === 2011) {
+                fileName = 'use-of-english-2011.json';
+            } else if (year === 2013) {
+                fileName = 'use-of-english-2013.json';
+            }
+            // If file doesn't exist in new folder, fall back to old folder
+            const newFilePath = path.join(process.cwd(), 'app', 'exams', 'jamb', 'data', folderName, fileName);
+            if (!fs.existsSync(newFilePath)) {
+                folderName = 'english-mock-exam';
+                if (year === 2010) {
+                    fileName = 'english-2010.json';
+                }
             }
         } else if (subject === 'Mathematics') {
             folderName = 'mathematics-mock-exam';
             if (year === 2010) {
-                fileName = 'mathematics-2010.json';
+                fileName = 'jamb-mathematics-2010.json';
+            } else if (year === 2011) {
+                fileName = 'jamb-mathematics-2011.json';
+            } else if (year === 2012) {
+                fileName = 'jamb-mathematics-2012.json';
+            } else if (year === 2013) {
+                fileName = 'jamb-mathematics-2013.json';
+            }
+        } else if (subject === 'Chemistry') {
+            folderName = 'Chemistry';
+            if (year === 2010) {
+                fileName = 'jamb-chemistry-2010.json';
+            } else if (year === 2011) {
+                fileName = 'jamb-chemistry-2011.json';
+            } else if (year === 2012) {
+                fileName = 'jamb-chemistry-2012.json';
+            } else if (year === 2013) {
+                fileName = 'jamb-chemistry-2013.json';
+            } else if (year === 2014) {
+                fileName = 'chemistry-2014.json';
             }
         } else if (subject === 'Literature in English') {
             folderName = 'english-mock-exam';

@@ -1,0 +1,163 @@
+{
+  "id": "wassce-chemistry-practice-2024",
+  "title": "WASSCE Chemistry Practice Questions",
+  "subject": "Chemistry",
+  "examType": "WASSCE Practice",
+  "year": 2024,
+  "totalQuestions": 55,
+  "topics": [
+    {
+      "topicName": "Atomic Structure and Bonding",
+      "questions": [
+        {
+          "id": 1,
+          "question": "An element has atomic number 17 and mass number 35. Calculate the number of protons, neutrons, and electrons.",
+          "type": "calculation",
+          "answer": "Protons = 17, Neutrons = 18, Electrons = 17",
+          "workingSteps": [
+            "Atomic number = number of protons = 17",
+            "Mass number = protons + neutrons = 35",
+            "Neutrons = 35 - 17 = 18",
+            "In neutral atom, electrons = protons = 17"
+          ],
+          "explanation": "Atomic number defines the element; mass number includes both protons and neutrons."
+        },
+        {
+          "id": 2,
+          "question": "Write the electronic configuration of sulfur (S, atomic number 16)",
+          "type": "configuration",
+          "answer": "1s² 2s² 2p⁶ 3s² 3p⁴ or 2, 8, 6",
+          "workingSteps": [
+            "Total electrons = 16",
+            "Fill orbitals in order: 1s, 2s, 2p, 3s, 3p",
+            "1s² (2e⁻), 2s² (2e⁻), 2p⁶ (6e⁻), 3s² (2e⁻), 3p⁴ (4e⁻)",
+            "Total: 2+2+6+2+4 = 16 electrons"
+          ],
+          "explanation": "Electrons fill orbitals in order of increasing energy levels."
+        },
+        {
+          "id": 3,
+          "question": "Explain the difference between ionic and covalent bonding",
+          "type": "comparison",
+          "answer": "Ionic bonding: Transfer of electrons from metal to non-metal, forming ions held by electrostatic attraction (e.g., NaCl)\nCovalent bonding: Sharing of electrons between non-metals to achieve stable electron configuration (e.g., H₂O, CH₄)",
+          "explanation": "The type of bonding depends on the electronegativity difference between atoms."
+        }
+      ]
+    },
+    {
+      "topicName": "Chemical Reactions and Equations",
+      "questions": [
+        {
+          "id": 4,
+          "question": "Balance the equation: Al + HCl → AlCl₃ + H₂",
+          "type": "equation-balancing",
+          "answer": "2Al + 6HCl → 2AlCl₃ + 3H₂",
+          "workingSteps": [
+            "Al: 1 on left, 1 on right - need 2 Al on each side",
+            "Cl: 1 on left, 3 on right - need 6 HCl to get 6 Cl",
+            "H: 6 on left, 2 on right - need 3 H₂ to get 6 H",
+            "Check: 2Al + 6HCl → 2AlCl₃ + 3H₂ ✓"
+          ],
+          "explanation": "Balance equations by ensuring equal numbers of each type of atom on both sides."
+        },
+        {
+          "id": 5,
+          "question": "Classify the following reactions: (a) 2Mg + O₂ → 2MgO (b) CaCO₃ → CaO + CO₂",
+          "type": "classification",
+          "answer": "(a) Combination/Synthesis reaction - two or more substances combine to form one product\n(b) Decomposition reaction - one compound breaks down into two or more simpler substances",
+          "explanation": "Reaction types are classified based on the pattern of reactants and products."
+        }
+      ]
+    },
+    {
+      "topicName": "Acids, Bases, and Salts",
+      "questions": [
+        {
+          "id": 6,
+          "question": "Calculate the pH of a solution with [H⁺] = 1 × 10⁻⁵ M",
+          "type": "calculation",
+          "answer": "pH = 5",
+          "workingSteps": ["pH = -log[H⁺]", "pH = -log(1 × 10⁻⁵)", "pH = -(-5) = 5"],
+          "explanation": "pH is the negative logarithm of hydrogen ion concentration."
+        },
+        {
+          "id": 7,
+          "question": "What volume of 0.1 M NaOH is needed to neutralize 25 cm³ of 0.2 M HCl?",
+          "type": "titration-calculation",
+          "answer": "50 cm³",
+          "workingSteps": [
+            "Equation: NaOH + HCl → NaCl + H₂O (1:1 ratio)",
+            "Moles of HCl = 0.2 × 25/1000 = 0.005 mol",
+            "Moles of NaOH needed = 0.005 mol",
+            "Volume of NaOH = 0.005/0.1 = 0.05 L = 50 cm³"
+          ],
+          "explanation": "Use the relationship: moles = molarity × volume to solve titration problems."
+        },
+        {
+          "id": 8,
+          "question": "Name three indicators and their color changes",
+          "type": "listing",
+          "answer": "1. Litmus: Red in acid, Blue in base\n2. Methyl orange: Red in acid, Yellow in base\n3. Phenolphthalein: Colorless in acid, Pink in base",
+          "explanation": "Indicators change color at specific pH ranges to show acid-base transitions."
+        }
+      ]
+    },
+    {
+      "topicName": "Organic Chemistry",
+      "questions": [
+        {
+          "id": 9,
+          "question": "Draw the structural formula of butane (C₄H₁₀) and name one of its isomers",
+          "type": "structural-drawing",
+          "answer": "Butane: CH₃-CH₂-CH₂-CH₃\nIsomer: 2-methylpropane (CH₃-CH(CH₃)-CH₃)",
+          "explanation": "Isomers have the same molecular formula but different structural arrangements."
+        },
+        {
+          "id": 10,
+          "question": "Distinguish between saturated and unsaturated hydrocarbons with examples",
+          "type": "comparison",
+          "answer": "Saturated hydrocarbons: Contain only single bonds, maximum hydrogen atoms (e.g., alkanes - CH₄, C₂H₆)\nUnsaturated hydrocarbons: Contain double or triple bonds, fewer hydrogen atoms (e.g., alkenes - C₂H₄, alkynes - C₂H₂)",
+          "explanation": "Saturation refers to the maximum number of hydrogen atoms a carbon chain can hold."
+        },
+        {
+          "id": 11,
+          "question": "What happens when ethene reacts with bromine water?",
+          "type": "reaction-description",
+          "answer": "Ethene decolorizes bromine water (orange to colorless)\nReaction: C₂H₄ + Br₂ → C₂H₄Br₂ (1,2-dibromoethane)\nThis is a test for unsaturation (double bonds)",
+          "explanation": "Alkenes undergo addition reactions with bromine, causing decolorization."
+        }
+      ]
+    },
+    {
+      "topicName": "Chemical Calculations",
+      "questions": [
+        {
+          "id": 12,
+          "question": "Calculate the number of moles in 44g of CO₂ [C = 12, O = 16]",
+          "type": "mole-calculation",
+          "answer": "1 mole",
+          "workingSteps": [
+            "Molar mass of CO₂ = 12 + (16 × 2) = 44 g/mol",
+            "Number of moles = mass/molar mass",
+            "= 44/44 = 1 mole"
+          ],
+          "explanation": "Moles relate mass to the number of particles through molar mass."
+        },
+        {
+          "id": 13,
+          "question": "What mass of water is produced when 16g of methane burns completely? CH₄ + 2O₂ → CO₂ + 2H₂O [C = 12, H = 1, O = 16]",
+          "type": "stoichiometry",
+          "answer": "36g",
+          "workingSteps": [
+            "Molar mass of CH₄ = 12 + (4 × 1) = 16 g/mol",
+            "Moles of CH₄ = 16/16 = 1 mole",
+            "From equation: 1 mol CH₄ produces 2 mol H₂O",
+            "Molar mass of H₂O = (2 × 1) + 16 = 18 g/mol",
+            "Mass of H₂O = 2 × 18 = 36g"
+          ],
+          "explanation": "Use balanced equations to relate quantities of reactants and products."
+        }
+      ]
+    }
+  ]
+}

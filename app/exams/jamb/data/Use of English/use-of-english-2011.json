@@ -1,0 +1,126 @@
+{
+  "id": "use-of-english-2011",
+  "title": "2011 JAMB USE OF ENGLISH QUESTIONS",
+  "subject": "Use of English",
+  "year": 2011,
+  "duration": "2 hours",
+  "totalQuestions": 100,
+  "instructions": "COMPREHENSION: Read each passage carefully and answer the questions that follow it",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Choose the option that best completes the gap(s).\n\nThe students _____ their assignments on time.",
+      "options": ["submitted", "submits", "submitting", "submit"],
+      "answer": 0,
+      "explanation": "The past tense 'submitted' is correct for completed actions."
+    },
+    {
+      "id": 2,
+      "question": "Choose the option that best completes the gap(s).\n\nNeither the teacher nor the students _____ present.",
+      "options": ["was", "were", "is", "are"],
+      "answer": 1,
+      "explanation": "With 'neither...nor', the verb agrees with the subject closer to it (students - plural)."
+    },
+    {
+      "id": 3,
+      "question": "Choose the option that best completes the gap(s).\n\nShe is good _____ mathematics.",
+      "options": ["in", "at", "on", "with"],
+      "answer": 1,
+      "explanation": "We use 'good at' when referring to skills or subjects."
+    },
+    {
+      "id": 4,
+      "question": "Choose the option that best completes the gap(s).\n\n_____ honest man is respected by all.",
+      "options": ["A", "An", "The", "No article"],
+      "answer": 1,
+      "explanation": "Use 'an' before words beginning with vowel sounds (honest starts with 'o' sound)."
+    },
+    {
+      "id": 5,
+      "question": "Choose the option that best completes the gap(s).\n\nThe cake was eaten by the children. This sentence is in _____ voice.",
+      "options": ["active", "passive", "subjunctive", "imperative"],
+      "answer": 1,
+      "explanation": "Passive voice uses 'be' + past participle with the doer in a 'by' phrase."
+    },
+    {
+      "id": 6,
+      "question": "Choose the option that best completes the gap(s).\n\nBy the time you arrive, I _____ the work.",
+      "options": [
+        "will finish",
+        "will have finished",
+        "would finish",
+        "have finished"
+      ],
+      "answer": 1,
+      "explanation": "Future perfect tense is used for actions completed before a future time."
+    },
+    {
+      "id": 7,
+      "question": "Choose the option that best completes the gap(s).\n\nThe meeting was _____ due to the chairman's illness.",
+      "options": ["called off", "called on", "called up", "called out"],
+      "answer": 0,
+      "explanation": "Called off means cancelled, which fits the context."
+    },
+    {
+      "id": 8,
+      "question": "Choose the option that best completes the gap(s).\n\nWhen he heard the news, he was _____ the moon.",
+      "options": ["over", "under", "beside", "beyond"],
+      "answer": 0,
+      "explanation": "Over the moon is an idiom meaning extremely happy."
+    },
+    {
+      "id": 9,
+      "question": "Choose the option that best completes the gap(s).\n\nThe student was _____ for his outstanding performance in mathematics.",
+      "options": ["rewarded", "awarded", "presented", "given"],
+      "answer": 1,
+      "explanation": "Awarded is the correct word for recognizing academic achievement."
+    },
+    {
+      "id": 10,
+      "question": "Choose the option that best completes the gap(s).\n\nIdentify the part of speech of 'quickly' in 'She quickly finished her homework.'",
+      "options": ["Noun", "Verb", "Adjective", "Adverb"],
+      "answer": 3,
+      "explanation": "Quickly modifies the verb 'finished', making it an adverb."
+    },
+    {
+      "id": 11,
+      "question": "Choose the option that best completes the gap(s).\n\nWhat is the opposite of 'generous'?",
+      "options": ["kind", "stingy", "friendly", "helpful"],
+      "answer": 1,
+      "explanation": "Stingy means unwilling to give or spend, the opposite of generous."
+    },
+    {
+      "id": 12,
+      "question": "Choose the option that best completes the gap(s).\n\nChoose the correct sentence:",
+      "options": [
+        "The data is being analyzed",
+        "The data are being analyzed",
+        "The datas is being analyzed",
+        "The datas are being analyzed"
+      ],
+      "answer": 1,
+      "explanation": "Data is plural, so 'are' is correct."
+    },
+    {
+      "id": 13,
+      "question": "Choose the option that best completes the gap(s).\n\nIdentify the figure of speech: 'The wind whispered through the trees.'",
+      "options": ["Simile", "Metaphor", "Personification", "Hyperbole"],
+      "answer": 2,
+      "explanation": "Giving human characteristics to wind is personification."
+    },
+    {
+      "id": 14,
+      "question": "Choose the option that best completes the gap(s).\n\nWhich word is a synonym for 'enormous'?",
+      "options": ["small", "huge", "tiny", "little"],
+      "answer": 1,
+      "explanation": "Huge is a synonym for enormous, both meaning very large."
+    },
+    {
+      "id": 15,
+      "question": "Choose the option that best completes the gap(s).\n\nChoose the correct form of the verb: The committee _____ to meet next week.",
+      "options": ["decide", "decides", "decided", "deciding"],
+      "answer": 1,
+      "explanation": "Committee as a collective noun takes singular verb 'decides'."
+    }
+  ]
+}
