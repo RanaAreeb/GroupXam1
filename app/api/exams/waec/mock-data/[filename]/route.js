@@ -4,7 +4,7 @@ import path from "path";
 
 export async function GET(request, { params }) {
     try {
-        const { filename } = params;
+        const { filename } = await params;
 
         // Add .json extension if not present
         const filenameWithExt = filename.endsWith('.json') ? filename : `${filename}.json`;

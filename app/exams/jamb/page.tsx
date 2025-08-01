@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import AppHeader from "@/components/ui/app-header";
+import PageTransition from "@/components/PageTransition";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -349,7 +350,7 @@ const pastPaperSubjects = [
     className: "UTME",
     department: "Science",
     years: "2010-2013",
-    icon: <Dna className="w-7 h-7" />,
+    icon: <Leaf className="w-7 h-7" />,
     gradient: "from-emerald-500 to-green-500",
     badge: "bg-emerald-100 text-emerald-700",
   },
@@ -361,45 +362,37 @@ const pastPaperSubjects = [
     department: "Science",
     years: "2010-2013",
     icon: <Atom className="w-7 h-7" />,
-    gradient: "from-orange-500 to-red-500",
-    badge: "bg-orange-100 text-orange-700",
+    gradient: "from-blue-500 to-indigo-500",
+    badge: "bg-blue-100 text-blue-700",
   },
   {
     id: 108,
     title: "Economics",
     subject: "Economics",
     className: "UTME",
-    department: "Arts",
+    department: "Social Sciences",
     years: "2010-2013",
     icon: <DollarSign className="w-7 h-7" />,
-    gradient: "from-yellow-500 to-orange-500",
-    badge: "bg-yellow-100 text-yellow-700",
+    gradient: "from-green-500 to-emerald-500",
+    badge: "bg-green-100 text-green-700",
   },
+
+  
 ];
 
-// Year-specific past papers
-const yearSpecificPapers = {
+// Available years for each subject based on actual files
+const availableYears = {
   "Use of English": [
     { year: 2010, questions: 60, duration: "2 hours" },
     { year: 2011, questions: 60, duration: "2 hours" },
     { year: 2012, questions: 60, duration: "2 hours" },
     { year: 2013, questions: 60, duration: "2 hours" },
-    { year: 2014, questions: 60, duration: "2 hours" },
-    { year: 2015, questions: 60, duration: "2 hours" },
-    { year: 2016, questions: 60, duration: "2 hours" },
-    { year: 2017, questions: 60, duration: "2 hours" },
-    { year: 2018, questions: 60, duration: "2 hours" },
   ],
   Mathematics: [
     { year: 2010, questions: 50, duration: "2 hours" },
     { year: 2011, questions: 50, duration: "2 hours" },
     { year: 2012, questions: 50, duration: "2 hours" },
     { year: 2013, questions: 50, duration: "2 hours" },
-    { year: 2014, questions: 50, duration: "2 hours" },
-    { year: 2015, questions: 50, duration: "2 hours" },
-    { year: 2016, questions: 50, duration: "2 hours" },
-    { year: 2017, questions: 50, duration: "2 hours" },
-    { year: 2018, questions: 50, duration: "2 hours" },
   ],
   Physics: [
     { year: 2010, questions: 50, duration: "2 hours" },
@@ -413,22 +406,20 @@ const yearSpecificPapers = {
     { year: 2012, questions: 50, duration: "2 hours" },
     { year: 2013, questions: 50, duration: "2 hours" },
     { year: 2014, questions: 50, duration: "2 hours" },
-    { year: 2015, questions: 50, duration: "2 hours" },
-    { year: 2016, questions: 50, duration: "2 hours" },
-    { year: 2017, questions: 50, duration: "2 hours" },
-    { year: 2018, questions: 50, duration: "2 hours" },
   ],
   Biology: [
     { year: 2010, questions: 50, duration: "2 hours" },
     { year: 2011, questions: 50, duration: "2 hours" },
     { year: 2012, questions: 50, duration: "2 hours" },
     { year: 2013, questions: 50, duration: "2 hours" },
+    
   ],
   Economics: [
     { year: 2010, questions: 50, duration: "2 hours" },
     { year: 2011, questions: 50, duration: "2 hours" },
     { year: 2012, questions: 50, duration: "2 hours" },
     { year: 2013, questions: 50, duration: "2 hours" },
+    
   ],
   "Literature in English": [
     { year: 2010, questions: 50, duration: "2 hours" },
@@ -437,20 +428,12 @@ const yearSpecificPapers = {
     { year: 2013, questions: 50, duration: "2 hours" },
     { year: 2014, questions: 50, duration: "2 hours" },
     { year: 2015, questions: 50, duration: "2 hours" },
-    { year: 2016, questions: 50, duration: "2 hours" },
-    { year: 2017, questions: 50, duration: "2 hours" },
-    { year: 2018, questions: 50, duration: "2 hours" },
   ],
   Government: [
     { year: 2010, questions: 50, duration: "2 hours" },
     { year: 2011, questions: 50, duration: "2 hours" },
     { year: 2012, questions: 50, duration: "2 hours" },
     { year: 2013, questions: 50, duration: "2 hours" },
-    { year: 2014, questions: 50, duration: "2 hours" },
-    { year: 2015, questions: 50, duration: "2 hours" },
-    { year: 2016, questions: 50, duration: "2 hours" },
-    { year: 2017, questions: 50, duration: "2 hours" },
-    { year: 2018, questions: 50, duration: "2 hours" },
   ],
 };
 
@@ -525,6 +508,11 @@ export default function JambExamsPage() {
   // Add a state for template selection (optional, or use 'blank')
   const [whiteboardTemplate, setWhiteboardTemplate] = useState("blank");
 
+  // Ensure whiteboard is closed when switching tabs or subjects
+  useEffect(() => {
+    setWhiteboardOpen(false);
+  }, [activeTab, selectedSubject]);
+
   const handleStart = async (examId: number) => {
     if (activeTab === "mock") {
       const subject = pastPaperSubjects.find((e) => e.id === examId);
@@ -544,24 +532,47 @@ export default function JambExamsPage() {
           );
           if (response.ok) {
             const loadedExamData = await response.json();
-            setExamData(loadedExamData);
+            console.log("JAMB Practice: Loaded exam data:", loadedExamData);
+            
+            // Add an ID to the loaded exam data if it doesn't have one
+            const examDataWithId = {
+              ...loadedExamData,
+              id: loadedExamData.id || `jamb-practice-${examId}`
+            };
+            
+            console.log("JAMB Practice: Setting examData:", examDataWithId);
+            setExamData(examDataWithId);
 
             if (typeof window !== "undefined") {
               localStorage.setItem(
                 "currentJambExam",
-                JSON.stringify(loadedExamData)
+                JSON.stringify(examDataWithId)
               );
             }
 
-            if (!answers[loadedExamData.id]) {
+            // Calculate total questions from JAMB practice data structure
+            let totalQuestions = examDataWithId.totalQuestions || 60;
+            if (examDataWithId.examInfo && examDataWithId.questions) {
+              // Structure A: examInfo with questions
+              totalQuestions = examDataWithId.questions.length;
+            } else if (examDataWithId.sections) {
+              // Structure B: sections with questions
+              totalQuestions = 0;
+              examDataWithId.sections.forEach((section: any) => {
+                if (section.questions) {
+                  totalQuestions += section.questions.length;
+                }
+              });
+            }
+
+            if (!answers[examDataWithId.id]) {
               setAnswers((prev) => ({
                 ...prev,
-                [loadedExamData.id]: Array(
-                  loadedExamData.totalQuestions || 60
-                ).fill(-1),
+                [examDataWithId.id]: Array(totalQuestions).fill(-1),
               }));
             }
 
+            console.log("JAMB Practice: Setting openExam to 999");
             setOpenExam(999);
             setIsLoadingExam(false);
           } else {
@@ -594,15 +605,10 @@ export default function JambExamsPage() {
       const response = await fetch(
         `/api/exams/jamb/mock-data/${encodeURIComponent(
           selectedSubject!
-        )}/${year}?t=${Date.now()}`
+        )}/${year}`
       );
       if (response.ok) {
         const loadedExamData = await response.json();
-        console.log("Loaded exam data:", loadedExamData);
-        console.log(
-          "First question options:",
-          loadedExamData.questions?.[0]?.options
-        );
         setExamData(loadedExamData);
 
         if (typeof window !== "undefined") {
@@ -693,7 +699,32 @@ export default function JambExamsPage() {
     const examId = exam.id || examData?.id;
     const userAnswers = answers[examId] || [];
     let correct = 0;
-    const questions = exam.questions || examData?.questions || [];
+    
+    // Get questions from examData (which has the JAMB practice structure)
+    let questions = [];
+    if (examData && examData.examInfo && examData.questions) {
+      // JAMB practice data structure (Structure A)
+      questions = examData.questions.map((q: any) => ({
+        ...q,
+        options: q.options ? Object.values(q.options) : [],
+        correctAnswer: q.correctAnswer ? 
+          (typeof q.correctAnswer === 'string' ? 
+            q.correctAnswer.charCodeAt(0) - 65 : 
+            q.correctAnswer) : 0
+      }));
+    } else if (examData && examData.sections) {
+      // JAMB practice data structure (Structure B)
+      examData.sections.forEach((section: any) => {
+        if (section.questions) {
+          questions.push(...section.questions);
+        }
+      });
+    } else if (examData && examData.questions) {
+      questions = examData.questions;
+    } else if (exam && exam.questions) {
+      questions = exam.questions;
+    }
+    
     questions.forEach((q: any, i: number) => {
       if (userAnswers[i] === q.correctAnswer) correct++;
     });
@@ -723,720 +754,844 @@ export default function JambExamsPage() {
   }, [activeTab]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50">
-      <AppHeader active="Exams" />
-      <div className="container mx-auto py-12 px-4">
-        <div className="text-center mb-10">
-          <h1 className="text-4xl md:text-5xl font-bold mb-2">
-            <span className="bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">
-              JAMB Practice Exams
-            </span>
-          </h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Practice real JAMB questions for various subjects. Get instant
-            feedback and track your progress!
-          </p>
-        </div>
-
-        {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-          <Button
-            onClick={() => {
-              setActiveTab("syllabus");
-              setOpenExam(null);
-              setExamData(null);
-              setSelectedSubject(null);
-              setSelectedYear(null);
-              setShowFeedback(false);
-              setShowModal(false);
-            }}
-            variant={activeTab === "syllabus" ? "default" : "outline"}
-            className={`px-8 py-3 rounded-full transition-all duration-300 ${
-              activeTab === "syllabus"
-                ? "bg-blue-600 hover:bg-blue-700 text-white shadow-lg scale-105"
-                : "bg-white hover:bg-gray-50 text-blue-600 border-2 border-blue-600 hover:border-blue-700"
-            }`}
-          >
-            <FileText className="w-5 h-5 mr-2" />
-            View Syllabus
-            {activeTab === "syllabus" && <span className="ml-2">✓</span>}
-          </Button>
-          <Button
-            onClick={() => {
-              setActiveTab("practice");
-              setOpenExam(null);
-              setExamData(null);
-              setSelectedSubject(null);
-              setSelectedYear(null);
-              setShowFeedback(false);
-              setShowModal(false);
-            }}
-            variant={
-              activeTab === "practice" && !selectedSubject
-                ? "default"
-                : "outline"
-            }
-            className={`px-8 py-3 rounded-full transition-all duration-300 ${
-              activeTab === "practice" && !selectedSubject
-                ? "bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg scale-105"
-                : "bg-white hover:bg-gray-50 text-emerald-600 border-2 border-emerald-600 hover:border-emerald-700"
-            }`}
-          >
-            <Target className="w-5 h-5 mr-2" />
-            Practice Questions
-            {activeTab === "practice" && !selectedSubject && (
-              <span className="ml-2">✓</span>
-            )}
-          </Button>
-          <Button
-            onClick={() => {
-              setActiveTab("mock");
-              setOpenExam(null);
-              setExamData(null);
-              setSelectedSubject(null);
-              setSelectedYear(null);
-              setShowFeedback(false);
-              setShowModal(false);
-            }}
-            variant={
-              activeTab === "mock" || selectedSubject ? "default" : "outline"
-            }
-            className={`px-8 py-3 rounded-full transition-all duration-300 ${
-              activeTab === "mock" || selectedSubject
-                ? "bg-purple-600 hover:bg-purple-700 text-white shadow-lg scale-105"
-                : "bg-white hover:bg-gray-50 text-purple-600 border-2 border-purple-600 hover:border-purple-700"
-            }`}
-          >
-            <BookOpen className="w-5 h-5 mr-2" />
-            Mock Exams
-            {(activeTab === "mock" || selectedSubject) && (
-              <span className="ml-2">✓</span>
-            )}
-          </Button>
-        </div>
-
-        {/* Syllabus Section */}
-        {activeTab === "syllabus" && (
-          <div className="mb-12">
-            <div className="text-center mb-8">
-              <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
-                <FileText className="w-4 h-4" />
-                Syllabus View Active
-              </div>
-              <h2 className="text-3xl font-bold text-gray-800">
-                JAMB Syllabus 2025
-              </h2>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-              {syllabusSubjects.map((subject) => (
-                <Card
-                  key={subject.slug}
-                  className="shadow-xl border-0 rounded-2xl bg-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer"
-                >
-                  <Link href={`/exams/jamb/syllabus/${subject.slug}`}>
-                    <CardContent className="p-6 flex flex-col items-center text-center h-full">
-                      <div className="mb-4">
-                        <span
-                          className={`inline-flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-br ${subject.gradient} text-white text-2xl shadow-lg group-hover:scale-110 transition-transform`}
-                        >
-                          {subject.icon}
-                        </span>
-                      </div>
-                      <div className="font-bold text-lg text-gray-800 mb-2">
-                        {subject.name}
-                      </div>
-                      <div className="text-xs text-gray-500 mb-4">
-                        Syllabus PDF
-                      </div>
-                      <Button
-                        size="sm"
-                        className="w-full bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow group-hover:shadow-lg transition-all"
-                      >
-                        <FileText className="w-4 h-4 mr-2" />
-                        View Syllabus
-                      </Button>
-                    </CardContent>
-                  </Link>
-                </Card>
-              ))}
-            </div>
+    <PageTransition>
+      <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50">
+        <AppHeader active="Exams" />
+        <div className="container mx-auto py-12 px-4">
+          <div className="text-center mb-10">
+            <h1 className="text-4xl md:text-5xl font-bold mb-2">
+              <span className="bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">
+                JAMB Practice Exams
+              </span>
+            </h1>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Practice real JAMB questions for various subjects. Get instant
+              feedback and track your progress!
+            </p>
           </div>
-        )}
 
-        {/* Practice Questions and Mock Exams Section */}
-        {activeTab !== "syllabus" &&
-        openExam === null &&
-        !selectedSubject &&
-        !examData ? (
-          <div>
-            <div className="text-center mb-8">
-              <div
-                className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4 ${
-                  activeTab === "practice"
-                    ? "bg-emerald-100 text-emerald-800"
-                    : "bg-blue-100 text-blue-800"
-                }`}
-              >
-                {activeTab === "practice" ? (
-                  <Target className="w-4 h-4" />
-                ) : (
-                  <BookOpen className="w-4 h-4" />
-                )}
-                {activeTab === "practice" ? "Practice Questions" : "Mock Exams"}{" "}
-                View Active
-              </div>
-              <h2 className="text-3xl font-bold text-gray-800 mb-6">
-                Available{" "}
-                {activeTab === "practice" ? "Practice Questions" : "Mock Exams"}{" "}
-                ({currentExams.length})
-              </h2>
-            </div>
-
-            <div
-              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-12"
-              key={`${activeTab}-${currentExams.length}`}
+          {/* Action Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <Button
+              onClick={() => {
+                setActiveTab("syllabus");
+                setOpenExam(null);
+                setExamData(null);
+                setSelectedSubject(null);
+                setSelectedYear(null);
+                setShowFeedback(false);
+                setShowModal(false);
+              }}
+              variant={activeTab === "syllabus" ? "default" : "outline"}
+              className={`px-8 py-3 rounded-full transition-all duration-300 ${
+                activeTab === "syllabus"
+                  ? "bg-blue-600 hover:bg-blue-700 text-white shadow-lg scale-105"
+                  : "bg-white hover:bg-gray-50 text-blue-600 border-2 border-blue-600 hover:border-blue-700"
+              }`}
             >
-              {currentExams.map((exam: any, index: number) => {
-                const meta =
-                  activeTab === "practice"
-                    ? subjectMeta[exam.subject] || subjectMeta["Use of English"]
-                    : subjectMeta[exam.subject] ||
-                      subjectMeta["Use of English"];
-                const cardGradient =
-                  activeTab === "practice"
-                    ? (meta?.gradient || "from-emerald-500 to-blue-500")
-                        .replace("purple", "emerald")
-                        .replace("pink", "emerald")
-                    : (meta?.gradient || "from-blue-500 to-emerald-500")
-                        .replace("purple", "blue")
-                        .replace("violet", "blue")
-                        .replace("indigo", "emerald");
-                const badgeClass =
-                  activeTab === "practice"
-                    ? (meta?.badge || "bg-emerald-100 text-emerald-700")
-                        .replace("pink", "emerald")
-                        .replace("violet", "emerald")
-                        .replace("purple", "emerald")
-                    : (meta?.badge || "bg-blue-100 text-blue-700")
-                        .replace("purple", "blue")
-                        .replace("violet", "blue")
-                        .replace("indigo", "emerald");
-                const buttonClass =
-                  activeTab === "practice"
-                    ? "bg-emerald-600 hover:bg-emerald-700"
-                    : "bg-blue-600 hover:bg-blue-700";
-                const blobGradient = cardGradient;
-                return (
-                  <Card
-                    key={`${activeTab}-${exam.id}`}
-                    className={`relative overflow-hidden rounded-3xl shadow-xl border-0 bg-white/70 backdrop-blur-md transition-transform duration-300 hover:scale-105 hover:shadow-2xl group`}
-                  >
-                    <CardContent className="p-8 flex flex-col h-full">
-                      <div className="flex items-center gap-3 mb-4">
-                        <div
-                          className={`w-14 h-14 rounded-xl bg-gradient-to-br ${cardGradient} flex items-center justify-center shadow-lg border-4 border-white group-hover:scale-110 transition-transform`}
-                        >
-                          {meta?.icon || <BookOpen className="w-7 h-7" />}
-                        </div>
-                        <div>
-                          <div className="text-xl font-bold text-gray-800 mb-1">
-                            {exam.title}
-                          </div>
-                          <Badge className={`${badgeClass} px-3 py-1 shadow`}>
-                            {exam.subject}
-                          </Badge>
-                        </div>
-                      </div>
-                      <div className="text-sm text-gray-600 mb-4">
-                        {activeTab === "practice"
-                          ? exam.examType === "past-paper"
-                            ? `50 Questions • 2 hours`
-                            : exam.examType === "practice"
-                            ? `60 Questions • 2 hours`
-                            : `${exam.questions?.length || 0} Questions • ${
-                                exam.duration || "2 hours"
-                              }`
-                          : `${exam.years} • Past Papers`}
-                      </div>
-
-                      <Button
-                        className={`${buttonClass} text-white mt-auto w-full rounded-full shadow-lg`}
-                        onClick={() => handleStart(exam.id)}
-                      >
-                        {activeTab === "practice"
-                          ? "Go Practice"
-                          : "Select Year"}
-                      </Button>
-                      <span
-                        className={`absolute -top-10 -right-10 w-32 h-32 rounded-full opacity-20 blur-2xl bg-gradient-to-br ${blobGradient}`}
-                      ></span>
-                    </CardContent>
-                  </Card>
-                );
-              })}
-            </div>
-          </div>
-        ) : selectedSubject && !openExam && !examData ? (
-          // Year Selection View
-          <div>
-            <div className="text-center mb-8">
-              <Button
-                variant="ghost"
-                className="mb-4"
-                onClick={handleBackToSubjects}
-              >
-                ← Back to Subjects
-              </Button>
-              <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
-                <BookOpen className="w-4 h-4" />
-                Year Selection View Active
-              </div>
-              <h2 className="text-3xl font-bold text-gray-800 mb-6">
-                {selectedSubject} Past Papers (2010-2018)
-              </h2>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-12">
-              {yearSpecificPapers[
-                selectedSubject as keyof typeof yearSpecificPapers
-              ]?.map((yearPaper) => (
-                <Card
-                  key={yearPaper.year}
-                  className="relative overflow-hidden rounded-3xl shadow-xl border-0 bg-white/70 backdrop-blur-md transition-transform duration-300 hover:scale-105 hover:shadow-2xl group cursor-pointer"
-                  onClick={() => handleYearSelect(yearPaper.year)}
-                >
-                  <CardContent className="p-8 flex flex-col h-full">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500 to-emerald-500 flex items-center justify-center shadow-lg border-4 border-white group-hover:scale-110 transition-transform">
-                        <span className="text-white font-bold text-lg">
-                          {yearPaper.year}
-                        </span>
-                      </div>
-                      <div>
-                        <div className="text-xl font-bold text-gray-800 mb-1">
-                          {selectedSubject} {yearPaper.year}
-                        </div>
-                        <Badge className="bg-blue-100 text-blue-700 px-3 py-1 shadow">
-                          {yearPaper.questions} Questions
-                        </Badge>
-                      </div>
-                    </div>
-                    <div className="text-sm text-gray-600 mb-4">
-                      Duration: {yearPaper.duration}
-                    </div>
-                    <Button
-                      className="bg-blue-600 hover:bg-blue-700 text-white mt-auto w-full rounded-full shadow-lg"
-                      onClick={() => handleYearSelect(yearPaper.year)}
-                    >
-                      Start MCQ Exam
-                    </Button>
-                    <span className="absolute -top-10 -right-10 w-32 h-32 rounded-full opacity-20 blur-2xl bg-gradient-to-br from-blue-500 to-emerald-500"></span>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        ) : openExam !== null || isLoadingExam || examData !== null ? (
-          (() => {
-            if (isLoadingExam) {
-              return (
-                <div className="max-w-2xl mx-auto mb-12">
-                  <Card className="relative overflow-hidden rounded-3xl shadow-xl border-0 bg-white/80 backdrop-blur-md">
-                    <CardContent className="p-8 flex flex-col items-center justify-center h-64">
-                      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mb-4"></div>
-                      <p className="text-lg font-semibold text-gray-700">
-                        Loading exam...
-                      </p>
-                    </CardContent>
-                  </Card>
-                </div>
-              );
-            }
-
-            let exam: any = examData;
-            let meta: any = null;
-            let questions: any = null;
-
-            if (exam) {
-              meta = {
-                icon: <BookOpen className="w-7 h-7" />,
-                gradient: "from-purple-500 to-indigo-500",
-                badge: "bg-purple-100 text-purple-700",
-              };
-              questions = exam.questions;
-            } else {
-              exam = practiceQuestions.find((e) => e.id === openExam);
-              if (exam) {
-                meta =
-                  subjectMeta[exam.subject] || subjectMeta["Use of English"];
-                questions = exam.questions;
+              <FileText className="w-5 h-5 mr-2" />
+              View Syllabus
+              {activeTab === "syllabus" && <span className="ml-2">✓</span>}
+            </Button>
+            <Button
+              onClick={() => {
+                setActiveTab("practice");
+                setOpenExam(null);
+                setExamData(null);
+                setSelectedSubject(null);
+                setSelectedYear(null);
+                setShowFeedback(false);
+                setShowModal(false);
+              }}
+              variant={
+                activeTab === "practice" && !selectedSubject
+                  ? "default"
+                  : "outline"
               }
-            }
+              className={`px-8 py-3 rounded-full transition-all duration-300 ${
+                activeTab === "practice" && !selectedSubject
+                  ? "bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg scale-105"
+                  : "bg-white hover:bg-gray-50 text-emerald-600 border-2 border-emerald-600 hover:border-emerald-700"
+              }`}
+            >
+              <Target className="w-5 h-5 mr-2" />
+              Practice Questions
+              {activeTab === "practice" && !selectedSubject && (
+                <span className="ml-2">✓</span>
+              )}
+            </Button>
+            <Button
+              onClick={() => {
+                setActiveTab("mock");
+                setOpenExam(null);
+                setExamData(null);
+                setSelectedSubject(null);
+                setSelectedYear(null);
+                setShowFeedback(false);
+                setShowModal(false);
+              }}
+              variant={
+                activeTab === "mock" || selectedSubject ? "default" : "outline"
+              }
+              className={`px-8 py-3 rounded-full transition-all duration-300 ${
+                activeTab === "mock" || selectedSubject
+                  ? "bg-purple-600 hover:bg-purple-700 text-white shadow-lg scale-105"
+                  : "bg-white hover:bg-gray-50 text-purple-600 border-2 border-purple-600 hover:border-purple-700"
+              }`}
+            >
+              <BookOpen className="w-5 h-5 mr-2" />
+              Mock Exams
+              {(activeTab === "mock" || selectedSubject) && (
+                <span className="ml-2">✓</span>
+              )}
+            </Button>
+          </div>
 
-            if (!exam || !meta) {
-              return null;
-            }
-
-            return (
-              <div
-                className={`transition-all duration-700 ease-in-out ${
-                  whiteboardOpen ? "max-w-7xl" : "max-w-4xl"
-                } mx-auto px-4`}
-              >
-                <div
-                  className={`flex ${
-                    whiteboardOpen ? "flex-col lg:flex-row" : "flex-col"
-                  } gap-4 lg:gap-6 relative`}
-                >
-                  {/* Exam Section - Left Side / Top on Mobile */}
-                  <div
-                    className={`transition-all duration-700 ease-in-out ${
-                      whiteboardOpen ? "w-full lg:w-1/2" : "w-full"
-                    } min-w-0`}
+          {/* Syllabus Section */}
+          {activeTab === "syllabus" && (
+            <div className="mb-12">
+              <div className="text-center mb-8">
+                <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
+                  <FileText className="w-4 h-4" />
+                  Syllabus View Active
+                </div>
+                <h2 className="text-3xl font-bold text-gray-800">
+                  JAMB Syllabus 2025
+                </h2>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                {syllabusSubjects.map((subject) => (
+                  <Card
+                    key={subject.slug}
+                    className="shadow-xl border-0 rounded-2xl bg-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer"
                   >
-                    <Card className="relative overflow-hidden rounded-3xl shadow-xl border-0 bg-white/80 backdrop-blur-md">
-                      <CardContent className="p-4 sm:p-6 lg:p-8 flex flex-col min-h-screen">
-                        {/* Whiteboard Toggle Button */}
-                        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-4">
-                          <h2 className="text-xl sm:text-2xl font-bold text-gray-800">
-                            {exam?.title ||
-                              `${selectedSubject} ${selectedYear}`}
-                          </h2>
-                          <Button
-                            variant={whiteboardOpen ? "default" : "outline"}
-                            onClick={() => setWhiteboardOpen(!whiteboardOpen)}
-                            className={`transition-all duration-300 w-full sm:w-auto ${
-                              whiteboardOpen
-                                ? "bg-emerald-600 text-white hover:bg-emerald-700"
-                                : "border-emerald-500 text-emerald-700 hover:bg-emerald-50"
-                            }`}
+                    <Link href={`/exams/jamb/syllabus/${subject.slug}`}>
+                      <CardContent className="p-6 flex flex-col items-center text-center h-full">
+                        <div className="mb-4">
+                          <span
+                            className={`inline-flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-br ${subject.gradient} text-white text-2xl shadow-lg group-hover:scale-110 transition-transform`}
                           >
-                            {whiteboardOpen ? "Hide" : "Show"} Whiteboard
-                          </Button>
+                            {subject.icon}
+                          </span>
                         </div>
+                        <div className="font-bold text-lg text-gray-800 mb-2">
+                          {subject.name}
+                        </div>
+                        <div className="text-xs text-gray-500 mb-4">
+                          Syllabus PDF
+                        </div>
+                        <Button
+                          size="sm"
+                          className="w-full bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow group-hover:shadow-lg transition-all"
+                        >
+                          <FileText className="w-4 h-4 mr-2" />
+                          View Syllabus
+                        </Button>
+                      </CardContent>
+                    </Link>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          )}
 
+          {/* Practice Questions and Mock Exams Section */}
+          {activeTab !== "syllabus" &&
+          openExam === null &&
+          !selectedSubject &&
+          !examData ? (
+            <div>
+              <div className="text-center mb-8">
+                <div
+                  className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4 ${
+                    activeTab === "practice"
+                      ? "bg-emerald-100 text-emerald-800"
+                      : "bg-blue-100 text-blue-800"
+                  }`}
+                >
+                  {activeTab === "practice" ? (
+                    <Target className="w-4 h-4" />
+                  ) : (
+                    <BookOpen className="w-4 h-4" />
+                  )}
+                  {activeTab === "practice"
+                    ? "Practice Questions"
+                    : "Mock Exams"}{" "}
+                  View Active
+                </div>
+                <h2 className="text-3xl font-bold text-gray-800 mb-6">
+                  Available{" "}
+                  {activeTab === "practice"
+                    ? "Practice Questions"
+                    : "Mock Exams"}{" "}
+                  ({currentExams.length})
+                </h2>
+              </div>
+
+              <div
+                className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-12"
+                key={`${activeTab}-${currentExams.length}`}
+              >
+                {currentExams.map((exam: any, index: number) => {
+                  const meta =
+                    activeTab === "practice"
+                      ? subjectMeta[exam.subject] ||
+                        subjectMeta["Use of English"]
+                      : subjectMeta[exam.subject] ||
+                        subjectMeta["Use of English"];
+                  const cardGradient =
+                    activeTab === "practice"
+                      ? (meta?.gradient || "from-emerald-500 to-blue-500")
+                          .replace("purple", "emerald")
+                          .replace("pink", "emerald")
+                      : (meta?.gradient || "from-blue-500 to-emerald-500")
+                          .replace("purple", "blue")
+                          .replace("violet", "blue")
+                          .replace("indigo", "emerald");
+                  const badgeClass =
+                    activeTab === "practice"
+                      ? (meta?.badge || "bg-emerald-100 text-emerald-700")
+                          .replace("pink", "emerald")
+                          .replace("violet", "emerald")
+                          .replace("purple", "emerald")
+                      : (meta?.badge || "bg-blue-100 text-blue-700")
+                          .replace("purple", "blue")
+                          .replace("violet", "blue")
+                          .replace("indigo", "emerald");
+                  const buttonClass =
+                    activeTab === "practice"
+                      ? "bg-emerald-600 hover:bg-emerald-700"
+                      : "bg-blue-600 hover:bg-blue-700";
+                  const blobGradient = cardGradient;
+                  return (
+                    <Card
+                      key={`${activeTab}-${exam.id}`}
+                      className={`relative overflow-hidden rounded-3xl shadow-xl border-0 bg-white/70 backdrop-blur-md transition-transform duration-300 hover:scale-105 hover:shadow-2xl group`}
+                    >
+                      <CardContent className="p-8 flex flex-col h-full">
                         <div className="flex items-center gap-3 mb-4">
                           <div
-                            className={`w-14 h-14 rounded-xl bg-gradient-to-br ${meta.gradient} flex items-center justify-center shadow-lg border-4 border-white`}
+                            className={`w-14 h-14 rounded-xl bg-gradient-to-br ${cardGradient} flex items-center justify-center shadow-lg border-4 border-white group-hover:scale-110 transition-transform`}
                           >
-                            {meta.icon}
+                            {meta?.icon || <BookOpen className="w-7 h-7" />}
                           </div>
                           <div>
                             <div className="text-xl font-bold text-gray-800 mb-1">
                               {exam.title}
                             </div>
-                            <Badge className={`${meta.badge} px-3 py-1 shadow`}>
+                            <Badge className={`${badgeClass} px-3 py-1 shadow`}>
                               {exam.subject}
                             </Badge>
                           </div>
                         </div>
+                        <div className="text-sm text-gray-600 mb-4">
+                          {activeTab === "practice"
+                            ? exam.examType === "past-paper"
+                              ? `50 Questions • 2 hours`
+                              : exam.examType === "practice"
+                              ? ""
+                              : `${exam.questions?.length || 0} Questions • ${
+                                  exam.duration || "2 hours"
+                                }`
+                            : `${exam.years} • Past Papers`}
+                        </div>
 
                         <Button
-                          variant="secondary"
-                          className="mb-6 w-fit self-start"
-                          onClick={() => {
-                            setOpenExam(null);
-                            setExamData(null);
-                            setShowFeedback(false);
-                            setShowModal(false);
-                          }}
+                          className={`${buttonClass} text-white mt-auto w-full rounded-full shadow-lg`}
+                          onClick={() => handleStart(exam.id)}
                         >
-                          ← Back
+                          {activeTab === "practice"
+                            ? "Go Practice"
+                            : "Select Year"}
                         </Button>
-
-                        <div className="mt-4 space-y-6">
-                          {questions.map(
-                            (
-                              q: {
-                                id: number;
-                                question: string;
-                                options: string[];
-                                correctAnswer: number;
-                              },
-                              qIdx: number
-                            ) => (
-                              <div key={qIdx} className="mb-4">
-                                <div className="font-semibold mb-2">
-                                  Q{q.id || qIdx + 1}. {q.question}
-                                </div>
-                                {q.options && q.options.length > 0 ? (
-                                  <div className="flex flex-col gap-2">
-                                    {q.options.map(
-                                      (opt: string, optIdx: number) => {
-                                        const isSelected =
-                                          answers[exam.id || examData?.id]?.[
-                                            qIdx
-                                          ] === optIdx;
-                                        const isCorrect =
-                                          q.correctAnswer === optIdx;
-                                        const showExamFeedback = showFeedback;
-
-                                        let optionClass =
-                                          "flex items-center gap-2 p-2 rounded cursor-pointer transition-all";
-
-                                        if (showExamFeedback) {
-                                          if (isCorrect) {
-                                            optionClass +=
-                                              " bg-green-100 border-green-400";
-                                          } else if (isSelected && !isCorrect) {
-                                            optionClass +=
-                                              " bg-red-100 border-red-400";
-                                          } else {
-                                            optionClass +=
-                                              " bg-gray-50 border-gray-200";
-                                          }
-                                        } else {
-                                          if (isSelected) {
-                                            optionClass +=
-                                              " bg-emerald-100 border-emerald-400";
-                                          } else {
-                                            optionClass +=
-                                              " bg-white border border-gray-200 hover:border-emerald-300";
-                                          }
-                                        }
-
-                                        return (
-                                          <label
-                                            key={optIdx}
-                                            className={optionClass}
-                                          >
-                                            <input
-                                              type="radio"
-                                              name={`q${
-                                                exam.id || examData?.id
-                                              }_${qIdx}`}
-                                              checked={isSelected}
-                                              onChange={() =>
-                                                handleAnswer(
-                                                  exam.id || examData?.id,
-                                                  qIdx,
-                                                  optIdx
-                                                )
-                                              }
-                                              className="accent-emerald-600"
-                                              disabled={showExamFeedback}
-                                            />
-                                            <span className="flex-1">
-                                              {opt}
-                                            </span>
-                                            {showExamFeedback && isCorrect && (
-                                              <span className="text-green-600 font-bold">
-                                                ✓
-                                              </span>
-                                            )}
-                                            {showExamFeedback &&
-                                              isSelected &&
-                                              !isCorrect && (
-                                                <span className="text-red-600 font-bold">
-                                                  ✗
-                                                </span>
-                                              )}
-                                          </label>
-                                        );
-                                      }
-                                    )}
-                                  </div>
-                                ) : null}
-                              </div>
-                            )
-                          )}
-                          {!showFeedback ? (
-                            <Button
-                              className="bg-emerald-600 hover:bg-emerald-700 text-white mt-2 w-full rounded-full shadow-lg"
-                              onClick={() => handleSubmit(exam)}
-                            >
-                              Submit
-                            </Button>
-                          ) : (
-                            <div className="mt-2 space-y-2">
-                              <Button
-                                variant="outline"
-                                className="w-full rounded-full"
-                                onClick={() => setShowFeedback(false)}
-                              >
-                                Hide Answers
-                              </Button>
-                              <Button
-                                className="bg-emerald-600 hover:bg-emerald-700 text-white w-full rounded-full shadow-lg"
-                                onClick={() => {
-                                  setShowFeedback(false);
-                                  setOpenExam(null);
-                                  setExamData(null);
-                                }}
-                              >
-                                Back to Exams
-                              </Button>
-                            </div>
-                          )}
-                        </div>
                         <span
-                          className={`absolute -top-10 -right-10 w-32 h-32 rounded-full opacity-20 blur-2xl bg-gradient-to-br ${meta.gradient}`}
+                          className={`absolute -top-10 -right-10 w-32 h-32 rounded-full opacity-20 blur-2xl bg-gradient-to-br ${blobGradient}`}
                         ></span>
                       </CardContent>
                     </Card>
-                  </div>
-
-                  {/* Whiteboard Section - Right Side / Bottom on Mobile */}
-                  <div
-                    className={`transition-all duration-700 ease-in-out ${
-                      whiteboardOpen
-                        ? "w-full lg:w-1/2 opacity-100 translate-x-0"
-                        : "w-0 lg:w-0 opacity-0 translate-x-full lg:translate-x-full hidden lg:block"
-                    } min-w-0 overflow-hidden`}
+                  );
+                })}
+              </div>
+            </div>
+          ) : selectedSubject && !openExam && !examData ? (
+            // Year Selection View
+            <div>
+              <div className="text-center mb-8">
+                <Button
+                  variant="ghost"
+                  className="mb-4"
+                  onClick={handleBackToSubjects}
+                >
+                  ← Back to Subjects
+                </Button>
+                <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
+                  <BookOpen className="w-4 h-4" />
+                  Year Selection View Active
+                </div>
+                <h2 className="text-3xl font-bold text-gray-800 mb-6">
+                  {selectedSubject} Past Papers (Available Years)
+                </h2>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-12">
+                {availableYears[
+                  selectedSubject as keyof typeof availableYears
+                ]?.map((yearPaper: any) => (
+                  <Card
+                    key={yearPaper.year}
+                    className="relative overflow-hidden rounded-3xl shadow-xl border-0 bg-white/70 backdrop-blur-md transition-transform duration-300 hover:scale-105 hover:shadow-2xl group cursor-pointer"
+                    onClick={() => handleYearSelect(yearPaper.year)}
                   >
-                    {whiteboardOpen && (
-                      <div className="h-[50vh] sm:h-[60vh] lg:h-screen sticky top-0">
-                        <Whiteboard
-                          width={
-                            typeof window !== "undefined"
-                              ? Math.min(600, window.innerWidth - 32)
-                              : 400
-                          }
-                          height={
-                            typeof window !== "undefined"
-                              ? Math.min(500, window.innerHeight * 0.5)
-                              : 300
-                          }
-                          initialBackground={whiteboardBg}
-                          className="h-full w-full border-t lg:border-t-0 lg:border-l border-gray-200"
-                          title="Exam Whiteboard"
-                          showHeader={true}
-                          template={whiteboardTemplate}
-                        />
+                    <CardContent className="p-8 flex flex-col h-full">
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500 to-emerald-500 flex items-center justify-center shadow-lg border-4 border-white group-hover:scale-110 transition-transform">
+                          <span className="text-white font-bold text-lg">
+                            {yearPaper.year}
+                          </span>
+                        </div>
+                        <div>
+                          <div className="text-xl font-bold text-gray-800 mb-1">
+                            {selectedSubject} {yearPaper.year}
+                          </div>
+                          <Badge className="bg-blue-100 text-blue-700 px-3 py-1 shadow">
+                            {yearPaper.questions} Questions
+                          </Badge>
+                        </div>
                       </div>
-                    )}
+                      <div className="text-sm text-gray-600 mb-4">
+                        Duration: {yearPaper.duration}
+                      </div>
+                      <Button
+                        className="bg-blue-600 hover:bg-blue-700 text-white mt-auto w-full rounded-full shadow-lg"
+                        onClick={() => handleYearSelect(yearPaper.year)}
+                      >
+                        Start MCQ Exam
+                      </Button>
+                      <span className="absolute -top-10 -right-10 w-32 h-32 rounded-full opacity-20 blur-2xl bg-gradient-to-br from-blue-500 to-emerald-500"></span>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          ) : (() => {
+              console.log("JAMB Practice: Condition check - openExam:", openExam, "isLoadingExam:", isLoadingExam, "examData:", !!examData);
+              return openExam !== null || isLoadingExam || examData !== null;
+            })() ? (
+            (() => {
+              if (isLoadingExam) {
+                return (
+                  <div className="max-w-2xl mx-auto mb-12">
+                    <Card className="relative overflow-hidden rounded-3xl shadow-xl border-0 bg-white/80 backdrop-blur-md">
+                      <CardContent className="p-8 flex flex-col items-center justify-center h-64">
+                        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mb-4"></div>
+                        <p className="text-lg font-semibold text-gray-700">
+                          Loading exam...
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </div>
+                );
+              }
+
+              let exam: any = examData;
+              let meta: any = null;
+              let questions: any = null;
+              
+              console.log("JAMB Practice: Initial examData:", examData);
+              console.log("JAMB Practice: Initial exam:", exam);
+
+              console.log("JAMB Practice: examData:", examData);
+              console.log("JAMB Practice: openExam:", openExam);
+              console.log("JAMB Practice: examData type:", typeof examData);
+              console.log("JAMB Practice: examData keys:", examData ? Object.keys(examData) : "null");
+              console.log("JAMB Practice: examData examInfo:", examData?.examInfo);
+              console.log("JAMB Practice: examData questions:", examData?.questions);
+              console.log("JAMB Practice: examData questions length:", examData?.questions?.length);
+              
+              // Add a simple alert to see if this code is being executed
+              if (examData && examData.examInfo) {
+                console.log("JAMB Practice: ALERT - Exam data found with examInfo!");
+              }
+
+              if (exam) {
+                // Get the subject from examInfo or fallback to exam.subject
+                const subject = exam.examInfo?.subject || exam.subject;
+                console.log("JAMB Practice: Subject from examInfo:", exam.examInfo?.subject);
+                console.log("JAMB Practice: Subject from exam.subject:", exam.subject);
+                console.log("JAMB Practice: Final subject:", subject);
+                console.log("JAMB Practice: Subject:", subject);
+                console.log("JAMB Practice: Available subjects in subjectMeta:", Object.keys(subjectMeta));
+                meta = subjectMeta[subject] || {
+                  icon: <BookOpen className="w-7 h-7" />,
+                  gradient: "from-purple-500 to-indigo-500",
+                  badge: "bg-purple-100 text-purple-700",
+                };
+                console.log("JAMB Practice: Meta data:", meta);
+                // Handle the JAMB practice data structure
+                console.log("JAMB Practice: Exam data structure:", {
+                  hasExamInfo: !!exam.examInfo,
+                  hasQuestions: !!exam.questions,
+                  hasSections: !!exam.sections,
+                  hasId: !!exam.id,
+                  hasTitle: !!exam.title,
+                  examKeys: Object.keys(exam || {})
+                });
+                
+                console.log("JAMB Practice: Checking exam.examInfo:", !!exam.examInfo);
+                console.log("JAMB Practice: Checking exam.questions:", !!exam.questions);
+                console.log("JAMB Practice: Checking exam.sections:", !!exam.sections);
+                console.log("JAMB Practice: Checking exam.questions.length:", exam.questions?.length);
+                
+                if (exam.examInfo && exam.questions) {
+                  console.log("JAMB Practice: ENTERING examInfo && questions condition!");
+                  // JAMB practice data has examInfo and questions structure (Structure A)
+                  questions = exam.questions.map((q: any) => ({
+                    ...q,
+                    // Convert options from object to array format
+                    options: q.options ? Object.values(q.options) : [],
+                    // Convert correctAnswer from string to number format
+                    correctAnswer: q.correctAnswer ? 
+                      (typeof q.correctAnswer === 'string' ? 
+                        q.correctAnswer.charCodeAt(0) - 65 : // Convert "A"->0, "B"->1, etc.
+                        q.correctAnswer) : 0
+                  }));
+                  console.log("JAMB Practice: Loaded questions from examInfo structure:", questions.length);
+                  console.log("JAMB Practice: Sample question:", questions[0]);
+                  console.log("JAMB Practice: Questions array:", questions);
+                  console.log("JAMB Practice: First question:", questions[0]);
+                  console.log("JAMB Practice: Questions array length:", questions?.length);
+                  console.log("JAMB Practice: Questions array type:", typeof questions);
+                } else if (exam.sections) {
+                  console.log("JAMB Practice: ENTERING sections condition!");
+                  // JAMB practice data has sections structure (Structure B)
+                  const allQuestions: any[] = [];
+                  exam.sections.forEach((section: any) => {
+                    if (section.questions) {
+                      allQuestions.push(...section.questions);
+                    }
+                  });
+                  questions = allQuestions;
+                  console.log("JAMB Practice: Loaded questions from sections:", questions.length);
+                } else if (exam.questions) {
+                  console.log("JAMB Practice: ENTERING direct questions condition!");
+                  questions = exam.questions;
+                  console.log("JAMB Practice: Loaded questions directly:", questions.length);
+                } else {
+                  console.log("JAMB Practice: NO CONDITION MATCHED!");
+                }
+              } else {
+                console.log("JAMB Practice: Entering else block - examData is null");
+                console.log("JAMB Practice: openExam:", openExam);
+                console.log("JAMB Practice: practiceQuestions:", practiceQuestions);
+                exam = practiceQuestions.find((e) => e.id === openExam);
+                console.log("JAMB Practice: Found exam from practiceQuestions:", exam);
+                if (exam) {
+                  meta =
+                    subjectMeta[exam.subject] || subjectMeta["Use of English"];
+                  questions = exam.questions;
+                  console.log("JAMB Practice: Set meta:", meta);
+                  console.log("JAMB Practice: Set questions:", questions);
+                }
+              }
+
+              console.log("JAMB Practice: Final check - exam:", !!exam, "meta:", !!meta, "questions:", !!questions);
+              console.log("JAMB Practice: exam value:", exam);
+              console.log("JAMB Practice: meta value:", meta);
+              console.log("JAMB Practice: questions value:", questions);
+              console.log("JAMB Practice: questions length:", questions?.length);
+              if (!exam || !meta) {
+                console.log("JAMB Practice: Returning null because exam or meta is missing");
+                console.log("JAMB Practice: exam is null:", !exam);
+                console.log("JAMB Practice: meta is null:", !meta);
+                return null;
+              }
+
+              return (
+                <div
+                  className={`transition-all duration-700 ease-in-out ${
+                    whiteboardOpen ? "max-w-7xl" : "max-w-4xl"
+                  } mx-auto px-4`}
+                >
+                  <div
+                    className={`flex ${
+                      whiteboardOpen ? "flex-col lg:flex-row" : "flex-col"
+                    } gap-4 lg:gap-6 relative`}
+                  >
+                    {/* Exam Section - Left Side / Top on Mobile */}
+                    <div
+                      className={`transition-all duration-700 ease-in-out ${
+                        whiteboardOpen ? "w-full lg:w-1/2" : "w-full"
+                      } min-w-0`}
+                    >
+                      <Card className="relative overflow-hidden rounded-3xl shadow-xl border-0 bg-white/80 backdrop-blur-md">
+                        <CardContent className="p-4 sm:p-6 lg:p-8 flex flex-col min-h-screen">
+                          {/* Whiteboard Toggle Button */}
+                          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-4">
+                            <h2 className="text-xl sm:text-2xl font-bold text-gray-800">
+                              {exam?.examInfo?.title || exam?.title ||
+                                `${selectedSubject} ${selectedYear}`}
+                            </h2>
+                            <Button
+                              variant={whiteboardOpen ? "default" : "outline"}
+                              onClick={() => setWhiteboardOpen(!whiteboardOpen)}
+                              className={`transition-all duration-300 w-full sm:w-auto ${
+                                whiteboardOpen
+                                  ? "bg-emerald-600 text-white hover:bg-emerald-700"
+                                  : "border-emerald-500 text-emerald-700 hover:bg-emerald-50"
+                              }`}
+                            >
+                              {whiteboardOpen ? "Hide" : "Show"} Whiteboard
+                            </Button>
+                          </div>
+
+                          <div className="flex items-center gap-3 mb-4">
+                            <div
+                              className={`w-14 h-14 rounded-xl bg-gradient-to-br ${meta.gradient} flex items-center justify-center shadow-lg border-4 border-white`}
+                            >
+                              {meta.icon}
+                            </div>
+                            <div>
+                              <div className="text-xl font-bold text-gray-800 mb-1">
+                                {exam.examInfo?.title || exam.title}
+                              </div>
+                              <Badge
+                                className={`${meta.badge} px-3 py-1 shadow`}
+                              >
+                                {exam.examInfo?.subject || exam.subject}
+                              </Badge>
+                            </div>
+                          </div>
+
+                          <Button
+                            variant="secondary"
+                            className="mb-6 w-fit self-start"
+                            onClick={() => {
+                              setOpenExam(null);
+                              setExamData(null);
+                              setShowFeedback(false);
+                              setShowModal(false);
+                            }}
+                          >
+                            ← Back
+                          </Button>
+
+                          <div className="mt-4 space-y-6">
+                            {console.log("JAMB Practice: Rendering questions, count:", questions?.length)}
+                            {console.log("JAMB Practice: Questions array:", questions)}
+                            {console.log("JAMB Practice: Questions type:", typeof questions)}
+                            {questions?.map(
+                              (
+                                q: {
+                                  id: number;
+                                  question: string;
+                                  options: string[];
+                                  correctAnswer: number;
+                                },
+                                qIdx: number
+                              ) => (
+                                <div key={qIdx} className="mb-4">
+                                  <div className="font-semibold mb-2">
+                                    Q{q.id || qIdx + 1}. {q.question}
+                                  </div>
+                                  {q.options && q.options.length > 0 ? (
+                                    <div className="flex flex-col gap-2">
+                                      {q.options.map(
+                                        (opt: string, optIdx: number) => {
+                                          const isSelected =
+                                            answers[exam.id || examData?.id]?.[
+                                              qIdx
+                                            ] === optIdx;
+                                          const isCorrect =
+                                            q.correctAnswer === optIdx;
+                                          const showExamFeedback = showFeedback;
+
+                                          let optionClass =
+                                            "flex items-center gap-2 p-2 rounded cursor-pointer transition-all";
+
+                                          if (showExamFeedback) {
+                                            if (isCorrect) {
+                                              optionClass +=
+                                                " bg-green-100 border-green-400";
+                                            } else if (
+                                              isSelected &&
+                                              !isCorrect
+                                            ) {
+                                              optionClass +=
+                                                " bg-red-100 border-red-400";
+                                            } else {
+                                              optionClass +=
+                                                " bg-gray-50 border-gray-200";
+                                            }
+                                          } else {
+                                            if (isSelected) {
+                                              optionClass +=
+                                                " bg-emerald-100 border-emerald-400";
+                                            } else {
+                                              optionClass +=
+                                                " bg-white border border-gray-200 hover:border-emerald-300";
+                                            }
+                                          }
+
+                                          return (
+                                            <label
+                                              key={optIdx}
+                                              className={optionClass}
+                                            >
+                                              <input
+                                                type="radio"
+                                                name={`q${
+                                                  exam.id || examData?.id
+                                                }_${qIdx}`}
+                                                checked={isSelected}
+                                                onChange={() =>
+                                                  handleAnswer(
+                                                    exam.id || examData?.id,
+                                                    qIdx,
+                                                    optIdx
+                                                  )
+                                                }
+                                                className="accent-emerald-600"
+                                                disabled={showExamFeedback}
+                                              />
+                                              <span className="flex-1">
+                                                {opt}
+                                              </span>
+                                              {showExamFeedback &&
+                                                isCorrect && (
+                                                  <span className="text-green-600 font-bold">
+                                                    ✓
+                                                  </span>
+                                                )}
+                                              {showExamFeedback &&
+                                                isSelected &&
+                                                !isCorrect && (
+                                                  <span className="text-red-600 font-bold">
+                                                    ✗
+                                                  </span>
+                                                )}
+                                            </label>
+                                          );
+                                        }
+                                      )}
+                                    </div>
+                                  ) : null}
+                                </div>
+                              )
+                            )}
+                            {!showFeedback ? (
+                              <Button
+                                className="bg-emerald-600 hover:bg-emerald-700 text-white mt-2 w-full rounded-full shadow-lg"
+                                onClick={() => handleSubmit(exam)}
+                              >
+                                Submit
+                              </Button>
+                            ) : (
+                              <div className="mt-2 space-y-2">
+                                <Button
+                                  variant="outline"
+                                  className="w-full rounded-full"
+                                  onClick={() => setShowFeedback(false)}
+                                >
+                                  Hide Answers
+                                </Button>
+                                <Button
+                                  className="bg-emerald-600 hover:bg-emerald-700 text-white w-full rounded-full shadow-lg"
+                                  onClick={() => {
+                                    setShowFeedback(false);
+                                    setOpenExam(null);
+                                    setExamData(null);
+                                  }}
+                                >
+                                  Back to Exams
+                                </Button>
+                              </div>
+                            )}
+                          </div>
+                          <span
+                            className={`absolute -top-10 -right-10 w-32 h-32 rounded-full opacity-20 blur-2xl bg-gradient-to-br ${meta.gradient}`}
+                          ></span>
+                        </CardContent>
+                      </Card>
+                    </div>
+
+                    {/* Whiteboard Section - Right Side / Bottom on Mobile */}
+                    <div
+                      className={`transition-all duration-700 ease-in-out ${
+                        whiteboardOpen
+                          ? "w-full lg:w-1/2 opacity-100 translate-x-0"
+                          : "w-0 lg:w-0 opacity-0 translate-x-full lg:translate-x-full hidden lg:block"
+                      } min-w-0 overflow-hidden`}
+                    >
+                      {whiteboardOpen && (
+                        <div className="h-[50vh] sm:h-[60vh] lg:h-screen relative z-10">
+                          <Whiteboard
+                            key="jamb-exam-whiteboard"
+                            width={
+                              typeof window !== "undefined"
+                                ? Math.min(600, window.innerWidth - 32)
+                                : 400
+                            }
+                            height={
+                              typeof window !== "undefined"
+                                ? Math.min(500, window.innerHeight * 0.5)
+                                : 300
+                            }
+                            initialBackground={whiteboardBg}
+                            className="h-full w-full border-t lg:border-t-0 lg:border-l border-gray-200"
+                            title="Exam Whiteboard"
+                            showHeader={true}
+                            template={whiteboardTemplate}
+                          />
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })()
-        ) : null}
+              );
+            })()
+          ) : null}
 
-        {/* Feedback Modal */}
-        <Dialog open={showModal} onOpenChange={setShowModal}>
-          <DialogContent className="max-w-md text-center bg-white/80 backdrop-blur-md rounded-3xl shadow-2xl">
-            <DialogHeader>
-              <DialogTitle className="text-3xl flex items-center justify-center gap-2">
-                {feedbackEmoji}{" "}
-                {score === 2
-                  ? "Awesome!"
-                  : score === 1
-                  ? "Good Try!"
-                  : "Keep Practicing!"}
-              </DialogTitle>
-            </DialogHeader>
-            <div className="my-4 text-lg font-semibold text-emerald-700">
-              You scored {score} out of{" "}
-              {(() => {
-                if (examData && examData.questions) {
-                  return examData.questions.length;
-                }
-                const exam = practiceQuestions.find((e) => e.id === openExam);
-                if (exam && exam.questions) {
-                  return exam.questions.length;
-                }
-                if (typeof window !== "undefined") {
-                  const storedExam = localStorage.getItem("currentJambExam");
-                  if (storedExam) {
-                    const jambExam = JSON.parse(storedExam);
-                    return jambExam.questions?.length || 0;
-                  }
-                }
-                return 0;
-              })()}
-            </div>
-            <Progress
-              value={
-                (score /
-                  (() => {
-                    if (examData && examData.questions) {
-                      return examData.questions.length;
-                    }
-                    const exam = practiceQuestions.find(
-                      (e) => e.id === openExam
-                    );
-                    if (exam && exam.questions) {
-                      return exam.questions.length;
-                    }
-                    if (typeof window !== "undefined") {
-                      const storedExam =
-                        localStorage.getItem("currentJambExam");
-                      if (storedExam) {
-                        const jambExam = JSON.parse(storedExam);
-                        return jambExam.questions?.length || 1;
-                      }
-                    }
-                    return 1;
-                  })()) *
-                100
-              }
-              className="mb-4 h-3 bg-gray-200"
-            />
-            <div className="space-y-3">
-              <Button
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-full"
-                onClick={() => {
-                  setShowModal(false);
-                  setShowFeedback(true);
-                }}
-              >
-                Show Correct Answers
-              </Button>
-              <Button
-                className="w-full bg-emerald-600 hover:bg-emerald-700 text-white rounded-full"
-                onClick={() => {
-                  setShowModal(false);
-                  setShowFeedback(false);
-                  setOpenExam(null);
-                  setExamData(null);
-                }}
-              >
-                Back to Exams
-              </Button>
-              <Button
-                variant="outline"
-                className="w-full rounded-full"
-                onClick={() => {
-                  setShowModal(false);
-                  setShowFeedback(false);
-
-                  let questionCount = 50;
-                  let examId = null;
-
+          {/* Feedback Modal */}
+          <Dialog open={showModal} onOpenChange={setShowModal}>
+            <DialogContent className="max-w-md text-center bg-white/80 backdrop-blur-md rounded-3xl shadow-2xl">
+              <DialogHeader>
+                <DialogTitle className="text-3xl flex items-center justify-center gap-2">
+                  {feedbackEmoji}{" "}
+                  {score === 2
+                    ? "Awesome!"
+                    : score === 1
+                    ? "Good Try!"
+                    : "Keep Practicing!"}
+                </DialogTitle>
+              </DialogHeader>
+              <div className="my-4 text-lg font-semibold text-emerald-700">
+                You scored {score} out of{" "}
+                {(() => {
                   if (examData && examData.questions) {
-                    questionCount = examData.questions.length;
-                    examId = examData.id;
-                  } else {
-                    const exam = practiceQuestions.find(
-                      (e) => e.id === openExam
-                    );
-                    if (exam && exam.questions) {
-                      questionCount = exam.questions.length;
-                      examId = exam.id;
-                    } else if (typeof window !== "undefined") {
-                      const storedExam =
-                        localStorage.getItem("currentJambExam");
-                      if (storedExam) {
+                    return examData.questions.length;
+                  }
+                  const exam = practiceQuestions.find((e) => e.id === openExam);
+                  if (exam && exam.questions) {
+                    return exam.questions.length;
+                  }
+                  if (typeof window !== "undefined") {
+                    const storedExam = localStorage.getItem("currentJambExam");
+                    if (storedExam) {
+                      try {
                         const jambExam = JSON.parse(storedExam);
-                        questionCount = jambExam.questions?.length || 50;
-                        examId = jambExam.id;
+                        return jambExam.questions?.length || 0;
+                      } catch (error) {
+                        console.error("Error parsing stored exam:", error);
+                        return 0;
                       }
                     }
                   }
+                  return 0;
+                })()}
+              </div>
+              <Progress
+                value={
+                  (score /
+                    (() => {
+                      if (examData && examData.questions) {
+                        return examData.questions.length;
+                      }
+                      const exam = practiceQuestions.find(
+                        (e) => e.id === openExam
+                      );
+                      if (exam && exam.questions) {
+                        return exam.questions.length;
+                      }
+                      if (typeof window !== "undefined") {
+                        const storedExam =
+                          localStorage.getItem("currentJambExam");
+                        if (storedExam) {
+                          try {
+                            const jambExam = JSON.parse(storedExam);
+                            return jambExam.questions?.length || 1;
+                          } catch (error) {
+                            console.error("Error parsing stored exam:", error);
+                            return 1;
+                          }
+                        }
+                      }
+                      return 1;
+                    })()) *
+                  100
+                }
+                className="mb-4 h-3 bg-gray-200"
+              />
+              <div className="space-y-3">
+                <Button
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-full"
+                  onClick={() => {
+                    setShowModal(false);
+                    setShowFeedback(true);
+                  }}
+                >
+                  Show Correct Answers
+                </Button>
+                <Button
+                  className="w-full bg-emerald-600 hover:bg-emerald-700 text-white rounded-full"
+                  onClick={() => {
+                    setShowModal(false);
+                    setShowFeedback(false);
+                    setOpenExam(null);
+                    setExamData(null);
+                  }}
+                >
+                  Back to Exams
+                </Button>
+                <Button
+                  variant="outline"
+                  className="w-full rounded-full"
+                  onClick={() => {
+                    setShowModal(false);
+                    setShowFeedback(false);
 
-                  if (examId) {
-                    setAnswers((prev) => ({
-                      ...prev,
-                      [examId]: Array(questionCount).fill(-1),
-                    }));
-                  }
-                }}
-              >
-                Try Again
-              </Button>
-            </div>
-          </DialogContent>
-        </Dialog>
+                    let questionCount = 50;
+                    let examId = null;
+
+                    if (examData && examData.questions) {
+                      questionCount = examData.questions.length;
+                      examId = examData.id;
+                    } else {
+                      const exam = practiceQuestions.find(
+                        (e) => e.id === openExam
+                      );
+                      if (exam && exam.questions) {
+                        questionCount = exam.questions.length;
+                        examId = exam.id;
+                      } else if (typeof window !== "undefined") {
+                        const storedExam =
+                          localStorage.getItem("currentJambExam");
+                        if (storedExam) {
+                          try {
+                            const jambExam = JSON.parse(storedExam);
+                            questionCount = jambExam.questions?.length || 50;
+                            examId = jambExam.id;
+                          } catch (error) {
+                            console.error("Error parsing stored exam:", error);
+                            questionCount = 50;
+                          }
+                        }
+                      }
+                    }
+
+                    if (examId) {
+                      setAnswers((prev) => ({
+                        ...prev,
+                        [examId]: Array(questionCount).fill(-1),
+                      }));
+                    }
+                  }}
+                >
+                  Try Again
+                </Button>
+              </div>
+            </DialogContent>
+          </Dialog>
+        </div>
       </div>
-    </div>
+    </PageTransition>
   );
 }

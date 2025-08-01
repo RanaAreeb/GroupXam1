@@ -4,7 +4,7 @@ import path from 'path';
 
 export async function GET(request, { params }) {
     try {
-        const { subject } = params;
+        const { subject } = await params;
 
         // Decode the subject name from URL
         const decodedSubject = decodeURIComponent(subject);

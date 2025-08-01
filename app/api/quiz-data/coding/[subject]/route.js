@@ -4,7 +4,7 @@ import path from 'path';
 
 export async function GET(request, { params }) {
     try {
-        const { subject } = params;
+        const { subject } = await params;
         console.log('API called for coding subject:', subject);
         const subjectPath = path.join(process.cwd(), 'app', 'quiz', 'data', 'coding', subject);
         console.log('Subject path:', subjectPath);

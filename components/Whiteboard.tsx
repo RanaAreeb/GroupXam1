@@ -54,8 +54,8 @@ interface WhiteboardProps {
 }
 
 export default function Whiteboard({
-  width = 800,
-  height = 600,
+  width = 1200,
+  height = 800,
   initialBackground = "white",
   className = "",
   onSave,
@@ -193,6 +193,10 @@ export default function Whiteboard({
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
     ctx.strokeStyle = strokeColor;
+    
+    // Enable image smoothing for better quality
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = "high";
 
     if (brushType === "dashed") {
       ctx.setLineDash([10, 5]);
@@ -203,24 +207,48 @@ export default function Whiteboard({
     }
   };
 
-  const startDrawing = (e: React.MouseEvent<HTMLCanvasElement>) => {
+  const startDrawing = (e: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
     const rect = canvas.getBoundingClientRect();
-    // Calculate coordinates accounting for scale and pan
-    const x = (e.clientX - rect.left - panOffset.x) / scale;
-    const y = (e.clientY - rect.top - panOffset.y) / scale;
+    
+    // Handle both mouse and touch events
+    let clientX: number, clientY: number;
+    
+    if ('touches' in e) {
+      // Touch event
+      const touch = e.touches[0];
+      clientX = touch.clientX;
+      clientY = touch.clientY;
+    } else {
+      // Mouse event
+      clientX = e.clientX;
+      clientY = e.clientY;
+    }
+
+    // Calculate coordinates with proper scaling and positioning
+    let x: number, y: number;
+    
+    if ('touches' in e) {
+      // Touch event - use simpler calculation for mobile
+      x = clientX - rect.left;
+      y = clientY - rect.top;
+    } else {
+      // Mouse event - use device pixel ratio scaling
+      x = (clientX - rect.left) * (canvas.width / rect.width / (window.devicePixelRatio || 1));
+      y = (clientY - rect.top) * (canvas.height / rect.height / (window.devicePixelRatio || 1));
+    }
 
     if (currentTool === "text") {
-      setTextPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+      setTextPosition({ x, y });
       setIsTyping(true);
       setIsDrawing(false);
       return;
     }
 
     if (currentTool === "pan") {
-      // For pan tool, track mouse movement
+      // For pan tool, track movement
       setIsDrawing(true);
       return;
     }
@@ -239,7 +267,7 @@ export default function Whiteboard({
     }
   };
 
-  const draw = (e: React.MouseEvent<HTMLCanvasElement>) => {
+  const draw = (e: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
     if (!isDrawing || currentTool === "text") return;
 
     const canvas = canvasRef.current;
@@ -247,9 +275,33 @@ export default function Whiteboard({
     if (!canvas) return;
 
     const rect = canvas.getBoundingClientRect();
-    // Calculate coordinates accounting for scale and pan
-    const x = (e.clientX - rect.left - panOffset.x) / scale;
-    const y = (e.clientY - rect.top - panOffset.y) / scale;
+    
+    // Handle both mouse and touch events
+    let clientX: number, clientY: number;
+    
+    if ('touches' in e) {
+      // Touch event
+      const touch = e.touches[0];
+      clientX = touch.clientX;
+      clientY = touch.clientY;
+    } else {
+      // Mouse event
+      clientX = e.clientX;
+      clientY = e.clientY;
+    }
+
+    // Calculate coordinates with proper scaling and positioning
+    let x: number, y: number;
+    
+    if ('touches' in e) {
+      // Touch event - use simpler calculation for mobile
+      x = clientX - rect.left;
+      y = clientY - rect.top;
+    } else {
+      // Mouse event - use device pixel ratio scaling
+      x = (clientX - rect.left) * (canvas.width / rect.width / (window.devicePixelRatio || 1));
+      y = (clientY - rect.top) * (canvas.height / rect.height / (window.devicePixelRatio || 1));
+    }
 
     // For shapes, draw preview on preview canvas
     if (
@@ -270,10 +322,12 @@ export default function Whiteboard({
     if (ctx) {
       if (currentTool === "pan") {
         // Handle panning
-        setPanOffset((prev) => ({
-          x: prev.x + e.movementX,
-          y: prev.y + e.movementY,
-        }));
+        if ('movementX' in e) {
+          setPanOffset((prev) => ({
+            x: prev.x + e.movementX,
+            y: prev.y + e.movementY,
+          }));
+        }
         return;
       }
 
@@ -361,16 +415,40 @@ export default function Whiteboard({
     ctx.stroke();
   };
 
-  const stopDrawing = (e: React.MouseEvent<HTMLCanvasElement>) => {
+  const stopDrawing = (e: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
     if (!isDrawing) return;
 
     const canvas = canvasRef.current;
     if (!canvas) return;
 
     const rect = canvas.getBoundingClientRect();
-    // Calculate coordinates accounting for scale and pan
-    const x = (e.clientX - rect.left - panOffset.x) / scale;
-    const y = (e.clientY - rect.top - panOffset.y) / scale;
+    
+    // Handle both mouse and touch events
+    let clientX: number, clientY: number;
+    
+    if ('touches' in e) {
+      // Touch event
+      const touch = e.changedTouches[0];
+      clientX = touch.clientX;
+      clientY = touch.clientY;
+    } else {
+      // Mouse event
+      clientX = e.clientX;
+      clientY = e.clientY;
+    }
+
+    // Calculate coordinates with proper scaling and positioning
+    let x: number, y: number;
+    
+    if ('touches' in e) {
+      // Touch event - use simpler calculation for mobile
+      x = clientX - rect.left;
+      y = clientY - rect.top;
+    } else {
+      // Mouse event - use device pixel ratio scaling
+      x = (clientX - rect.left) * (canvas.width / rect.width / (window.devicePixelRatio || 1));
+      y = (clientY - rect.top) * (canvas.height / rect.height / (window.devicePixelRatio || 1));
+    }
 
     const ctx = canvas.getContext("2d");
     const previewCanvas = previewCanvasRef.current;
@@ -436,9 +514,9 @@ export default function Whiteboard({
     saveCanvasState();
     const ctx = canvas.getContext("2d");
     if (ctx) {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.clearRect(0, 0, width, height);
       ctx.fillStyle = whiteboardBg === "white" ? "#ffffff" : "#111111";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillRect(0, 0, width, height);
       drawGrid(ctx);
       drawRuler(ctx);
     }
@@ -452,17 +530,17 @@ export default function Whiteboard({
     ctx.lineWidth = 0.5;
     ctx.setLineDash([]);
 
-    for (let x = 0; x <= ctx.canvas.width; x += gridSize) {
+    for (let x = 0; x <= width; x += gridSize) {
       ctx.beginPath();
       ctx.moveTo(x, 0);
-      ctx.lineTo(x, ctx.canvas.height);
+      ctx.lineTo(x, height);
       ctx.stroke();
     }
 
-    for (let y = 0; y <= ctx.canvas.height; y += gridSize) {
+    for (let y = 0; y <= height; y += gridSize) {
       ctx.beginPath();
       ctx.moveTo(0, y);
-      ctx.lineTo(ctx.canvas.width, y);
+      ctx.lineTo(width, y);
       ctx.stroke();
     }
   };
@@ -882,13 +960,24 @@ export default function Whiteboard({
     if (canvas) {
       const ctx = canvas.getContext("2d");
       if (ctx) {
-        // Set proper canvas size
-        canvas.width = width;
-        canvas.height = height;
+        // Get device pixel ratio for crisp drawing
+        const dpr = window.devicePixelRatio || 1;
+        const rect = canvas.getBoundingClientRect();
+        
+        // Set canvas size accounting for device pixel ratio
+        canvas.width = width * dpr;
+        canvas.height = height * dpr;
+        
+        // Scale the drawing context so everything draws at the correct size
+        ctx.scale(dpr, dpr);
+        
+        // Set canvas CSS size
+        canvas.style.width = width + 'px';
+        canvas.style.height = height + 'px';
 
         // Set initial background
         ctx.fillStyle = whiteboardBg === "white" ? "#ffffff" : "#111111";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillRect(0, 0, width, height);
         // Draw template backgrounds
         switch (template) {
           case "grid":
@@ -938,8 +1027,16 @@ export default function Whiteboard({
 
     // Setup preview canvas
     if (previewCanvas) {
-      previewCanvas.width = width;
-      previewCanvas.height = height;
+      const dpr = window.devicePixelRatio || 1;
+      previewCanvas.width = width * dpr;
+      previewCanvas.height = height * dpr;
+      previewCanvas.style.width = width + 'px';
+      previewCanvas.style.height = height + 'px';
+      
+      const previewCtx = previewCanvas.getContext("2d");
+      if (previewCtx) {
+        previewCtx.scale(dpr, dpr);
+      }
     }
   }, [whiteboardBg, width, height, template]);
 
@@ -1022,16 +1119,40 @@ export default function Whiteboard({
         );
       };
 
+      const handleTouchMove = (e: TouchEvent) => {
+        e.preventDefault();
+        const touch = e.touches[0];
+        setTextObjects((prev) =>
+          prev.map((obj) =>
+            obj.id === draggingTextId
+              ? {
+                  ...obj,
+                  x: touch.clientX - dragOffset.x,
+                  y: touch.clientY - dragOffset.y,
+                }
+              : obj
+          )
+        );
+      };
+
       const handleMouseUp = () => {
+        setDraggingTextId(null);
+      };
+
+      const handleTouchEnd = () => {
         setDraggingTextId(null);
       };
 
       window.addEventListener("mousemove", handleMouseMove);
       window.addEventListener("mouseup", handleMouseUp);
+      window.addEventListener("touchmove", handleTouchMove, { passive: false });
+      window.addEventListener("touchend", handleTouchEnd);
 
       return () => {
         window.removeEventListener("mousemove", handleMouseMove);
         window.removeEventListener("mouseup", handleMouseUp);
+        window.removeEventListener("touchmove", handleTouchMove);
+        window.removeEventListener("touchend", handleTouchEnd);
       };
     }
   }, [draggingTextId, dragOffset]);
@@ -1070,202 +1191,107 @@ export default function Whiteboard({
       className={`relative overflow-hidden rounded-lg shadow-xl border-0 bg-white/80 backdrop-blur-md ${className}`}
     >
       <CardContent className="p-0 flex flex-col h-full">
-        {/* Whiteboard Toolbar */}
+        {/* Unified Whiteboard Toolbar */}
         {showHeader && (
-          <>
-            <div className="flex flex-wrap items-center gap-1 sm:gap-2 p-2 sm:p-4 border-b bg-white/90 backdrop-blur-sm overflow-x-auto">
-              <div className="flex flex-wrap items-center gap-1 min-w-0">
-                <h3 className="text-sm sm:text-lg font-bold text-gray-800 mr-2 sm:mr-4 whitespace-nowrap">
-                  {title}
-                </h3>
-
-                {/* Tools */}
-                <div className="flex items-center gap-1">
-                  <Button
-                    size="sm"
-                    variant={currentTool === "pen" ? "default" : "outline"}
-                    onClick={() => setCurrentTool("pen")}
-                    className="p-1 sm:p-2 h-8 w-8 sm:h-auto sm:w-auto"
-                  >
-                    <Pen className="w-3 h-3 sm:w-4 sm:h-4" />
-                  </Button>
-                  <Button
-                    size="sm"
-                    variant={currentTool === "eraser" ? "default" : "outline"}
-                    onClick={() => setCurrentTool("eraser")}
-                    className="p-1 sm:p-2 h-8 w-8 sm:h-auto sm:w-auto"
-                  >
-                    <Eraser className="w-3 h-3 sm:w-4 sm:h-4" />
-                  </Button>
-                  <Button
-                    size="sm"
-                    variant={currentTool === "text" ? "default" : "outline"}
-                    onClick={() => setCurrentTool("text")}
-                    className="p-1 sm:p-2 h-8 w-8 sm:h-auto sm:w-auto"
-                  >
-                    <Type className="w-3 h-3 sm:w-4 sm:h-4" />
-                  </Button>
-                  <Button
-                    size="sm"
-                    variant={
-                      currentTool === "rectangle" ? "default" : "outline"
-                    }
-                    onClick={() => setCurrentTool("rectangle")}
-                    className="p-1 sm:p-2 h-8 w-8 sm:h-auto sm:w-auto"
-                  >
-                    <Square className="w-3 h-3 sm:w-4 sm:h-4" />
-                  </Button>
-                  <Button
-                    size="sm"
-                    variant={currentTool === "circle" ? "default" : "outline"}
-                    onClick={() => setCurrentTool("circle")}
-                    className="p-1 sm:p-2 h-8 w-8 sm:h-auto sm:w-auto"
-                  >
-                    <Circle className="w-3 h-3 sm:w-4 sm:h-4" />
-                  </Button>
-                  <Button
-                    size="sm"
-                    variant={currentTool === "line" ? "default" : "outline"}
-                    onClick={() => setCurrentTool("line")}
-                    className="p-1 sm:p-2 h-8 w-8 sm:h-auto sm:w-auto"
-                  >
-                    <Minus className="w-3 h-3 sm:w-4 sm:h-4" />
-                  </Button>
-                  <Button
-                    size="sm"
-                    variant={currentTool === "arrow" ? "default" : "outline"}
-                    onClick={() => setCurrentTool("arrow")}
-                    className="p-1 sm:p-2 h-8 w-8 sm:h-auto sm:w-auto"
-                  >
-                    <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
-                  </Button>
-                  <Button
-                    size="sm"
-                    variant={currentTool === "pan" ? "default" : "outline"}
-                    onClick={() => setCurrentTool("pan")}
-                    className="p-1 sm:p-2 h-8 w-8 sm:h-auto sm:w-auto"
-                    title="Pan Tool"
-                  >
-                    <Move className="w-3 h-3 sm:w-4 sm:h-4" />
-                  </Button>
-                </div>
-              </div>
-
-              <div className="flex flex-wrap items-center gap-1 sm:gap-2 ml-0 sm:ml-4">
-                {/* Color Picker */}
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      className="p-1 sm:p-2 h-8 w-8"
-                    >
-                      <div
-                        className="w-3 h-3 sm:w-4 sm:h-4 rounded"
-                        style={{ backgroundColor: strokeColor }}
-                      ></div>
-                    </Button>
-                  </PopoverTrigger>
-                  <PopoverContent className="w-48">
-                    <div className="space-y-3">
-                      <Label>Stroke Color</Label>
-                      <input
-                        type="color"
-                        value={strokeColor}
-                        onChange={(e) => setStrokeColor(e.target.value)}
-                        className="w-full h-8 rounded border"
-                      />
-                      <Label>Fill Color</Label>
-                      <input
-                        type="color"
-                        value={
-                          fillColor === "#transparent" ? "#ffffff" : fillColor
-                        }
-                        onChange={(e) => setFillColor(e.target.value)}
-                        className="w-full h-8 rounded border"
-                      />
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        onClick={() => setFillColor("#transparent")}
-                        className="w-full"
-                      >
-                        No Fill
-                      </Button>
-                    </div>
-                  </PopoverContent>
-                </Popover>
-
-                {/* Stroke Width */}
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      className="px-2 sm:px-3 h-8 text-xs"
-                    >
-                      {strokeWidth}px
-                    </Button>
-                  </PopoverTrigger>
-                  <PopoverContent className="w-48">
-                    <div className="space-y-3">
-                      <Label>Stroke Width: {strokeWidth}px</Label>
-                      <Slider
-                        value={[strokeWidth]}
-                        onValueChange={(value) => setStrokeWidth(value[0])}
-                        min={1}
-                        max={50}
-                        step={1}
-                      />
-                      {currentTool === "text" && (
-                        <>
-                          <Label>Font Size: {fontSize}px</Label>
-                          <Slider
-                            value={[fontSize]}
-                            onValueChange={(value) => setFontSize(value[0])}
-                            min={8}
-                            max={72}
-                            step={1}
-                          />
-                        </>
-                      )}
-                    </div>
-                  </PopoverContent>
-                </Popover>
-
-                {/* Brush Type */}
-                <Select
-                  value={brushType}
-                  onValueChange={(value: string) =>
-                    setBrushType(
-                      value as
-                        | "solid"
-                        | "dashed"
-                        | "dotted"
-                        | "marker"
-                        | "pencil"
-                        | "spray"
-                    )
-                  }
+          <div className="flex flex-col gap-2 p-2 sm:p-4 border-b bg-white/90 backdrop-blur-sm">
+            {/* Title */}
+            <div className="flex items-center justify-between">
+              <h3 className="text-sm sm:text-lg font-bold text-gray-800">
+                {title}
+              </h3>
+              <div className="flex items-center gap-1 sm:gap-2">
+                <Button
+                  size="sm"
+                  variant={whiteboardBg === "white" ? "default" : "outline"}
+                  onClick={() => setWhiteboardBg("white")}
+                  className="h-8 px-2 text-xs"
                 >
-                  <SelectTrigger className="w-16 sm:w-24 h-8 text-xs">
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="solid">Solid</SelectItem>
-                    <SelectItem value="dashed">Dashed</SelectItem>
-                    <SelectItem value="dotted">Dotted</SelectItem>
-                    <SelectItem value="marker">Marker</SelectItem>
-                    <SelectItem value="pencil">Pencil</SelectItem>
-                    <SelectItem value="spray">Spray</SelectItem>
-                  </SelectContent>
-                </Select>
+                  White
+                </Button>
+                <Button
+                  size="sm"
+                  variant={whiteboardBg === "black" ? "default" : "outline"}
+                  onClick={() => setWhiteboardBg("black")}
+                  className="h-8 px-2 text-xs"
+                >
+                  Black
+                </Button>
               </div>
             </div>
 
-            {/* Secondary Toolbar */}
-            <div className="flex flex-wrap items-center justify-between gap-2 p-2 border-b bg-gray-50 overflow-x-auto">
-              <div className="flex items-center gap-1 sm:gap-2">
+            {/* Main Tools Row */}
+            <div className="flex flex-wrap items-center gap-2 sm:gap-2 overflow-x-auto">
+              {/* Drawing Tools */}
+              <div className="flex items-center gap-2">
+                                  <Button
+                    size="sm"
+                    variant={currentTool === "pen" ? "default" : "outline"}
+                    onClick={() => setCurrentTool("pen")}
+                    className="p-2 h-10 w-10 sm:h-auto sm:w-auto"
+                  >
+                    <Pen className="w-4 h-4 sm:w-4 sm:h-4" />
+                  </Button>
+                <Button
+                  size="sm"
+                  variant={currentTool === "eraser" ? "default" : "outline"}
+                  onClick={() => setCurrentTool("eraser")}
+                  className="p-2 h-10 w-10 sm:h-auto sm:w-auto"
+                >
+                  <Eraser className="w-4 h-4 sm:w-4 sm:h-4" />
+                </Button>
+                <Button
+                  size="sm"
+                  variant={currentTool === "text" ? "default" : "outline"}
+                  onClick={() => setCurrentTool("text")}
+                  className="p-1 sm:p-2 h-8 w-8 sm:h-auto sm:w-auto"
+                >
+                  <Type className="w-3 h-3 sm:w-4 sm:h-4" />
+                </Button>
+                <Button
+                  size="sm"
+                  variant={currentTool === "rectangle" ? "default" : "outline"}
+                  onClick={() => setCurrentTool("rectangle")}
+                  className="p-1 sm:p-2 h-8 w-8 sm:h-auto sm:w-auto"
+                >
+                  <Square className="w-3 h-3 sm:w-4 sm:h-4" />
+                </Button>
+                <Button
+                  size="sm"
+                  variant={currentTool === "circle" ? "default" : "outline"}
+                  onClick={() => setCurrentTool("circle")}
+                  className="p-1 sm:p-2 h-8 w-8 sm:h-auto sm:w-auto"
+                >
+                  <Circle className="w-3 h-3 sm:w-4 sm:h-4" />
+                </Button>
+                <Button
+                  size="sm"
+                  variant={currentTool === "line" ? "default" : "outline"}
+                  onClick={() => setCurrentTool("line")}
+                  className="p-1 sm:p-2 h-8 w-8 sm:h-auto sm:w-auto"
+                >
+                  <Minus className="w-3 h-3 sm:w-4 sm:h-4" />
+                </Button>
+                <Button
+                  size="sm"
+                  variant={currentTool === "arrow" ? "default" : "outline"}
+                  onClick={() => setCurrentTool("arrow")}
+                  className="p-1 sm:p-2 h-8 w-8 sm:h-auto sm:w-auto"
+                >
+                  <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
+                </Button>
+                <Button
+                  size="sm"
+                  variant={currentTool === "pan" ? "default" : "outline"}
+                  onClick={() => setCurrentTool("pan")}
+                  className="p-1 sm:p-2 h-8 w-8 sm:h-auto sm:w-auto"
+                  title="Pan Tool"
+                >
+                  <Move className="w-3 h-3 sm:w-4 sm:h-4" />
+                </Button>
+              </div>
+
+              {/* Utility Tools */}
+              <div className="flex items-center gap-2">
                 <Button
                   size="sm"
                   variant="outline"
@@ -1329,26 +1355,8 @@ export default function Whiteboard({
                 </Button>
               </div>
 
-              <div className="flex items-center gap-1 sm:gap-2">
-                <Button
-                  size="sm"
-                  variant={whiteboardBg === "white" ? "default" : "outline"}
-                  onClick={() => setWhiteboardBg("white")}
-                  className="h-8 px-2 text-xs"
-                >
-                  White
-                </Button>
-                <Button
-                  size="sm"
-                  variant={whiteboardBg === "black" ? "default" : "outline"}
-                  onClick={() => setWhiteboardBg("black")}
-                  className="h-8 px-2 text-xs"
-                >
-                  Black
-                </Button>
-              </div>
-
-              <div className="flex items-center gap-1 sm:gap-2">
+              {/* File Operations */}
+              <div className="flex items-center gap-2">
                 <Button
                   size="sm"
                   variant="outline"
@@ -1383,13 +1391,131 @@ export default function Whiteboard({
                 </Button>
               </div>
             </div>
-          </>
+
+            {/* Settings Row */}
+            <div className="flex flex-wrap items-center gap-2 sm:gap-2 overflow-x-auto">
+              {/* Color Picker */}
+              <Popover>
+                <PopoverTrigger asChild>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="p-1 sm:p-2 h-8 w-8"
+                  >
+                    <div
+                      className="w-3 h-3 sm:w-4 sm:h-4 rounded"
+                      style={{ backgroundColor: strokeColor }}
+                    ></div>
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent className="w-48">
+                  <div className="space-y-3">
+                    <Label>Stroke Color</Label>
+                    <input
+                      type="color"
+                      value={strokeColor}
+                      onChange={(e) => setStrokeColor(e.target.value)}
+                      className="w-full h-8 rounded border"
+                    />
+                    <Label>Fill Color</Label>
+                    <input
+                      type="color"
+                      value={
+                        fillColor === "#transparent" ? "#ffffff" : fillColor
+                      }
+                      onChange={(e) => setFillColor(e.target.value)}
+                      className="w-full h-8 rounded border"
+                    />
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      onClick={() => setFillColor("#transparent")}
+                      className="w-full"
+                    >
+                      No Fill
+                    </Button>
+                  </div>
+                </PopoverContent>
+              </Popover>
+
+              {/* Stroke Width */}
+              <Popover>
+                <PopoverTrigger asChild>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="px-2 sm:px-3 h-8 text-xs"
+                  >
+                    {strokeWidth}px
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent className="w-48">
+                  <div className="space-y-3">
+                    <Label>Stroke Width: {strokeWidth}px</Label>
+                    <Slider
+                      value={[strokeWidth]}
+                      onValueChange={(value) => setStrokeWidth(value[0])}
+                      min={1}
+                      max={50}
+                      step={1}
+                    />
+                    {currentTool === "text" && (
+                      <>
+                        <Label>Font Size: {fontSize}px</Label>
+                        <Slider
+                          value={[fontSize]}
+                          onValueChange={(value) => setFontSize(value[0])}
+                          min={8}
+                          max={72}
+                          step={1}
+                        />
+                      </>
+                    )}
+                  </div>
+                </PopoverContent>
+              </Popover>
+
+              {/* Brush Type */}
+              <Select
+                value={brushType}
+                onValueChange={(value: string) =>
+                  setBrushType(
+                    value as
+                      | "solid"
+                      | "dashed"
+                      | "dotted"
+                      | "marker"
+                      | "pencil"
+                      | "spray"
+                  )
+                }
+              >
+                <SelectTrigger className="w-16 sm:w-24 h-8 text-xs">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="solid">Solid</SelectItem>
+                  <SelectItem value="dashed">Dashed</SelectItem>
+                  <SelectItem value="dotted">Dotted</SelectItem>
+                  <SelectItem value="marker">Marker</SelectItem>
+                  <SelectItem value="pencil">Pencil</SelectItem>
+                  <SelectItem value="spray">Spray</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
         )}
 
         {/* Canvas Area */}
         <div
           className="flex-1 p-2 sm:p-4 relative"
-          style={{ background: "#f8f9fa" }}
+          style={{ 
+            background: "#f8f9fa",
+            touchAction: "none",
+            userSelect: "none",
+            WebkitUserSelect: "none",
+            WebkitTouchCallout: "none"
+          }}
         >
           {/* The text input modal is removed, so this block is no longer needed */}
           <div className="relative w-full h-full min-h-[300px] sm:min-h-[400px]">
@@ -1433,30 +1559,18 @@ export default function Whiteboard({
               }}
               onTouchStart={(e) => {
                 e.preventDefault();
-                const touch = e.touches[0];
-                const mouseEvent = new MouseEvent("mousedown", {
-                  clientX: touch.clientX,
-                  clientY: touch.clientY,
-                });
-                startDrawing(mouseEvent as any);
+                e.stopPropagation();
+                startDrawing(e);
               }}
               onTouchMove={(e) => {
                 e.preventDefault();
-                const touch = e.touches[0];
-                const mouseEvent = new MouseEvent("mousemove", {
-                  clientX: touch.clientX,
-                  clientY: touch.clientY,
-                });
-                draw(mouseEvent as any);
+                e.stopPropagation();
+                draw(e);
               }}
               onTouchEnd={(e) => {
                 e.preventDefault();
-                const touch = e.changedTouches[0];
-                const mouseEvent = new MouseEvent("mouseup", {
-                  clientX: touch.clientX,
-                  clientY: touch.clientY,
-                });
-                stopDrawing(mouseEvent as any);
+                e.stopPropagation();
+                stopDrawing(e);
               }}
               // onClick removed - text functionality now handled by startDrawing
             />
@@ -1476,12 +1590,15 @@ export default function Whiteboard({
             {/* Text Input UI - appears when isTyping is true */}
             {isTyping && (
               <div
-                className="absolute bg-white border-2 border-blue-500 rounded-lg shadow-lg p-4"
+                className="fixed bg-white border-2 border-blue-500 rounded-lg shadow-lg p-2 sm:p-4"
                 style={{
-                  left: textPosition.x,
-                  top: textPosition.y,
+                  left: "50%",
+                  top: "50%",
+                  transform: "translate(-50%, -50%)",
                   zIndex: 1000,
-                  minWidth: "200px",
+                  minWidth: "280px",
+                  maxWidth: "90vw",
+                  maxHeight: "80vh",
                 }}
               >
                 <div className="flex flex-col gap-2">
@@ -1598,8 +1715,8 @@ export default function Whiteboard({
             {textObjects.map((textObj) => (
               <div
                 key={textObj.id}
-                className={`absolute cursor-pointer select-none ${
-                  textObj.isSelected ? "ring-2 ring-blue-500" : ""
+                className={`absolute cursor-move select-none touch-none ${
+                  textObj.isSelected ? "ring-2 ring-blue-500" : "hover:ring-1 hover:ring-gray-300"
                 }`}
                 style={{
                   left: textObj.x,
@@ -1612,6 +1729,7 @@ export default function Whiteboard({
                   color: textObj.color,
                   zIndex: textObj.isSelected ? 1000 : 100,
                   userSelect: "none",
+                  touchAction: "none",
                 }}
                 onMouseDown={(e) => {
                   e.stopPropagation();
@@ -1627,6 +1745,23 @@ export default function Whiteboard({
                   setDragOffset({
                     x: e.clientX - textObj.x,
                     y: e.clientY - textObj.y,
+                  });
+                }}
+                onTouchStart={(e) => {
+                  e.stopPropagation();
+                  const touch = e.touches[0];
+                  setSelectedTextId(textObj.id);
+                  setTextObjects((prev) =>
+                    prev.map((obj) =>
+                      obj.id === textObj.id
+                        ? { ...obj, isSelected: true }
+                        : { ...obj, isSelected: false }
+                    )
+                  );
+                  setDraggingTextId(textObj.id);
+                  setDragOffset({
+                    x: touch.clientX - textObj.x,
+                    y: touch.clientY - textObj.y,
                   });
                 }}
                 onDoubleClick={(e) => {
@@ -1645,6 +1780,15 @@ export default function Whiteboard({
                   setTextObjects((prev) =>
                     prev.filter((obj) => obj.id !== textObj.id)
                   );
+                }}
+                onTouchEnd={(e) => {
+                  e.stopPropagation();
+                  // On mobile, long press to edit
+                  setTimeout(() => {
+                    if (draggingTextId === textObj.id) {
+                      setDraggingTextId(null);
+                    }
+                  }, 200);
                 }}
               >
                 {textObj.text}

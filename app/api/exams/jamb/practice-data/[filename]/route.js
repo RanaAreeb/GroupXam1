@@ -4,7 +4,7 @@ import path from "path";
 
 export async function GET(request, { params }) {
     try {
-        const { filename } = params;
+        const { filename } = await params;
 
         // Construct the file path to the practice data
         const filePath = path.join(
@@ -40,8 +40,13 @@ export async function GET(request, { params }) {
             questions: [],
         };
 
-        // Flatten all questions from all sections into a single array
-        if (practiceData.sections) {
+        // Handle both data structures: examInfo (Structure A) and sections (Structure B)
+        if (practiceData.examInfo && practiceData.questions) {
+            // Structure A: examInfo with questions (like Economics, Geography)
+            transformedData.examInfo = practiceData.examInfo;
+            transformedData.questions = practiceData.questions;
+        } else if (practiceData.sections) {
+            // Structure B: sections with questions (like Biology)
             practiceData.sections.forEach((section) => {
                 if (section.questions) {
                     section.questions.forEach((question) => {

@@ -3,21 +3,54 @@ import "./globals.css";
 import CookieConsent from "@/components/CookieConsent";
 
 export const metadata: Metadata = {
-  title: "GroupXam - Ace Your Exams with Confidence",
+  title:
+    "GroupXam - Ace Your Exams with Confidence | WAEC, WASSCE, JAMB Practice Tests",
   description:
-    "The most comprehensive study platform for WAEC/WASSCE preparation. Practice with thousands of questions, master concepts with flashcards, and track your progress.",
+    "Master WAEC, WASSCE, and JAMB exams with GroupXam's comprehensive study platform. Access 10,000+ practice questions, interactive flashcards, mock exams, and real-time progress tracking. Free online exam preparation for Nigerian students.",
   keywords: [
     "WAEC",
     "WASSCE",
-    "SAT",
-    "ACT",
+    "JAMB",
+    "NECO",
     "exam preparation",
     "study platform",
     "practice tests",
+    "mock exams",
     "flashcards",
     "education",
+    "Nigeria education",
+    "secondary school exams",
+    "university entrance",
+    "online learning",
+    "free exam practice",
+    "WAEC past questions",
+    "WASSCE past questions",
+    "JAMB past questions",
+    "exam revision",
+    "test preparation",
+    "academic success",
+    "student resources",
+    "educational technology",
+    "e-learning platform",
+    "study materials",
+    "exam questions",
+    "practice papers",
+    "revision notes",
+    "academic performance",
+    "exam success",
+    "educational app",
+    "learning management system",
+    "student portal",
+    "academic excellence",
+    "exam confidence",
+    "study tools",
+    "educational resources",
+    "academic support",
+    "exam readiness",
+    "test practice",
+    "educational platform",
   ],
-  authors: [{ name: "GroupXam Team" }],
+  authors: [{ name: "GroupXam Team", url: "https://groupxam.com" }],
   creator: "GroupXam",
   publisher: "GroupXam",
   formatDetection: {
@@ -30,9 +63,10 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "GroupXam - Ace Your Exams with Confidence",
+    title:
+      "GroupXam - Ace Your Exams with Confidence | WAEC, WASSCE, JAMB Practice Tests",
     description:
-      "The most comprehensive study platform for WAEC/WASSCE preparation. Practice with thousands of questions, master concepts with flashcards, and track your progress.",
+      "Master WAEC, WASSCE, and JAMB exams with GroupXam's comprehensive study platform. Access 10,000+ practice questions, interactive flashcards, mock exams, and real-time progress tracking. Free online exam preparation for Nigerian students.",
     url: "https://groupxam.com",
     siteName: "GroupXam",
     images: [
@@ -40,7 +74,7 @@ export const metadata: Metadata = {
         url: "/logo.png",
         width: 1200,
         height: 630,
-        alt: "GroupXam - Study Platform",
+        alt: "GroupXam - Comprehensive Exam Preparation Platform",
       },
     ],
     locale: "en_US",
@@ -50,8 +84,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "GroupXam - Ace Your Exams with Confidence",
     description:
-      "The most comprehensive study platform for WAEC/WASSCE preparation.",
+      "Master WAEC, WASSCE, and JAMB exams with GroupXam's comprehensive study platform. Free online exam preparation for Nigerian students.",
     images: ["/logo.png"],
+    creator: "@groupxam",
+    site: "@groupxam",
   },
   robots: {
     index: true,
@@ -73,12 +109,28 @@ export const metadata: Metadata = {
     shortcut: ["/favicon.ico"],
   },
   manifest: "/manifest.json",
+  category: "education",
+  classification: "Educational Technology",
+  other: {
+    "application-name": "GroupXam",
+    "apple-mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-status-bar-style": "default",
+    "apple-mobile-web-app-title": "GroupXam",
+    "format-detection": "telephone=no",
+    "mobile-web-app-capable": "yes",
+    "msapplication-config": "/browserconfig.xml",
+    "msapplication-TileColor": "#10b981",
+    "msapplication-tap-highlight": "no",
+    "theme-color": "#10b981",
+  },
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
+  userScalable: false,
+  themeColor: "#10b981",
 };
 
 export default function RootLayout({
@@ -96,6 +148,99 @@ export default function RootLayout({
         <meta name="theme-color" content="#10b981" />
         <meta name="msapplication-TileColor" content="#10b981" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
+
+        {/* Structured Data for SEO */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "EducationalApplication",
+              name: "GroupXam",
+              description:
+                "Comprehensive exam preparation platform for WAEC, WASSCE, and JAMB exams",
+              url: "https://groupxam.com",
+              applicationCategory: "EducationalApplication",
+              operatingSystem: "Web Browser",
+              offers: {
+                "@type": "Offer",
+                price: "0",
+                priceCurrency: "USD",
+                availability: "https://schema.org/InStock",
+              },
+              provider: {
+                "@type": "Organization",
+                name: "GroupXam",
+                url: "https://groupxam.com",
+                logo: "https://groupxam.com/logo.png",
+              },
+              audience: {
+                "@type": "Audience",
+                audienceType:
+                  "Students preparing for WAEC, WASSCE, and JAMB exams",
+              },
+              educationalLevel: "Secondary Education",
+              teaches: [
+                "WAEC Exam Preparation",
+                "WASSCE Exam Preparation",
+                "JAMB Exam Preparation",
+                "Academic Test Taking",
+                "Study Skills",
+              ],
+            }),
+          }}
+        />
+
+        {/* Organization Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "GroupXam",
+              url: "https://groupxam.com",
+              logo: "https://groupxam.com/logo.png",
+              description:
+                "Leading educational technology platform for exam preparation in Nigeria",
+              foundingDate: "2024",
+              address: {
+                "@type": "PostalAddress",
+                addressCountry: "Nigeria",
+              },
+              contactPoint: {
+                "@type": "ContactPoint",
+                contactType: "customer service",
+                availableLanguage: "English",
+              },
+              sameAs: [
+                "https://twitter.com/groupxam",
+                "https://facebook.com/groupxam",
+                "https://instagram.com/groupxam",
+              ],
+            }),
+          }}
+        />
+
+        {/* WebSite Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "GroupXam",
+              url: "https://groupxam.com",
+              description:
+                "Comprehensive exam preparation platform for Nigerian students",
+              potentialAction: {
+                "@type": "SearchAction",
+                target: "https://groupxam.com/search?q={search_term_string}",
+                "query-input": "required name=search_term_string",
+              },
+            }),
+          }}
+        />
       </head>
       <body>
         <CookieConsent />

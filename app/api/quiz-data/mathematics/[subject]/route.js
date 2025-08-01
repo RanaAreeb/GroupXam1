@@ -4,7 +4,7 @@ import path from 'path';
 
 export async function GET(request, { params }) {
     try {
-        const { subject } = params;
+        const { subject } = await params;
 
         // Define the base path for mathematics quiz data
         const basePath = path.join(process.cwd(), 'app', 'quiz', 'data', 'mathematics');

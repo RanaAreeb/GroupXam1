@@ -15,7 +15,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { motion } from "framer-motion";
+// import { motion as Motion } from "framer-motion";
 import { useAuth } from "@/hooks/use-auth";
 import {
   RotateCcw,
@@ -701,11 +701,7 @@ export default function FlashcardsPage() {
 
           {/* Flashcard */}
           <div className="mb-8">
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.3 }}
-            >
+            <div>
               <Card
                 className="border-0 shadow-2xl cursor-pointer transition-all duration-500 hover:shadow-3xl min-h-[400px] flex items-center justify-center bg-gradient-to-br from-white to-blue-50"
                 onClick={handleFlip}
@@ -722,21 +718,18 @@ export default function FlashcardsPage() {
                       {isFlipped ? "Answer" : "Question"}
                     </Badge>
                   </div>
-                  <motion.div
+                  <div
                     key={`${currentCard}-${isFlipped}`}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.3 }}
                     className="text-xl leading-relaxed font-medium"
                   >
                     {isFlipped ? currentFlashcard.back : currentFlashcard.front}
-                  </motion.div>
+                  </div>
                   <p className="text-sm text-gray-500 mt-8">
                     Click to {isFlipped ? "see question" : "reveal answer"}
                   </p>
                 </CardContent>
               </Card>
-            </motion.div>
+            </div>
           </div>
 
           {/* Navigation */}
@@ -890,11 +883,7 @@ export default function FlashcardsPage() {
             {subjectCategories.map((category) => {
               const Icon = category.icon;
               return (
-                <motion.div
-                  key={category.id}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
+                <div key={category.id}>
                   <Card
                     className="shadow-xl border-0 rounded-2xl bg-white hover:shadow-2xl transition-all duration-300 group cursor-pointer overflow-hidden"
                     onClick={() => handleCategoryClick(category.id)}
@@ -926,7 +915,7 @@ export default function FlashcardsPage() {
                       </Button>
                     </CardContent>
                   </Card>
-                </motion.div>
+                </div>
               );
             })}
           </div>
@@ -937,11 +926,7 @@ export default function FlashcardsPage() {
               const SubjIcon = subject.icon;
               const flashcardSets = getFlashcardSetsFromData(subject.name);
               return (
-                <motion.div
-                  key={subject.name}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
+                <div key={subject.name}>
                   <Card
                     className="shadow-xl border-0 rounded-2xl bg-white hover:shadow-2xl transition-all duration-300 group cursor-pointer overflow-hidden"
                     onClick={() => handleSubjectClick(subject.name)}
@@ -971,7 +956,7 @@ export default function FlashcardsPage() {
                       </Button>
                     </CardContent>
                   </Card>
-                </motion.div>
+                </div>
               );
             })}
           </div>
@@ -1272,11 +1257,7 @@ export default function FlashcardsPage() {
                 const colorClass = colors[index % colors.length];
 
                 return (
-                  <motion.div
-                    key={set.id}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
+                  <div key={`${set.isUserCreated ? "user" : "data"}-${set.id}`}>
                     <Card
                       className="border-0 shadow-lg hover:shadow-xl transition-shadow cursor-pointer overflow-hidden"
                       onClick={() => handleSetSelect(set)}
@@ -1339,7 +1320,7 @@ export default function FlashcardsPage() {
                         </Button>
                       </CardContent>
                     </Card>
-                  </motion.div>
+                  </div>
                 );
               })}
             </div>

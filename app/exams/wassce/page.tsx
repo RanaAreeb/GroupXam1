@@ -100,6 +100,7 @@ const practiceQuestions = [
     department: "Arts",
     date: "2025-03-15",
     time: "09:00 AM",
+    dataFile: "wassce-economics-practice.json",
     questions: [
       {
         q: "What is the basic economic problem?",
@@ -121,6 +122,7 @@ const practiceQuestions = [
     department: "Arts",
     date: "2025-03-15",
     time: "09:00 AM",
+    dataFile: "wassce-english-practice.json",
     questions: [
       {
         q: "Choose the correct form: 'Neither John nor his friends _____ going to the party.'",
@@ -142,6 +144,7 @@ const practiceQuestions = [
     department: "Arts",
     date: "2025-03-15",
     time: "09:00 AM",
+    dataFile: "wassce-geography-practice.json",
     questions: [
       {
         q: "What is the capital of Nigeria?",
@@ -163,6 +166,7 @@ const practiceQuestions = [
     department: "Science",
     date: "2025-03-15",
     time: "09:00 AM",
+    dataFile: "wassce-mathematics-practice.json",
     questions: [
       {
         q: "What is the value of x in the equation 2x + 5 = 13?",
@@ -184,6 +188,7 @@ const practiceQuestions = [
     department: "Science",
     date: "2025-03-15",
     time: "09:00 AM",
+    dataFile: "wassce-further-mathematics-practice.json",
     questions: [
       {
         q: "What is the derivative of x²?",
@@ -205,6 +210,7 @@ const practiceQuestions = [
     department: "Arts",
     date: "2025-03-15",
     time: "09:00 AM",
+    dataFile: "wassce-history-practice.json",
     questions: [
       {
         q: "In what year did Nigeria gain independence?",
@@ -231,6 +237,7 @@ const practiceQuestions = [
     department: "Science",
     date: "2025-03-15",
     time: "09:00 AM",
+    dataFile: "wassce-computer-studies-practice.json",
     questions: [
       {
         q: "What does CPU stand for?",
@@ -257,6 +264,7 @@ const practiceQuestions = [
     department: "Science",
     date: "2025-03-15",
     time: "09:00 AM",
+    dataFile: "wassce-physics-practice.json",
     questions: [
       {
         q: "What is the SI unit of force?",
@@ -278,6 +286,7 @@ const practiceQuestions = [
     department: "Arts",
     date: "2025-03-15",
     time: "09:00 AM",
+    dataFile: "wassce-literature-practice.json",
     questions: [
       {
         q: "What is a sonnet?",
@@ -309,6 +318,7 @@ const practiceQuestions = [
     department: "Science",
     date: "2025-03-15",
     time: "09:00 AM",
+    dataFile: "wassce-chemistry-practice.json",
     questions: [
       {
         q: "What is the chemical symbol for gold?",
@@ -330,6 +340,7 @@ const practiceQuestions = [
     department: "Science",
     date: "2025-03-15",
     time: "09:00 AM",
+    dataFile: "wassce-biology-practice.json",
     questions: [
       {
         q: "What is the powerhouse of the cell?",
@@ -425,7 +436,7 @@ const mockExams = [
     department: "Science",
     date: "2025-03-15",
     time: "09:00 AM",
-    dataFile: "physics-mock.json",
+    dataFile: "wassce-physics-mock.json",
   },
   {
     id: 109,
@@ -445,7 +456,7 @@ const mockExams = [
     department: "Science",
     date: "2025-03-15",
     time: "09:00 AM",
-    dataFile: "chemistry-mock.json",
+    dataFile: "wassce-chemistry-mock.json",
   },
   {
     id: 111,
@@ -455,7 +466,7 @@ const mockExams = [
     department: "Science",
     date: "2025-03-15",
     time: "09:00 AM",
-    dataFile: "biology-mock.json",
+    dataFile: "wassce-biology-mock.json",
   },
 ];
 
@@ -543,6 +554,10 @@ export default function WassceExamsPage() {
     {}
   );
   const [loadingMockExam, setLoadingMockExam] = useState(false);
+  const [practiceExamData, setPracticeExamData] = useState<{ [examId: number]: any }>(
+    {}
+  );
+  const [loadingPracticeExam, setLoadingPracticeExam] = useState(false);
   // Mock exam answers state
   const [mockAnswers, setMockAnswers] = useState<{
     [examId: string | number]: number[];
@@ -581,9 +596,30 @@ export default function WassceExamsPage() {
           setLoadingMockExam(false);
         }
       }
-    } else if (activeTab === "practice" && !answers[examId]) {
+    } else if (activeTab === "practice" && !practiceExamData[examId]) {
+      setLoadingPracticeExam(true);
       const exam = practiceQuestions.find((e) => e.id === examId);
-      const questionCount = exam?.questions.length || 2;
+      if (exam?.dataFile) {
+        try {
+          // Load data from the JSON file
+          const response = await fetch(
+            `/api/exams/wassce/practice-data/${exam.dataFile.replace(".json", "")}`
+          );
+          if (response.ok) {
+            const data = await response.json();
+            setPracticeExamData((prev) => ({ ...prev, [examId]: data }));
+          } else {
+            console.error("Failed to load practice exam data");
+          }
+        } catch (error) {
+          console.error("Error loading practice exam data:", error);
+        } finally {
+          setLoadingPracticeExam(false);
+        }
+      }
+    } else if (activeTab === "practice" && !answers[examId]) {
+      const exam = practiceExamData[examId] || practiceQuestions.find((e) => e.id === examId);
+      const questionCount = exam?.questions?.length || 2;
       setAnswers((prev) => ({
         ...prev,
         [examId]: Array(questionCount).fill(-1),
@@ -903,7 +939,25 @@ export default function WassceExamsPage() {
             const meta = subjectMeta[exam.subject] || subjectMeta["Economics"];
             const questions =
               activeTab === "practice"
-                ? (exam as any).questions
+                ? (() => {
+                    const practiceData = practiceExamData[exam.id];
+                    if (practiceData) {
+                      // Handle the topics structure in practice data
+                      if (practiceData.topics) {
+                        const allQuestions: any[] = [];
+                        practiceData.topics.forEach((topic: any) => {
+                          if (topic.questions) {
+                            allQuestions.push(...topic.questions);
+                          }
+                        });
+                        return allQuestions;
+                      } else if (practiceData.questions) {
+                        return practiceData.questions;
+                      }
+                    }
+                    // Fallback to hardcoded questions if API data not loaded
+                    return (exam as any).questions;
+                  })()
                 : (() => {
                     const mockData = mockExamData[exam.id];
                     if (!mockData) return [];
@@ -986,11 +1040,11 @@ export default function WassceExamsPage() {
                           ← Back
                         </Button>
 
-                        {loadingMockExam ? (
+                        {(loadingMockExam || (activeTab === "practice" && loadingPracticeExam)) ? (
                           <div className="text-center py-8">
                             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-600 mx-auto mb-4"></div>
                             <p className="text-gray-600">
-                              Loading mock exam data...
+                              Loading {activeTab === "practice" ? "practice" : "mock"} exam data...
                             </p>
                           </div>
                         ) : (
