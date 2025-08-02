@@ -52,6 +52,7 @@ interface FormData {
   email: string;
   password: string;
   selectedSubjects: string[];
+  country: string;
 }
 
 interface InstitutionData {
@@ -68,6 +69,7 @@ interface InstitutionData {
   description: string;
   studentCount: string;
   establishedYear: string;
+  country: string;
 }
 
 // Institution subcategories
@@ -93,6 +95,192 @@ const institutionSubcategories = {
     "Arts & Design School",
   ],
 };
+
+// Countries list
+const countries = [
+  { code: "NG", name: "Nigeria" },
+  { code: "GH", name: "Ghana" },
+  { code: "KE", name: "Kenya" },
+  { code: "ZA", name: "South Africa" },
+  { code: "EG", name: "Egypt" },
+  { code: "ET", name: "Ethiopia" },
+  { code: "TZ", name: "Tanzania" },
+  { code: "UG", name: "Uganda" },
+  { code: "DZ", name: "Algeria" },
+  { code: "MA", name: "Morocco" },
+  { code: "TN", name: "Tunisia" },
+  { code: "LY", name: "Libya" },
+  { code: "SD", name: "Sudan" },
+  { code: "SS", name: "South Sudan" },
+  { code: "CM", name: "Cameroon" },
+  { code: "CI", name: "Ivory Coast" },
+  { code: "SN", name: "Senegal" },
+  { code: "ML", name: "Mali" },
+  { code: "BF", name: "Burkina Faso" },
+  { code: "NE", name: "Niger" },
+  { code: "TD", name: "Chad" },
+  { code: "CF", name: "Central African Republic" },
+  { code: "CG", name: "Republic of the Congo" },
+  { code: "CD", name: "Democratic Republic of the Congo" },
+  { code: "AO", name: "Angola" },
+  { code: "ZM", name: "Zambia" },
+  { code: "ZW", name: "Zimbabwe" },
+  { code: "BW", name: "Botswana" },
+  { code: "NA", name: "Namibia" },
+  { code: "MW", name: "Malawi" },
+  { code: "MZ", name: "Mozambique" },
+  { code: "SZ", name: "Eswatini" },
+  { code: "LS", name: "Lesotho" },
+  { code: "MG", name: "Madagascar" },
+  { code: "MU", name: "Mauritius" },
+  { code: "SC", name: "Seychelles" },
+  { code: "DJ", name: "Djibouti" },
+  { code: "SO", name: "Somalia" },
+  { code: "ER", name: "Eritrea" },
+  { code: "RW", name: "Rwanda" },
+  { code: "BI", name: "Burundi" },
+  { code: "GW", name: "Guinea-Bissau" },
+  { code: "GN", name: "Guinea" },
+  { code: "SL", name: "Sierra Leone" },
+  { code: "LR", name: "Liberia" },
+  { code: "TG", name: "Togo" },
+  { code: "BJ", name: "Benin" },
+  { code: "GW", name: "Guinea-Bissau" },
+  { code: "CV", name: "Cape Verde" },
+  { code: "GM", name: "Gambia" },
+  { code: "MR", name: "Mauritania" },
+  { code: "US", name: "United States" },
+  { code: "CA", name: "Canada" },
+  { code: "GB", name: "United Kingdom" },
+  { code: "DE", name: "Germany" },
+  { code: "FR", name: "France" },
+  { code: "IT", name: "Italy" },
+  { code: "ES", name: "Spain" },
+  { code: "NL", name: "Netherlands" },
+  { code: "BE", name: "Belgium" },
+  { code: "CH", name: "Switzerland" },
+  { code: "AT", name: "Austria" },
+  { code: "SE", name: "Sweden" },
+  { code: "NO", name: "Norway" },
+  { code: "DK", name: "Denmark" },
+  { code: "FI", name: "Finland" },
+  { code: "PL", name: "Poland" },
+  { code: "CZ", name: "Czech Republic" },
+  { code: "HU", name: "Hungary" },
+  { code: "RO", name: "Romania" },
+  { code: "BG", name: "Bulgaria" },
+  { code: "HR", name: "Croatia" },
+  { code: "SI", name: "Slovenia" },
+  { code: "SK", name: "Slovakia" },
+  { code: "LT", name: "Lithuania" },
+  { code: "LV", name: "Latvia" },
+  { code: "EE", name: "Estonia" },
+  { code: "IE", name: "Ireland" },
+  { code: "PT", name: "Portugal" },
+  { code: "GR", name: "Greece" },
+  { code: "CY", name: "Cyprus" },
+  { code: "MT", name: "Malta" },
+  { code: "LU", name: "Luxembourg" },
+  { code: "IS", name: "Iceland" },
+  { code: "IN", name: "India" },
+  { code: "PK", name: "Pakistan" },
+  { code: "BD", name: "Bangladesh" },
+  { code: "LK", name: "Sri Lanka" },
+  { code: "NP", name: "Nepal" },
+  { code: "BT", name: "Bhutan" },
+  { code: "MV", name: "Maldives" },
+  { code: "AF", name: "Afghanistan" },
+  { code: "IR", name: "Iran" },
+  { code: "IQ", name: "Iraq" },
+  { code: "SA", name: "Saudi Arabia" },
+  { code: "AE", name: "United Arab Emirates" },
+  { code: "QA", name: "Qatar" },
+  { code: "KW", name: "Kuwait" },
+  { code: "BH", name: "Bahrain" },
+  { code: "OM", name: "Oman" },
+  { code: "YE", name: "Yemen" },
+  { code: "JO", name: "Jordan" },
+  { code: "LB", name: "Lebanon" },
+  { code: "SY", name: "Syria" },
+  { code: "PS", name: "Palestine" },
+  { code: "IL", name: "Israel" },
+  { code: "TR", name: "Turkey" },
+  { code: "GE", name: "Georgia" },
+  { code: "AM", name: "Armenia" },
+  { code: "AZ", name: "Azerbaijan" },
+  { code: "CN", name: "China" },
+  { code: "JP", name: "Japan" },
+  { code: "KR", name: "South Korea" },
+  { code: "TW", name: "Taiwan" },
+  { code: "HK", name: "Hong Kong" },
+  { code: "MO", name: "Macau" },
+  { code: "MN", name: "Mongolia" },
+  { code: "KP", name: "North Korea" },
+  { code: "VN", name: "Vietnam" },
+  { code: "TH", name: "Thailand" },
+  { code: "MY", name: "Malaysia" },
+  { code: "SG", name: "Singapore" },
+  { code: "ID", name: "Indonesia" },
+  { code: "PH", name: "Philippines" },
+  { code: "MM", name: "Myanmar" },
+  { code: "LA", name: "Laos" },
+  { code: "KH", name: "Cambodia" },
+  { code: "BN", name: "Brunei" },
+  { code: "TL", name: "East Timor" },
+  { code: "AU", name: "Australia" },
+  { code: "NZ", name: "New Zealand" },
+  { code: "FJ", name: "Fiji" },
+  { code: "PG", name: "Papua New Guinea" },
+  { code: "SB", name: "Solomon Islands" },
+  { code: "VU", name: "Vanuatu" },
+  { code: "NC", name: "New Caledonia" },
+  { code: "PF", name: "French Polynesia" },
+  { code: "BR", name: "Brazil" },
+  { code: "AR", name: "Argentina" },
+  { code: "CL", name: "Chile" },
+  { code: "PE", name: "Peru" },
+  { code: "CO", name: "Colombia" },
+  { code: "VE", name: "Venezuela" },
+  { code: "EC", name: "Ecuador" },
+  { code: "BO", name: "Bolivia" },
+  { code: "PY", name: "Paraguay" },
+  { code: "UY", name: "Uruguay" },
+  { code: "GY", name: "Guyana" },
+  { code: "SR", name: "Suriname" },
+  { code: "FK", name: "Falkland Islands" },
+  { code: "MX", name: "Mexico" },
+  { code: "GT", name: "Guatemala" },
+  { code: "BZ", name: "Belize" },
+  { code: "SV", name: "El Salvador" },
+  { code: "HN", name: "Honduras" },
+  { code: "NI", name: "Nicaragua" },
+  { code: "CR", name: "Costa Rica" },
+  { code: "PA", name: "Panama" },
+  { code: "CU", name: "Cuba" },
+  { code: "JM", name: "Jamaica" },
+  { code: "HT", name: "Haiti" },
+  { code: "DO", name: "Dominican Republic" },
+  { code: "PR", name: "Puerto Rico" },
+  { code: "TT", name: "Trinidad and Tobago" },
+  { code: "BB", name: "Barbados" },
+  { code: "GD", name: "Grenada" },
+  { code: "LC", name: "Saint Lucia" },
+  { code: "VC", name: "Saint Vincent and the Grenadines" },
+  { code: "AG", name: "Antigua and Barbuda" },
+  { code: "KN", name: "Saint Kitts and Nevis" },
+  { code: "DM", name: "Dominica" },
+  { code: "BH", name: "Bahamas" },
+  { code: "RU", name: "Russia" },
+  { code: "UA", name: "Ukraine" },
+  { code: "BY", name: "Belarus" },
+  { code: "MD", name: "Moldova" },
+  { code: "KZ", name: "Kazakhstan" },
+  { code: "UZ", name: "Uzbekistan" },
+  { code: "KG", name: "Kyrgyzstan" },
+  { code: "TJ", name: "Tajikistan" },
+  { code: "TM", name: "Turkmenistan" },
+  { code: "AF", name: "Afghanistan" },
+].sort((a, b) => a.name.localeCompare(b.name));
 
 const subjects: Subject[] = [
   { id: "physics", name: "Physics", category: "Sciences", icon: "⚛️" },
@@ -173,6 +361,7 @@ export default function SignupPage() {
     email: "",
     password: "",
     selectedSubjects: [],
+    country: "",
   });
   const [institutionData, setInstitutionData] = useState<InstitutionData>({
     institutionName: "",
@@ -188,6 +377,7 @@ export default function SignupPage() {
     description: "",
     studentCount: "",
     establishedYear: "",
+    country: "",
   });
 
   const handleSubjectToggle = (subjectId: string) => {
@@ -574,6 +764,40 @@ export default function SignupPage() {
                     </div>
                   </div>
 
+                  <div className="space-y-2">
+                    <Label
+                      htmlFor="country"
+                      className="text-sm font-medium text-gray-700"
+                    >
+                      Country
+                    </Label>
+                    <div className="relative">
+                      <Globe className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                      <Select
+                        value={formData.country}
+                        onValueChange={(value) =>
+                          setFormData((prev) => ({
+                            ...prev,
+                            country: value,
+                          }))
+                        }
+                        required
+                        disabled={isLoading}
+                      >
+                        <SelectTrigger className="pl-11 h-12 border-gray-200 focus:border-emerald-500 focus:ring-emerald-500">
+                          <SelectValue placeholder="Select your country" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {countries.map((country) => (
+                            <SelectItem key={country.code} value={country.code}>
+                              {country.name}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </div>
+
                   <div className="flex items-center space-x-2">
                     <Checkbox id="terms" required disabled={isLoading} />
                     <Label htmlFor="terms" className="text-sm text-gray-600">
@@ -869,6 +1093,31 @@ export default function SignupPage() {
                         placeholder="Enter your institution's address"
                         rows={3}
                       />
+                    </div>
+
+                    <div>
+                      <Label htmlFor="country">Country</Label>
+                      <Select
+                        value={institutionData.country}
+                        onValueChange={(value) =>
+                          setInstitutionData({
+                            ...institutionData,
+                            country: value,
+                          })
+                        }
+                        required
+                      >
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select your country" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {countries.map((country) => (
+                            <SelectItem key={country.code} value={country.code}>
+                              {country.name}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
                     </div>
                   </div>
                 </>

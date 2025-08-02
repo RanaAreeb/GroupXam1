@@ -43,6 +43,7 @@ export async function POST(request) {
         name: requestData.adminName, // Use adminName as the display name
         email, // always lowercase
         password: hashedPassword,
+        country: requestData.country || "",
 
         // Contact information
         phone: requestData.phone || "",
@@ -88,6 +89,7 @@ export async function POST(request) {
         email, // always lowercase
         password: hashedPassword,
         selectedSubjects: requestData.selectedSubjects || [],
+        country: requestData.country || "",
 
         // Metadata
         createdAt: new Date(),
@@ -138,18 +140,17 @@ export async function POST(request) {
         ? `${requestData.adminName} joined as an institution!`
         : `${requestData.name} just signed up for groupXam!`;
 
-      await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/activity`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          type: 'signup',
-          message: activityMessage,
-          userId: result.insertedId,
-          userName: requestData.role === "university" ? requestData.adminName : requestData.name
-        })
+      // Directly insert activity into database
+      const activities = db.collection("activities");
+      await activities.insertOne({
+        type: 'signup',
+        message: activityMessage,
+        userId: result.insertedId,
+        userName: requestData.role === "university" ? requestData.adminName : requestData.name,
+        createdAt: new Date(),
       });
+
+      console.log('Activity created for signup:', activityMessage);
     } catch (activityError) {
       console.error('Failed to create activity:', activityError);
       // Don't fail the signup if activity creation fails

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title:
     "GroupXam - Ace Your Exams with Confidence | WAEC, WASSCE, JAMB Practice Tests",
   description:
-    "Master WAEC, WASSCE, and JAMB exams with GroupXam's comprehensive study platform. Access 10,000+ practice questions, interactive flashcards, mock exams, and real-time progress tracking. Free online exam preparation for Nigerian students.",
+    "Master WAEC, WASSCE, and JAMB exams with GroupXam's comprehensive study platform. Access 10,000+ practice questions, interactive flashcards, mock exams, and real-time progress tracking. Free online exam preparation for students worldwide.",
   keywords: [
     "WAEC",
     "WASSCE",
@@ -66,12 +66,12 @@ export const metadata: Metadata = {
     title:
       "GroupXam - Ace Your Exams with Confidence | WAEC, WASSCE, JAMB Practice Tests",
     description:
-      "Master WAEC, WASSCE, and JAMB exams with GroupXam's comprehensive study platform. Access 10,000+ practice questions, interactive flashcards, mock exams, and real-time progress tracking. Free online exam preparation for Nigerian students.",
+      "Master WAEC, WASSCE, and JAMB exams with GroupXam's comprehensive study platform. Access 10,000+ practice questions, interactive flashcards, mock exams, and real-time progress tracking. Free online exam preparation for students worldwide.",
     url: "https://groupxam.com",
     siteName: "GroupXam",
     images: [
       {
-        url: "/logo.png",
+        url: "https://groupxam.com/logo.png",
         width: 1200,
         height: 630,
         alt: "GroupXam - Comprehensive Exam Preparation Platform",
@@ -84,8 +84,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "GroupXam - Ace Your Exams with Confidence",
     description:
-      "Master WAEC, WASSCE, and JAMB exams with GroupXam's comprehensive study platform. Free online exam preparation for Nigerian students.",
-    images: ["/logo.png"],
+      "Master WAEC, WASSCE, and JAMB exams with GroupXam's comprehensive study platform. Free online exam preparation for students worldwide.",
+    images: ["https://groupxam.com/logo.png"],
     creator: "@groupxam",
     site: "@groupxam",
   },
@@ -177,7 +177,7 @@ export default function RootLayout({
               audience: {
                 "@type": "Audience",
                 audienceType:
-                  "Students preparing for WAEC, WASSCE, and JAMB exams",
+                  "Students preparing for WAEC, WASSCE, and JAMB exams worldwide",
               },
               educationalLevel: "Secondary Education",
               teaches: [
@@ -202,11 +202,11 @@ export default function RootLayout({
               url: "https://groupxam.com",
               logo: "https://groupxam.com/logo.png",
               description:
-                "Leading educational technology platform for exam preparation in Nigeria",
+                "Leading educational technology platform for global exam preparation",
               foundingDate: "2024",
               address: {
                 "@type": "PostalAddress",
-                addressCountry: "Nigeria",
+                addressCountry: "Global",
               },
               contactPoint: {
                 "@type": "ContactPoint",
@@ -232,7 +232,7 @@ export default function RootLayout({
               name: "GroupXam",
               url: "https://groupxam.com",
               description:
-                "Comprehensive exam preparation platform for Nigerian students",
+                "Comprehensive exam preparation platform for students worldwide",
               potentialAction: {
                 "@type": "SearchAction",
                 target: "https://groupxam.com/search?q={search_term_string}",
