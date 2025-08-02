@@ -973,12 +973,16 @@ export default function QuizPage() {
             folderName = "pythagorean-theorem";
           }
 
+          console.log(`Loading quiz data for mathematics subject: ${subject}`);
           const response = await fetch(
             `/api/quiz-data/mathematics/${folderName}`
           );
           if (response.ok) {
             const quizFiles = await response.json();
             counts[subject] = Array.isArray(quizFiles) ? quizFiles.length : 0;
+            console.log(`Quiz count for ${subject}:`, counts[subject], 'Files:', quizFiles);
+          } else {
+            console.error(`Failed to load quiz data for ${subject}:`, response.status);
           }
         } catch (error) {
           console.error(`Error loading quiz count for ${subject}:`, error);
@@ -1304,7 +1308,12 @@ export default function QuizPage() {
                   ? subjectQuizCounts[subject.name.toLowerCase()] ||
                     subject.quizzes?.length ||
                     0
-                  : subject.quizzes?.length || 1;
+                  : subject.quizzes?.length || 0;
+
+              // Debug logging
+              if (subject.name.toLowerCase() === 'algebra') {
+                console.log(`Subject: ${subject.name}, Quiz count: ${quizCount}, SubjectQuizCounts:`, subjectQuizCounts);
+              }
 
               return (
                 <Card

@@ -1,0 +1,190 @@
+{
+  "id": "english-quiz-2",
+  "title": "English Quiz 2: Grammar & Literature",
+  "subject": "English",
+  "difficulty": "Intermediate",
+  "questions": 15,
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is a simile?",
+      "options": [
+        "A comparison using 'like' or 'as'",
+        "A direct comparison without 'like' or 'as'",
+        "A word that imitates a sound",
+        "A repetition of consonant sounds"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A simile is a figure of speech that compares two things using 'like' or 'as'."
+    },
+    {
+      "id": 2,
+      "question": "What is a metaphor?",
+      "options": [
+        "A comparison using 'like' or 'as'",
+        "A direct comparison without 'like' or 'as'",
+        "A word that imitates a sound",
+        "A repetition of consonant sounds"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A metaphor is a figure of speech that directly compares two things without using 'like' or 'as'."
+    },
+    {
+      "id": 3,
+      "question": "What is alliteration?",
+      "options": [
+        "A repetition of vowel sounds",
+        "A repetition of consonant sounds",
+        "A repetition of words",
+        "A repetition of phrases"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Alliteration is the repetition of consonant sounds at the beginning of words."
+    },
+    {
+      "id": 4,
+      "question": "What is onomatopoeia?",
+      "options": [
+        "A word that imitates a sound",
+        "A repetition of consonant sounds",
+        "A comparison using 'like' or 'as'",
+        "A direct comparison"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Onomatopoeia is a word that imitates or suggests the sound it describes."
+    },
+    {
+      "id": 5,
+      "question": "What is personification?",
+      "options": [
+        "Giving human qualities to non-human things",
+        "Comparing two things using 'like' or 'as'",
+        "A word that imitates a sound",
+        "A repetition of consonant sounds"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Personification is giving human qualities, emotions, or actions to non-human objects or animals."
+    },
+    {
+      "id": 6,
+      "question": "What is a hyperbole?",
+      "options": [
+        "An extreme exaggeration",
+        "A comparison using 'like' or 'as'",
+        "A word that imitates a sound",
+        "A repetition of consonant sounds"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A hyperbole is an extreme exaggeration used for emphasis or effect."
+    },
+    {
+      "id": 7,
+      "question": "What is an oxymoron?",
+      "options": [
+        "A combination of contradictory words",
+        "A comparison using 'like' or 'as'",
+        "A word that imitates a sound",
+        "A repetition of consonant sounds"
+      ],
+      "correctAnswer": 0,
+      "explanation": "An oxymoron is a figure of speech that combines contradictory words."
+    },
+    {
+      "id": 8,
+      "question": "What is irony?",
+      "options": [
+        "A contrast between expectation and reality",
+        "A comparison using 'like' or 'as'",
+        "A word that imitates a sound",
+        "A repetition of consonant sounds"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Irony is a contrast between what is expected and what actually happens."
+    },
+    {
+      "id": 9,
+      "question": "What is a theme in literature?",
+      "options": [
+        "The main idea or message of a work",
+        "The setting of a story",
+        "The characters in a story",
+        "The plot of a story"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A theme is the main idea, message, or underlying meaning of a literary work."
+    },
+    {
+      "id": 10,
+      "question": "What is a protagonist?",
+      "options": [
+        "The main character of a story",
+        "The villain of a story",
+        "A minor character",
+        "The narrator"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A protagonist is the main character or hero of a story."
+    },
+    {
+      "id": 11,
+      "question": "What is an antagonist?",
+      "options": [
+        "The main character of a story",
+        "The villain or opposing force",
+        "A minor character",
+        "The narrator"
+      ],
+      "correctAnswer": 1,
+      "explanation": "An antagonist is the villain or opposing force that conflicts with the protagonist."
+    },
+    {
+      "id": 12,
+      "question": "What is foreshadowing?",
+      "options": [
+        "Hints about future events in a story",
+        "The ending of a story",
+        "The beginning of a story",
+        "The middle of a story"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Foreshadowing is when an author provides hints or clues about events that will occur later in the story."
+    },
+    {
+      "id": 13,
+      "question": "What is a flashback?",
+      "options": [
+        "A scene that interrupts the present to show the past",
+        "The ending of a story",
+        "The beginning of a story",
+        "The middle of a story"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A flashback is a scene that interrupts the present action to show events from the past."
+    },
+    {
+      "id": 14,
+      "question": "What is a climax?",
+      "options": [
+        "The turning point of highest tension in a story",
+        "The beginning of a story",
+        "The ending of a story",
+        "The middle of a story"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The climax is the turning point of highest tension or conflict in a story."
+    },
+    {
+      "id": 15,
+      "question": "What is a resolution?",
+      "options": [
+        "The conclusion or ending of a story",
+        "The beginning of a story",
+        "The middle of a story",
+        "The turning point"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The resolution is the conclusion or ending of a story where conflicts are resolved."
+    }
+  ]
+} 

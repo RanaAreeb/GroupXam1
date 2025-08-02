@@ -1,0 +1,120 @@
+{
+  "id": "mathematics-flashcards-2",
+  "title": "Mathematics Flashcards 2: Advanced Algebra & Functions",
+  "subject": "Mathematics",
+  "difficulty": "Advanced",
+  "sets": [
+    {
+      "id": "quadratic-functions",
+      "title": "Quadratic Functions",
+      "cardCount": 18,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is a quadratic function?",
+          "back": "A function of the form f(x) = ax² + bx + c, where a ≠ 0."
+        },
+        {
+          "front": "What is the vertex of a parabola?",
+          "back": "The highest or lowest point of a parabola, depending on whether it opens up or down."
+        },
+        {
+          "front": "What is the axis of symmetry?",
+          "back": "A vertical line that passes through the vertex and divides the parabola into two equal halves."
+        },
+        {
+          "front": "What is the quadratic formula?",
+          "back": "x = -b ± √(b² - 4ac) / 2a, used to solve quadratic equations."
+        },
+        {
+          "front": "What is the discriminant?",
+          "back": "b² - 4ac, which determines the number and type of roots of a quadratic equation."
+        },
+        {
+          "front": "What is the vertex form?",
+          "back": "f(x) = a(x - h)² + k, where (h, k) is the vertex."
+        },
+        {
+          "front": "What is the factored form?",
+          "back": "f(x) = a(x - r₁)(x - r₂), where r₁ and r₂ are the roots."
+        },
+        {
+          "front": "What is the y-intercept?",
+          "back": "The point where the graph crosses the y-axis, found by setting x = 0."
+        },
+        {
+          "front": "What are the x-intercepts?",
+          "back": "The points where the graph crosses the x-axis, also called roots or zeros."
+        }
+      ]
+    },
+    {
+      "id": "polynomial-functions",
+      "title": "Polynomial Functions",
+      "cardCount": 20,
+      "difficulty": "Advanced",
+      "cards": [
+        {
+          "front": "What is a polynomial function?",
+          "back": "A function of the form f(x) = aₙxⁿ + aₙ₋₁xⁿ⁻¹ + ... + a₁x + a₀."
+        },
+        {
+          "front": "What is the degree of a polynomial?",
+          "back": "The highest power of x in the polynomial."
+        },
+        {
+          "front": "What is the leading coefficient?",
+          "back": "The coefficient of the term with the highest degree."
+        },
+        {
+          "front": "What is the constant term?",
+          "back": "The term without a variable (a₀ in the polynomial)."
+        },
+        {
+          "front": "What is the Fundamental Theorem of Algebra?",
+          "back": "Every polynomial of degree n has exactly n complex roots (counting multiplicities)."
+        },
+        {
+          "front": "What is synthetic division?",
+          "back": "A method for dividing polynomials that is simpler than long division."
+        },
+        {
+          "front": "What is the Remainder Theorem?",
+          "back": "If a polynomial f(x) is divided by (x - c), the remainder is f(c)."
+        },
+        {
+          "front": "What is the Factor Theorem?",
+          "back": "If f(c) = 0, then (x - c) is a factor of f(x)."
+        }
+      ]
+    },
+    {
+      "id": "rational-functions",
+      "title": "Rational Functions",
+      "cardCount": 15,
+      "difficulty": "Advanced",
+      "cards": [
+        {
+          "front": "What is a rational function?",
+          "back": "A function that is the ratio of two polynomial functions."
+        },
+        {
+          "front": "What is a vertical asymptote?",
+          "back": "A vertical line where the function approaches infinity as x approaches a certain value."
+        },
+        {
+          "front": "What is a horizontal asymptote?",
+          "back": "A horizontal line that the function approaches as x approaches infinity or negative infinity."
+        },
+        {
+          "front": "What is a hole in a rational function?",
+          "back": "A point where both numerator and denominator have the same factor, creating a removable discontinuity."
+        },
+        {
+          "front": "What is the domain of a rational function?",
+          "back": "All real numbers except those that make the denominator zero."
+        }
+      ]
+    }
+  ]
+} 

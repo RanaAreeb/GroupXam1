@@ -1,0 +1,150 @@
+{
+  "id": "algebra-quiz-2",
+  "title": "Algebra Quiz 2: Quadratic Equations & Functions",
+  "subject": "Mathematics",
+  "difficulty": "Intermediate",
+  "questions": 15,
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the standard form of a quadratic equation?",
+      "options": [
+        "y = mx + b",
+        "y = ax² + bx + c",
+        "y = x²",
+        "y = 2x + 1"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The standard form of a quadratic equation is y = ax² + bx + c, where a, b, and c are constants and a ≠ 0."
+    },
+    {
+      "id": 2,
+      "question": "What is the vertex form of a quadratic equation?",
+      "options": [
+        "y = ax² + bx + c",
+        "y = a(x - h)² + k",
+        "y = mx + b",
+        "y = x²"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The vertex form of a quadratic equation is y = a(x - h)² + k, where (h, k) is the vertex."
+    },
+    {
+      "id": 3,
+      "question": "What is the quadratic formula?",
+      "options": [
+        "x = -b ± √(b² - 4ac) / 2a",
+        "x = b ± √(b² - 4ac) / 2a",
+        "x = -b ± √(b² + 4ac) / 2a",
+        "x = b ± √(b² + 4ac) / 2a"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The quadratic formula is x = -b ± √(b² - 4ac) / 2a, used to solve quadratic equations."
+    },
+    {
+      "id": 4,
+      "question": "What is the discriminant of a quadratic equation?",
+      "options": [
+        "b² - 4ac",
+        "b² + 4ac",
+        "2ac",
+        "b/2a"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The discriminant is b² - 4ac, which determines the nature of the roots of a quadratic equation."
+    },
+    {
+      "id": 5,
+      "question": "If the discriminant is positive, how many real roots does the quadratic equation have?",
+      "options": ["0", "1", "2", "3"],
+      "correctAnswer": 2,
+      "explanation": "If the discriminant is positive, the quadratic equation has two distinct real roots."
+    },
+    {
+      "id": 6,
+      "question": "If the discriminant is zero, how many real roots does the quadratic equation have?",
+      "options": ["0", "1", "2", "3"],
+      "correctAnswer": 1,
+      "explanation": "If the discriminant is zero, the quadratic equation has one real root (a repeated root)."
+    },
+    {
+      "id": 7,
+      "question": "If the discriminant is negative, how many real roots does the quadratic equation have?",
+      "options": ["0", "1", "2", "3"],
+      "correctAnswer": 0,
+      "explanation": "If the discriminant is negative, the quadratic equation has no real roots (complex roots)."
+    },
+    {
+      "id": 8,
+      "question": "What is the axis of symmetry of a parabola?",
+      "options": [
+        "x = -b/2a",
+        "x = b/2a",
+        "x = -b/a",
+        "x = b/a"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The axis of symmetry of a parabola is x = -b/2a, which passes through the vertex."
+    },
+    {
+      "id": 9,
+      "question": "What is the vertex of the parabola y = x²?",
+      "options": ["(0,0)", "(1,1)", "(-1,1)", "(0,1)"],
+      "correctAnswer": 0,
+      "explanation": "The vertex of the parabola y = x² is at the origin (0,0)."
+    },
+    {
+      "id": 10,
+      "question": "What is the range of the function y = x²?",
+      "options": [
+        "All real numbers",
+        "y ≥ 0",
+        "y ≤ 0",
+        "y > 0"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The range of y = x² is y ≥ 0, since x² is always non-negative."
+    },
+    {
+      "id": 11,
+      "question": "What is the domain of the function y = x²?",
+      "options": [
+        "All real numbers",
+        "x ≥ 0",
+        "x ≤ 0",
+        "x > 0"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The domain of y = x² is all real numbers, since x can be any real number."
+    },
+    {
+      "id": 12,
+      "question": "What is the y-intercept of the function y = ax² + bx + c?",
+      "options": ["a", "b", "c", "0"],
+      "correctAnswer": 2,
+      "explanation": "The y-intercept of y = ax² + bx + c is c, found by setting x = 0."
+    },
+    {
+      "id": 13,
+      "question": "What is the maximum or minimum point of a parabola called?",
+      "options": ["Root", "Vertex", "Axis", "Focus"],
+      "correctAnswer": 1,
+      "explanation": "The maximum or minimum point of a parabola is called the vertex."
+    },
+    {
+      "id": 14,
+      "question": "If a > 0 in y = ax² + bx + c, the parabola opens:",
+      "options": ["Upward", "Downward", "Left", "Right"],
+      "correctAnswer": 0,
+      "explanation": "If a > 0, the parabola opens upward and has a minimum point."
+    },
+    {
+      "id": 15,
+      "question": "If a < 0 in y = ax² + bx + c, the parabola opens:",
+      "options": ["Upward", "Downward", "Left", "Right"],
+      "correctAnswer": 1,
+      "explanation": "If a < 0, the parabola opens downward and has a maximum point."
+    }
+  ]
+} 

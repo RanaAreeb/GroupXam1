@@ -1,0 +1,152 @@
+{
+  "id": "chemistry-flashcards-2",
+  "title": "Chemistry Flashcards 2: Reactions & Bonding",
+  "subject": "Chemistry",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "chemical-bonding",
+      "title": "Chemical Bonding",
+      "cardCount": 20,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is a covalent bond?",
+          "back": "A chemical bond formed by sharing electrons between atoms."
+        },
+        {
+          "front": "What is an ionic bond?",
+          "back": "A chemical bond formed by the transfer of electrons from one atom to another."
+        },
+        {
+          "front": "What is a metallic bond?",
+          "back": "A bond formed by the attraction between metal ions and delocalized electrons."
+        },
+        {
+          "front": "What is electronegativity?",
+          "back": "The ability of an atom to attract electrons in a chemical bond."
+        },
+        {
+          "front": "What is a polar bond?",
+          "back": "A covalent bond where electrons are shared unequally between atoms."
+        },
+        {
+          "front": "What is a nonpolar bond?",
+          "back": "A covalent bond where electrons are shared equally between atoms."
+        },
+        {
+          "front": "What is a hydrogen bond?",
+          "back": "A weak bond between a hydrogen atom and an electronegative atom."
+        },
+        {
+          "front": "What is a dipole?",
+          "back": "A molecule with a positive and negative end due to unequal electron sharing."
+        },
+        {
+          "front": "What is a Lewis structure?",
+          "back": "A diagram showing the arrangement of valence electrons in a molecule."
+        },
+        {
+          "front": "What is a valence electron?",
+          "back": "Electrons in the outermost energy level of an atom."
+        }
+      ]
+    },
+    {
+      "id": "chemical-reactions",
+      "title": "Chemical Reactions",
+      "cardCount": 25,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is a synthesis reaction?",
+          "back": "A reaction where two or more substances combine to form a single product."
+        },
+        {
+          "front": "What is a decomposition reaction?",
+          "back": "A reaction where a compound breaks down into simpler substances."
+        },
+        {
+          "front": "What is a single replacement reaction?",
+          "back": "A reaction where one element replaces another element in a compound."
+        },
+        {
+          "front": "What is a double replacement reaction?",
+          "back": "A reaction where ions exchange places between two compounds."
+        },
+        {
+          "front": "What is a combustion reaction?",
+          "back": "A reaction where a substance reacts with oxygen to produce heat and light."
+        },
+        {
+          "front": "What is a catalyst?",
+          "back": "A substance that speeds up a chemical reaction without being consumed."
+        },
+        {
+          "front": "What is an inhibitor?",
+          "back": "A substance that slows down or stops a chemical reaction."
+        },
+        {
+          "front": "What is activation energy?",
+          "back": "The minimum energy required for a chemical reaction to occur."
+        },
+        {
+          "front": "What is an exothermic reaction?",
+          "back": "A reaction that releases heat energy to the surroundings."
+        },
+        {
+          "front": "What is an endothermic reaction?",
+          "back": "A reaction that absorbs heat energy from the surroundings."
+        },
+        {
+          "front": "What is a precipitate?",
+          "back": "A solid that forms when two solutions are mixed together."
+        },
+        {
+          "front": "What is a redox reaction?",
+          "back": "A reaction involving both oxidation and reduction processes."
+        },
+        {
+          "front": "What is oxidation?",
+          "back": "The loss of electrons by an atom, ion, or molecule."
+        },
+        {
+          "front": "What is reduction?",
+          "back": "The gain of electrons by an atom, ion, or molecule."
+        },
+        {
+          "front": "What is a limiting reactant?",
+          "back": "The reactant that is completely consumed in a chemical reaction."
+        }
+      ]
+    },
+    {
+      "id": "reaction-rates",
+      "title": "Reaction Rates & Kinetics",
+      "cardCount": 15,
+      "difficulty": "Advanced",
+      "cards": [
+        {
+          "front": "What is reaction rate?",
+          "back": "The speed at which reactants are converted to products."
+        },
+        {
+          "front": "What factors affect reaction rate?",
+          "back": "Temperature, concentration, surface area, and catalysts."
+        },
+        {
+          "front": "What is collision theory?",
+          "back": "The theory that reactions occur when particles collide with sufficient energy."
+        },
+        {
+          "front": "What is the rate law?",
+          "back": "An equation that relates reaction rate to reactant concentrations."
+        },
+        {
+          "front": "What is a rate constant?",
+          "back": "A proportionality constant in the rate law equation."
+        }
+      ]
+    }
+  ]
+} 

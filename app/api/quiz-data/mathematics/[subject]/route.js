@@ -26,6 +26,8 @@ export async function GET(request, { params }) {
 
         // Read all JSON files in the subject directory
         const files = fs.readdirSync(subjectPath);
+        console.log(`Found files in ${subjectPath}:`, files);
+
         const quizFiles = files
             .filter(file => file.endsWith('.json'))
             .map(file => {
@@ -34,6 +36,7 @@ export async function GET(request, { params }) {
                 return JSON.parse(content);
             });
 
+        console.log(`Returning ${quizFiles.length} quiz files for ${subject}`);
         return NextResponse.json(quizFiles);
     } catch (error) {
         console.error('Error loading mathematics quiz data:', error);

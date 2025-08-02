@@ -1,0 +1,180 @@
+{
+  "id": "biology-quiz-2",
+  "title": "Biology Quiz 2: Genetics & Evolution",
+  "subject": "Biology",
+  "difficulty": "Intermediate",
+  "questions": 15,
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is a gene?",
+      "options": [
+        "A type of protein",
+        "A segment of DNA that codes for a trait",
+        "A type of cell",
+        "A type of chromosome"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A gene is a segment of DNA that contains the instructions for making a specific protein or trait."
+    },
+    {
+      "id": 2,
+      "question": "Which of the following is an example of a recessive trait?",
+      "options": ["Brown eyes", "Black hair", "Blue eyes", "Tall height"],
+      "correctAnswer": 2,
+      "explanation": "Blue eyes are typically a recessive trait, meaning both parents must carry the gene for a child to have blue eyes."
+    },
+    {
+      "id": 3,
+      "question": "What is natural selection?",
+      "options": [
+        "The process of artificial breeding",
+        "The survival of the fittest",
+        "The process of genetic engineering",
+        "The creation of new species"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Natural selection is the process by which organisms better adapted to their environment survive and reproduce more successfully."
+    },
+    {
+      "id": 4,
+      "question": "What is the difference between genotype and phenotype?",
+      "options": [
+        "Genotype is physical appearance, phenotype is genetic makeup",
+        "Genotype is genetic makeup, phenotype is physical appearance",
+        "They are the same thing",
+        "Genotype is inherited, phenotype is learned"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Genotype refers to the genetic makeup of an organism, while phenotype refers to the physical appearance and observable traits."
+    },
+    {
+      "id": 5,
+      "question": "What is a mutation?",
+      "options": [
+        "A change in DNA sequence",
+        "A type of protein",
+        "A type of cell division",
+        "A type of chromosome"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A mutation is a permanent change in the DNA sequence that can affect how genes work."
+    },
+    {
+      "id": 6,
+      "question": "Which scientist is known as the father of genetics?",
+      "options": ["Charles Darwin", "Gregor Mendel", "James Watson", "Francis Crick"],
+      "correctAnswer": 1,
+      "explanation": "Gregor Mendel is known as the father of genetics for his work with pea plants and inheritance patterns."
+    },
+    {
+      "id": 7,
+      "question": "What is evolution?",
+      "options": [
+        "The process of growing up",
+        "The change in species over time",
+        "The process of learning",
+        "The process of aging"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Evolution is the process by which species change over time through natural selection and genetic variation."
+    },
+    {
+      "id": 8,
+      "question": "What is a Punnett square used for?",
+      "options": [
+        "Measuring genetic diversity",
+        "Predicting genetic outcomes",
+        "Studying mutations",
+        "Analyzing DNA structure"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A Punnett square is a diagram used to predict the probability of offspring having certain genetic traits."
+    },
+    {
+      "id": 9,
+      "question": "What is a dominant trait?",
+      "options": [
+        "A trait that is always expressed",
+        "A trait that is never expressed",
+        "A trait that is learned",
+        "A trait that is acquired"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A dominant trait is one that is expressed even when only one copy of the gene is present."
+    },
+    {
+      "id": 10,
+      "question": "What is genetic diversity?",
+      "options": [
+        "The number of genes in a population",
+        "The variety of genetic traits in a population",
+        "The size of a population",
+        "The age of a population"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Genetic diversity refers to the variety of genetic traits present in a population."
+    },
+    {
+      "id": 11,
+      "question": "What is a chromosome?",
+      "options": [
+        "A type of protein",
+        "A structure that contains DNA",
+        "A type of cell",
+        "A type of gene"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A chromosome is a structure made of DNA and protein that contains genetic information."
+    },
+    {
+      "id": 12,
+      "question": "What is the purpose of meiosis?",
+      "options": [
+        "To create identical cells",
+        "To create gametes for reproduction",
+        "To repair damaged cells",
+        "To produce energy"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Meiosis is the process of cell division that produces gametes (sperm and egg cells) for sexual reproduction."
+    },
+    {
+      "id": 13,
+      "question": "What is a hybrid?",
+      "options": [
+        "A type of plant",
+        "An organism with mixed genetic traits",
+        "A type of animal",
+        "A type of cell"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A hybrid is an organism that has different alleles for a particular trait, often showing a mix of characteristics."
+    },
+    {
+      "id": 14,
+      "question": "What is genetic engineering?",
+      "options": [
+        "The process of natural selection",
+        "The artificial modification of DNA",
+        "The process of evolution",
+        "The study of genetics"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Genetic engineering is the artificial modification of DNA to change the characteristics of an organism."
+    },
+    {
+      "id": 15,
+      "question": "What is biodiversity?",
+      "options": [
+        "The variety of life on Earth",
+        "The number of species",
+        "The genetic diversity",
+        "All of the above"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Biodiversity refers to the variety of life on Earth, including species diversity, genetic diversity, and ecosystem diversity."
+    }
+  ]
+} 

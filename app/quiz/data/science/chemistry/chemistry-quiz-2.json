@@ -1,120 +1,190 @@
 {
   "id": "chemistry-quiz-2",
-  "title": "Chemistry Quiz 2",
+  "title": "Chemistry Quiz 2: Chemical Bonding & Reactions",
   "subject": "Chemistry",
-  "difficulty": "Advanced",
+  "difficulty": "Intermediate",
   "questions": 15,
   "timeLimit": 900,
   "questions": [
     {
       "id": 1,
-      "question": "What is the molecular formula for glucose?",
-      "options": ["C6H12O6", "C12H22O11", "C6H10O5", "C5H10O5"],
-      "correctAnswer": 0,
-      "explanation": "Glucose has the molecular formula C6H12O6."
+      "question": "What is a covalent bond?",
+      "options": [
+        "A bond between a metal and non-metal",
+        "A bond where electrons are shared",
+        "A bond where electrons are transferred",
+        "A bond between two metals"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A covalent bond is formed when two atoms share electrons to achieve a stable electron configuration."
     },
     {
       "id": 2,
-      "question": "What type of bond is formed between sodium and chlorine in NaCl?",
+      "question": "What is an ionic bond?",
       "options": [
-        "Covalent bond",
-        "Ionic bond",
-        "Metallic bond",
-        "Hydrogen bond"
+        "A bond where electrons are shared",
+        "A bond where electrons are transferred",
+        "A bond between two non-metals",
+        "A bond between two metals"
       ],
       "correctAnswer": 1,
-      "explanation": "NaCl forms an ionic bond where sodium donates an electron to chlorine."
+      "explanation": "An ionic bond is formed when electrons are transferred from one atom to another, creating ions."
     },
     {
       "id": 3,
-      "question": "What is the atomic number of oxygen?",
-      "options": ["6", "7", "8", "9"],
-      "correctAnswer": 2,
-      "explanation": "Oxygen has atomic number 8, meaning it has 8 protons."
+      "question": "What is a chemical reaction?",
+      "options": [
+        "A physical change",
+        "A process where substances change into new substances",
+        "A change in temperature",
+        "A change in state"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A chemical reaction is a process where one or more substances are converted into new substances with different properties."
     },
     {
       "id": 4,
-      "question": "What is the chemical symbol for silver?",
-      "options": ["Si", "Ag", "Sr", "Au"],
-      "correctAnswer": 1,
-      "explanation": "Ag is the chemical symbol for silver, derived from the Latin word 'argentum'."
+      "question": "What is a catalyst?",
+      "options": [
+        "A substance that speeds up a reaction",
+        "A substance that slows down a reaction",
+        "A substance that stops a reaction",
+        "A substance that changes the products"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A catalyst is a substance that speeds up a chemical reaction without being consumed in the process."
     },
     {
       "id": 5,
-      "question": "What is the pH of a strong acid?",
-      "options": ["0-3", "4-6", "7", "8-14"],
-      "correctAnswer": 0,
-      "explanation": "Strong acids have a pH between 0-3."
+      "question": "What is the law of conservation of mass?",
+      "options": [
+        "Mass can be created",
+        "Mass can be destroyed",
+        "Mass cannot be created or destroyed",
+        "Mass can be converted to energy"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The law of conservation of mass states that mass cannot be created or destroyed in a chemical reaction."
     },
     {
       "id": 6,
-      "question": "What is the most abundant gas in Earth's atmosphere?",
-      "options": ["Oxygen", "Carbon dioxide", "Nitrogen", "Argon"],
-      "correctAnswer": 2,
-      "explanation": "Nitrogen makes up about 78% of Earth's atmosphere."
+      "question": "What is a synthesis reaction?",
+      "options": [
+        "A reaction that breaks down compounds",
+        "A reaction that combines elements to form compounds",
+        "A reaction that exchanges elements",
+        "A reaction that produces energy"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A synthesis reaction is a chemical reaction where two or more simple substances combine to form a more complex compound."
     },
     {
       "id": 7,
-      "question": "What is the chemical formula for sulfuric acid?",
-      "options": ["HCl", "H2SO4", "HNO3", "H3PO4"],
-      "correctAnswer": 1,
-      "explanation": "Sulfuric acid has the chemical formula H2SO4."
+      "question": "What is a decomposition reaction?",
+      "options": [
+        "A reaction that breaks down compounds",
+        "A reaction that combines elements",
+        "A reaction that exchanges elements",
+        "A reaction that produces energy"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A decomposition reaction is a chemical reaction where a compound breaks down into simpler substances."
     },
     {
       "id": 8,
-      "question": "What is the valency of carbon in carbon dioxide (CO2)?",
-      "options": ["2", "3", "4", "5"],
+      "question": "What is a single replacement reaction?",
+      "options": [
+        "A reaction that breaks down compounds",
+        "A reaction that combines elements",
+        "A reaction where one element replaces another",
+        "A reaction that produces energy"
+      ],
       "correctAnswer": 2,
-      "explanation": "Carbon has a valency of 4 in CO2, forming double bonds with each oxygen atom."
+      "explanation": "A single replacement reaction is a chemical reaction where one element replaces another element in a compound."
     },
     {
       "id": 9,
-      "question": "What is the process of rusting called?",
-      "options": ["Oxidation", "Reduction", "Hydrolysis", "Dehydration"],
-      "correctAnswer": 0,
-      "explanation": "Rusting is an oxidation reaction where iron reacts with oxygen and water."
+      "question": "What is a double replacement reaction?",
+      "options": [
+        "A reaction that breaks down compounds",
+        "A reaction that combines elements",
+        "A reaction where elements exchange places",
+        "A reaction that produces energy"
+      ],
+      "correctAnswer": 2,
+      "explanation": "A double replacement reaction is a chemical reaction where the positive and negative ions of two compounds exchange places."
     },
     {
       "id": 10,
-      "question": "What is the chemical symbol for copper?",
-      "options": ["Co", "Cu", "Cp", "Cr"],
+      "question": "What is an exothermic reaction?",
+      "options": [
+        "A reaction that absorbs heat",
+        "A reaction that releases heat",
+        "A reaction that produces light",
+        "A reaction that produces sound"
+      ],
       "correctAnswer": 1,
-      "explanation": "Cu is the chemical symbol for copper, derived from the Latin word 'cuprum'."
+      "explanation": "An exothermic reaction is a chemical reaction that releases heat energy to the surroundings."
     },
     {
       "id": 11,
-      "question": "What is the molecular weight of water (H2O)?",
-      "options": ["16 g/mol", "18 g/mol", "20 g/mol", "22 g/mol"],
-      "correctAnswer": 1,
-      "explanation": "Water has a molecular weight of 18 g/mol (2×1 + 16 = 18)."
+      "question": "What is an endothermic reaction?",
+      "options": [
+        "A reaction that absorbs heat",
+        "A reaction that releases heat",
+        "A reaction that produces light",
+        "A reaction that produces sound"
+      ],
+      "correctAnswer": 0,
+      "explanation": "An endothermic reaction is a chemical reaction that absorbs heat energy from the surroundings."
     },
     {
       "id": 12,
-      "question": "What is the chemical formula for methane?",
-      "options": ["CH3", "CH4", "C2H6", "C2H4"],
-      "correctAnswer": 1,
-      "explanation": "Methane has the chemical formula CH4."
+      "question": "What is a precipitate?",
+      "options": [
+        "A solid that forms in a solution",
+        "A gas that forms in a solution",
+        "A liquid that forms in a solution",
+        "A change in temperature"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A precipitate is a solid that forms when two solutions are mixed together."
     },
     {
       "id": 13,
-      "question": "What is the atomic number of carbon?",
-      "options": ["4", "6", "8", "12"],
+      "question": "What is a redox reaction?",
+      "options": [
+        "A reaction involving oxygen",
+        "A reaction involving reduction and oxidation",
+        "A reaction involving heat",
+        "A reaction involving light"
+      ],
       "correctAnswer": 1,
-      "explanation": "Carbon has atomic number 6, meaning it has 6 protons."
+      "explanation": "A redox reaction is a chemical reaction that involves both reduction (gain of electrons) and oxidation (loss of electrons)."
     },
     {
       "id": 14,
-      "question": "What is the chemical symbol for lead?",
-      "options": ["Ld", "Pb", "Le", "Pl"],
-      "correctAnswer": 1,
-      "explanation": "Pb is the chemical symbol for lead, derived from the Latin word 'plumbum'."
+      "question": "What is a limiting reactant?",
+      "options": [
+        "The reactant that is used up first",
+        "The reactant that is left over",
+        "The reactant that speeds up the reaction",
+        "The reactant that slows down the reaction"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The limiting reactant is the reactant that is completely consumed in a chemical reaction, limiting the amount of product that can form."
     },
     {
       "id": 15,
-      "question": "What is the pH of a strong base?",
-      "options": ["0-3", "4-6", "7", "11-14"],
-      "correctAnswer": 3,
-      "explanation": "Strong bases have a pH between 11-14."
+      "question": "What is the theoretical yield?",
+      "options": [
+        "The actual amount of product obtained",
+        "The maximum amount of product that could be obtained",
+        "The amount of reactant used",
+        "The amount of energy released"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The theoretical yield is the maximum amount of product that could be obtained from a chemical reaction under ideal conditions."
     }
   ]
 }

@@ -1,0 +1,190 @@
+{
+  "id": "biology-quiz-3",
+  "title": "Biology Quiz 3: Ecology & Ecosystems",
+  "subject": "Biology",
+  "difficulty": "Advanced",
+  "questions": 15,
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is an ecosystem?",
+      "options": [
+        "A group of animals",
+        "A community of living organisms and their environment",
+        "A type of plant",
+        "A type of habitat"
+      ],
+      "correctAnswer": 1,
+      "explanation": "An ecosystem is a community of living organisms interacting with their physical environment."
+    },
+    {
+      "id": 2,
+      "question": "What is a food chain?",
+      "options": [
+        "A series of organisms that eat each other",
+        "A type of plant",
+        "A type of animal",
+        "A type of habitat"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A food chain shows the flow of energy from one organism to another through feeding relationships."
+    },
+    {
+      "id": 3,
+      "question": "What is a producer in an ecosystem?",
+      "options": [
+        "An organism that makes its own food",
+        "An organism that eats other organisms",
+        "An organism that breaks down dead matter",
+        "An organism that hunts prey"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Producers (like plants) make their own food through photosynthesis and form the base of the food chain."
+    },
+    {
+      "id": 4,
+      "question": "What is a consumer?",
+      "options": [
+        "An organism that makes its own food",
+        "An organism that eats other organisms",
+        "An organism that breaks down dead matter",
+        "An organism that produces oxygen"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Consumers are organisms that cannot make their own food and must eat other organisms for energy."
+    },
+    {
+      "id": 5,
+      "question": "What is a decomposer?",
+      "options": [
+        "An organism that makes its own food",
+        "An organism that eats other organisms",
+        "An organism that breaks down dead matter",
+        "An organism that hunts prey"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Decomposers break down dead organisms and waste materials, returning nutrients to the ecosystem."
+    },
+    {
+      "id": 6,
+      "question": "What is biodiversity?",
+      "options": [
+        "The variety of life in an ecosystem",
+        "The number of animals",
+        "The number of plants",
+        "The size of an ecosystem"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Biodiversity refers to the variety of different species living in an ecosystem."
+    },
+    {
+      "id": 7,
+      "question": "What is a habitat?",
+      "options": [
+        "A type of animal",
+        "The place where an organism lives",
+        "A type of plant",
+        "A type of ecosystem"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A habitat is the natural environment where an organism lives and finds food, shelter, and mates."
+    },
+    {
+      "id": 8,
+      "question": "What is a niche?",
+      "options": [
+        "A type of habitat",
+        "The role an organism plays in its ecosystem",
+        "A type of animal",
+        "A type of plant"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A niche is the specific role or function an organism has in its ecosystem, including what it eats and how it interacts with other species."
+    },
+    {
+      "id": 9,
+      "question": "What is symbiosis?",
+      "options": [
+        "A type of competition",
+        "A close relationship between different species",
+        "A type of predation",
+        "A type of habitat"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Symbiosis is a close, long-term relationship between different species that can be beneficial, harmful, or neutral."
+    },
+    {
+      "id": 10,
+      "question": "What is mutualism?",
+      "options": [
+        "A relationship where both species benefit",
+        "A relationship where one species benefits and the other is harmed",
+        "A relationship where one species benefits and the other is unaffected",
+        "A type of competition"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Mutualism is a symbiotic relationship where both species benefit from the interaction."
+    },
+    {
+      "id": 11,
+      "question": "What is parasitism?",
+      "options": [
+        "A relationship where both species benefit",
+        "A relationship where one species benefits and the other is harmed",
+        "A relationship where one species benefits and the other is unaffected",
+        "A type of competition"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Parasitism is a symbiotic relationship where one species (the parasite) benefits while the other (the host) is harmed."
+    },
+    {
+      "id": 12,
+      "question": "What is commensalism?",
+      "options": [
+        "A relationship where both species benefit",
+        "A relationship where one species benefits and the other is harmed",
+        "A relationship where one species benefits and the other is unaffected",
+        "A type of competition"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Commensalism is a symbiotic relationship where one species benefits while the other is neither helped nor harmed."
+    },
+    {
+      "id": 13,
+      "question": "What is a population?",
+      "options": [
+        "A group of different species",
+        "A group of the same species in an area",
+        "A type of ecosystem",
+        "A type of habitat"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A population is a group of individuals of the same species living in the same area."
+    },
+    {
+      "id": 14,
+      "question": "What is a community?",
+      "options": [
+        "A group of different populations",
+        "A group of the same species",
+        "A type of ecosystem",
+        "A type of habitat"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A community is all the different populations of organisms living in the same area."
+    },
+    {
+      "id": 15,
+      "question": "What is carrying capacity?",
+      "options": [
+        "The maximum number of individuals an environment can support",
+        "The minimum number of individuals needed",
+        "The current number of individuals",
+        "The type of habitat"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Carrying capacity is the maximum number of individuals of a species that an environment can support sustainably."
+    }
+  ]
+} 
