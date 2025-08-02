@@ -132,6 +132,29 @@ export async function POST(request) {
     // Save user to database
     const result = await users.insertOne(user)
 
+    // Create activity for new signup
+    try {
+      const activityMessage = requestData.role === "university"
+        ? `${requestData.adminName} joined as an institution!`
+        : `${requestData.name} just signed up for groupXam!`;
+
+      await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/activity`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          type: 'signup',
+          message: activityMessage,
+          userId: result.insertedId,
+          userName: requestData.role === "university" ? requestData.adminName : requestData.name
+        })
+      });
+    } catch (activityError) {
+      console.error('Failed to create activity:', activityError);
+      // Don't fail the signup if activity creation fails
+    }
+
     // Send verification email
     const emailResult = await sendVerificationEmail(
       email,

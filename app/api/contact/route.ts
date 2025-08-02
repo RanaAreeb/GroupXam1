@@ -20,11 +20,15 @@ export async function POST(req: NextRequest) {
         pass: process.env.GOOGLE_APP_PASSWORD,
       },
     });
+    // Send to both emails
+    const recipients = [process.env.GMAIL_ADDRESS, process.env.CONTACT_RECIPIENT_EMAIL];
+    
     await transporter.sendMail({
-      from: email,
-      to: process.env.CONTACT_RECIPIENT_EMAIL,
+      from: process.env.GMAIL_ADDRESS,
+      to: recipients.join(', '),
       subject: `[groupXam Contact] ${subject}`,
       text: `Name: ${name}\nEmail: ${email}\n\n${message}`,
+      replyTo: email, // Allow replies to go to the original sender
     });
     return new Response(JSON.stringify({ success: true }), { status: 200 });
   } catch (error) {

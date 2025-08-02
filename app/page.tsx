@@ -24,7 +24,7 @@ import {
 import Header from "@/components/ui/header";
 import Image from "next/image";
 import { useAuth } from "@/hooks/use-auth";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { MdGroups } from "react-icons/md";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 
@@ -59,23 +59,57 @@ export default function HomePage() {
   const [supportHours, setSupportHours] = useState(0);
 
   // Live activity feed
-  const activities = [
-    "Adaora just aced a Chemistry quiz!",
-    "Kemi joined the Math study group.",
-    "Chidi completed 20 flashcards.",
-    "Ayo scored 95% in Physics practice test!",
-    "Fatima unlocked a new badge!",
-    "Emeka started a Timed Exam.",
-    "Zainab posted a question in Discussions.",
-    "Tunde finished a Biology flashcard set.",
-  ];
+  const [activities, setActivities] = useState<string[]>([]);
   const [activityIndex, setActivityIndex] = useState(0);
+  const [isLoadingActivities, setIsLoadingActivities] = useState(true);
+
+  // Fetch real activities from API
+  const fetchActivities = useCallback(async () => {
+    try {
+      const response = await fetch('/api/activity');
+      const data = await response.json();
+      
+      if (data.activities && data.activities.length > 0) {
+        // Use only real activities from database
+        const realActivities = data.activities.map((activity: any) => activity.message);
+        setActivities(realActivities);
+        console.log('Loaded real activities:', realActivities);
+      } else {
+        // If no real activities, the feed will be empty
+        setActivities([]);
+        console.log('No real activities found, feed will be empty.');
+      }
+    } catch (error) {
+      console.error('Failed to fetch activities:', error);
+      setActivities([]); // Clear activities on API failure
+    } finally {
+      setIsLoadingActivities(false);
+    }
+  }, []);
+
   useEffect(() => {
+    fetchActivities();
+    
+    // Poll for new activities every 30 seconds
+    const interval = setInterval(fetchActivities, 30000);
+    
+    // Cleanup function to clear interval
+    return () => {
+      clearInterval(interval);
+    };
+  }, [fetchActivities]);
+
+  useEffect(() => {
+    if (activities.length === 0) {
+      setActivityIndex(0);
+      return;
+    }
+    
     const interval = setInterval(() => {
       setActivityIndex((i) => (i + 1) % activities.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, []);
+  }, [activities.length]);
 
   // Animated counters effect
   useEffect(() => {
@@ -400,12 +434,23 @@ export default function HomePage() {
             </div>
 
             {/* Live Activity Feed */}
-            <div className="flex justify-center mb-4">
-              <div className="bg-white/80 rounded-full px-6 py-2 shadow-md flex items-center gap-2 text-sm font-medium text-gray-700 animate-fade-in">
-                <span className="inline-block w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
-                {activities[activityIndex]}
+            {activities.length > 0 && (
+              <div className="flex justify-center mb-6">
+                <div className="bg-white/90 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg flex items-center gap-3 text-sm font-medium text-gray-700 animate-fade-in border border-gray-100">
+                  <span className="inline-block w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
+                  <span className="text-xs text-emerald-600 font-semibold uppercase tracking-wide">
+                    Live
+                  </span>
+                  {isLoadingActivities ? (
+                    <span className="text-gray-500">Loading activities...</span>
+                  ) : (
+                    <span className="animate-fade-in">
+                      {activities[activityIndex]}
+                    </span>
+                  )}
+                </div>
               </div>
-            </div>
+            )}
 
             {/* Exam Alert */}
             {upcomingExam && (
@@ -527,13 +572,6 @@ export default function HomePage() {
                   href={isLoggedIn ? "/quiz" : "/login"}
                   className="flex-shrink-0 w-72 sm:w-80 bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow cursor-pointer relative"
                 >
-                  {!isLoggedIn && (
-                    <div className="absolute top-2 right-2 z-10">
-                      <Badge className="bg-orange-500 text-white text-xs">
-                        Sign In Required
-                      </Badge>
-                    </div>
-                  )}
                   <div className="bg-gradient-to-r from-green-400 to-emerald-500 px-4 sm:px-6 py-4">
                     <h3 className="text-lg sm:text-xl font-bold text-white">
                       Quizzes
@@ -554,13 +592,6 @@ export default function HomePage() {
                   href={isLoggedIn ? "/exams" : "/login"}
                   className="flex-shrink-0 w-72 sm:w-80 bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow cursor-pointer relative"
                 >
-                  {!isLoggedIn && (
-                    <div className="absolute top-2 right-2 z-10">
-                      <Badge className="bg-orange-500 text-white text-xs">
-                        Sign In Required
-                      </Badge>
-                    </div>
-                  )}
                   <div className="bg-gradient-to-r from-blue-400 to-indigo-500 px-4 sm:px-6 py-4">
                     <h3 className="text-lg sm:text-xl font-bold text-white">
                       Exam Prep
@@ -581,13 +612,6 @@ export default function HomePage() {
                   href={isLoggedIn ? "/whiteboard" : "/login"}
                   className="flex-shrink-0 w-72 sm:w-80 bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow cursor-pointer relative"
                 >
-                  {!isLoggedIn && (
-                    <div className="absolute top-2 right-2 z-10">
-                      <Badge className="bg-orange-500 text-white text-xs">
-                        Sign In Required
-                      </Badge>
-                    </div>
-                  )}
                   <div className="bg-gradient-to-r from-orange-400 to-amber-500 px-4 sm:px-6 py-4">
                     <h3 className="text-lg sm:text-xl font-bold text-white">
                       Whiteboard
@@ -608,13 +632,6 @@ export default function HomePage() {
                   href={isLoggedIn ? "/flashcards" : "/login"}
                   className="flex-shrink-0 w-72 sm:w-80 bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow cursor-pointer relative"
                 >
-                  {!isLoggedIn && (
-                    <div className="absolute top-2 right-2 z-10">
-                      <Badge className="bg-orange-500 text-white text-xs">
-                        Sign In Required
-                      </Badge>
-                    </div>
-                  )}
                   <div className="bg-gradient-to-r from-purple-400 to-fuchsia-500 px-4 sm:px-6 py-4">
                     <h3 className="text-lg sm:text-xl font-bold text-white">
                       Flashcards
@@ -635,13 +652,6 @@ export default function HomePage() {
                   href={isLoggedIn ? "/discussions" : "/login"}
                   className="flex-shrink-0 w-72 sm:w-80 bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow cursor-pointer relative"
                 >
-                  {!isLoggedIn && (
-                    <div className="absolute top-2 right-2 z-10">
-                      <Badge className="bg-orange-500 text-white text-xs">
-                        Sign In Required
-                      </Badge>
-                    </div>
-                  )}
                   <div className="bg-gradient-to-r from-cyan-400 to-teal-500 px-4 sm:px-6 py-4">
                     <h3 className="text-lg sm:text-xl font-bold text-white">
                       Study Groups
@@ -662,13 +672,6 @@ export default function HomePage() {
                   href={isLoggedIn ? "/services" : "/login"}
                   className="flex-shrink-0 w-72 sm:w-80 bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow cursor-pointer relative"
                 >
-                  {!isLoggedIn && (
-                    <div className="absolute top-2 right-2 z-10">
-                      <Badge className="bg-orange-500 text-white text-xs">
-                        Sign In Required
-                      </Badge>
-                    </div>
-                  )}
                   <div className="bg-gradient-to-r from-emerald-400 to-lime-500 px-4 sm:px-6 py-4">
                     <h3 className="text-lg sm:text-xl font-bold text-white">
                       proctorIT
@@ -710,56 +713,56 @@ export default function HomePage() {
           className="py-12 sm:py-20 px-4 bg-gradient-to-br from-gray-50 to-emerald-50"
         >
           <div className="container mx-auto">
-            <div className="text-center mb-12 sm:mb-16">
-              <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-3 sm:mb-4 px-4">
+            <div className="text-center mb-8 sm:mb-12 md:mb-16 px-4">
+              <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-2 sm:mb-3 md:mb-4">
                 How <span className="text-emerald-600">groupXam</span> Works
               </h2>
-              <p className="text-base sm:text-xl text-gray-600 max-w-2xl mx-auto px-4">
+              <p className="text-sm sm:text-base md:text-xl text-gray-600 max-w-2xl mx-auto">
                 Simple steps to transform your WAEC preparation
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 px-4 sm:px-6">
               <div className="text-center">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-xl">
-                  <span className="text-xl sm:text-2xl font-bold text-white">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 md:mb-6 shadow-xl">
+                  <span className="text-lg sm:text-xl md:text-2xl font-bold text-white">
                     1
                   </span>
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4">
+                <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-800 mb-2 sm:mb-3 md:mb-4 px-2">
                   Sign Up & Choose Subjects
                 </h3>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                <p className="text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed px-2">
                   Create your account and select the subjects you want to focus
                   on for your WAEC preparation
                 </p>
               </div>
 
               <div className="text-center">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-xl">
-                  <span className="text-xl sm:text-2xl font-bold text-white">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 md:mb-6 shadow-xl">
+                  <span className="text-lg sm:text-xl md:text-2xl font-bold text-white">
                     2
                   </span>
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4">
+                <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-800 mb-2 sm:mb-3 md:mb-4 px-2">
                   Practice & Learn
                 </h3>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                <p className="text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed px-2">
                   Take quizzes, study with flashcards, and participate in timed
                   exams to build your knowledge
                 </p>
               </div>
 
               <div className="text-center">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-purple-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-xl">
-                  <span className="text-xl sm:text-2xl font-bold text-white">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-gradient-to-r from-purple-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 md:mb-6 shadow-xl">
+                  <span className="text-lg sm:text-xl md:text-2xl font-bold text-white">
                     3
                   </span>
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4">
+                <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-800 mb-2 sm:mb-3 md:mb-4 px-2">
                   Track Progress & Excel
                 </h3>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                <p className="text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed px-2">
                   Monitor your improvement, identify weak areas, and achieve
                   your target grades
                 </p>
