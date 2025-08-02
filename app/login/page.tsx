@@ -80,7 +80,7 @@ export default function LoginPage() {
   };
 
   const benefits = [
-    "Access to 50,000+ practice questions",
+    "Access to comprehensive practice questions",
     "Personalized study plans",
     "Real-time progress tracking",
     "Community discussions",
@@ -254,9 +254,9 @@ export default function LoginPage() {
       <div className="hidden lg:flex flex-1 bg-gradient-to-br from-emerald-500 to-blue-500 p-12 items-center justify-center relative overflow-hidden">
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="relative z-10 text-white max-w-md">
-          <h2 className="text-4xl font-bold mb-6">Join 10,000+ Students</h2>
+          <h2 className="text-4xl font-bold mb-6">Join Our Learning Community</h2>
           <p className="text-emerald-100 mb-8 text-lg">
-            Transform your WAEC preparation with our comprehensive study
+            Transform your Exams preparation with our comprehensive study
             platform
           </p>
 
@@ -271,22 +271,29 @@ export default function LoginPage() {
             ))}
           </div>
 
-          <div className="mt-8 p-6 bg-white/10 rounded-xl backdrop-blur-sm">
-            <div className="flex items-center space-x-4 mb-4">
-              <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
-                <span className="text-lg font-bold">A</span>
+          <div className="mt-8 relative">
+            {/* Animated Study Icons */}
+            <div className="flex justify-center space-x-6 mb-6">
+              <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center animate-bounce">
+                <BookOpen className="w-6 h-6 text-white" />
               </div>
-              <div>
-                <div className="font-semibold">Adaora O.</div>
-                <div className="text-emerald-200 text-sm">
-                  WAEC 2025 - 8 A's
-                </div>
+              <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center animate-pulse">
+                <CheckCircle className="w-6 h-6 text-white" />
+              </div>
+              <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center animate-bounce" style={{ animationDelay: '0.5s' }}>
+                <BookOpen className="w-6 h-6 text-white" />
               </div>
             </div>
-            <p className="text-emerald-100 italic">
-              "groupXam helped me achieve my dream grades. The practice
-              questions were spot-on!"
-            </p>
+            
+            {/* Animated Progress Bar */}
+            <div className="w-full bg-white/20 rounded-full h-2 mb-4">
+              <div className="bg-white h-2 rounded-full animate-pulse" style={{ width: '75%' }}></div>
+            </div>
+            
+            {/* Floating Elements */}
+            <div className="absolute top-0 left-0 w-4 h-4 bg-white/10 rounded-full animate-ping"></div>
+            <div className="absolute top-4 right-0 w-3 h-3 bg-white/10 rounded-full animate-ping" style={{ animationDelay: '1s' }}></div>
+            <div className="absolute bottom-0 left-1/4 w-2 h-2 bg-white/10 rounded-full animate-ping" style={{ animationDelay: '2s' }}></div>
           </div>
         </div>
 

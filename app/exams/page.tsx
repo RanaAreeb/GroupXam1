@@ -290,10 +290,10 @@ export default function ExamsPage() {
           <Card className="border-0 shadow-lg bg-gradient-to-br from-blue-50 to-blue-100">
             <CardContent className="p-6 text-center">
               <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Users className="w-6 h-6 text-white" />
+                <Star className="w-6 h-6 text-white" />
               </div>
-              <div className="text-2xl font-bold text-blue-600 mb-1">15K+</div>
-              <div className="text-sm text-gray-600">Students Practicing</div>
+              <div className="text-2xl font-bold text-blue-600 mb-1">Expert</div>
+              <div className="text-sm text-gray-600">Curated Content</div>
             </CardContent>
           </Card>
 

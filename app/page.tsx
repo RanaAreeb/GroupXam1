@@ -20,6 +20,7 @@ import {
   Code,
   ChevronLeft,
   ChevronRight,
+  TrendingUp,
 } from "lucide-react";
 import Header from "@/components/ui/header";
 import Image from "next/image";
@@ -932,9 +933,26 @@ export default function HomePage() {
               Ready to Ace Your Exams?
             </h2>
             <p className="text-base sm:text-xl text-emerald-100 mb-8 sm:mb-10 max-w-2xl mx-auto px-4">
-              Join over 10,000 students who have transformed their grades with
+              Join our community of learners who have transformed their grades with
               groupXam. Start your journey to academic excellence today.
             </p>
+            
+            {/* Professional Animated Elements */}
+            <div className="flex justify-center space-x-8 mb-8">
+              <div className="w-16 h-16 bg-white/10 rounded-xl backdrop-blur-sm flex items-center justify-center group hover:bg-white/20 transition-all duration-300">
+                <BookOpen className="w-8 h-8 text-white group-hover:scale-110 transition-transform duration-300" />
+              </div>
+              <div className="w-16 h-16 bg-white/10 rounded-xl backdrop-blur-sm flex items-center justify-center group hover:bg-white/20 transition-all duration-300">
+                <Target className="w-8 h-8 text-white group-hover:scale-110 transition-transform duration-300" />
+              </div>
+              <div className="w-16 h-16 bg-white/10 rounded-xl backdrop-blur-sm flex items-center justify-center group hover:bg-white/20 transition-all duration-300">
+                <TrendingUp className="w-8 h-8 text-white group-hover:scale-110 transition-transform duration-300" />
+              </div>
+            </div>
+            
+            {/* Subtle Background Elements */}
+            <div className="absolute top-20 left-20 w-32 h-32 bg-white/5 rounded-full blur-2xl"></div>
+            <div className="absolute bottom-20 right-20 w-24 h-24 bg-white/5 rounded-full blur-2xl"></div>
           </div>
         </section>
 

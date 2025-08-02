@@ -145,7 +145,6 @@ const countries = [
   { code: "LR", name: "Liberia" },
   { code: "TG", name: "Togo" },
   { code: "BJ", name: "Benin" },
-  { code: "GW", name: "Guinea-Bissau" },
   { code: "CV", name: "Cape Verde" },
   { code: "GM", name: "Gambia" },
   { code: "MR", name: "Mauritania" },
@@ -269,7 +268,7 @@ const countries = [
   { code: "AG", name: "Antigua and Barbuda" },
   { code: "KN", name: "Saint Kitts and Nevis" },
   { code: "DM", name: "Dominica" },
-  { code: "BH", name: "Bahamas" },
+  { code: "BS", name: "Bahamas" },
   { code: "RU", name: "Russia" },
   { code: "UA", name: "Ukraine" },
   { code: "BY", name: "Belarus" },
@@ -279,7 +278,6 @@ const countries = [
   { code: "KG", name: "Kyrgyzstan" },
   { code: "TJ", name: "Tajikistan" },
   { code: "TM", name: "Turkmenistan" },
-  { code: "AF", name: "Afghanistan" },
 ].sort((a, b) => a.name.localeCompare(b.name));
 
 const subjects: Subject[] = [
@@ -510,7 +508,7 @@ export default function SignupPage() {
   };
 
   const benefits = [
-    "50,000+ WAEC practice questions",
+    "Comprehensive practice questions",
     "Personalized study recommendations",
     "Real-time progress tracking",
     "Interactive flashcards",
@@ -518,10 +516,10 @@ export default function SignupPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50 flex">
+    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50 flex animate-gradient-pulse">
       {/* Left Side - Form */}
       <div className="flex-1 flex items-center justify-center p-8">
-        <div className="w-full max-w-md">
+        <div className="w-full max-w-md animate-fade-in">
           {/* Logo */}
           <div className="text-center mb-8">
             <div className="flex items-center justify-center space-x-3 mb-4">
@@ -820,11 +818,11 @@ export default function SignupPage() {
 
                   <Button
                     type="submit"
-                    className="w-full h-12 bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300"
+                    className="w-full h-12 bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-0.5 active:scale-[0.98]"
                     disabled={isLoading}
                   >
                     Continue
-                    <ArrowRight className="w-5 h-5 ml-2" />
+                    <ArrowRight className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" />
                   </Button>
                 </>
               ) : (
@@ -892,7 +890,7 @@ export default function SignupPage() {
                       disabled={
                         formData.selectedSubjects.length < 3 || isLoading
                       }
-                      className="flex-1 h-12 bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300"
+                      className="flex-1 h-12 bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-0.5 active:scale-[0.98] group"
                     >
                       {isLoading ? (
                         <div className="flex items-center">
@@ -900,7 +898,10 @@ export default function SignupPage() {
                           Creating...
                         </div>
                       ) : (
-                        "Create Account"
+                        <>
+                          Create Account
+                          <CheckCircle className="w-5 h-5 ml-2 transform group-hover:scale-110 transition-transform duration-300" />
+                        </>
                       )}
                     </Button>
                   </div>
@@ -1278,62 +1279,81 @@ export default function SignupPage() {
       {/* Right Side - Benefits */}
       <div className="hidden lg:flex flex-1 bg-gradient-to-br from-emerald-500 to-blue-500 p-12 items-center justify-center relative overflow-hidden">
         <div className="absolute inset-0 bg-black/10"></div>
-        <div className="relative z-10 text-white max-w-md">
-          <h2 className="text-4xl font-bold mb-6">Start Your Success Story</h2>
-          <p className="text-emerald-100 mb-8 text-lg">
-            Join thousands of students who have transformed their academic
+        <div className="relative z-10 text-white max-w-md animate-fade-in">
+          <h2 className="text-4xl font-bold mb-6 transform hover:scale-105 transition-transform duration-300">Start Your Success Story</h2>
+          <p className="text-emerald-100 mb-8 text-lg leading-relaxed transform hover:translate-x-1 transition-transform duration-300">
+            Join our community of learners who have transformed their academic
             performance with groupXam
           </p>
 
           <div className="space-y-4 mb-8">
             {benefits.map((benefit, index) => (
-              <div key={index} className="flex items-center space-x-3">
-                <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+              <div 
+                key={index} 
+                className="flex items-center space-x-3 group hover:translate-x-2 transition-transform duration-300"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-white/30 group-hover:scale-110 transition-all duration-300">
                   <CheckCircle className="w-4 h-4" />
                 </div>
-                <span className="text-emerald-100">{benefit}</span>
+                <span className="text-emerald-100 group-hover:text-white transition-colors duration-300">{benefit}</span>
               </div>
             ))}
           </div>
 
           <div className="grid grid-cols-3 gap-4 mb-8">
-            <div className="text-center p-4 bg-white/10 rounded-lg backdrop-blur-sm">
-              <div className="text-2xl font-bold">50K+</div>
-              <div className="text-emerald-200 text-sm">Questions</div>
+            <div className="group text-center p-4 bg-white/10 rounded-lg backdrop-blur-sm hover:bg-white/20 transition-all duration-500 hover:scale-105 hover:shadow-xl">
+              <div className="text-2xl font-bold transform group-hover:scale-110 transition-transform duration-300">📚</div>
+              <div className="text-emerald-200 text-sm opacity-90 group-hover:opacity-100 transition-opacity duration-300">Study Resources</div>
             </div>
-            <div className="text-center p-4 bg-white/10 rounded-lg backdrop-blur-sm">
-              <div className="text-2xl font-bold">95%</div>
-              <div className="text-emerald-200 text-sm">Success Rate</div>
+            <div className="group text-center p-4 bg-white/10 rounded-lg backdrop-blur-sm hover:bg-white/20 transition-all duration-500 hover:scale-105 hover:shadow-xl" style={{ animationDelay: '0.2s' }}>
+              <div className="text-2xl font-bold transform group-hover:scale-110 transition-transform duration-300">🎯</div>
+              <div className="text-emerald-200 text-sm opacity-90 group-hover:opacity-100 transition-opacity duration-300">Smart Learning</div>
             </div>
-            <div className="text-center p-4 bg-white/10 rounded-lg backdrop-blur-sm">
-              <div className="text-2xl font-bold">10K+</div>
-              <div className="text-emerald-200 text-sm">Students</div>
+            <div className="group text-center p-4 bg-white/10 rounded-lg backdrop-blur-sm hover:bg-white/20 transition-all duration-500 hover:scale-105 hover:shadow-xl" style={{ animationDelay: '0.4s' }}>
+              <div className="text-2xl font-bold transform group-hover:scale-110 transition-transform duration-300">🚀</div>
+              <div className="text-emerald-200 text-sm opacity-90 group-hover:opacity-100 transition-opacity duration-300">Progress Tracking</div>
             </div>
           </div>
 
-          <div className="p-6 bg-white/10 rounded-xl backdrop-blur-sm">
-            <div className="flex items-center space-x-4 mb-4">
-              <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
-                <span className="text-lg font-bold">K</span>
+          <div className="p-6 bg-white/10 rounded-xl backdrop-blur-sm relative overflow-hidden border border-white/20 hover:border-white/40 transition-all duration-700 group">
+            {/* Sophisticated gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-emerald-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            
+            {/* Modern floating elements */}
+            <div className="absolute top-3 right-3 w-2 h-2 bg-emerald-300/30 rounded-full transform translate-x-0 group-hover:translate-x-1 transition-transform duration-1000"></div>
+            <div className="absolute bottom-4 left-4 w-1.5 h-1.5 bg-blue-300/30 rounded-full transform translate-y-0 group-hover:-translate-y-1 transition-transform duration-1000"></div>
+            
+            {/* Elegant study icons with smooth transitions */}
+            <div className="flex justify-center space-x-6 mb-6 relative z-10">
+              <div className="w-10 h-10 bg-gradient-to-br from-white/20 to-white/10 rounded-xl flex items-center justify-center transform hover:scale-110 hover:rotate-3 transition-all duration-300 shadow-lg hover:shadow-xl">
+                <span className="text-base">📖</span>
               </div>
-              <div>
-                <div className="font-semibold">Kemi S.</div>
-                <div className="text-emerald-200 text-sm">
-                  WAEC 2023 - 7 A's
-                </div>
+              <div className="w-10 h-10 bg-gradient-to-br from-white/20 to-white/10 rounded-xl flex items-center justify-center transform hover:scale-110 hover:-rotate-3 transition-all duration-300 shadow-lg hover:shadow-xl">
+                <span className="text-base">✏️</span>
+              </div>
+              <div className="w-10 h-10 bg-gradient-to-br from-white/20 to-white/10 rounded-xl flex items-center justify-center transform hover:scale-110 hover:rotate-3 transition-all duration-300 shadow-lg hover:shadow-xl">
+                <span className="text-base">🎓</span>
               </div>
             </div>
-            <p className="text-emerald-100 italic">
-              "The personalized study plan helped me focus on my weak areas.
-              Highly recommended!"
-            </p>
+            
+            <div className="text-center relative z-10">
+              <div className="font-semibold text-emerald-100 mb-3 text-lg">Learning Journey</div>
+              <p className="text-emerald-100/90 text-sm leading-relaxed">
+                "Transform your study habits with personalized learning paths and real-time progress tracking."
+              </p>
+            </div>
           </div>
         </div>
 
-        {/* Decorative Elements */}
-        <div className="absolute top-10 right-10 w-20 h-20 bg-white/10 rounded-full"></div>
-        <div className="absolute bottom-10 left-10 w-16 h-16 bg-white/10 rounded-full"></div>
-        <div className="absolute top-1/2 right-20 w-12 h-12 bg-white/10 rounded-full"></div>
+        {/* Modern Decorative Elements */}
+        <div className="absolute top-10 right-10 w-20 h-20 bg-gradient-to-br from-white/15 to-emerald-400/20 rounded-full blur-sm animate-[float_6s_ease-in-out_infinite]"></div>
+        <div className="absolute bottom-10 left-10 w-16 h-16 bg-gradient-to-br from-blue-400/20 to-white/15 rounded-full blur-sm animate-[float_8s_ease-in-out_infinite_reverse]"></div>
+        <div className="absolute top-1/2 right-20 w-12 h-12 bg-gradient-to-br from-emerald-300/25 to-blue-400/15 rounded-full blur-sm animate-[float_7s_ease-in-out_infinite]"></div>
+        
+        {/* Floating gradient orbs */}
+        <div className="absolute top-1/4 left-1/4 w-8 h-8 bg-gradient-to-br from-white/10 to-transparent rounded-full animate-[drift_10s_ease-in-out_infinite]"></div>
+        <div className="absolute bottom-1/4 right-1/3 w-6 h-6 bg-gradient-to-br from-emerald-400/15 to-transparent rounded-full animate-[drift_12s_ease-in-out_infinite_reverse]"></div>
       </div>
     </div>
   );
