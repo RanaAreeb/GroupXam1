@@ -134,11 +134,24 @@ export async function POST(request) {
     // Save user to database
     const result = await users.insertOne(user)
 
+    // Helper function to format names (FirstName L)
+    const formatDisplayName = (fullName) => {
+      if (!fullName || typeof fullName !== 'string') return fullName;
+      const nameParts = fullName.trim().split(' ');
+      if (nameParts.length < 2) return fullName; // Return as-is if only one name
+      const firstName = nameParts[0];
+      const lastInitial = nameParts[nameParts.length - 1].charAt(0).toUpperCase();
+      return `${firstName} ${lastInitial}`;
+    };
+
     // Create activity for new signup
     try {
+      const userName = requestData.role === "university" ? requestData.adminName : requestData.name;
+      const displayName = formatDisplayName(userName);
+
       const activityMessage = requestData.role === "university"
-        ? `${requestData.adminName} joined as an institution!`
-        : `${requestData.name} just signed up for groupXam!`;
+        ? `${displayName} joined as an institution!`
+        : `${displayName} just signed up for groupXam!`;
 
       // Directly insert activity into database
       const activities = db.collection("activities");
@@ -146,7 +159,7 @@ export async function POST(request) {
         type: 'signup',
         message: activityMessage,
         userId: result.insertedId,
-        userName: requestData.role === "university" ? requestData.adminName : requestData.name,
+        userName: userName,
         createdAt: new Date(),
       });
 

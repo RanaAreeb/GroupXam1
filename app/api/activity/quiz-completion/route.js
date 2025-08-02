@@ -6,19 +6,31 @@ export async function POST(request) {
         const { userId, userName, subject, score, totalQuestions, quizType } = await request.json();
         const db = await getDatabase();
 
+        // Helper function to format names (FirstName L)
+        const formatDisplayName = (fullName) => {
+            if (!fullName || typeof fullName !== 'string') return fullName;
+            const nameParts = fullName.trim().split(' ');
+            if (nameParts.length < 2) return fullName; // Return as-is if only one name
+            const firstName = nameParts[0];
+            const lastInitial = nameParts[nameParts.length - 1].charAt(0).toUpperCase();
+            return `${firstName} ${lastInitial}`;
+        };
+
+        const displayName = formatDisplayName(userName);
+
         let message = '';
         if (quizType === 'flashcard') {
-            message = `${userName} completed a ${subject} flashcard set!`;
+            message = `${displayName} completed a ${subject} flashcard set!`;
         } else if (quizType === 'mock-exam') {
-            message = `${userName} completed a ${subject} mock exam!`;
+            message = `${displayName} completed a ${subject} mock exam!`;
         } else {
             const percentage = Math.round((score / totalQuestions) * 100);
             if (percentage >= 90) {
-                message = `${userName} aced a ${subject} quiz with ${percentage}%!`;
+                message = `${displayName} aced a ${subject} quiz with ${percentage}%!`;
             } else if (percentage >= 70) {
-                message = `${userName} scored ${percentage}% in ${subject}!`;
+                message = `${displayName} scored ${percentage}% in ${subject}!`;
             } else {
-                message = `${userName} completed a ${subject} quiz.`;
+                message = `${displayName} completed a ${subject} quiz.`;
             }
         }
 
