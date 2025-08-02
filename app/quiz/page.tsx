@@ -1330,9 +1330,7 @@ export default function QuizPage() {
                     <div className="font-bold text-lg text-gray-800 mb-2">
                       {subject.name}
                     </div>
-                    <div className="text-xs text-gray-500 mb-4">
-                      {quizCount} quiz{quizCount !== 1 ? "es" : ""} available
-                    </div>
+                    
                     <Button className="w-full bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow group-hover:shadow-lg transition-all">
                       View Quizzes
                     </Button>
