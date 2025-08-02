@@ -415,7 +415,18 @@ export default function HomePage() {
 
           <div className="container mx-auto text-center relative z-10">
             <Badge className="mb-4 sm:mb-6 bg-emerald-100 text-emerald-700 hover:bg-emerald-200 px-3 sm:px-4 py-1 sm:py-2 text-xs sm:text-sm font-medium animate-pulse">
-              🎓 Trusted by {totalUsers > 0 ? totalUsers.toLocaleString() : '10,000+'}+ Students
+              🎓 Trusted by {totalUsers > 0 ? (
+                totalUsers.toLocaleString() + '+ Students'
+              ) : (
+                <span className="flex items-center gap-2">
+                  <span></span>
+                  <div className="flex items-center space-x-1">
+                    <div className="w-1 h-1 bg-emerald-600 rounded-full animate-pulse"></div>
+                    <div className="w-1 h-1 bg-emerald-600 rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
+                    <div className="w-1 h-1 bg-emerald-600 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
+                  </div>
+                </span>
+              )}
             </Badge>
             <div className="mb-4">
               <span className="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full font-medium text-sm">
@@ -443,21 +454,21 @@ export default function HomePage() {
                 size="lg"
                 className="bg-emerald-600 hover:bg-emerald-700 text-white text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 shadow-lg"
               >
-                <Link href="/exams/waec">WAEC</Link>
+                <Link href={isLoggedIn ? "/exams/waec" : "/login"}>WAEC</Link>
               </Button>
               <Button
                 asChild
                 size="lg"
                 className="bg-blue-600 hover:bg-blue-700 text-white text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 shadow-lg"
               >
-                <Link href="/exams/wassce">WASSCE</Link>
+                <Link href={isLoggedIn ? "/exams/wassce" : "/login"}>WASSCE</Link>
               </Button>
               <Button
                 asChild
                 size="lg"
                 className="bg-purple-600 hover:bg-purple-700 text-white text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 shadow-lg"
               >
-                <Link href="/exams/jamb">JAMB</Link>
+                <Link href={isLoggedIn ? "/exams/jamb" : "/login"}>JAMB</Link>
               </Button>
             </div>
 
@@ -1012,7 +1023,7 @@ export default function HomePage() {
                 <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-gray-400">
                   <li>
                     <Link
-                      href="/quiz"
+                      href={isLoggedIn ? "/quiz" : "/login"}
                       className="hover:text-white transition-colors"
                     >
                       Quizzes
@@ -1020,7 +1031,7 @@ export default function HomePage() {
                   </li>
                   <li>
                     <Link
-                      href="/exams"
+                      href={isLoggedIn ? "/exams" : "/login"}
                       className="hover:text-white transition-colors"
                     >
                       Exam prep
@@ -1028,7 +1039,7 @@ export default function HomePage() {
                   </li>
                   <li>
                     <Link
-                      href="/flashcards"
+                      href={isLoggedIn ? "/flashcards" : "/login"}
                       className="hover:text-white transition-colors"
                     >
                       Flashcards
@@ -1036,7 +1047,7 @@ export default function HomePage() {
                   </li>
                   <li>
                     <Link
-                      href="/discussions"
+                      href={isLoggedIn ? "/discussions" : "/login"}
                       className="hover:text-white transition-colors"
                     >
                       Study Groups
@@ -1044,7 +1055,7 @@ export default function HomePage() {
                   </li>
                   <li>
                     <Link
-                      href="/services"
+                      href={isLoggedIn ? "/services" : "/login"}
                       className="hover:text-white transition-colors"
                     >
                       proctorIT
@@ -1052,7 +1063,7 @@ export default function HomePage() {
                   </li>
                   <li>
                     <Link
-                      href="/whiteboard"
+                      href={isLoggedIn ? "/whiteboard" : "/login"}
                       className="hover:text-white transition-colors"
                     >
                       Whiteboard
