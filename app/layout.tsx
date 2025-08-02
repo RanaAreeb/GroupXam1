@@ -99,6 +99,11 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
+    nocache: false,
+    noarchive: false,
+    nosnippet: false,
+    noimageindex: false,
+    notranslate: false,
   },
   icons: {
     icon: [
@@ -148,6 +153,36 @@ export default function RootLayout({
         <meta name="theme-color" content="#10b981" />
         <meta name="msapplication-TileColor" content="#10b981" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
+        
+        {/* Additional SEO Meta Tags */}
+        <meta name="author" content="GroupXam Team" />
+        <meta name="copyright" content="GroupXam" />
+        <meta name="language" content="English" />
+        <meta name="revisit-after" content="7 days" />
+        <meta name="distribution" content="global" />
+        <meta name="rating" content="general" />
+        <meta name="coverage" content="worldwide" />
+        <meta name="target" content="all" />
+        <meta name="HandheldFriendly" content="true" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="GroupXam" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="msapplication-tap-highlight" content="no" />
+
+        {/* Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-BL62C23G3E"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-BL62C23G3E');
+            `,
+          }}
+        />
 
         {/* Structured Data for SEO */}
         <script

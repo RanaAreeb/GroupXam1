@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://groupxam.com/sitemap.xml
+
+# Disallow admin and private areas
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+# Allow important pages
+Allow: /
+Allow: /exams/
+Allow: /quiz/
+Allow: /flashcards/
+Allow: /about/
+Allow: /contact/
+Allow: /login/
+Allow: /signup/ 

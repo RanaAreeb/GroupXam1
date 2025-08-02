@@ -54,9 +54,10 @@ export default function HomePage() {
   const { isLoggedIn, loading, logout, user } = useAuth();
 
   // Animated counters
-  const [questionsCount, setQuestionsCount] = useState(0);
-  const [successRate, setSuccessRate] = useState(0);
+  const [questionsCount, setQuestionsCount] = useState<number | null>(null);
+  const [successRate, setSuccessRate] = useState<number | null>(null);
   const [supportHours, setSupportHours] = useState(0);
+  const [totalUsers, setTotalUsers] = useState(0);
 
   // Live activity feed
   const [activities, setActivities] = useState<string[]>([]);
@@ -111,17 +112,71 @@ export default function HomePage() {
     return () => clearInterval(interval);
   }, [activities.length]);
 
-  // Animated counters effect
+  // Fetch real-time user count
+  const fetchUserCount = useCallback(async () => {
+    try {
+      const response = await fetch('/api/stats/users');
+      const data = await response.json();
+      
+      if (data.success) {
+        setTotalUsers(data.totalUsers);
+        console.log('Updated user count:', data.totalUsers);
+      }
+    } catch (error) {
+      console.error('Failed to fetch user count:', error);
+    }
+  }, []);
+
+  // Fetch real-time question count
+  const fetchQuestionCount = useCallback(async () => {
+    try {
+      const response = await fetch('/api/stats/questions');
+      const data = await response.json();
+      
+      if (data.success) {
+        setQuestionsCount(data.totalQuestions);
+        console.log('Updated question count:', data.totalQuestions);
+      }
+    } catch (error) {
+      console.error('Failed to fetch question count:', error);
+    }
+  }, []);
+
+  // Fetch real-time success rate
+  const fetchSuccessRate = useCallback(async () => {
+    try {
+      const response = await fetch('/api/stats/success-rate');
+      const data = await response.json();
+      
+      if (data.success) {
+        setSuccessRate(data.successRate);
+        console.log('Updated success rate:', data.successRate);
+      }
+    } catch (error) {
+      console.error('Failed to fetch success rate:', error);
+    }
+  }, []);
+
+  // Fetch all stats on mount and every 30 seconds
   useEffect(() => {
-    let q = 0,
-      s = 0,
-      h = 0;
+    fetchUserCount();
+    fetchQuestionCount();
+    fetchSuccessRate();
+    
     const interval = setInterval(() => {
-      if (q < 50000) setQuestionsCount((prev) => Math.min(prev + 1000, 50000));
-      if (s < 95) setSuccessRate((prev) => Math.min(prev + 5, 95));
+      fetchUserCount();
+      fetchQuestionCount();
+      fetchSuccessRate();
+    }, 30000);
+    
+    return () => clearInterval(interval);
+  }, [fetchUserCount, fetchQuestionCount, fetchSuccessRate]);
+
+  // Animated counters effect (only for support hours now)
+  useEffect(() => {
+    let h = 0;
+    const interval = setInterval(() => {
       if (h < 24) setSupportHours((prev) => Math.min(prev + 1, 24));
-      q += 1000;
-      s += 5;
       h += 1;
     }, 30);
     return () => clearInterval(interval);
@@ -359,7 +414,7 @@ export default function HomePage() {
 
           <div className="container mx-auto text-center relative z-10">
             <Badge className="mb-4 sm:mb-6 bg-emerald-100 text-emerald-700 hover:bg-emerald-200 px-3 sm:px-4 py-1 sm:py-2 text-xs sm:text-sm font-medium animate-pulse">
-              🎓 Trusted by 10,000+ Students
+              🎓 Trusted by {totalUsers > 0 ? totalUsers.toLocaleString() : '10,000+'}+ Students
             </Badge>
             <div className="mb-4">
               <span className="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full font-medium text-sm">
@@ -409,7 +464,15 @@ export default function HomePage() {
             <div className="grid grid-cols-3 gap-4 sm:gap-8 max-w-2xl mx-auto px-4 mb-6">
               <div className="text-center">
                 <div className="text-2xl sm:text-3xl font-bold text-emerald-600 mb-1 sm:mb-2 animate-bounce">
-                  {questionsCount.toLocaleString()}+
+                  {questionsCount !== null ? (
+                    questionsCount.toLocaleString() + '+'
+                  ) : (
+                    <div className="flex items-center justify-center space-x-1">
+                      <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+                      <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
+                      <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
+                    </div>
+                  )}
                 </div>
                 <div className="text-xs sm:text-sm text-gray-600">
                   Practice Questions
@@ -417,7 +480,15 @@ export default function HomePage() {
               </div>
               <div className="text-center">
                 <div className="text-2xl sm:text-3xl font-bold text-blue-600 mb-1 sm:mb-2 animate-bounce">
-                  {successRate}%
+                  {successRate !== null ? (
+                    successRate + '%'
+                  ) : (
+                    <div className="flex items-center justify-center space-x-1">
+                      <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+                      <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
+                      <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
+                    </div>
+                  )}
                 </div>
                 <div className="text-xs sm:text-sm text-gray-600">
                   Success Rate

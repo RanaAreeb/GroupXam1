@@ -156,6 +156,22 @@ export async function POST(request) {
       // Don't fail the signup if activity creation fails
     }
 
+    // Update user stats (this will be reflected in the homepage counter)
+    try {
+      const stats = db.collection("stats");
+      await stats.updateOne(
+        { type: "user_count" },
+        {
+          $inc: { totalUsers: 1 },
+          $set: { lastUpdated: new Date() }
+        },
+        { upsert: true }
+      );
+    } catch (statsError) {
+      console.error('Failed to update user stats:', statsError);
+      // Don't fail the signup if stats update fails
+    }
+
     // Send verification email
     const emailResult = await sendVerificationEmail(
       email,
