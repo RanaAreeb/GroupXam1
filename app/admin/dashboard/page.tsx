@@ -73,6 +73,7 @@ interface AdminStats {
     timestamp: string;
     userId?: string;
     userEmail?: string;
+    userName?: string;
   }[];
   users: {
     _id: string;

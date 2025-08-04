@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/select";
 import Whiteboard from "@/components/Whiteboard";
 import { Plus, FileText, Users, Settings, Folder } from "lucide-react";
+import ProtectedRoute from "@/components/ProtectedRoute";
 
 export default function WhiteboardPage() {
   const [currentBoard, setCurrentBoard] = useState(0);
@@ -63,10 +64,11 @@ export default function WhiteboardPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
-      <AppHeader active="Whiteboard" />
+    <ProtectedRoute>
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
+        <AppHeader active="Whiteboard" />
 
-      <div className="container mx-auto py-4 sm:py-8 px-2 sm:px-4">
+        <div className="container mx-auto py-4 sm:py-8 px-2 sm:px-4">
         {/* Header Section */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 sm:mb-8 gap-4">
           <div className="w-full sm:w-auto">
@@ -233,5 +235,6 @@ export default function WhiteboardPage() {
         </div>
       </div>
     </div>
+    </ProtectedRoute>
   );
 }

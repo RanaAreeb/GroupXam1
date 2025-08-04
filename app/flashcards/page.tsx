@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/dialog";
 // import { motion as Motion } from "framer-motion";
 import { useAuth } from "@/hooks/use-auth";
+import ProtectedRoute from "@/components/ProtectedRoute";
 import {
   RotateCcw,
   ChevronLeft,
@@ -633,27 +634,29 @@ export default function FlashcardsPage() {
     // Check if flashcards exist
     if (!flashcards || flashcards.length === 0) {
       return (
-        <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50">
-          <AppHeader userInitial="J" active="Flashcards" />
-          <div className="container mx-auto max-w-4xl py-8 px-4">
-            <div className="text-center">
-              <Button
-                variant="ghost"
-                onClick={handleBackToSets}
-                className="mb-4 text-blue-700 hover:text-blue-800"
-              >
-                <ChevronLeft className="w-4 h-4 mr-2" />
-                Back to Sets
-              </Button>
-              <h1 className="text-2xl font-bold text-gray-800 mb-4">
-                No flashcards available
-              </h1>
-              <p className="text-gray-600">
-                This flashcard set appears to be empty or unavailable.
-              </p>
+        <ProtectedRoute>
+          <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50">
+            <AppHeader userInitial="J" active="Flashcards" />
+            <div className="container mx-auto max-w-4xl py-8 px-4">
+              <div className="text-center">
+                <Button
+                  variant="ghost"
+                  onClick={handleBackToSets}
+                  className="mb-4 text-blue-700 hover:text-blue-800"
+                >
+                  <ChevronLeft className="w-4 h-4 mr-2" />
+                  Back to Sets
+                </Button>
+                <h1 className="text-2xl font-bold text-gray-800 mb-4">
+                  No flashcards available
+                </h1>
+                <p className="text-gray-600">
+                  This flashcard set appears to be empty or unavailable.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
+        </ProtectedRoute>
       );
     }
 
@@ -666,10 +669,11 @@ export default function FlashcardsPage() {
     const currentFlashcard = flashcards[currentCard];
 
     return (
-      <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50">
-        <AppHeader userInitial="J" active="Flashcards" />
+      <ProtectedRoute>
+        <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50">
+          <AppHeader userInitial="J" active="Flashcards" />
 
-        <div className="container mx-auto max-w-4xl py-8 px-4">
+          <div className="container mx-auto max-w-4xl py-8 px-4">
           {/* Study Header */}
           <div className="flex items-center justify-between mb-8">
             <div>
@@ -764,12 +768,14 @@ export default function FlashcardsPage() {
           </div>
         </div>
       </div>
-    );
+    </ProtectedRoute>
+  );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50">
-      <AppHeader userInitial="J" active="Flashcards" />
+    <ProtectedRoute>
+      <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50">
+        <AppHeader userInitial="J" active="Flashcards" />
 
       {/* Hero Section */}
       <section className="relative py-16 sm:py-24 px-4 bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 text-white shadow-lg rounded-b-3xl mb-12">
@@ -1328,5 +1334,6 @@ export default function FlashcardsPage() {
         )}
       </div>
     </div>
+    </ProtectedRoute>
   );
 }

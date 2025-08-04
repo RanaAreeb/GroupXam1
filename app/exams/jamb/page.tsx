@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Input } from "@/components/ui/input";
+import ProtectedRoute from "@/components/ProtectedRoute";
 import {
   Select,
   SelectContent,
@@ -754,9 +755,10 @@ export default function JambExamsPage() {
   }, [activeTab]);
 
   return (
-    <PageTransition>
-      <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50">
-        <AppHeader active="Exams" />
+    <ProtectedRoute>
+      <PageTransition>
+        <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50">
+          <AppHeader active="Exams" />
         <div className="container mx-auto py-12 px-4">
           <div className="text-center mb-10">
             <h1 className="text-4xl md:text-5xl font-bold mb-2">
@@ -1593,5 +1595,6 @@ export default function JambExamsPage() {
         </div>
       </div>
     </PageTransition>
+    </ProtectedRoute>
   );
 }

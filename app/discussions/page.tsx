@@ -27,6 +27,7 @@ import {
 } from "lucide-react";
 import AppHeader from "@/components/ui/app-header";
 import { useAuth } from "@/hooks/use-auth";
+import ProtectedRoute from "@/components/ProtectedRoute";
 
 const SUBJECTS = [
   "All",
@@ -688,323 +689,325 @@ export default function DiscussionsPage() {
   const filteredDiscussions = discussionsData;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50">
-      <AppHeader active="Discussions" />
-      {/* Main feed */}
-      <div className="w-full py-8 bg-transparent">
-        <div className="w-full max-w-6xl mx-auto px-2 md:px-8">
-          {/* Header and Search Bar - Mobile optimized */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4 px-2">
-            <div>
-              <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-1">
-                Discussions
-              </h1>
-              <p className="text-gray-500 text-sm sm:text-base">
-                Connect with fellow students and get help
-              </p>
+    <ProtectedRoute>
+      <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50">
+        <AppHeader active="Discussions" />
+        {/* Main feed */}
+        <div className="w-full py-8 bg-transparent">
+          <div className="w-full max-w-6xl mx-auto px-2 md:px-8">
+            {/* Header and Search Bar - Mobile optimized */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4 px-2">
+              <div>
+                <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-1">
+                  Discussions
+                </h1>
+                <p className="text-gray-500 text-sm sm:text-base">
+                  Connect with fellow students and get help
+                </p>
+              </div>
+              <div className="flex flex-col sm:flex-row items-center gap-2 w-full sm:w-auto">
+                <input
+                  type="text"
+                  placeholder="Search discussions..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full sm:w-72 px-4 py-2 rounded-full border border-gray-300 focus:border-emerald-500 focus:ring-emerald-200 focus:outline-none bg-white shadow-sm text-sm"
+                />
+                <Button className="w-full sm:w-auto mt-2 sm:mt-0" onClick={() => setSearchQuery("")}>
+                  Clear
+                </Button>
+              </div>
             </div>
-            <div className="flex flex-col sm:flex-row items-center gap-2 w-full sm:w-auto">
-              <input
-                type="text"
-                placeholder="Search discussions..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full sm:w-72 px-4 py-2 rounded-full border border-gray-300 focus:border-emerald-500 focus:ring-emerald-200 focus:outline-none bg-white shadow-sm text-sm"
-              />
-              <Button className="w-full sm:w-auto mt-2 sm:mt-0" onClick={() => setSearchQuery("")}>
-                Clear
-              </Button>
-            </div>
-          </div>
 
-          {/* Subject Tabs - Mobile optimized */}
-          <div className="flex gap-1 sm:gap-2 overflow-x-auto pb-2 mb-4 border-b border-gray-200 sticky top-0 bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50 z-10 px-2">
-            {SUBJECTS.map((subject) => (
-              <Button
-                key={subject}
-                variant={selectedSubject === subject ? "default" : "outline"}
-                size="sm"
-                onClick={() => setSelectedSubject(subject)}
-                className={
-                  selectedSubject === subject
-                    ? "bg-emerald-500 hover:bg-emerald-600 rounded-full px-2 sm:px-4 text-xs sm:text-sm whitespace-nowrap"
-                    : "rounded-full px-2 sm:px-4 text-xs sm:text-sm whitespace-nowrap"
-                }
+            {/* Subject Tabs - Mobile optimized */}
+            <div className="flex gap-1 sm:gap-2 overflow-x-auto pb-2 mb-4 border-b border-gray-200 sticky top-0 bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50 z-10 px-2">
+              {SUBJECTS.map((subject) => (
+                <Button
+                  key={subject}
+                  variant={selectedSubject === subject ? "default" : "outline"}
+                  size="sm"
+                  onClick={() => setSelectedSubject(subject)}
+                  className={
+                    selectedSubject === subject
+                      ? "bg-emerald-500 hover:bg-emerald-600 rounded-full px-2 sm:px-4 text-xs sm:text-sm whitespace-nowrap"
+                      : "rounded-full px-2 sm:px-4 text-xs sm:text-sm whitespace-nowrap"
+                  }
+                >
+                  {subject}
+                </Button>
+              ))}
+            </div>
+
+            {/* New Discussion Inline Form - Mobile optimized */}
+            {showNewPost && (
+              <form
+                onSubmit={handleNewPost}
+                className="bg-white border border-gray-200 rounded-2xl p-4 sm:p-6 mb-8 mx-auto shadow-sm"
               >
-                {subject}
-              </Button>
-            ))}
-          </div>
+                <div className="mb-3">
+                  <input
+                    type="text"
+                    required
+                    value={newPost.title}
+                    onChange={(e) =>
+                      setNewPost((p) => ({ ...p, title: e.target.value }))
+                    }
+                    className="w-full px-4 py-2 border rounded-full focus:outline-none focus:border-emerald-500 text-base sm:text-lg font-semibold"
+                    placeholder="What's happening? (Title)"
+                  />
+                </div>
+                <div className="mb-3 flex flex-col sm:flex-row gap-2">
+                  <select
+                    value={newPost.subject}
+                    onChange={(e) =>
+                      setNewPost((p) => ({ ...p, subject: e.target.value }))
+                    }
+                    className="px-4 py-2 border rounded-full focus:outline-none focus:border-emerald-500 text-sm"
+                  >
+                    {SUBJECTS.map((s) => (
+                      <option key={s} value={s}>
+                        {s}
+                      </option>
+                    ))}
+                  </select>
+                  <input
+                    type="text"
+                    value={newPost.tags}
+                    onChange={(e) =>
+                      setNewPost((p) => ({ ...p, tags: e.target.value }))
+                    }
+                    className="flex-1 px-4 py-2 border rounded-full focus:outline-none focus:border-emerald-500 text-sm"
+                    placeholder="#tags (comma separated)"
+                  />
+                </div>
+                <div className="mb-3">
+                  <textarea
+                    required
+                    value={newPost.content}
+                    onChange={(e) =>
+                      setNewPost((p) => ({ ...p, content: e.target.value }))
+                    }
+                    className="w-full px-4 py-2 border rounded-2xl focus:outline-none focus:border-emerald-500 text-sm sm:text-base"
+                    rows={3}
+                    placeholder="Share your thoughts, ask a question, or start a discussion..."
+                  />
+                </div>
+                <div className="flex flex-col sm:flex-row gap-2 justify-end">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={() => setShowNewPost(false)}
+                    disabled={posting}
+                    className="w-full sm:w-auto"
+                  >
+                    Cancel
+                  </Button>
+                  <Button
+                    type="submit"
+                    className="bg-emerald-600 text-white rounded-full px-6 w-full sm:w-auto"
+                    disabled={posting}
+                  >
+                    {posting ? "Posting..." : "Post"}
+                  </Button>
+                </div>
+              </form>
+            )}
 
-          {/* New Discussion Inline Form - Mobile optimized */}
-          {showNewPost && (
-            <form
-              onSubmit={handleNewPost}
-              className="bg-white border border-gray-200 rounded-2xl p-4 sm:p-6 mb-8 mx-auto shadow-sm"
-            >
-              <div className="mb-3">
-                <input
-                  type="text"
-                  required
-                  value={newPost.title}
-                  onChange={(e) =>
-                    setNewPost((p) => ({ ...p, title: e.target.value }))
-                  }
-                  className="w-full px-4 py-2 border rounded-full focus:outline-none focus:border-emerald-500 text-base sm:text-lg font-semibold"
-                  placeholder="What's happening? (Title)"
-                />
-              </div>
-              <div className="mb-3 flex flex-col sm:flex-row gap-2">
-                <select
-                  value={newPost.subject}
-                  onChange={(e) =>
-                    setNewPost((p) => ({ ...p, subject: e.target.value }))
-                  }
-                  className="px-4 py-2 border rounded-full focus:outline-none focus:border-emerald-500 text-sm"
-                >
-                  {SUBJECTS.map((s) => (
-                    <option key={s} value={s}>
-                      {s}
-                    </option>
-                  ))}
-                </select>
-                <input
-                  type="text"
-                  value={newPost.tags}
-                  onChange={(e) =>
-                    setNewPost((p) => ({ ...p, tags: e.target.value }))
-                  }
-                  className="flex-1 px-4 py-2 border rounded-full focus:outline-none focus:border-emerald-500 text-sm"
-                  placeholder="#tags (comma separated)"
-                />
-              </div>
-              <div className="mb-3">
-                <textarea
-                  required
-                  value={newPost.content}
-                  onChange={(e) =>
-                    setNewPost((p) => ({ ...p, content: e.target.value }))
-                  }
-                  className="w-full px-4 py-2 border rounded-2xl focus:outline-none focus:border-emerald-500 text-sm sm:text-base"
-                  rows={3}
-                  placeholder="Share your thoughts, ask a question, or start a discussion..."
-                />
-              </div>
-              <div className="flex flex-col sm:flex-row gap-2 justify-end">
-                <Button
-                  type="button"
-                  variant="outline"
-                  onClick={() => setShowNewPost(false)}
-                  disabled={posting}
-                  className="w-full sm:w-auto"
-                >
-                  Cancel
-                </Button>
-                <Button
-                  type="submit"
-                  className="bg-emerald-600 text-white rounded-full px-6 w-full sm:w-auto"
-                  disabled={posting}
-                >
-                  {posting ? "Posting..." : "Post"}
-                </Button>
-              </div>
-            </form>
-          )}
-
-          {/* Discussions Feed */}
-          <div className="flex flex-col gap-4">
-            {isLoading ? (
-              <div className="text-center py-12">Loading...</div>
-            ) : error ? (
-              <div className="text-center py-12">
-                Error loading discussions.
-              </div>
-            ) : (
-              filteredDiscussions
-                .slice(0, visibleDiscussions)
-                .map((discussion) => {
-                  const replies = discussion.replies || [];
-                  const commentsOpen = openComments[discussion._id];
-                  const discussionReplies = buildReplyTree(replies);
-                  return (
-                    <div
-                      key={discussion._id}
-                      className="bg-white border border-gray-200 rounded-2xl px-4 sm:px-6 py-4 sm:py-5 hover:bg-emerald-50/40 transition-all cursor-pointer shadow-none mb-3"
-                    >
-                      {/* Top Row: Avatar, Author, Subject, Time - Mobile optimized */}
-                      <div className="flex items-start sm:items-center gap-2 sm:gap-3 mb-2">
-                        <Avatar className="flex-shrink-0">
-                          <AvatarFallback className="bg-emerald-100 text-emerald-700 text-xs sm:text-sm">
-                            {discussion.authorInitials}
-                          </AvatarFallback>
-                        </Avatar>
-                        <div className="flex-1 min-w-0">
-                          <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
-                            <span className="font-semibold text-gray-800 text-sm sm:text-base truncate">
-                              {discussion.author}
-                            </span>
-                            <Badge className="bg-emerald-100 text-emerald-700 text-xs self-start sm:self-auto">
-                              {discussion.subject}
-                            </Badge>
-                          </div>
-                          <span className="text-xs text-gray-400 mt-1 sm:mt-0">
-                            {discussion.createdAt
-                              ? new Date(discussion.createdAt).toLocaleString()
-                              : ""}
-                          </span>
-                        </div>
-                      </div>
-                      {/* Title and Content - Mobile optimized */}
-                      <div className="mb-3">
-                        <span className="font-bold text-base sm:text-lg text-gray-900 break-words">
-                          {discussion.title}
-                        </span>
-                        <div className="text-gray-700 text-sm sm:text-base mt-2 whitespace-pre-line break-words">
-                          {discussion.content}
-                        </div>
-                      </div>
-                      {/* Tags as hashtags - Mobile optimized */}
-                      <div className="flex flex-wrap gap-1 sm:gap-2 mb-3">
-                        {discussion.tags &&
-                          discussion.tags.map((tag: string) => (
-                            <span
-                              key={tag}
-                              className="text-emerald-600 text-xs font-medium px-1.5 py-0.5 bg-emerald-50 rounded-full"
-                            >
-                              #{tag}
-                            </span>
-                          ))}
-                      </div>
-                      {/* Actions Row - Mobile optimized */}
-                      <div className="flex flex-wrap items-center gap-3 sm:gap-6 text-gray-500 text-xs sm:text-sm mb-3">
-                        <button className="flex items-center gap-1 hover:text-emerald-600 transition-colors px-2 py-1 rounded-full hover:bg-emerald-50">
-                          <ThumbsUp className="w-3 h-3 sm:w-4 sm:h-4" />
-                          <span className="hidden sm:inline">{discussion.likes || 0}</span>
-                          <span className="sm:hidden">{discussion.likes || 0}</span>
-                        </button>
-                        <button
-                          className="flex items-center gap-1 hover:text-emerald-600 transition-colors px-2 py-1 rounded-full hover:bg-emerald-50"
-                          onClick={() =>
-                            setOpenComments((prev) => ({
-                              ...prev,
-                              [discussion._id]: !commentsOpen,
-                            }))
-                          }
-                        >
-                          <MessageSquare className="w-3 h-3 sm:w-4 sm:h-4" />
-                          <span className="hidden sm:inline">{replies.length} {replies.length === 1 ? "Reply" : "Replies"}</span>
-                          <span className="sm:hidden">{replies.length}</span>
-                        </button>
-                        {isLoggedIn ? (
-                          <button
-                            className="flex items-center gap-1 hover:text-emerald-600 transition-colors px-2 py-1 rounded-full hover:bg-emerald-50"
-                            onClick={() => toggleReplyInput(discussion._id)}
-                          >
-                            <Reply className="w-3 h-3 sm:w-4 sm:h-4" />
-                            <span className="hidden sm:inline">Reply</span>
-                          </button>
-                        ) : (
-                          <span className="flex items-center gap-1 text-gray-400 text-xs px-2 py-1">
-                            <Reply className="w-3 h-3 sm:w-4 sm:h-4" />
-                            <Link href="/login" className="hover:underline">
-                              Sign in
-                            </Link>
-                          </span>
-                        )}
-                        {/* Delete button - only show to author */}
-                        {isLoggedIn && user?.name === discussion.author && (
-                          <button
-                            className="flex items-center gap-1 hover:text-red-600 transition-colors ml-auto px-2 py-1 rounded-full hover:bg-red-50"
-                            onClick={() => handleDeleteDiscussion(discussion._id)}
-                            title="Delete discussion"
-                          >
-                            <Trash2 className="w-3 h-3 sm:w-4 sm:h-4" />
-                            <span className="hidden sm:inline">Delete</span>
-                          </button>
-                        )}
-                      </div>
-
-                      {/* Main Reply Input - Mobile optimized */}
-                      {isLoggedIn && showReplyInput[discussion._id] && (
-                        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 mt-3 mb-3">
+            {/* Discussions Feed */}
+            <div className="flex flex-col gap-4">
+              {isLoading ? (
+                <div className="text-center py-12">Loading...</div>
+              ) : error ? (
+                <div className="text-center py-12">
+                  Error loading discussions.
+                </div>
+              ) : (
+                filteredDiscussions
+                  .slice(0, visibleDiscussions)
+                  .map((discussion) => {
+                    const replies = discussion.replies || [];
+                    const commentsOpen = openComments[discussion._id];
+                    const discussionReplies = buildReplyTree(replies);
+                    return (
+                      <div
+                        key={discussion._id}
+                        className="bg-white border border-gray-200 rounded-2xl px-4 sm:px-6 py-4 sm:py-5 hover:bg-emerald-50/40 transition-all cursor-pointer shadow-none mb-3"
+                      >
+                        {/* Top Row: Avatar, Author, Subject, Time - Mobile optimized */}
+                        <div className="flex items-start sm:items-center gap-2 sm:gap-3 mb-2">
                           <Avatar className="flex-shrink-0">
                             <AvatarFallback className="bg-emerald-100 text-emerald-700 text-xs sm:text-sm">
-                              {user?.name
-                                ? user.name
-                                    .split(" ")
-                                    .map((n) => n[0])
-                                    .join("")
-                                    .toUpperCase()
-                                : "AN"}
+                              {discussion.authorInitials}
                             </AvatarFallback>
                           </Avatar>
-                          <div className="flex-1 w-full">
-                            <Input
-                              placeholder="Write a reply..."
-                              value={activeReplies[discussion._id] || ""}
-                              onChange={(e) =>
-                                updateReplyText(discussion._id, e.target.value)
-                              }
-                              className="flex-1 rounded-full text-xs sm:text-sm mb-2 sm:mb-0"
-                              autoFocus
-                            />
-                            <Button
-                              variant="ghost"
-                              size="sm"
-                              className="text-emerald-600 hover:text-emerald-700 rounded-full text-xs px-3 py-1 w-full sm:w-auto"
-                              disabled={replyLoading[discussion._id]}
-                              onClick={() => handleMainReply(discussion._id)}
-                            >
-                              <Reply className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
-                              {replyLoading[discussion._id]
-                                ? "Sending..."
-                                : "Send"}
-                            </Button>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
+                              <span className="font-semibold text-gray-800 text-sm sm:text-base truncate">
+                                {discussion.author}
+                              </span>
+                              <Badge className="bg-emerald-100 text-emerald-700 text-xs self-start sm:self-auto">
+                                {discussion.subject}
+                              </Badge>
+                            </div>
+                            <span className="text-xs text-gray-400 mt-1 sm:mt-0">
+                              {discussion.createdAt
+                                ? new Date(discussion.createdAt).toLocaleString()
+                                : ""}
+                            </span>
                           </div>
                         </div>
-                      )}
+                        {/* Title and Content - Mobile optimized */}
+                        <div className="mb-3">
+                          <span className="font-bold text-base sm:text-lg text-gray-900 break-words">
+                            {discussion.title}
+                          </span>
+                          <div className="text-gray-700 text-sm sm:text-base mt-2 whitespace-pre-line break-words">
+                            {discussion.content}
+                          </div>
+                        </div>
+                        {/* Tags as hashtags - Mobile optimized */}
+                        <div className="flex flex-wrap gap-1 sm:gap-2 mb-3">
+                          {discussion.tags &&
+                            discussion.tags.map((tag: string) => (
+                              <span
+                                key={tag}
+                                className="text-emerald-600 text-xs font-medium px-1.5 py-0.5 bg-emerald-50 rounded-full"
+                              >
+                                #{tag}
+                              </span>
+                            ))}
+                        </div>
+                        {/* Actions Row - Mobile optimized */}
+                        <div className="flex flex-wrap items-center gap-3 sm:gap-6 text-gray-500 text-xs sm:text-sm mb-3">
+                          <button className="flex items-center gap-1 hover:text-emerald-600 transition-colors px-2 py-1 rounded-full hover:bg-emerald-50">
+                            <ThumbsUp className="w-3 h-3 sm:w-4 sm:h-4" />
+                            <span className="hidden sm:inline">{discussion.likes || 0}</span>
+                            <span className="sm:hidden">{discussion.likes || 0}</span>
+                          </button>
+                          <button
+                            className="flex items-center gap-1 hover:text-emerald-600 transition-colors px-2 py-1 rounded-full hover:bg-emerald-50"
+                            onClick={() =>
+                              setOpenComments((prev) => ({
+                                ...prev,
+                                [discussion._id]: !commentsOpen,
+                              }))
+                            }
+                          >
+                            <MessageSquare className="w-3 h-3 sm:w-4 sm:h-4" />
+                            <span className="hidden sm:inline">{replies.length} {replies.length === 1 ? "Reply" : "Replies"}</span>
+                            <span className="sm:hidden">{replies.length}</span>
+                          </button>
+                          {isLoggedIn ? (
+                            <button
+                              className="flex items-center gap-1 hover:text-emerald-600 transition-colors px-2 py-1 rounded-full hover:bg-emerald-50"
+                              onClick={() => toggleReplyInput(discussion._id)}
+                            >
+                              <Reply className="w-3 h-3 sm:w-4 sm:h-4" />
+                              <span className="hidden sm:inline">Reply</span>
+                            </button>
+                          ) : (
+                            <span className="flex items-center gap-1 text-gray-400 text-xs px-2 py-1">
+                              <Reply className="w-3 h-3 sm:w-4 sm:h-4" />
+                              <Link href="/login" className="hover:underline">
+                                Sign in
+                              </Link>
+                            </span>
+                          )}
+                          {/* Delete button - only show to author */}
+                          {isLoggedIn && user?.name === discussion.author && (
+                            <button
+                              className="flex items-center gap-1 hover:text-red-600 transition-colors ml-auto px-2 py-1 rounded-full hover:bg-red-50"
+                              onClick={() => handleDeleteDiscussion(discussion._id)}
+                              title="Delete discussion"
+                            >
+                              <Trash2 className="w-3 h-3 sm:w-4 sm:h-4" />
+                              <span className="hidden sm:inline">Delete</span>
+                            </button>
+                          )}
+                        </div>
 
-                      {/* Replies Thread (if open) */}
-                      {commentsOpen && replies.length > 0 && (
-                        <RenderReplies
-                          replies={discussionReplies}
-                          discussion={discussion}
-                          depth={0}
-                        />
-                      )}
-                    </div>
-                  );
-                })
+                        {/* Main Reply Input - Mobile optimized */}
+                        {isLoggedIn && showReplyInput[discussion._id] && (
+                          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 mt-3 mb-3">
+                            <Avatar className="flex-shrink-0">
+                              <AvatarFallback className="bg-emerald-100 text-emerald-700 text-xs sm:text-sm">
+                                {user?.name
+                                  ? user.name
+                                      .split(" ")
+                                      .map((n) => n[0])
+                                      .join("")
+                                      .toUpperCase()
+                                  : "AN"}
+                              </AvatarFallback>
+                            </Avatar>
+                            <div className="flex-1 w-full">
+                              <Input
+                                placeholder="Write a reply..."
+                                value={activeReplies[discussion._id] || ""}
+                                onChange={(e) =>
+                                  updateReplyText(discussion._id, e.target.value)
+                                }
+                                className="flex-1 rounded-full text-xs sm:text-sm mb-2 sm:mb-0"
+                                autoFocus
+                              />
+                              <Button
+                                variant="ghost"
+                                size="sm"
+                                className="text-emerald-600 hover:text-emerald-700 rounded-full text-xs px-3 py-1 w-full sm:w-auto"
+                                disabled={replyLoading[discussion._id]}
+                                onClick={() => handleMainReply(discussion._id)}
+                              >
+                                <Reply className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
+                                {replyLoading[discussion._id]
+                                  ? "Sending..."
+                                  : "Send"}
+                              </Button>
+                            </div>
+                          </div>
+                        )}
+
+                        {/* Replies Thread (if open) */}
+                        {commentsOpen && replies.length > 0 && (
+                          <RenderReplies
+                            replies={discussionReplies}
+                            discussion={discussion}
+                            depth={0}
+                          />
+                        )}
+                      </div>
+                    );
+                  })
+              )}
+            </div>
+
+            {/* Show more discussions button */}
+            {filteredDiscussions.length > visibleDiscussions && !isLoading && (
+              <div className="flex justify-center mt-8">
+                <Button
+                  variant="outline"
+                  onClick={() => setVisibleDiscussions((v) => v + 5)}
+                  className="px-8 py-2 border-2 border-emerald-500 text-emerald-700 hover:bg-emerald-50 rounded-full"
+                >
+                  Show more discussions
+                </Button>
+              </div>
             )}
           </div>
 
-          {/* Show more discussions button */}
-          {filteredDiscussions.length > visibleDiscussions && !isLoading && (
-            <div className="flex justify-center mt-8">
-              <Button
-                variant="outline"
-                onClick={() => setVisibleDiscussions((v) => v + 5)}
-                className="px-8 py-2 border-2 border-emerald-500 text-emerald-700 hover:bg-emerald-50 rounded-full"
-              >
-                Show more discussions
-              </Button>
-            </div>
+          {/* Floating New Discussion Button - Mobile optimized */}
+          {isLoggedIn && (
+            <Button
+              className="fixed bottom-4 sm:bottom-8 right-4 sm:right-8 z-50 bg-gradient-to-r from-emerald-500 to-blue-500 text-white font-semibold shadow-lg rounded-full px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-lg hover:scale-105 transition-transform"
+              onClick={() => setShowNewPost((v) => !v)}
+              style={{ display: showNewPost ? "none" : undefined }}
+            >
+              <Plus className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2" />
+              <span className="hidden sm:inline">New Discussion</span>
+              <span className="sm:hidden">New</span>
+            </Button>
           )}
         </div>
-
-        {/* Floating New Discussion Button - Mobile optimized */}
-        {isLoggedIn && (
-          <Button
-            className="fixed bottom-4 sm:bottom-8 right-4 sm:right-8 z-50 bg-gradient-to-r from-emerald-500 to-blue-500 text-white font-semibold shadow-lg rounded-full px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-lg hover:scale-105 transition-transform"
-            onClick={() => setShowNewPost((v) => !v)}
-            style={{ display: showNewPost ? "none" : undefined }}
-          >
-            <Plus className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2" />
-            <span className="hidden sm:inline">New Discussion</span>
-            <span className="sm:hidden">New</span>
-          </Button>
-        )}
       </div>
-    </div>
+    </ProtectedRoute>
   );
 }

@@ -7,6 +7,7 @@ import { Progress } from "@/components/ui/progress";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, Clock, CheckCircle, XCircle } from "lucide-react";
 import AppHeader from "@/components/ui/app-header";
+import ProtectedRoute from "@/components/ProtectedRoute";
 
 export default function QuizPage({
   params,
@@ -350,335 +351,341 @@ export default function QuizPage({
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50">
-        <AppHeader userInitial="J" active="Quizzes" />
-        <div className="container mx-auto px-4 py-8">
-          <div className="text-center">
-            <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-emerald-500 mx-auto"></div>
-            <p className="mt-4 text-lg text-gray-600">Loading quiz...</p>
+      <ProtectedRoute>
+        <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50">
+          <AppHeader userInitial="J" active="Quizzes" />
+          <div className="container mx-auto px-4 py-8">
+            <div className="text-center">
+              <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-emerald-500 mx-auto"></div>
+              <p className="mt-4 text-lg text-gray-600">Loading quiz...</p>
+            </div>
           </div>
         </div>
-      </div>
+      </ProtectedRoute>
     );
   }
 
   if (error) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50">
-        <AppHeader userInitial="J" active="Quizzes" />
-        <div className="container mx-auto px-4 py-8">
-          <div className="text-center">
-            <XCircle className="h-16 w-16 text-red-500 mx-auto mb-4" />
-            <h2 className="text-2xl font-bold text-gray-800 mb-2">
-              Error Loading Quiz
-            </h2>
-            <p className="text-gray-600 mb-4">{error}</p>
-            <Button
-              onClick={handleBackToQuizzes}
-              className="bg-emerald-600 hover:bg-emerald-700"
-            >
-              Back to Quizzes
-            </Button>
+      <ProtectedRoute>
+        <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50">
+          <AppHeader userInitial="J" active="Quizzes" />
+          <div className="container mx-auto px-4 py-8">
+            <div className="text-center">
+              <XCircle className="h-16 w-16 text-red-500 mx-auto mb-4" />
+              <h2 className="text-2xl font-bold text-gray-800 mb-2">
+                Error Loading Quiz
+              </h2>
+              <p className="text-gray-600 mb-4">{error}</p>
+              <Button
+                onClick={handleBackToQuizzes}
+                className="bg-emerald-600 hover:bg-emerald-700"
+              >
+                Back to Quizzes
+              </Button>
+            </div>
           </div>
         </div>
-      </div>
+      </ProtectedRoute>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50">
-      <AppHeader userInitial="J" active="Quizzes" />
+    <ProtectedRoute>
+      <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50">
+        <AppHeader userInitial="J" active="Quizzes" />
 
-      <div className="container mx-auto px-4 py-8">
-        {/* Header */}
-        <div className="mb-8">
-          <Button
-            variant="outline"
-            onClick={handleBackToQuizzes}
-            className="flex items-center gap-2 mb-4"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Quizzes
-          </Button>
-
-          <div className="text-center">
-            <h1 className="text-3xl md:text-4xl font-bold mb-2 text-gray-800">
-              {decodeURIComponent(params.subject).charAt(0).toUpperCase() +
-                decodeURIComponent(params.subject).slice(1)}{" "}
-              Quiz
-            </h1>
-            <p className="text-lg text-gray-600">
-              {quizQuestions.length} Questions
-              {quizTime > 0 && (
-                <span className="ml-4 font-semibold text-emerald-700 flex items-center justify-center gap-1">
-                  <Clock className="w-4 h-4" />
-                  Time Left: {Math.floor(quizTimeLeft / 60)}:
-                  {(quizTimeLeft % 60).toString().padStart(2, "0")}
-                </span>
-              )}
-            </p>
-          </div>
-        </div>
-
-        {/* Progress Bar */}
-        <div className="mb-8">
-          <Progress
-            value={((currentQuestion + 1) / quizQuestions.length) * 100}
-            className="h-3 bg-gray-200"
-          />
-          <div className="flex justify-center gap-2 mt-4">
-            {quizQuestions.map((_, idx) => (
-              <button
-                key={idx}
-                className={`w-4 h-4 rounded-full border-2 ${
-                  currentQuestion === idx
-                    ? "bg-emerald-500 border-emerald-700"
-                    : quizAnswers[idx] !== -1
-                    ? "bg-blue-500 border-blue-700"
-                    : "bg-white border-gray-300"
-                }`}
-                onClick={() => setCurrentQuestion(idx)}
-                aria-label={`Go to question ${idx + 1}`}
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* Quiz Content */}
-        <div className="max-w-4xl mx-auto">
-          {!quizSubmitted ? (
-            <motion.div
-              key={currentQuestion}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 20 }}
-              transition={{ duration: 0.3 }}
-              className="bg-white rounded-2xl shadow-xl p-8"
+        <div className="container mx-auto px-4 py-8">
+          {/* Header */}
+          <div className="mb-8">
+            <Button
+              variant="outline"
+              onClick={handleBackToQuizzes}
+              className="flex items-center gap-2 mb-4"
             >
-              {/* Motivational Tip */}
-              <div className="mb-6 text-center text-emerald-700 font-semibold text-lg">
-                "Every question is a step closer to mastery!"
-              </div>
+              <ArrowLeft className="w-4 h-4" />
+              Back to Quizzes
+            </Button>
 
-              {/* Question */}
-              <div className="mb-8">
-                <div className="font-semibold mb-4 text-xl text-gray-800">
-                  Q{currentQuestion + 1}.{" "}
-                  {quizQuestions[currentQuestion]?.question || ""}
-                </div>
-
-                {/* Options */}
-                <div className="space-y-3">
-                  {Array.isArray(quizQuestions[currentQuestion]?.options) ? (
-                    quizQuestions[currentQuestion].options.map(
-                      (opt: string, optIdx: number) => (
-                        <label
-                          key={optIdx}
-                          className={`flex items-center gap-3 p-4 rounded-xl cursor-pointer transition-all text-base shadow-sm border-2 ${
-                            quizAnswers[currentQuestion] === optIdx
-                              ? "bg-gradient-to-r from-emerald-100 to-blue-100 border-emerald-400"
-                              : "bg-white border border-gray-200 hover:border-emerald-300"
-                          }`}
-                        >
-                          <input
-                            type="radio"
-                            name={`q${currentQuestion}`}
-                            checked={quizAnswers[currentQuestion] === optIdx}
-                            onChange={() =>
-                              handleQuizAnswer(currentQuestion, optIdx)
-                            }
-                            className="accent-emerald-600"
-                          />
-                          <span className="flex-1">
-                            {typeof opt === "string" ? opt : ""}
-                          </span>
-                        </label>
-                      )
-                    )
-                  ) : (
-                    <div>Options not available</div>
-                  )}
-                </div>
-              </div>
-
-              {/* Navigation Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3">
-                <Button
-                  variant="outline"
-                  className="w-full sm:w-auto"
-                  onClick={() => setCurrentQuestion((q) => Math.max(0, q - 1))}
-                  disabled={currentQuestion === 0}
-                >
-                  Previous
-                </Button>
-
-                {currentQuestion < quizQuestions.length - 1 ? (
-                  <Button
-                    className="bg-emerald-600 hover:bg-emerald-700 text-white w-full sm:w-auto"
-                    onClick={() =>
-                      setCurrentQuestion((q) =>
-                        Math.min(quizQuestions.length - 1, q + 1)
-                      )
-                    }
-                  >
-                    Next
-                  </Button>
-                ) : (
-                  <Button
-                    className="bg-emerald-600 hover:bg-emerald-700 text-white w-full sm:w-auto"
-                    onClick={handleQuizSubmit}
-                  >
-                    Submit Quiz
-                  </Button>
+            <div className="text-center">
+              <h1 className="text-3xl md:text-4xl font-bold mb-2 text-gray-800">
+                {decodeURIComponent(params.subject).charAt(0).toUpperCase() +
+                  decodeURIComponent(params.subject).slice(1)}{" "}
+                Quiz
+              </h1>
+              <p className="text-lg text-gray-600">
+                {quizQuestions.length} Questions
+                {quizTime > 0 && (
+                  <span className="ml-4 font-semibold text-emerald-700 flex items-center justify-center gap-1">
+                    <Clock className="w-4 h-4" />
+                    Time Left: {Math.floor(quizTimeLeft / 60)}:
+                    {(quizTimeLeft % 60).toString().padStart(2, "0")}
+                  </span>
                 )}
-              </div>
-            </motion.div>
-          ) : (
-            /* Results */
-            <motion.div
-              key="results"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.4 }}
-              className="bg-white rounded-2xl shadow-xl p-8 text-center"
-            >
-              <div className="text-6xl mb-6 animate-bounce">
-                {quizFeedbackEmoji}
-              </div>
+              </p>
+            </div>
+          </div>
 
-              <h2 className="text-3xl font-bold mb-4 text-emerald-700">
-                Quiz Complete!
-              </h2>
+          {/* Progress Bar */}
+          <div className="mb-8">
+            <Progress
+              value={((currentQuestion + 1) / quizQuestions.length) * 100}
+              className="h-3 bg-gray-200"
+            />
+            <div className="flex justify-center gap-2 mt-4">
+              {quizQuestions.map((_, idx) => (
+                <button
+                  key={idx}
+                  className={`w-4 h-4 rounded-full border-2 ${
+                    currentQuestion === idx
+                      ? "bg-emerald-500 border-emerald-700"
+                      : quizAnswers[idx] !== -1
+                      ? "bg-blue-500 border-blue-700"
+                      : "bg-white border-gray-300"
+                  }`}
+                  onClick={() => setCurrentQuestion(idx)}
+                  aria-label={`Go to question ${idx + 1}`}
+                />
+              ))}
+            </div>
+          </div>
 
-              <div className="text-2xl font-bold mb-4 text-gray-800">
-                You scored {quizScore} out of {quizAnswers.length}
-              </div>
-
-              <Progress
-                value={(quizScore / quizAnswers.length) * 100}
-                className="mb-6 h-4 bg-gray-200"
-              />
-
-              {quizScore === quizAnswers.length && (
-                <div className="text-emerald-600 font-bold text-xl mb-4">
-                  Perfect Score! 🎉
+          {/* Quiz Content */}
+          <div className="max-w-4xl mx-auto">
+            {!quizSubmitted ? (
+              <motion.div
+                key={currentQuestion}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ duration: 0.3 }}
+                className="bg-white rounded-2xl shadow-xl p-8"
+              >
+                {/* Motivational Tip */}
+                <div className="mb-6 text-center text-emerald-700 font-semibold text-lg">
+                  "Every question is a step closer to mastery!"
                 </div>
-              )}
 
-              {quizScore < quizAnswers.length && (
-                <div className="text-gray-600 mb-6">
-                  Review your answers and try again!
-                </div>
-              )}
+                {/* Question */}
+                <div className="mb-8">
+                  <div className="font-semibold mb-4 text-xl text-gray-800">
+                    Q{currentQuestion + 1}.{" "}
+                    {quizQuestions[currentQuestion]?.question || ""}
+                  </div>
 
-              {/* Answer Summary */}
-              <div className="mt-8 text-left">
-                <h3 className="text-xl font-bold mb-4 text-gray-800 text-center">
-                  Answer Summary
-                </h3>
-                <div className="space-y-4 max-h-96 overflow-y-auto">
-                  {quizQuestions.map((question, qIdx) => {
-                    const userAnswer = quizAnswers[qIdx];
-                    const correctAnswer = question.correctAnswer;
-                    const isCorrect = userAnswer === correctAnswer;
-
-                    return (
-                      <div
-                        key={qIdx}
-                        className={`p-4 rounded-lg border-2 ${
-                          isCorrect
-                            ? "bg-green-50 border-green-200"
-                            : "bg-red-50 border-red-200"
-                        }`}
-                      >
-                        <div className="flex items-start gap-3">
-                          <div
-                            className={`w-6 h-6 rounded-full flex items-center justify-center text-white text-sm font-bold ${
-                              isCorrect ? "bg-green-500" : "bg-red-500"
+                  {/* Options */}
+                  <div className="space-y-3">
+                    {Array.isArray(quizQuestions[currentQuestion]?.options) ? (
+                      quizQuestions[currentQuestion].options.map(
+                        (opt: string, optIdx: number) => (
+                          <label
+                            key={optIdx}
+                            className={`flex items-center gap-3 p-4 rounded-xl cursor-pointer transition-all text-base shadow-sm border-2 ${
+                              quizAnswers[currentQuestion] === optIdx
+                                ? "bg-gradient-to-r from-emerald-100 to-blue-100 border-emerald-400"
+                                : "bg-white border border-gray-200 hover:border-emerald-300"
                             }`}
                           >
-                            {isCorrect ? "✓" : "✗"}
-                          </div>
-                          <div className="flex-1">
-                            <div className="font-semibold text-gray-800 mb-2">
-                              Q{qIdx + 1}. {question.question || ""}
+                            <input
+                              type="radio"
+                              name={`q${currentQuestion}`}
+                              checked={quizAnswers[currentQuestion] === optIdx}
+                              onChange={() =>
+                                handleQuizAnswer(currentQuestion, optIdx)
+                              }
+                              className="accent-emerald-600"
+                            />
+                            <span className="flex-1">
+                              {typeof opt === "string" ? opt : ""}
+                            </span>
+                          </label>
+                        )
+                      )
+                    ) : (
+                      <div>Options not available</div>
+                    )}
+                  </div>
+                </div>
+
+                {/* Navigation Buttons */}
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Button
+                    variant="outline"
+                    className="w-full sm:w-auto"
+                    onClick={() => setCurrentQuestion((q) => Math.max(0, q - 1))}
+                    disabled={currentQuestion === 0}
+                  >
+                    Previous
+                  </Button>
+
+                  {currentQuestion < quizQuestions.length - 1 ? (
+                    <Button
+                      className="bg-emerald-600 hover:bg-emerald-700 text-white w-full sm:w-auto"
+                      onClick={() =>
+                        setCurrentQuestion((q) =>
+                          Math.min(quizQuestions.length - 1, q + 1)
+                        )
+                      }
+                    >
+                      Next
+                    </Button>
+                  ) : (
+                    <Button
+                      className="bg-emerald-600 hover:bg-emerald-700 text-white w-full sm:w-auto"
+                      onClick={handleQuizSubmit}
+                    >
+                      Submit Quiz
+                    </Button>
+                  )}
+                </div>
+              </motion.div>
+            ) : (
+              /* Results */
+              <motion.div
+                key="results"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.4 }}
+                className="bg-white rounded-2xl shadow-xl p-8 text-center"
+              >
+                <div className="text-6xl mb-6 animate-bounce">
+                  {quizFeedbackEmoji}
+                </div>
+
+                <h2 className="text-3xl font-bold mb-4 text-emerald-700">
+                  Quiz Complete!
+                </h2>
+
+                <div className="text-2xl font-bold mb-4 text-gray-800">
+                  You scored {quizScore} out of {quizAnswers.length}
+                </div>
+
+                <Progress
+                  value={(quizScore / quizAnswers.length) * 100}
+                  className="mb-6 h-4 bg-gray-200"
+                />
+
+                {quizScore === quizAnswers.length && (
+                  <div className="text-emerald-600 font-bold text-xl mb-4">
+                    Perfect Score! 🎉
+                  </div>
+                )}
+
+                {quizScore < quizAnswers.length && (
+                  <div className="text-gray-600 mb-6">
+                    Review your answers and try again!
+                  </div>
+                )}
+
+                {/* Answer Summary */}
+                <div className="mt-8 text-left">
+                  <h3 className="text-xl font-bold mb-4 text-gray-800 text-center">
+                    Answer Summary
+                  </h3>
+                  <div className="space-y-4 max-h-96 overflow-y-auto">
+                    {quizQuestions.map((question, qIdx) => {
+                      const userAnswer = quizAnswers[qIdx];
+                      const correctAnswer = question.correctAnswer;
+                      const isCorrect = userAnswer === correctAnswer;
+
+                      return (
+                        <div
+                          key={qIdx}
+                          className={`p-4 rounded-lg border-2 ${
+                            isCorrect
+                              ? "bg-green-50 border-green-200"
+                              : "bg-red-50 border-red-200"
+                          }`}
+                        >
+                          <div className="flex items-start gap-3">
+                            <div
+                              className={`w-6 h-6 rounded-full flex items-center justify-center text-white text-sm font-bold ${
+                                isCorrect ? "bg-green-500" : "bg-red-500"
+                              }`}
+                            >
+                              {isCorrect ? "✓" : "✗"}
                             </div>
-                            <div className="space-y-1">
-                              {Array.isArray(question.options) ? (
-                                question.options.map(
-                                  (option: string, optIdx: number) => (
-                                    <div
-                                      key={optIdx}
-                                      className={`text-sm p-2 rounded ${
-                                        optIdx === correctAnswer
-                                          ? "bg-green-100 text-green-800 font-semibold"
-                                          : optIdx === userAnswer && !isCorrect
-                                          ? "bg-red-100 text-red-800 font-semibold"
-                                          : "bg-gray-50 text-gray-600"
-                                      }`}
-                                    >
-                                      {typeof option === "string" ? option : ""}
-                                      {optIdx === correctAnswer && (
-                                        <span className="ml-2 text-green-600">
-                                          ✓ Correct Answer
-                                        </span>
-                                      )}
-                                      {optIdx === userAnswer && !isCorrect && (
-                                        <span className="ml-2 text-red-600">
-                                          ✗ Your Answer
-                                        </span>
-                                      )}
-                                    </div>
+                            <div className="flex-1">
+                              <div className="font-semibold text-gray-800 mb-2">
+                                Q{qIdx + 1}. {question.question || ""}
+                              </div>
+                              <div className="space-y-1">
+                                {Array.isArray(question.options) ? (
+                                  question.options.map(
+                                    (option: string, optIdx: number) => (
+                                      <div
+                                        key={optIdx}
+                                        className={`text-sm p-2 rounded ${
+                                          optIdx === correctAnswer
+                                            ? "bg-green-100 text-green-800 font-semibold"
+                                            : optIdx === userAnswer && !isCorrect
+                                            ? "bg-red-100 text-red-800 font-semibold"
+                                            : "bg-gray-50 text-gray-600"
+                                        }`}
+                                      >
+                                        {typeof option === "string" ? option : ""}
+                                        {optIdx === correctAnswer && (
+                                          <span className="ml-2 text-green-600">
+                                            ✓ Correct Answer
+                                          </span>
+                                        )}
+                                        {optIdx === userAnswer && !isCorrect && (
+                                          <span className="ml-2 text-red-600">
+                                            ✗ Your Answer
+                                          </span>
+                                        )}
+                                      </div>
+                                    )
                                   )
-                                )
-                              ) : (
-                                <div>Options not available</div>
+                                ) : (
+                                  <div>Options not available</div>
+                                )}
+                              </div>
+                              {!isCorrect && (
+                                <div className="mt-2 text-sm text-red-600">
+                                  You selected:{" "}
+                                  {userAnswer !== -1 &&
+                                  Array.isArray(question.options)
+                                    ? question.options[userAnswer]
+                                    : "No answer"}
+                                </div>
                               )}
                             </div>
-                            {!isCorrect && (
-                              <div className="mt-2 text-sm text-red-600">
-                                You selected:{" "}
-                                {userAnswer !== -1 &&
-                                Array.isArray(question.options)
-                                  ? question.options[userAnswer]
-                                  : "No answer"}
-                              </div>
-                            )}
                           </div>
                         </div>
-                      </div>
-                    );
-                  })}
+                      );
+                    })}
+                  </div>
                 </div>
-              </div>
 
-              <div className="space-y-3 mt-8">
-                <Button
-                  className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg"
-                  onClick={handleBackToQuizzes}
-                >
-                  Back to Quizzes
-                </Button>
+                <div className="space-y-3 mt-8">
+                  <Button
+                    className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg"
+                    onClick={handleBackToQuizzes}
+                  >
+                    Back to Quizzes
+                  </Button>
 
-                <Button
-                  variant="outline"
-                  className="w-full"
-                  onClick={() => {
-                    setQuizSubmitted(false);
-                    setQuizAnswers(Array(quizQuestions.length).fill(-1));
-                    setCurrentQuestion(0);
-                    setQuizTimeLeft(quizTime);
-                    setQuizScore(0);
-                  }}
-                >
-                  Retake Quiz
-                </Button>
-              </div>
-            </motion.div>
-          )}
+                  <Button
+                    variant="outline"
+                    className="w-full"
+                    onClick={() => {
+                      setQuizSubmitted(false);
+                      setQuizAnswers(Array(quizQuestions.length).fill(-1));
+                      setCurrentQuestion(0);
+                      setQuizTimeLeft(quizTime);
+                      setQuizScore(0);
+                    }}
+                  >
+                    Retake Quiz
+                  </Button>
+                </div>
+              </motion.div>
+            )}
+          </div>
         </div>
       </div>
-    </div>
+    </ProtectedRoute>
   );
 }

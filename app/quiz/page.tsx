@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft } from "lucide-react";
 import AppHeader from "@/components/ui/app-header";
+import ProtectedRoute from "@/components/ProtectedRoute";
 import {
   Target,
   MessageSquare,
@@ -1094,11 +1095,12 @@ export default function QuizPage() {
     : null;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50">
-      <AppHeader userInitial="J" active="Quizzes" />
+    <ProtectedRoute>
+      <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50">
+        <AppHeader userInitial="J" active="Quizzes" />
 
-      {/* Hero Section */}
-      <section className="relative py-16 sm:py-24 px-4 bg-gradient-to-r from-emerald-500 via-blue-500 to-purple-500 text-white shadow-lg rounded-b-3xl mb-12">
+        {/* Hero Section */}
+        <section className="relative py-16 sm:py-24 px-4 bg-gradient-to-r from-emerald-500 via-blue-500 to-purple-500 text-white shadow-lg rounded-b-3xl mb-12">
         <div className="container mx-auto text-center relative z-10">
           <nav className="mb-4 text-sm text-emerald-100/80">
             <Link href="/" className="hover:underline">
@@ -1393,5 +1395,6 @@ export default function QuizPage() {
         )}
       </div>
     </div>
+    </ProtectedRoute>
   );
 }

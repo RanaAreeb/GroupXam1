@@ -5,6 +5,7 @@ import PageTransition from "@/components/PageTransition";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { waecExams } from "./exams-data";
+import ProtectedRoute from "@/components/ProtectedRoute";
 import {
   Dialog,
   DialogContent,
@@ -468,9 +469,10 @@ export default function WAECExamsPage() {
   }, [activeTab]);
 
   return (
-    <PageTransition>
-      <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50">
-        <AppHeader active="Exams" />
+    <ProtectedRoute>
+      <PageTransition>
+        <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50">
+          <AppHeader active="Exams" />
         <div className="container mx-auto py-12 px-4">
           <div className="text-center mb-10">
             <h1 className="text-4xl md:text-5xl font-bold mb-2">
@@ -1191,5 +1193,6 @@ export default function WAECExamsPage() {
         </div>
       </div>
     </PageTransition>
+    </ProtectedRoute>
   );
 }

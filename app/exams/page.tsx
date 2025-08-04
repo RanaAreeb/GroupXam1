@@ -40,6 +40,7 @@ import {
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import AppHeader from "@/components/ui/app-header";
+import ProtectedRoute from "@/components/ProtectedRoute";
 
 // Remove all dynamic fetching and use static data for exam types and exams
 // Each exam type card links to a static page (e.g., /exams/waec)
@@ -243,10 +244,11 @@ export default function ExamsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50">
-      <AppHeader userInitial="J" active="Exams" />
+    <ProtectedRoute>
+      <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50">
+        <AppHeader userInitial="J" active="Exams" />
 
-      <div className="container mx-auto px-4 py-8">
+        <div className="container mx-auto px-4 py-8">
         {/* Page Header */}
         <div className="text-center mb-10">
           <h1 className="text-4xl md:text-5xl font-bold mb-2">
@@ -405,5 +407,6 @@ export default function ExamsPage() {
         </Card>
       </div>
     </div>
+    </ProtectedRoute>
   );
 }
