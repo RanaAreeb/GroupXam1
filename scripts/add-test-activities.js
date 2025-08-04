@@ -4,93 +4,85 @@ async function addTestActivities() {
     try {
         const db = await getDatabase();
 
-        const testActivities = [
-            {
-                type: 'signup',
-                message: 'John just signed up for groupXam!',
-                userId: 'test-user-1',
-                userName: 'John',
-                createdAt: new Date(Date.now() - 5 * 60 * 1000), // 5 minutes ago
-            },
-            {
-                type: 'quiz-completion',
-                message: 'Sarah aced a Chemistry quiz with 95%!',
-                userId: 'test-user-2',
-                userName: 'Sarah',
-                subject: 'Chemistry',
-                score: 19,
-                totalQuestions: 20,
-                quizType: 'quiz',
-                createdAt: new Date(Date.now() - 10 * 60 * 1000), // 10 minutes ago
-            },
-            {
-                type: 'flashcard-completion',
-                message: 'Tunde finished a Biology flashcard set.',
-                userId: 'test-user-3',
-                userName: 'Tunde',
-                subject: 'Biology',
-                quizType: 'flashcard',
-                createdAt: new Date(Date.now() - 15 * 60 * 1000), // 15 minutes ago
-            },
-            {
-                type: 'study-group',
-                message: 'Kemi joined the Math study group.',
-                userId: 'test-user-4',
-                userName: 'Kemi',
-                action: 'joined',
-                subject: 'Mathematics',
-                createdAt: new Date(Date.now() - 20 * 60 * 1000), // 20 minutes ago
-            },
-            {
-                type: 'mock-exam',
-                message: 'David completed a WAEC mock exam!',
-                userId: 'test-user-5',
-                userName: 'David',
-                subject: 'Physics',
-                quizType: 'mock-exam',
-                createdAt: new Date(Date.now() - 25 * 60 * 1000), // 25 minutes ago
-            },
-            {
-                type: 'signup',
-                message: 'Maria just joined groupXam and started learning!',
-                userId: 'test-user-6',
-                userName: 'Maria',
-                createdAt: new Date(Date.now() - 30 * 60 * 1000), // 30 minutes ago
-            },
-            {
-                type: 'quiz-completion',
-                message: 'Ayo scored 100% in Mathematics!',
-                userId: 'test-user-7',
-                userName: 'Ayo',
-                subject: 'Mathematics',
-                score: 20,
-                totalQuestions: 20,
-                quizType: 'quiz',
-                createdAt: new Date(Date.now() - 35 * 60 * 1000), // 35 minutes ago
-            },
-            {
-                type: 'achievement',
-                message: 'Fatima unlocked the "Perfect Score" achievement!',
-                userId: 'test-user-8',
-                userName: 'Fatima',
-                createdAt: new Date(Date.now() - 40 * 60 * 1000), // 40 minutes ago
-            },
-        ];
+        // Check if activities exist
+        const existingActivities = await db.collection("activities").countDocuments();
 
-        // Clear existing activities first
-        await db.collection('activities').deleteMany({});
+        if (existingActivities === 0) {
+            console.log('No activities found. Adding test activities...');
 
-        // Insert test activities
-        const result = await db.collection('activities').insertMany(testActivities);
+            const testActivities = [
+                {
+                    type: "signup",
+                    message: "Test User 1 just signed up for groupXam!",
+                    userId: "test-user-1",
+                    userName: "Test User 1",
+                    userEmail: "test1@example.com",
+                    timestamp: new Date(),
+                    createdAt: new Date(),
+                },
+                {
+                    type: "signup",
+                    message: "Test User 2 just signed up for groupXam!",
+                    userId: "test-user-2",
+                    userName: "Test User 2",
+                    userEmail: "test2@example.com",
+                    timestamp: new Date(Date.now() - 24 * 60 * 60 * 1000), // 1 day ago
+                    createdAt: new Date(Date.now() - 24 * 60 * 60 * 1000),
+                },
+                {
+                    type: "quiz_completion",
+                    message: "Test User 1 completed a quiz!",
+                    userId: "test-user-1",
+                    userName: "Test User 1",
+                    userEmail: "test1@example.com",
+                    timestamp: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000), // 2 days ago
+                    createdAt: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000),
+                },
+                {
+                    type: "institution_join",
+                    message: "Test University joined as an institution!",
+                    userId: "test-university-1",
+                    userName: "Test University",
+                    userEmail: "university@example.com",
+                    timestamp: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000), // 3 days ago
+                    createdAt: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000),
+                },
+                {
+                    type: "exam_attempt",
+                    message: "Test User 2 attempted an exam!",
+                    userId: "test-user-2",
+                    userName: "Test User 2",
+                    userEmail: "test2@example.com",
+                    timestamp: new Date(Date.now() - 4 * 24 * 60 * 60 * 1000), // 4 days ago
+                    createdAt: new Date(Date.now() - 4 * 24 * 60 * 60 * 1000),
+                }
+            ];
 
-        console.log(`Added ${result.insertedCount} test activities to the database`);
-        console.log('Test activities added successfully!');
+            // Insert test activities
+            for (const activity of testActivities) {
+                await db.collection("activities").insertOne(activity);
+                console.log(`Added activity: ${activity.message}`);
+            }
 
-        process.exit(0);
+            console.log('Test activities added successfully!');
+        } else {
+            console.log(`Found ${existingActivities} existing activities. Skipping test data.`);
+        }
+
+        // Print summary
+        const totalActivities = await db.collection("activities").countDocuments();
+        console.log(`Total activities: ${totalActivities}`);
+
     } catch (error) {
-        console.error('Error adding test activities:', error);
-        process.exit(1);
+        console.error("Error adding test activities:", error);
     }
 }
 
-addTestActivities(); 
+// Run the script
+addTestActivities().then(() => {
+    console.log("Script completed");
+    process.exit(0);
+}).catch((error) => {
+    console.error("Script failed:", error);
+    process.exit(1);
+}); 

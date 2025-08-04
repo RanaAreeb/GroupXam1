@@ -45,7 +45,7 @@ export async function GET() {
 
 export async function POST(request) {
     try {
-        const { type, message, userId, userName } = await request.json();
+        const { type, message, userId, userName, userEmail } = await request.json();
         const db = await getDatabase();
 
         const activity = {
@@ -53,6 +53,8 @@ export async function POST(request) {
             message,
             userId,
             userName,
+            userEmail,
+            timestamp: new Date(),
             createdAt: new Date(),
         };
 

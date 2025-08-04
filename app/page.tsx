@@ -158,7 +158,7 @@ export default function HomePage() {
     }
   }, []);
 
-  // Fetch all stats on mount and every 30 seconds
+  // Fetch all stats on mount and every 2 minutes
   useEffect(() => {
     fetchUserCount();
     fetchQuestionCount();
@@ -168,7 +168,7 @@ export default function HomePage() {
       fetchUserCount();
       fetchQuestionCount();
       fetchSuccessRate();
-    }, 30000);
+    }, 120000); // 2 minutes instead of 30 seconds
     
     return () => clearInterval(interval);
   }, [fetchUserCount, fetchQuestionCount, fetchSuccessRate]);
@@ -352,6 +352,15 @@ export default function HomePage() {
                 <span className="text-gray-400 font-medium">...</span>
               ) : isLoggedIn ? (
                 <>
+                  {/* Admin Dashboard Link - Only visible to specified admin emails */}
+                  {(user?.email === "ranaareeb1029@gmail.com" || user?.email === "cliftonmanneh6@gmail.com") && (
+                    <Link
+                      href="/admin/dashboard"
+                      className="text-gray-600 hover:text-emerald-600 transition-colors font-medium mr-2"
+                    >
+                      Admin Dashboard
+                    </Link>
+                  )}
                   {user?.role === "university" && (
                     <Link
                       href="/university/dashboard"

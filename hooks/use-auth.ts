@@ -8,6 +8,9 @@ interface AuthUser {
   email?: string;
   role?: "student" | "university";
   universityName?: string;
+  country?: string;
+  createdAt?: string;
+  lastLoginAt?: string;
 }
 
 interface AuthState {
