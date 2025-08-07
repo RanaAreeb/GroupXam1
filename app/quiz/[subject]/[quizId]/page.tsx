@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, use } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
@@ -12,8 +12,9 @@ import ProtectedRoute from "@/components/ProtectedRoute";
 export default function QuizPage({
   params,
 }: {
-  params: { subject: string; quizId: string };
+  params: Promise<{ subject: string; quizId: string }>;
 }) {
+  const { subject, quizId } = use(params);
   const router = useRouter();
   const [quizQuestions, setQuizQuestions] = useState<any[]>([]);
   const [quizAnswers, setQuizAnswers] = useState<number[]>([]);
@@ -91,37 +92,37 @@ export default function QuizPage({
         ];
 
         let apiUrl = "";
-        if (scienceSubjects.includes(params.subject.toLowerCase())) {
-          apiUrl = `/api/quiz-data/science/${params.subject.toLowerCase()}`;
-        } else if (codingSubjects.includes(params.subject.toLowerCase())) {
+        if (scienceSubjects.includes(subject.toLowerCase())) {
+          apiUrl = `/api/quiz-data/science/${subject.toLowerCase()}`;
+        } else if (codingSubjects.includes(subject.toLowerCase())) {
           // Map subject names to folder names
-          let folderName = params.subject.toLowerCase();
-          if (params.subject.toLowerCase() === "html/css") {
+          let folderName = subject.toLowerCase();
+          if (subject.toLowerCase() === "html/css") {
             folderName = "html-css";
-          } else if (params.subject.toLowerCase() === "node.js") {
+          } else if (subject.toLowerCase() === "node.js") {
             folderName = "nodejs";
           }
           apiUrl = `/api/quiz-data/coding/${folderName}`;
-        } else if (economicsSubjects.includes(params.subject.toLowerCase())) {
+        } else if (economicsSubjects.includes(subject.toLowerCase())) {
           // Map subject names to folder names
-          let folderName = params.subject.toLowerCase();
-          if (params.subject.toLowerCase() === "micro economics") {
+          let folderName = subject.toLowerCase();
+          if (subject.toLowerCase() === "micro economics") {
             folderName = "micro-economics";
-          } else if (params.subject.toLowerCase() === "macro economics") {
+          } else if (subject.toLowerCase() === "macro economics") {
             folderName = "macro-economics";
-          } else if (params.subject.toLowerCase() === "political science") {
+          } else if (subject.toLowerCase() === "political science") {
             folderName = "political-science";
           }
           apiUrl = `/api/quiz-data/economics/${folderName}`;
         } else if (
           mathematicsSubjects.includes(
-            decodeURIComponent(params.subject).toLowerCase()
+            decodeURIComponent(subject).toLowerCase()
           )
         ) {
           // Map subject names to folder names
-          let folderName = decodeURIComponent(params.subject).toLowerCase();
+          let folderName = decodeURIComponent(subject).toLowerCase();
           if (
-            decodeURIComponent(params.subject).toLowerCase() ===
+            decodeURIComponent(subject).toLowerCase() ===
             "pythagorean theorem"
           ) {
             folderName = "pythagorean-theorem";
@@ -129,36 +130,36 @@ export default function QuizPage({
           apiUrl = `/api/quiz-data/mathematics/${folderName}`;
         } else if (
           artsHumanitiesSubjects.includes(
-            decodeURIComponent(params.subject).toLowerCase()
+            decodeURIComponent(subject).toLowerCase()
           )
         ) {
           // Map subject names to folder names
-          let folderName = decodeURIComponent(params.subject).toLowerCase();
+          let folderName = decodeURIComponent(subject).toLowerCase();
           if (
-            decodeURIComponent(params.subject).toLowerCase() === "art history"
+            decodeURIComponent(subject).toLowerCase() === "art history"
           ) {
             folderName = "art-history";
           } else if (
-            decodeURIComponent(params.subject).toLowerCase() === "music theory"
+            decodeURIComponent(subject).toLowerCase() === "music theory"
           ) {
             folderName = "music-theory";
           } else if (
-            decodeURIComponent(params.subject).toLowerCase() ===
+            decodeURIComponent(subject).toLowerCase() ===
             "creative writing"
           ) {
             folderName = "creative-writing";
           } else if (
-            decodeURIComponent(params.subject).toLowerCase() ===
+            decodeURIComponent(subject).toLowerCase() ===
             "foreign languages"
           ) {
             folderName = "foreign-languages";
           } else if (
-            decodeURIComponent(params.subject).toLowerCase() ===
+            decodeURIComponent(subject).toLowerCase() ===
             "religious studies"
           ) {
             folderName = "religious-studies";
           } else if (
-            decodeURIComponent(params.subject).toLowerCase() ===
+            decodeURIComponent(subject).toLowerCase() ===
             "cultural studies"
           ) {
             folderName = "cultural-studies";
@@ -167,7 +168,7 @@ export default function QuizPage({
 
           // For English and other arts-humanities subjects, try to load the specific quiz first
           try {
-            const specificQuizUrl = `/api/quiz-data/arts-humanities/${folderName}/${params.quizId}`;
+            const specificQuizUrl = `/api/quiz-data/arts-humanities/${folderName}/${quizId}`;
             const specificResponse = await fetch(specificQuizUrl);
             if (specificResponse.ok) {
               const quiz = await specificResponse.json();
@@ -194,7 +195,7 @@ export default function QuizPage({
           if (response.ok) {
             const quizzes = await response.json();
             console.log("Loaded quizzes:", quizzes);
-            const quiz = quizzes.find((q: any) => q.id === params.quizId);
+            const quiz = quizzes.find((q: any) => q.id === quizId);
             console.log("Found quiz:", quiz);
 
             if (quiz) {
@@ -315,7 +316,7 @@ export default function QuizPage({
       }
     }
     loadQuiz();
-  }, [params.quizId, params.subject]);
+  }, [quizId, subject]);
 
   // Timer effect
   useEffect(() => {
@@ -409,8 +410,8 @@ export default function QuizPage({
 
             <div className="text-center">
               <h1 className="text-3xl md:text-4xl font-bold mb-2 text-gray-800">
-                {decodeURIComponent(params.subject).charAt(0).toUpperCase() +
-                  decodeURIComponent(params.subject).slice(1)}{" "}
+                {decodeURIComponent(subject).charAt(0).toUpperCase() +
+                  decodeURIComponent(subject).slice(1)}{" "}
                 Quiz
               </h1>
               <p className="text-lg text-gray-600">

@@ -53,6 +53,7 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
+  DialogDescription,
   DialogTrigger,
 } from "@/components/ui/dialog";
 
@@ -66,6 +67,13 @@ interface AdminStats {
   weeklyActiveUsers: number;
   monthlyActiveUsers: number;
   yearlyActiveUsers: number;
+  sessionData: {
+    totalSessions: number;
+    totalSessionTime: number;
+    totalPageViews: number;
+    averageSessionTime: number;
+    activeUsers: number;
+  };
   countries: { country: string; count: number; fullName: string }[];
   activities: {
     _id: string;
@@ -74,6 +82,10 @@ interface AdminStats {
     userId?: string;
     userEmail?: string;
     userName?: string;
+    type?: string;
+    sessionDuration?: number;
+    pageViews?: number;
+    actions?: string[];
   }[];
   users: {
     _id: string;
@@ -84,6 +96,17 @@ interface AdminStats {
     createdAt: string;
     isVerified: boolean;
     status: string;
+  }[];
+  userSessionStats: {
+    _id: string;
+    userName: string;
+    userEmail: string;
+    totalSessions: number;
+    totalSessionTime: number;
+    totalPageViews: number;
+    averageSessionTime: number;
+    lastSessionAt: string;
+    firstSessionAt: string;
   }[];
 }
 
@@ -101,6 +124,13 @@ export default function AdminDashboard() {
   const [selectedPeriod, setSelectedPeriod] = useState<string>("custom");
   const [selectedUser, setSelectedUser] = useState<any>(null);
   const [isUserModalOpen, setIsUserModalOpen] = useState(false);
+  const [selectedUserSessions, setSelectedUserSessions] = useState<any[]>([]);
+  const [selectedUserEmail, setSelectedUserEmail] = useState<string>('');
+  const [showUserSessionsModal, setShowUserSessionsModal] = useState(false);
+  const [selectedSession, setSelectedSession] = useState<any>(null);
+  const [showSessionDetailsModal, setShowSessionDetailsModal] = useState(false);
+  const [pageAnalytics, setPageAnalytics] = useState<any[]>([]);
+  const [showPageAnalyticsModal, setShowPageAnalyticsModal] = useState(false);
 
   // Check if user is admin
   const isAdmin = user?.email === "ranaareeb1029@gmail.com" || user?.email === "cliftonmanneh6@gmail.com";
@@ -188,6 +218,46 @@ export default function AdminDashboard() {
       document.body.removeChild(a);
     } catch (error) {
       console.error("Failed to export data:", error);
+    }
+  };
+
+  const viewUserSessions = async (userEmail: string) => {
+    try {
+      const response = await fetch(`/api/admin/user-sessions?email=${encodeURIComponent(userEmail)}`);
+      const data = await response.json();
+      
+      if (data.success) {
+        setSelectedUserSessions(data.sessions);
+        setSelectedUserEmail(userEmail);
+        setShowUserSessionsModal(true);
+      } else {
+        console.error('Failed to fetch user sessions:', data.error);
+      }
+    } catch (error) {
+      console.error('Failed to fetch user sessions:', error);
+    }
+  };
+
+  const viewSessionDetails = (session: any) => {
+    setSelectedSession(session);
+    setShowSessionDetailsModal(true);
+  };
+
+  const viewUserPageAnalytics = async (userEmail: string) => {
+    try {
+      // Get page analytics for the specific user
+      const response = await fetch(`/api/admin/page-analytics?userEmail=${encodeURIComponent(userEmail)}`);
+      const data = await response.json();
+      
+      if (data.success) {
+        setPageAnalytics(data.pageAnalytics);
+        setSelectedUserEmail(userEmail);
+        setShowPageAnalyticsModal(true);
+      } else {
+        console.error('Failed to fetch page analytics:', data.error);
+      }
+    } catch (error) {
+      console.error('Failed to fetch page analytics:', error);
     }
   };
 
@@ -315,10 +385,11 @@ export default function AdminDashboard() {
             </div>
           ) : stats ? (
             <Tabs defaultValue="overview" className="space-y-6">
-              <TabsList className="grid w-full grid-cols-4">
+              <TabsList className="grid w-full grid-cols-5">
                 <TabsTrigger value="overview">Overview</TabsTrigger>
                 <TabsTrigger value="users">Users</TabsTrigger>
                 <TabsTrigger value="activity">Activity</TabsTrigger>
+                <TabsTrigger value="sessions">Sessions</TabsTrigger>
                 <TabsTrigger value="geography">Geography</TabsTrigger>
               </TabsList>
 
@@ -476,10 +547,8 @@ export default function AdminDashboard() {
                      </CardContent>
                    </Card>
 
-                                     <Card className="border-0 shadow-lg bg-gradient-to-br from-blue-50 to-blue-100">
-                     <CardHeader>
-                       <CardTitle className="text-blue-800">Active User Trends</CardTitle>
-                     </CardHeader>
+                   <Card className="border-0 shadow-lg bg-gradient-to-br from-blue-50 to-blue-100">
+                     <CardTitle className="text-blue-800">Active User Trends</CardTitle>
                      <CardContent>
                        <div className="space-y-4">
                          <div className="flex justify-between items-center p-3 bg-white/50 rounded-lg">
@@ -510,6 +579,41 @@ export default function AdminDashboard() {
                      </CardContent>
                    </Card>
                 </div>
+
+                {/* Session Statistics */}
+                <Card className="border-0 shadow-lg bg-gradient-to-br from-purple-50 to-purple-100">
+                  <CardHeader>
+                    <CardTitle className="text-purple-800">Session Statistics</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                      <div className="text-center p-4 bg-white/50 rounded-lg">
+                        <div className="text-2xl font-bold text-purple-600">
+                          {stats.sessionData.totalSessions.toLocaleString()}
+                        </div>
+                        <div className="text-sm text-gray-600">Total Sessions</div>
+                      </div>
+                      <div className="text-center p-4 bg-white/50 rounded-lg">
+                        <div className="text-2xl font-bold text-purple-600">
+                          {Math.round(stats.sessionData.totalSessionTime / 60).toLocaleString()}
+                        </div>
+                        <div className="text-sm text-gray-600">Total Minutes</div>
+                      </div>
+                      <div className="text-center p-4 bg-white/50 rounded-lg">
+                        <div className="text-2xl font-bold text-purple-600">
+                          {Math.round(stats.sessionData.averageSessionTime / 60).toFixed(1)}
+                        </div>
+                        <div className="text-sm text-gray-600">Avg Session (min)</div>
+                      </div>
+                      <div className="text-center p-4 bg-white/50 rounded-lg">
+                        <div className="text-2xl font-bold text-purple-600">
+                          {stats.sessionData.totalPageViews.toLocaleString()}
+                        </div>
+                        <div className="text-sm text-gray-600">Total Page Views</div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
               </TabsContent>
 
                              {/* Users Tab */}
@@ -780,6 +884,174 @@ export default function AdminDashboard() {
                 </Card>
               </TabsContent>
 
+              {/* Sessions Tab */}
+              <TabsContent value="sessions" className="space-y-6">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  <Card className="border-0 shadow-lg bg-gradient-to-br from-indigo-50 to-indigo-100">
+                    <CardHeader>
+                      <CardTitle className="text-indigo-800">Session Overview</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-4">
+                        <div className="flex justify-between items-center p-3 bg-white/50 rounded-lg">
+                          <span className="text-sm font-medium text-indigo-700">Total Sessions</span>
+                          <span className="text-sm font-bold text-indigo-600">
+                            {stats.sessionData.totalSessions.toLocaleString()}
+                          </span>
+                        </div>
+                        <div className="flex justify-between items-center p-3 bg-white/50 rounded-lg">
+                          <span className="text-sm font-medium text-indigo-700">Total Time</span>
+                          <span className="text-sm font-bold text-indigo-600">
+                            {Math.round(stats.sessionData.totalSessionTime / 60).toLocaleString()} minutes
+                          </span>
+                        </div>
+                        <div className="flex justify-between items-center p-3 bg-white/50 rounded-lg">
+                          <span className="text-sm font-medium text-indigo-700">Average Session</span>
+                          <span className="text-sm font-bold text-indigo-600">
+                            {Math.round(stats.sessionData.averageSessionTime / 60).toFixed(1)} minutes
+                          </span>
+                        </div>
+                        <div className="flex justify-between items-center p-3 bg-white/50 rounded-lg">
+                          <span className="text-sm font-medium text-indigo-700">Total Page Views</span>
+                          <span className="text-sm font-bold text-indigo-600">
+                            {stats.sessionData.totalPageViews.toLocaleString()}
+                          </span>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="border-0 shadow-lg bg-gradient-to-br from-teal-50 to-teal-100">
+                    <CardHeader>
+                      <CardTitle className="text-teal-800">User Engagement</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-4">
+                        <div className="flex justify-between items-center p-3 bg-white/50 rounded-lg">
+                          <span className="text-sm font-medium text-teal-700">Active Users</span>
+                          <span className="text-sm font-bold text-teal-600">
+                            {stats.sessionData.activeUsers.toLocaleString()}
+                          </span>
+                        </div>
+                        <div className="flex justify-between items-center p-3 bg-white/50 rounded-lg">
+                          <span className="text-sm font-medium text-teal-700">Pages per Session</span>
+                          <span className="text-sm font-bold text-teal-600">
+                            {stats.sessionData.totalSessions > 0 
+                              ? (stats.sessionData.totalPageViews / stats.sessionData.totalSessions).toFixed(1)
+                              : '0'
+                            }
+                          </span>
+                        </div>
+                        <div className="flex justify-between items-center p-3 bg-white/50 rounded-lg">
+                          <span className="text-sm font-medium text-teal-700">Engagement Rate</span>
+                          <span className="text-sm font-bold text-teal-600">
+                            {stats.totalUsers > 0 
+                              ? ((stats.sessionData.activeUsers / stats.totalUsers) * 100).toFixed(1)
+                              : '0'
+                            }%
+                          </span>
+                        </div>
+                        <div className="flex justify-between items-center p-3 bg-white/50 rounded-lg">
+                          <span className="text-sm font-medium text-teal-700">Avg Time per Page</span>
+                          <span className="text-sm font-bold text-teal-600">
+                            {stats.sessionData.totalPageViews > 0 
+                              ? Math.round(stats.sessionData.totalSessionTime / stats.sessionData.totalPageViews / 60).toFixed(1)
+                              : '0'
+                            } min
+                          </span>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+
+                <Card>
+                  <CardHeader>
+                    <div className="flex items-center justify-between">
+                      <CardTitle>Users with Session Data</CardTitle>
+                      <Button
+                        onClick={() => exportData('userSessions')}
+                        variant="outline"
+                        size="sm"
+                      >
+                        <Download className="w-4 h-4 mr-2" />
+                        Export
+                      </Button>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="max-h-96 overflow-y-auto">
+                      <Table>
+                        <TableHeader>
+                          <TableRow>
+                            <TableHead>User</TableHead>
+                            <TableHead>Total Sessions</TableHead>
+                            <TableHead>Total Time</TableHead>
+                            <TableHead>Avg Session</TableHead>
+                            <TableHead>Total Page Views</TableHead>
+                            <TableHead>Last Session</TableHead>
+                            <TableHead>Actions</TableHead>
+                          </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                          {stats.userSessionStats && stats.userSessionStats.length > 0 ? (
+                            stats.userSessionStats.map((userSession) => (
+                              <TableRow key={userSession._id} className="hover:bg-gray-50 cursor-pointer">
+                                <TableCell className="text-sm">
+                                  <div>
+                                    <div className="font-medium">{userSession.userName}</div>
+                                    <div className="text-xs text-gray-500">{userSession.userEmail}</div>
+                                  </div>
+                                </TableCell>
+                                <TableCell className="text-sm font-medium">
+                                  {userSession.totalSessions}
+                                </TableCell>
+                                <TableCell className="text-sm">
+                                  {Math.round(userSession.totalSessionTime / 60)} minutes
+                                </TableCell>
+                                <TableCell className="text-sm">
+                                  {Math.round(userSession.averageSessionTime / 60).toFixed(1)} minutes
+                                </TableCell>
+                                <TableCell className="text-sm">
+                                  {userSession.totalPageViews}
+                                </TableCell>
+                                <TableCell className="text-sm">
+                                  {userSession.lastSessionAt ? new Date(userSession.lastSessionAt).toLocaleDateString() : 'Never'}
+                                </TableCell>
+                                <TableCell>
+                                  <div className="flex gap-2">
+                                    <Button
+                                      variant="outline"
+                                      size="sm"
+                                      onClick={() => viewUserSessions(userSession.userEmail)}
+                                    >
+                                      View Sessions
+                                    </Button>
+                                    <Button
+                                      variant="outline"
+                                      size="sm"
+                                      onClick={() => viewUserPageAnalytics(userSession.userEmail)}
+                                    >
+                                      Page Analytics
+                                    </Button>
+                                  </div>
+                                </TableCell>
+                              </TableRow>
+                            ))
+                          ) : (
+                            <TableRow>
+                              <TableCell colSpan={7} className="text-center py-8 text-gray-500">
+                                No user session data found. Session data will appear here as users interact with the platform.
+                              </TableCell>
+                            </TableRow>
+                          )}
+                        </TableBody>
+                      </Table>
+                    </div>
+                  </CardContent>
+                </Card>
+              </TabsContent>
+
                              {/* Geography Tab */}
                <TabsContent value="geography" className="space-y-6">
                  <Card className="border-0 shadow-lg bg-gradient-to-br from-emerald-50 to-emerald-100">
@@ -835,6 +1107,269 @@ export default function AdminDashboard() {
           )}
         </div>
       </div>
+
+      {/* User Sessions Modal */}
+      <Dialog open={showUserSessionsModal} onOpenChange={setShowUserSessionsModal}>
+        <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle>Session History for {selectedUserEmail}</DialogTitle>
+            <DialogDescription>
+              Detailed session history for this user
+            </DialogDescription>
+          </DialogHeader>
+          <div className="space-y-4">
+            {selectedUserSessions.length > 0 ? (
+              <Table>
+                                        <TableHeader>
+                          <TableRow>
+                            <TableHead>Date & Time</TableHead>
+                            <TableHead>Duration</TableHead>
+                            <TableHead>Page Views</TableHead>
+                            <TableHead>Actions</TableHead>
+                            <TableHead>Status</TableHead>
+                            <TableHead>Details</TableHead>
+                          </TableRow>
+                        </TableHeader>
+                <TableBody>
+                  {selectedUserSessions.map((session) => (
+                                      <TableRow key={session._id}>
+                    <TableCell className="text-sm">
+                      {session.endTime ? new Date(session.endTime).toLocaleString() : 'Invalid Date'}
+                    </TableCell>
+                    <TableCell className="text-sm">
+                      {Math.round(session.sessionDuration / 60)} minutes
+                    </TableCell>
+                    <TableCell className="text-sm">
+                      {session.pageViews || 0}
+                    </TableCell>
+                    <TableCell className="text-sm">
+                      {session.actions ? session.actions.length : 0}
+                    </TableCell>
+                    <TableCell className="text-sm">
+                      <Badge variant={session.status === 'completed' ? 'default' : 'secondary'}>
+                        {session.status}
+                      </Badge>
+                    </TableCell>
+                    <TableCell>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => viewSessionDetails(session)}
+                      >
+                        View Details
+                      </Button>
+                    </TableCell>
+                  </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            ) : (
+              <div className="text-center py-8 text-gray-500">
+                No session data found for this user.
+              </div>
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Session Details Modal */}
+      <Dialog open={showSessionDetailsModal} onOpenChange={setShowSessionDetailsModal}>
+        <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle>Session Details</DialogTitle>
+            <DialogDescription>
+              Detailed page visit information for this session
+            </DialogDescription>
+          </DialogHeader>
+          <div className="space-y-4">
+            {selectedSession && (
+              <>
+                <div className="grid grid-cols-2 gap-4 p-4 bg-gray-50 rounded-lg">
+                  <div>
+                    <h3 className="font-semibold text-gray-700">Session Overview</h3>
+                    <div className="text-sm text-gray-600 mt-2">
+                      <p><strong>Start Time:</strong> {selectedSession.startTime ? new Date(selectedSession.startTime).toLocaleString() : 'N/A'}</p>
+                      <p><strong>End Time:</strong> {selectedSession.endTime ? new Date(selectedSession.endTime).toLocaleString() : 'N/A'}</p>
+                      <p><strong>Duration:</strong> {Math.round(selectedSession.sessionDuration / 60)} minutes</p>
+                      <p><strong>Status:</strong> {selectedSession.status}</p>
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-700">Activity Summary</h3>
+                    <div className="text-sm text-gray-600 mt-2">
+                      <p><strong>Page Views:</strong> {selectedSession.pageViews || 0}</p>
+                      <p><strong>Total Actions:</strong> {selectedSession.actions ? selectedSession.actions.length : 0}</p>
+                      <p><strong>User Agent:</strong> {selectedSession.userAgent ? selectedSession.userAgent.substring(0, 50) + '...' : 'N/A'}</p>
+                      <p><strong>Referrer:</strong> {selectedSession.referrer || 'Direct'}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="font-semibold text-gray-700 mb-3">Page Visit Details</h3>
+                  {selectedSession.pageVisits && selectedSession.pageVisits.length > 0 ? (
+                    <Table>
+                      <TableHeader>
+                        <TableRow>
+                          <TableHead>Page</TableHead>
+                          <TableHead>Time Spent</TableHead>
+                          <TableHead>Actions</TableHead>
+                          <TableHead>Entry Time</TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {selectedSession.pageVisits.map((visit: any, index: number) => (
+                          <TableRow key={index}>
+                            <TableCell className="text-sm">
+                              <div>
+                                <div className="font-medium">{visit.page || 'Unknown Page'}</div>
+                                <div className="text-xs text-gray-500">{visit.url || 'N/A'}</div>
+                              </div>
+                            </TableCell>
+                            <TableCell className="text-sm">
+                              {visit.duration ? Math.round(visit.duration / 60) : 0} minutes
+                            </TableCell>
+                            <TableCell className="text-sm">
+                              {visit.actions ? visit.actions.length : 0}
+                            </TableCell>
+                            <TableCell className="text-sm">
+                              {visit.entryTime ? new Date(visit.entryTime).toLocaleTimeString() : 'N/A'}
+                            </TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  ) : (
+                    <div className="text-center py-8 text-gray-500">
+                      <p>No detailed page visit data available for this session.</p>
+                      <p className="text-sm mt-2">Page visit tracking will be available in future updates.</p>
+                    </div>
+                  )}
+                </div>
+
+                <div>
+                  <h3 className="font-semibold text-gray-700 mb-3">User Actions</h3>
+                  {selectedSession.actions && selectedSession.actions.length > 0 ? (
+                    <div className="max-h-40 overflow-y-auto">
+                      <div className="grid grid-cols-2 gap-2">
+                        {selectedSession.actions.map((action: string, index: number) => (
+                          <Badge key={index} variant="outline" className="text-xs">
+                            {action}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="text-center py-4 text-gray-500">
+                      No user actions recorded for this session.
+                    </div>
+                  )}
+                </div>
+              </>
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Page Analytics Modal */}
+      <Dialog open={showPageAnalyticsModal} onOpenChange={setShowPageAnalyticsModal}>
+        <DialogContent className="max-w-6xl max-h-[80vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle>Page Analytics{selectedUserEmail ? ` - ${selectedUserEmail}` : ''}</DialogTitle>
+            <DialogDescription>
+              {selectedUserEmail 
+                ? `Time spent on each page for ${selectedUserEmail}`
+                : 'Time spent on each page across all sessions'
+              }
+            </DialogDescription>
+          </DialogHeader>
+          <div className="space-y-4">
+            {pageAnalytics.length > 0 ? (
+              <>
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-6">
+                  <Card className="border-0 shadow-lg bg-gradient-to-br from-blue-50 to-blue-100">
+                    <CardHeader className="pb-2">
+                      <CardTitle className="text-sm font-medium text-blue-800">Total Pages</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="text-2xl font-bold text-blue-700">
+                        {pageAnalytics.length}
+                      </div>
+                    </CardContent>
+                  </Card>
+                  <Card className="border-0 shadow-lg bg-gradient-to-br from-green-50 to-green-100">
+                    <CardHeader className="pb-2">
+                      <CardTitle className="text-sm font-medium text-green-800">Total Time</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="text-2xl font-bold text-green-700">
+                        {Math.round(pageAnalytics.reduce((sum, page) => sum + page.totalTime, 0) / 60)} minutes
+                      </div>
+                    </CardContent>
+                  </Card>
+                  <Card className="border-0 shadow-lg bg-gradient-to-br from-purple-50 to-purple-100">
+                    <CardHeader className="pb-2">
+                      <CardTitle className="text-sm font-medium text-purple-800">Avg Time per Page</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="text-2xl font-bold text-purple-700">
+                        {pageAnalytics.length > 0 ? Math.round(pageAnalytics.reduce((sum, page) => sum + page.totalTime, 0) / pageAnalytics.length / 60) : 0} minutes
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Page Name</TableHead>
+                      <TableHead>URL</TableHead>
+                      <TableHead>Total Time</TableHead>
+                      <TableHead>Visits</TableHead>
+                      <TableHead>Avg Time per Visit</TableHead>
+                      <TableHead>Total Actions</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {pageAnalytics.map((page, index) => (
+                      <TableRow key={index}>
+                        <TableCell className="text-sm">
+                          <div>
+                            <div className="font-medium">{page.pageName}</div>
+                            <div className="text-xs text-gray-500">{page.page}</div>
+                          </div>
+                        </TableCell>
+                        <TableCell className="text-sm">
+                          <div className="max-w-xs truncate" title={page.url}>
+                            {page.url}
+                          </div>
+                        </TableCell>
+                        <TableCell className="text-sm font-medium">
+                          {Math.round(page.totalTime / 60)} minutes
+                        </TableCell>
+                        <TableCell className="text-sm">
+                          {page.visits}
+                        </TableCell>
+                        <TableCell className="text-sm">
+                          {page.visits > 0 ? Math.round(page.totalTime / page.visits / 60) : 0} minutes
+                        </TableCell>
+                        <TableCell className="text-sm">
+                          {page.totalActions}
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </>
+            ) : (
+              <div className="text-center py-8 text-gray-500">
+                <p>No page analytics data available.</p>
+                <p className="text-sm mt-2">Page visit tracking will populate this data as users interact with the platform.</p>
+              </div>
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
     </PageTransition>
   );
 } 

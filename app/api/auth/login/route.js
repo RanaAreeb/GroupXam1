@@ -73,6 +73,34 @@ export async function POST(request) {
       )
     }
 
+    // Update user's last login time
+    await users.updateOne(
+      { _id: user._id },
+      {
+        $set: {
+          lastLoginAt: new Date(),
+          updatedAt: new Date()
+        }
+      }
+    );
+
+    // Create login activity
+    try {
+      const activities = db.collection("activities");
+      await activities.insertOne({
+        type: 'login',
+        message: `${user.name} signed in to the platform`,
+        userId: user._id,
+        userName: user.name,
+        userEmail: user.email,
+        timestamp: new Date(),
+        createdAt: new Date(),
+      });
+    } catch (activityError) {
+      console.error('Failed to create login activity:', activityError);
+      // Don't fail the login if activity creation fails
+    }
+
     // Generate JWT token with role information
     const token = jwt.sign(
       {

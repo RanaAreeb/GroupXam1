@@ -108,23 +108,54 @@ export async function GET(request) {
             dateRange: { startDateObj, endDateObj }
         });
 
-        // Get active users (users who have logged in or performed activities)
-        // For now, we'll use a simpler approach since we might not have lastLoginAt field
+        // Get active users (users who have logged in recently)
         const dailyActiveUsers = await db.collection("users").countDocuments({
-            createdAt: { $gte: oneDayAgo }
+            lastLoginAt: { $gte: oneDayAgo }
         });
 
         const weeklyActiveUsers = await db.collection("users").countDocuments({
-            createdAt: { $gte: oneWeekAgo }
+            lastLoginAt: { $gte: oneWeekAgo }
         });
 
         const monthlyActiveUsers = await db.collection("users").countDocuments({
-            createdAt: { $gte: oneMonthAgo }
+            lastLoginAt: { $gte: oneMonthAgo }
         });
 
         const yearlyActiveUsers = await db.collection("users").countDocuments({
-            createdAt: { $gte: oneYearAgo }
+            lastLoginAt: { $gte: oneYearAgo }
         });
+
+        // Get session statistics from sessions collection for the selected period
+        const sessionStats = await db.collection("sessions").aggregate([
+            {
+                $match: {
+                    endTime: { $gte: startDateObj, $lte: endDateObj }
+                }
+            },
+            {
+                $group: {
+                    _id: null,
+                    totalSessions: { $sum: 1 },
+                    totalSessionTime: { $sum: "$sessionDuration" },
+                    totalPageViews: { $sum: "$pageViews" },
+                    averageSessionTime: { $avg: "$sessionDuration" },
+                    activeUsers: { $addToSet: "$userId" }
+                }
+            }
+        ]).toArray();
+
+        const sessionData = sessionStats[0] || {
+            totalSessions: 0,
+            totalSessionTime: 0,
+            totalPageViews: 0,
+            averageSessionTime: 0,
+            activeUsers: 0
+        };
+
+        // Convert activeUsers from array to count
+        if (sessionData.activeUsers && Array.isArray(sessionData.activeUsers)) {
+            sessionData.activeUsers = sessionData.activeUsers.length;
+        }
 
         // Get country distribution with full names for the selected period
         const countryStats = await db.collection("users").aggregate([
@@ -270,19 +301,68 @@ export async function GET(request) {
             fullName: countryNameMap[stat._id] || stat._id
         }));
 
-        // Get recent activities (show all activities, not filtered by date range)
+        // Get recent activities and sessions
         const activities = await db.collection("activities")
             .find({})
             .sort({ timestamp: -1 })
-            .limit(100)
+            .limit(50)
             .toArray();
 
-        // Fix timestamp formatting for activities
+        // Get recent sessions
+        const sessions = await db.collection("sessions")
+            .find({})
+            .sort({ endTime: -1 })
+            .limit(50)
+            .toArray();
+
+        // Get user session statistics (users with their total sessions)
+        const userSessionStats = await db.collection("sessions").aggregate([
+            {
+                $group: {
+                    _id: "$userId",
+                    userName: { $first: "$userName" },
+                    userEmail: { $first: "$userEmail" },
+                    totalSessions: { $sum: 1 },
+                    totalSessionTime: { $sum: "$sessionDuration" },
+                    totalPageViews: { $sum: "$pageViews" },
+                    averageSessionTime: { $avg: "$sessionDuration" },
+                    lastSessionAt: { $max: "$endTime" },
+                    firstSessionAt: { $min: "$startTime" }
+                }
+            },
+            {
+                $sort: { totalSessions: -1 }
+            }
+        ]).toArray();
+
+        // Format activities
         const formattedActivities = activities.map(activity => ({
             ...activity,
             timestamp: activity.timestamp ? new Date(activity.timestamp).toISOString() : new Date().toISOString(),
-            userEmail: activity.userEmail || activity.userName || 'Anonymous'
+            userEmail: activity.userEmail || activity.userName || 'Anonymous',
+            type: activity.type || 'activity'
         }));
+
+        // Format sessions as activities
+        const formattedSessions = sessions.map(session => ({
+            _id: session._id,
+            type: 'session',
+            message: `${session.userName} spent ${Math.round(session.sessionDuration / 60)} minutes on the platform`,
+            userId: session.userId,
+            userName: session.userName,
+            userEmail: session.userEmail,
+            sessionDuration: session.sessionDuration,
+            pageViews: session.pageViews,
+            actions: session.actions,
+            timestamp: session.endTime,
+            createdAt: session.createdAt,
+            updatedAt: session.updatedAt
+        }));
+
+        // Combine and sort all activities
+        const allActivities = [...formattedActivities, ...formattedSessions]
+            .sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime())
+            .slice(0, 100);
 
 
 
@@ -313,9 +393,11 @@ export async function GET(request) {
             weeklyActiveUsers,
             monthlyActiveUsers,
             yearlyActiveUsers,
+            sessionData,
             countries,
-            activities: formattedActivities,
-            users
+            activities: allActivities,
+            users,
+            userSessionStats
         };
 
         return NextResponse.json({

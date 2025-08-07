@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import CookieConsent from "@/components/CookieConsent";
+import SessionTracker from "@/components/SessionTracker";
 
 export const metadata: Metadata = {
   title:
@@ -279,7 +280,9 @@ export default function RootLayout({
       </head>
       <body>
         <CookieConsent />
-        {children}
+        <SessionTracker>
+          {children}
+        </SessionTracker>
       </body>
     </html>
   );
