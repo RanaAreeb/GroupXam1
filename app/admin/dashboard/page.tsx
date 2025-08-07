@@ -768,7 +768,7 @@ export default function AdminDashboard() {
                                    </div>
                                    <div className="text-right text-sm text-gray-500">
                                      <div>Country: {user.country}</div>
-                                     <div>Joined: {new Date(user.createdAt).toLocaleDateString()}</div>
+                                     <div>Joined : {new Date(user.createdAt).toLocaleDateString()}</div>
                                    </div>
                                  </div>
                                </div>
