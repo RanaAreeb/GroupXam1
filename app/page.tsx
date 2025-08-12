@@ -759,25 +759,7 @@ export default function HomePage() {
                   </div>
                 </Link>
 
-                {/* proctorIT Card */}
-                <Link
-                  href={isLoggedIn ? "/services" : "/login"}
-                  className="flex-shrink-0 w-72 sm:w-80 bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow cursor-pointer relative"
-                >
-                  <div className="bg-gradient-to-r from-emerald-400 to-lime-500 px-4 sm:px-6 py-4">
-                    <h3 className="text-lg sm:text-xl font-bold text-white">
-                      proctorIT
-                    </h3>
-                  </div>
-                  <div className="p-4 sm:p-6 bg-white h-40 sm:h-48 flex flex-col items-center justify-center">
-                    <div className="w-12 h-12 sm:w-16 sm:h-16 bg-emerald-100 rounded-2xl flex items-center justify-center mb-3 sm:mb-4">
-                      <Star className="w-6 h-6 sm:w-8 sm:h-8 text-emerald-600" />
-                    </div>
-                    <p className="text-xs sm:text-sm text-gray-600 text-center leading-relaxed">
-                      Enterprise exam solutions
-                    </p>
-                  </div>
-                </Link>
+                
               </div>
 
               {/* Mobile navigation dots - Only visible on mobile */}
