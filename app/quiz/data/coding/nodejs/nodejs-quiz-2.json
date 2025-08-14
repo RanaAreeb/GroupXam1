@@ -1,0 +1,114 @@
+{
+  "id": "nodejs-quiz-2",
+  "title": "Node.js Quiz 2",
+  "subject": "Node.js",
+  "difficulty": "Intermediate",
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the event loop in Node.js?",
+      "options": ["A loop", "A mechanism", "A process", "A thread"],
+      "correctAnswer": 1,
+      "explanation": "The event loop is a mechanism that allows Node.js to perform non-blocking I/O operations."
+    },
+    {
+      "id": 2,
+      "question": "What is a callback function?",
+      "options": ["A function", "A function passed as argument", "A return function", "A built-in function"],
+      "correctAnswer": 1,
+      "explanation": "A callback function is a function passed as an argument to another function."
+    },
+    {
+      "id": 3,
+      "question": "What is a Promise in Node.js?",
+      "options": ["A guarantee", "An asynchronous operation", "A function", "A variable"],
+      "correctAnswer": 1,
+      "explanation": "A Promise represents an asynchronous operation that may complete in the future."
+    },
+    {
+      "id": 4,
+      "question": "What is async/await?",
+      "options": ["New syntax", "Promise handling", "Both A and B", "Loop control"],
+      "correctAnswer": 2,
+      "explanation": "Async/await is new syntax for handling promises more cleanly."
+    },
+    {
+      "id": 5,
+      "question": "What is the fs module?",
+      "options": ["File system", "A module", "A function", "A variable"],
+      "correctAnswer": 0,
+      "explanation": "The fs module provides an API for interacting with the file system."
+    },
+    {
+      "id": 6,
+      "question": "What is the path module?",
+      "options": ["A module", "Path utilities", "A function", "A variable"],
+      "correctAnswer": 1,
+      "explanation": "The path module provides utilities for working with file and directory paths."
+    },
+    {
+      "id": 7,
+      "question": "What is the http module?",
+      "options": ["A module", "HTTP utilities", "A function", "A variable"],
+      "correctAnswer": 1,
+      "explanation": "The http module provides utilities for creating HTTP servers and clients."
+    },
+    {
+      "id": 8,
+      "question": "What is Express.js?",
+      "options": ["A framework", "A library", "A module", "A function"],
+      "correctAnswer": 0,
+      "explanation": "Express.js is a web application framework for Node.js."
+    },
+    {
+      "id": 9,
+      "question": "What is middleware in Express?",
+      "options": ["A function", "A component", "A layer", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Middleware in Express are functions that have access to the request and response objects."
+    },
+    {
+      "id": 10,
+      "question": "What is npm?",
+      "options": ["Node Package Manager", "A module", "A function", "A variable"],
+      "correctAnswer": 0,
+      "explanation": "npm (Node Package Manager) is a package manager for Node.js."
+    },
+    {
+      "id": 11,
+      "question": "What is a package.json file?",
+      "options": ["A configuration file", "A script file", "A module file", "A data file"],
+      "correctAnswer": 0,
+      "explanation": "package.json is a configuration file that contains metadata about a Node.js project."
+    },
+    {
+      "id": 12,
+      "question": "What is the process object?",
+      "options": ["A global object", "A module", "A function", "A variable"],
+      "correctAnswer": 0,
+      "explanation": "The process object is a global object that provides information about the current Node.js process."
+    },
+    {
+      "id": 13,
+      "question": "What is the Buffer class?",
+      "options": ["A class", "A data structure", "A module", "A function"],
+      "correctAnswer": 1,
+      "explanation": "Buffer is a class that handles binary data in Node.js."
+    },
+    {
+      "id": 14,
+      "question": "What is the Stream module?",
+      "options": ["A module", "Data streaming", "A function", "A variable"],
+      "correctAnswer": 1,
+      "explanation": "The Stream module provides an API for working with streaming data."
+    },
+    {
+      "id": 15,
+      "question": "What is the crypto module?",
+      "options": ["A module", "Cryptographic functionality", "A function", "A variable"],
+      "correctAnswer": 1,
+      "explanation": "The crypto module provides cryptographic functionality including hashing, encryption, and decryption."
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "id": "react-quiz-2",
+  "title": "React Quiz 2",
+  "subject": "React",
+  "difficulty": "Intermediate",
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is a React Hook?",
+      "options": ["A function", "A component", "A state", "A lifecycle method"],
+      "correctAnswer": 0,
+      "explanation": "React Hooks are functions that allow you to use state and other React features in functional components."
+    },
+    {
+      "id": 2,
+      "question": "What is the useState Hook?",
+      "options": ["A state hook", "A lifecycle hook", "A context hook", "A ref hook"],
+      "correctAnswer": 0,
+      "explanation": "useState is a Hook that lets you add state to functional components."
+    },
+    {
+      "id": 3,
+      "question": "What is the useEffect Hook?",
+      "options": ["A state hook", "A lifecycle hook", "A context hook", "A ref hook"],
+      "correctAnswer": 1,
+      "explanation": "useEffect is a Hook that lets you perform side effects in functional components."
+    },
+    {
+      "id": 4,
+      "question": "What is a controlled component?",
+      "options": ["A component with state", "A component controlled by React state", "A component with props", "A component with lifecycle"],
+      "correctAnswer": 1,
+      "explanation": "A controlled component is one whose value is controlled by React state."
+    },
+    {
+      "id": 5,
+      "question": "What is the Context API?",
+      "options": ["A state management", "A way to pass data", "A component", "A hook"],
+      "correctAnswer": 1,
+      "explanation": "Context API provides a way to pass data through the component tree without manually passing props."
+    },
+    {
+      "id": 6,
+      "question": "What is a React Fragment?",
+      "options": ["A component", "A wrapper", "A container", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "React Fragment is a way to group multiple elements without adding extra nodes to the DOM."
+    },
+    {
+      "id": 7,
+      "question": "What is the useRef Hook?",
+      "options": ["A state hook", "A lifecycle hook", "A ref hook", "A context hook"],
+      "correctAnswer": 2,
+      "explanation": "useRef is a Hook that returns a mutable ref object that persists for the full lifetime of the component."
+    },
+    {
+      "id": 8,
+      "question": "What is prop drilling?",
+      "options": ["Passing props", "Passing props through multiple levels", "A component pattern", "A state pattern"],
+      "correctAnswer": 1,
+      "explanation": "Prop drilling is passing props through multiple levels of components to reach a deeply nested component."
+    },
+    {
+      "id": 9,
+      "question": "What is a React Portal?",
+      "options": ["A component", "A way to render children", "A way to render outside DOM hierarchy", "A hook"],
+      "correctAnswer": 2,
+      "explanation": "React Portals provide a way to render children into a DOM node that exists outside the parent component's DOM hierarchy."
+    },
+    {
+      "id": 10,
+      "question": "What is the useMemo Hook?",
+      "options": ["A state hook", "A memoization hook", "A lifecycle hook", "A context hook"],
+      "correctAnswer": 1,
+      "explanation": "useMemo is a Hook that memoizes expensive calculations to optimize performance."
+    },
+    {
+      "id": 11,
+      "question": "What is the useCallback Hook?",
+      "options": ["A state hook", "A memoization hook", "A lifecycle hook", "A context hook"],
+      "correctAnswer": 1,
+      "explanation": "useCallback is a Hook that memoizes functions to prevent unnecessary re-renders."
+    },
+    {
+      "id": 12,
+      "question": "What is a React Error Boundary?",
+      "options": ["A component", "An error handler", "A way to catch errors", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Error Boundaries are React components that catch JavaScript errors anywhere in their child component tree."
+    },
+    {
+      "id": 13,
+      "question": "What is the useReducer Hook?",
+      "options": ["A state hook", "A reducer hook", "A lifecycle hook", "A context hook"],
+      "correctAnswer": 1,
+      "explanation": "useReducer is a Hook that manages complex state logic with a reducer function."
+    },
+    {
+      "id": 14,
+      "question": "What is React.memo?",
+      "options": ["A component", "A higher-order component", "A performance optimization", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "React.memo is a higher-order component that memoizes components to prevent unnecessary re-renders."
+    },
+    {
+      "id": 15,
+      "question": "What is the useLayoutEffect Hook?",
+      "options": ["A state hook", "A lifecycle hook", "A synchronous effect", "A context hook"],
+      "correctAnswer": 2,
+      "explanation": "useLayoutEffect is a Hook that fires synchronously after all DOM mutations, similar to componentDidMount and componentDidUpdate."
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "id": "economics-quiz-2",
+  "title": "Economics Quiz 2",
+  "subject": "Economics",
+  "difficulty": "Intermediate",
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is opportunity cost?",
+      "options": ["Money cost", "Value of next best alternative", "Total cost", "Fixed cost"],
+      "correctAnswer": 1,
+      "explanation": "Opportunity cost is the value of the next best alternative that must be forgone."
+    },
+    {
+      "id": 2,
+      "question": "What is the law of supply?",
+      "options": ["Price up, supply up", "Price down, supply up", "Price up, supply down", "No relationship"],
+      "correctAnswer": 0,
+      "explanation": "The law of supply states that as price increases, quantity supplied increases."
+    },
+    {
+      "id": 3,
+      "question": "What is the law of demand?",
+      "options": ["Price up, demand up", "Price down, demand up", "Price up, demand down", "No relationship"],
+      "correctAnswer": 2,
+      "explanation": "The law of demand states that as price increases, quantity demanded decreases."
+    },
+    {
+      "id": 4,
+      "question": "What is elasticity?",
+      "options": ["Responsiveness", "Price change", "Quantity change", "Market change"],
+      "correctAnswer": 0,
+      "explanation": "Elasticity measures the responsiveness of quantity to changes in price."
+    },
+    {
+      "id": 5,
+      "question": "What is a monopoly?",
+      "options": ["One seller", "Many sellers", "One buyer", "Many buyers"],
+      "correctAnswer": 0,
+      "explanation": "A monopoly is a market structure with only one seller."
+    },
+    {
+      "id": 6,
+      "question": "What is perfect competition?",
+      "options": ["Many sellers", "One seller", "Few sellers", "No sellers"],
+      "correctAnswer": 0,
+      "explanation": "Perfect competition has many sellers with identical products."
+    },
+    {
+      "id": 7,
+      "question": "What is GDP?",
+      "options": ["Gross Domestic Product", "Gross Domestic Price", "Gross Demand Product", "Gross Supply Product"],
+      "correctAnswer": 0,
+      "explanation": "GDP (Gross Domestic Product) measures the total value of goods and services produced."
+    },
+    {
+      "id": 8,
+      "question": "What is inflation?",
+      "options": ["Price increase", "Price decrease", "No change", "Market change"],
+      "correctAnswer": 0,
+      "explanation": "Inflation is a general increase in prices over time."
+    },
+    {
+      "id": 9,
+      "question": "What is unemployment?",
+      "options": ["Job loss", "People without jobs", "People seeking work", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Unemployment refers to people who are without jobs and seeking work."
+    },
+    {
+      "id": 10,
+      "question": "What is fiscal policy?",
+      "options": ["Government spending", "Taxation", "Both A and B", "Monetary policy"],
+      "correctAnswer": 2,
+      "explanation": "Fiscal policy involves government spending and taxation."
+    },
+    {
+      "id": 11,
+      "question": "What is monetary policy?",
+      "options": ["Money supply", "Interest rates", "Both A and B", "Fiscal policy"],
+      "correctAnswer": 2,
+      "explanation": "Monetary policy involves controlling money supply and interest rates."
+    },
+    {
+      "id": 12,
+      "question": "What is comparative advantage?",
+      "options": ["Absolute advantage", "Lower opportunity cost", "Higher efficiency", "Lower cost"],
+      "correctAnswer": 1,
+      "explanation": "Comparative advantage is producing at a lower opportunity cost than others."
+    },
+    {
+      "id": 13,
+      "question": "What is a tariff?",
+      "options": ["Tax on imports", "Tax on exports", "Subsidy", "Quota"],
+      "correctAnswer": 0,
+      "explanation": "A tariff is a tax on imported goods."
+    },
+    {
+      "id": 14,
+      "question": "What is a quota?",
+      "options": ["Tax", "Limit on quantity", "Subsidy", "Price control"],
+      "correctAnswer": 1,
+      "explanation": "A quota is a limit on the quantity of goods that can be imported."
+    },
+    {
+      "id": 15,
+      "question": "What is a subsidy?",
+      "options": ["Tax", "Payment", "Limit", "Price control"],
+      "correctAnswer": 1,
+      "explanation": "A subsidy is a payment made by the government to support certain activities."
+    }
+  ]
+}

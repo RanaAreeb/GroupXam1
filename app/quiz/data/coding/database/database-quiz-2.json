@@ -1,0 +1,114 @@
+{
+  "id": "database-quiz-2",
+  "title": "Database Quiz 2",
+  "subject": "Database",
+  "difficulty": "Intermediate",
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is SQL?",
+      "options": ["Structured Query Language", "A database", "A programming language", "A framework"],
+      "correctAnswer": 0,
+      "explanation": "SQL (Structured Query Language) is a standard language for managing relational databases."
+    },
+    {
+      "id": 2,
+      "question": "What is a primary key?",
+      "options": ["A unique identifier", "A foreign key", "A column", "A table"],
+      "correctAnswer": 0,
+      "explanation": "A primary key is a unique identifier for each record in a database table."
+    },
+    {
+      "id": 3,
+      "question": "What is a foreign key?",
+      "options": ["A unique identifier", "A reference to another table", "A column", "A table"],
+      "correctAnswer": 1,
+      "explanation": "A foreign key is a column that references the primary key of another table."
+    },
+    {
+      "id": 4,
+      "question": "What is normalization?",
+      "options": ["A process", "A database design technique", "A query", "A table"],
+      "correctAnswer": 1,
+      "explanation": "Normalization is a database design technique that organizes data to reduce redundancy."
+    },
+    {
+      "id": 5,
+      "question": "What is an index?",
+      "options": ["A data structure", "A table", "A column", "A query"],
+      "correctAnswer": 0,
+      "explanation": "An index is a data structure that improves the speed of data retrieval operations."
+    },
+    {
+      "id": 6,
+      "question": "What is a JOIN in SQL?",
+      "options": ["A clause", "A way to combine tables", "A function", "A table"],
+      "correctAnswer": 1,
+      "explanation": "A JOIN is used to combine rows from two or more tables based on related columns."
+    },
+    {
+      "id": 7,
+      "question": "What is ACID in databases?",
+      "options": ["A property", "Atomicity, Consistency, Isolation, Durability", "A database", "A query"],
+      "correctAnswer": 1,
+      "explanation": "ACID stands for Atomicity, Consistency, Isolation, and Durability - properties of database transactions."
+    },
+    {
+      "id": 8,
+      "question": "What is a transaction?",
+      "options": ["A unit of work", "A query", "A table", "A database"],
+      "correctAnswer": 0,
+      "explanation": "A transaction is a unit of work that contains one or more SQL statements."
+    },
+    {
+      "id": 9,
+      "question": "What is a stored procedure?",
+      "options": ["A function", "A precompiled SQL statement", "A table", "A query"],
+      "correctAnswer": 1,
+      "explanation": "A stored procedure is a precompiled collection of SQL statements stored in the database."
+    },
+    {
+      "id": 10,
+      "question": "What is a trigger?",
+      "options": ["A function", "An automatic action", "A table", "A query"],
+      "correctAnswer": 1,
+      "explanation": "A trigger is an automatic action that occurs when a specific event happens in a database."
+    },
+    {
+      "id": 11,
+      "question": "What is a view?",
+      "options": ["A virtual table", "A real table", "A query", "A function"],
+      "correctAnswer": 0,
+      "explanation": "A view is a virtual table based on the result set of an SQL statement."
+    },
+    {
+      "id": 12,
+      "question": "What is a constraint?",
+      "options": ["A rule", "A limitation", "A table", "A column"],
+      "correctAnswer": 0,
+      "explanation": "A constraint is a rule that limits the data that can be stored in a database."
+    },
+    {
+      "id": 13,
+      "question": "What is a deadlock?",
+      "options": ["A situation", "A condition where transactions wait", "A table", "A query"],
+      "correctAnswer": 1,
+      "explanation": "A deadlock is a condition where two or more transactions are waiting for each other to release locks."
+    },
+    {
+      "id": 14,
+      "question": "What is a backup?",
+      "options": ["A copy", "A duplicate of data", "A table", "A database"],
+      "correctAnswer": 1,
+      "explanation": "A backup is a duplicate of data that can be used to restore the original data if needed."
+    },
+    {
+      "id": 15,
+      "question": "What is replication?",
+      "options": ["A process", "Copying data", "A table", "A database"],
+      "correctAnswer": 1,
+      "explanation": "Replication is the process of copying data from one database to another."
+    }
+  ]
+}

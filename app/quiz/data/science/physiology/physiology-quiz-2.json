@@ -1,0 +1,114 @@
+{
+  "id": "physiology-quiz-2",
+  "title": "Physiology Quiz 2",
+  "subject": "Physiology",
+  "difficulty": "Intermediate",
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the primary function of the respiratory system?",
+      "options": ["Digestion", "Gas exchange", "Blood circulation", "Waste elimination"],
+      "correctAnswer": 1,
+      "explanation": "The respiratory system facilitates gas exchange between the body and environment."
+    },
+    {
+      "id": 2,
+      "question": "Which hormone regulates blood glucose levels?",
+      "options": ["Insulin", "Thyroxine", "Cortisol", "Adrenaline"],
+      "correctAnswer": 0,
+      "explanation": "Insulin lowers blood glucose while glucagon raises it."
+    },
+    {
+      "id": 3,
+      "question": "What is the normal resting heart rate for adults?",
+      "options": ["40-60 bpm", "60-100 bpm", "100-140 bpm", "140-180 bpm"],
+      "correctAnswer": 1,
+      "explanation": "Normal resting heart rate is 60-100 beats per minute."
+    },
+    {
+      "id": 4,
+      "question": "Which system controls body temperature?",
+      "options": ["Nervous", "Endocrine", "Integumentary", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Multiple systems work together to maintain body temperature."
+    },
+    {
+      "id": 5,
+      "question": "What is the function of the lymphatic system?",
+      "options": ["Blood circulation", "Immune defense", "Digestion", "Respiration"],
+      "correctAnswer": 1,
+      "explanation": "The lymphatic system is crucial for immune defense and fluid balance."
+    },
+    {
+      "id": 6,
+      "question": "Which organ produces bile?",
+      "options": ["Liver", "Gallbladder", "Pancreas", "Stomach"],
+      "correctAnswer": 0,
+      "explanation": "The liver produces bile, which is stored in the gallbladder."
+    },
+    {
+      "id": 7,
+      "question": "What is the main function of the urinary system?",
+      "options": ["Digestion", "Respiration", "Waste elimination", "Blood circulation"],
+      "correctAnswer": 2,
+      "explanation": "The urinary system filters blood and eliminates waste products."
+    },
+    {
+      "id": 8,
+      "question": "Which hormone is produced by the thyroid gland?",
+      "options": ["Insulin", "Thyroxine", "Cortisol", "Adrenaline"],
+      "correctAnswer": 1,
+      "explanation": "The thyroid produces thyroxine (T4) and triiodothyronine (T3)."
+    },
+    {
+      "id": 9,
+      "question": "What is the function of the digestive system?",
+      "options": ["Gas exchange", "Blood circulation", "Food breakdown", "Waste elimination"],
+      "correctAnswer": 2,
+      "explanation": "The digestive system breaks down food for nutrient absorption."
+    },
+    {
+      "id": 10,
+      "question": "Which system coordinates body movements?",
+      "options": ["Nervous", "Muscular", "Skeletal", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "The nervous, muscular, and skeletal systems work together for movement."
+    },
+    {
+      "id": 11,
+      "question": "What is the role of the endocrine system?",
+      "options": ["Blood circulation", "Hormone regulation", "Digestion", "Respiration"],
+      "correctAnswer": 1,
+      "explanation": "The endocrine system regulates body functions through hormones."
+    },
+    {
+      "id": 12,
+      "question": "Which organ is part of the integumentary system?",
+      "options": ["Heart", "Skin", "Liver", "Brain"],
+      "correctAnswer": 1,
+      "explanation": "The skin is the main organ of the integumentary system."
+    },
+    {
+      "id": 13,
+      "question": "What is the function of the cardiovascular system?",
+      "options": ["Blood circulation", "Gas exchange", "Digestion", "Waste elimination"],
+      "correctAnswer": 0,
+      "explanation": "The cardiovascular system circulates blood throughout the body."
+    },
+    {
+      "id": 14,
+      "question": "Which hormone is produced by the adrenal glands?",
+      "options": ["Insulin", "Thyroxine", "Cortisol", "Growth hormone"],
+      "correctAnswer": 2,
+      "explanation": "The adrenal glands produce cortisol and other stress hormones."
+    },
+    {
+      "id": 15,
+      "question": "What is homeostasis?",
+      "options": ["Disease state", "Balance maintenance", "Growth process", "Aging process"],
+      "correctAnswer": 1,
+      "explanation": "Homeostasis is the maintenance of internal balance despite external changes."
+    }
+  ]
+}

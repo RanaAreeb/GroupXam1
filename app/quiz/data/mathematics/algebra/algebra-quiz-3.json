@@ -1,0 +1,114 @@
+{
+  "id": "algebra-quiz-3",
+  "title": "Algebra Quiz 3",
+  "subject": "Algebra",
+  "difficulty": "Intermediate",
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the quadratic formula?",
+      "options": ["x = -b ± √(b² - 4ac) / 2a", "x = b ± √(b² - 4ac) / 2a", "x = -b ± √(b² + 4ac) / 2a", "x = b ± √(b² + 4ac) / 2a"],
+      "correctAnswer": 0,
+      "explanation": "The quadratic formula is x = -b ± √(b² - 4ac) / 2a for ax² + bx + c = 0."
+    },
+    {
+      "id": 2,
+      "question": "What is the discriminant of a quadratic equation?",
+      "options": ["b² - 4ac", "b² + 4ac", "2b - 4ac", "b - 4ac"],
+      "correctAnswer": 0,
+      "explanation": "The discriminant is b² - 4ac and determines the nature of roots."
+    },
+    {
+      "id": 3,
+      "question": "What is a polynomial?",
+      "options": ["A function", "An expression with variables and coefficients", "A number", "An equation"],
+      "correctAnswer": 1,
+      "explanation": "A polynomial is an expression with variables and coefficients using only addition, subtraction, and multiplication."
+    },
+    {
+      "id": 4,
+      "question": "What is factoring?",
+      "options": ["Breaking down expressions", "Multiplying expressions", "Adding expressions", "Dividing expressions"],
+      "correctAnswer": 0,
+      "explanation": "Factoring is breaking down an expression into simpler factors."
+    },
+    {
+      "id": 5,
+      "question": "What is a rational expression?",
+      "options": ["A fraction", "A polynomial divided by another polynomial", "A decimal", "A whole number"],
+      "correctAnswer": 1,
+      "explanation": "A rational expression is a polynomial divided by another polynomial."
+    },
+    {
+      "id": 6,
+      "question": "What is the slope-intercept form of a line?",
+      "options": ["y = mx + b", "y = mx - b", "y = x + b", "y = mx"],
+      "correctAnswer": 0,
+      "explanation": "The slope-intercept form is y = mx + b where m is slope and b is y-intercept."
+    },
+    {
+      "id": 7,
+      "question": "What is a system of equations?",
+      "options": ["One equation", "Multiple equations", "A function", "A variable"],
+      "correctAnswer": 1,
+      "explanation": "A system of equations is a set of equations with the same variables."
+    },
+    {
+      "id": 8,
+      "question": "What is substitution method?",
+      "options": ["A solving method", "Replacing variables", "Both A and B", "A formula"],
+      "correctAnswer": 2,
+      "explanation": "Substitution method involves replacing variables to solve systems of equations."
+    },
+    {
+      "id": 9,
+      "question": "What is elimination method?",
+      "options": ["A solving method", "Adding/subtracting equations", "Both A and B", "A formula"],
+      "correctAnswer": 2,
+      "explanation": "Elimination method involves adding or subtracting equations to eliminate variables."
+    },
+    {
+      "id": 10,
+      "question": "What is a function?",
+      "options": ["A relation", "A rule that assigns one output per input", "A variable", "An equation"],
+      "correctAnswer": 1,
+      "explanation": "A function is a rule that assigns exactly one output to each input."
+    },
+    {
+      "id": 11,
+      "question": "What is domain?",
+      "options": ["Input values", "Output values", "Both A and B", "Neither A nor B"],
+      "correctAnswer": 0,
+      "explanation": "Domain is the set of all possible input values for a function."
+    },
+    {
+      "id": 12,
+      "question": "What is range?",
+      "options": ["Input values", "Output values", "Both A and B", "Neither A nor B"],
+      "correctAnswer": 1,
+      "explanation": "Range is the set of all possible output values for a function."
+    },
+    {
+      "id": 13,
+      "question": "What is an inequality?",
+      "options": ["An equation", "A comparison", "A function", "A variable"],
+      "correctAnswer": 1,
+      "explanation": "An inequality is a mathematical statement comparing two expressions."
+    },
+    {
+      "id": 14,
+      "question": "What is absolute value?",
+      "options": ["Distance from zero", "A positive number", "A negative number", "A variable"],
+      "correctAnswer": 0,
+      "explanation": "Absolute value is the distance of a number from zero on the number line."
+    },
+    {
+      "id": 15,
+      "question": "What is a complex number?",
+      "options": ["A real number", "A number with imaginary part", "A whole number", "A fraction"],
+      "correctAnswer": 1,
+      "explanation": "A complex number has both real and imaginary parts (a + bi)."
+    }
+  ]
+}

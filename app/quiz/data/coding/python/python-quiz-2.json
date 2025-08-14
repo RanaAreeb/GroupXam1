@@ -1,0 +1,114 @@
+{
+  "id": "python-quiz-2",
+  "title": "Python Quiz 2",
+  "subject": "Python",
+  "difficulty": "Intermediate",
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is a list comprehension in Python?",
+      "options": ["A function", "A concise way to create lists", "A loop", "A variable"],
+      "correctAnswer": 1,
+      "explanation": "List comprehensions provide a concise way to create lists based on existing sequences."
+    },
+    {
+      "id": 2,
+      "question": "What is the difference between a list and a tuple?",
+      "options": ["No difference", "Lists are mutable, tuples are immutable", "Tuples are faster", "Lists are newer"],
+      "correctAnswer": 1,
+      "explanation": "Lists can be modified (mutable), while tuples cannot be changed (immutable)."
+    },
+    {
+      "id": 3,
+      "question": "What is a dictionary in Python?",
+      "options": ["A book", "A key-value data structure", "A function", "A loop"],
+      "correctAnswer": 1,
+      "explanation": "A dictionary is a collection of key-value pairs."
+    },
+    {
+      "id": 4,
+      "question": "What is the 'self' parameter?",
+      "options": ["A variable", "A reference to the instance", "A function", "A class"],
+      "correctAnswer": 1,
+      "explanation": "The 'self' parameter refers to the instance of the class."
+    },
+    {
+      "id": 5,
+      "question": "What is inheritance in Python?",
+      "options": ["A function", "A class taking properties from another", "A variable", "A loop"],
+      "correctAnswer": 1,
+      "explanation": "Inheritance allows a class to inherit properties and methods from another class."
+    },
+    {
+      "id": 6,
+      "question": "What is a module in Python?",
+      "options": ["A file", "A function", "A variable", "A class"],
+      "correctAnswer": 0,
+      "explanation": "A module is a Python file containing functions, classes, or variables."
+    },
+    {
+      "id": 7,
+      "question": "What is the 'with' statement used for?",
+      "options": ["Loops", "File handling", "Functions", "Classes"],
+      "correctAnswer": 1,
+      "explanation": "The 'with' statement is used for proper resource management, especially with files."
+    },
+    {
+      "id": 8,
+      "question": "What is a generator in Python?",
+      "options": ["A function", "An iterator", "A class", "A variable"],
+      "correctAnswer": 1,
+      "explanation": "A generator is a function that returns an iterator object."
+    },
+    {
+      "id": 9,
+      "question": "What is the 'yield' keyword?",
+      "options": ["A return statement", "A generator function", "A loop", "A variable"],
+      "correctAnswer": 1,
+      "explanation": "The 'yield' keyword is used in generator functions to return values one at a time."
+    },
+    {
+      "id": 10,
+      "question": "What is a decorator in Python?",
+      "options": ["A function", "A function that modifies another function", "A class", "A variable"],
+      "correctAnswer": 1,
+      "explanation": "A decorator is a function that modifies or enhances another function."
+    },
+    {
+      "id": 11,
+      "question": "What is the 'lambda' function?",
+      "options": ["A named function", "An anonymous function", "A class", "A variable"],
+      "correctAnswer": 1,
+      "explanation": "A lambda function is an anonymous function defined with the lambda keyword."
+    },
+    {
+      "id": 12,
+      "question": "What is the 'map' function?",
+      "options": ["A function", "A function that applies to all items", "A class", "A variable"],
+      "correctAnswer": 1,
+      "explanation": "The map function applies a given function to all items in an iterable."
+    },
+    {
+      "id": 13,
+      "question": "What is the 'filter' function?",
+      "options": ["A function", "A function that filters items", "A class", "A variable"],
+      "correctAnswer": 1,
+      "explanation": "The filter function creates an iterator of elements that satisfy a condition."
+    },
+    {
+      "id": 14,
+      "question": "What is the 'reduce' function?",
+      "options": ["A function", "A function that reduces to single value", "A class", "A variable"],
+      "correctAnswer": 1,
+      "explanation": "The reduce function applies a function to all items and returns a single value."
+    },
+    {
+      "id": 15,
+      "question": "What is a virtual environment?",
+      "options": ["A computer", "An isolated Python environment", "A function", "A class"],
+      "correctAnswer": 1,
+      "explanation": "A virtual environment is an isolated Python environment for project dependencies."
+    }
+  ]
+}

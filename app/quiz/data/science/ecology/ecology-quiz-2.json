@@ -1,0 +1,114 @@
+{
+  "id": "ecology-quiz-2",
+  "title": "Ecology Quiz 2",
+  "subject": "Ecology",
+  "difficulty": "Intermediate",
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is a food chain?",
+      "options": ["Linear feeding relationship", "Complex feeding network", "Energy pyramid", "Trophic level"],
+      "correctAnswer": 0,
+      "explanation": "A food chain shows a linear sequence of who eats whom."
+    },
+    {
+      "id": 2,
+      "question": "Which organism is a primary producer?",
+      "options": ["Herbivore", "Carnivore", "Plant", "Decomposer"],
+      "correctAnswer": 2,
+      "explanation": "Plants are primary producers that convert sunlight to energy."
+    },
+    {
+      "id": 3,
+      "question": "What is biodiversity?",
+      "options": ["Species richness", "Genetic diversity", "Ecosystem variety", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Biodiversity includes species, genetic, and ecosystem diversity."
+    },
+    {
+      "id": 4,
+      "question": "Which factor is abiotic?",
+      "options": ["Temperature", "Predator", "Prey", "Competitor"],
+      "correctAnswer": 0,
+      "explanation": "Temperature is a non-living (abiotic) environmental factor."
+    },
+    {
+      "id": 5,
+      "question": "What is a niche?",
+      "options": ["Habitat", "Role in ecosystem", "Geographic range", "Population size"],
+      "correctAnswer": 1,
+      "explanation": "A niche is an organism's role and position in its ecosystem."
+    },
+    {
+      "id": 6,
+      "question": "Which relationship benefits both species?",
+      "options": ["Parasitism", "Commensalism", "Mutualism", "Competition"],
+      "correctAnswer": 2,
+      "explanation": "Mutualism is a relationship where both species benefit."
+    },
+    {
+      "id": 7,
+      "question": "What is carrying capacity?",
+      "options": ["Maximum population size", "Minimum population size", "Growth rate", "Death rate"],
+      "correctAnswer": 0,
+      "explanation": "Carrying capacity is the maximum population an environment can support."
+    },
+    {
+      "id": 8,
+      "question": "Which process recycles nutrients?",
+      "options": ["Photosynthesis", "Decomposition", "Respiration", "Predation"],
+      "correctAnswer": 1,
+      "explanation": "Decomposition recycles nutrients back to the environment."
+    },
+    {
+      "id": 9,
+      "question": "What is a keystone species?",
+      "options": ["Most abundant species", "Largest species", "Species with disproportionate impact", "Rarest species"],
+      "correctAnswer": 2,
+      "explanation": "Keystone species have a disproportionate impact on ecosystem structure."
+    },
+    {
+      "id": 10,
+      "question": "Which factor limits population growth?",
+      "options": ["Limiting factor", "Growth factor", "Density factor", "Carrying factor"],
+      "correctAnswer": 0,
+      "explanation": "Limiting factors restrict population growth in an ecosystem."
+    },
+    {
+      "id": 11,
+      "question": "What is succession?",
+      "options": ["Population growth", "Community change over time", "Species extinction", "Climate change"],
+      "correctAnswer": 1,
+      "explanation": "Succession is the gradual change in community composition over time."
+    },
+    {
+      "id": 12,
+      "question": "Which organism is a decomposer?",
+      "options": ["Bacteria", "Herbivore", "Carnivore", "Producer"],
+      "correctAnswer": 0,
+      "explanation": "Bacteria and fungi are decomposers that break down dead organic matter."
+    },
+    {
+      "id": 13,
+      "question": "What is a food web?",
+      "options": ["Linear feeding relationship", "Complex feeding network", "Energy pyramid", "Trophic level"],
+      "correctAnswer": 1,
+      "explanation": "A food web shows complex feeding relationships in an ecosystem."
+    },
+    {
+      "id": 14,
+      "question": "Which factor is biotic?",
+      "options": ["Temperature", "Rainfall", "Competitor", "Sunlight"],
+      "correctAnswer": 2,
+      "explanation": "Competitors are living (biotic) factors in an ecosystem."
+    },
+    {
+      "id": 15,
+      "question": "What is an ecosystem?",
+      "options": ["Community of organisms", "Physical environment", "Community plus environment", "Population"],
+      "correctAnswer": 2,
+      "explanation": "An ecosystem includes both living organisms and their physical environment."
+    }
+  ]
+}

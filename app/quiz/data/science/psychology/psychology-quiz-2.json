@@ -1,0 +1,114 @@
+{
+  "id": "psychology-quiz-2",
+  "title": "Psychology Quiz 2",
+  "subject": "Psychology",
+  "difficulty": "Intermediate",
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is classical conditioning?",
+      "options": ["Learning by association", "Learning by consequences", "Learning by observation", "Learning by insight"],
+      "correctAnswer": 0,
+      "explanation": "Classical conditioning is learning through association of stimuli."
+    },
+    {
+      "id": 2,
+      "question": "Which psychologist is known for operant conditioning?",
+      "options": ["Pavlov", "Skinner", "Watson", "Bandura"],
+      "correctAnswer": 1,
+      "explanation": "B.F. Skinner developed operant conditioning theory."
+    },
+    {
+      "id": 3,
+      "question": "What is cognitive psychology?",
+      "options": ["Study of behavior", "Study of mental processes", "Study of emotions", "Study of personality"],
+      "correctAnswer": 1,
+      "explanation": "Cognitive psychology focuses on mental processes like thinking and memory."
+    },
+    {
+      "id": 4,
+      "question": "Which defense mechanism involves attributing feelings to others?",
+      "options": ["Projection", "Displacement", "Sublimation", "Repression"],
+      "correctAnswer": 0,
+      "explanation": "Projection involves attributing one's own feelings to others."
+    },
+    {
+      "id": 5,
+      "question": "What is the function of the hippocampus?",
+      "options": ["Memory formation", "Emotion regulation", "Motor control", "Visual processing"],
+      "correctAnswer": 0,
+      "explanation": "The hippocampus is crucial for memory formation and consolidation."
+    },
+    {
+      "id": 6,
+      "question": "Which theory explains motivation by hierarchy of needs?",
+      "options": ["Maslow", "Freud", "Erikson", "Piaget"],
+      "correctAnswer": 0,
+      "explanation": "Maslow's hierarchy of needs explains human motivation."
+    },
+    {
+      "id": 7,
+      "question": "What is social learning theory?",
+      "options": ["Learning by association", "Learning by consequences", "Learning by observation", "Learning by insight"],
+      "correctAnswer": 2,
+      "explanation": "Social learning theory emphasizes learning through observation and imitation."
+    },
+    {
+      "id": 8,
+      "question": "Which disorder involves excessive worry?",
+      "options": ["Depression", "Anxiety", "Schizophrenia", "Bipolar"],
+      "correctAnswer": 1,
+      "explanation": "Anxiety disorders involve excessive worry and fear."
+    },
+    {
+      "id": 9,
+      "question": "What is the function of the amygdala?",
+      "options": ["Memory formation", "Emotion processing", "Motor control", "Visual processing"],
+      "correctAnswer": 1,
+      "explanation": "The amygdala processes emotions, especially fear and aggression."
+    },
+    {
+      "id": 10,
+      "question": "Which therapy focuses on changing thoughts?",
+      "options": ["Psychoanalysis", "CBT", "Humanistic", "Behavioral"],
+      "correctAnswer": 1,
+      "explanation": "Cognitive Behavioral Therapy (CBT) focuses on changing maladaptive thoughts."
+    },
+    {
+      "id": 11,
+      "question": "What is the function of the prefrontal cortex?",
+      "options": ["Memory formation", "Emotion regulation", "Decision making", "Motor control"],
+      "correctAnswer": 2,
+      "explanation": "The prefrontal cortex is involved in decision making and executive functions."
+    },
+    {
+      "id": 12,
+      "question": "Which theory explains personality development?",
+      "options": ["Psychoanalytic", "Behavioral", "Cognitive", "Humanistic"],
+      "correctAnswer": 0,
+      "explanation": "Psychoanalytic theory explains personality development through unconscious processes."
+    },
+    {
+      "id": 13,
+      "question": "What is the function of neurotransmitters?",
+      "options": ["Energy production", "Cell communication", "Protein synthesis", "DNA replication"],
+      "correctAnswer": 1,
+      "explanation": "Neurotransmitters are chemical messengers that communicate between neurons."
+    },
+    {
+      "id": 14,
+      "question": "Which disorder involves mood swings?",
+      "options": ["Depression", "Anxiety", "Bipolar", "Schizophrenia"],
+      "correctAnswer": 2,
+      "explanation": "Bipolar disorder involves extreme mood swings between depression and mania."
+    },
+    {
+      "id": 15,
+      "question": "What is the function of the cerebellum?",
+      "options": ["Memory formation", "Emotion regulation", "Motor coordination", "Visual processing"],
+      "correctAnswer": 2,
+      "explanation": "The cerebellum coordinates movement and balance."
+    }
+  ]
+}

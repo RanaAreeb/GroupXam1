@@ -1,0 +1,25 @@
+{
+  "id": "anatomy-quiz-2",
+  "title": "Anatomy Quiz 2",
+  "subject": "Anatomy",
+  "difficulty": "Intermediate",
+  "timeLimit": 900,
+  "questions": [
+    {"id": 1, "question": "Which organ filters blood to form urine?", "options": ["Liver", "Kidney", "Spleen", "Pancreas"], "correctAnswer": 1, "explanation": "The kidneys filter blood to remove waste, producing urine."},
+    {"id": 2, "question": "What is the primary function of red blood cells?", "options": ["Clotting", "Immunity", "Oxygen transport", "Hormone production"], "correctAnswer": 2, "explanation": "Red blood cells transport oxygen via hemoglobin."},
+    {"id": 3, "question": "Which valve is between the left atrium and left ventricle?", "options": ["Tricuspid", "Pulmonary", "Mitral", "Aortic"], "correctAnswer": 2, "explanation": "The mitral (bicuspid) valve separates the left atrium and left ventricle."},
+    {"id": 4, "question": "Which bone is commonly called the collarbone?", "options": ["Scapula", "Clavicle", "Sternum", "Hyoid"], "correctAnswer": 1, "explanation": "The clavicle is the collarbone."},
+    {"id": 5, "question": "Which lobe of the brain is responsible for vision?", "options": ["Frontal", "Temporal", "Parietal", "Occipital"], "correctAnswer": 3, "explanation": "The occipital lobe processes visual information."},
+    {"id": 6, "question": "Where is the femur located?", "options": ["Arm", "Leg", "Skull", "Spine"], "correctAnswer": 1, "explanation": "The femur is the thigh bone in the leg."},
+    {"id": 7, "question": "What is the function of the alveoli?", "options": ["Sound production", "Gas exchange", "Food digestion", "Blood filtration"], "correctAnswer": 1, "explanation": "Alveoli are the sites of gas exchange in the lungs."},
+    {"id": 8, "question": "Which structure connects muscles to bones?", "options": ["Ligaments", "Tendons", "Cartilage", "Fascia"], "correctAnswer": 1, "explanation": "Tendons connect muscles to bones."},
+    {"id": 9, "question": "What is the smallest bone in the human body?", "options": ["Stapes", "Incus", "Malleus", "Hyoid"], "correctAnswer": 0, "explanation": "The stapes in the middle ear is the smallest bone."},
+    {"id": 10, "question": "Which organ produces insulin?", "options": ["Liver", "Pancreas", "Stomach", "Spleen"], "correctAnswer": 1, "explanation": "The pancreas produces insulin and glucagon."},
+    {"id": 11, "question": "What type of joint is the elbow?", "options": ["Ball and socket", "Hinge", "Pivot", "Saddle"], "correctAnswer": 1, "explanation": "The elbow is a hinge joint."},
+    {"id": 12, "question": "Which structure covers the ends of long bones?", "options": ["Periosteum", "Articular cartilage", "Meniscus", "Synovium"], "correctAnswer": 1, "explanation": "Articular cartilage reduces friction at joints."},
+    {"id": 13, "question": "Which cranial nerve controls facial expression?", "options": ["Trigeminal (V)", "Facial (VII)", "Vagus (X)", "Accessory (XI)"], "correctAnswer": 1, "explanation": "The facial nerve (VII) innervates muscles of facial expression."},
+    {"id": 14, "question": "What is the normal pH of human blood?", "options": ["6.8", "7.0", "7.4", "7.6"], "correctAnswer": 2, "explanation": "Normal arterial blood pH is approximately 7.4."},
+    {"id": 15, "question": "Which organ stores bile?", "options": ["Liver", "Gallbladder", "Pancreas", "Stomach"], "correctAnswer": 1, "explanation": "The gallbladder stores and concentrates bile."}
+  ]
+}
+

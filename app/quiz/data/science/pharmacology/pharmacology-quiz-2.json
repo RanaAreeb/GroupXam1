@@ -1,0 +1,114 @@
+{
+  "id": "pharmacology-quiz-2",
+  "title": "Pharmacology Quiz 2",
+  "subject": "Pharmacology",
+  "difficulty": "Intermediate",
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the study of drug effects on the body called?",
+      "options": ["Pharmacokinetics", "Pharmacodynamics", "Pharmacology", "Toxicology"],
+      "correctAnswer": 2,
+      "explanation": "Pharmacology is the study of drug effects and mechanisms of action."
+    },
+    {
+      "id": 2,
+      "question": "Which route of administration bypasses the digestive system?",
+      "options": ["Oral", "Intravenous", "Sublingual", "Rectal"],
+      "correctAnswer": 1,
+      "explanation": "Intravenous administration delivers drugs directly into the bloodstream."
+    },
+    {
+      "id": 3,
+      "question": "What is the therapeutic index?",
+      "options": ["Drug effectiveness", "Drug safety", "Ratio of toxic to therapeutic dose", "Drug cost"],
+      "correctAnswer": 2,
+      "explanation": "Therapeutic index is the ratio of toxic dose to therapeutic dose."
+    },
+    {
+      "id": 4,
+      "question": "Which drug class is used to treat bacterial infections?",
+      "options": ["Antibiotics", "Antivirals", "Antifungals", "Antiparasitics"],
+      "correctAnswer": 0,
+      "explanation": "Antibiotics specifically target bacterial infections."
+    },
+    {
+      "id": 5,
+      "question": "What is drug metabolism?",
+      "options": ["Drug absorption", "Drug breakdown", "Drug distribution", "Drug elimination"],
+      "correctAnswer": 1,
+      "explanation": "Drug metabolism is the breakdown of drugs by enzymes in the body."
+    },
+    {
+      "id": 6,
+      "question": "Which organ is primarily responsible for drug metabolism?",
+      "options": ["Kidney", "Liver", "Heart", "Brain"],
+      "correctAnswer": 1,
+      "explanation": "The liver contains enzymes that metabolize most drugs."
+    },
+    {
+      "id": 7,
+      "question": "What is a side effect?",
+      "options": ["Intended drug effect", "Unintended drug effect", "Drug interaction", "Drug allergy"],
+      "correctAnswer": 1,
+      "explanation": "Side effects are unintended effects of drug therapy."
+    },
+    {
+      "id": 8,
+      "question": "Which drug class is used to treat pain?",
+      "options": ["Analgesics", "Antibiotics", "Antihistamines", "Antidepressants"],
+      "correctAnswer": 0,
+      "explanation": "Analgesics are drugs used to relieve pain."
+    },
+    {
+      "id": 9,
+      "question": "What is drug tolerance?",
+      "options": ["Drug allergy", "Decreased drug response", "Drug interaction", "Drug addiction"],
+      "correctAnswer": 1,
+      "explanation": "Tolerance is decreased response to a drug with repeated use."
+    },
+    {
+      "id": 10,
+      "question": "Which drug class is used to treat high blood pressure?",
+      "options": ["Antihypertensives", "Antibiotics", "Analgesics", "Antidepressants"],
+      "correctAnswer": 0,
+      "explanation": "Antihypertensive drugs lower blood pressure."
+    },
+    {
+      "id": 11,
+      "question": "What is drug excretion?",
+      "options": ["Drug absorption", "Drug metabolism", "Drug elimination", "Drug distribution"],
+      "correctAnswer": 2,
+      "explanation": "Drug excretion is the elimination of drugs from the body."
+    },
+    {
+      "id": 12,
+      "question": "Which organ is primarily responsible for drug excretion?",
+      "options": ["Liver", "Kidney", "Heart", "Brain"],
+      "correctAnswer": 1,
+      "explanation": "The kidneys filter and excrete most drugs and their metabolites."
+    },
+    {
+      "id": 13,
+      "question": "What is a drug interaction?",
+      "options": ["Drug allergy", "Drug tolerance", "Effect of one drug on another", "Drug addiction"],
+      "correctAnswer": 2,
+      "explanation": "Drug interactions occur when one drug affects the action of another."
+    },
+    {
+      "id": 14,
+      "question": "Which drug class is used to treat depression?",
+      "options": ["Antidepressants", "Antibiotics", "Analgesics", "Antihistamines"],
+      "correctAnswer": 0,
+      "explanation": "Antidepressants are used to treat depression and related disorders."
+    },
+    {
+      "id": 15,
+      "question": "What is drug addiction?",
+      "options": ["Drug allergy", "Drug tolerance", "Drug interaction", "Compulsive drug use"],
+      "correctAnswer": 3,
+      "explanation": "Drug addiction is compulsive drug use despite harmful consequences."
+    }
+  ]
+}

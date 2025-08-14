@@ -1,0 +1,25 @@
+{
+  "id": "anatomy-quiz-3",
+  "title": "Anatomy Quiz 3",
+  "subject": "Anatomy",
+  "difficulty": "Intermediate",
+  "timeLimit": 900,
+  "questions": [
+    {"id": 1, "question": "Which tissue lines the inner surface of blood vessels?", "options": ["Endothelium", "Epithelium", "Mesothelium", "Peritoneum"], "correctAnswer": 0, "explanation": "Endothelium is a specialized simple squamous epithelium lining blood vessels."},
+    {"id": 2, "question": "Which bone forms the forehead?", "options": ["Parietal", "Temporal", "Frontal", "Occipital"], "correctAnswer": 2, "explanation": "The frontal bone forms the forehead and roofs of the orbits."},
+    {"id": 3, "question": "What is the functional unit of the kidney?", "options": ["Neuron", "Nephron", "Alveolus", "Sarcomere"], "correctAnswer": 1, "explanation": "The nephron filters blood and forms urine."},
+    {"id": 4, "question": "Which structure connects the pharynx to the stomach?", "options": ["Trachea", "Esophagus", "Duodenum", "Ileum"], "correctAnswer": 1, "explanation": "The esophagus is the muscular tube connecting pharynx to stomach."},
+    {"id": 5, "question": "Which muscle is the primary inspiratory muscle?", "options": ["Intercostals", "Diaphragm", "Sternocleidomastoid", "Scalenes"], "correctAnswer": 1, "explanation": "The diaphragm is the main muscle of inspiration."},
+    {"id": 6, "question": "Which bone articulates with the patella?", "options": ["Tibia", "Fibula", "Femur", "Talus"], "correctAnswer": 2, "explanation": "The patella articulates with the femur at the trochlear groove."},
+    {"id": 7, "question": "Which leukocytes are primarily responsible for antibody production?", "options": ["Neutrophils", "B lymphocytes", "T lymphocytes", "Monocytes"], "correctAnswer": 1, "explanation": "B cells differentiate into plasma cells that secrete antibodies."},
+    {"id": 8, "question": "What is the anatomical term for the voice box?", "options": ["Pharynx", "Larynx", "Trachea", "Bronchus"], "correctAnswer": 1, "explanation": "The larynx houses the vocal cords and is called the voice box."},
+    {"id": 9, "question": "Which ligament prevents anterior displacement of the tibia?", "options": ["PCL", "MCL", "ACL", "LCL"], "correctAnswer": 2, "explanation": "The ACL prevents anterior translation of the tibia relative to the femur."},
+    {"id": 10, "question": "What is the name of the first cervical vertebra?", "options": ["Axis", "Atlas", "C3", "Occiput"], "correctAnswer": 1, "explanation": "C1 is called the atlas; it supports the skull."},
+    {"id": 11, "question": "Which organ contains the islets of Langerhans?", "options": ["Liver", "Pancreas", "Spleen", "Thyroid"], "correctAnswer": 1, "explanation": "Pancreatic islets contain endocrine cells that secrete insulin and glucagon."},
+    {"id": 12, "question": "Which artery is the main blood supply to the brain?", "options": ["Coronary artery", "Carotid artery", "Femoral artery", "Radial artery"], "correctAnswer": 1, "explanation": "The internal carotid and vertebral arteries supply the brain."},
+    {"id": 13, "question": "Which structure separates the thoracic and abdominal cavities?", "options": ["Pelvic floor", "Diaphragm", "Mediastinum", "Pleura"], "correctAnswer": 1, "explanation": "The diaphragm is the muscular partition between thorax and abdomen."},
+    {"id": 14, "question": "Which part of the long bone contains the growth plate?", "options": ["Diaphysis", "Epiphysis", "Metaphysis", "Medullary cavity"], "correctAnswer": 2, "explanation": "The growth plate (physis) lies within the metaphysis during development."},
+    {"id": 15, "question": "Which cranial bone houses the inner ear structures?", "options": ["Frontal", "Temporal", "Sphenoid", "Ethmoid"], "correctAnswer": 1, "explanation": "The petrous part of the temporal bone contains the inner ear."}
+  ]
+}
+

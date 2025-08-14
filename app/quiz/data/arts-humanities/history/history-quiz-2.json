@@ -1,0 +1,114 @@
+{
+  "id": "history-quiz-2",
+  "title": "History Quiz 2",
+  "subject": "History",
+  "difficulty": "Intermediate",
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is a primary source?",
+      "options": ["A textbook", "An original document", "A secondary source", "A modern interpretation"],
+      "correctAnswer": 1,
+      "explanation": "A primary source is an original document or artifact from the time period being studied."
+    },
+    {
+      "id": 2,
+      "question": "What is a secondary source?",
+      "options": ["An original document", "An interpretation", "A modern analysis", "Both B and C"],
+      "correctAnswer": 3,
+      "explanation": "A secondary source is an interpretation or analysis of primary sources."
+    },
+    {
+      "id": 3,
+      "question": "What is historiography?",
+      "options": ["The study of history", "The study of historical writing", "A historical event", "A historical period"],
+      "correctAnswer": 1,
+      "explanation": "Historiography is the study of how history is written and interpreted."
+    },
+    {
+      "id": 4,
+      "question": "What is a civilization?",
+      "options": ["A society", "A complex society", "A city", "A country"],
+      "correctAnswer": 1,
+      "explanation": "A civilization is a complex society with advanced social, cultural, and technological development."
+    },
+    {
+      "id": 5,
+      "question": "What is an empire?",
+      "options": ["A country", "A large territory", "A group of territories under one ruler", "A kingdom"],
+      "correctAnswer": 2,
+      "explanation": "An empire is a group of territories or nations under a single ruler or government."
+    },
+    {
+      "id": 6,
+      "question": "What is a dynasty?",
+      "options": ["A family", "A ruling family", "A period of rule", "Both B and C"],
+      "correctAnswer": 3,
+      "explanation": "A dynasty is a ruling family or the period of rule by that family."
+    },
+    {
+      "id": 7,
+      "question": "What is a revolution?",
+      "options": ["A change", "A sudden change", "A violent change", "A political change"],
+      "correctAnswer": 1,
+      "explanation": "A revolution is a sudden, fundamental change in political or social structure."
+    },
+    {
+      "id": 8,
+      "question": "What is colonialism?",
+      "options": ["A policy", "Control over other territories", "A system of government", "A type of rule"],
+      "correctAnswer": 1,
+      "explanation": "Colonialism is the policy of acquiring and maintaining control over other territories."
+    },
+    {
+      "id": 9,
+      "question": "What is imperialism?",
+      "options": ["A policy", "Extending power", "Control over other nations", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Imperialism is the policy of extending a nation's power and influence over other nations."
+    },
+    {
+      "id": 10,
+      "question": "What is nationalism?",
+      "options": ["A feeling", "Loyalty to nation", "A political ideology", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Nationalism is loyalty and devotion to one's nation, often as a political ideology."
+    },
+    {
+      "id": 11,
+      "question": "What is a treaty?",
+      "options": ["An agreement", "A formal agreement", "A peace agreement", "A trade agreement"],
+      "correctAnswer": 1,
+      "explanation": "A treaty is a formal agreement between nations or states."
+    },
+    {
+      "id": 12,
+      "question": "What is a constitution?",
+      "options": ["A document", "A fundamental law", "A government structure", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "A constitution is a fundamental law that establishes the structure and principles of government."
+    },
+    {
+      "id": 13,
+      "question": "What is democracy?",
+      "options": ["A government", "Rule by the people", "A political system", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Democracy is a system of government where power comes from the people."
+    },
+    {
+      "id": 14,
+      "question": "What is a monarchy?",
+      "options": ["A government", "Rule by one person", "Hereditary rule", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "A monarchy is a form of government where one person, usually a king or queen, rules."
+    },
+    {
+      "id": 15,
+      "question": "What is archaeology?",
+      "options": ["A science", "The study of ancient remains", "A historical method", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Archaeology is the scientific study of ancient human remains and artifacts."
+    }
+  ]
+}

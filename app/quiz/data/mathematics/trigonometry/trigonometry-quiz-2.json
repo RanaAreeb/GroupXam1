@@ -1,0 +1,114 @@
+{
+  "id": "trigonometry-quiz-2",
+  "title": "Trigonometry Quiz 2",
+  "subject": "Trigonometry",
+  "difficulty": "Intermediate",
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the sine function?",
+      "options": ["A ratio", "Opposite over hypotenuse", "Adjacent over hypotenuse", "Opposite over adjacent"],
+      "correctAnswer": 1,
+      "explanation": "The sine function is the ratio of the opposite side to the hypotenuse in a right triangle."
+    },
+    {
+      "id": 2,
+      "question": "What is the cosine function?",
+      "options": ["A ratio", "Opposite over hypotenuse", "Adjacent over hypotenuse", "Opposite over adjacent"],
+      "correctAnswer": 2,
+      "explanation": "The cosine function is the ratio of the adjacent side to the hypotenuse in a right triangle."
+    },
+    {
+      "id": 3,
+      "question": "What is the tangent function?",
+      "options": ["A ratio", "Opposite over hypotenuse", "Adjacent over hypotenuse", "Opposite over adjacent"],
+      "correctAnswer": 3,
+      "explanation": "The tangent function is the ratio of the opposite side to the adjacent side in a right triangle."
+    },
+    {
+      "id": 4,
+      "question": "What is the unit circle?",
+      "options": ["A circle", "A circle with radius 1", "A circle with diameter 1", "A circle with circumference 1"],
+      "correctAnswer": 1,
+      "explanation": "The unit circle is a circle with radius 1 centered at the origin."
+    },
+    {
+      "id": 5,
+      "question": "What is the period of sine and cosine functions?",
+      "options": ["π", "2π", "π/2", "4π"],
+      "correctAnswer": 1,
+      "explanation": "The period of sine and cosine functions is 2π radians."
+    },
+    {
+      "id": 6,
+      "question": "What is the period of tangent function?",
+      "options": ["π", "2π", "π/2", "4π"],
+      "correctAnswer": 0,
+      "explanation": "The period of the tangent function is π radians."
+    },
+    {
+      "id": 7,
+      "question": "What is an angle in standard position?",
+      "options": ["An angle", "An angle with vertex at origin", "An angle with initial side on x-axis", "Both B and C"],
+      "correctAnswer": 3,
+      "explanation": "An angle in standard position has its vertex at the origin and initial side on the positive x-axis."
+    },
+    {
+      "id": 8,
+      "question": "What is a reference angle?",
+      "options": ["An angle", "The smallest angle", "The acute angle between terminal side and x-axis", "A right angle"],
+      "correctAnswer": 2,
+      "explanation": "A reference angle is the acute angle between the terminal side and the x-axis."
+    },
+    {
+      "id": 9,
+      "question": "What is the Pythagorean identity?",
+      "options": ["sin²θ + cos²θ = 1", "sin²θ - cos²θ = 1", "sin²θ + cos²θ = 0", "sin²θ - cos²θ = 0"],
+      "correctAnswer": 0,
+      "explanation": "The Pythagorean identity is sin²θ + cos²θ = 1."
+    },
+    {
+      "id": 10,
+      "question": "What is the reciprocal of sine?",
+      "options": ["Cosine", "Tangent", "Cosecant", "Secant"],
+      "correctAnswer": 2,
+      "explanation": "The reciprocal of sine is cosecant (csc θ = 1/sin θ)."
+    },
+    {
+      "id": 11,
+      "question": "What is the reciprocal of cosine?",
+      "options": ["Sine", "Tangent", "Cosecant", "Secant"],
+      "correctAnswer": 3,
+      "explanation": "The reciprocal of cosine is secant (sec θ = 1/cos θ)."
+    },
+    {
+      "id": 12,
+      "question": "What is the reciprocal of tangent?",
+      "options": ["Cotangent", "Cosecant", "Secant", "Sine"],
+      "correctAnswer": 0,
+      "explanation": "The reciprocal of tangent is cotangent (cot θ = 1/tan θ)."
+    },
+    {
+      "id": 13,
+      "question": "What is the law of sines?",
+      "options": ["A formula", "a/sin A = b/sin B = c/sin C", "A theorem", "A rule"],
+      "correctAnswer": 1,
+      "explanation": "The law of sines states that a/sin A = b/sin B = c/sin C in any triangle."
+    },
+    {
+      "id": 14,
+      "question": "What is the law of cosines?",
+      "options": ["A formula", "c² = a² + b² - 2ab cos C", "A theorem", "A rule"],
+      "correctAnswer": 1,
+      "explanation": "The law of cosines states that c² = a² + b² - 2ab cos C in any triangle."
+    },
+    {
+      "id": 15,
+      "question": "What is a radian?",
+      "options": ["A unit", "A measure of angle", "The angle subtended by an arc equal to radius", "A degree"],
+      "correctAnswer": 2,
+      "explanation": "A radian is the angle subtended by an arc equal in length to the radius of the circle."
+    }
+  ]
+}

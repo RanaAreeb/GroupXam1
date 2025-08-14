@@ -1,0 +1,114 @@
+{
+  "id": "finance-quiz-2",
+  "title": "Finance Quiz 2",
+  "subject": "Finance",
+  "difficulty": "Intermediate",
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is compound interest?",
+      "options": ["Simple interest", "Interest on interest", "Fixed interest", "Variable interest"],
+      "correctAnswer": 1,
+      "explanation": "Compound interest is interest earned on both the principal and previously earned interest."
+    },
+    {
+      "id": 2,
+      "question": "What is a stock?",
+      "options": ["A bond", "Ownership in a company", "A loan", "A currency"],
+      "correctAnswer": 1,
+      "explanation": "A stock represents ownership in a company and entitles the holder to a share of the company's assets and earnings."
+    },
+    {
+      "id": 3,
+      "question": "What is a bond?",
+      "options": ["A loan", "Ownership in a company", "A currency", "A commodity"],
+      "correctAnswer": 0,
+      "explanation": "A bond is a debt security that represents a loan made by an investor to a borrower."
+    },
+    {
+      "id": 4,
+      "question": "What is diversification?",
+      "options": ["A strategy", "Spreading investments", "A risk management technique", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Diversification is a risk management strategy that spreads investments across different assets."
+    },
+    {
+      "id": 5,
+      "question": "What is a mutual fund?",
+      "options": ["A single investment", "A pool of investments", "A bond", "A stock"],
+      "correctAnswer": 1,
+      "explanation": "A mutual fund is a pool of money from many investors that is invested in a variety of securities."
+    },
+    {
+      "id": 6,
+      "question": "What is a dividend?",
+      "options": ["A payment", "A distribution of profits", "A loan payment", "A tax"],
+      "correctAnswer": 1,
+      "explanation": "A dividend is a distribution of profits by a corporation to its shareholders."
+    },
+    {
+      "id": 7,
+      "question": "What is a portfolio?",
+      "options": ["A collection", "A collection of investments", "A single investment", "A fund"],
+      "correctAnswer": 1,
+      "explanation": "A portfolio is a collection of financial investments like stocks, bonds, and cash."
+    },
+    {
+      "id": 8,
+      "question": "What is risk tolerance?",
+      "options": ["A measure", "An investor's ability to handle risk", "A strategy", "A type of investment"],
+      "correctAnswer": 1,
+      "explanation": "Risk tolerance is an investor's ability to handle the uncertainty of investment returns."
+    },
+    {
+      "id": 9,
+      "question": "What is a bull market?",
+      "options": ["A market", "A rising market", "A falling market", "A stable market"],
+      "correctAnswer": 1,
+      "explanation": "A bull market is a market condition where prices are rising or expected to rise."
+    },
+    {
+      "id": 10,
+      "question": "What is a bear market?",
+      "options": ["A market", "A rising market", "A falling market", "A stable market"],
+      "correctAnswer": 2,
+      "explanation": "A bear market is a market condition where prices are falling or expected to fall."
+    },
+    {
+      "id": 11,
+      "question": "What is inflation?",
+      "options": ["A rise", "A general rise in prices", "A fall in prices", "A stable price level"],
+      "correctAnswer": 1,
+      "explanation": "Inflation is a general rise in the price level of goods and services over time."
+    },
+    {
+      "id": 12,
+      "question": "What is a credit score?",
+      "options": ["A number", "A measure of creditworthiness", "A rating", "A score"],
+      "correctAnswer": 1,
+      "explanation": "A credit score is a numerical expression of a person's creditworthiness."
+    },
+    {
+      "id": 13,
+      "question": "What is a mortgage?",
+      "options": ["A loan", "A loan for real estate", "A bond", "A stock"],
+      "correctAnswer": 1,
+      "explanation": "A mortgage is a loan used to purchase real estate, typically a home."
+    },
+    {
+      "id": 14,
+      "question": "What is a 401(k)?",
+      "options": ["A retirement plan", "A tax-advantaged retirement plan", "A pension", "A savings account"],
+      "correctAnswer": 1,
+      "explanation": "A 401(k) is a tax-advantaged retirement savings plan offered by employers."
+    },
+    {
+      "id": 15,
+      "question": "What is a Roth IRA?",
+      "options": ["A retirement account", "A tax-free retirement account", "A pension", "A savings account"],
+      "correctAnswer": 1,
+      "explanation": "A Roth IRA is a tax-free retirement account where contributions are made with after-tax dollars."
+    }
+  ]
+}

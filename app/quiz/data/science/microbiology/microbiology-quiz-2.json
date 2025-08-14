@@ -1,0 +1,114 @@
+{
+  "id": "microbiology-quiz-2",
+  "title": "Microbiology Quiz 2",
+  "subject": "Microbiology",
+  "difficulty": "Intermediate",
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the study of viruses called?",
+      "options": ["Bacteriology", "Virology", "Mycology", "Parasitology"],
+      "correctAnswer": 1,
+      "explanation": "Virology is the study of viruses and viral diseases."
+    },
+    {
+      "id": 2,
+      "question": "Which microorganism is used to make bread rise?",
+      "options": ["Bacteria", "Yeast", "Virus", "Protozoa"],
+      "correctAnswer": 1,
+      "explanation": "Yeast (Saccharomyces cerevisiae) ferments sugars to produce CO2, making bread rise."
+    },
+    {
+      "id": 3,
+      "question": "What is the function of antibiotics?",
+      "options": ["Kill viruses", "Kill bacteria", "Kill fungi", "Kill all microorganisms"],
+      "correctAnswer": 1,
+      "explanation": "Antibiotics specifically target bacteria, not viruses or other microorganisms."
+    },
+    {
+      "id": 4,
+      "question": "Which staining technique is used to identify bacteria?",
+      "options": ["Gram stain", "H&E stain", "Wright stain", "Giemsa stain"],
+      "correctAnswer": 0,
+      "explanation": "Gram staining differentiates bacteria into Gram-positive and Gram-negative."
+    },
+    {
+      "id": 5,
+      "question": "What is a plasmid?",
+      "options": ["A virus", "A bacterial chromosome", "A small DNA molecule", "A protein"],
+      "correctAnswer": 2,
+      "explanation": "Plasmids are small, circular DNA molecules that can replicate independently."
+    },
+    {
+      "id": 6,
+      "question": "Which microorganism causes malaria?",
+      "options": ["Bacteria", "Virus", "Protozoa", "Fungus"],
+      "correctAnswer": 2,
+      "explanation": "Malaria is caused by Plasmodium, a protozoan parasite."
+    },
+    {
+      "id": 7,
+      "question": "What is the function of a vaccine?",
+      "options": ["Cure disease", "Prevent disease", "Treat symptoms", "Kill pathogens"],
+      "correctAnswer": 1,
+      "explanation": "Vaccines stimulate the immune system to prevent future infections."
+    },
+    {
+      "id": 8,
+      "question": "Which microorganism is used in yogurt production?",
+      "options": ["Lactobacillus", "E. coli", "Staphylococcus", "Streptococcus"],
+      "correctAnswer": 0,
+      "explanation": "Lactobacillus bacteria ferment lactose to produce lactic acid in yogurt."
+    },
+    {
+      "id": 9,
+      "question": "What is the study of fungi called?",
+      "options": ["Bacteriology", "Virology", "Mycology", "Parasitology"],
+      "correctAnswer": 2,
+      "explanation": "Mycology is the study of fungi and fungal diseases."
+    },
+    {
+      "id": 10,
+      "question": "Which microorganism is responsible for AIDS?",
+      "options": ["HIV", "HPV", "HSV", "HBV"],
+      "correctAnswer": 0,
+      "explanation": "HIV (Human Immunodeficiency Virus) causes AIDS."
+    },
+    {
+      "id": 11,
+      "question": "What is the function of a microscope in microbiology?",
+      "options": ["Kill microorganisms", "Grow microorganisms", "Observe microorganisms", "Count microorganisms"],
+      "correctAnswer": 2,
+      "explanation": "Microscopes are essential for observing microorganisms that are too small to see with the naked eye."
+    },
+    {
+      "id": 12,
+      "question": "Which microorganism is used in beer production?",
+      "options": ["Bacteria", "Yeast", "Virus", "Protozoa"],
+      "correctAnswer": 1,
+      "explanation": "Yeast ferments sugars to produce alcohol and CO2 in beer."
+    },
+    {
+      "id": 13,
+      "question": "What is the function of a culture medium?",
+      "options": ["Kill microorganisms", "Grow microorganisms", "Observe microorganisms", "Count microorganisms"],
+      "correctAnswer": 1,
+      "explanation": "Culture media provide nutrients for microorganisms to grow and multiply."
+    },
+    {
+      "id": 14,
+      "question": "Which microorganism causes tuberculosis?",
+      "options": ["Mycobacterium tuberculosis", "E. coli", "Staphylococcus aureus", "Streptococcus pneumoniae"],
+      "correctAnswer": 0,
+      "explanation": "Mycobacterium tuberculosis is the causative agent of tuberculosis."
+    },
+    {
+      "id": 15,
+      "question": "What is the function of a disinfectant?",
+      "options": ["Kill microorganisms", "Grow microorganisms", "Observe microorganisms", "Count microorganisms"],
+      "correctAnswer": 0,
+      "explanation": "Disinfectants kill or inactivate microorganisms on surfaces."
+    }
+  ]
+}

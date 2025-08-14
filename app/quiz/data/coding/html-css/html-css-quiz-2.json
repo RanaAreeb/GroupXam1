@@ -1,0 +1,114 @@
+{
+  "id": "html-css-quiz-2",
+  "title": "HTML/CSS Quiz 2",
+  "subject": "HTML/CSS",
+  "difficulty": "Intermediate",
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is CSS Grid?",
+      "options": ["A layout system", "A programming language", "A database", "A framework"],
+      "correctAnswer": 0,
+      "explanation": "CSS Grid is a two-dimensional layout system for creating web page layouts."
+    },
+    {
+      "id": 2,
+      "question": "What is Flexbox?",
+      "options": ["A one-dimensional layout", "A programming language", "A database", "A framework"],
+      "correctAnswer": 0,
+      "explanation": "Flexbox is a one-dimensional layout method for arranging items in rows or columns."
+    },
+    {
+      "id": 3,
+      "question": "What is the box model in CSS?",
+      "options": ["Content, padding, border, margin", "Width and height", "Color and background", "Font and text"],
+      "correctAnswer": 0,
+      "explanation": "The CSS box model consists of content, padding, border, and margin areas."
+    },
+    {
+      "id": 4,
+      "question": "What is a CSS selector?",
+      "options": ["A pattern", "A rule", "A property", "A value"],
+      "correctAnswer": 0,
+      "explanation": "A CSS selector is a pattern used to select and style HTML elements."
+    },
+    {
+      "id": 5,
+      "question": "What is the difference between class and ID selectors?",
+      "options": ["Class can be used multiple times, ID is unique", "ID can be used multiple times, class is unique", "No difference", "Class is for styling, ID is for JavaScript"],
+      "correctAnswer": 0,
+      "explanation": "Class selectors can be used on multiple elements, while ID selectors should be unique."
+    },
+    {
+      "id": 6,
+      "question": "What is a media query?",
+      "options": ["A CSS rule", "A responsive design technique", "A JavaScript function", "An HTML tag"],
+      "correctAnswer": 1,
+      "explanation": "Media queries are used for responsive design to apply styles based on screen size."
+    },
+    {
+      "id": 7,
+      "question": "What is the z-index property?",
+      "options": ["Stacking order", "Width", "Height", "Position"],
+      "correctAnswer": 0,
+      "explanation": "Z-index controls the stacking order of positioned elements."
+    },
+    {
+      "id": 8,
+      "question": "What is a pseudo-class?",
+      "options": ["A keyword", "A state selector", "A property", "A value"],
+      "correctAnswer": 1,
+      "explanation": "A pseudo-class is a keyword that specifies a special state of an element."
+    },
+    {
+      "id": 9,
+      "question": "What is the difference between inline and block elements?",
+      "options": ["Inline flows horizontally, block starts new line", "Block flows horizontally, inline starts new line", "No difference", "Inline is for text, block is for images"],
+      "correctAnswer": 0,
+      "explanation": "Inline elements flow horizontally, while block elements start on a new line."
+    },
+    {
+      "id": 10,
+      "question": "What is CSS specificity?",
+      "options": ["A rule", "A hierarchy", "A property", "A value"],
+      "correctAnswer": 1,
+      "explanation": "CSS specificity determines which styles are applied when there are conflicting rules."
+    },
+    {
+      "id": 11,
+      "question": "What is a CSS variable?",
+      "options": ["A custom property", "A function", "A selector", "A rule"],
+      "correctAnswer": 0,
+      "explanation": "CSS variables (custom properties) allow you to store and reuse values."
+    },
+    {
+      "id": 12,
+      "question": "What is the transform property?",
+      "options": ["A layout property", "A visual effect", "A positioning property", "A sizing property"],
+      "correctAnswer": 1,
+      "explanation": "The transform property applies visual effects like rotate, scale, and translate."
+    },
+    {
+      "id": 13,
+      "question": "What is a CSS animation?",
+      "options": ["A transition", "A keyframe animation", "A hover effect", "A layout change"],
+      "correctAnswer": 1,
+      "explanation": "CSS animations use keyframes to create complex animated effects."
+    },
+    {
+      "id": 14,
+      "question": "What is the difference between position relative and absolute?",
+      "options": ["Relative to normal flow, absolute to nearest positioned parent", "Absolute to normal flow, relative to nearest positioned parent", "No difference", "Relative is for text, absolute is for images"],
+      "correctAnswer": 0,
+      "explanation": "Relative positioning is relative to normal flow, absolute is relative to nearest positioned parent."
+    },
+    {
+      "id": 15,
+      "question": "What is a CSS framework?",
+      "options": ["A library", "A pre-built CSS system", "A programming language", "A database"],
+      "correctAnswer": 1,
+      "explanation": "A CSS framework is a pre-built CSS system that provides ready-to-use styles and components."
+    }
+  ]
+}

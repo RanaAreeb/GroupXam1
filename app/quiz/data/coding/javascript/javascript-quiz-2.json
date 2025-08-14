@@ -1,0 +1,114 @@
+{
+  "id": "javascript-quiz-2",
+  "title": "JavaScript Quiz 2",
+  "subject": "JavaScript",
+  "difficulty": "Intermediate",
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is a closure in JavaScript?",
+      "options": ["A function", "A variable", "A function with access to outer scope", "A loop"],
+      "correctAnswer": 2,
+      "explanation": "A closure is a function that has access to variables in its outer scope."
+    },
+    {
+      "id": 2,
+      "question": "What is the difference between == and ===?",
+      "options": ["No difference", "== checks value, === checks value and type", "=== is faster", "== is newer"],
+      "correctAnswer": 1,
+      "explanation": "== checks value equality, === checks both value and type equality."
+    },
+    {
+      "id": 3,
+      "question": "What is hoisting in JavaScript?",
+      "options": ["Moving elements up", "Variable declarations moved to top", "Function optimization", "Memory management"],
+      "correctAnswer": 1,
+      "explanation": "Hoisting moves variable and function declarations to the top of their scope."
+    },
+    {
+      "id": 4,
+      "question": "What is the 'this' keyword?",
+      "options": ["Current function", "Current object", "Current variable", "Current scope"],
+      "correctAnswer": 1,
+      "explanation": "The 'this' keyword refers to the current object context."
+    },
+    {
+      "id": 5,
+      "question": "What is an arrow function?",
+      "options": ["A new function syntax", "A mathematical function", "A built-in function", "A library function"],
+      "correctAnswer": 0,
+      "explanation": "Arrow functions are a concise way to write function expressions in ES6."
+    },
+    {
+      "id": 6,
+      "question": "What is destructuring?",
+      "options": ["Breaking objects", "Extracting values from objects/arrays", "Creating objects", "Deleting properties"],
+      "correctAnswer": 1,
+      "explanation": "Destructuring extracts values from objects or arrays into distinct variables."
+    },
+    {
+      "id": 7,
+      "question": "What is a promise?",
+      "options": ["A guarantee", "An asynchronous operation", "A function", "A variable"],
+      "correctAnswer": 1,
+      "explanation": "A promise represents an asynchronous operation that may complete in the future."
+    },
+    {
+      "id": 8,
+      "question": "What is async/await?",
+      "options": ["New syntax", "Promise handling", "Both A and B", "Loop control"],
+      "correctAnswer": 2,
+      "explanation": "Async/await is new syntax for handling promises more cleanly."
+    },
+    {
+      "id": 9,
+      "question": "What is the spread operator?",
+      "options": ["...", "++", "--", "&&"],
+      "correctAnswer": 0,
+      "explanation": "The spread operator (...) expands arrays or objects into individual elements."
+    },
+    {
+      "id": 10,
+      "question": "What is a callback function?",
+      "options": ["A function passed as argument", "A return function", "A built-in function", "An arrow function"],
+      "correctAnswer": 0,
+      "explanation": "A callback function is passed as an argument to another function."
+    },
+    {
+      "id": 11,
+      "question": "What is event bubbling?",
+      "options": ["Event propagation", "Event creation", "Event deletion", "Event modification"],
+      "correctAnswer": 0,
+      "explanation": "Event bubbling is when an event triggers on a child element and propagates up to parent elements."
+    },
+    {
+      "id": 12,
+      "question": "What is localStorage?",
+      "options": ["Server storage", "Browser storage", "Database storage", "File storage"],
+      "correctAnswer": 1,
+      "explanation": "localStorage is web storage that persists data in the browser."
+    },
+    {
+      "id": 13,
+      "question": "What is JSON?",
+      "options": ["JavaScript Object Notation", "Java Script", "JavaScript Only", "JavaScript Object"],
+      "correctAnswer": 0,
+      "explanation": "JSON stands for JavaScript Object Notation, a data format."
+    },
+    {
+      "id": 14,
+      "question": "What is a module in JavaScript?",
+      "options": ["A file", "A function", "A variable", "A class"],
+      "correctAnswer": 0,
+      "explanation": "A module is a file containing JavaScript code that can be imported/exported."
+    },
+    {
+      "id": 15,
+      "question": "What is the DOM?",
+      "options": ["Document Object Model", "Data Object Model", "Document Only Model", "Dynamic Object Model"],
+      "correctAnswer": 0,
+      "explanation": "DOM (Document Object Model) represents the HTML document as a tree structure."
+    }
+  ]
+}

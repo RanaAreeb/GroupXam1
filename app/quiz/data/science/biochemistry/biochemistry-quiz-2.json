@@ -1,0 +1,114 @@
+{
+  "id": "biochemistry-quiz-2",
+  "title": "Biochemistry Quiz 2",
+  "subject": "Biochemistry",
+  "difficulty": "Intermediate",
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the primary function of enzymes?",
+      "options": ["Energy storage", "Catalyze reactions", "Structural support", "Genetic information"],
+      "correctAnswer": 1,
+      "explanation": "Enzymes are biological catalysts that speed up chemical reactions."
+    },
+    {
+      "id": 2,
+      "question": "Which molecule is the primary energy currency of cells?",
+      "options": ["Glucose", "ATP", "NAD+", "FAD"],
+      "correctAnswer": 1,
+      "explanation": "ATP (Adenosine Triphosphate) is the main energy currency of cells."
+    },
+    {
+      "id": 3,
+      "question": "What is the function of DNA?",
+      "options": ["Energy storage", "Catalyze reactions", "Genetic information", "Structural support"],
+      "correctAnswer": 2,
+      "explanation": "DNA carries genetic information and instructions for protein synthesis."
+    },
+    {
+      "id": 4,
+      "question": "Which process converts glucose to pyruvate?",
+      "options": ["Glycolysis", "Krebs cycle", "Electron transport", "Photosynthesis"],
+      "correctAnswer": 0,
+      "explanation": "Glycolysis is the breakdown of glucose to pyruvate."
+    },
+    {
+      "id": 5,
+      "question": "What is the function of RNA?",
+      "options": ["Energy storage", "Protein synthesis", "Structural support", "Catalyze reactions"],
+      "correctAnswer": 1,
+      "explanation": "RNA is involved in protein synthesis and gene expression."
+    },
+    {
+      "id": 6,
+      "question": "Which molecule stores genetic information in cells?",
+      "options": ["Protein", "Lipid", "Carbohydrate", "Nucleic acid"],
+      "correctAnswer": 3,
+      "explanation": "Nucleic acids (DNA and RNA) store and transmit genetic information."
+    },
+    {
+      "id": 7,
+      "question": "What is the function of lipids?",
+      "options": ["Energy storage", "Catalyze reactions", "Genetic information", "Structural support"],
+      "correctAnswer": 0,
+      "explanation": "Lipids serve as energy storage and structural components of cell membranes."
+    },
+    {
+      "id": 8,
+      "question": "Which process produces ATP in mitochondria?",
+      "options": ["Glycolysis", "Krebs cycle", "Electron transport chain", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "The complete process of cellular respiration produces ATP in mitochondria."
+    },
+    {
+      "id": 9,
+      "question": "What is the function of proteins?",
+      "options": ["Energy storage", "Catalyze reactions", "Structural support", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Proteins have multiple functions including catalysis, structure, and transport."
+    },
+    {
+      "id": 10,
+      "question": "Which molecule is a coenzyme?",
+      "options": ["ATP", "NAD+", "Glucose", "Amino acid"],
+      "correctAnswer": 1,
+      "explanation": "NAD+ is a coenzyme that participates in redox reactions."
+    },
+    {
+      "id": 11,
+      "question": "What is the function of carbohydrates?",
+      "options": ["Energy storage", "Catalyze reactions", "Genetic information", "Structural support"],
+      "correctAnswer": 0,
+      "explanation": "Carbohydrates serve as energy storage and structural components."
+    },
+    {
+      "id": 12,
+      "question": "Which process converts light energy to chemical energy?",
+      "options": ["Glycolysis", "Krebs cycle", "Photosynthesis", "Respiration"],
+      "correctAnswer": 2,
+      "explanation": "Photosynthesis converts light energy to chemical energy in plants."
+    },
+    {
+      "id": 13,
+      "question": "What is the function of vitamins?",
+      "options": ["Energy storage", "Catalyze reactions", "Cofactors", "Structural support"],
+      "correctAnswer": 2,
+      "explanation": "Vitamins often serve as cofactors for enzymatic reactions."
+    },
+    {
+      "id": 14,
+      "question": "Which molecule is a nucleotide?",
+      "options": ["Glucose", "Amino acid", "ATP", "Fatty acid"],
+      "correctAnswer": 2,
+      "explanation": "ATP is a nucleotide containing adenine, ribose, and three phosphate groups."
+    },
+    {
+      "id": 15,
+      "question": "What is the function of hormones?",
+      "options": ["Energy storage", "Catalyze reactions", "Cell signaling", "Structural support"],
+      "correctAnswer": 2,
+      "explanation": "Hormones are chemical messengers that regulate cellular processes."
+    }
+  ]
+}

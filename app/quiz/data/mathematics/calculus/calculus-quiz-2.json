@@ -1,0 +1,114 @@
+{
+  "id": "calculus-quiz-2",
+  "title": "Calculus Quiz 2",
+  "subject": "Calculus",
+  "difficulty": "Intermediate",
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is a derivative?",
+      "options": ["A function", "Rate of change", "An integral", "A limit"],
+      "correctAnswer": 1,
+      "explanation": "A derivative represents the rate of change of a function."
+    },
+    {
+      "id": 2,
+      "question": "What is an integral?",
+      "options": ["A function", "Area under curve", "A derivative", "A limit"],
+      "correctAnswer": 1,
+      "explanation": "An integral represents the area under a curve."
+    },
+    {
+      "id": 3,
+      "question": "What is a limit?",
+      "options": ["A function", "A value approached", "A derivative", "An integral"],
+      "correctAnswer": 1,
+      "explanation": "A limit is the value that a function approaches as the input approaches a certain value."
+    },
+    {
+      "id": 4,
+      "question": "What is the chain rule?",
+      "options": ["A derivative rule", "An integral rule", "A limit rule", "A function rule"],
+      "correctAnswer": 0,
+      "explanation": "The chain rule is used to find the derivative of composite functions."
+    },
+    {
+      "id": 5,
+      "question": "What is the product rule?",
+      "options": ["A derivative rule", "An integral rule", "A limit rule", "A function rule"],
+      "correctAnswer": 0,
+      "explanation": "The product rule is used to find the derivative of the product of two functions."
+    },
+    {
+      "id": 6,
+      "question": "What is the quotient rule?",
+      "options": ["A derivative rule", "An integral rule", "A limit rule", "A function rule"],
+      "correctAnswer": 0,
+      "explanation": "The quotient rule is used to find the derivative of the quotient of two functions."
+    },
+    {
+      "id": 7,
+      "question": "What is a critical point?",
+      "options": ["A point", "Where derivative is zero or undefined", "A maximum", "A minimum"],
+      "correctAnswer": 1,
+      "explanation": "A critical point is where the derivative is zero or undefined."
+    },
+    {
+      "id": 8,
+      "question": "What is a local maximum?",
+      "options": ["Highest point", "Highest point in a region", "A critical point", "A minimum"],
+      "correctAnswer": 1,
+      "explanation": "A local maximum is the highest point in a small region around it."
+    },
+    {
+      "id": 9,
+      "question": "What is a local minimum?",
+      "options": ["Lowest point", "Lowest point in a region", "A critical point", "A maximum"],
+      "correctAnswer": 1,
+      "explanation": "A local minimum is the lowest point in a small region around it."
+    },
+    {
+      "id": 10,
+      "question": "What is the fundamental theorem of calculus?",
+      "options": ["A theorem", "Links derivatives and integrals", "A rule", "A formula"],
+      "correctAnswer": 1,
+      "explanation": "The fundamental theorem links differentiation and integration."
+    },
+    {
+      "id": 11,
+      "question": "What is u-substitution?",
+      "options": ["A method", "Integration technique", "Both A and B", "A rule"],
+      "correctAnswer": 2,
+      "explanation": "U-substitution is a method/technique for evaluating integrals."
+    },
+    {
+      "id": 12,
+      "question": "What is integration by parts?",
+      "options": ["A method", "Integration technique", "Both A and B", "A rule"],
+      "correctAnswer": 2,
+      "explanation": "Integration by parts is a method/technique for evaluating integrals."
+    },
+    {
+      "id": 13,
+      "question": "What is a definite integral?",
+      "options": ["An integral", "An integral with limits", "A derivative", "A function"],
+      "correctAnswer": 1,
+      "explanation": "A definite integral has upper and lower limits of integration."
+    },
+    {
+      "id": 14,
+      "question": "What is an indefinite integral?",
+      "options": ["An integral", "An integral without limits", "A derivative", "A function"],
+      "correctAnswer": 1,
+      "explanation": "An indefinite integral has no limits and includes a constant of integration."
+    },
+    {
+      "id": 15,
+      "question": "What is the mean value theorem?",
+      "options": ["A theorem", "Relates average and instantaneous rates", "A rule", "A formula"],
+      "correctAnswer": 1,
+      "explanation": "The mean value theorem relates average and instantaneous rates of change."
+    }
+  ]
+}

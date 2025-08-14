@@ -1,0 +1,114 @@
+{
+  "id": "english-quiz-2",
+  "title": "English Quiz 2",
+  "subject": "English",
+  "difficulty": "Intermediate",
+  "timeLimit": 900,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is a metaphor?",
+      "options": ["Direct comparison", "Indirect comparison", "A simile", "A rhyme"],
+      "correctAnswer": 1,
+      "explanation": "A metaphor is an indirect comparison between two unlike things."
+    },
+    {
+      "id": 2,
+      "question": "What is a simile?",
+      "options": ["Direct comparison", "Indirect comparison", "A metaphor", "A rhyme"],
+      "correctAnswer": 0,
+      "explanation": "A simile is a direct comparison using 'like' or 'as'."
+    },
+    {
+      "id": 3,
+      "question": "What is alliteration?",
+      "options": ["Rhyming words", "Repeated sounds", "Repeated consonants", "Repeated vowels"],
+      "correctAnswer": 2,
+      "explanation": "Alliteration is the repetition of consonant sounds at the beginning of words."
+    },
+    {
+      "id": 4,
+      "question": "What is personification?",
+      "options": ["Giving human traits", "Animal characters", "Nature description", "Character development"],
+      "correctAnswer": 0,
+      "explanation": "Personification gives human characteristics to non-human things."
+    },
+    {
+      "id": 5,
+      "question": "What is a sonnet?",
+      "options": ["A poem", "14-line poem", "A story", "A play"],
+      "correctAnswer": 1,
+      "explanation": "A sonnet is a 14-line poem with a specific rhyme scheme."
+    },
+    {
+      "id": 6,
+      "question": "What is dramatic irony?",
+      "options": ["Audience knows more", "Character knows more", "No one knows", "Everyone knows"],
+      "correctAnswer": 0,
+      "explanation": "Dramatic irony occurs when the audience knows something characters don't."
+    },
+    {
+      "id": 7,
+      "question": "What is a soliloquy?",
+      "options": ["A speech", "A monologue", "A dialogue", "A conversation"],
+      "correctAnswer": 1,
+      "explanation": "A soliloquy is a speech given by a character alone on stage."
+    },
+    {
+      "id": 8,
+      "question": "What is foreshadowing?",
+      "options": ["Past events", "Future hints", "Present action", "Character description"],
+      "correctAnswer": 1,
+      "explanation": "Foreshadowing provides hints about future events in the story."
+    },
+    {
+      "id": 9,
+      "question": "What is a protagonist?",
+      "options": ["Main character", "Villain", "Supporting character", "Narrator"],
+      "correctAnswer": 0,
+      "explanation": "The protagonist is the main character of a story."
+    },
+    {
+      "id": 10,
+      "question": "What is an antagonist?",
+      "options": ["Main character", "Opposing force", "Supporting character", "Narrator"],
+      "correctAnswer": 1,
+      "explanation": "The antagonist is the opposing force or villain in a story."
+    },
+    {
+      "id": 11,
+      "question": "What is a theme?",
+      "options": ["A topic", "Central message", "A plot", "A setting"],
+      "correctAnswer": 1,
+      "explanation": "A theme is the central message or meaning of a literary work."
+    },
+    {
+      "id": 12,
+      "question": "What is a setting?",
+      "options": ["Time and place", "Characters", "Plot", "Theme"],
+      "correctAnswer": 0,
+      "explanation": "Setting refers to the time and place where a story occurs."
+    },
+    {
+      "id": 13,
+      "question": "What is a plot?",
+      "options": ["Story events", "Character list", "Setting description", "Theme statement"],
+      "correctAnswer": 0,
+      "explanation": "Plot is the sequence of events that make up a story."
+    },
+    {
+      "id": 14,
+      "question": "What is a conflict?",
+      "options": ["A problem", "A solution", "A character", "A setting"],
+      "correctAnswer": 0,
+      "explanation": "Conflict is the problem or struggle that drives the story."
+    },
+    {
+      "id": 15,
+      "question": "What is a resolution?",
+      "options": ["The ending", "The beginning", "The middle", "A character"],
+      "correctAnswer": 0,
+      "explanation": "Resolution is the conclusion or ending of a story where conflicts are resolved."
+    }
+  ]
+}
