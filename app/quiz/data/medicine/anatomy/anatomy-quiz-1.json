@@ -1,0 +1,69 @@
+{
+  "id": "anatomy-quiz-1",
+  "title": "Anatomy Quiz 1",
+  "subject": "Anatomy",
+  "difficulty": "Intermediate",
+  "timeLimit": 600,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is anatomy?",
+      "options": [
+        "The study of body structure and organization",
+        "The study of body functions",
+        "The study of diseases",
+        "The study of medications"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Anatomy is the study of the structure and organization of living organisms, particularly the human body."
+    },
+    {
+      "id": 2,
+      "question": "What is the skeletal system?",
+      "options": [
+        "The framework of bones that supports the body",
+        "The muscular system",
+        "The nervous system",
+        "The digestive system"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The skeletal system is the framework of bones that supports the body and protects internal organs."
+    },
+    {
+      "id": 3,
+      "question": "What is the muscular system?",
+      "options": [
+        "The system of muscles that enables movement",
+        "The skeletal system",
+        "The nervous system",
+        "The circulatory system"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The muscular system consists of muscles that enable movement, maintain posture, and generate heat."
+    },
+    {
+      "id": 4,
+      "question": "What is the nervous system?",
+      "options": [
+        "The system that controls and coordinates body activities",
+        "The circulatory system",
+        "The digestive system",
+        "The respiratory system"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The nervous system controls and coordinates all body activities through electrical signals."
+    },
+    {
+      "id": 5,
+      "question": "What is the circulatory system?",
+      "options": [
+        "The system that transports blood throughout the body",
+        "The digestive system",
+        "The respiratory system",
+        "The skeletal system"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The circulatory system transports blood, oxygen, and nutrients throughout the body."
+    }
+  ]
+}

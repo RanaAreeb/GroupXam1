@@ -1,0 +1,69 @@
+{
+  "id": "international-business-quiz-1",
+  "title": "International Business Quiz 1",
+  "subject": "International Business",
+  "difficulty": "Intermediate",
+  "timeLimit": 600,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is international business?",
+      "options": [
+        "Business activities across national borders",
+        "Local business operations",
+        "Online business only",
+        "Government business"
+      ],
+      "correctAnswer": 0,
+      "explanation": "International business involves business activities that cross national borders."
+    },
+    {
+      "id": 2,
+      "question": "What is globalization?",
+      "options": [
+        "The integration of economies worldwide",
+        "Local business growth",
+        "National trade only",
+        "Regional cooperation"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Globalization is the integration of economies and societies worldwide."
+    },
+    {
+      "id": 3,
+      "question": "What is a multinational corporation?",
+      "options": [
+        "A company operating in multiple countries",
+        "A local business",
+        "A government agency",
+        "A nonprofit organization"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A multinational corporation operates in multiple countries."
+    },
+    {
+      "id": 4,
+      "question": "What is a trade barrier?",
+      "options": [
+        "Restrictions on international trade",
+        "Transportation costs",
+        "Language differences",
+        "Currency exchange"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Trade barriers are restrictions on international trade."
+    },
+    {
+      "id": 5,
+      "question": "What is cultural sensitivity?",
+      "options": [
+        "Understanding cultural differences",
+        "Ignoring cultural differences",
+        "Imposing one's culture",
+        "Avoiding international markets"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Cultural sensitivity involves understanding and respecting cultural differences."
+    }
+  ]
+}

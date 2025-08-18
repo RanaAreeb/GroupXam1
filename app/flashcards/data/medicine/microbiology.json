@@ -1,0 +1,36 @@
+{
+  "id": "microbiology-flashcards",
+  "title": "Microbiology Flashcards",
+  "subject": "Microbiology",
+  "difficulty": "Advanced",
+  "sets": [
+    {
+      "id": "microbiology-fundamentals",
+      "title": "Microbiology Fundamentals",
+      "cardCount": 10,
+      "difficulty": "Advanced",
+      "cards": [
+        {
+          "front": "What is microbiology?",
+          "back": "The study of microorganisms, including bacteria, viruses, fungi, and protozoa."
+        },
+        {
+          "front": "What is a bacterium?",
+          "back": "A single-celled microorganism that can be beneficial or harmful to humans."
+        },
+        {
+          "front": "What is a virus?",
+          "back": "A microscopic infectious agent that can only replicate inside living cells."
+        },
+        {
+          "front": "What is a fungus?",
+          "back": "A group of organisms that includes yeasts, molds, and mushrooms."
+        },
+        {
+          "front": "What is an antibiotic?",
+          "back": "A substance that kills or inhibits the growth of bacteria."
+        }
+      ]
+    }
+  ]
+}

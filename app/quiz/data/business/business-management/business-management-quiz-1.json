@@ -1,0 +1,44 @@
+{
+  "id": "business-management-quiz-1",
+  "title": "Business Management Quiz 1",
+  "subject": "Business Management",
+  "difficulty": "Beginner",
+  "timeLimit": 600,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What are the four functions of management?",
+      "options": ["Planning, Organizing, Leading, Controlling", "Planning, Directing, Managing, Supervising", "Organizing, Leading, Managing, Controlling", "Planning, Managing, Directing, Supervising"],
+      "correctAnswer": 0,
+      "explanation": "The four functions of management are Planning, Organizing, Leading, and Controlling (POLC)."
+    },
+    {
+      "id": 2,
+      "question": "Which management function involves setting goals and determining how to achieve them?",
+      "options": ["Organizing", "Planning", "Leading", "Controlling"],
+      "correctAnswer": 1,
+      "explanation": "Planning involves setting goals and determining the best way to achieve them."
+    },
+    {
+      "id": 3,
+      "question": "What is delegation?",
+      "options": ["Giving orders to subordinates", "Assigning authority and responsibility to subordinates", "Monitoring employee performance", "Setting organizational goals"],
+      "correctAnswer": 1,
+      "explanation": "Delegation is assigning authority and responsibility to subordinates to complete tasks."
+    },
+    {
+      "id": 4,
+      "question": "What is span of control?",
+      "options": ["The number of managers in an organization", "The number of subordinates a manager can effectively supervise", "The total number of employees", "The organizational hierarchy"],
+      "correctAnswer": 1,
+      "explanation": "Span of control is the number of subordinates a manager can effectively supervise."
+    },
+    {
+      "id": 5,
+      "question": "What is a mission statement?",
+      "options": ["A list of company goals", "A declaration of an organization's purpose and primary objectives", "A business plan", "A marketing strategy"],
+      "correctAnswer": 1,
+      "explanation": "A mission statement is a declaration of an organization's purpose and primary objectives."
+    }
+  ]
+}

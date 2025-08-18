@@ -1,0 +1,69 @@
+{
+  "id": "tort-law-quiz-1",
+  "title": "Tort Law Quiz 1",
+  "subject": "Tort Law",
+  "difficulty": "Intermediate",
+  "timeLimit": 600,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is a tort?",
+      "options": [
+        "A criminal offense",
+        "A civil wrong that causes harm or loss",
+        "A contract violation",
+        "A constitutional right"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A tort is a civil wrong that causes harm or loss to another person, giving rise to legal liability."
+    },
+    {
+      "id": 2,
+      "question": "What is negligence?",
+      "options": [
+        "Intentional harm",
+        "Failure to exercise reasonable care",
+        "A criminal act",
+        "A contract breach"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Negligence is the failure to exercise reasonable care that a prudent person would exercise in similar circumstances."
+    },
+    {
+      "id": 3,
+      "question": "What is a duty of care?",
+      "options": [
+        "A legal obligation to avoid causing harm",
+        "A criminal responsibility",
+        "A contract term",
+        "A government regulation"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A duty of care is a legal obligation to avoid causing harm to others through one's actions or inactions."
+    },
+    {
+      "id": 4,
+      "question": "What is proximate cause?",
+      "options": [
+        "The immediate cause of an injury",
+        "A legal connection between conduct and injury",
+        "The first cause in a chain of events",
+        "The most obvious cause"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Proximate cause is the legal connection between a person's conduct and the resulting injury that makes them liable."
+    },
+    {
+      "id": 5,
+      "question": "What are compensatory damages?",
+      "options": [
+        "Punishment for wrongdoing",
+        "Compensation for actual losses suffered",
+        "Legal fees",
+        "Court costs"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Compensatory damages are monetary awards intended to compensate the injured party for actual losses suffered."
+    }
+  ]
+}

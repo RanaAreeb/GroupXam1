@@ -1,0 +1,69 @@
+{
+  "id": "pharmacology-quiz-1",
+  "title": "Pharmacology Quiz 1",
+  "subject": "Pharmacology",
+  "difficulty": "Intermediate",
+  "timeLimit": 600,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is pharmacology?",
+      "options": [
+        "The study of drugs and their effects on the body",
+        "The study of diseases",
+        "The study of surgery",
+        "The study of anatomy"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Pharmacology is the study of drugs and their effects on living organisms."
+    },
+    {
+      "id": 2,
+      "question": "What is a drug?",
+      "options": [
+        "A substance that affects body function",
+        "A type of food",
+        "A type of exercise",
+        "A type of surgery"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A drug is any substance that affects the structure or function of the body when introduced."
+    },
+    {
+      "id": 3,
+      "question": "What is pharmacokinetics?",
+      "options": [
+        "How the body processes drugs",
+        "How drugs are manufactured",
+        "How drugs are prescribed",
+        "How drugs are stored"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Pharmacokinetics is the study of how the body absorbs, distributes, metabolizes, and eliminates drugs."
+    },
+    {
+      "id": 4,
+      "question": "What is pharmacodynamics?",
+      "options": [
+        "How drugs affect the body",
+        "How drugs are manufactured",
+        "How drugs are prescribed",
+        "How drugs are stored"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Pharmacodynamics is the study of how drugs affect the body and their mechanisms of action."
+    },
+    {
+      "id": 5,
+      "question": "What is a side effect?",
+      "options": [
+        "An unintended effect of a drug",
+        "The main effect of a drug",
+        "A drug interaction",
+        "A drug allergy"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A side effect is an unintended effect of a drug that occurs in addition to the desired therapeutic effect."
+    }
+  ]
+}

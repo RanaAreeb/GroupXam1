@@ -1,0 +1,36 @@
+{
+  "id": "project-management-flashcards",
+  "title": "Project Management Flashcards",
+  "subject": "Project Management",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "project-fundamentals",
+      "title": "Project Management Fundamentals",
+      "cardCount": 10,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is project management?",
+          "back": "The application of knowledge, skills, tools, and techniques to project activities to meet project requirements."
+        },
+        {
+          "front": "What is a project?",
+          "back": "A temporary endeavor undertaken to create a unique product, service, or result."
+        },
+        {
+          "front": "What is a project manager?",
+          "back": "The person responsible for planning, executing, and closing a project."
+        },
+        {
+          "front": "What is a project scope?",
+          "back": "The work that needs to be accomplished to deliver a product, service, or result with specified features and functions."
+        },
+        {
+          "front": "What is a project timeline?",
+          "back": "A schedule that shows when project activities will be performed and completed."
+        }
+      ]
+    }
+  ]
+}

@@ -31,6 +31,10 @@ import {
   BookMarked,
   Globe,
   Vote,
+  Heart,
+  Building2,
+  Scale,
+  Stethoscope,
 } from "lucide-react";
 
 // Subject categories
@@ -278,6 +282,180 @@ const subjectCategories = [
         name: "Cultural Studies",
         icon: Globe,
         quizzes: ["cultural-studies-quiz-1"],
+      },
+    ],
+  },
+  {
+    id: "medicine",
+    title: "Medicine",
+    description: "Medical sciences, healthcare, and clinical practice",
+    icon: Stethoscope,
+    subjects: [
+      {
+        name: "Anatomy",
+        icon: Heart,
+        quizzes: ["anatomy-quiz-1"],
+      },
+      {
+        name: "Physiology",
+        icon: Heart,
+        quizzes: ["physiology-quiz-1"],
+      },
+      {
+        name: "Pathology",
+        icon: Heart,
+        quizzes: ["pathology-quiz-1"],
+      },
+      {
+        name: "Pharmacology",
+        icon: Heart,
+        quizzes: ["pharmacology-quiz-1"],
+      },
+      {
+        name: "Microbiology",
+        icon: Heart,
+        quizzes: ["microbiology-quiz-1"],
+      },
+      {
+        name: "Biochemistry",
+        icon: Heart,
+        quizzes: ["biochemistry-quiz-1"],
+      },
+      {
+        name: "Immunology",
+        icon: Heart,
+        quizzes: ["immunology-quiz-1"],
+      },
+      {
+        name: "Cardiology",
+        icon: Heart,
+        quizzes: ["cardiology-quiz-1"],
+      },
+      {
+        name: "Neurology",
+        icon: Heart,
+        quizzes: ["neurology-quiz-1"],
+      },
+      {
+        name: "Pediatrics",
+        icon: Heart,
+        quizzes: ["pediatrics-quiz-1"],
+      },
+    ],
+  },
+  {
+    id: "business",
+    title: "Business",
+    description: "Business management, entrepreneurship, and corporate studies",
+    icon: Building2,
+    subjects: [
+      {
+        name: "Business Management",
+        icon: Building2,
+        quizzes: ["business-management-quiz-1"],
+      },
+      {
+        name: "Marketing",
+        icon: Building2,
+        quizzes: ["marketing-quiz-1"],
+      },
+      {
+        name: "Human Resources",
+        icon: Building2,
+        quizzes: ["human-resources-quiz-1"],
+      },
+      {
+        name: "Operations Management",
+        icon: Building2,
+        quizzes: ["operations-management-quiz-1"],
+      },
+      {
+        name: "Strategic Management",
+        icon: Building2,
+        quizzes: ["strategic-management-quiz-1"],
+      },
+      {
+        name: "Entrepreneurship",
+        icon: Building2,
+        quizzes: ["entrepreneurship-quiz-1"],
+      },
+      {
+        name: "International Business",
+        icon: Building2,
+        quizzes: ["international-business-quiz-1"],
+      },
+      {
+        name: "Supply Chain Management",
+        icon: Building2,
+        quizzes: ["supply-chain-management-quiz-1"],
+      },
+      {
+        name: "Project Management",
+        icon: Building2,
+        quizzes: ["project-management-quiz-1"],
+      },
+      {
+        name: "Business Ethics",
+        icon: Building2,
+        quizzes: ["business-ethics-quiz-1"],
+      },
+    ],
+  },
+  {
+    id: "law",
+    title: "Law",
+    description: "Legal studies, jurisprudence, and legal practice",
+    icon: Scale,
+    subjects: [
+      {
+        name: "Constitutional Law",
+        icon: Scale,
+        quizzes: ["constitutional-law-quiz-1"],
+      },
+      {
+        name: "Criminal Law",
+        icon: Scale,
+        quizzes: ["criminal-law-quiz-1"],
+      },
+      {
+        name: "Civil Law",
+        icon: Scale,
+        quizzes: ["civil-law-quiz-1"],
+      },
+      {
+        name: "Contract Law",
+        icon: Scale,
+        quizzes: ["contract-law-quiz-1"],
+      },
+      {
+        name: "Tort Law",
+        icon: Scale,
+        quizzes: ["tort-law-quiz-1"],
+      },
+      {
+        name: "Property Law",
+        icon: Scale,
+        quizzes: ["property-law-quiz-1"],
+      },
+      {
+        name: "Corporate Law",
+        icon: Scale,
+        quizzes: ["corporate-law-quiz-1"],
+      },
+      {
+        name: "International Law",
+        icon: Scale,
+        quizzes: ["international-law-quiz-1"],
+      },
+      {
+        name: "Environmental Law",
+        icon: Scale,
+        quizzes: ["environmental-law-quiz-1"],
+      },
+      {
+        name: "Human Rights Law",
+        icon: Scale,
+        quizzes: ["human-rights-law-quiz-1"],
       },
     ],
   },
@@ -804,6 +982,124 @@ const getQuizzesForSubject = async (subjectName: string) => {
     }
   }
 
+  // For medicine subjects, load from the medicine folder structure
+  if (
+    subjectName.toLowerCase() === "anatomy" ||
+    subjectName.toLowerCase() === "physiology" ||
+    subjectName.toLowerCase() === "pathology" ||
+    subjectName.toLowerCase() === "pharmacology" ||
+    subjectName.toLowerCase() === "microbiology" ||
+    subjectName.toLowerCase() === "biochemistry" ||
+    subjectName.toLowerCase() === "immunology" ||
+    subjectName.toLowerCase() === "cardiology" ||
+    subjectName.toLowerCase() === "neurology" ||
+    subjectName.toLowerCase() === "pediatrics"
+  ) {
+    try {
+      const response = await fetch(
+        `/api/quiz-data/medicine/${subjectName.toLowerCase()}`
+      );
+      if (response.ok) {
+        const quizFiles = await response.json();
+        return quizFiles;
+      }
+    } catch (error) {
+      console.error("Error loading quiz data:", error);
+    }
+  }
+
+  // For business subjects, load from the business folder structure
+  if (
+    subjectName.toLowerCase() === "business management" ||
+    subjectName.toLowerCase() === "marketing" ||
+    subjectName.toLowerCase() === "human resources" ||
+    subjectName.toLowerCase() === "operations management" ||
+    subjectName.toLowerCase() === "strategic management" ||
+    subjectName.toLowerCase() === "entrepreneurship" ||
+    subjectName.toLowerCase() === "international business" ||
+    subjectName.toLowerCase() === "supply chain management" ||
+    subjectName.toLowerCase() === "project management" ||
+    subjectName.toLowerCase() === "business ethics"
+  ) {
+    try {
+      // Map subject names to folder names
+      let folderName = subjectName.toLowerCase();
+      if (subjectName.toLowerCase() === "business management") {
+        folderName = "business-management";
+      } else if (subjectName.toLowerCase() === "human resources") {
+        folderName = "human-resources";
+      } else if (subjectName.toLowerCase() === "operations management") {
+        folderName = "operations-management";
+      } else if (subjectName.toLowerCase() === "strategic management") {
+        folderName = "strategic-management";
+      } else if (subjectName.toLowerCase() === "international business") {
+        folderName = "international-business";
+      } else if (subjectName.toLowerCase() === "supply chain management") {
+        folderName = "supply-chain-management";
+      } else if (subjectName.toLowerCase() === "project management") {
+        folderName = "project-management";
+      } else if (subjectName.toLowerCase() === "business ethics") {
+        folderName = "business-ethics";
+      }
+
+      const response = await fetch(`/api/quiz-data/business/${folderName}`);
+      if (response.ok) {
+        const quizFiles = await response.json();
+        return quizFiles;
+      }
+    } catch (error) {
+      console.error("Error loading quiz data:", error);
+    }
+  }
+
+  // For law subjects, load from the law folder structure
+  if (
+    subjectName.toLowerCase() === "constitutional law" ||
+    subjectName.toLowerCase() === "criminal law" ||
+    subjectName.toLowerCase() === "civil law" ||
+    subjectName.toLowerCase() === "contract law" ||
+    subjectName.toLowerCase() === "tort law" ||
+    subjectName.toLowerCase() === "property law" ||
+    subjectName.toLowerCase() === "corporate law" ||
+    subjectName.toLowerCase() === "international law" ||
+    subjectName.toLowerCase() === "environmental law" ||
+    subjectName.toLowerCase() === "human rights law"
+  ) {
+    try {
+      // Map subject names to folder names
+      let folderName = subjectName.toLowerCase();
+      if (subjectName.toLowerCase() === "constitutional law") {
+        folderName = "constitutional-law";
+      } else if (subjectName.toLowerCase() === "criminal law") {
+        folderName = "criminal-law";
+      } else if (subjectName.toLowerCase() === "civil law") {
+        folderName = "civil-law";
+      } else if (subjectName.toLowerCase() === "contract law") {
+        folderName = "contract-law";
+      } else if (subjectName.toLowerCase() === "tort law") {
+        folderName = "tort-law";
+      } else if (subjectName.toLowerCase() === "property law") {
+        folderName = "property-law";
+      } else if (subjectName.toLowerCase() === "corporate law") {
+        folderName = "corporate-law";
+      } else if (subjectName.toLowerCase() === "international law") {
+        folderName = "international-law";
+      } else if (subjectName.toLowerCase() === "environmental law") {
+        folderName = "environmental-law";
+      } else if (subjectName.toLowerCase() === "human rights law") {
+        folderName = "human-rights-law";
+      }
+
+      const response = await fetch(`/api/quiz-data/law/${folderName}`);
+      if (response.ok) {
+        const quizFiles = await response.json();
+        return quizFiles;
+      }
+    } catch (error) {
+      console.error("Error loading quiz data:", error);
+    }
+  }
+
   // Fallback to static data for other subjects
   return subject.quizzes.map((quizId) => quizData[quizId]).filter(Boolean);
 };
@@ -842,191 +1138,94 @@ export default function QuizPage() {
     }
   }, [selectedSubject]);
 
-  // Load quiz counts for science subjects
+  // Initialize with static quiz counts to avoid loading all data on page load
   useEffect(() => {
-    const loadQuizCounts = async () => {
-      const scienceSubjects = [
-        "physics",
-        "chemistry",
-        "biology",
-        "anatomy",
-        "physiology",
-        "microbiology",
-        "biochemistry",
-        "pharmacology",
-        "ecology",
-        "psychology",
-      ];
-
-      const codingSubjects = [
-        "javascript",
-        "python",
-        "html/css",
-        "react",
-        "node.js",
-        "database",
-      ];
-
-      const economicsSubjects = [
-        "economics",
-        "micro economics",
-        "macro economics",
-        "accounting",
-        "finance",
-        "political science",
-      ];
-
-      const mathematicsSubjects = [
-        "statistics",
-        "calculus",
-        "algebra",
-        "arithmetic",
-        "geometry",
-        "trigonometry",
-        "pythagorean theorem",
-      ];
-
-      const artsHumanitiesSubjects = [
-        "english",
-        "literature",
-        "history",
-        "geography",
-        "philosophy",
-        "sociology",
-        "art history",
-        "music theory",
-        "creative writing",
-        "foreign languages",
-        "religious studies",
-        "cultural studies",
-      ];
-
-      const counts: { [key: string]: number } = {};
-
-      // Load science subject counts
-      for (const subject of scienceSubjects) {
-        try {
-          const response = await fetch(`/api/quiz-data/science/${subject}`);
-          if (response.ok) {
-            const quizFiles = await response.json();
-            counts[subject] = Array.isArray(quizFiles) ? quizFiles.length : 0;
-          }
-        } catch (error) {
-          console.error(`Error loading quiz count for ${subject}:`, error);
-          counts[subject] = 0;
-        }
-      }
-
-      // Load coding subject counts
-      for (const subject of codingSubjects) {
-        try {
-          // Map subject names to folder names
-          let folderName = subject;
-          if (subject === "html/css") {
-            folderName = "html-css";
-          } else if (subject === "node.js") {
-            folderName = "nodejs";
-          }
-
-          const response = await fetch(`/api/quiz-data/coding/${folderName}`);
-          if (response.ok) {
-            const quizFiles = await response.json();
-            counts[subject] = Array.isArray(quizFiles) ? quizFiles.length : 0;
-          }
-        } catch (error) {
-          console.error(`Error loading quiz count for ${subject}:`, error);
-          counts[subject] = 0;
-        }
-      }
-
-      // Load economics subject counts
-      for (const subject of economicsSubjects) {
-        try {
-          // Map subject names to folder names
-          let folderName = subject;
-          if (subject === "micro economics") {
-            folderName = "micro-economics";
-          } else if (subject === "macro economics") {
-            folderName = "macro-economics";
-          } else if (subject === "political science") {
-            folderName = "political-science";
-          }
-
-          const response = await fetch(
-            `/api/quiz-data/economics/${folderName}`
-          );
-          if (response.ok) {
-            const quizFiles = await response.json();
-            counts[subject] = Array.isArray(quizFiles) ? quizFiles.length : 0;
-          }
-        } catch (error) {
-          console.error(`Error loading quiz count for ${subject}:`, error);
-          counts[subject] = 0;
-        }
-      }
-
-      // Load mathematics subject counts
-      for (const subject of mathematicsSubjects) {
-        try {
-          // Map subject names to folder names
-          let folderName = subject;
-          if (subject === "pythagorean theorem") {
-            folderName = "pythagorean-theorem";
-          }
-
-          console.log(`Loading quiz data for mathematics subject: ${subject}`);
-          const response = await fetch(
-            `/api/quiz-data/mathematics/${folderName}`
-          );
-          if (response.ok) {
-            const quizFiles = await response.json();
-            counts[subject] = Array.isArray(quizFiles) ? quizFiles.length : 0;
-            console.log(`Quiz count for ${subject}:`, counts[subject], 'Files:', quizFiles);
-          } else {
-            console.error(`Failed to load quiz data for ${subject}:`, response.status);
-          }
-        } catch (error) {
-          console.error(`Error loading quiz count for ${subject}:`, error);
-          counts[subject] = 0;
-        }
-      }
-
-      // Load arts & humanities subject counts
-      for (const subject of artsHumanitiesSubjects) {
-        try {
-          // Map subject names to folder names
-          let folderName = subject;
-          if (subject === "art history") {
-            folderName = "art-history";
-          } else if (subject === "music theory") {
-            folderName = "music-theory";
-          } else if (subject === "creative writing") {
-            folderName = "creative-writing";
-          } else if (subject === "foreign languages") {
-            folderName = "foreign-languages";
-          } else if (subject === "religious studies") {
-            folderName = "religious-studies";
-          } else if (subject === "cultural studies") {
-            folderName = "cultural-studies";
-          }
-
-          const response = await fetch(
-            `/api/quiz-data/arts-humanities/${folderName}`
-          );
-          if (response.ok) {
-            const quizFiles = await response.json();
-            counts[subject] = Array.isArray(quizFiles) ? quizFiles.length : 0;
-          }
-        } catch (error) {
-          console.error(`Error loading quiz count for ${subject}:`, error);
-          counts[subject] = 0;
-        }
-      }
-
-      setSubjectQuizCounts(counts);
+    // Set default counts - these can be updated when user actually clicks on subjects
+    const defaultCounts: { [key: string]: number } = {
+      // Sciences
+      physics: 2,
+      chemistry: 2,
+      biology: 1,
+      anatomy: 1,
+      physiology: 1,
+      microbiology: 1,
+      biochemistry: 1,
+      pharmacology: 1,
+      ecology: 1,
+      psychology: 1,
+      
+      // Coding
+      javascript: 2,
+      python: 2,
+      "html/css": 2,
+      react: 2,
+      "node.js": 2,
+      database: 2,
+      
+      // Economics
+      economics: 1,
+      "micro economics": 1,
+      "macro economics": 1,
+      accounting: 1,
+      finance: 1,
+      "political science": 1,
+      
+      // Mathematics
+      statistics: 1,
+      calculus: 2,
+      algebra: 3,
+      arithmetic: 1,
+      geometry: 2,
+      trigonometry: 2,
+      "pythagorean theorem": 1,
+      
+      // Arts & Humanities
+      english: 1,
+      literature: 1,
+      history: 1,
+      geography: 1,
+      philosophy: 1,
+      sociology: 1,
+      "art history": 1,
+      "music theory": 1,
+      "creative writing": 1,
+      "foreign languages": 1,
+      "religious studies": 1,
+      "cultural studies": 1,
+      
+      // Medicine
+      pathology: 1,
+      immunology: 1,
+      cardiology: 1,
+      neurology: 1,
+      pediatrics: 1,
+      
+      // Business
+      "business management": 1,
+      marketing: 1,
+      "human resources": 1,
+      "operations management": 1,
+      "strategic management": 1,
+      entrepreneurship: 1,
+      "international business": 1,
+      "supply chain management": 1,
+      "project management": 1,
+      "business ethics": 1,
+      
+      // Law
+      "constitutional law": 1,
+      "criminal law": 1,
+      "civil law": 1,
+      "contract law": 1,
+      "tort law": 1,
+      "property law": 1,
+      "corporate law": 1,
+      "international law": 1,
+      "environmental law": 1,
+      "human rights law": 1,
     };
-
-    loadQuizCounts();
+    
+    setSubjectQuizCounts(defaultCounts);
   }, []);
 
   const loadQuizData = async (subjectName: string) => {
@@ -1301,12 +1500,54 @@ export default function QuizPage() {
                 "cultural studies",
               ].includes(subject.name.toLowerCase());
 
+              const isMedicineSubject = [
+                "anatomy",
+                "physiology",
+                "pathology",
+                "pharmacology",
+                "microbiology",
+                "biochemistry",
+                "immunology",
+                "cardiology",
+                "neurology",
+                "pediatrics",
+              ].includes(subject.name.toLowerCase());
+
+              const isBusinessSubject = [
+                "business management",
+                "marketing",
+                "human resources",
+                "operations management",
+                "strategic management",
+                "entrepreneurship",
+                "international business",
+                "supply chain management",
+                "project management",
+                "business ethics",
+              ].includes(subject.name.toLowerCase());
+
+              const isLawSubject = [
+                "constitutional law",
+                "criminal law",
+                "civil law",
+                "contract law",
+                "tort law",
+                "property law",
+                "corporate law",
+                "international law",
+                "environmental law",
+                "human rights law",
+              ].includes(subject.name.toLowerCase());
+
               const quizCount =
                 isScienceSubject ||
                 isCodingSubject ||
                 isEconomicsSubject ||
                 isMathematicsSubject ||
-                isArtsHumanitiesSubject
+                isArtsHumanitiesSubject ||
+                isMedicineSubject ||
+                isBusinessSubject ||
+                isLawSubject
                   ? subjectQuizCounts[subject.name.toLowerCase()] ||
                     subject.quizzes?.length ||
                     0

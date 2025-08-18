@@ -1,0 +1,36 @@
+{
+  "id": "business-ethics-flashcards",
+  "title": "Business Ethics Flashcards",
+  "subject": "Business Ethics",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "ethics-fundamentals",
+      "title": "Business Ethics Fundamentals",
+      "cardCount": 10,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is business ethics?",
+          "back": "The study of appropriate business policies and practices regarding potentially controversial subjects."
+        },
+        {
+          "front": "What is corporate social responsibility?",
+          "back": "A business model that helps a company be socially accountable to itself, its stakeholders, and the public."
+        },
+        {
+          "front": "What is a code of conduct?",
+          "back": "A set of rules outlining the responsibilities and proper practices for an individual or organization."
+        },
+        {
+          "front": "What is whistleblowing?",
+          "back": "The act of reporting unethical or illegal activities within an organization to authorities or the public."
+        },
+        {
+          "front": "What is conflict of interest?",
+          "back": "A situation where a person's private interests conflict with their professional obligations."
+        }
+      ]
+    }
+  ]
+}

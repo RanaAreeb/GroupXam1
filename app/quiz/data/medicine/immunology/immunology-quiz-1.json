@@ -1,0 +1,69 @@
+{
+  "id": "immunology-quiz-1",
+  "title": "Immunology Quiz 1",
+  "subject": "Immunology",
+  "difficulty": "Intermediate",
+  "timeLimit": 600,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the immune system?",
+      "options": [
+        "A single organ",
+        "A complex network of cells and proteins that defend the body",
+        "A type of blood cell",
+        "A disease"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The immune system is a complex network of cells, tissues, and proteins that work together to defend the body against harmful invaders."
+    },
+    {
+      "id": 2,
+      "question": "What are antibodies?",
+      "options": [
+        "Harmful bacteria",
+        "Proteins that recognize and neutralize foreign substances",
+        "Types of white blood cells",
+        "Viral particles"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Antibodies are proteins produced by the immune system that recognize and neutralize foreign substances like bacteria and viruses."
+    },
+    {
+      "id": 3,
+      "question": "What is an antigen?",
+      "options": [
+        "An antibody",
+        "A foreign substance that triggers an immune response",
+        "A type of cell",
+        "A hormone"
+      ],
+      "correctAnswer": 1,
+      "explanation": "An antigen is any foreign substance that triggers an immune response in the body."
+    },
+    {
+      "id": 4,
+      "question": "What are T cells?",
+      "options": [
+        "Red blood cells",
+        "White blood cells that play a key role in immune response",
+        "Platelets",
+        "Plasma cells"
+      ],
+      "correctAnswer": 1,
+      "explanation": "T cells are white blood cells that play a key role in the immune response, including attacking infected cells."
+    },
+    {
+      "id": 5,
+      "question": "What is immunity?",
+      "options": [
+        "A disease",
+        "The body's ability to resist infection",
+        "A type of medication",
+        "A blood disorder"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Immunity is the body's ability to resist infection and disease through the immune system."
+    }
+  ]
+}

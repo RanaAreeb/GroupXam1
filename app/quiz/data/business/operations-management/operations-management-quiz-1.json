@@ -1,0 +1,69 @@
+{
+  "id": "operations-management-quiz-1",
+  "title": "Operations Management Quiz 1",
+  "subject": "Operations Management",
+  "difficulty": "Intermediate",
+  "timeLimit": 600,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is operations management?",
+      "options": [
+        "Managing the production of goods and services",
+        "Managing finances",
+        "Managing marketing",
+        "Managing human resources"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Operations management involves managing the production of goods and services efficiently."
+    },
+    {
+      "id": 2,
+      "question": "What is quality control?",
+      "options": [
+        "Ensuring products meet standards",
+        "Setting prices",
+        "Managing inventory",
+        "Training employees"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Quality control ensures that products and services meet established standards."
+    },
+    {
+      "id": 3,
+      "question": "What is supply chain management?",
+      "options": [
+        "Managing the flow of goods and services",
+        "Managing employees",
+        "Managing finances",
+        "Managing marketing"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Supply chain management involves managing the flow of goods and services from suppliers to customers."
+    },
+    {
+      "id": 4,
+      "question": "What is inventory management?",
+      "options": [
+        "Managing stock levels and storage",
+        "Managing employees",
+        "Managing finances",
+        "Managing production"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Inventory management involves managing stock levels and storage of materials and products."
+    },
+    {
+      "id": 5,
+      "question": "What is process improvement?",
+      "options": [
+        "Making operations more efficient",
+        "Hiring more employees",
+        "Increasing prices",
+        "Expanding markets"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Process improvement involves making operations more efficient and effective."
+    }
+  ]
+}

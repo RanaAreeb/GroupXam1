@@ -1,0 +1,36 @@
+{
+  "id": "human-resources-flashcards",
+  "title": "Human Resources Flashcards",
+  "subject": "Human Resources",
+  "difficulty": "Beginner",
+  "sets": [
+    {
+      "id": "hr-fundamentals",
+      "title": "HR Fundamentals",
+      "cardCount": 10,
+      "difficulty": "Beginner",
+      "cards": [
+        {
+          "front": "What is Human Resources (HR)?",
+          "back": "The department responsible for managing people within an organization, including recruitment, training, and employee relations."
+        },
+        {
+          "front": "What is recruitment?",
+          "back": "The process of finding and hiring qualified candidates for job positions."
+        },
+        {
+          "front": "What is employee onboarding?",
+          "back": "The process of integrating new employees into the organization and their roles."
+        },
+        {
+          "front": "What is performance management?",
+          "back": "The process of monitoring and evaluating employee performance and providing feedback."
+        },
+        {
+          "front": "What is employee retention?",
+          "back": "The ability of an organization to keep its employees and reduce turnover."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "id": "constitutional-law-flashcards",
+  "title": "Constitutional Law Flashcards",
+  "subject": "Constitutional Law",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "constitutional-fundamentals",
+      "title": "Constitutional Fundamentals",
+      "cardCount": 15,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is constitutional law?",
+          "back": "The body of law that defines the relationship between different entities within a state, including the executive, legislature, and judiciary."
+        },
+        {
+          "front": "Define separation of powers",
+          "back": "The division of government responsibilities into distinct branches to prevent any one branch from exercising the core functions of another."
+        },
+        {
+          "front": "What is judicial review?",
+          "back": "The power of courts to examine and invalidate actions of the legislative and executive branches if they are unconstitutional."
+        },
+        {
+          "front": "Define due process",
+          "back": "The legal requirement that the state must respect all legal rights owed to a person, including fair treatment through the judicial system."
+        },
+        {
+          "front": "What is equal protection?",
+          "back": "The principle that all persons are entitled to equal treatment under the law, regardless of race, gender, or other characteristics."
+        },
+        {
+          "front": "Define federalism",
+          "back": "A system of government in which power is divided between a central authority and constituent political units."
+        },
+        {
+          "front": "What is the supremacy clause?",
+          "back": "A clause in the Constitution that establishes federal law as the supreme law of the land, overriding state laws."
+        },
+        {
+          "front": "Define checks and balances",
+          "back": "A system where each branch of government can limit the powers of the other branches to prevent abuse of power."
+        },
+        {
+          "front": "What is the commerce clause?",
+          "back": "A constitutional provision giving Congress the power to regulate interstate and foreign commerce."
+        },
+        {
+          "front": "Define the bill of rights",
+          "back": "The first ten amendments to the Constitution, guaranteeing fundamental rights and freedoms to individuals."
+        }
+      ]
+    }
+  ]
+}

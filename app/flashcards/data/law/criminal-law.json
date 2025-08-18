@@ -1,0 +1,36 @@
+{
+  "id": "criminal-law-flashcards",
+  "title": "Criminal Law Flashcards",
+  "subject": "Criminal Law",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "criminal-law-fundamentals",
+      "title": "Criminal Law Fundamentals",
+      "cardCount": 10,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is criminal law?",
+          "back": "The body of law that defines criminal offenses, regulates the apprehension, charging, and trial of suspected persons."
+        },
+        {
+          "front": "Define mens rea",
+          "back": "The mental state or intent required to commit a crime, often referred to as 'guilty mind.'"
+        },
+        {
+          "front": "What is actus reus?",
+          "back": "The physical act or conduct that constitutes a criminal offense, often referred to as 'guilty act.'"
+        },
+        {
+          "front": "Define felony",
+          "back": "A serious crime typically punishable by imprisonment for more than one year or death."
+        },
+        {
+          "front": "What is a misdemeanor?",
+          "back": "A less serious crime typically punishable by fine, probation, or imprisonment for less than one year."
+        }
+      ]
+    }
+  ]
+}

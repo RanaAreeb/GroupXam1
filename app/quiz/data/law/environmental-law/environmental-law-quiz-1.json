@@ -1,0 +1,69 @@
+{
+  "id": "environmental-law-quiz-1",
+  "title": "Environmental Law Quiz 1",
+  "subject": "Environmental Law",
+  "difficulty": "Intermediate",
+  "timeLimit": 600,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is environmental law?",
+      "options": [
+        "Law governing business transactions",
+        "Law protecting the environment and natural resources",
+        "Law regulating international trade",
+        "Law governing property rights"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Environmental law protects the environment and natural resources through regulations and legal frameworks."
+    },
+    {
+      "id": 2,
+      "question": "What is pollution?",
+      "options": [
+        "Natural environmental processes",
+        "The introduction of harmful substances into the environment",
+        "Environmental conservation",
+        "Resource management"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Pollution is the introduction of harmful substances into the environment that cause adverse effects."
+    },
+    {
+      "id": 3,
+      "question": "What is the EPA?",
+      "options": [
+        "A private company",
+        "The Environmental Protection Agency",
+        "A state agency",
+        "An international organization"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The EPA (Environmental Protection Agency) is a federal agency responsible for environmental protection."
+    },
+    {
+      "id": 4,
+      "question": "What is a permit in environmental law?",
+      "options": [
+        "A license to pollute",
+        "Official authorization for certain activities",
+        "A tax exemption",
+        "A property right"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A permit is official authorization required for certain activities that may impact the environment."
+    },
+    {
+      "id": 5,
+      "question": "What is sustainability?",
+      "options": [
+        "Economic growth at any cost",
+        "Meeting present needs without compromising future generations",
+        "Environmental destruction",
+        "Resource depletion"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Sustainability means meeting present needs without compromising the ability of future generations to meet their own needs."
+    }
+  ]
+}

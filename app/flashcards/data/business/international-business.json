@@ -1,0 +1,36 @@
+{
+  "id": "international-business-flashcards",
+  "title": "International Business Flashcards",
+  "subject": "International Business",
+  "difficulty": "Advanced",
+  "sets": [
+    {
+      "id": "international-fundamentals",
+      "title": "International Business Fundamentals",
+      "cardCount": 10,
+      "difficulty": "Advanced",
+      "cards": [
+        {
+          "front": "What is international business?",
+          "back": "Commercial transactions that take place between two or more countries."
+        },
+        {
+          "front": "What is globalization?",
+          "back": "The process of international integration arising from the interchange of world views, products, ideas, and culture."
+        },
+        {
+          "front": "What is a multinational corporation?",
+          "back": "A company that operates in multiple countries and has business interests in several nations."
+        },
+        {
+          "front": "What is a trade barrier?",
+          "back": "Government-imposed restrictions on international trade, such as tariffs and quotas."
+        },
+        {
+          "front": "What is foreign direct investment?",
+          "back": "Investment made by a company or individual in one country in business interests in another country."
+        }
+      ]
+    }
+  ]
+}

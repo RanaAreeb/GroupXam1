@@ -1,0 +1,69 @@
+{
+  "id": "marketing-quiz-1",
+  "title": "Marketing Quiz 1",
+  "subject": "Marketing",
+  "difficulty": "Intermediate",
+  "timeLimit": 600,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is marketing?",
+      "options": [
+        "The process of creating, communicating, and delivering value",
+        "Only advertising",
+        "Only sales",
+        "Only pricing"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Marketing is the process of creating, communicating, and delivering value to customers."
+    },
+    {
+      "id": 2,
+      "question": "What are the 4 Ps of marketing?",
+      "options": [
+        "Product, Price, Place, Promotion",
+        "People, Process, Physical evidence, Performance",
+        "Planning, Production, Promotion, Profit",
+        "Price, Place, People, Process"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The 4 Ps of marketing are Product, Price, Place, and Promotion."
+    },
+    {
+      "id": 3,
+      "question": "What is market segmentation?",
+      "options": [
+        "Dividing a market into distinct groups",
+        "Selling to everyone",
+        "Setting prices",
+        "Creating advertisements"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Market segmentation is dividing a market into distinct groups of buyers with different needs."
+    },
+    {
+      "id": 4,
+      "question": "What is a target market?",
+      "options": [
+        "A specific group of customers to focus on",
+        "All potential customers",
+        "Competitors",
+        "Suppliers"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A target market is a specific group of customers that a business focuses its marketing efforts on."
+    },
+    {
+      "id": 5,
+      "question": "What is branding?",
+      "options": [
+        "Creating a unique identity for a product or company",
+        "Setting prices",
+        "Choosing distribution channels",
+        "Creating advertisements"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Branding is creating a unique identity and image for a product, service, or company."
+    }
+  ]
+}

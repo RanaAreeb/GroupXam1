@@ -1,0 +1,69 @@
+{
+  "id": "neurology-quiz-1",
+  "title": "Neurology Quiz 1",
+  "subject": "Neurology",
+  "difficulty": "Intermediate",
+  "timeLimit": 600,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the nervous system?",
+      "options": [
+        "A network of nerves and cells that transmit signals",
+        "A single nerve",
+        "A type of muscle",
+        "A blood vessel"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The nervous system is a complex network of nerves and cells that transmit signals throughout the body."
+    },
+    {
+      "id": 2,
+      "question": "What is a neuron?",
+      "options": [
+        "A nerve cell that transmits electrical signals",
+        "A type of muscle cell",
+        "A blood cell",
+        "A bone cell"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A neuron is a nerve cell that transmits electrical signals throughout the nervous system."
+    },
+    {
+      "id": 3,
+      "question": "What is the brain?",
+      "options": [
+        "The control center of the nervous system",
+        "A type of nerve",
+        "A muscle",
+        "A bone"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The brain is the control center of the nervous system, responsible for processing information and controlling body functions."
+    },
+    {
+      "id": 4,
+      "question": "What is a synapse?",
+      "options": [
+        "The connection between neurons",
+        "A type of nerve",
+        "A brain region",
+        "A muscle"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A synapse is the connection between neurons where signals are transmitted from one cell to another."
+    },
+    {
+      "id": 5,
+      "question": "What is a stroke?",
+      "options": [
+        "A disruption of blood flow to the brain",
+        "A type of seizure",
+        "A headache",
+        "A muscle spasm"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A stroke occurs when blood flow to the brain is disrupted, causing brain damage."
+    }
+  ]
+}

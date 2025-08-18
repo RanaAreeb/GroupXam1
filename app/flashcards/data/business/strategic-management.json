@@ -1,0 +1,36 @@
+{
+  "id": "strategic-management-flashcards",
+  "title": "Strategic Management Flashcards",
+  "subject": "Strategic Management",
+  "difficulty": "Advanced",
+  "sets": [
+    {
+      "id": "strategic-fundamentals",
+      "title": "Strategic Fundamentals",
+      "cardCount": 10,
+      "difficulty": "Advanced",
+      "cards": [
+        {
+          "front": "What is strategic management?",
+          "back": "The process of formulating and implementing strategies to achieve organizational goals."
+        },
+        {
+          "front": "What is a mission statement?",
+          "back": "A declaration of an organization's purpose and primary objectives."
+        },
+        {
+          "front": "What is a vision statement?",
+          "back": "A description of what an organization wants to achieve in the future."
+        },
+        {
+          "front": "What is SWOT analysis?",
+          "back": "A framework for analyzing Strengths, Weaknesses, Opportunities, and Threats."
+        },
+        {
+          "front": "What is competitive advantage?",
+          "back": "A unique advantage that allows a company to outperform its competitors."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "id": "property-law-flashcards",
+  "title": "Property Law Flashcards",
+  "subject": "Property Law",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "property-fundamentals",
+      "title": "Property Law Fundamentals",
+      "cardCount": 10,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is property law?",
+          "back": "The area of law that governs the various forms of ownership and tenancy in real and personal property."
+        },
+        {
+          "front": "What is real property?",
+          "back": "Land and anything permanently attached to it, such as buildings and natural resources."
+        },
+        {
+          "front": "What is personal property?",
+          "back": "Movable property that is not real property, such as cars, furniture, and money."
+        },
+        {
+          "front": "What is a deed?",
+          "back": "A legal document that transfers ownership of real property from one person to another."
+        },
+        {
+          "front": "What is a lease?",
+          "back": "A contract that gives a person the right to use property for a specified period in exchange for payment."
+        }
+      ]
+    }
+  ]
+}

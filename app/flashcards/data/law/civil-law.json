@@ -1,0 +1,36 @@
+{
+  "id": "civil-law-flashcards",
+  "title": "Civil Law Flashcards",
+  "subject": "Civil Law",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "civil-law-fundamentals",
+      "title": "Civil Law Fundamentals",
+      "cardCount": 10,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is civil law?",
+          "back": "The body of law that deals with disputes between individuals or organizations, typically involving private rights and remedies."
+        },
+        {
+          "front": "What is a plaintiff?",
+          "back": "The person or party who brings a lawsuit against another party in civil court."
+        },
+        {
+          "front": "What is a defendant?",
+          "back": "The person or party against whom a lawsuit is brought in civil court."
+        },
+        {
+          "front": "What is damages?",
+          "back": "Monetary compensation awarded to a plaintiff for losses or injuries suffered."
+        },
+        {
+          "front": "What is a settlement?",
+          "back": "An agreement between parties to resolve a legal dispute without going to trial."
+        }
+      ]
+    }
+  ]
+}

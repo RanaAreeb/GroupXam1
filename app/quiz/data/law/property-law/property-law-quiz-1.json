@@ -1,0 +1,69 @@
+{
+  "id": "property-law-quiz-1",
+  "title": "Property Law Quiz 1",
+  "subject": "Property Law",
+  "difficulty": "Intermediate",
+  "timeLimit": 600,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is real property?",
+      "options": [
+        "Personal belongings",
+        "Land and anything permanently attached to it",
+        "Money and investments",
+        "Intellectual property"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Real property refers to land and anything permanently attached to it, such as buildings and structures."
+    },
+    {
+      "id": 2,
+      "question": "What is personal property?",
+      "options": [
+        "Land and buildings",
+        "Movable items and intangible assets",
+        "Government property",
+        "Commercial property"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Personal property includes movable items and intangible assets that are not real property."
+    },
+    {
+      "id": 3,
+      "question": "What is a deed?",
+      "options": [
+        "A rental agreement",
+        "A legal document that transfers property ownership",
+        "A property tax document",
+        "A mortgage agreement"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A deed is a legal document that transfers ownership of real property from one person to another."
+    },
+    {
+      "id": 4,
+      "question": "What is an easement?",
+      "options": [
+        "A property sale",
+        "A right to use another person's property",
+        "A property tax",
+        "A building permit"
+      ],
+      "correctAnswer": 1,
+      "explanation": "An easement is a right to use another person's property for a specific purpose, such as a driveway or utility access."
+    },
+    {
+      "id": 5,
+      "question": "What is adverse possession?",
+      "options": [
+        "Property theft",
+        "Acquiring property through continuous use",
+        "Property inheritance",
+        "Property purchase"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Adverse possession allows someone to acquire property ownership through continuous, open, and hostile use over time."
+    }
+  ]
+}

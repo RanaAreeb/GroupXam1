@@ -1,0 +1,69 @@
+{
+  "id": "biochemistry-quiz-1",
+  "title": "Biochemistry Quiz 1",
+  "subject": "Biochemistry",
+  "difficulty": "Intermediate",
+  "timeLimit": 600,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is biochemistry?",
+      "options": [
+        "The study of chemical processes in living organisms",
+        "The study of inorganic chemistry",
+        "The study of physics",
+        "The study of mathematics"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Biochemistry is the study of chemical processes and substances that occur within living organisms."
+    },
+    {
+      "id": 2,
+      "question": "What are proteins?",
+      "options": [
+        "Large molecules made of amino acids",
+        "Types of carbohydrates",
+        "Types of lipids",
+        "Types of nucleic acids"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Proteins are large molecules made of amino acids that perform various functions in the body."
+    },
+    {
+      "id": 3,
+      "question": "What are enzymes?",
+      "options": [
+        "Proteins that catalyze chemical reactions",
+        "Types of carbohydrates",
+        "Types of lipids",
+        "Types of hormones"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Enzymes are proteins that act as catalysts, speeding up chemical reactions in the body."
+    },
+    {
+      "id": 4,
+      "question": "What is DNA?",
+      "options": [
+        "The molecule that carries genetic information",
+        "A type of protein",
+        "A type of carbohydrate",
+        "A type of lipid"
+      ],
+      "correctAnswer": 0,
+      "explanation": "DNA (deoxyribonucleic acid) is the molecule that carries genetic information in living organisms."
+    },
+    {
+      "id": 5,
+      "question": "What is metabolism?",
+      "options": [
+        "The sum of all chemical reactions in the body",
+        "A type of enzyme",
+        "A type of protein",
+        "A type of hormone"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Metabolism is the sum of all chemical reactions that occur within living organisms."
+    }
+  ]
+}

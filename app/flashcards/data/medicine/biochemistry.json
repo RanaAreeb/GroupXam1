@@ -1,0 +1,36 @@
+{
+  "id": "biochemistry-flashcards",
+  "title": "Biochemistry Flashcards",
+  "subject": "Biochemistry",
+  "difficulty": "Advanced",
+  "sets": [
+    {
+      "id": "biochemistry-fundamentals",
+      "title": "Biochemistry Fundamentals",
+      "cardCount": 10,
+      "difficulty": "Advanced",
+      "cards": [
+        {
+          "front": "What is biochemistry?",
+          "back": "The study of chemical processes within and relating to living organisms."
+        },
+        {
+          "front": "What are proteins?",
+          "back": "Large molecules made up of amino acids that perform various functions in the body."
+        },
+        {
+          "front": "What are carbohydrates?",
+          "back": "Organic compounds made up of carbon, hydrogen, and oxygen that serve as a source of energy."
+        },
+        {
+          "front": "What are lipids?",
+          "back": "Fatty compounds that are insoluble in water and serve as energy storage and cell membrane components."
+        },
+        {
+          "front": "What are nucleic acids?",
+          "back": "Complex molecules that store and transmit genetic information (DNA and RNA)."
+        }
+      ]
+    }
+  ]
+}

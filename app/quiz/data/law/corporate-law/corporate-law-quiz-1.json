@@ -1,0 +1,69 @@
+{
+  "id": "corporate-law-quiz-1",
+  "title": "Corporate Law Quiz 1",
+  "subject": "Corporate Law",
+  "difficulty": "Intermediate",
+  "timeLimit": 600,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is a corporation?",
+      "options": [
+        "A partnership",
+        "A legal entity separate from its owners",
+        "A sole proprietorship",
+        "A government agency"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A corporation is a legal entity that is separate and distinct from its owners, with its own rights and obligations."
+    },
+    {
+      "id": 2,
+      "question": "What is limited liability?",
+      "options": [
+        "Unlimited personal responsibility",
+        "Protection of personal assets from business debts",
+        "Tax benefits",
+        "Management control"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Limited liability protects shareholders' personal assets from the corporation's debts and obligations."
+    },
+    {
+      "id": 3,
+      "question": "What is a board of directors?",
+      "options": [
+        "A group of employees",
+        "A governing body elected by shareholders",
+        "A government agency",
+        "A legal firm"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A board of directors is a governing body elected by shareholders to oversee corporate management and make major decisions."
+    },
+    {
+      "id": 4,
+      "question": "What is a shareholder?",
+      "options": [
+        "A corporate employee",
+        "An owner of corporate stock",
+        "A corporate lawyer",
+        "A government regulator"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A shareholder is an owner of corporate stock who has ownership rights in the corporation."
+    },
+    {
+      "id": 5,
+      "question": "What is a merger?",
+      "options": [
+        "A corporate bankruptcy",
+        "The combination of two or more corporations",
+        "A stock sale",
+        "A corporate restructuring"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A merger is the combination of two or more corporations into a single entity."
+    }
+  ]
+}

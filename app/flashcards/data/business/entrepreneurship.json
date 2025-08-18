@@ -1,0 +1,36 @@
+{
+  "id": "entrepreneurship-flashcards",
+  "title": "Entrepreneurship Flashcards",
+  "subject": "Entrepreneurship",
+  "difficulty": "Beginner",
+  "sets": [
+    {
+      "id": "entrepreneurship-fundamentals",
+      "title": "Entrepreneurship Fundamentals",
+      "cardCount": 10,
+      "difficulty": "Beginner",
+      "cards": [
+        {
+          "front": "What is entrepreneurship?",
+          "back": "The process of starting and running a business, taking on financial risks in the hope of profit."
+        },
+        {
+          "front": "What is a business plan?",
+          "back": "A written document that describes a business, its goals, and how it will achieve them."
+        },
+        {
+          "front": "What is market research?",
+          "back": "The process of gathering information about customers, competitors, and market conditions."
+        },
+        {
+          "front": "What is a startup?",
+          "back": "A newly established business, typically with innovative products or services."
+        },
+        {
+          "front": "What is venture capital?",
+          "back": "Investment capital provided to startups and small businesses with high growth potential."
+        }
+      ]
+    }
+  ]
+}

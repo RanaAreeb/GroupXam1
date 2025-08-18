@@ -1,0 +1,44 @@
+{
+  "id": "pathology-quiz-1",
+  "title": "Pathology Quiz 1",
+  "subject": "Pathology",
+  "difficulty": "Intermediate",
+  "timeLimit": 600,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the study of disease called?",
+      "options": ["Physiology", "Pathology", "Anatomy", "Biochemistry"],
+      "correctAnswer": 1,
+      "explanation": "Pathology is the study of disease, its causes, mechanisms, and effects on the body."
+    },
+    {
+      "id": 2,
+      "question": "Which of the following is a sign of inflammation?",
+      "options": ["Fever", "Headache", "Nausea", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Inflammation is characterized by redness, swelling, heat, pain, and loss of function."
+    },
+    {
+      "id": 3,
+      "question": "What is necrosis?",
+      "options": ["Cell growth", "Cell death", "Cell division", "Cell repair"],
+      "correctAnswer": 1,
+      "explanation": "Necrosis is the death of cells or tissues due to injury, disease, or lack of blood supply."
+    },
+    {
+      "id": 4,
+      "question": "An increase in the number of cells is called:",
+      "options": ["Hypertrophy", "Hyperplasia", "Metaplasia", "Dysplasia"],
+      "correctAnswer": 1,
+      "explanation": "Hyperplasia is an increase in the number of cells in a tissue or organ."
+    },
+    {
+      "id": 5,
+      "question": "What is apoptosis?",
+      "options": ["Accidental cell death", "Programmed cell death", "Cell division", "Cell growth"],
+      "correctAnswer": 1,
+      "explanation": "Apoptosis is programmed cell death, a normal process for removing damaged or unnecessary cells."
+    }
+  ]
+}

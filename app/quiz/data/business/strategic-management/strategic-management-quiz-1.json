@@ -1,0 +1,69 @@
+{
+  "id": "strategic-management-quiz-1",
+  "title": "Strategic Management Quiz 1",
+  "subject": "Strategic Management",
+  "difficulty": "Intermediate",
+  "timeLimit": 600,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is strategic management?",
+      "options": [
+        "Planning and executing long-term goals",
+        "Managing daily operations",
+        "Managing finances",
+        "Managing employees"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Strategic management involves planning and executing long-term goals and objectives."
+    },
+    {
+      "id": 2,
+      "question": "What is a mission statement?",
+      "options": [
+        "A declaration of an organization's purpose",
+        "A financial statement",
+        "A marketing plan",
+        "An employee handbook"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A mission statement declares an organization's purpose and primary objectives."
+    },
+    {
+      "id": 3,
+      "question": "What is a vision statement?",
+      "options": [
+        "A description of future aspirations",
+        "A current financial report",
+        "A marketing strategy",
+        "An operational plan"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A vision statement describes an organization's future aspirations and goals."
+    },
+    {
+      "id": 4,
+      "question": "What is competitive advantage?",
+      "options": [
+        "A unique advantage over competitors",
+        "Lower prices",
+        "More employees",
+        "Larger facilities"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Competitive advantage is a unique advantage that allows a company to outperform competitors."
+    },
+    {
+      "id": 5,
+      "question": "What is SWOT analysis?",
+      "options": [
+        "Analyzing Strengths, Weaknesses, Opportunities, Threats",
+        "A financial analysis",
+        "A marketing plan",
+        "An operational review"
+      ],
+      "correctAnswer": 0,
+      "explanation": "SWOT analysis examines Strengths, Weaknesses, Opportunities, and Threats."
+    }
+  ]
+}

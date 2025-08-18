@@ -1,0 +1,36 @@
+{
+  "id": "immunology-flashcards",
+  "title": "Immunology Flashcards",
+  "subject": "Immunology",
+  "difficulty": "Advanced",
+  "sets": [
+    {
+      "id": "immunology-fundamentals",
+      "title": "Immunology Fundamentals",
+      "cardCount": 10,
+      "difficulty": "Advanced",
+      "cards": [
+        {
+          "front": "What is the immune system?",
+          "back": "The body's defense system that protects against pathogens, foreign substances, and abnormal cells."
+        },
+        {
+          "front": "Define antigen",
+          "back": "A foreign substance that triggers an immune response, such as bacteria, viruses, or toxins."
+        },
+        {
+          "front": "What are antibodies?",
+          "back": "Proteins produced by B cells that specifically bind to antigens to neutralize or mark them for destruction."
+        },
+        {
+          "front": "Define innate immunity",
+          "back": "The body's first line of defense, providing immediate but non-specific protection against pathogens."
+        },
+        {
+          "front": "What is adaptive immunity?",
+          "back": "A specific immune response that develops over time and provides long-term protection against specific pathogens."
+        }
+      ]
+    }
+  ]
+}

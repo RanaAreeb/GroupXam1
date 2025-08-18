@@ -1,0 +1,36 @@
+{
+  "id": "human-rights-law-flashcards",
+  "title": "Human Rights Law Flashcards",
+  "subject": "Human Rights Law",
+  "difficulty": "Advanced",
+  "sets": [
+    {
+      "id": "human-rights-fundamentals",
+      "title": "Human Rights Law Fundamentals",
+      "cardCount": 10,
+      "difficulty": "Advanced",
+      "cards": [
+        {
+          "front": "What are human rights?",
+          "back": "Basic rights and freedoms that belong to every person, regardless of nationality, sex, ethnicity, religion, or other status."
+        },
+        {
+          "front": "What is the Universal Declaration of Human Rights?",
+          "back": "A document adopted by the UN that sets out fundamental human rights to be universally protected."
+        },
+        {
+          "front": "What is discrimination?",
+          "back": "The unjust or prejudicial treatment of different categories of people, especially on the grounds of race, age, or sex."
+        },
+        {
+          "front": "What is freedom of expression?",
+          "back": "The right to express one's opinions and ideas without fear of government retaliation or censorship."
+        },
+        {
+          "front": "What is the right to education?",
+          "back": "The right of every person to have access to education without discrimination."
+        }
+      ]
+    }
+  ]
+}

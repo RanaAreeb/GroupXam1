@@ -1,0 +1,36 @@
+{
+  "id": "corporate-law-flashcards",
+  "title": "Corporate Law Flashcards",
+  "subject": "Corporate Law",
+  "difficulty": "Advanced",
+  "sets": [
+    {
+      "id": "corporate-fundamentals",
+      "title": "Corporate Law Fundamentals",
+      "cardCount": 10,
+      "difficulty": "Advanced",
+      "cards": [
+        {
+          "front": "What is corporate law?",
+          "back": "The body of law that governs the formation, operation, and dissolution of corporations."
+        },
+        {
+          "front": "What is a corporation?",
+          "back": "A legal entity that is separate from its owners and can own property, enter contracts, and sue or be sued."
+        },
+        {
+          "front": "What is a board of directors?",
+          "back": "A group of individuals elected by shareholders to oversee the management of a corporation."
+        },
+        {
+          "front": "What is a shareholder?",
+          "back": "A person who owns shares of stock in a corporation and has ownership rights."
+        },
+        {
+          "front": "What is a merger?",
+          "back": "The combination of two or more companies into a single entity."
+        }
+      ]
+    }
+  ]
+}

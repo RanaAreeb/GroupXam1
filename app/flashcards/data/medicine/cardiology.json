@@ -1,0 +1,36 @@
+{
+  "id": "cardiology-flashcards",
+  "title": "Cardiology Flashcards",
+  "subject": "Cardiology",
+  "difficulty": "Advanced",
+  "sets": [
+    {
+      "id": "cardiology-fundamentals",
+      "title": "Cardiology Fundamentals",
+      "cardCount": 10,
+      "difficulty": "Advanced",
+      "cards": [
+        {
+          "front": "What is the heart?",
+          "back": "A muscular organ that pumps blood throughout the body via the circulatory system."
+        },
+        {
+          "front": "What are the four chambers of the heart?",
+          "back": "Left atrium, right atrium, left ventricle, and right ventricle."
+        },
+        {
+          "front": "What is the function of the left ventricle?",
+          "back": "To pump oxygenated blood to the body through the aorta."
+        },
+        {
+          "front": "What is the function of the right ventricle?",
+          "back": "To pump deoxygenated blood to the lungs through the pulmonary artery."
+        },
+        {
+          "front": "What is a myocardial infarction?",
+          "back": "A heart attack caused by blockage of blood flow to the heart muscle."
+        }
+      ]
+    }
+  ]
+}

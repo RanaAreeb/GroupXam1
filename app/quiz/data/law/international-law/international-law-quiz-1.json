@@ -1,0 +1,69 @@
+{
+  "id": "international-law-quiz-1",
+  "title": "International Law Quiz 1",
+  "subject": "International Law",
+  "difficulty": "Intermediate",
+  "timeLimit": 600,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is international law?",
+      "options": [
+        "Law within a single country",
+        "Law governing relations between nations",
+        "Corporate law",
+        "Criminal law"
+      ],
+      "correctAnswer": 1,
+      "explanation": "International law governs relations between nations and international organizations."
+    },
+    {
+      "id": 2,
+      "question": "What is a treaty?",
+      "options": [
+        "A domestic law",
+        "A formal agreement between nations",
+        "A court decision",
+        "A government regulation"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A treaty is a formal agreement between two or more nations that creates binding obligations."
+    },
+    {
+      "id": 3,
+      "question": "What is the United Nations?",
+      "options": [
+        "A single country",
+        "An international organization for peace and cooperation",
+        "A military alliance",
+        "A trade organization"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The United Nations is an international organization established to maintain peace and security among nations."
+    },
+    {
+      "id": 4,
+      "question": "What is diplomatic immunity?",
+      "options": [
+        "Tax exemption",
+        "Legal protection for diplomats from host country laws",
+        "Visa requirements",
+        "Travel restrictions"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Diplomatic immunity provides legal protection for diplomats from the laws of the host country."
+    },
+    {
+      "id": 5,
+      "question": "What is the International Court of Justice?",
+      "options": [
+        "A domestic court",
+        "The principal judicial organ of the United Nations",
+        "A military tribunal",
+        "A trade court"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The International Court of Justice is the principal judicial organ of the United Nations."
+    }
+  ]
+}

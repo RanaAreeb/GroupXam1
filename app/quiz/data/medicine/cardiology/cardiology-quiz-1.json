@@ -1,0 +1,69 @@
+{
+  "id": "cardiology-quiz-1",
+  "title": "Cardiology Quiz 1",
+  "subject": "Cardiology",
+  "difficulty": "Intermediate",
+  "timeLimit": 600,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the heart?",
+      "options": [
+        "A muscle that pumps blood throughout the body",
+        "A type of blood vessel",
+        "A nerve",
+        "A bone"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The heart is a muscular organ that pumps blood throughout the body via the circulatory system."
+    },
+    {
+      "id": 2,
+      "question": "What are the four chambers of the heart?",
+      "options": [
+        "Left atrium, right atrium, left ventricle, right ventricle",
+        "Upper chamber, lower chamber, side chamber, back chamber",
+        "Aorta, vena cava, pulmonary artery, pulmonary vein",
+        "Atrium, ventricle, aorta, vena cava"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The four chambers of the heart are left atrium, right atrium, left ventricle, and right ventricle."
+    },
+    {
+      "id": 3,
+      "question": "What is blood pressure?",
+      "options": [
+        "The force of blood against artery walls",
+        "The amount of blood in the body",
+        "The speed of blood flow",
+        "The color of blood"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Blood pressure is the force of blood pushing against the walls of arteries as the heart pumps."
+    },
+    {
+      "id": 4,
+      "question": "What is a heart attack?",
+      "options": [
+        "A blockage of blood flow to the heart muscle",
+        "A rapid heartbeat",
+        "High blood pressure",
+        "A heart murmur"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A heart attack occurs when blood flow to the heart muscle is blocked, usually by a blood clot."
+    },
+    {
+      "id": 5,
+      "question": "What is the aorta?",
+      "options": [
+        "The main artery that carries blood from the heart",
+        "A type of heart valve",
+        "A heart chamber",
+        "A blood vessel in the leg"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The aorta is the main artery that carries oxygenated blood from the heart to the rest of the body."
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "id": "tort-law-flashcards",
+  "title": "Tort Law Flashcards",
+  "subject": "Tort Law",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "tort-fundamentals",
+      "title": "Tort Law Fundamentals",
+      "cardCount": 10,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is tort law?",
+          "back": "The area of law that covers civil wrongs and provides remedies for harm caused by wrongful acts."
+        },
+        {
+          "front": "What is negligence?",
+          "back": "The failure to exercise reasonable care that results in harm to another person."
+        },
+        {
+          "front": "What is a tort?",
+          "back": "A wrongful act or an infringement of a right leading to civil legal liability."
+        },
+        {
+          "front": "What is strict liability?",
+          "back": "Legal responsibility for damages or injury even if the person was not negligent or at fault."
+        },
+        {
+          "front": "What is intentional tort?",
+          "back": "A wrongful act that is committed with the intent to cause harm to another person."
+        }
+      ]
+    }
+  ]
+}

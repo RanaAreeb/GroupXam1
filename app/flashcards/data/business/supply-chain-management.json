@@ -1,0 +1,36 @@
+{
+  "id": "supply-chain-management-flashcards",
+  "title": "Supply Chain Management Flashcards",
+  "subject": "Supply Chain Management",
+  "difficulty": "Advanced",
+  "sets": [
+    {
+      "id": "supply-chain-fundamentals",
+      "title": "Supply Chain Fundamentals",
+      "cardCount": 10,
+      "difficulty": "Advanced",
+      "cards": [
+        {
+          "front": "What is supply chain management?",
+          "back": "The management of the flow of goods and services from raw materials to final products."
+        },
+        {
+          "front": "What is logistics?",
+          "back": "The detailed coordination of complex operations involving people, facilities, and supplies."
+        },
+        {
+          "front": "What is inventory?",
+          "back": "The goods and materials that a business holds for the purpose of resale or production."
+        },
+        {
+          "front": "What is procurement?",
+          "back": "The process of finding, acquiring, and buying goods, services, or works from external sources."
+        },
+        {
+          "front": "What is warehousing?",
+          "back": "The storage of goods and materials in a warehouse or storage facility."
+        }
+      ]
+    }
+  ]
+}

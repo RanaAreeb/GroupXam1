@@ -1,0 +1,69 @@
+{
+  "id": "microbiology-quiz-1",
+  "title": "Microbiology Quiz 1",
+  "subject": "Microbiology",
+  "difficulty": "Intermediate",
+  "timeLimit": 600,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is microbiology?",
+      "options": [
+        "The study of microorganisms",
+        "The study of large animals",
+        "The study of plants",
+        "The study of rocks"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Microbiology is the study of microorganisms, including bacteria, viruses, fungi, and protozoa."
+    },
+    {
+      "id": 2,
+      "question": "What are bacteria?",
+      "options": [
+        "Single-celled microorganisms",
+        "Multi-celled organisms",
+        "Viruses",
+        "Fungi"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Bacteria are single-celled microorganisms that can be found in various environments."
+    },
+    {
+      "id": 3,
+      "question": "What are viruses?",
+      "options": [
+        "Infectious agents that require host cells",
+        "Bacteria",
+        "Fungi",
+        "Protozoa"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Viruses are infectious agents that require host cells to replicate and cause disease."
+    },
+    {
+      "id": 4,
+      "question": "What is infection?",
+      "options": [
+        "The invasion and multiplication of pathogens",
+        "A type of medication",
+        "A medical test",
+        "A body organ"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Infection is the invasion and multiplication of pathogens in the body, causing disease."
+    },
+    {
+      "id": 5,
+      "question": "What is antibiotic resistance?",
+      "options": [
+        "The ability of bacteria to resist antibiotics",
+        "A type of antibiotic",
+        "A medical treatment",
+        "A disease"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Antibiotic resistance is the ability of bacteria to resist the effects of antibiotics."
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "id": "criminal-law-quiz-1",
+  "title": "Criminal Law Quiz 1",
+  "subject": "Criminal Law",
+  "difficulty": "Intermediate",
+  "timeLimit": 600,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is criminal law?",
+      "options": [
+        "Law that governs civil disputes between individuals",
+        "Law that defines crimes and their punishments",
+        "Law that regulates business transactions",
+        "Law that governs constitutional rights"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Criminal law defines crimes and their punishments, establishing what conduct is prohibited and the penalties for violations."
+    },
+    {
+      "id": 2,
+      "question": "What is mens rea?",
+      "options": [
+        "The physical act of committing a crime",
+        "The mental state or intent to commit a crime",
+        "The harm caused by a criminal act",
+        "The punishment for a crime"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Mens rea refers to the mental state or intent to commit a crime, often described as the 'guilty mind.'"
+    },
+    {
+      "id": 3,
+      "question": "What is actus reus?",
+      "options": [
+        "The mental state of the defendant",
+        "The physical act or conduct that constitutes a crime",
+        "The defense strategy in a criminal case",
+        "The sentencing phase of a trial"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Actus reus is the physical act or conduct that constitutes a crime, often described as the 'guilty act.'"
+    },
+    {
+      "id": 4,
+      "question": "What is the presumption of innocence?",
+      "options": [
+        "The assumption that all defendants are guilty",
+        "The principle that defendants are innocent until proven guilty",
+        "The requirement for defendants to prove their innocence",
+        "The automatic acquittal of first-time offenders"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The presumption of innocence is a fundamental principle that defendants are innocent until proven guilty beyond a reasonable doubt."
+    },
+    {
+      "id": 5,
+      "question": "What is a felony?",
+      "options": [
+        "A minor traffic violation",
+        "A serious crime punishable by imprisonment for more than one year",
+        "A civil lawsuit",
+        "A regulatory violation"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A felony is a serious crime punishable by imprisonment for more than one year, typically involving violence or significant harm."
+    }
+  ]
+}

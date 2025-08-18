@@ -1,0 +1,36 @@
+{
+  "id": "physiology-flashcards",
+  "title": "Physiology Flashcards",
+  "subject": "Physiology",
+  "difficulty": "Advanced",
+  "sets": [
+    {
+      "id": "physiology-fundamentals",
+      "title": "Physiology Fundamentals",
+      "cardCount": 10,
+      "difficulty": "Advanced",
+      "cards": [
+        {
+          "front": "What is physiology?",
+          "back": "The study of how living organisms function and the mechanisms that work to keep them alive."
+        },
+        {
+          "front": "What is homeostasis?",
+          "back": "The body's ability to maintain a stable internal environment despite external changes."
+        },
+        {
+          "front": "What is metabolism?",
+          "back": "The chemical processes that occur within a living organism to maintain life."
+        },
+        {
+          "front": "What is cellular respiration?",
+          "back": "The process by which cells convert glucose and oxygen into energy, carbon dioxide, and water."
+        },
+        {
+          "front": "What is the endocrine system?",
+          "back": "The system of glands that secrete hormones to regulate various body functions."
+        }
+      ]
+    }
+  ]
+}

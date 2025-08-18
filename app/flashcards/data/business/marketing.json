@@ -1,0 +1,36 @@
+{
+  "id": "marketing-flashcards",
+  "title": "Marketing Flashcards",
+  "subject": "Marketing",
+  "difficulty": "Beginner",
+  "sets": [
+    {
+      "id": "marketing-fundamentals",
+      "title": "Marketing Fundamentals",
+      "cardCount": 10,
+      "difficulty": "Beginner",
+      "cards": [
+        {
+          "front": "What is marketing?",
+          "back": "The process of creating, communicating, delivering, and exchanging offerings that have value for customers."
+        },
+        {
+          "front": "Define the 4 Ps of marketing",
+          "back": "Product, Price, Place, and Promotion - the fundamental elements of a marketing strategy."
+        },
+        {
+          "front": "What is market segmentation?",
+          "back": "Dividing a market into distinct groups of buyers with different needs, characteristics, or behaviors."
+        },
+        {
+          "front": "Define target market",
+          "back": "A specific group of consumers that a company aims to reach with its marketing efforts."
+        },
+        {
+          "front": "What is a marketing mix?",
+          "back": "The combination of product, price, place, and promotion strategies used to market a product or service."
+        }
+      ]
+    }
+  ]
+}

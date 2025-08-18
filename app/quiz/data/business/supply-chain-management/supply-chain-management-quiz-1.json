@@ -1,0 +1,69 @@
+{
+  "id": "supply-chain-management-quiz-1",
+  "title": "Supply Chain Management Quiz 1",
+  "subject": "Supply Chain Management",
+  "difficulty": "Intermediate",
+  "timeLimit": 600,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is supply chain management?",
+      "options": [
+        "Managing the flow of goods and services",
+        "Managing employees only",
+        "Managing finances only",
+        "Managing marketing only"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Supply chain management involves managing the flow of goods and services from suppliers to customers."
+    },
+    {
+      "id": 2,
+      "question": "What is logistics?",
+      "options": [
+        "Planning and managing the movement of goods",
+        "Managing employees",
+        "Managing finances",
+        "Managing marketing"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Logistics involves planning and managing the movement of goods and materials."
+    },
+    {
+      "id": 3,
+      "question": "What is inventory?",
+      "options": [
+        "Stock of goods and materials",
+        "Financial assets",
+        "Employee records",
+        "Customer data"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Inventory refers to the stock of goods and materials held by a business."
+    },
+    {
+      "id": 4,
+      "question": "What is procurement?",
+      "options": [
+        "Purchasing goods and services",
+        "Selling products",
+        "Managing employees",
+        "Managing finances"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Procurement involves purchasing goods and services for a business."
+    },
+    {
+      "id": 5,
+      "question": "What is distribution?",
+      "options": [
+        "Delivering products to customers",
+        "Manufacturing products",
+        "Managing inventory",
+        "Setting prices"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Distribution involves delivering products to customers through various channels."
+    }
+  ]
+}

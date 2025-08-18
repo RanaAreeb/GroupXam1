@@ -1,0 +1,36 @@
+{
+  "id": "pediatrics-flashcards",
+  "title": "Pediatrics Flashcards",
+  "subject": "Pediatrics",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "pediatrics-fundamentals",
+      "title": "Pediatrics Fundamentals",
+      "cardCount": 10,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is pediatrics?",
+          "back": "The branch of medicine that deals with the medical care of infants, children, and adolescents."
+        },
+        {
+          "front": "What age range does pediatrics cover?",
+          "back": "From birth to 18 years of age (or 21 in some cases)."
+        },
+        {
+          "front": "What is a pediatrician?",
+          "back": "A medical doctor who specializes in the care of children and adolescents."
+        },
+        {
+          "front": "What is growth monitoring?",
+          "back": "Tracking a child's physical development including height, weight, and head circumference."
+        },
+        {
+          "front": "What are developmental milestones?",
+          "back": "Key skills and behaviors that children typically achieve at certain ages."
+        }
+      ]
+    }
+  ]
+}

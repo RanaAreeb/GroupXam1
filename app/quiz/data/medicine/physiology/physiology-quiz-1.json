@@ -1,0 +1,69 @@
+{
+  "id": "physiology-quiz-1",
+  "title": "Physiology Quiz 1",
+  "subject": "Physiology",
+  "difficulty": "Intermediate",
+  "timeLimit": 600,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is physiology?",
+      "options": [
+        "The study of how living organisms function",
+        "The study of body structure",
+        "The study of diseases",
+        "The study of medications"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Physiology is the study of how living organisms function and the mechanisms that maintain life."
+    },
+    {
+      "id": 2,
+      "question": "What is homeostasis?",
+      "options": [
+        "The maintenance of stable internal conditions",
+        "A type of disease",
+        "A medical treatment",
+        "A body organ"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Homeostasis is the maintenance of stable internal conditions despite changes in the external environment."
+    },
+    {
+      "id": 3,
+      "question": "What is metabolism?",
+      "options": [
+        "The chemical processes that maintain life",
+        "A type of exercise",
+        "A medical condition",
+        "A body system"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Metabolism refers to all the chemical processes that occur within living organisms to maintain life."
+    },
+    {
+      "id": 4,
+      "question": "What is cellular respiration?",
+      "options": [
+        "The process by which cells produce energy",
+        "Breathing",
+        "Blood circulation",
+        "Digestion"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Cellular respiration is the process by which cells convert nutrients into energy through chemical reactions."
+    },
+    {
+      "id": 5,
+      "question": "What is the endocrine system?",
+      "options": [
+        "The system that regulates hormones",
+        "The nervous system",
+        "The digestive system",
+        "The circulatory system"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The endocrine system regulates body functions through the production and release of hormones."
+    }
+  ]
+}

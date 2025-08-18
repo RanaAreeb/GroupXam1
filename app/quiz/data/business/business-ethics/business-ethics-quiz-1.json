@@ -1,0 +1,69 @@
+{
+  "id": "business-ethics-quiz-1",
+  "title": "Business Ethics Quiz 1",
+  "subject": "Business Ethics",
+  "difficulty": "Intermediate",
+  "timeLimit": 600,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is business ethics?",
+      "options": [
+        "Moral principles in business",
+        "Business laws only",
+        "Business profits only",
+        "Business competition"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Business ethics involves moral principles and values that guide business behavior."
+    },
+    {
+      "id": 2,
+      "question": "What is corporate social responsibility?",
+      "options": [
+        "Business responsibility to society",
+        "Maximizing profits only",
+        "Following laws only",
+        "Competing with others"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Corporate social responsibility is a business's responsibility to society and stakeholders."
+    },
+    {
+      "id": 3,
+      "question": "What is transparency?",
+      "options": [
+        "Openness and honesty in business",
+        "Keeping secrets",
+        "Hiding information",
+        "Avoiding communication"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Transparency involves openness and honesty in business practices and communications."
+    },
+    {
+      "id": 4,
+      "question": "What is integrity?",
+      "options": [
+        "Honesty and strong moral principles",
+        "Making profits",
+        "Following trends",
+        "Competing aggressively"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Integrity involves honesty and strong moral principles in business conduct."
+    },
+    {
+      "id": 5,
+      "question": "What is ethical leadership?",
+      "options": [
+        "Leading with moral principles",
+        "Leading for profit only",
+        "Leading aggressively",
+        "Leading competitively"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ethical leadership involves leading with moral principles and values."
+    }
+  ]
+}

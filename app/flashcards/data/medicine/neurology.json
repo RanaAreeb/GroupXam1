@@ -1,0 +1,36 @@
+{
+  "id": "neurology-flashcards",
+  "title": "Neurology Flashcards",
+  "subject": "Neurology",
+  "difficulty": "Advanced",
+  "sets": [
+    {
+      "id": "neurology-fundamentals",
+      "title": "Neurology Fundamentals",
+      "cardCount": 10,
+      "difficulty": "Advanced",
+      "cards": [
+        {
+          "front": "What is the nervous system?",
+          "back": "The body's electrical wiring system that transmits signals between the brain and the rest of the body."
+        },
+        {
+          "front": "What are the two main parts of the nervous system?",
+          "back": "Central nervous system (brain and spinal cord) and peripheral nervous system (nerves throughout the body)."
+        },
+        {
+          "front": "What is a neuron?",
+          "back": "A nerve cell that is the basic building block of the nervous system."
+        },
+        {
+          "front": "What is a synapse?",
+          "back": "The junction between two neurons where electrical or chemical signals are transmitted."
+        },
+        {
+          "front": "What is the function of the brain?",
+          "back": "To control and coordinate all body functions, process information, and generate thoughts and emotions."
+        }
+      ]
+    }
+  ]
+}

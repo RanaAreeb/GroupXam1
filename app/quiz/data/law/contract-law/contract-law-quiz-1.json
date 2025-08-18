@@ -1,0 +1,69 @@
+{
+  "id": "contract-law-quiz-1",
+  "title": "Contract Law Quiz 1",
+  "subject": "Contract Law",
+  "difficulty": "Intermediate",
+  "timeLimit": 600,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is a contract?",
+      "options": [
+        "A verbal agreement between friends",
+        "A legally enforceable agreement between parties",
+        "A government regulation",
+        "A court order"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A contract is a legally enforceable agreement between two or more parties that creates obligations."
+    },
+    {
+      "id": 2,
+      "question": "What are the essential elements of a contract?",
+      "options": [
+        "Offer, acceptance, and consideration only",
+        "Offer, acceptance, consideration, and mutual intent",
+        "Only written documentation",
+        "Witness signatures only"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The essential elements of a contract are offer, acceptance, consideration, and mutual intent to be bound."
+    },
+    {
+      "id": 3,
+      "question": "What is consideration?",
+      "options": [
+        "The price of the contract",
+        "Something of value exchanged between parties",
+        "The contract terms",
+        "The contract duration"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Consideration is something of value that is exchanged between parties to make the contract enforceable."
+    },
+    {
+      "id": 4,
+      "question": "What is a breach of contract?",
+      "options": [
+        "A contract amendment",
+        "A failure to perform contractual obligations",
+        "A contract renewal",
+        "A contract termination"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A breach of contract occurs when one party fails to perform their obligations under the contract."
+    },
+    {
+      "id": 5,
+      "question": "What are damages in contract law?",
+      "options": [
+        "Physical injuries",
+        "Monetary compensation for contract breaches",
+        "Contract terms",
+        "Legal fees"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Damages are monetary compensation awarded to the injured party for losses caused by a contract breach."
+    }
+  ]
+}

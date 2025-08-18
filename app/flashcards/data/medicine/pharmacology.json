@@ -1,0 +1,36 @@
+{
+  "id": "pharmacology-flashcards",
+  "title": "Pharmacology Flashcards",
+  "subject": "Pharmacology",
+  "difficulty": "Advanced",
+  "sets": [
+    {
+      "id": "pharmacology-fundamentals",
+      "title": "Pharmacology Fundamentals",
+      "cardCount": 10,
+      "difficulty": "Advanced",
+      "cards": [
+        {
+          "front": "What is pharmacology?",
+          "back": "The study of drugs and their effects on living organisms."
+        },
+        {
+          "front": "What is a drug?",
+          "back": "A chemical substance used to treat, cure, prevent, or diagnose disease."
+        },
+        {
+          "front": "What is pharmacokinetics?",
+          "back": "The study of how the body absorbs, distributes, metabolizes, and excretes drugs."
+        },
+        {
+          "front": "What is pharmacodynamics?",
+          "back": "The study of how drugs affect the body and produce their therapeutic effects."
+        },
+        {
+          "front": "What is a side effect?",
+          "back": "An unintended effect of a drug that occurs in addition to the desired therapeutic effect."
+        }
+      ]
+    }
+  ]
+}

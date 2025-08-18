@@ -1,0 +1,36 @@
+{
+  "id": "anatomy-flashcards",
+  "title": "Anatomy Flashcards",
+  "subject": "Anatomy",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "anatomy-fundamentals",
+      "title": "Anatomy Fundamentals",
+      "cardCount": 10,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is anatomy?",
+          "back": "The study of the structure and organization of living things, especially the human body."
+        },
+        {
+          "front": "What is the skeletal system?",
+          "back": "The framework of bones and cartilage that supports and protects the body."
+        },
+        {
+          "front": "What is the muscular system?",
+          "back": "The system of muscles that enables movement, maintains posture, and circulates blood."
+        },
+        {
+          "front": "What is the nervous system?",
+          "back": "The body's electrical wiring system that transmits signals between the brain and the rest of the body."
+        },
+        {
+          "front": "What is the circulatory system?",
+          "back": "The system that transports blood, nutrients, oxygen, and waste products throughout the body."
+        }
+      ]
+    }
+  ]
+}

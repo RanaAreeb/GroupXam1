@@ -1,0 +1,57 @@
+{
+  "id": "pathology-flashcards",
+  "title": "Pathology Flashcards",
+  "subject": "Pathology",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "pathology-fundamentals",
+      "title": "Pathology Fundamentals",
+      "cardCount": 15,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is pathology?",
+          "back": "The study of disease, its causes, mechanisms, and effects on the body."
+        },
+        {
+          "front": "Define inflammation",
+          "back": "A protective response to injury or infection characterized by redness, swelling, heat, and pain."
+        },
+        {
+          "front": "What is necrosis?",
+          "back": "Death of cells or tissues due to injury, disease, or lack of blood supply."
+        },
+        {
+          "front": "Define hyperplasia",
+          "back": "An increase in the number of cells in a tissue or organ."
+        },
+        {
+          "front": "What is hypertrophy?",
+          "back": "An increase in the size of cells, leading to enlargement of an organ or tissue."
+        },
+        {
+          "front": "Define metaplasia",
+          "back": "The transformation of one cell type into another, usually in response to chronic irritation."
+        },
+        {
+          "front": "What is dysplasia?",
+          "back": "Abnormal development or growth of cells, often a precancerous condition."
+        },
+        {
+          "front": "Define apoptosis",
+          "back": "Programmed cell death, a normal process for removing damaged or unnecessary cells."
+        },
+        {
+          "front": "What is ischemia?",
+          "back": "Insufficient blood supply to tissues, leading to oxygen and nutrient deprivation."
+        },
+        {
+          "front": "Define infarction",
+          "back": "Death of tissue due to lack of blood supply, often caused by blocked arteries."
+        }
+      ]
+    }
+  ]
+}
+

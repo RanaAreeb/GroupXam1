@@ -56,7 +56,7 @@ export async function GET() {
         const dataDirectories = [
             'app/exams/jamb/data',
             'app/exams/waec/data',
-            'app/exams/wasse/data',
+            'app/exams/wassce/data',
             'app/quiz/data',
             'app/flashcards/data'
         ];
@@ -67,6 +67,9 @@ export async function GET() {
                 if (fs.existsSync(fullPath)) {
                     const count = countQuestionsInDirectory(fullPath);
                     totalQuestions += count;
+                    console.log(`Counted ${count} questions from ${dir}`);
+                } else {
+                    console.log(`Directory not found: ${dir}`);
                 }
             } catch (error) {
                 console.log(`Error counting questions in ${dir}:`, error);
@@ -119,6 +122,27 @@ function countQuestionsInDirectory(dirPath) {
                         count += data.quiz.length;
                     } else if (data.flashcards && Array.isArray(data.flashcards)) {
                         count += data.flashcards.length;
+                    } else if (data.sets && Array.isArray(data.sets)) {
+                        // Handle flashcard data with sets
+                        for (const set of data.sets) {
+                            if (set.cards && Array.isArray(set.cards)) {
+                                count += set.cards.length;
+                            }
+                        }
+                    } else if (data.sections && Array.isArray(data.sections)) {
+                        // Handle exam data with sections
+                        for (const section of data.sections) {
+                            if (section.questions && Array.isArray(section.questions)) {
+                                count += section.questions.length;
+                            }
+                        }
+                    } else if (data.topics && Array.isArray(data.topics)) {
+                        // Handle WASSCE data with topics
+                        for (const topic of data.topics) {
+                            if (topic.questions && Array.isArray(topic.questions)) {
+                                count += topic.questions.length;
+                            }
+                        }
                     } else if (Array.isArray(data)) {
                         count += data.length;
                     }

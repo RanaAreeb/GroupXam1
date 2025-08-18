@@ -1,0 +1,69 @@
+{
+  "id": "pediatrics-quiz-1",
+  "title": "Pediatrics Quiz 1",
+  "subject": "Pediatrics",
+  "difficulty": "Intermediate",
+  "timeLimit": 600,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is pediatrics?",
+      "options": [
+        "The medical specialty focused on children's health",
+        "The study of adult medicine",
+        "The study of geriatric medicine",
+        "The study of surgery"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Pediatrics is the medical specialty focused on the health and medical care of infants, children, and adolescents."
+    },
+    {
+      "id": 2,
+      "question": "What is a pediatrician?",
+      "options": [
+        "A doctor who specializes in treating children",
+        "A doctor who treats adults",
+        "A surgeon",
+        "A nurse"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A pediatrician is a medical doctor who specializes in the care of children from birth through adolescence."
+    },
+    {
+      "id": 3,
+      "question": "What is growth and development?",
+      "options": [
+        "The physical and mental changes as children grow",
+        "Only physical growth",
+        "Only mental development",
+        "A type of disease"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Growth and development refers to the physical and mental changes that occur as children grow from infancy to adulthood."
+    },
+    {
+      "id": 4,
+      "question": "What is immunization?",
+      "options": [
+        "The process of protecting against infectious diseases",
+        "A type of surgery",
+        "A medication",
+        "A medical test"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Immunization is the process of protecting individuals against infectious diseases through vaccination."
+    },
+    {
+      "id": 5,
+      "question": "What is well-child care?",
+      "options": [
+        "Preventive healthcare for healthy children",
+        "Emergency care",
+        "Surgery",
+        "Hospitalization"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Well-child care involves preventive healthcare visits to monitor growth, development, and overall health of children."
+    }
+  ]
+}

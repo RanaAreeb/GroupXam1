@@ -1,0 +1,57 @@
+{
+  "id": "business-management-flashcards",
+  "title": "Business Management Flashcards",
+  "subject": "Business Management",
+  "difficulty": "Beginner",
+  "sets": [
+    {
+      "id": "management-fundamentals",
+      "title": "Management Fundamentals",
+      "cardCount": 15,
+      "difficulty": "Beginner",
+      "cards": [
+        {
+          "front": "What are the four functions of management?",
+          "back": "Planning, Organizing, Leading, and Controlling (POLC)."
+        },
+        {
+          "front": "Define planning in management",
+          "back": "Setting goals and determining the best way to achieve them."
+        },
+        {
+          "front": "What is organizing in management?",
+          "back": "Arranging resources and tasks to accomplish organizational goals."
+        },
+        {
+          "front": "Define leading in management",
+          "back": "Motivating and directing people to achieve organizational objectives."
+        },
+        {
+          "front": "What is controlling in management?",
+          "back": "Monitoring performance and taking corrective action when necessary."
+        },
+        {
+          "front": "What are the three levels of management?",
+          "back": "Top-level (strategic), Middle-level (tactical), and First-line (operational)."
+        },
+        {
+          "front": "Define delegation",
+          "back": "Assigning authority and responsibility to subordinates to complete tasks."
+        },
+        {
+          "front": "What is span of control?",
+          "back": "The number of subordinates a manager can effectively supervise."
+        },
+        {
+          "front": "Define organizational structure",
+          "back": "The framework that defines how tasks are divided and coordinated."
+        },
+        {
+          "front": "What is a mission statement?",
+          "back": "A declaration of an organization's purpose and primary objectives."
+        }
+      ]
+    }
+  ]
+}
+

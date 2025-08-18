@@ -1,0 +1,69 @@
+{
+  "id": "human-resources-quiz-1",
+  "title": "Human Resources Quiz 1",
+  "subject": "Human Resources",
+  "difficulty": "Intermediate",
+  "timeLimit": 600,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is Human Resources (HR)?",
+      "options": [
+        "Managing people within an organization",
+        "Managing finances",
+        "Managing operations",
+        "Managing marketing"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Human Resources is the department responsible for managing people within an organization."
+    },
+    {
+      "id": 2,
+      "question": "What is recruitment?",
+      "options": [
+        "The process of finding and hiring employees",
+        "Training employees",
+        "Firing employees",
+        "Managing payroll"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Recruitment is the process of finding, attracting, and hiring qualified candidates for job positions."
+    },
+    {
+      "id": 3,
+      "question": "What is employee training?",
+      "options": [
+        "Teaching employees new skills and knowledge",
+        "Setting salaries",
+        "Conducting performance reviews",
+        "Managing benefits"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Employee training involves teaching employees new skills and knowledge to improve their performance."
+    },
+    {
+      "id": 4,
+      "question": "What is performance management?",
+      "options": [
+        "Evaluating and improving employee performance",
+        "Setting company goals",
+        "Managing budgets",
+        "Creating policies"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Performance management is the process of evaluating and improving employee performance."
+    },
+    {
+      "id": 5,
+      "question": "What is employee retention?",
+      "options": [
+        "Keeping employees with the organization",
+        "Hiring new employees",
+        "Training employees",
+        "Setting salaries"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Employee retention refers to the ability of an organization to keep its employees."
+    }
+  ]
+}

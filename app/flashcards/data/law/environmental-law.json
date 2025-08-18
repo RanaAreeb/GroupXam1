@@ -1,0 +1,36 @@
+{
+  "id": "environmental-law-flashcards",
+  "title": "Environmental Law Flashcards",
+  "subject": "Environmental Law",
+  "difficulty": "Advanced",
+  "sets": [
+    {
+      "id": "environmental-fundamentals",
+      "title": "Environmental Law Fundamentals",
+      "cardCount": 10,
+      "difficulty": "Advanced",
+      "cards": [
+        {
+          "front": "What is environmental law?",
+          "back": "The body of law that addresses the impact of human activity on the natural environment."
+        },
+        {
+          "front": "What is pollution?",
+          "back": "The introduction of harmful substances or energy into the environment."
+        },
+        {
+          "front": "What is environmental impact assessment?",
+          "back": "A process for evaluating the environmental consequences of proposed projects or activities."
+        },
+        {
+          "front": "What is sustainable development?",
+          "back": "Development that meets the needs of the present without compromising the ability of future generations."
+        },
+        {
+          "front": "What is the precautionary principle?",
+          "back": "The principle that action should be taken to prevent harm even when there is scientific uncertainty."
+        }
+      ]
+    }
+  ]
+}

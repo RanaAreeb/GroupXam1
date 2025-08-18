@@ -1,0 +1,69 @@
+{
+  "id": "project-management-quiz-1",
+  "title": "Project Management Quiz 1",
+  "subject": "Project Management",
+  "difficulty": "Intermediate",
+  "timeLimit": 600,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is project management?",
+      "options": [
+        "Planning and executing projects",
+        "Managing daily operations",
+        "Managing finances",
+        "Managing employees"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Project management involves planning and executing specific projects to achieve goals."
+    },
+    {
+      "id": 2,
+      "question": "What is a project scope?",
+      "options": [
+        "The work required to complete a project",
+        "The project budget",
+        "The project timeline",
+        "The project team"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Project scope defines the work required to complete a project successfully."
+    },
+    {
+      "id": 3,
+      "question": "What is a project timeline?",
+      "options": [
+        "A schedule of project activities",
+        "The project budget",
+        "The project team",
+        "The project goals"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A project timeline is a schedule of project activities and milestones."
+    },
+    {
+      "id": 4,
+      "question": "What is risk management in projects?",
+      "options": [
+        "Identifying and managing project risks",
+        "Avoiding all risks",
+        "Taking maximum risks",
+        "Ignoring risks"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Risk management involves identifying and managing potential risks to project success."
+    },
+    {
+      "id": 5,
+      "question": "What is stakeholder management?",
+      "options": [
+        "Managing relationships with project stakeholders",
+        "Managing project budget",
+        "Managing project timeline",
+        "Managing project team"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Stakeholder management involves managing relationships with people affected by the project."
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "id": "contract-law-flashcards",
+  "title": "Contract Law Flashcards",
+  "subject": "Contract Law",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "contract-fundamentals",
+      "title": "Contract Fundamentals",
+      "cardCount": 10,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is a contract?",
+          "back": "A legally binding agreement between two or more parties that creates obligations."
+        },
+        {
+          "front": "What are the elements of a valid contract?",
+          "back": "Offer, acceptance, consideration, mutual intent, capacity, and legality."
+        },
+        {
+          "front": "What is consideration?",
+          "back": "Something of value exchanged between parties to make a contract legally binding."
+        },
+        {
+          "front": "What is breach of contract?",
+          "back": "The failure to fulfill the terms of a contract without a legal excuse."
+        },
+        {
+          "front": "What is specific performance?",
+          "back": "A court order requiring a party to fulfill their contractual obligations."
+        }
+      ]
+    }
+  ]
+}

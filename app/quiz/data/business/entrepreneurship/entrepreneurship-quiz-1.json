@@ -1,0 +1,69 @@
+{
+  "id": "entrepreneurship-quiz-1",
+  "title": "Entrepreneurship Quiz 1",
+  "subject": "Entrepreneurship",
+  "difficulty": "Intermediate",
+  "timeLimit": 600,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is entrepreneurship?",
+      "options": [
+        "Starting and running a business",
+        "Working for a company",
+        "Managing finances",
+        "Marketing products"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Entrepreneurship involves starting and running a business venture."
+    },
+    {
+      "id": 2,
+      "question": "What is a business plan?",
+      "options": [
+        "A written document outlining business strategy",
+        "A financial statement",
+        "A marketing campaign",
+        "An employee handbook"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A business plan is a written document that outlines a business strategy and goals."
+    },
+    {
+      "id": 3,
+      "question": "What is innovation?",
+      "options": [
+        "Creating new ideas or methods",
+        "Copying existing products",
+        "Managing finances",
+        "Hiring employees"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Innovation involves creating new ideas, products, or methods."
+    },
+    {
+      "id": 4,
+      "question": "What is risk management?",
+      "options": [
+        "Identifying and managing potential risks",
+        "Avoiding all risks",
+        "Taking maximum risks",
+        "Ignoring risks"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Risk management involves identifying and managing potential risks to the business."
+    },
+    {
+      "id": 5,
+      "question": "What is market research?",
+      "options": [
+        "Gathering information about markets and customers",
+        "Setting prices",
+        "Creating advertisements",
+        "Managing inventory"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Market research involves gathering information about markets and customers."
+    }
+  ]
+}

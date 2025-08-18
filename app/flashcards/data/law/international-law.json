@@ -1,0 +1,36 @@
+{
+  "id": "international-law-flashcards",
+  "title": "International Law Flashcards",
+  "subject": "International Law",
+  "difficulty": "Advanced",
+  "sets": [
+    {
+      "id": "international-fundamentals",
+      "title": "International Law Fundamentals",
+      "cardCount": 10,
+      "difficulty": "Advanced",
+      "cards": [
+        {
+          "front": "What is international law?",
+          "back": "The body of legal rules that apply between sovereign states and other entities having international personality."
+        },
+        {
+          "front": "What is a treaty?",
+          "back": "A formal agreement between two or more sovereign states that is binding under international law."
+        },
+        {
+          "front": "What is diplomatic immunity?",
+          "back": "A principle of international law that protects diplomats from being sued or prosecuted in the host country."
+        },
+        {
+          "front": "What is the United Nations?",
+          "back": "An international organization founded to promote peace, security, and cooperation among nations."
+        },
+        {
+          "front": "What is international humanitarian law?",
+          "back": "The body of law that regulates the conduct of armed conflict and seeks to limit its effects."
+        }
+      ]
+    }
+  ]
+}

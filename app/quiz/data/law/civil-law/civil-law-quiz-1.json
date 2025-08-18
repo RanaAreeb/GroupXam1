@@ -1,0 +1,69 @@
+{
+  "id": "civil-law-quiz-1",
+  "title": "Civil Law Quiz 1",
+  "subject": "Civil Law",
+  "difficulty": "Intermediate",
+  "timeLimit": 600,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is civil law?",
+      "options": [
+        "Law that defines crimes and punishments",
+        "Law that governs disputes between individuals",
+        "Law that regulates government actions",
+        "Law that covers international relations"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Civil law governs disputes between individuals, organizations, or between individuals and organizations."
+    },
+    {
+      "id": 2,
+      "question": "What is a plaintiff?",
+      "options": [
+        "The person being sued",
+        "The person bringing the lawsuit",
+        "The judge in the case",
+        "The lawyer representing the defendant"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A plaintiff is the person who brings a lawsuit against another party."
+    },
+    {
+      "id": 3,
+      "question": "What is a defendant?",
+      "options": [
+        "The person bringing the lawsuit",
+        "The person being sued",
+        "The judge presiding over the case",
+        "The court clerk"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A defendant is the person against whom a lawsuit is brought."
+    },
+    {
+      "id": 4,
+      "question": "What is the burden of proof in civil cases?",
+      "options": [
+        "Beyond a reasonable doubt",
+        "Preponderance of the evidence",
+        "Clear and convincing evidence",
+        "Probable cause"
+      ],
+      "correctAnswer": 1,
+      "explanation": "In civil cases, the burden of proof is typically 'preponderance of the evidence,' meaning more likely than not."
+    },
+    {
+      "id": 5,
+      "question": "What is a settlement?",
+      "options": [
+        "A court verdict",
+        "An agreement between parties to resolve a dispute",
+        "A type of legal document",
+        "A court hearing"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A settlement is an agreement between parties to resolve a dispute without going to trial."
+    }
+  ]
+}

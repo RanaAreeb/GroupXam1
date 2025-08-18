@@ -1,0 +1,45 @@
+{
+  "id": "constitutional-law-quiz-1",
+  "title": "Constitutional Law Quiz 1",
+  "subject": "Constitutional Law",
+  "difficulty": "Intermediate",
+  "questions": 10,
+  "timeLimit": 600,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is constitutional law?",
+      "options": ["Criminal law", "The body of law that defines the relationship between different entities within a state", "Civil law", "International law"],
+      "correctAnswer": 1,
+      "explanation": "Constitutional law defines the relationship between different entities within a state, including the executive, legislature, and judiciary."
+    },
+    {
+      "id": 2,
+      "question": "What is separation of powers?",
+      "options": ["The division of government responsibilities into distinct branches", "The power of the president", "The role of the judiciary", "The function of the legislature"],
+      "correctAnswer": 0,
+      "explanation": "Separation of powers is the division of government responsibilities into distinct branches to prevent any one branch from exercising the core functions of another."
+    },
+    {
+      "id": 3,
+      "question": "What is judicial review?",
+      "options": ["The power of courts to examine and invalidate unconstitutional actions", "The power of the president to review laws", "The power of Congress to review court decisions", "The power of states to review federal laws"],
+      "correctAnswer": 0,
+      "explanation": "Judicial review is the power of courts to examine and invalidate actions of the legislative and executive branches if they are unconstitutional."
+    },
+    {
+      "id": 4,
+      "question": "What is due process?",
+      "options": ["The right to a speedy trial", "The legal requirement that the state must respect all legal rights owed to a person", "The right to bear arms", "The right to free speech"],
+      "correctAnswer": 1,
+      "explanation": "Due process is the legal requirement that the state must respect all legal rights owed to a person, including fair treatment through the judicial system."
+    },
+    {
+      "id": 5,
+      "question": "What is the supremacy clause?",
+      "options": ["A clause that gives states power over the federal government", "A clause that establishes federal law as the supreme law of the land", "A clause that gives the president supreme power", "A clause that gives Congress supreme power"],
+      "correctAnswer": 1,
+      "explanation": "The supremacy clause establishes federal law as the supreme law of the land, overriding state laws."
+    }
+  ]
+}

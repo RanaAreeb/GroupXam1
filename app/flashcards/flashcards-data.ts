@@ -38,6 +38,37 @@ import accountingFlashcards from "./data/economics/accounting.json";
 import financeFlashcards from "./data/economics/finance.json";
 import politicalScienceFlashcards from "./data/economics/political-science.json";
 
+// Medicine imports
+import pathologyFlashcards from "./data/medicine/pathology.json";
+import immunologyFlashcards from "./data/medicine/immunology.json";
+import cardiologyFlashcards from "./data/medicine/cardiology.json";
+import neurologyFlashcards from "./data/medicine/neurology.json";
+import pediatricsFlashcards from "./data/medicine/pediatrics.json";
+
+// Business imports
+import businessManagementFlashcards from "./data/business/business-management.json";
+import marketingFlashcards from "./data/business/marketing.json";
+import humanResourcesFlashcards from "./data/business/human-resources.json";
+import operationsManagementFlashcards from "./data/business/operations-management.json";
+import strategicManagementFlashcards from "./data/business/strategic-management.json";
+import entrepreneurshipFlashcards from "./data/business/entrepreneurship.json";
+import internationalBusinessFlashcards from "./data/business/international-business.json";
+import supplyChainManagementFlashcards from "./data/business/supply-chain-management.json";
+import projectManagementFlashcards from "./data/business/project-management.json";
+import businessEthicsFlashcards from "./data/business/business-ethics.json";
+
+// Law imports
+import constitutionalLawFlashcards from "./data/law/constitutional-law.json";
+import criminalLawFlashcards from "./data/law/criminal-law.json";
+import civilLawFlashcards from "./data/law/civil-law.json";
+import contractLawFlashcards from "./data/law/contract-law.json";
+import tortLawFlashcards from "./data/law/tort-law.json";
+import propertyLawFlashcards from "./data/law/property-law.json";
+import corporateLawFlashcards from "./data/law/corporate-law.json";
+import internationalLawFlashcards from "./data/law/international-law.json";
+import environmentalLawFlashcards from "./data/law/environmental-law.json";
+import humanRightsLawFlashcards from "./data/law/human-rights-law.json";
+
 export interface Flashcard {
   front: string;
   back: string;
@@ -65,11 +96,6 @@ const flashcardData: Record<string, FlashcardData> = {
   physics: physicsFlashcards as FlashcardData,
   chemistry: chemistryFlashcards as FlashcardData,
   biology: biologyFlashcards as FlashcardData,
-  anatomy: anatomyFlashcards as FlashcardData,
-  physiology: physiologyFlashcards as FlashcardData,
-  microbiology: microbiologyFlashcards as FlashcardData,
-  biochemistry: biochemistryFlashcards as FlashcardData,
-  pharmacology: pharmacologyFlashcards as FlashcardData,
   ecology: ecologyFlashcards as FlashcardData,
   psychology: psychologyFlashcards as FlashcardData,
 
@@ -103,6 +129,42 @@ const flashcardData: Record<string, FlashcardData> = {
   accounting: accountingFlashcards as FlashcardData,
   finance: financeFlashcards as FlashcardData,
   "political science": politicalScienceFlashcards as FlashcardData,
+
+  // Medicine
+  anatomy: anatomyFlashcards as FlashcardData,
+  physiology: physiologyFlashcards as FlashcardData,
+  pathology: pathologyFlashcards as FlashcardData,
+  pharmacology: pharmacologyFlashcards as FlashcardData,
+  microbiology: microbiologyFlashcards as FlashcardData,
+  biochemistry: biochemistryFlashcards as FlashcardData,
+  immunology: immunologyFlashcards as FlashcardData,
+  cardiology: cardiologyFlashcards as FlashcardData,
+  neurology: neurologyFlashcards as FlashcardData,
+  pediatrics: pediatricsFlashcards as FlashcardData,
+
+  // Business
+  "business management": businessManagementFlashcards as FlashcardData,
+  marketing: marketingFlashcards as FlashcardData,
+  "human resources": humanResourcesFlashcards as FlashcardData,
+  "operations management": operationsManagementFlashcards as FlashcardData,
+  "strategic management": strategicManagementFlashcards as FlashcardData,
+  entrepreneurship: entrepreneurshipFlashcards as FlashcardData,
+  "international business": internationalBusinessFlashcards as FlashcardData,
+  "supply chain management": supplyChainManagementFlashcards as FlashcardData,
+  "project management": projectManagementFlashcards as FlashcardData,
+  "business ethics": businessEthicsFlashcards as FlashcardData,
+
+  // Law
+  "constitutional law": constitutionalLawFlashcards as FlashcardData,
+  "criminal law": criminalLawFlashcards as FlashcardData,
+  "civil law": civilLawFlashcards as FlashcardData,
+  "contract law": contractLawFlashcards as FlashcardData,
+  "tort law": tortLawFlashcards as FlashcardData,
+  "property law": propertyLawFlashcards as FlashcardData,
+  "corporate law": corporateLawFlashcards as FlashcardData,
+  "international law": internationalLawFlashcards as FlashcardData,
+  "environmental law": environmentalLawFlashcards as FlashcardData,
+  "human rights law": humanRightsLawFlashcards as FlashcardData,
 };
 
 export function getFlashcardData(subject: string): FlashcardData | null {
