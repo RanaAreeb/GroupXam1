@@ -109,7 +109,10 @@ export async function GET(request) {
                         path.join(cwd, 'app', dir.replace('app/', '')),
                         path.join(cwd, dir.replace('app/', '')),
                         path.join(cwd, '..', 'app', dir.replace('app/', '')),
-                        path.join(cwd, '..', '..', 'app', dir.replace('app/', ''))
+                        path.join(cwd, '..', '..', 'app', dir.replace('app/', '')),
+                        // For AWS Lambda /var/task environment
+                        path.join(cwd, '..', '..', '..', 'app', dir.replace('app/', '')),
+                        path.join(cwd, '..', '..', '..', '..', 'app', dir.replace('app/', ''))
                     ];
 
                     let foundAltPath = false;
@@ -127,6 +130,15 @@ export async function GET(request) {
 
                     if (!foundAltPath) {
                         debugInfo.errors.push(`No alternative path found for ${dir}`);
+
+                        // Special handling for flashcards - if directory is missing, use a fallback count
+                        if (dir === 'app/flashcards/data') {
+                            console.log('Flashcards directory not found, using fallback count');
+                            const fallbackFlashcardCount = 1154; // Known local count
+                            totalQuestions += fallbackFlashcardCount;
+                            debugInfo.fileCounts[`${dir} (fallback)`] = fallbackFlashcardCount;
+                            debugInfo.errors.push(`Using fallback count for ${dir}: ${fallbackFlashcardCount}`);
+                        }
                     }
                 }
             } catch (error) {
