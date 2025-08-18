@@ -1346,7 +1346,7 @@ export default function QuizPage() {
               ? `Choose a quiz to test your ${selectedSubjectData.name.toLowerCase()} knowledge`
               : selectedCategoryData
               ? `Practice and master ${selectedCategoryData.title.toLowerCase()} subjects. Choose a subject to get started!`
-              : "Practice quizzes for every subject and exam type. Select a category to get started!"}
+              : "Practice quizzes for every subject and exam type. Select a category to get started! "}
           </p>
         </div>
 
