@@ -7,11 +7,20 @@ import path from 'path';
 let questionCountCache = {
     count: null,
     timestamp: null,
-    ttl: 5 * 60 * 1000 // 5 minutes cache
+    ttl: 1 * 60 * 1000 // 1 minute cache (reduced for faster updates)
 };
 
-export async function GET() {
+export async function GET(request) {
     try {
+        // Check if we should clear cache
+        const { searchParams } = new URL(request.url);
+        const clearCache = searchParams.get('clearCache');
+
+        if (clearCache === 'true') {
+            questionCountCache.count = null;
+            questionCountCache.timestamp = null;
+        }
+
         // Check cache first
         const now = Date.now();
         if (questionCountCache.count !== null &&
