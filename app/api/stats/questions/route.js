@@ -35,30 +35,42 @@ export async function GET(request) {
 
         const db = await getDatabase();
         let totalQuestions = 0;
+        const debugInfo = {
+            databaseCounts: {},
+            fileCounts: {},
+            errors: [],
+            paths: {}
+        };
 
         // Count questions from database collections
         try {
             // Count from quiz submissions (if you have a submissions collection)
             const quizQuestions = await db.collection('quiz_submissions').countDocuments();
             totalQuestions += quizQuestions;
+            debugInfo.databaseCounts.quiz_submissions = quizQuestions;
         } catch (error) {
             console.log('No quiz_submissions collection found');
+            debugInfo.errors.push('quiz_submissions collection not found');
         }
 
         // Count from exam submissions
         try {
             const examQuestions = await db.collection('exam_submissions').countDocuments();
             totalQuestions += examQuestions;
+            debugInfo.databaseCounts.exam_submissions = examQuestions;
         } catch (error) {
             console.log('No exam_submissions collection found');
+            debugInfo.errors.push('exam_submissions collection not found');
         }
 
         // Count from flashcard completions
         try {
             const flashcardQuestions = await db.collection('flashcard_completions').countDocuments();
             totalQuestions += flashcardQuestions;
+            debugInfo.databaseCounts.flashcard_completions = flashcardQuestions;
         } catch (error) {
             console.log('No flashcard_completions collection found');
+            debugInfo.errors.push('flashcard_completions collection not found');
         }
 
         // Count from JSON files in the data directories - with better error handling
@@ -70,23 +82,65 @@ export async function GET(request) {
             'app/flashcards/data'
         ];
 
+        // Log the current working directory for debugging
+        const cwd = process.cwd();
+        console.log('Current working directory:', cwd);
+        debugInfo.paths.cwd = cwd;
+
         for (const dir of dataDirectories) {
             try {
-                const fullPath = path.join(process.cwd(), dir);
+                const fullPath = path.join(cwd, dir);
+                console.log(`Checking directory: ${fullPath}`);
+                debugInfo.paths[dir] = fullPath;
+
                 if (fs.existsSync(fullPath)) {
                     const count = countQuestionsInDirectory(fullPath);
                     totalQuestions += count;
+                    debugInfo.fileCounts[dir] = count;
                     console.log(`Counted ${count} questions from ${dir}`);
                 } else {
                     console.log(`Directory not found: ${dir}`);
+                    debugInfo.errors.push(`Directory not found: ${dir}`);
+
+                    // Try alternative paths for deployed environment
+                    const altPaths = [
+                        path.join(cwd, '..', dir),
+                        path.join(cwd, '..', '..', dir),
+                        path.join(cwd, 'app', dir.replace('app/', '')),
+                        path.join(cwd, dir.replace('app/', '')),
+                        path.join(cwd, '..', 'app', dir.replace('app/', '')),
+                        path.join(cwd, '..', '..', 'app', dir.replace('app/', ''))
+                    ];
+
+                    let foundAltPath = false;
+                    for (const altPath of altPaths) {
+                        if (fs.existsSync(altPath)) {
+                            const count = countQuestionsInDirectory(altPath);
+                            totalQuestions += count;
+                            debugInfo.fileCounts[`${dir} (alt: ${altPath})`] = count;
+                            debugInfo.paths[`${dir}_alt`] = altPath;
+                            console.log(`Counted ${count} questions from alternative path: ${altPath}`);
+                            foundAltPath = true;
+                            break;
+                        }
+                    }
+
+                    if (!foundAltPath) {
+                        debugInfo.errors.push(`No alternative path found for ${dir}`);
+                    }
                 }
             } catch (error) {
                 console.log(`Error counting questions in ${dir}:`, error);
+                debugInfo.errors.push(`Error in ${dir}: ${error.message}`);
             }
         }
 
+        // Log debug information
+        console.log('Debug info:', JSON.stringify(debugInfo, null, 2));
+
         // Ensure we have a minimum reasonable count
         if (totalQuestions < 1000) {
+            console.log(`Question count too low (${totalQuestions}), using fallback`);
             totalQuestions = 15000; // Fallback to a reasonable number
         }
 
@@ -96,13 +150,15 @@ export async function GET(request) {
 
         return NextResponse.json({
             totalQuestions,
-            success: true
+            success: true,
+            debug: debugInfo
         });
     } catch (error) {
         console.error('Error counting questions:', error);
         return NextResponse.json({
             error: 'Failed to count questions',
-            totalQuestions: 15000 // Consistent fallback number
+            totalQuestions: 15000, // Consistent fallback number
+            debug: { error: error.message }
         }, { status: 500 });
     }
 }
