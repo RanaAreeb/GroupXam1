@@ -19,6 +19,7 @@ export default function AppHeader({
   const { isLoggedIn, logout } = useAuth();
 
   const navLinks = [
+    { href: "/", label: "Home" },
     { href: "/quiz", label: "Quizzes" },
     { href: "/exams", label: "Exams" },
     { href: "/flashcards", label: "Flashcards" },
