@@ -45,6 +45,15 @@ export async function POST(request) {
             }, { status: 400 });
         }
 
+        // Check if this might be a bounced email (if user has tried multiple times)
+        if (user.verificationAttempts >= 3) {
+            // Suggest email might be invalid
+            return NextResponse.json({
+                error: "Email delivery may have failed. The email address might be invalid or doesn't exist. Please check and correct your email address.",
+                emailError: true
+            }, { status: 400 });
+        }
+
         // Check verification attempts
         if (user.verificationAttempts >= 5) {
             return NextResponse.json({
@@ -99,6 +108,57 @@ export async function POST(request) {
             JWT_SECRET,
             { expiresIn: "7d" }
         );
+
+        // Helper function to format names (FirstName L)
+        const formatDisplayName = (fullName) => {
+            if (!fullName || typeof fullName !== 'string') return fullName;
+            const nameParts = fullName.trim().split(' ');
+            if (nameParts.length < 2) return fullName; // Return as-is if only one name
+            const firstName = nameParts[0];
+            const lastInitial = nameParts[nameParts.length - 1].charAt(0).toUpperCase();
+            return `${firstName} ${lastInitial}`;
+        };
+
+        // Create activities for signup and verification
+        try {
+            const displayName = formatDisplayName(user.name);
+
+            // Create signup activity (since this is the first time they're fully registered)
+            const signupMessage = user.role === "university"
+                ? `${displayName} joined as an institution!`
+                : `${displayName} just signed up for groupXam!`;
+
+            // Create verification activity
+            const verificationMessage = user.role === "university"
+                ? `${displayName} verified their institution account!`
+                : `${displayName} verified their account!`;
+
+            // Directly insert activities into database
+            const activities = db.collection("activities");
+
+            // Insert signup activity first
+            await activities.insertOne({
+                type: 'signup',
+                message: signupMessage,
+                userId: user._id,
+                userName: user.name,
+                createdAt: new Date(),
+            });
+
+            // Insert verification activity
+            await activities.insertOne({
+                type: 'verification',
+                message: verificationMessage,
+                userId: user._id,
+                userName: user.name,
+                createdAt: new Date(),
+            });
+
+            console.log('Activities created for signup and verification:', signupMessage, verificationMessage);
+        } catch (activityError) {
+            console.error('Failed to create activities:', activityError);
+            // Don't fail the verification if activity creation fails
+        }
 
         // Send welcome email
         try {

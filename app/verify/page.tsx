@@ -28,6 +28,8 @@ function VerifyForm() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [timeLeft, setTimeLeft] = useState(0);
+  const [showEmailCorrection, setShowEmailCorrection] = useState(false);
+  const [correctedEmail, setCorrectedEmail] = useState("");
 
   useEffect(() => {
     if (!email) {
@@ -82,7 +84,13 @@ function VerifyForm() {
           router.push("/login");
         }, 2000);
       } else {
-        setError(data.error || "Verification failed");
+        // Check for email bounce or delivery failure
+        if (data.error && (data.error.includes("delivery") || data.error.includes("bounce") || data.error.includes("not found") || data.error.includes("invalid"))) {
+          setError("Email delivery failed. The email address may be invalid or doesn't exist. Please check and correct your email address.");
+          setShowEmailCorrection(true);
+        } else {
+          setError(data.error || "Verification failed");
+        }
       }
     } catch (err) {
       setError("Network error. Please check your connection and try again.");
@@ -110,12 +118,64 @@ function VerifyForm() {
         setSuccess("New verification code sent to your email");
         setTimeLeft(60); // Reset countdown
       } else {
-        setError(data.error || "Failed to resend verification code");
+        // Check for email bounce or delivery failure
+        if (data.error && (data.error.includes("delivery") || data.error.includes("bounce") || data.error.includes("not found") || data.error.includes("invalid"))) {
+          setError("Email delivery failed. The email address may be invalid or doesn't exist. Please check and correct your email address.");
+          setShowEmailCorrection(true);
+        } else {
+          setError(data.error || "Failed to resend verification code");
+        }
       }
     } catch (err) {
       setError("Network error. Please try again.");
     } finally {
       setIsResending(false);
+    }
+  };
+
+  const handleEmailCorrection = async () => {
+    if (!correctedEmail.trim()) {
+      setError("Please enter a valid email address");
+      return;
+    }
+
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(correctedEmail)) {
+      setError("Please enter a valid email address");
+      return;
+    }
+
+    setIsLoading(true);
+    setError("");
+
+    try {
+      const response = await fetch("/api/auth/update-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          oldEmail: email,
+          newEmail: correctedEmail.trim(),
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSuccess("Email updated successfully! New verification code sent.");
+        setShowEmailCorrection(false);
+        setTimeLeft(60);
+        // Update the URL to reflect the new email
+        router.replace(`/verify?email=${encodeURIComponent(correctedEmail.trim())}`);
+      } else {
+        setError(data.error || "Failed to update email address");
+      }
+    } catch (err) {
+      setError("Network error. Please try again.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -154,11 +214,91 @@ function VerifyForm() {
               </div>
             </div>
 
+            {/* Email Warning for suspicious patterns */}
+            {(() => {
+              if (!email) return null;
+              const localPart = email.split('@')[0];
+              const numbersInLocal = (localPart.match(/\d/g) || []).length;
+              const isSuspicious = /^\d+[a-zA-Z]/.test(localPart) && numbersInLocal > 3;
+              
+              if (isSuspicious) {
+                return (
+                  <div className="mb-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+                    <div className="flex items-center space-x-2 mb-2">
+                      <AlertCircle className="w-5 h-5 text-yellow-600" />
+                      <span className="text-yellow-800 text-sm font-medium">Email may be invalid</span>
+                    </div>
+                    <p className="text-yellow-700 text-sm">
+                      This email address pattern might cause delivery issues. If you don't receive the verification code, 
+                      the email address may be invalid or doesn't exist.
+                    </p>
+                    <button
+                      onClick={() => setShowEmailCorrection(true)}
+                      className="mt-2 text-yellow-800 underline text-sm hover:text-yellow-900"
+                    >
+                      Correct email address
+                    </button>
+                  </div>
+                );
+              }
+              return null;
+            })()}
+
             {/* Error/Success Messages */}
             {error && (
-              <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-center space-x-2">
-                <AlertCircle className="w-5 h-5 text-red-500" />
-                <span className="text-red-700 text-sm">{error}</span>
+              <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+                <div className="flex items-center space-x-2 mb-3">
+                  <AlertCircle className="w-5 h-5 text-red-500" />
+                  <span className="text-red-700 text-sm font-medium">{error}</span>
+                </div>
+                
+                {/* Email Correction Section */}
+                {showEmailCorrection && (
+                  <div className="mt-4 p-4 bg-white rounded-lg border border-red-200">
+                    <p className="text-sm text-gray-700 mb-3">
+                      <strong>Correct your email address:</strong>
+                    </p>
+                    <div className="space-y-3">
+                      <div>
+                        <Label htmlFor="correctedEmail" className="text-sm font-medium text-gray-700">
+                          Correct Email Address
+                        </Label>
+                        <Input
+                          id="correctedEmail"
+                          type="email"
+                          placeholder="Enter correct email address"
+                          value={correctedEmail}
+                          onChange={(e) => setCorrectedEmail(e.target.value)}
+                          className="mt-1 h-10 border-gray-200 focus:border-emerald-500 focus:ring-emerald-500"
+                          disabled={isLoading}
+                        />
+                      </div>
+                      <div className="flex space-x-3">
+                        <Button
+                          type="button"
+                          onClick={handleEmailCorrection}
+                          className="flex-1 h-10 bg-emerald-600 hover:bg-emerald-700 text-white text-sm"
+                          disabled={isLoading || !correctedEmail.trim()}
+                        >
+                          {isLoading ? "Updating..." : "Update Email"}
+                        </Button>
+                        <Button
+                          type="button"
+                          variant="outline"
+                          onClick={() => {
+                            setShowEmailCorrection(false);
+                            setCorrectedEmail("");
+                            setError("");
+                          }}
+                          className="h-10 text-sm"
+                          disabled={isLoading}
+                        >
+                          Cancel
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             )}
 

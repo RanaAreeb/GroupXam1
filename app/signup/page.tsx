@@ -354,6 +354,7 @@ export default function SignupPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [emailError, setEmailError] = useState("");
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -378,6 +379,93 @@ export default function SignupPage() {
     country: "",
   });
 
+  // Enhanced email validation function
+  const validateEmail = (email: string) => {
+    // Basic email format check
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return false;
+    }
+    
+    // Check for valid TLDs (common ones)
+    const validTLDs = [
+      'com', 'org', 'net', 'edu', 'gov', 'mil', 'int', 'io', 'co', 'uk', 'us', 'ca', 'au', 'de', 'fr', 'it', 'es', 'nl', 'be', 'ch', 'at', 'se', 'no', 'dk', 'fi', 'pl', 'cz', 'hu', 'ro', 'bg', 'hr', 'si', 'sk', 'lt', 'lv', 'ee', 'ie', 'pt', 'gr', 'cy', 'mt', 'lu', 'is', 'in', 'pk', 'bd', 'lk', 'np', 'bt', 'mv', 'af', 'ir', 'iq', 'sa', 'ae', 'qa', 'kw', 'bh', 'om', 'ye', 'jo', 'lb', 'sy', 'ps', 'il', 'tr', 'ge', 'am', 'az', 'cn', 'jp', 'kr', 'tw', 'hk', 'mo', 'mn', 'kp', 'vn', 'th', 'my', 'sg', 'id', 'ph', 'mm', 'la', 'kh', 'bn', 'tl', 'au', 'nz', 'fj', 'pg', 'sb', 'vu', 'nc', 'pf', 'br', 'ar', 'cl', 'pe', 'co', 've', 'ec', 'bo', 'py', 'uy', 'gy', 'sr', 'fk', 'mx', 'gt', 'bz', 'sv', 'hn', 'ni', 'cr', 'pa', 'cu', 'jm', 'ht', 'do', 'pr', 'tt', 'bb', 'gd', 'lc', 'vc', 'ag', 'kn', 'dm', 'bs', 'ru', 'ua', 'by', 'md', 'kz', 'uz', 'kg', 'tj', 'tm', 'ng', 'gh', 'ke', 'za', 'eg', 'et', 'tz', 'ug', 'dz', 'ma', 'tn', 'ly', 'sd', 'ss', 'cm', 'ci', 'sn', 'ml', 'bf', 'ne', 'td', 'cf', 'cg', 'cd', 'ao', 'zm', 'zw', 'bw', 'na', 'mw', 'mz', 'sz', 'ls', 'mg', 'mu', 'sc', 'dj', 'so', 'er', 'rw', 'bi', 'gw', 'gn', 'sl', 'lr', 'tg', 'bj', 'cv', 'gm', 'mr'
+    ];
+    
+    const domain = email.split('@')[1];
+    const tld = domain.split('.').pop()?.toLowerCase();
+    
+    if (!validTLDs.includes(tld || '')) {
+      return false;
+    }
+    
+    // Additional checks for suspicious patterns
+    const [localPart, domainPart] = email.split('@');
+    
+    // Check for repeated characters (like many 'b's)
+    const repeatedCharRegex = /(.)\1{10,}/; // More than 10 repeated characters
+    if (repeatedCharRegex.test(localPart) || repeatedCharRegex.test(domainPart)) {
+      return false;
+    }
+    
+    // Check for extremely long local part (Gmail limit is 64 characters)
+    if (localPart.length > 64) {
+      return false;
+    }
+    
+    // Check for extremely long domain (255 characters total domain limit)
+    if (domainPart.length > 255) {
+      return false;
+    }
+    
+    // Check for suspicious patterns like many numbers or special characters
+    const suspiciousPatterns = [
+      /\d{20,}/, // 20+ consecutive digits
+      /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]{10,}/, // 10+ consecutive special chars
+      /[a-zA-Z]{50,}/, // 50+ consecutive letters
+    ];
+    
+    for (const pattern of suspiciousPatterns) {
+      if (pattern.test(email)) {
+        return false;
+      }
+    }
+    
+    // Additional check for common invalid patterns
+    const invalidPatterns = [
+      /^\d+@/, // Email starting with only numbers
+      /@\d+\./, // Domain starting with only numbers
+      /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, // This should be valid, but let's check for specific issues
+    ];
+    
+    // Check for emails that look like they might be invalid
+    if (localPart.length < 2 || domainPart.length < 4) {
+      return false;
+    }
+    
+    // Check for emails with too many numbers in local part (like 12rana00493)
+    const numbersInLocal = (localPart.match(/\d/g) || []).length;
+    if (numbersInLocal > localPart.length * 0.6) { // If more than 60% are numbers
+      return false;
+    }
+    
+    // Check for emails that start with numbers followed by letters (like 12rana00493)
+    if (/^\d+[a-zA-Z]/.test(localPart) && numbersInLocal > 3) {
+      return false;
+    }
+    
+    return true;
+  };
+
+  const handleEmailChange = (email: string) => {
+    setFormData((prev) => ({ ...prev, email }));
+    if (email && !validateEmail(email)) {
+      setEmailError("Please enter a valid email address");
+    } else {
+      setEmailError("");
+    }
+  };
+
   const handleSubjectToggle = (subjectId: string) => {
     setFormData((prev) => ({
       ...prev,
@@ -389,6 +477,13 @@ export default function SignupPage() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    
+    // Validate email before proceeding
+    if (step === 1 && !validateEmail(formData.email)) {
+      setEmailError("Please enter a valid email address");
+      return;
+    }
+    
     if (step === 1) {
       setStep(2);
     } else {
@@ -426,7 +521,18 @@ export default function SignupPage() {
             }, 2000);
           }
         } else {
-          setError(data.error || "Signup failed. Please try again.");
+          // Check for email delivery failure
+          if (data.emailError || (data.error && (
+            data.error.includes("delivery") || 
+            data.error.includes("invalid") || 
+            data.error.includes("does not exist") ||
+            data.error.includes("Address not found")
+          ))) {
+            setError("Email delivery failed. The email address may be invalid or doesn't exist. Please check and correct your email address.");
+            setEmailError("Please enter a valid email address");
+          } else {
+            setError(data.error || "Signup failed. Please try again.");
+          }
         }
       } catch (err) {
         setError("Network error. Please check your connection and try again.");
@@ -440,6 +546,12 @@ export default function SignupPage() {
     e: React.FormEvent<HTMLFormElement>
   ) => {
     e.preventDefault();
+
+    // Validate email before proceeding to final step
+    if (institutionStep === 2 && !validateEmail(institutionData.email)) {
+      setEmailError("Please enter a valid email address");
+      return;
+    }
 
     if (institutionStep < 3) {
       setInstitutionStep(institutionStep + 1);
@@ -498,7 +610,18 @@ export default function SignupPage() {
           }, 2000);
         }
       } else {
-        setError(data.error || "Signup failed. Please try again.");
+        // Check for email delivery failure
+        if (data.emailError || (data.error && (
+          data.error.includes("delivery") || 
+          data.error.includes("invalid") || 
+          data.error.includes("does not exist") ||
+          data.error.includes("Address not found")
+        ))) {
+          setError("Email delivery failed. The email address may be invalid or doesn't exist. Please check and correct your email address.");
+          setEmailError("Please enter a valid email address");
+        } else {
+          setError(data.error || "Signup failed. Please try again.");
+        }
       }
     } catch (err) {
       setError("Network error. Please check your connection and try again.");
@@ -710,16 +833,19 @@ export default function SignupPage() {
                         type="email"
                         placeholder="Enter your email"
                         value={formData.email}
-                        onChange={(e) =>
-                          setFormData((prev) => ({
-                            ...prev,
-                            email: e.target.value,
-                          }))
-                        }
-                        className="pl-11 h-12 border-gray-200 focus:border-emerald-500 focus:ring-emerald-500"
+                        onChange={(e) => handleEmailChange(e.target.value)}
+                        className={`pl-11 h-12 border-gray-200 focus:border-emerald-500 focus:ring-emerald-500 ${
+                          emailError ? 'border-red-300 focus:border-red-500 focus:ring-red-500' : ''
+                        }`}
                         required
                         disabled={isLoading}
                       />
+                      {emailError && (
+                        <p className="text-red-500 text-sm mt-1 flex items-center">
+                          <AlertCircle className="w-4 h-4 mr-1" />
+                          {emailError}
+                        </p>
+                      )}
                     </div>
                   </div>
 
@@ -837,17 +963,19 @@ export default function SignupPage() {
                               ? "border-emerald-500 bg-emerald-50"
                               : "border-gray-200 hover:border-gray-300"
                           }`}
+                          onClick={() => handleSubjectToggle(subject.id)}
                         >
-                          <Checkbox
-                            id={subject.id}
-                            checked={formData.selectedSubjects.includes(
-                              subject.id
+                          <div className="w-4 h-4 border-2 rounded-sm flex items-center justify-center pointer-events-none">
+                            {formData.selectedSubjects.includes(subject.id) ? (
+                              <div className="w-4 h-4 bg-emerald-500 rounded-sm flex items-center justify-center">
+                                <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                                </svg>
+                              </div>
+                            ) : (
+                              <div className="w-4 h-4 bg-white border-gray-300 rounded-sm"></div>
                             )}
-                            onCheckedChange={() =>
-                              handleSubjectToggle(subject.id)
-                            }
-                            disabled={isLoading}
-                          />
+                          </div>
                           <div className="text-2xl">{subject.icon}</div>
                           <div className="flex-1">
                             <div className="font-medium text-gray-800">
@@ -1038,14 +1166,29 @@ export default function SignupPage() {
                         type="email"
                         required
                         value={institutionData.email}
-                        onChange={(e) =>
+                        onChange={(e) => {
+                          const email = e.target.value;
                           setInstitutionData({
                             ...institutionData,
-                            email: e.target.value,
-                          })
-                        }
+                            email: email,
+                          });
+                          if (email && !validateEmail(email)) {
+                            setEmailError("Please enter a valid email address");
+                          } else {
+                            setEmailError("");
+                          }
+                        }}
+                        className={`${
+                          emailError ? 'border-red-300 focus:border-red-500 focus:ring-red-500' : ''
+                        }`}
                         placeholder="admin@institution.com"
                       />
+                      {emailError && (
+                        <p className="text-red-500 text-sm mt-1 flex items-center">
+                          <AlertCircle className="w-4 h-4 mr-1" />
+                          {emailError}
+                        </p>
+                      )}
                     </div>
 
                     <div>
