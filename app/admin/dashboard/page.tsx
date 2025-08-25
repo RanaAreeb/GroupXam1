@@ -395,6 +395,44 @@ export default function AdminDashboard() {
     }
   };
 
+  // Helper function to format session duration from seconds to readable format
+  const formatSessionDuration = (seconds: number): string => {
+    if (!seconds || seconds <= 0) return '0 minutes';
+    
+    if (seconds > 86400) {
+      // More than 24 hours, show as hours
+      return `${Math.round(seconds / 3600)} hours`;
+    } else if (seconds > 3600) {
+      // More than 1 hour, show as hours and minutes
+      const hours = Math.floor(seconds / 3600);
+      const minutes = Math.round((seconds % 3600) / 60);
+      return `${hours}h ${minutes}m`;
+    } else {
+      // Less than 1 hour, show as minutes
+      return `${Math.round(seconds / 60)} minutes`;
+    }
+  };
+
+  // Helper function to format page visit duration from seconds to readable format
+  // Caps at 2 hours as page visits shouldn't be longer than that
+  const formatPageVisitDuration = (seconds: number): string => {
+    if (!seconds || seconds <= 0) return '0 minutes';
+    
+    // Cap extremely large values that are likely tracking errors
+    // For page visits, cap at 2 hours (7200 seconds) as a reasonable maximum
+    const cappedSeconds = Math.min(seconds, 7200);
+    
+    if (cappedSeconds > 3600) {
+      // More than 1 hour, show as hours and minutes
+      const hours = Math.floor(cappedSeconds / 3600);
+      const minutes = Math.round((cappedSeconds % 3600) / 60);
+      return `${hours}h ${minutes}m`;
+    } else {
+      // Less than 1 hour, show as minutes
+      return `${Math.round(cappedSeconds / 60)} minutes`;
+    }
+  };
+
   if (loading) {
     return (
       <PageTransition>
@@ -1652,7 +1690,7 @@ export default function AdminDashboard() {
                               </div>
                             </TableCell>
                             <TableCell className="text-sm">
-                              {visit.duration ? Math.round(visit.duration / 60) : 0} minutes
+                              {formatPageVisitDuration(visit.duration)}
                             </TableCell>
                             <TableCell className="text-sm">
                               {visit.actions ? visit.actions.length : 0}
@@ -1728,7 +1766,7 @@ export default function AdminDashboard() {
                     </CardHeader>
                     <CardContent>
                       <div className="text-2xl font-bold text-green-700">
-                        {Math.round(pageAnalytics.reduce((sum, page) => sum + page.totalTime, 0) / 60)} minutes
+                        {formatSessionDuration(pageAnalytics.reduce((sum, page) => sum + page.totalTime, 0))}
                       </div>
                     </CardContent>
                   </Card>
@@ -1738,7 +1776,7 @@ export default function AdminDashboard() {
                     </CardHeader>
                     <CardContent>
                       <div className="text-2xl font-bold text-purple-700">
-                        {pageAnalytics.length > 0 ? Math.round(pageAnalytics.reduce((sum, page) => sum + page.totalTime, 0) / pageAnalytics.length / 60) : 0} minutes
+                        {pageAnalytics.length > 0 ? formatSessionDuration(Math.round(pageAnalytics.reduce((sum, page) => sum + page.totalTime, 0) / pageAnalytics.length)) : '0 minutes'}
                       </div>
                     </CardContent>
                   </Card>
@@ -1770,13 +1808,13 @@ export default function AdminDashboard() {
                           </div>
                         </TableCell>
                         <TableCell className="text-sm font-medium">
-                          {Math.round(page.totalTime / 60)} minutes
+                          {formatSessionDuration(page.totalTime)}
                         </TableCell>
                         <TableCell className="text-sm">
                           {page.visits}
                         </TableCell>
                         <TableCell className="text-sm">
-                          {page.visits > 0 ? Math.round(page.totalTime / page.visits / 60) : 0} minutes
+                          {page.visits > 0 ? formatSessionDuration(Math.round(page.totalTime / page.visits)) : '0 minutes'}
                         </TableCell>
                         <TableCell className="text-sm">
                           {page.totalActions}
