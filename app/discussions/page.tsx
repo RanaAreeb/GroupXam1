@@ -24,6 +24,8 @@ import {
   Clock,
   BookOpen,
   Trash2,
+  AlertTriangle,
+  X,
 } from "lucide-react";
 import AppHeader from "@/components/ui/app-header";
 import { useAuth } from "@/hooks/use-auth";
@@ -127,6 +129,17 @@ export default function DiscussionsPage() {
     {}
   );
   const [openReplies, setOpenReplies] = useState<Record<string, boolean>>({});
+  
+  // Custom delete modal state
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [deleteTarget, setDeleteTarget] = useState<{
+    type: 'discussion' | 'reply';
+    id: string;
+    discussionId?: string;
+    author?: string;
+    title?: string;
+  } | null>(null);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   // Use SWR data for discussions
   const discussionsData = data && Array.isArray(data) ? data : [];
@@ -323,13 +336,21 @@ export default function DiscussionsPage() {
     [showReplyInput]
   );
 
+  // Show delete modal
+  const showDeleteConfirmation = useCallback((type: 'discussion' | 'reply', id: string, discussionId?: string, author?: string, title?: string) => {
+    setDeleteTarget({ type, id, discussionId, author, title });
+    setShowDeleteModal(true);
+  }, []);
+
+  // Hide delete modal
+  const hideDeleteModal = useCallback(() => {
+    setShowDeleteModal(false);
+    setDeleteTarget(null);
+  }, []);
+
   // Delete discussion handler
   const handleDeleteDiscussion = useCallback(
     async (discussionId: string) => {
-      if (!confirm("Are you sure you want to delete this discussion? This action cannot be undone.")) {
-        return;
-      }
-
       try {
         const response = await fetch(`/api/discussions/${discussionId}`, {
           method: "DELETE",
@@ -338,6 +359,7 @@ export default function DiscussionsPage() {
         if (response.ok) {
           // Refresh the discussions list
           await mutate();
+          hideDeleteModal();
         } else {
           alert("Failed to delete discussion. Please try again.");
         }
@@ -346,8 +368,47 @@ export default function DiscussionsPage() {
         alert("Failed to delete discussion. Please try again.");
       }
     },
-    [mutate]
+    [mutate, hideDeleteModal]
   );
+
+  // Delete reply/comment handler
+  const handleDeleteReply = useCallback(
+    async (discussionId: string, replyId: string, replyAuthor: string) => {
+      try {
+        const response = await fetch(`/api/discussions/${discussionId}/replies/${replyId}`, {
+          method: "DELETE",
+        });
+
+        if (response.ok) {
+          // Refresh the discussions list
+          await mutate();
+          hideDeleteModal();
+        } else {
+          alert("Failed to delete comment. Please try again.");
+        }
+      } catch (error) {
+        console.error("Error deleting comment:", error);
+        alert("Failed to delete comment. Please try again.");
+      }
+    },
+    [mutate, hideDeleteModal]
+  );
+
+  // Execute delete action
+  const executeDelete = useCallback(async () => {
+    if (!deleteTarget) return;
+
+    setIsDeleting(true);
+    try {
+      if (deleteTarget.type === 'discussion') {
+        await handleDeleteDiscussion(deleteTarget.id);
+      } else if (deleteTarget.type === 'reply' && deleteTarget.discussionId) {
+        await handleDeleteReply(deleteTarget.discussionId, deleteTarget.id, deleteTarget.author || '');
+      }
+    } finally {
+      setIsDeleting(false);
+    }
+  }, [deleteTarget, handleDeleteDiscussion, handleDeleteReply]);
 
   // Update reply text
   const updateReplyText = useCallback((key: string, value: string) => {
@@ -434,7 +495,17 @@ export default function DiscussionsPage() {
                         {reply.replies.length} Replies
                       </button>
                     )}
-
+                    {/* Delete button - only show to comment author */}
+                    {user?.name === reply.author && (
+                      <button
+                        className="text-xs text-red-600 hover:underline px-2 py-1 rounded-full hover:bg-red-50 ml-auto"
+                        onClick={() => showDeleteConfirmation('reply', reply._id, discussion._id, reply.author)}
+                        title="Delete comment"
+                      >
+                        <Trash2 className="w-3 h-3 inline mr-1" />
+                        Delete
+                      </button>
+                    )}
                   </div>
                 )}
                 {/* Nested reply input - Mobile optimized */}
@@ -528,6 +599,17 @@ export default function DiscussionsPage() {
                                       {nestedReply.replies.length} Replies
                                     </button>
                                   )}
+                                  {/* Delete button - only show to comment author */}
+                                  {user?.name === nestedReply.author && (
+                                    <button
+                                      className="text-xs text-red-600 hover:underline px-2 py-1 rounded-full hover:bg-red-50 ml-auto"
+                                      onClick={() => showDeleteConfirmation('reply', nestedReply._id, discussion._id, nestedReply.author)}
+                                      title="Delete comment"
+                                    >
+                                      <Trash2 className="w-3 h-3 inline mr-1" />
+                                      Delete
+                                    </button>
+                                  )}
                                 </div>
                               )}
                               {/* Nested reply input - Mobile optimized */}
@@ -616,6 +698,17 @@ export default function DiscussionsPage() {
                                                   >
                                                     <MessageSquare className="w-3 h-3" />
                                                     {deepNestedReply.replies.length} Replies
+                                                  </button>
+                                                )}
+                                                {/* Delete button - only show to comment author */}
+                                                {user?.name === deepNestedReply.author && (
+                                                  <button
+                                                    className="text-xs text-red-600 hover:underline px-2 py-1 rounded-full hover:bg-red-50 ml-auto"
+                                                    onClick={() => showDeleteConfirmation('reply', deepNestedReply._id, discussion._id, deepNestedReply.author)}
+                                                    title="Delete comment"
+                                                  >
+                                                    <Trash2 className="w-3 h-3 inline mr-1" />
+                                                    Delete
                                                   </button>
                                                 )}
                                               </div>
@@ -917,7 +1010,7 @@ export default function DiscussionsPage() {
                           {isLoggedIn && user?.name === discussion.author && (
                             <button
                               className="flex items-center gap-1 hover:text-red-600 transition-colors ml-auto px-2 py-1 rounded-full hover:bg-red-50"
-                              onClick={() => handleDeleteDiscussion(discussion._id)}
+                              onClick={() => showDeleteConfirmation('discussion', discussion._id, undefined, discussion.author, discussion.title)}
                               title="Delete discussion"
                             >
                               <Trash2 className="w-3 h-3 sm:w-4 sm:h-4" />
@@ -1007,6 +1100,93 @@ export default function DiscussionsPage() {
             </Button>
           )}
         </div>
+
+        {/* Custom Delete Confirmation Modal */}
+        {showDeleteModal && deleteTarget && (
+          <div 
+            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+            onClick={isDeleting ? undefined : hideDeleteModal}
+          >
+            <div 
+              className="bg-white rounded-2xl shadow-xl max-w-md w-full mx-4 animate-in fade-in-0 zoom-in-95 duration-200"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Modal Header */}
+              <div className="flex items-center justify-between p-6 border-b border-gray-200">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
+                    <AlertTriangle className="w-5 h-5 text-red-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-900">
+                      Confirm Deletion
+                    </h3>
+                    <p className="text-sm text-gray-500">
+                      This action cannot be undone
+                    </p>
+                  </div>
+                </div>
+                <button
+                  onClick={hideDeleteModal}
+                  disabled={isDeleting}
+                  className="text-gray-400 hover:text-gray-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              {/* Modal Content */}
+              <div className="p-6">
+                <div className="mb-4">
+                  <p className="text-gray-700 mb-2">
+                    Are you sure you want to delete this {deleteTarget.type === 'discussion' ? 'discussion' : 'comment'}?
+                  </p>
+                  {deleteTarget.type === 'discussion' && deleteTarget.title && (
+                    <div className="bg-gray-50 rounded-lg p-3">
+                      <p className="text-sm font-medium text-gray-900">"{deleteTarget.title}"</p>
+                    </div>
+                  )}
+                  {deleteTarget.type === 'reply' && deleteTarget.author && (
+                    <div className="bg-gray-50 rounded-lg p-3">
+                      <p className="text-sm text-gray-600">Comment by {deleteTarget.author}</p>
+                    </div>
+                  )}
+                  <p className="text-sm text-red-600 mt-3">
+                    <strong>Warning:</strong> This will permanently remove the {deleteTarget.type === 'discussion' ? 'discussion and all its comments' : 'comment and any replies to it'}.
+                  </p>
+                </div>
+
+                {/* Modal Actions */}
+                <div className="flex gap-3">
+                  <button
+                    onClick={hideDeleteModal}
+                    disabled={isDeleting}
+                    className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    onClick={executeDelete}
+                    disabled={isDeleting}
+                    className="flex-1 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors font-medium flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {isDeleting ? (
+                      <>
+                        <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                        Deleting...
+                      </>
+                    ) : (
+                      <>
+                        <Trash2 className="w-4 h-4" />
+                        Delete
+                      </>
+                    )}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </ProtectedRoute>
   );

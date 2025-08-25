@@ -131,6 +131,8 @@ export default function AdminDashboard() {
   const [showSessionDetailsModal, setShowSessionDetailsModal] = useState(false);
   const [pageAnalytics, setPageAnalytics] = useState<any[]>([]);
   const [showPageAnalyticsModal, setShowPageAnalyticsModal] = useState(false);
+  const [isDeletingUser, setIsDeletingUser] = useState<string | null>(null);
+  const [isVerifyingUser, setIsVerifyingUser] = useState<string | null>(null);
 
   // Check if user is admin
   const isAdmin = user?.email === "ranaareeb1029@gmail.com" || user?.email === "cliftonmanneh6@gmail.com";
@@ -258,6 +260,66 @@ export default function AdminDashboard() {
       }
     } catch (error) {
       console.error('Failed to fetch page analytics:', error);
+    }
+  };
+
+  const deleteUser = async (userId: string, userEmail: string) => {
+    if (!confirm(`Are you sure you want to delete the account for ${userEmail}? This action cannot be undone.`)) {
+      return;
+    }
+
+    try {
+      setIsDeletingUser(userId);
+      const response = await fetch(`/api/admin/delete-user`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ userId, userEmail }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        // Refresh the stats to update the user list
+        await fetchAdminStats();
+        alert('User account deleted successfully');
+      } else {
+        alert(`Failed to delete user: ${data.error}`);
+      }
+    } catch (error) {
+      console.error('Failed to delete user:', error);
+      alert('Failed to delete user account. Please try again.');
+    } finally {
+      setIsDeletingUser(null);
+    }
+  };
+
+  const verifyUser = async (userId: string, userEmail: string) => {
+    try {
+      setIsVerifyingUser(userId);
+      const response = await fetch(`/api/admin/verify-user`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ userId, userEmail }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        // Refresh the stats to update the user list
+        await fetchAdminStats();
+        alert('User verified successfully');
+      } else {
+        alert(`Failed to verify user: ${data.error}`);
+      }
+    } catch (error) {
+      console.error('Failed to verify user:', error);
+      alert('Failed to verify user. Please try again.');
+    } finally {
+      setIsVerifyingUser(null);
     }
   };
 
@@ -455,9 +517,45 @@ export default function AdminDashboard() {
                                     </Badge>
                                   </div>
                                 </div>
-                                <div className="text-right text-sm text-gray-500">
-                                  <div>Country: {user.country}</div>
-                                  <div>Joined: {new Date(user.createdAt).toLocaleDateString()}</div>
+                                <div className="flex flex-col items-end gap-2">
+                                  <div className="text-right text-sm text-gray-500">
+                                    <div>Country: {user.country}</div>
+                                    <div>Joined: {new Date(user.createdAt).toLocaleDateString()}</div>
+                                  </div>
+                                  <div className="flex gap-2">
+                                    {!user.isVerified && (
+                                      <Button
+                                        size="sm"
+                                        variant="outline"
+                                        onClick={() => verifyUser(user._id, user.email)}
+                                        disabled={isVerifyingUser === user._id}
+                                        className="text-xs"
+                                      >
+                                        {isVerifyingUser === user._id ? (
+                                          <div className="w-3 h-3 border border-current border-t-transparent rounded-full animate-spin mr-1" />
+                                        ) : (
+                                          <UserCheck className="w-3 h-3 mr-1" />
+                                        )}
+                                        Verify
+                                      </Button>
+                                    )}
+                                    <Button
+                                      size="sm"
+                                      variant="destructive"
+                                      onClick={() => deleteUser(user._id, user.email)}
+                                      disabled={isDeletingUser === user._id}
+                                      className="text-xs"
+                                    >
+                                      {isDeletingUser === user._id ? (
+                                        <div className="w-3 h-3 border border-current border-t-transparent rounded-full animate-spin mr-1" />
+                                      ) : (
+                                        <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                        </svg>
+                                      )}
+                                      Delete
+                                    </Button>
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -670,9 +768,45 @@ export default function AdminDashboard() {
                                        </Badge>
                                      </div>
                                    </div>
-                                   <div className="text-right text-sm text-gray-500">
-                                     <div>Country: {user.country}</div>
-                                     <div>Joined: {new Date(user.createdAt).toLocaleDateString()}</div>
+                                   <div className="flex flex-col items-end gap-2">
+                                     <div className="text-right text-sm text-gray-500">
+                                       <div>Country: {user.country}</div>
+                                       <div>Joined: {new Date(user.createdAt).toLocaleDateString()}</div>
+                                     </div>
+                                     <div className="flex gap-2">
+                                       {!user.isVerified && (
+                                         <Button
+                                           size="sm"
+                                           variant="outline"
+                                           onClick={() => verifyUser(user._id, user.email)}
+                                           disabled={isVerifyingUser === user._id}
+                                           className="text-xs"
+                                         >
+                                           {isVerifyingUser === user._id ? (
+                                             <div className="w-3 h-3 border border-current border-t-transparent rounded-full animate-spin mr-1" />
+                                           ) : (
+                                             <UserCheck className="w-3 h-3 mr-1" />
+                                           )}
+                                           Verify
+                                         </Button>
+                                       )}
+                                       <Button
+                                         size="sm"
+                                         variant="destructive"
+                                         onClick={() => deleteUser(user._id, user.email)}
+                                         disabled={isDeletingUser === user._id}
+                                         className="text-xs"
+                                       >
+                                         {isDeletingUser === user._id ? (
+                                           <div className="w-3 h-3 border border-current border-t-transparent rounded-full animate-spin mr-1" />
+                                         ) : (
+                                           <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                           </svg>
+                                         )}
+                                         Delete
+                                       </Button>
+                                     </div>
                                    </div>
                                  </div>
                                </div>
@@ -718,9 +852,45 @@ export default function AdminDashboard() {
                                        </Badge>
                                      </div>
                                    </div>
-                                   <div className="text-right text-sm text-gray-500">
-                                     <div>Country: {user.country}</div>
-                                     <div>Joined: {new Date(user.createdAt).toLocaleDateString()}</div>
+                                   <div className="flex flex-col items-end gap-2">
+                                     <div className="text-right text-sm text-gray-500">
+                                       <div>Country: {user.country}</div>
+                                       <div>Joined: {new Date(user.createdAt).toLocaleDateString()}</div>
+                                     </div>
+                                     <div className="flex gap-2">
+                                       {!user.isVerified && (
+                                         <Button
+                                           size="sm"
+                                           variant="outline"
+                                           onClick={() => verifyUser(user._id, user.email)}
+                                           disabled={isVerifyingUser === user._id}
+                                           className="text-xs"
+                                         >
+                                           {isVerifyingUser === user._id ? (
+                                             <div className="w-3 h-3 border border-current border-t-transparent rounded-full animate-spin mr-1" />
+                                           ) : (
+                                             <UserCheck className="w-3 h-3 mr-1" />
+                                           )}
+                                           Verify
+                                         </Button>
+                                       )}
+                                       <Button
+                                         size="sm"
+                                         variant="destructive"
+                                         onClick={() => deleteUser(user._id, user.email)}
+                                         disabled={isDeletingUser === user._id}
+                                         className="text-xs"
+                                       >
+                                         {isDeletingUser === user._id ? (
+                                           <div className="w-3 h-3 border border-current border-t-transparent rounded-full animate-spin mr-1" />
+                                         ) : (
+                                           <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                           </svg>
+                                         )}
+                                         Delete
+                                       </Button>
+                                     </div>
                                    </div>
                                  </div>
                                </div>
@@ -766,9 +936,45 @@ export default function AdminDashboard() {
                                        </Badge>
                                      </div>
                                    </div>
-                                   <div className="text-right text-sm text-gray-500">
-                                     <div>Country: {user.country}</div>
-                                     <div>Joined : {new Date(user.createdAt).toLocaleDateString()}</div>
+                                   <div className="flex flex-col items-end gap-2">
+                                     <div className="text-right text-sm text-gray-500">
+                                       <div>Country: {user.country}</div>
+                                       <div>Joined: {new Date(user.createdAt).toLocaleDateString()}</div>
+                                     </div>
+                                     <div className="flex gap-2">
+                                       {!user.isVerified && (
+                                         <Button
+                                           size="sm"
+                                           variant="outline"
+                                           onClick={() => verifyUser(user._id, user.email)}
+                                           disabled={isVerifyingUser === user._id}
+                                           className="text-xs"
+                                         >
+                                           {isVerifyingUser === user._id ? (
+                                             <div className="w-3 h-3 border border-current border-t-transparent rounded-full animate-spin mr-1" />
+                                           ) : (
+                                             <UserCheck className="w-3 h-3 mr-1" />
+                                           )}
+                                           Verify
+                                         </Button>
+                                       )}
+                                       <Button
+                                         size="sm"
+                                         variant="destructive"
+                                         onClick={() => deleteUser(user._id, user.email)}
+                                         disabled={isDeletingUser === user._id}
+                                         className="text-xs"
+                                       >
+                                         {isDeletingUser === user._id ? (
+                                           <div className="w-3 h-3 border border-current border-t-transparent rounded-full animate-spin mr-1" />
+                                         ) : (
+                                           <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                           </svg>
+                                         )}
+                                         Delete
+                                       </Button>
+                                     </div>
                                    </div>
                                  </div>
                                </div>
@@ -814,9 +1020,45 @@ export default function AdminDashboard() {
                                        </Badge>
                                      </div>
                                    </div>
-                                   <div className="text-right text-sm text-gray-500">
-                                     <div>Country: {user.country}</div>
-                                     <div>Joined: {new Date(user.createdAt).toLocaleDateString()}</div>
+                                   <div className="flex flex-col items-end gap-2">
+                                     <div className="text-right text-sm text-gray-500">
+                                       <div>Country: {user.country}</div>
+                                       <div>Joined: {new Date(user.createdAt).toLocaleDateString()}</div>
+                                     </div>
+                                     <div className="flex gap-2">
+                                       {!user.isVerified && (
+                                         <Button
+                                           size="sm"
+                                           variant="outline"
+                                           onClick={() => verifyUser(user._id, user.email)}
+                                           disabled={isVerifyingUser === user._id}
+                                           className="text-xs"
+                                         >
+                                           {isVerifyingUser === user._id ? (
+                                             <div className="w-3 h-3 border border-current border-t-transparent rounded-full animate-spin mr-1" />
+                                           ) : (
+                                             <UserCheck className="w-3 h-3 mr-1" />
+                                           )}
+                                           Verify
+                                         </Button>
+                                       )}
+                                       <Button
+                                         size="sm"
+                                         variant="destructive"
+                                         onClick={() => deleteUser(user._id, user.email)}
+                                         disabled={isDeletingUser === user._id}
+                                         className="text-xs"
+                                       >
+                                         {isDeletingUser === user._id ? (
+                                           <div className="w-3 h-3 border border-current border-t-transparent rounded-full animate-spin mr-1" />
+                                         ) : (
+                                           <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                           </svg>
+                                         )}
+                                         Delete
+                                       </Button>
+                                     </div>
                                    </div>
                                  </div>
                                </div>
