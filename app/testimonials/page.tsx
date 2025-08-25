@@ -64,9 +64,14 @@ export default function TestimonialsPage() {
         body: JSON.stringify(form),
       });
       if (res.ok) {
+        const data = await res.json();
         setSuccess(true);
         setForm({ name: "", quote: "", details: "", rating: 5 });
         fetchReviews();
+        // Show the success message from the API
+        if (data.message) {
+          alert(data.message);
+        }
       } else {
         const data = await res.json();
         setError(data.error || "Failed to submit review.");

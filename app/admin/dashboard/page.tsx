@@ -39,6 +39,7 @@ import {
   UserCheck,
   Clock,
   MapPin,
+  Star,
 } from "lucide-react";
 import {
   Table,
@@ -108,6 +109,17 @@ interface AdminStats {
     lastSessionAt: string;
     firstSessionAt: string;
   }[];
+  reviews: {
+    _id: string;
+    name: string;
+    initial: string;
+    quote: string;
+    details: string;
+    rating: number;
+    isApproved: boolean;
+    createdAt: string;
+    approvedAt?: string;
+  }[];
 }
 
 export default function AdminDashboard() {
@@ -133,6 +145,8 @@ export default function AdminDashboard() {
   const [showPageAnalyticsModal, setShowPageAnalyticsModal] = useState(false);
   const [isDeletingUser, setIsDeletingUser] = useState<string | null>(null);
   const [isVerifyingUser, setIsVerifyingUser] = useState<string | null>(null);
+  const [isApprovingReview, setIsApprovingReview] = useState<string | null>(null);
+  const [isRejectingReview, setIsRejectingReview] = useState<string | null>(null);
 
   // Check if user is admin
   const isAdmin = user?.email === "ranaareeb1029@gmail.com" || user?.email === "cliftonmanneh6@gmail.com";
@@ -323,6 +337,64 @@ export default function AdminDashboard() {
     }
   };
 
+  const approveReview = async (reviewId: string) => {
+    try {
+      setIsApprovingReview(reviewId);
+      const response = await fetch(`/api/admin/reviews`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ reviewId, action: "approve" }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        await fetchAdminStats();
+        alert("Review approved successfully");
+      } else {
+        alert(`Failed to approve review: ${data.error}`);
+      }
+    } catch (error) {
+      console.error("Failed to approve review:", error);
+      alert("Failed to approve review. Please try again.");
+    } finally {
+      setIsApprovingReview(null);
+    }
+  };
+
+  const rejectReview = async (reviewId: string) => {
+    if (!confirm("Are you sure you want to reject this review? This action cannot be undone.")) {
+      return;
+    }
+
+    try {
+      setIsRejectingReview(reviewId);
+      const response = await fetch(`/api/admin/reviews`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ reviewId, action: "reject" }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        await fetchAdminStats();
+        alert("Review rejected successfully");
+      } else {
+        alert(`Failed to reject review: ${data.error}`);
+      }
+    } catch (error) {
+      console.error("Failed to reject review:", error);
+      alert("Failed to reject review. Please try again.");
+    } finally {
+      setIsRejectingReview(null);
+    }
+  };
+
   if (loading) {
     return (
       <PageTransition>
@@ -447,12 +519,13 @@ export default function AdminDashboard() {
             </div>
           ) : stats ? (
             <Tabs defaultValue="overview" className="space-y-6">
-              <TabsList className="grid w-full grid-cols-5">
+              <TabsList className="grid w-full grid-cols-6">
                 <TabsTrigger value="overview">Overview</TabsTrigger>
                 <TabsTrigger value="users">Users</TabsTrigger>
                 <TabsTrigger value="activity">Activity</TabsTrigger>
                 <TabsTrigger value="sessions">Sessions</TabsTrigger>
                 <TabsTrigger value="geography">Geography</TabsTrigger>
+                <TabsTrigger value="reviews">Reviews</TabsTrigger>
               </TabsList>
 
                              {/* Overview Tab */}
@@ -1334,6 +1407,116 @@ export default function AdminDashboard() {
                            </div>
                          </div>
                        ))}
+                     </div>
+                   </CardContent>
+                 </Card>
+               </TabsContent>
+
+               {/* Reviews Tab */}
+               <TabsContent value="reviews" className="space-y-6">
+                 <Card className="border-0 shadow-lg bg-gradient-to-br from-purple-50 to-purple-100">
+                   <CardHeader>
+                     <div className="flex items-center justify-between">
+                       <CardTitle className="text-purple-800">Review Management</CardTitle>
+                       <div className="flex gap-2">
+                         <Badge variant="secondary" className="bg-purple-600 text-white">
+                           {stats.reviews?.filter(r => r.isApproved).length || 0} Approved
+                         </Badge>
+                         <Badge variant="outline" className="border-purple-600 text-purple-600">
+                           {stats.reviews?.filter(r => !r.isApproved).length || 0} Pending
+                         </Badge>
+                       </div>
+                     </div>
+                   </CardHeader>
+                   <CardContent>
+                     <div className="space-y-4">
+                       {stats.reviews && stats.reviews.length > 0 ? (
+                         stats.reviews.map((review) => (
+                           <div key={review._id} className="p-4 border rounded-lg bg-white/70 shadow-sm hover:shadow-md transition-shadow">
+                             <div className="flex items-start justify-between">
+                               <div className="flex-1">
+                                 <div className="flex items-center gap-3 mb-2">
+                                   <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
+                                     <span className="text-purple-600 font-bold">{review.initial}</span>
+                                   </div>
+                                   <div>
+                                     <h3 className="font-semibold text-gray-900">{review.name}</h3>
+                                     <div className="flex items-center gap-2">
+                                       <div className="flex gap-1">
+                                         {[...Array(5)].map((_, i) => (
+                                           <Star
+                                             key={i}
+                                             className={`w-4 h-4 ${
+                                               i < review.rating ? "text-yellow-400" : "text-gray-300"
+                                             } fill-current`}
+                                           />
+                                         ))}
+                                       </div>
+                                       <Badge variant={review.isApproved ? "default" : "secondary"} className="text-xs">
+                                         {review.isApproved ? "Approved" : "Pending"}
+                                       </Badge>
+                                     </div>
+                                   </div>
+                                 </div>
+                                 <p className="text-gray-700 mb-2 italic">"{review.quote}"</p>
+                                 <p className="text-sm text-gray-600">{review.details}</p>
+                                 <div className="text-xs text-gray-500 mt-2">
+                                   Submitted: {new Date(review.createdAt).toLocaleDateString()}
+                                   {review.approvedAt && (
+                                     <span className="ml-4">
+                                       Approved: {new Date(review.approvedAt).toLocaleDateString()}
+                                     </span>
+                                   )}
+                                 </div>
+                               </div>
+                               <div className="flex flex-col gap-2 ml-4">
+                                 {!review.isApproved ? (
+                                   <>
+                                     <Button
+                                       size="sm"
+                                       variant="default"
+                                       onClick={() => approveReview(review._id)}
+                                       disabled={isApprovingReview === review._id}
+                                       className="bg-green-600 hover:bg-green-700 text-white"
+                                     >
+                                       {isApprovingReview === review._id ? (
+                                         <div className="w-3 h-3 border border-current border-t-transparent rounded-full animate-spin mr-1" />
+                                       ) : (
+                                         <UserCheck className="w-3 h-3 mr-1" />
+                                       )}
+                                       Approve
+                                     </Button>
+                                     <Button
+                                       size="sm"
+                                       variant="destructive"
+                                       onClick={() => rejectReview(review._id)}
+                                       disabled={isRejectingReview === review._id}
+                                     >
+                                       {isRejectingReview === review._id ? (
+                                         <div className="w-3 h-3 border border-current border-t-transparent rounded-full animate-spin mr-1" />
+                                       ) : (
+                                         <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                         </svg>
+                                       )}
+                                       Reject
+                                     </Button>
+                                   </>
+                                 ) : (
+                                   <Badge variant="default" className="bg-green-600 text-white">
+                                     ✓ Approved
+                                   </Badge>
+                                 )}
+                               </div>
+                             </div>
+                           </div>
+                         ))
+                       ) : (
+                         <div className="text-center py-8 text-gray-500">
+                           <p>No reviews found.</p>
+                           <p className="text-sm mt-2">Reviews will appear here when users submit testimonials.</p>
+                         </div>
+                       )}
                      </div>
                    </CardContent>
                  </Card>

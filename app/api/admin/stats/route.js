@@ -383,6 +383,12 @@ export async function GET(request) {
             })
             .toArray();
 
+        // Get all reviews (approved and pending)
+        const reviews = await db.collection("reviews")
+            .find({})
+            .sort({ createdAt: -1 })
+            .toArray();
+
         const stats = {
             totalUsers,
             dailySignups,
@@ -397,7 +403,8 @@ export async function GET(request) {
             countries,
             activities: allActivities,
             users,
-            userSessionStats
+            userSessionStats,
+            reviews
         };
 
         return NextResponse.json({

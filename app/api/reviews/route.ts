@@ -9,7 +9,7 @@ export async function GET() {
     const db = await getDatabase();
     const reviews = await db
       .collection("reviews")
-      .find({})
+      .find({ isApproved: true }) // Only return approved reviews
       .sort({ createdAt: -1 })
       .toArray();
     return new Response(JSON.stringify(reviews), { status: 200 });
@@ -36,10 +36,11 @@ export async function POST(req: NextRequest) {
       quote,
       details,
       rating: Math.max(1, Math.min(5, Number(rating))),
+      isApproved: false, // Reviews start as unapproved
       createdAt: new Date(),
     };
     await db.collection("reviews").insertOne(review);
-    return new Response(JSON.stringify({ success: true }), { status: 201 });
+    return new Response(JSON.stringify({ success: true, message: "Review submitted successfully! It will be reviewed by our team before being published." }), { status: 201 });
   } catch (error) {
     return new Response(JSON.stringify({ error: "Failed to submit review." }), {
       status: 500,
