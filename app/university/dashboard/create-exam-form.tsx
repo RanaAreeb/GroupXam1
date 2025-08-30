@@ -42,8 +42,9 @@ import MCQManager, { MCQ } from "./MCQManager";
 interface ExamData {
   title: string;
   subject: string;
-  className: string; // new
-  department: string; // new
+  className: string;
+  department: string;
+  category: "K-12" | "University";
   description: string;
   date: string;
   time: string;
@@ -73,6 +74,7 @@ export default function CreateExamForm({
     subject: "",
     className: "",
     department: "",
+    category: "K-12",
     description: "",
     date: "",
     time: "",
@@ -121,6 +123,7 @@ export default function CreateExamForm({
           subject: "",
           className: "",
           department: "",
+          category: "K-12",
           description: "",
           date: "",
           time: "",
@@ -180,7 +183,7 @@ export default function CreateExamForm({
                 <CardTitle>Basic Information</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   <div>
                     <Label htmlFor="title">Exam Title</Label>
                     <Input
@@ -240,6 +243,24 @@ export default function CreateExamForm({
                       placeholder="e.g. Science, Arts, Engineering, etc."
                       required
                     />
+                  </div>
+                  {/* Category field */}
+                  <div>
+                    <Label htmlFor="category">Education Level</Label>
+                    <Select
+                      value={examData.category}
+                      onValueChange={(value: "K-12" | "University") =>
+                        setExamData({ ...examData, category: value })
+                      }
+                    >
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select education level" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="K-12">K-12 (Primary/Secondary School)</SelectItem>
+                        <SelectItem value="University">University/College</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </div>
                 </div>
 

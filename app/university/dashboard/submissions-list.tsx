@@ -29,12 +29,15 @@ interface SubmittedExam {
   examTitle: string;
   studentName: string;
   studentEmail: string;
+  studentRollNumber?: string;
+  studentInstitution?: string;
+  studentClass?: string;
   submittedAt: string;
   score: number;
   totalQuestions: number;
   timeTaken: number;
   status: "submitted" | "reviewed";
-  securityAlerts?: string[]; // <-- new field for alerts
+  securityAlerts?: string[];
 }
 
 interface SubmissionsListProps {
@@ -131,7 +134,7 @@ export default function SubmissionsList({ submissions }: SubmissionsListProps) {
                 <thead className="bg-gray-50">
                   <tr>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Student
+                      Student Details
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                       Submitted
@@ -164,6 +167,21 @@ export default function SubmissionsList({ submissions }: SubmissionsListProps) {
                           <div className="text-sm text-gray-500">
                             {submission.studentEmail}
                           </div>
+                          {submission.studentRollNumber && (
+                            <div className="text-xs text-blue-600 font-medium">
+                              Roll: {submission.studentRollNumber}
+                            </div>
+                          )}
+                          {submission.studentInstitution && (
+                            <div className="text-xs text-green-600">
+                              {submission.studentInstitution}
+                            </div>
+                          )}
+                          {submission.studentClass && (
+                            <div className="text-xs text-purple-600">
+                              Class: {submission.studentClass}
+                            </div>
+                          )}
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
@@ -275,6 +293,21 @@ export default function SubmissionsList({ submissions }: SubmissionsListProps) {
                     <b>Student:</b> {viewedSubmission.studentName} (
                     {viewedSubmission.studentEmail})
                   </div>
+                  {viewedSubmission.studentRollNumber && (
+                    <div>
+                      <b>Roll Number:</b> {viewedSubmission.studentRollNumber}
+                    </div>
+                  )}
+                  {viewedSubmission.studentInstitution && (
+                    <div>
+                      <b>Institution:</b> {viewedSubmission.studentInstitution}
+                    </div>
+                  )}
+                  {viewedSubmission.studentClass && (
+                    <div>
+                      <b>Class:</b> {viewedSubmission.studentClass}
+                    </div>
+                  )}
                   <div>
                     <b>Exam:</b> {viewedSubmission.examTitle}
                   </div>

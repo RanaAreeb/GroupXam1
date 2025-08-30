@@ -70,6 +70,9 @@ interface Exam {
   id: string;
   title: string;
   subject: string;
+  className?: string;
+  department?: string;
+  category?: "K-12" | "University";
   date: string;
   time: string;
   duration: number;
@@ -90,6 +93,9 @@ interface SubmittedExam {
   examTitle: string;
   studentName: string;
   studentEmail: string;
+  studentRollNumber?: string;
+  studentInstitution?: string;
+  studentClass?: string;
   submittedAt: string;
   score: number;
   totalQuestions: number;
@@ -204,17 +210,17 @@ export default function UniversityDashboard() {
           <div className="flex justify-between items-center">
             <div>
               <h1 className="text-3xl font-bold text-card-foreground">
-                University Dashboard
+                K-12 & University Dashboard
               </h1>
               <p className="text-gray-600">
-                Manage exams and view student submissions
+                Manage exams for K-12 schools and universities - view student submissions
               </p>
             </div>
             <div className="flex items-center space-x-4">
               <div className="text-right">
                 <p className="text-sm text-gray-600">Welcome back,</p>
                 <p className="font-semibold text-card-foreground">
-                  {user?.name || "University Admin"}
+                  {user?.name || "Education Admin"}
                 </p>
               </div>
               <Button variant="outline" onClick={logout}>
@@ -272,7 +278,7 @@ export default function UniversityDashboard() {
                         </p>
                         <p className="text-2xl font-bold text-card-foreground">
                           {exams.reduce(
-                            (sum, exam) => sum + exam.registeredStudents,
+                            (sum, exam) => sum + (exam.registeredStudents || 0),
                             0
                           )}
                         </p>
@@ -330,18 +336,30 @@ export default function UniversityDashboard() {
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4">
-                      {exams.slice(0, 3).map((exam) => (
+                      {exams.slice(0, 3).map((exam, index) => (
                         <div
-                          key={exam.id}
+                          key={exam.id || `exam-${index}`}
                           className="flex items-center justify-between p-4 border rounded-lg"
                         >
                           <div>
                             <h4 className="font-semibold text-card-foreground">
                               {exam.title}
                             </h4>
-                            <p className="text-sm text-gray-600">
-                              {formatDate(exam.date)}
-                            </p>
+                            <div className="flex items-center gap-2 mt-1">
+                              <p className="text-sm text-gray-600">
+                                {formatDate(exam.date)}
+                              </p>
+                              {exam.category && (
+                                <Badge variant="outline" className="text-xs">
+                                  {exam.category}
+                                </Badge>
+                              )}
+                              {exam.className && (
+                                <Badge variant="secondary" className="text-xs">
+                                  {exam.className}
+                                </Badge>
+                              )}
+                            </div>
                           </div>
                           <Badge className={getStatusColor(exam.status)}>
                             {exam.status}
@@ -358,9 +376,9 @@ export default function UniversityDashboard() {
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4">
-                      {submittedExams.slice(0, 3).map((submission) => (
+                      {submittedExams.slice(0, 3).map((submission, index) => (
                         <div
-                          key={submission.id}
+                          key={submission.id || `submission-${index}`}
                           className="flex items-center justify-between p-4 border rounded-lg"
                         >
                           <div>

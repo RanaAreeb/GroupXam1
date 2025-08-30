@@ -12,6 +12,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { AlertCircle, Info } from "lucide-react";
+import StudentInfoForm from "@/app/components/student-info-form";
 
 interface MCQ {
   id: string;
@@ -28,6 +29,7 @@ interface Assessment {
   title: string;
   subject: string;
   universityName?: string;
+  category?: "K-12" | "University";
   date: string;
   time: string;
   duration: number;
@@ -54,6 +56,14 @@ export default function AssessmentAttemptPage({
   const [showCheatWarning, setShowCheatWarning] = useState(false);
   const [showFinalCheat, setShowFinalCheat] = useState(false);
   const [securityAlerts, setSecurityAlerts] = useState<string[]>([]);
+  const [studentInfo, setStudentInfo] = useState<{
+    studentName: string;
+    studentRollNumber: string;
+    studentInstitution: string;
+    studentClass: string;
+    studentCategory: "K-12" | "University";
+  } | null>(null);
+  const [showStudentForm, setShowStudentForm] = useState(true);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   // Accessibility state
@@ -193,6 +203,10 @@ export default function AssessmentAttemptPage({
         examId: assessment?._id || assessment?.id,
         answers,
         securityAlerts, // <-- send security alerts
+        studentRollNumber: studentInfo?.studentRollNumber || "",
+        studentInstitution: studentInfo?.studentInstitution || "",
+        studentClass: studentInfo?.studentClass || "",
+        timeTaken: assessment ? (assessment.duration * 60 - timer) / 60 : 0,
       }),
     });
   };
@@ -203,6 +217,26 @@ export default function AssessmentAttemptPage({
   if (loading) return <div className="p-8">Loading...</div>;
   if (error) return <div className="p-8 text-red-600">{error}</div>;
   if (!assessment) return null;
+
+  // Show student info form first
+  if (showStudentForm) {
+    return (
+      <StudentInfoForm
+        examTitle={assessment.title}
+        examCategory={assessment.category as "K-12" | "University"}
+        onSubmit={(info: {
+          studentName: string;
+          studentRollNumber: string;
+          studentInstitution: string;
+          studentClass: string;
+          studentCategory: "K-12" | "University";
+        }) => {
+          setStudentInfo(info);
+          setShowStudentForm(false);
+        }}
+      />
+    );
+  }
 
   return (
     <>

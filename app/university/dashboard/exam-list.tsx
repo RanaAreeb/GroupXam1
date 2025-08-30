@@ -42,6 +42,9 @@ interface Exam {
   _id?: string;
   title: string;
   subject: string;
+  className?: string;
+  department?: string;
+  category?: "K-12" | "University";
   date: string;
   time: string;
   duration: number;
@@ -55,8 +58,6 @@ interface Exam {
   createdAt: string;
   mcqs?: MCQ[];
   registrationTime?: string;
-  className?: string;
-  department?: string;
 }
 
 interface ExamListProps {
@@ -253,6 +254,16 @@ export default function ExamList({ exams, onExamsChanged }: ExamListProps) {
         </Select>
         <Select>
           <SelectTrigger className="w-48">
+            <SelectValue placeholder="Filter by category" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="all">All Categories</SelectItem>
+            <SelectItem value="K-12">K-12 Schools</SelectItem>
+            <SelectItem value="University">Universities</SelectItem>
+          </SelectContent>
+        </Select>
+        <Select>
+          <SelectTrigger className="w-48">
             <SelectValue placeholder="Filter by subject" />
           </SelectTrigger>
           <SelectContent>
@@ -281,13 +292,22 @@ export default function ExamList({ exams, onExamsChanged }: ExamListProps) {
                 </Badge>
               </div>
               <p className="text-sm text-gray-600">{exam.description}</p>
-              <div className="flex flex-wrap gap-4 mt-2">
-                <span className="inline-block text-xs bg-gray-100 rounded px-2 py-1 text-gray-700">
-                  <b>Class:</b> {exam.className || "-"}
-                </span>
-                <span className="inline-block text-xs bg-gray-100 rounded px-2 py-1 text-gray-700">
-                  <b>Department:</b> {exam.department || "-"}
-                </span>
+              <div className="flex flex-wrap gap-2 mt-2">
+                {exam.category && (
+                  <Badge variant="outline" className="text-xs">
+                    {exam.category}
+                  </Badge>
+                )}
+                {exam.className && (
+                  <Badge variant="secondary" className="text-xs">
+                    Class: {exam.className}
+                  </Badge>
+                )}
+                {exam.department && (
+                  <Badge variant="secondary" className="text-xs">
+                    {exam.department}
+                  </Badge>
+                )}
               </div>
             </CardHeader>
             <CardContent>

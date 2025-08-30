@@ -18,29 +18,62 @@ function getUserFromRequest(request) {
 }
 
 export async function POST(request) {
-    // Register for an exam
-    const user = getUserFromRequest(request);
-    if (!user || user.role !== "student") {
-        return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    try {
+        const data = await request.json();
+        const db = await getDatabase();
+
+        // Handle both logged-in users and guest registrations
+        const user = getUserFromRequest(request);
+
+        let studentEmail, studentName;
+
+        if (user && user.role === "student") {
+            // Logged-in student
+            studentEmail = user.email;
+            studentName = user.name;
+        } else if (data.name && data.email) {
+            // Guest registration with simplified form
+            studentEmail = data.email;
+            studentName = data.name;
+        } else {
+            return NextResponse.json({
+                error: "Name and email are required for registration"
+            }, { status: 400 });
+        }
+
+        // Check if already registered
+        const existing = await db.collection("examRegistrations").findOne({
+            examId: data.examId,
+            studentEmail: studentEmail
+        });
+
+        if (existing) {
+            return NextResponse.json({
+                error: "You are already registered for this exam"
+            }, { status: 409 });
+        }
+
+        // Create simplified registration
+        const registration = {
+            examId: data.examId,
+            studentEmail: studentEmail,
+            studentName: studentName,
+            registeredAt: new Date(),
+            status: "registered",
+            registrationType: user ? "logged-in" : "guest"
+        };
+
+        const result = await db.collection("examRegistrations").insertOne(registration);
+
+        return NextResponse.json({
+            message: "Registration successful! You're all set for the exam.",
+            registrationId: result.insertedId
+        }, { status: 201 });
+
+    } catch (error) {
+        console.error("Registration error:", error);
+        return NextResponse.json({
+            error: "Registration failed. Please try again."
+        }, { status: 500 });
     }
-    const data = await request.json();
-    const db = await getDatabase();
-    // Check if already registered
-    const existing = await db.collection("examRegistrations").findOne({
-        examId: data.examId,
-        studentEmail: user.email
-    });
-    if (existing) {
-        return NextResponse.json({ error: "Already registered for this exam" }, { status: 409 });
-    }
-    const registration = {
-        examId: data.examId,
-        studentEmail: user.email,
-        studentName: user.name,
-        regNo: data.regNo,
-        registeredAt: new Date(),
-        status: "registered"
-    };
-    const result = await db.collection("examRegistrations").insertOne(registration);
-    return NextResponse.json({ message: "Registered successfully", registrationId: result.insertedId }, { status: 201 });
 } 
