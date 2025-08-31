@@ -588,6 +588,7 @@ export default function SignupPage() {
           description: institutionData.description,
           studentCount: institutionData.studentCount,
           establishedYear: institutionData.establishedYear,
+          country: institutionData.country,
         }),
       });
       const data = await response.json();
