@@ -550,6 +550,227 @@ export default function ServicesPage() {
 
 
 
+      {/* ProctorIT Packages Section */}
+      <section className="py-24 bg-gradient-to-br from-gray-50 via-emerald-50/30 to-blue-50/20 relative overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+          <div className="absolute top-1/2 left-0 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center px-6 py-3 bg-emerald-100 text-emerald-800 rounded-full text-sm font-medium mb-6 border border-emerald-200">
+              <ShieldCheck className="w-4 h-4 mr-2" />
+              ProctorIT Packages
+            </div>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-800 mb-6">
+              <span className="bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">
+                Secure Testing
+              </span>
+              <br />
+              <span className="text-gray-800">Solutions</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Advanced proctoring technology for institutions and students. Choose the perfect plan for your needs.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            
+            {/* Students Package */}
+            <div className="group relative h-full">
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-blue-500/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+              <div className="relative bg-white/90 backdrop-blur-md rounded-3xl p-8 border border-emerald-200/50 hover:border-emerald-300 shadow-xl hover:shadow-2xl transition-all duration-500 group-hover:transform group-hover:-translate-y-2 h-full flex flex-col">
+                <div className="text-center mb-8">
+                  <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <UserCheck className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-2">Students</h3>
+                  <p className="text-gray-600">Perfect for individual assessments</p>
+                </div>
+                
+                <div className="text-center mb-8">
+                  <div className="text-5xl font-black text-emerald-600 mb-2">$2</div>
+                  <div className="text-gray-600 text-sm">One-time charge per exam</div>
+                  <div className="h-12"></div> {/* Spacer to match other cards */}
+                </div>
+
+                <div className="space-y-4 mb-8 flex-grow">
+                  <div className="flex items-center text-gray-700">
+                    <CheckCircle className="w-5 h-5 text-emerald-500 mr-3 flex-shrink-0" />
+                    <span>Secure browser lockdown</span>
+                  </div>
+                  <div className="flex items-center text-gray-700">
+                    <CheckCircle className="w-5 h-5 text-emerald-500 mr-3 flex-shrink-0" />
+                    <span>Identity verification</span>
+                  </div>
+                  <div className="flex items-center text-gray-700">
+                    <CheckCircle className="w-5 h-5 text-emerald-500 mr-3 flex-shrink-0" />
+                    <span>Real-time monitoring</span>
+                  </div>
+                  <div className="flex items-center text-gray-700">
+                    <CheckCircle className="w-5 h-5 text-emerald-500 mr-3 flex-shrink-0" />
+                    <span>Instant results</span>
+                  </div>
+                  <div className="h-6"></div> {/* Spacer to match other cards */}
+                </div>
+
+                <Button 
+                  asChild 
+                  className="w-full bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-semibold py-3 rounded-xl transition-all duration-300 group-hover:shadow-2xl mt-auto"
+                >
+                  <Link href="/contact?package=students">
+                    Get Started
+                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+
+            {/* K-12 Package */}
+            <div className="group relative h-full">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+              <div className="relative bg-white/90 backdrop-blur-md rounded-3xl p-8 border border-blue-200/50 hover:border-blue-300 shadow-xl hover:shadow-2xl transition-all duration-500 group-hover:transform group-hover:-translate-y-2 h-full flex flex-col">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                  <div className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg">
+                    Most Popular
+                  </div>
+                </div>
+                
+                <div className="text-center mb-8 mt-4">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <GraduationCap className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-2">K-12 Schools</h3>
+                  <p className="text-gray-600">Comprehensive school solutions</p>
+                </div>
+                
+                <div className="text-center mb-8">
+                  <div className="text-5xl font-black text-blue-600 mb-2">$10</div>
+                  <div className="text-gray-600 text-sm mb-4">per month</div>
+                  <div className="space-y-1 text-sm text-gray-500 h-8">
+                    <div>$50 for 6 months</div>
+                    <div className="text-emerald-600 font-semibold">$100 annually (save $20)</div>
+                  </div>
+                </div>
+
+                <div className="space-y-4 mb-8 flex-grow">
+                  <div className="flex items-center text-gray-700">
+                    <CheckCircle className="w-5 h-5 text-blue-500 mr-3 flex-shrink-0" />
+                    <span>Everything in Students</span>
+                  </div>
+                  <div className="flex items-center text-gray-700">
+                    <CheckCircle className="w-5 h-5 text-blue-500 mr-3 flex-shrink-0" />
+                    <span>Bulk student management</span>
+                  </div>
+                  <div className="flex items-center text-gray-700">
+                    <CheckCircle className="w-5 h-5 text-blue-500 mr-3 flex-shrink-0" />
+                    <span>Advanced analytics</span>
+                  </div>
+                  <div className="flex items-center text-gray-700">
+                    <CheckCircle className="w-5 h-5 text-blue-500 mr-3 flex-shrink-0" />
+                    <span>Priority support</span>
+                  </div>
+                  
+                </div>
+
+                <Button 
+                  asChild 
+                  className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold py-3 rounded-xl transition-all duration-300 group-hover:shadow-2xl mt-auto"
+                >
+                  <Link href="/contact?package=k12">
+                    Choose Plan
+                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+
+            {/* Universities Package */}
+            <div className="group relative h-full">
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-emerald-500/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+              <div className="relative bg-white/90 backdrop-blur-md rounded-3xl p-8 border border-purple-200/50 hover:border-purple-300 shadow-xl hover:shadow-2xl transition-all duration-500 group-hover:transform group-hover:-translate-y-2 h-full flex flex-col">
+                <div className="text-center mb-8">
+                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <Award className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-2">Universities</h3>
+                  <p className="text-gray-600">Enterprise-grade solutions</p>
+                </div>
+                
+                <div className="text-center mb-8">
+                  <div className="text-5xl font-black text-purple-600 mb-2">$20</div>
+                  <div className="text-gray-600 text-sm mb-4">per month</div>
+                  <div className="space-y-1 text-sm text-gray-500 h-8">
+                    <div>$120 for 6 months</div>
+                    <div className="text-emerald-600 font-semibold">$240 annually (save $40)</div>
+                  </div>
+                </div>
+
+                <div className="space-y-4 mb-8 flex-grow">
+                  <div className="flex items-center text-gray-700">
+                    <CheckCircle className="w-5 h-5 text-purple-500 mr-3 flex-shrink-0" />
+                    <span>Everything in K-12</span>
+                  </div>
+                  <div className="flex items-center text-gray-700">
+                    <CheckCircle className="w-5 h-5 text-purple-500 mr-3 flex-shrink-0" />
+                    <span>Unlimited users</span>
+                  </div>
+                  
+                  <div className="flex items-center text-gray-700">
+                    <CheckCircle className="w-5 h-5 text-purple-500 mr-3 flex-shrink-0" />
+                    <span>Dedicated support</span>
+                  </div>
+                  <div className="flex items-center text-gray-700">
+                    <CheckCircle className="w-5 h-5 text-purple-500 mr-3 flex-shrink-0" />
+                    <span>White-label solution</span>
+                  </div>
+                </div>
+
+                <Button 
+                  asChild 
+                  className="w-full bg-gradient-to-r from-purple-500 to-emerald-600 hover:from-purple-600 hover:to-emerald-700 text-white font-semibold py-3 rounded-xl transition-all duration-300 group-hover:shadow-2xl mt-auto"
+                >
+                  <Link href="/contact?package=universities">
+                    Enterprise Solution
+                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+
+          {/* Additional Features */}
+          <div className="mt-20 text-center">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+              <div className="text-center">
+                <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                  <ShieldCheck className="w-6 h-6 text-emerald-600" />
+                </div>
+                <h4 className="text-gray-800 font-semibold mb-2">Bank-Level Security</h4>
+                <p className="text-gray-600 text-sm">256-bit encryption and multi-factor authentication</p>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                  <Zap className="w-6 h-6 text-blue-600" />
+                </div>
+                <h4 className="text-gray-800 font-semibold mb-2">Real-Time Monitoring</h4>
+                <p className="text-gray-600 text-sm">Live proctoring with AI-powered detection</p>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                  <Award className="w-6 h-6 text-purple-600" />
+                </div>
+                <h4 className="text-gray-800 font-semibold mb-2">Compliance Ready</h4>
+                <p className="text-gray-600 text-sm">FERPA, GDPR, and industry standard compliance</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
@@ -883,6 +1104,114 @@ export default function ServicesPage() {
           </div>
         </div>
       </footer>
+
+      {/* Custom CSS for animations */}
+      <style jsx>{`
+        @keyframes mesh-1 {
+          0%, 100% { transform: translate(0, 0) rotate(0deg); }
+          33% { transform: translate(30px, -30px) rotate(120deg); }
+          66% { transform: translate(-20px, 20px) rotate(240deg); }
+        }
+        
+        @keyframes mesh-2 {
+          0%, 100% { transform: translate(0, 0) rotate(0deg); }
+          50% { transform: translate(-40px, -20px) rotate(180deg); }
+        }
+        
+        @keyframes mesh-3 {
+          0%, 100% { transform: translate(0, 0) rotate(0deg); }
+          25% { transform: translate(25px, -15px) rotate(90deg); }
+          75% { transform: translate(-15px, 25px) rotate(270deg); }
+        }
+        
+        @keyframes float-slow {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes float-medium {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-15px); }
+        }
+        
+        @keyframes float-fast {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes gradient-shift {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes width-expand {
+          0% { width: 0; }
+          100% { width: 6rem; }
+        }
+        
+        @keyframes slide-up {
+          0% { opacity: 0; transform: translateY(50px); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes pulse-ring {
+          0% { transform: scale(1); opacity: 0.3; }
+          50% { transform: scale(1.1); opacity: 0.1; }
+          100% { transform: scale(1); opacity: 0.3; }
+        }
+        
+        @keyframes pulse-ring-delay {
+          0% { transform: scale(1); opacity: 0.2; }
+          50% { transform: scale(1.15); opacity: 0.05; }
+          100% { transform: scale(1); opacity: 0.2; }
+        }
+        
+        @keyframes rotate-slow {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes pulse-core {
+          0%, 100% { opacity: 0.4; transform: scale(1); }
+          50% { opacity: 0.8; transform: scale(1.05); }
+        }
+        
+        @keyframes orbit {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes particle {
+          0%, 100% { opacity: 0; transform: translateY(0) scale(0); }
+          50% { opacity: 1; transform: translateY(-20px) scale(1); }
+        }
+        
+        @keyframes pulse-glow {
+          0%, 100% { box-shadow: 0 0 5px rgba(16, 185, 129, 0.3); }
+          50% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.6); }
+        }
+        
+        .animate-mesh-1 { animation: mesh-1 20s ease-in-out infinite; }
+        .animate-mesh-2 { animation: mesh-2 15s ease-in-out infinite; }
+        .animate-mesh-3 { animation: mesh-3 18s ease-in-out infinite; }
+        .animate-float-slow { animation: float-slow 6s ease-in-out infinite; }
+        .animate-float-medium { animation: float-medium 4s ease-in-out infinite; }
+        .animate-float-fast { animation: float-fast 3s ease-in-out infinite; }
+        .animate-gradient-shift { animation: gradient-shift 3s ease infinite; }
+        .animate-width-expand { animation: width-expand 1s ease-out; }
+        .animate-slide-up { animation: slide-up 0.8s ease-out; }
+        .animate-pulse-ring { animation: pulse-ring 3s ease-in-out infinite; }
+        .animate-pulse-ring-delay { animation: pulse-ring-delay 3s ease-in-out infinite 1s; }
+        .animate-rotate-slow { animation: rotate-slow 20s linear infinite; }
+        .animate-pulse-core { animation: pulse-core 2s ease-in-out infinite; }
+        .animate-orbit { animation: orbit 30s linear infinite; }
+        .animate-particle { animation: particle var(--duration, 4s) ease-in-out infinite; }
+        .animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+        .bg-300% { background-size: 300% 300%; }
+        .bg-left { background-position: left; }
+        .bg-right { background-position: right; }
+      `}</style>
 
       {/* Simplified registration - no complex forms needed */}
     </div>
