@@ -142,7 +142,80 @@ export default function Header({
           )}
         </nav>
         {/* Mobile Nav - Show navLinks here too */}
-        <nav className="md:hidden flex items-center space-x-3">{navLinks}</nav>
+        <nav className="md:hidden flex items-center space-x-3">
+          {navLinks}
+          
+          {/* Mobile User Account Section */}
+          {userIsLoggedIn ? (
+            <div className="relative">
+              <button
+                onClick={() => setShowUserMenu(!showUserMenu)}
+                className="flex items-center space-x-2 text-gray-600 hover:text-emerald-600 transition-colors font-medium bg-white/80 rounded-full px-3 py-2 shadow-md hover:shadow-lg"
+              >
+                {user?.profilePicture ? (
+                  <img
+                    src={user.profilePicture}
+                    alt="Profile"
+                    className="w-8 h-8 rounded-full object-cover"
+                  />
+                ) : (
+                  <div className="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center text-white font-medium">
+                    {(user?.name || userInitial || "U").charAt(0).toUpperCase()}
+                  </div>
+                )}
+                <span className="hidden sm:inline text-sm">{user?.name || "Account"}</span>
+              </button>
+              
+              {/* Mobile Dropdown Menu */}
+              {showUserMenu && (
+                <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+                  <Link
+                    href="/profile"
+                    className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors"
+                    onClick={() => setShowUserMenu(false)}
+                  >
+                    <User className="w-4 h-4 mr-3" />
+                    My Profile
+                  </Link>
+                  {/* Dashboard - Only visible to university users */}
+                  {user?.role === "university" && (
+                    <Link
+                      href="/dashboard"
+                      className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors"
+                      onClick={() => setShowUserMenu(false)}
+                    >
+                      <Settings className="w-4 h-4 mr-3" />
+                      Dashboard
+                    </Link>
+                  )}
+                  <div className="border-t border-gray-200 my-2"></div>
+                  <button
+                    onClick={handleLogout}
+                    className="w-full text-left flex items-center px-4 py-2 text-red-600 hover:bg-red-50 transition-colors"
+                  >
+                    <X className="w-4 h-4 mr-3" />
+                    Logout
+                  </button>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="flex items-center space-x-2">
+              <Link
+                href="/login"
+                className="text-gray-600 hover:text-emerald-600 transition-colors font-medium text-sm px-3 py-2"
+              >
+               Sign In
+              </Link>
+              <Link
+                href="/signup"
+                className="bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-2 rounded-lg transition-colors font-medium text-sm"
+              >
+                Sign Up
+              </Link>
+            </div>
+          )}
+        </nav>
         {/* Mobile Burger Button */}
       </div>
     </header>
