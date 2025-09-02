@@ -17,6 +17,8 @@ export default function SessionTracker({ children }: SessionTrackerProps) {
   const pageVisits = useRef<any[]>([]);
   const currentPageStartTime = useRef<number>(Date.now());
   const currentPage = useRef<string>('');
+  const lastActiveTime = useRef<number>(Date.now());
+  const isPageVisible = useRef<boolean>(true);
 
   console.log('SessionTracker mounted:', { isLoggedIn, user: user?.email, loading });
 
@@ -24,13 +26,17 @@ export default function SessionTracker({ children }: SessionTrackerProps) {
   useEffect(() => {
     if (isLoggedIn && user && !loading) {
       console.log('User logged in, starting new session');
-      sessionStartTime.current = Date.now();
+      
+      // Always reset session start time to prevent long sessions
+      const now = Date.now();
+      sessionStartTime.current = now;
+      lastActiveTime.current = now;
       pageViews.current = 0;
       actions.current = [];
       isTracking.current = false;
       lastSessionTime.current = 0;
       pageVisits.current = [];
-      currentPageStartTime.current = Date.now();
+      currentPageStartTime.current = now;
       currentPage.current = typeof window !== 'undefined' ? window.location.pathname : '';
       
       // Send session start immediately
@@ -45,6 +51,60 @@ export default function SessionTracker({ children }: SessionTrackerProps) {
       lastSessionTime.current = 0;
       pageVisits.current = [];
     }
+  }, [isLoggedIn, user, loading]);
+
+  // Reset session on page load/refresh to prevent long sessions
+  useEffect(() => {
+    if (isLoggedIn && user && !loading) {
+      const now = Date.now();
+      
+      // Check if session has been idle for more than 30 minutes (1800 seconds)
+      const maxIdleTime = 30 * 60 * 1000; // 30 minutes in milliseconds
+      const currentSessionDuration = now - sessionStartTime.current;
+      
+      if (currentSessionDuration > maxIdleTime) {
+        console.log('Long session detected, resetting session start time');
+        sessionStartTime.current = now;
+        lastActiveTime.current = now;
+        pageViews.current = 0;
+        actions.current = [];
+        pageVisits.current = [];
+        currentPageStartTime.current = now;
+      }
+    }
+  }, []);
+
+  // Track page visibility and user activity
+  useEffect(() => {
+    if (!isLoggedIn || !user || loading) return;
+
+    const handleVisibilityChange = () => {
+      isPageVisible.current = !document.hidden;
+      if (!document.hidden) {
+        // Page became visible, update last active time
+        lastActiveTime.current = Date.now();
+      }
+    };
+
+    const handleUserActivity = () => {
+      lastActiveTime.current = Date.now();
+    };
+
+    // Listen for page visibility changes
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    
+    // Listen for user activity
+    const activityEvents = ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart'];
+    activityEvents.forEach(event => {
+      document.addEventListener(event, handleUserActivity, true);
+    });
+
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      activityEvents.forEach(event => {
+        document.removeEventListener(event, handleUserActivity, true);
+      });
+    };
   }, [isLoggedIn, user, loading]);
 
   // Send session start notification
@@ -131,6 +191,31 @@ export default function SessionTracker({ children }: SessionTrackerProps) {
       return;
     }
 
+    // Calculate actual active time by accounting for periods of inactivity
+    const now = Date.now();
+    const timeSinceLastActivity = now - lastActiveTime.current;
+    const maxInactiveTime = 10 * 60 * 1000; // 10 minutes max inactive time
+    
+    // If user has been inactive for more than 10 minutes, subtract that inactive time
+    let activeSessionDuration = sessionDuration;
+    if (timeSinceLastActivity > maxInactiveTime) {
+      activeSessionDuration = sessionDuration - (timeSinceLastActivity - maxInactiveTime);
+    }
+    
+    // Cap maximum session duration at 4 hours (14400 seconds)
+    const maxSessionDuration = 4 * 60 * 60 * 1000; // 4 hours in milliseconds
+    const cappedSessionDuration = Math.min(Math.max(activeSessionDuration, 0), maxSessionDuration);
+
+    console.log('Session duration calculation:', {
+      raw: sessionDuration,
+      active: activeSessionDuration,
+      capped: cappedSessionDuration,
+      rawSeconds: Math.floor(sessionDuration / 1000),
+      activeSeconds: Math.floor(activeSessionDuration / 1000),
+      cappedSeconds: Math.floor(cappedSessionDuration / 1000),
+      timeSinceLastActivity: Math.floor(timeSinceLastActivity / 1000)
+    });
+
     // Only track if we have some activity
     if (pageViews.current === 0 && actions.current.length === 0) {
       console.log('No activity detected, not tracking session');
@@ -139,8 +224,8 @@ export default function SessionTracker({ children }: SessionTrackerProps) {
     }
 
     // Prevent multiple rapid submissions (minimum 30 seconds between sessions)
-    const now = Date.now();
-    if (now - lastSessionTime.current < 30000) {
+    const currentTime = Date.now();
+    if (currentTime - lastSessionTime.current < 30000) {
       console.log('Session submitted too recently, skipping');
       isTracking.current = false;
       return;
@@ -162,7 +247,7 @@ export default function SessionTracker({ children }: SessionTrackerProps) {
 
     // Validate session data before sending
     const sessionData = {
-      sessionDuration: Math.floor(sessionDuration / 1000), // Convert to seconds
+      sessionDuration: Math.floor(cappedSessionDuration / 1000), // Convert to seconds and use capped duration
       pageViews: pageViews.current,
       actions: actions.current || [],
       pageVisits: pageVisits.current || []
@@ -191,7 +276,7 @@ export default function SessionTracker({ children }: SessionTrackerProps) {
         isTracking.current = false;
       } else {
         console.log('Session data sent successfully');
-        lastSessionTime.current = now;
+        lastSessionTime.current = currentTime;
         isTracking.current = false;
       }
     } catch (error) {

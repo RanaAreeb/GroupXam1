@@ -55,6 +55,77 @@ import {
 import Header from "@/components/ui/header";
 import { useAuth } from "@/hooks/use-auth";
 
+// Timezone utility functions
+const convertToUserTimezone = (date: string, time: string, examTimezone?: string) => {
+  if (!examTimezone) {
+    // Fallback to old behavior if no timezone is stored
+    return new Date(`${date}T${time}`);
+  }
+  
+  // Create date in the exam's timezone
+  const examDateTime = new Date(`${date}T${time}`);
+  const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  
+  // If same timezone, return as is
+  if (examTimezone === userTimezone) {
+    return examDateTime;
+  }
+  
+  // Convert using toLocaleString with timezone
+  const examTimeInUserTz = new Date(examDateTime.toLocaleString("en-US", {timeZone: examTimezone}));
+  const offset = examDateTime.getTime() - examTimeInUserTz.getTime();
+  return new Date(examDateTime.getTime() - offset);
+};
+
+const formatTimeWithTimezone = (date: string, time: string, examTimezone?: string) => {
+  if (!examTimezone) {
+    return { 
+      localTime: time,
+      timezoneInfo: ""
+    };
+  }
+  
+  const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  const examDate = convertToUserTimezone(date, time, examTimezone);
+  
+  if (examTimezone === userTimezone) {
+    return {
+      localTime: examDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}),
+      timezoneInfo: ""
+    };
+  }
+  
+  // Get timezone abbreviations
+  const examTzShort = getTimezoneAbbr(examTimezone);
+  const userTzShort = getTimezoneAbbr(userTimezone);
+  
+  return {
+    localTime: examDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}),
+    timezoneInfo: ` (${time} ${examTzShort})`,
+    originalTime: time,
+    originalTz: examTzShort
+  };
+};
+
+const getTimezoneAbbr = (timezone: string) => {
+  const abbreviations: { [key: string]: string } = {
+    "America/New_York": "ET",
+    "America/Chicago": "CT", 
+    "America/Denver": "MT",
+    "America/Los_Angeles": "PT",
+    "Europe/London": "GMT",
+    "Europe/Paris": "CET",
+    "Europe/Moscow": "MSK",
+    "Asia/Dubai": "GST",
+    "Asia/Kolkata": "IST",
+    "Asia/Shanghai": "CST",
+    "Asia/Tokyo": "JST",
+    "Australia/Sydney": "AET",
+    "Pacific/Auckland": "NZST"
+  };
+  return abbreviations[timezone] || timezone.split('/')[1]?.replace('_', ' ') || 'Local';
+};
+
 interface Assessment {
   _id?: string;
   id?: string;
@@ -63,6 +134,7 @@ interface Assessment {
   universityName?: string;
   date: string;
   time: string;
+  timezone?: string;
   duration?: number;
   description?: string;
   maxStudents?: number;
@@ -102,30 +174,32 @@ export default function ExamServicesPage() {
   const [currentTime, setCurrentTime] = useState(new Date());
 
   const fetchRegistrations = useCallback(async () => {
-    if (isLoggedIn && user?.role === "student") {
+    if (isLoggedIn && user?.email) {
       try {
-        const regRes = await fetch("/api/exams/submissions");
+        const regRes = await fetch("/api/exams/registrations");
         const regData = await regRes.json();
-        const regExamIds = Array.isArray(regData)
-          ? regData
-              .filter((r) => r.studentEmail === user.email)
-              .map((r) => r.examId)
-          : [];
-        setRegistrations(regExamIds);
-        const submittedIds = Array.isArray(regData)
-          ? regData
-              .filter(
-                (r) => r.studentEmail === user.email && r.status === "submitted"
-              )
-              .map((r) => r.examId)
-          : [];
-        setSubmittedExams(submittedIds);
+        
+        if (regData.registrations && regData.submissions) {
+          // Extract exam IDs from registrations
+          const regExamIds = regData.registrations.map((r: any) => r.examId);
+          setRegistrations(regExamIds);
+          
+          // Extract submitted exam IDs from submissions
+          const submittedIds = regData.submissions
+            .filter((s: any) => s.status === "submitted")
+            .map((s: any) => s.examId);
+          setSubmittedExams(submittedIds);
+        } else {
+          setRegistrations([]);
+          setSubmittedExams([]);
+        }
       } catch (error) {
+        console.error("Error fetching registrations:", error);
         setRegistrations([]);
         setSubmittedExams([]);
       }
     }
-  }, [isLoggedIn, user?.role, user?.email]);
+  }, [isLoggedIn, user?.email]);
 
   useEffect(() => {
     let isMounted = true;
@@ -162,16 +236,8 @@ export default function ExamServicesPage() {
         }
         
         if (isMounted) {
-          // Enhance exam data with mock additional fields for better UI
-          const enhancedExams = exams.map(exam => ({
-            ...exam,
-            category: exam.category || (Math.random() > 0.5 ? "University" : "K-12"),
-            difficulty: ["Beginner", "Intermediate", "Advanced"][Math.floor(Math.random() * 3)],
-            price: Math.random() > 0.7 ? Math.floor(Math.random() * 100) + 20 : 0,
-            rating: 3.5 + Math.random() * 1.5,
-            enrolledCount: Math.floor(Math.random() * 500) + 50
-          }));
-          setAssessments(enhancedExams);
+          // Use real exam data without fake enhancements
+          setAssessments(exams);
           await fetchRegistrations();
         }
       } catch (error) {
@@ -218,7 +284,7 @@ export default function ExamServicesPage() {
 
   const handleRegister = async (assessment: Assessment) => {
     // Only allow logged-in users to register
-    if (!isLoggedIn || (user?.role !== "student" && user?.role !== "university")) {
+    if (!isLoggedIn || !user?.email) {
       return;
     }
     
@@ -518,8 +584,9 @@ export default function ExamServicesPage() {
               {filteredAndSortedAssessments.map((a) => {
                 const isRegistered = registrations.includes(a._id || a.id || "");
                 const isSubmitted = submittedExams.includes(a._id || a.id || "");
-                const start = new Date(`${a.date}T${a.time}`);
+                const start = convertToUserTimezone(a.date, a.time, a.timezone);
                 const canStart = isRegistered && !isSubmitted && currentTime >= start;
+                const timeInfo = formatTimeWithTimezone(a.date, a.time, a.timezone);
                 const regDeadlineDateTime = a.registrationDeadline
                   ? new Date(`${a.registrationDeadline}T${a.registrationTime || "23:59"}`)
                   : null;
@@ -537,13 +604,17 @@ export default function ExamServicesPage() {
                     <div className={`relative ${viewMode === "list" ? "w-48 flex-shrink-0" : "h-48"} bg-gradient-to-br from-emerald-500 via-blue-500 to-purple-500 overflow-hidden`}>
                       <div className="absolute inset-0 bg-black/20"></div>
                       <div className="absolute top-4 left-4 flex gap-2">
-                        <Badge className={`${getDifficultyColor(a.difficulty || "Beginner")} border-0`}>
-                          {a.difficulty}
-                        </Badge>
-                        <Badge className="bg-white/90 text-gray-800 border-0">
-                          {getCategoryIcon(a.category || "University")}
-                          <span className="ml-1">{a.category}</span>
-                        </Badge>
+                        {a.difficulty && (
+                          <Badge className={`${getDifficultyColor(a.difficulty)} border-0`}>
+                            {a.difficulty}
+                          </Badge>
+                        )}
+                        {a.category && (
+                          <Badge className="bg-white/90 text-gray-800 border-0">
+                            {getCategoryIcon(a.category)}
+                            <span className="ml-1">{a.category}</span>
+                          </Badge>
+                        )}
                       </div>
                       <div className="absolute top-4 right-4">
                         <Button
@@ -558,11 +629,18 @@ export default function ExamServicesPage() {
                       <div className="absolute bottom-4 left-4 right-4">
                         <div className="flex items-center justify-between text-white">
                           <div className="flex items-center">
-                            <Star className="w-4 h-4 text-yellow-400 fill-yellow-400 mr-1" />
-                            <span className="text-sm font-medium">{a.rating?.toFixed(1) || "4.5"}</span>
+                            <Clock className="w-4 h-4 text-white mr-1" />
+                            <span className="text-sm font-medium">
+                              {timeInfo.localTime}
+                              {timeInfo.timezoneInfo && (
+                                <span className="text-xs opacity-90 ml-1">
+                                  {timeInfo.timezoneInfo}
+                                </span>
+                              )}
+                            </span>
                           </div>
                           <div className="text-sm">
-                            {a.enrolledCount || 0} enrolled
+                            {a.duration || 120} min
                           </div>
                         </div>
                       </div>
@@ -574,14 +652,7 @@ export default function ExamServicesPage() {
                           <CardTitle className="text-lg font-bold text-gray-800 group-hover:text-emerald-600 transition-colors line-clamp-2">
                             {a.title}
                           </CardTitle>
-                          {a.price ? (
-                            <div className="text-right">
-                              <div className="text-lg font-bold text-emerald-600">${a.price}</div>
-                              <div className="text-xs text-gray-500">per exam</div>
-                            </div>
-                          ) : (
-                            <Badge className="bg-green-100 text-green-800 border-0">FREE</Badge>
-                          )}
+                          <Badge className="bg-green-100 text-green-800 border-0">FREE</Badge>
                         </div>
                         
                         <div className="space-y-2">
@@ -606,7 +677,7 @@ export default function ExamServicesPage() {
                           </div>
                           <div className="flex items-center">
                             <Clock className="w-4 h-4 mr-2 text-gray-500" />
-                            <span>{a.time}</span>
+                            <span>{timeInfo.localTime}{timeInfo.timezoneInfo}</span>
                           </div>
                           <div className="flex items-center">
                             <Timer className="w-4 h-4 mr-2 text-gray-500" />
@@ -619,17 +690,7 @@ export default function ExamServicesPage() {
                         </div>
 
                         <div className="flex gap-2">
-                          {/* Debug info - remove after fixing */}
-                          {process.env.NODE_ENV === 'development' && (
-                            <div className="text-xs text-gray-500 mb-2">
-                              Debug: isLoggedIn={String(isLoggedIn)}, role={user?.role}<br/>
-                              isRegistered={String(isRegistered)}, canStart={String(canStart)}<br/>
-                              currentTime={currentTime.toLocaleString()}<br/>
-                              examStart={start.toLocaleString()}<br/>
-                              timeCheck={currentTime >= start ? "✅ Time reached" : "⏳ Not yet time"}
-                            </div>
-                          )}
-                          {isLoggedIn && (user?.role === "student" || user?.role === "university") ? (
+                          {isLoggedIn && user?.email ? (
                             canStart ? (
                               <Button
                                 asChild
@@ -648,7 +709,7 @@ export default function ExamServicesPage() {
                             ) : isRegistered ? (
                               <div className="flex-1 flex items-center justify-center py-2 px-4 bg-green-50 text-green-700 rounded-lg">
                                 <CheckCircle className="w-4 h-4 mr-2" />
-                                Registered - {currentTime < start ? "Exam opens at " + start.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) : "Ready to start"}
+                                Registered - {currentTime < start ? `Exam opens at ${timeInfo.localTime}` : "Ready to start"}
                               </div>
                             ) : (
                               <Button
@@ -714,7 +775,7 @@ export default function ExamServicesPage() {
                                   </div>
                                   <div className="space-y-2">
                                     <div><strong>Date:</strong> {new Date(a.date).toLocaleDateString()}</div>
-                                    <div><strong>Time:</strong> {a.time}</div>
+                                    <div><strong>Time:</strong> {timeInfo.localTime}{timeInfo.timezoneInfo}</div>
                                     <div><strong>Duration:</strong> {a.duration || 120} minutes</div>
                                     <div><strong>Price:</strong> {a.price ? `$${a.price}` : "Free"}</div>
                                   </div>

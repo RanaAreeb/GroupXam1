@@ -65,6 +65,44 @@ export default function HomePage() {
   const [activityIndex, setActivityIndex] = useState(0);
   const [isLoadingActivities, setIsLoadingActivities] = useState(true);
 
+  // Intersection Observer for smooth animations
+  const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
+
+  // Add smooth scrolling behavior
+  useEffect(() => {
+    // Enable smooth scrolling for the entire page
+    document.documentElement.style.scrollBehavior = 'smooth';
+    
+    return () => {
+      document.documentElement.style.scrollBehavior = 'auto';
+    };
+  }, []);
+
+  // Intersection Observer for smooth section animations
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisibleSections(prev => new Set(prev).add(entry.target.id));
+            // Add revealed class for CSS animations
+            entry.target.classList.add('revealed');
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      }
+    );
+
+    // Observe all sections with reveal-on-scroll class
+    const sections = document.querySelectorAll('.reveal-on-scroll');
+    sections.forEach(section => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
+
   // Fetch real activities from API
   const fetchActivities = useCallback(async () => {
     try {
@@ -342,6 +380,34 @@ export default function HomePage() {
     }
   }, []);
 
+  // Reveal-on-scroll animations
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const elements = document.querySelectorAll('.reveal-on-scroll');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!('IntersectionObserver' in window) || prefersReducedMotion) {
+      elements.forEach((el) => el.classList.add('reveal-visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('reveal-visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -10% 0px' }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <PageTransition>
       <div className="min-h-screen bg-white">
@@ -369,35 +435,26 @@ export default function HomePage() {
                       Dashboard
                     </Link>
                   )}
-                  <button
-                    onClick={logout}
-                    className="text-gray-600 hover:text-red-600 transition-colors font-medium"
-                  >
-                    Sign Out
-                  </button>
                 </>
-              ) : (
-                <>
-                  <Link
-                    href="/login"
-                    className="text-gray-600 hover:text-emerald-600 transition-colors font-medium"
-                  >
-                    Sign In
-                  </Link>
-                  <Link
-                    href="/signup"
-                    className="px-4 py-2 rounded bg-emerald-600 text-white hover:bg-emerald-700 transition-colors font-semibold shadow"
-                  >
-                    Sign Up
-                  </Link>
-                </>
-              )}
+              ) : null}
             </>
           }
+          onLogout={logout}
         />
 
+        {/* Global smooth scroll + reveal styles */}
+        <style>{`
+          html { scroll-behavior: smooth; }
+          .reveal-on-scroll { opacity: 0; transform: translateY(24px); transition: opacity 600ms ease, transform 600ms ease; will-change: opacity, transform; }
+          .reveal-on-scroll.reveal-visible { opacity: 1; transform: none; }
+          @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .reveal-on-scroll { opacity: 1 !important; transform: none !important; transition: none !important; }
+          }
+        `}</style>
+
         {/* Animated Hero Section */}
-        <section className="relative py-16 sm:py-24 px-4 bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50 overflow-hidden">
+        <section className="relative py-16 sm:py-24 px-4 bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50 overflow-hidden reveal-on-scroll">
           {/* SVG Blobs */}
           <svg
             className="absolute -top-32 -left-32 w-[40vw] h-[40vw] opacity-30 blur-2xl"
@@ -582,7 +639,7 @@ export default function HomePage() {
         </section>
 
         {/* Interactive Subject Tiles */}
-        <section className="py-10 sm:py-16 px-4 bg-white">
+        <section className="py-10 sm:py-16 px-4 bg-white reveal-on-scroll">
           <div className="container mx-auto">
             <div className="text-center mb-8">
               <h2 className="text-2xl sm:text-4xl font-bold text-gray-800 mb-2">
@@ -625,7 +682,7 @@ export default function HomePage() {
         </section>
 
         {/* Main Features - Quizlet Style */}
-        <section id="features" className="py-12 sm:py-20 px-4 bg-white">
+        <section id="features" className="py-12 sm:py-20 px-4 bg-white reveal-on-scroll">
           <div className="container mx-auto max-w-7xl">
             <div className="text-center mb-12">
               <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-3">
@@ -784,7 +841,7 @@ export default function HomePage() {
         {/* How It Works */}
         <section
           id="how-it-works"
-          className="py-12 sm:py-20 px-4 bg-gradient-to-br from-gray-50 to-emerald-50"
+          className="py-12 sm:py-20 px-4 bg-gradient-to-br from-gray-50 to-emerald-50 reveal-on-scroll"
         >
           <div className="container mx-auto">
             <div className="text-center mb-8 sm:mb-12 md:mb-16 px-4">
@@ -846,7 +903,7 @@ export default function HomePage() {
         </section>
 
         {/* Testimonials */}
-        <section className="py-12 sm:py-20 px-4 bg-white">
+        <section className="py-12 sm:py-20 px-4 bg-white reveal-on-scroll">
           <div className="container mx-auto">
             <div className="text-center mb-12 sm:mb-16">
               <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-3 sm:mb-4 px-4">
@@ -928,7 +985,7 @@ export default function HomePage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-12 sm:py-20 px-4 bg-gradient-to-r from-emerald-500 to-blue-500 relative overflow-hidden">
+        <section className="py-12 sm:py-20 px-4 bg-gradient-to-r from-emerald-500 to-blue-500 relative overflow-hidden reveal-on-scroll">
           <div className="absolute inset-0 bg-black/10"></div>
           <div className="container mx-auto text-center relative">
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6 px-4">
@@ -959,7 +1016,7 @@ export default function HomePage() {
         </section>
 
         {/* Footer */}
-        <footer className="bg-gray-900 text-white py-12 sm:py-16 px-4">
+        <footer className="bg-gray-900 text-white py-12 sm:py-16 px-4 reveal-on-scroll">
           <div className="container mx-auto">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-8 text-center sm:text-left">
               <div>

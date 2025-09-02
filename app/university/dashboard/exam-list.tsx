@@ -47,6 +47,7 @@ interface Exam {
   category?: "K-12" | "University";
   date: string;
   time: string;
+  timezone?: string;
   duration: number;
   totalQuestions: number;
   maxStudents: number;
@@ -231,7 +232,8 @@ export default function ExamList({ exams, onExamsChanged }: ExamListProps) {
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <h2 className="text-2xl font-bold text-gray-800">Manage Exams</h2>
-        <CreateExamForm onExamCreated={() => {}} />
+        <CreateExamForm onExamCreatedAction={() => {}} />
+          
       </div>
 
       {/* Filters */}
@@ -399,7 +401,7 @@ export default function ExamList({ exams, onExamsChanged }: ExamListProps) {
               <FileText className="w-12 h-12 mx-auto mb-4 text-gray-300" />
               <h3 className="text-lg font-medium mb-2">No exams created yet</h3>
               <p className="mb-4">Create your first exam to get started</p>
-              <CreateExamForm onExamCreated={() => {}} />
+              <CreateExamForm onExamCreatedAction={() => {}} />
             </div>
           </CardContent>
         </Card>

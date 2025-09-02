@@ -47,6 +47,12 @@ export async function GET(request) {
                 role: user.role,
                 universityName: user.universityName,
                 country: user.country,
+                profilePicture: user.profilePicture,
+                phone: user.phone,
+                city: user.city,
+                school: user.school,
+                grade: user.grade,
+                bio: user.bio,
                 createdAt: user.createdAt,
                 lastLoginAt: user.lastLoginAt
             }

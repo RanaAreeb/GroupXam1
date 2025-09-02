@@ -86,10 +86,14 @@ export async function POST(request) {
     const data = await request.json();
     const db = await getDatabase();
 
-    // Conflict check: no two exams at the same date+time
-    const conflict = await db.collection("exams").findOne({ date: data.date, time: data.time });
+    // Conflict check: no two exams at the same date+time+timezone
+    const conflict = await db.collection("exams").findOne({
+        date: data.date,
+        time: data.time,
+        timezone: data.timezone || null
+    });
     if (conflict) {
-        return NextResponse.json({ error: "Exam time conflicts with another exam." }, { status: 409 });
+        return NextResponse.json({ error: "Exam time conflicts with another exam in the same timezone." }, { status: 409 });
     }
     const exam = {
         ...data,
@@ -115,9 +119,14 @@ export async function PUT(request) {
     const db = await getDatabase();
 
     // Conflict check (ignore self)
-    const conflict = await db.collection("exams").findOne({ date: data.date, time: data.time, _id: { $ne: new ObjectId(data._id) } });
+    const conflict = await db.collection("exams").findOne({
+        date: data.date,
+        time: data.time,
+        timezone: data.timezone || null,
+        _id: { $ne: new ObjectId(data._id) }
+    });
     if (conflict) {
-        return NextResponse.json({ error: "Exam time conflicts with another exam." }, { status: 409 });
+        return NextResponse.json({ error: "Exam time conflicts with another exam in the same timezone." }, { status: 409 });
     }
     const result = await db.collection("exams").updateOne(
         { _id: new ObjectId(data._id), universityId: user.userId.toString() },

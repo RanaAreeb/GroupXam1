@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getDatabase } from "@/lib/db";
+import { ObjectId } from "mongodb";
 import jwt from "jsonwebtoken";
 
 const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key";
@@ -20,7 +21,7 @@ function getUserFromRequest(request) {
 export async function POST(request) {
     // Submit exam answers
     const user = getUserFromRequest(request);
-    if (!user || user.role !== "student") {
+    if (!user || (user.role !== "student" && user.role !== "university")) {
         return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
     const data = await request.json();

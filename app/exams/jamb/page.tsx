@@ -8,6 +8,8 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Input } from "@/components/ui/input";
 import ProtectedRoute from "@/components/ProtectedRoute";
+import { useAuth } from "@/hooks/use-auth";
+import { trackQuizCompletion, getQuizSubject, getQuizType } from "@/lib/activityTracker";
 import {
   Select,
   SelectContent,
@@ -491,6 +493,7 @@ const syllabusSubjects = [
 ];
 
 export default function JambExamsPage() {
+  const { user } = useAuth();
   const [openExam, setOpenExam] = useState<number | null>(null);
   const [examData, setExamData] = useState<any>(null);
   const [answers, setAnswers] = useState<{ [examId: string]: number[] }>({});
@@ -696,7 +699,7 @@ export default function JambExamsPage() {
     }));
   };
 
-  const handleSubmit = (exam: any) => {
+  const handleSubmit = async (exam: any) => {
     const examId = exam.id || examData?.id;
     const userAnswers = answers[examId] || [];
     let correct = 0;
@@ -734,6 +737,21 @@ export default function JambExamsPage() {
       correct === questions.length ? "🎉" : correct > 0 ? "👍" : "😅"
     );
     setShowModal(true);
+
+    // Track quiz completion if user is logged in
+    if (user && questions.length > 0) {
+      const subject = getQuizSubject(exam || examData, 'JAMB');
+      const quizType = getQuizType(activeTab);
+      
+      await trackQuizCompletion({
+        userId: user.email, // Use email as unique identifier
+        userName: user.name,
+        subject,
+        score: correct,
+        totalQuestions: questions.length,
+        quizType,
+      });
+    }
   };
 
   const getCurrentExams = () => {

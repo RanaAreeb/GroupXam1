@@ -1,24 +1,44 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Send } from "lucide-react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Mail, Send, Package, CreditCard, Shield } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { useSearchParams } from "next/navigation";
 
 export default function ContactPage() {
+  const searchParams = useSearchParams();
+  const packageParam = searchParams?.get('package');
+  
   const [form, setForm] = useState({
     name: "",
     email: "",
     subject: "",
     message: "",
+    inquiryType: "general",
+    packageType: packageParam || "",
   });
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
+
+  // Update form when package parameter changes
+  useEffect(() => {
+    if (packageParam) {
+      setForm(prev => ({
+        ...prev,
+        inquiryType: "package",
+        packageType: packageParam,
+        subject: `ProctorIT ${packageParam.charAt(0).toUpperCase() + packageParam.slice(1)} Package Inquiry`,
+        message: `Hi! I'm interested in learning more about the ProctorIT ${packageParam} package. Could you please provide more information about pricing, features, and payment options?`
+      }));
+    }
+  }, [packageParam]);
 
   // Placeholder for sending email with Google App Password
   const sendEmail = async () => {
@@ -39,7 +59,7 @@ export default function ContactPage() {
       });
       if (res.ok) {
         setSuccess(true);
-        setForm({ name: "", email: "", subject: "", message: "" });
+        setForm({ name: "", email: "", subject: "", message: "", inquiryType: "general", packageType: "" });
       } else {
         const data = await res.json();
         setError(data.error || "Failed to send message. Please try again.");
@@ -97,13 +117,84 @@ export default function ContactPage() {
           />
         </div>
         <h1 className="text-4xl md:text-5xl font-extrabold mb-4 bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent animate-gradient-x">
-          Contact Us
+          {packageParam ? 'Package Inquiry' : 'Contact Us'}
         </h1>
         <p className="text-lg text-gray-700 mb-8">
-          Have a question, suggestion, or need help? Fill out the form below and
-          our team will get back to you soon.
+          {packageParam 
+            ? `Interested in ProctorIT ${packageParam} package? Get in touch for detailed pricing and payment information.`
+            : 'Have a question, suggestion, or need help? Fill out the form below and our team will get back to you soon.'
+          }
         </p>
+
+        {/* Package Information Display */}
+        {packageParam && (
+          <div className="mb-6 p-4 bg-gradient-to-r from-emerald-50 to-blue-50 rounded-xl border border-emerald-200">
+            <div className="flex items-center gap-3 mb-3">
+              <Package className="w-5 h-5 text-emerald-600" />
+              <h3 className="font-semibold text-emerald-800">
+                ProctorIT {packageParam.charAt(0).toUpperCase() + packageParam.slice(1)} Package
+              </h3>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+              <div className="flex items-center gap-2">
+                <CreditCard className="w-4 h-4 text-emerald-600" />
+                <span className="text-gray-700">
+                  {packageParam === 'students' && '$2 one-time charge'}
+                  {packageParam === 'k12' && '$10/month or $100/year'}
+                  {packageParam === 'universities' && '$20/month or $240/year'}
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Shield className="w-4 h-4 text-emerald-600" />
+                <span className="text-gray-700">Secure proctoring technology</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Mail className="w-4 h-4 text-emerald-600" />
+                <span className="text-gray-700">24/7 support included</span>
+              </div>
+            </div>
+          </div>
+        )}
         <form onSubmit={handleSubmit} className="space-y-6">
+          {/* Inquiry Type Selection */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Inquiry Type</label>
+            <Select 
+              value={form.inquiryType} 
+              onValueChange={(value) => setForm({ ...form, inquiryType: value })}
+            >
+              <SelectTrigger className="bg-white/90">
+                <SelectValue placeholder="Select inquiry type" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="general">General Inquiry</SelectItem>
+                <SelectItem value="package">ProctorIT Package Inquiry</SelectItem>
+                <SelectItem value="support">Technical Support</SelectItem>
+                <SelectItem value="billing">Billing Question</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+
+          {/* Package Type Selection (only show if package inquiry) */}
+          {form.inquiryType === 'package' && (
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Package Type</label>
+              <Select 
+                value={form.packageType} 
+                onValueChange={(value) => setForm({ ...form, packageType: value })}
+              >
+                <SelectTrigger className="bg-white/90">
+                  <SelectValue placeholder="Select package type" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="students">Students ($2 one-time)</SelectItem>
+                  <SelectItem value="k12">K-12 Schools ($10/month)</SelectItem>
+                  <SelectItem value="universities">Universities ($20/month)</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          )}
+
           <Input
             placeholder="Your Name"
             value={form.name}
@@ -152,6 +243,41 @@ export default function ContactPage() {
         {error && (
           <div className="mt-6 p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 font-semibold animate-fade-in">
             {error}
+          </div>
+        )}
+
+        {/* Payment Information for Package Inquiries */}
+        {form.inquiryType === 'package' && (
+          <div className="mt-8 p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl border border-blue-200">
+            <h3 className="text-lg font-bold text-blue-800 mb-4 flex items-center gap-2">
+              <CreditCard className="w-5 h-5" />
+              Payment Information
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-blue-700">
+              <div>
+                <h4 className="font-semibold mb-2">Accepted Payment Methods:</h4>
+                <ul className="space-y-1">
+                  <li>• Credit/Debit Cards (Visa, MasterCard, Amex)</li>
+                  <li>• Bank Transfers</li>
+                  <li>• PayPal</li>
+                  <li>• Mobile Money (selected regions)</li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-semibold mb-2">Security & Support:</h4>
+                <ul className="space-y-1">
+                  <li>• Secure SSL encrypted payments</li>
+                  <li>• 24/7 billing support</li>
+                  <li>• Flexible payment terms</li>
+                  <li>• Monthly or annual billing</li>
+                </ul>
+              </div>
+            </div>
+            <div className="mt-4 p-3 bg-blue-100 rounded-lg">
+              <p className="text-sm text-blue-800">
+                <strong>Note:</strong> Our team will provide detailed payment instructions and setup assistance once you submit your inquiry.
+              </p>
+            </div>
           </div>
         )}
       </div>

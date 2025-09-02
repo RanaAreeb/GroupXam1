@@ -94,15 +94,10 @@ export default function AssessmentAttemptPage({
           return;
         }
         // Check registration
-        const regRes = await fetch("/api/exams/submissions");
+        const regRes = await fetch("/api/exams/registrations");
         const regData = await regRes.json();
-        const registered =
-          Array.isArray(regData) &&
-          regData.some(
-            (r) =>
-              r.examId === (data._id || data.id) &&
-              r.studentEmail === user?.email
-          );
+        const registered = regData.registrations && 
+          regData.registrations.some((r: any) => r.examId === (data._id || data.id));
         if (!registered) {
           setError("You are not registered for this assessment.");
           setLoading(false);
@@ -131,7 +126,7 @@ export default function AssessmentAttemptPage({
         setLoading(false);
       }
     }
-    if (isLoggedIn && user?.role === "student") fetchAssessment();
+    if (isLoggedIn && (user?.role === "student" || user?.role === "university")) fetchAssessment();
   }, [isLoggedIn, user, params.assessmentId]);
 
   // Timer logic
@@ -146,8 +141,11 @@ export default function AssessmentAttemptPage({
     };
   }, [timer, submitted, assessment]);
 
-  // Tab switch/blur detection
+  // Tab switch/blur detection - only active after student form is completed
   useEffect(() => {
+    // Don't activate security features until student form is completed
+    if (showStudentForm || !studentInfo) return;
+    
     const onBlur = () => {
       setCheatWarning((w) => w + 1);
       setShowCheatWarning(true);
@@ -159,10 +157,13 @@ export default function AssessmentAttemptPage({
     return () => {
       window.removeEventListener("blur", onBlur);
     };
-  }, [cheatWarning, submitted]);
+  }, [cheatWarning, submitted, showStudentForm, studentInfo]);
 
-  // Disable copy/paste/right-click
+  // Disable copy/paste/right-click - only active after student form is completed
   useEffect(() => {
+    // Don't activate security features until student form is completed
+    if (showStudentForm || !studentInfo) return;
+    
     const onCopy = (e: Event) => {
       e.preventDefault();
       setSecurityAlerts((prev) => [...prev, "Copy attempt detected"]);
@@ -183,7 +184,7 @@ export default function AssessmentAttemptPage({
       document.removeEventListener("paste", onPaste);
       document.removeEventListener("contextmenu", onContextMenu);
     };
-  }, []);
+  }, [showStudentForm, studentInfo]);
 
   const handleAnswer = (idx: number) => {
     setAnswers((prev) => {

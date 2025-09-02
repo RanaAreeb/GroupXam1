@@ -8,6 +8,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, Clock, CheckCircle, XCircle } from "lucide-react";
 import AppHeader from "@/components/ui/app-header";
 import ProtectedRoute from "@/components/ProtectedRoute";
+import { useAuth } from "@/hooks/use-auth";
+import { trackQuizCompletion } from "@/lib/activityTracker";
 
 export default function QuizPage({
   params,
@@ -15,6 +17,7 @@ export default function QuizPage({
   params: Promise<{ subject: string; quizId: string }>;
 }) {
   const { subject, quizId } = use(params);
+  const { user } = useAuth();
   const router = useRouter();
   const [quizQuestions, setQuizQuestions] = useState<any[]>([]);
   const [quizAnswers, setQuizAnswers] = useState<number[]>([]);
@@ -333,7 +336,7 @@ export default function QuizPage({
     setQuizAnswers((prev) => prev.map((a, i) => (i === qIdx ? optIdx : a)));
   };
 
-  const handleQuizSubmit = () => {
+  const handleQuizSubmit = async () => {
     if (!quizQuestions.length) return;
     let correct = 0;
     for (let i = 0; i < quizAnswers.length; i++) {
@@ -344,6 +347,18 @@ export default function QuizPage({
       correct === quizAnswers.length ? "🎉" : correct > 0 ? "👍" : "😅"
     );
     setQuizSubmitted(true);
+
+    // Track quiz completion if user is logged in
+    if (user && quizQuestions.length > 0) {
+      await trackQuizCompletion({
+        userId: user.email, // Use email as unique identifier
+        userName: user.name,
+        subject: subject.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()), // Format subject name
+        score: correct,
+        totalQuestions: quizQuestions.length,
+        quizType: 'quiz',
+      });
+    }
   };
 
   const handleBackToQuizzes = () => {

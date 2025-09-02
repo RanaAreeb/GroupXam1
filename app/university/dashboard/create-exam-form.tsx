@@ -39,6 +39,23 @@ import {
 } from "lucide-react";
 import MCQManager, { MCQ } from "./MCQManager";
 
+// Common timezones list
+const commonTimezones = [
+  { value: "America/New_York", label: "Eastern Time (ET)" },
+  { value: "America/Chicago", label: "Central Time (CT)" },
+  { value: "America/Denver", label: "Mountain Time (MT)" },
+  { value: "America/Los_Angeles", label: "Pacific Time (PT)" },
+  { value: "Europe/London", label: "Greenwich Mean Time (GMT)" },
+  { value: "Europe/Paris", label: "Central European Time (CET)" },
+  { value: "Europe/Moscow", label: "Moscow Time (MSK)" },
+  { value: "Asia/Dubai", label: "Gulf Standard Time (GST)" },
+  { value: "Asia/Kolkata", label: "India Standard Time (IST)" },
+  { value: "Asia/Shanghai", label: "China Standard Time (CST)" },
+  { value: "Asia/Tokyo", label: "Japan Standard Time (JST)" },
+  { value: "Australia/Sydney", label: "Australian Eastern Time (AET)" },
+  { value: "Pacific/Auckland", label: "New Zealand Time (NZST)" },
+];
+
 interface ExamData {
   title: string;
   subject: string;
@@ -48,6 +65,7 @@ interface ExamData {
   description: string;
   date: string;
   time: string;
+  timezone: string;
   duration: string;
   maxStudents: string;
   registrationDeadline: string;
@@ -63,9 +81,9 @@ interface ExamData {
 }
 
 export default function CreateExamForm({
-  onExamCreated,
+  onExamCreatedAction,
 }: {
-  onExamCreated: () => void;
+  onExamCreatedAction: () => void;
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("details");
@@ -78,6 +96,7 @@ export default function CreateExamForm({
     description: "",
     date: "",
     time: "",
+    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone, // Auto-detect institution's timezone
     duration: "",
     maxStudents: "",
     registrationDeadline: "",
@@ -127,6 +146,7 @@ export default function CreateExamForm({
           description: "",
           date: "",
           time: "",
+          timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
           duration: "",
           maxStudents: "",
           registrationDeadline: "",
@@ -140,7 +160,7 @@ export default function CreateExamForm({
           timeLimit: true,
           mcqs: [],
         });
-        if (onExamCreated) onExamCreated();
+        if (onExamCreatedAction) onExamCreatedAction();
       }
     } catch (err) {
       setError("Network error. Please try again.");
@@ -324,6 +344,26 @@ export default function CreateExamForm({
                       }
                       required
                     />
+                  </div>
+                  <div>
+                    <Label htmlFor="timezone">Timezone</Label>
+                    <Select
+                      value={examData.timezone}
+                      onValueChange={(value) =>
+                        setExamData({ ...examData, timezone: value })
+                      }
+                    >
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select timezone" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {commonTimezones.map((tz) => (
+                          <SelectItem key={tz.value} value={tz.value}>
+                            {tz.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
                   </div>
                   <div>
                     <Label htmlFor="duration">Duration (minutes)</Label>

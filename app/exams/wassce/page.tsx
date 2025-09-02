@@ -4,6 +4,8 @@ import AppHeader from "@/components/ui/app-header";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { wassceExams } from "./exams-data";
+import { useAuth } from "@/hooks/use-auth";
+import { trackQuizCompletion, getQuizSubject, getQuizType } from "@/lib/activityTracker";
 import {
   Dialog,
   DialogContent,
@@ -542,6 +544,7 @@ const syllabusSubjects = [
 ];
 
 export default function WassceExamsPage() {
+  const { user } = useAuth();
   const [openExam, setOpenExam] = useState<number | null>(null);
   const [answers, setAnswers] = useState<{ [examId: number]: number[] }>({});
   const [showFeedback, setShowFeedback] = useState(false);
@@ -656,7 +659,7 @@ export default function WassceExamsPage() {
     }));
   };
 
-  const handleSubmit = (exam: any) => {
+  const handleSubmit = async (exam: any) => {
     const userAnswers = answers[exam.id] || [];
     let correct = 0;
     exam.questions.forEach((q: any, i: number) => {
@@ -667,9 +670,24 @@ export default function WassceExamsPage() {
       correct === exam.questions.length ? "🎉" : correct > 0 ? "👍" : "😅"
     );
     setShowFeedback(true);
+
+    // Track quiz completion if user is logged in
+    if (user && exam.questions && exam.questions.length > 0) {
+      const subject = getQuizSubject(exam, 'WASSCE');
+      const quizType = getQuizType(activeTab);
+      
+      await trackQuizCompletion({
+        userId: user.email, // Use email as unique identifier
+        userName: user.name,
+        subject,
+        score: correct,
+        totalQuestions: exam.questions.length,
+        quizType,
+      });
+    }
   };
 
-  const handleMockSubmit = (exam: any) => {
+  const handleMockSubmit = async (exam: any) => {
     const mockData = mockExamData[exam.id];
     if (!mockData) return;
 
@@ -698,6 +716,20 @@ export default function WassceExamsPage() {
       correct === questions.length ? "🎉" : correct > 0 ? "👍" : "😅"
     );
     setShowMockFeedback(true);
+
+    // Track mock exam completion if user is logged in
+    if (user && questions.length > 0) {
+      const subject = getQuizSubject(exam, 'WASSCE');
+      
+      await trackQuizCompletion({
+        userId: user.email, // Use email as unique identifier
+        userName: user.name,
+        subject,
+        score: correct,
+        totalQuestions: questions.length,
+        quizType: 'mock-exam',
+      });
+    }
   };
 
   const getCurrentExams = () => {

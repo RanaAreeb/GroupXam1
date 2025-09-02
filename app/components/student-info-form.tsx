@@ -80,26 +80,34 @@ export default function StudentInfoForm({
   };
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center p-4">
-      <Card className="w-full max-w-md bg-card border border-border">
-        <CardHeader className="text-center">
-          <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <User className="w-8 h-8 text-blue-600" />
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center p-4">
+      <Card className="w-full max-w-lg bg-white shadow-2xl border-0 overflow-hidden">
+        <CardHeader className="text-center bg-gradient-to-r from-blue-600 to-purple-600 text-white relative">
+          <div className="absolute inset-0 bg-black/10"></div>
+          <div className="relative">
+            <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4">
+              <User className="w-10 h-10 text-white" />
+            </div>
+            <CardTitle className="text-2xl font-bold mb-2">
+              Student Information
+            </CardTitle>
+            {examTitle && (
+              <div className="bg-white/15 backdrop-blur-sm rounded-lg p-3 mt-4">
+                <p className="text-sm text-white/90">
+                  Required before taking:
+                </p>
+                <p className="font-semibold text-lg text-white">{examTitle}</p>
+              </div>
+            )}
           </div>
-          <CardTitle className="text-xl font-bold text-card-foreground">
-            Student Information
-          </CardTitle>
-          {examTitle && (
-            <p className="text-sm text-gray-600">
-              Required before taking: <span className="font-medium">{examTitle}</span>
-            </p>
-          )}
         </CardHeader>
-        <CardContent>
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <Label htmlFor="studentName" className="flex items-center gap-2">
-                <User className="w-4 h-4" />
+        <CardContent className="p-8">
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="space-y-2">
+              <Label htmlFor="studentName" className="flex items-center gap-2 text-gray-700 font-medium">
+                <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+                  <User className="w-4 h-4 text-blue-600" />
+                </div>
                 Full Name *
               </Label>
               <Input
@@ -107,19 +115,25 @@ export default function StudentInfoForm({
                 value={studentInfo.studentName}
                 onChange={(e) => handleInputChange("studentName", e.target.value)}
                 placeholder="Enter your full name"
-                className={errors.studentName ? "border-red-500" : ""}
+                className={`h-12 transition-all duration-200 ${
+                  errors.studentName 
+                    ? "border-red-500 bg-red-50 focus:border-red-500" 
+                    : "border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                }`}
               />
               {errors.studentName && (
-                <p className="text-red-500 text-sm mt-1 flex items-center gap-1">
+                <p className="text-red-500 text-sm mt-1 flex items-center gap-1 bg-red-50 p-2 rounded-lg">
                   <AlertCircle className="w-4 h-4" />
                   {errors.studentName}
                 </p>
               )}
             </div>
 
-            <div>
-              <Label htmlFor="studentRollNumber" className="flex items-center gap-2">
-                <Hash className="w-4 h-4" />
+            <div className="space-y-2">
+              <Label htmlFor="studentRollNumber" className="flex items-center gap-2 text-gray-700 font-medium">
+                <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
+                  <Hash className="w-4 h-4 text-green-600" />
+                </div>
                 Roll Number / Student ID *
               </Label>
               <Input
@@ -127,19 +141,25 @@ export default function StudentInfoForm({
                 value={studentInfo.studentRollNumber}
                 onChange={(e) => handleInputChange("studentRollNumber", e.target.value)}
                 placeholder="e.g., 2024/CS/001 or ST12345"
-                className={errors.studentRollNumber ? "border-red-500" : ""}
+                className={`h-12 transition-all duration-200 ${
+                  errors.studentRollNumber 
+                    ? "border-red-500 bg-red-50 focus:border-red-500" 
+                    : "border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                }`}
               />
               {errors.studentRollNumber && (
-                <p className="text-red-500 text-sm mt-1 flex items-center gap-1">
+                <p className="text-red-500 text-sm mt-1 flex items-center gap-1 bg-red-50 p-2 rounded-lg">
                   <AlertCircle className="w-4 h-4" />
                   {errors.studentRollNumber}
                 </p>
               )}
             </div>
 
-            <div>
-              <Label htmlFor="studentInstitution" className="flex items-center gap-2">
-                <School className="w-4 h-4" />
+            <div className="space-y-2">
+              <Label htmlFor="studentInstitution" className="flex items-center gap-2 text-gray-700 font-medium">
+                <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
+                  <School className="w-4 h-4 text-purple-600" />
+                </div>
                 Institution Name *
               </Label>
               <Input
@@ -147,19 +167,25 @@ export default function StudentInfoForm({
                 value={studentInfo.studentInstitution}
                 onChange={(e) => handleInputChange("studentInstitution", e.target.value)}
                 placeholder="e.g., Harvard University or Lincoln High School"
-                className={errors.studentInstitution ? "border-red-500" : ""}
+                className={`h-12 transition-all duration-200 ${
+                  errors.studentInstitution 
+                    ? "border-red-500 bg-red-50 focus:border-red-500" 
+                    : "border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                }`}
               />
               {errors.studentInstitution && (
-                <p className="text-red-500 text-sm mt-1 flex items-center gap-1">
+                <p className="text-red-500 text-sm mt-1 flex items-center gap-1 bg-red-50 p-2 rounded-lg">
                   <AlertCircle className="w-4 h-4" />
                   {errors.studentInstitution}
                 </p>
               )}
             </div>
 
-            <div>
-              <Label htmlFor="studentClass" className="flex items-center gap-2">
-                <GraduationCap className="w-4 h-4" />
+            <div className="space-y-2">
+              <Label htmlFor="studentClass" className="flex items-center gap-2 text-gray-700 font-medium">
+                <div className="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center">
+                  <GraduationCap className="w-4 h-4 text-orange-600" />
+                </div>
                 Class / Grade *
               </Label>
               <Input
@@ -171,18 +197,22 @@ export default function StudentInfoForm({
                     ? "e.g., Grade 12, SS3, Year 11" 
                     : "e.g., Freshman, 2nd Year, Final Year"
                 }
-                className={errors.studentClass ? "border-red-500" : ""}
+                className={`h-12 transition-all duration-200 ${
+                  errors.studentClass 
+                    ? "border-red-500 bg-red-50 focus:border-red-500" 
+                    : "border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                }`}
               />
               {errors.studentClass && (
-                <p className="text-red-500 text-sm mt-1 flex items-center gap-1">
+                <p className="text-red-500 text-sm mt-1 flex items-center gap-1 bg-red-50 p-2 rounded-lg">
                   <AlertCircle className="w-4 h-4" />
                   {errors.studentClass}
                 </p>
               )}
             </div>
 
-            <div>
-              <Label htmlFor="studentCategory">Education Level</Label>
+            <div className="space-y-2">
+              <Label htmlFor="studentCategory" className="text-gray-700 font-medium">Education Level</Label>
               <Select
                 value={studentInfo.studentCategory}
                 onValueChange={(value: "K-12" | "University") =>
@@ -190,7 +220,7 @@ export default function StudentInfoForm({
                 }
                 disabled={!!examCategory} // Disable if exam category is predefined
               >
-                <SelectTrigger>
+                <SelectTrigger className="h-12 border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100">
                   <SelectValue placeholder="Select education level" />
                 </SelectTrigger>
                 <SelectContent>
@@ -199,15 +229,17 @@ export default function StudentInfoForm({
                 </SelectContent>
               </Select>
               {examCategory && (
-                <p className="text-xs text-gray-500 mt-1">
-                  This exam is for {examCategory} students only
+                <p className="text-xs text-blue-600 mt-1 bg-blue-50 p-2 rounded-lg">
+                  ℹ️ This exam is for {examCategory} students only
                 </p>
               )}
             </div>
 
-            <Button type="submit" className="w-full mt-6">
-              Continue to Exam
-            </Button>
+            <div className="pt-4 border-t border-gray-100">
+              <Button type="submit" className="w-full h-12 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-[1.02]">
+                Continue to Exam →
+              </Button>
+            </div>
           </form>
         </CardContent>
       </Card>

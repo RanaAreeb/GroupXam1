@@ -27,8 +27,8 @@ export async function POST(request) {
 
         let studentEmail, studentName;
 
-        if (user && user.role === "student") {
-            // Logged-in student
+        if (user && (user.role === "student" || user.role === "university")) {
+            // Logged-in user (student or university)
             studentEmail = user.email;
             studentName = user.name;
         } else if (data.name && data.email) {
