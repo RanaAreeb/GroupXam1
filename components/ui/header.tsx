@@ -102,14 +102,17 @@ export default function Header({
                     <User className="w-4 h-4 mr-3" />
                     My Profile
                   </Link>
-                  <Link
-                    href="/dashboard"
-                    className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors"
-                    onClick={() => setShowUserMenu(false)}
-                  >
-                    <Settings className="w-4 h-4 mr-3" />
-                    Dashboard
-                  </Link>
+                  {/* Dashboard - Only visible to university users */}
+                  {user?.role === "university" && (
+                    <Link
+                      href="/dashboard"
+                      className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors"
+                      onClick={() => setShowUserMenu(false)}
+                    >
+                      <Settings className="w-4 h-4 mr-3" />
+                      Dashboard
+                    </Link>
+                  )}
                   <div className="border-t border-gray-200 my-2"></div>
                   <button
                     onClick={handleLogout}
