@@ -816,13 +816,33 @@ export default function HomePage() {
                   </div>
                 </Link>
 
+                {/* ProctorIT Card */}
+                <Link
+                  href={isLoggedIn ? "/services" : "/login"}
+                  className="flex-shrink-0 w-72 sm:w-80 bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow cursor-pointer relative"
+                >
+                  <div className="bg-gradient-to-r from-red-400 to-pink-500 px-4 sm:px-6 py-4">
+                    <h3 className="text-lg sm:text-xl font-bold text-white">
+                      ProctorIT
+                    </h3>
+                  </div>
+                  <div className="p-4 sm:p-6 bg-white h-40 sm:h-48 flex flex-col items-center justify-center">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 bg-red-100 rounded-2xl flex items-center justify-center mb-3 sm:mb-4">
+                      <Users className="w-6 h-6 sm:w-8 sm:h-8 text-red-600" />
+                    </div>
+                    <p className="text-xs sm:text-sm text-gray-600 text-center leading-relaxed">
+                      Professional exam proctoring services
+                    </p>
+                  </div>
+                </Link>
+
                 
               </div>
 
               {/* Mobile navigation dots - Only visible on mobile */}
               <div className="flex justify-center mt-6 sm:hidden">
                 <div className="flex space-x-2">
-                  {[0, 1, 2, 3, 4, 5].map((index) => (
+                  {[0, 1, 2, 3, 4, 5, 6].map((index) => (
                     <div
                       key={index}
                       className={`w-2 h-2 rounded-full transition-colors duration-300 ${
