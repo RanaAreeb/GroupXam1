@@ -16,21 +16,32 @@ export async function POST(request) {
             return `${firstName} ${lastInitial}`;
         };
 
+        // Safely decode subjects that may arrive URL-encoded (e.g., "Pythagorean%20theorem")
+        const decodeSubject = (raw) => {
+            if (typeof raw !== 'string') return raw;
+            try {
+                return decodeURIComponent(raw.replace(/\+/g, ' '));
+            } catch {
+                return raw;
+            }
+        };
+
         const displayName = formatDisplayName(userName);
+        const normalizedSubject = decodeSubject(subject);
 
         let message = '';
         if (quizType === 'flashcard') {
-            message = `${displayName} completed a ${subject} flashcard set!`;
+            message = `${displayName} completed a ${normalizedSubject} flashcard set!`;
         } else if (quizType === 'mock-exam') {
-            message = `${displayName} completed a ${subject} mock exam!`;
+            message = `${displayName} completed a ${normalizedSubject} mock exam!`;
         } else {
             const percentage = Math.round((score / totalQuestions) * 100);
             if (percentage >= 90) {
-                message = `${displayName} aced a ${subject} quiz with ${percentage}%!`;
+                message = `${displayName} aced a ${normalizedSubject} quiz with ${percentage}%!`;
             } else if (percentage >= 70) {
-                message = `${displayName} scored ${percentage}% in ${subject}!`;
+                message = `${displayName} scored ${percentage}% in ${normalizedSubject}!`;
             } else {
-                message = `${displayName} completed a ${subject} quiz.`;
+                message = `${displayName} completed a ${normalizedSubject} quiz.`;
             }
         }
 
@@ -39,7 +50,7 @@ export async function POST(request) {
             message,
             userId,
             userName,
-            subject,
+            subject: normalizedSubject,
             score,
             totalQuestions,
             quizType,

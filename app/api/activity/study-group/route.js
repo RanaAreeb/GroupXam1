@@ -18,15 +18,26 @@ export async function POST(request) {
 
         const displayName = formatDisplayName(userName);
 
+        // Decode subject if it is URL-encoded
+        const decodeSubject = (raw) => {
+            if (typeof raw !== 'string') return raw;
+            try {
+                return decodeURIComponent(raw.replace(/\+/g, ' '));
+            } catch {
+                return raw;
+            }
+        };
+        const normalizedSubject = decodeSubject(subject);
+
         let message = '';
         if (action === 'joined') {
-            message = `${displayName} joined the ${subject} study group.`;
+            message = `${displayName} joined the ${normalizedSubject} study group.`;
         } else if (action === 'posted') {
-            message = `${displayName} posted a question in ${subject} discussions.`;
+            message = `${displayName} posted a question in ${normalizedSubject} discussions.`;
         } else if (action === 'answered') {
-            message = `${displayName} answered a question in ${subject}.`;
+            message = `${displayName} answered a question in ${normalizedSubject}.`;
         } else if (action === 'created') {
-            message = `${displayName} created a new ${subject} study group.`;
+            message = `${displayName} created a new ${normalizedSubject} study group.`;
         }
 
         const activity = {
@@ -35,7 +46,7 @@ export async function POST(request) {
             userId,
             userName,
             action,
-            subject,
+            subject: normalizedSubject,
             groupName,
             createdAt: new Date(),
         };
