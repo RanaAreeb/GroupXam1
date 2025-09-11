@@ -1,0 +1,229 @@
+[
+  {
+    "id": 100,
+    "title": "PRESENT TENSES PRACTICE & TIPS",
+    "category": "Tenses",
+    "difficulty": "Beginner",
+    "duration": "12 min",
+    "questions": 8,
+    "description": "Master present simple, present continuous, and present perfect tenses.",
+    "grammarPoint": "Present Tenses",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Choose the correct present tense form: 'She _____ to work every day.'",
+        "options": [
+          "go",
+          "goes",
+          "is going",
+          "has gone"
+        ],
+        "answer": 1,
+        "explanation": "Present simple is used for habitual actions. Third person singular takes 'goes'."
+      },
+      {
+        "id": 2,
+        "question": "Complete: 'I _____ my homework right now.'",
+        "options": [
+          "do",
+          "am doing",
+          "have done",
+          "did"
+        ],
+        "answer": 1,
+        "explanation": "Present continuous is used for actions happening now. 'Right now' indicates present continuous."
+      },
+      {
+        "id": 3,
+        "question": "Choose the correct form: 'They _____ in London for five years.'",
+        "options": [
+          "live",
+          "are living",
+          "have lived",
+          "lived"
+        ],
+        "answer": 2,
+        "explanation": "Present perfect is used for actions that started in the past and continue to the present. 'For five years' indicates duration."
+      },
+      {
+        "id": 4,
+        "question": "Complete: 'The sun _____ in the east.'",
+        "options": [
+          "rises",
+          "is rising",
+          "has risen",
+          "rose"
+        ],
+        "answer": 0,
+        "explanation": "Present simple is used for general truths and facts. 'The sun rises in the east' is a universal truth."
+      },
+      {
+        "id": 5,
+        "question": "Choose the correct form: 'Look! It _____ outside.'",
+        "options": [
+          "rains",
+          "is raining",
+          "has rained",
+          "rained"
+        ],
+        "answer": 1,
+        "explanation": "Present continuous is used for actions happening at the moment of speaking. 'Look!' indicates something happening now."
+      },
+      {
+        "id": 6,
+        "question": "Complete: 'I _____ never _____ to Japan.'",
+        "options": [
+          "have / been",
+          "am / being",
+          "do / go",
+          "will / go"
+        ],
+        "answer": 0,
+        "explanation": "Present perfect with 'never' is used to express life experiences. 'Have never been' is the correct form."
+      },
+      {
+        "id": 7,
+        "question": "Choose the correct form: 'Water _____ at 100 degrees Celsius.'",
+        "options": [
+          "boils",
+          "is boiling",
+          "has boiled",
+          "boiled"
+        ],
+        "answer": 0,
+        "explanation": "Present simple is used for scientific facts and general truths. 'Water boils at 100°C' is a scientific fact."
+      },
+      {
+        "id": 8,
+        "question": "Complete: 'She _____ her keys. She can't find them anywhere.'",
+        "options": [
+          "loses",
+          "is losing",
+          "has lost",
+          "lost"
+        ],
+        "answer": 2,
+        "explanation": "Present perfect is used for past actions with present consequences. Losing keys affects the present situation."
+      }
+    ]
+  },
+  {
+    "id": 101,
+    "title": "PAST TENSES PRACTICE & TIPS",
+    "category": "Tenses",
+    "difficulty": "Intermediate",
+    "duration": "15 min",
+    "questions": 10,
+    "description": "Practice past simple, past continuous, and past perfect tenses.",
+    "grammarPoint": "Past Tenses",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Choose the correct past tense: 'Yesterday, I _____ to the cinema.'",
+        "options": [
+          "go",
+          "went",
+          "was going",
+          "had gone"
+        ],
+        "answer": 1,
+        "explanation": "Past simple is used for completed actions in the past. 'Yesterday' indicates a specific past time."
+      },
+      {
+        "id": 2,
+        "question": "Complete: 'While I _____ dinner, the phone rang.'",
+        "options": [
+          "cooked",
+          "was cooking",
+          "had cooked",
+          "cook"
+        ],
+        "answer": 1,
+        "explanation": "Past continuous is used for actions in progress when another action happened. 'While' indicates simultaneous actions."
+      },
+      {
+        "id": 3,
+        "question": "Choose the correct form: 'By the time we arrived, the meeting _____ already _____ .'",
+        "options": [
+          "started",
+          "was starting",
+          "had started",
+          "starts"
+        ],
+        "answer": 2,
+        "explanation": "Past perfect is used for actions completed before another past action. 'By the time' indicates sequence."
+      }
+    ]
+  },
+  {
+    "id": 102,
+    "title": "Future Tenses Practice",
+    "category": "Tenses",
+    "difficulty": "Intermediate",
+    "duration": "12 min",
+    "questions": 5,
+    "description": "Practice using future tenses including will, going to, and present continuous for future.",
+    "questions": [
+      {
+        "id": 11,
+        "question": "Choose the correct form: 'I _____ to London next week.'",
+        "options": [
+          "will go",
+          "am going",
+          "go",
+          "went"
+        ],
+        "answer": 1,
+        "explanation": "Present continuous is used for planned future actions. 'Am going' indicates a definite plan."
+      },
+      {
+        "id": 12,
+        "question": "Complete: 'Look at those clouds! It _____ rain.'",
+        "options": [
+          "will",
+          "is going to",
+          "is raining",
+          "rains"
+        ],
+        "answer": 1,
+        "explanation": "'Going to' is used for predictions based on present evidence. The clouds indicate rain is likely."
+      },
+      {
+        "id": 13,
+        "question": "Choose the correct form: 'I promise I _____ you tomorrow.'",
+        "options": [
+          "am calling",
+          "will call",
+          "call",
+          "am going to call"
+        ],
+        "answer": 1,
+        "explanation": "'Will' is used for promises, offers, and spontaneous decisions."
+      },
+      {
+        "id": 14,
+        "question": "Complete: 'The train _____ at 3 PM.'",
+        "options": [
+          "leaves",
+          "is leaving",
+          "will leave",
+          "left"
+        ],
+        "answer": 0,
+        "explanation": "Present simple is used for scheduled future events like timetables."
+      },
+      {
+        "id": 15,
+        "question": "Choose the correct form: 'By next year, I _____ my degree.'",
+        "options": [
+          "will complete",
+          "am completing",
+          "will have completed",
+          "complete"
+        ],
+        "answer": 2,
+        "explanation": "Future perfect is used for actions completed before a specific future time."
+      }
+    ]
+  }
+]

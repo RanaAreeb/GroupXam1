@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1000,
+    "title": "MULTIPLE CHOICE QUESTIONS PRACTICE & TIPS",
+    "category": "Multiple Choice",
+    "difficulty": "Beginner",
+    "duration": "12 min",
+    "questions": 5,
+    "description": "Master multiple choice questions in IELTS reading with strategic approaches and elimination techniques.",
+    "passage": "The development of artificial intelligence has revolutionized numerous industries, from healthcare to finance. Machine learning algorithms can now process vast amounts of data to identify patterns and make predictions with remarkable accuracy. However, this technological advancement also raises important questions about privacy, job displacement, and ethical considerations. As AI systems become more sophisticated, society must grapple with the implications of increasingly autonomous decision-making processes.",
+    "questions": [
+      {
+        "id": 1000,
+        "question": "According to the passage, artificial intelligence has primarily affected:",
+        "options": [
+          "Only healthcare and finance industries",
+          "Numerous industries including healthcare and finance",
+          "Only technology companies",
+          "Only manufacturing sectors"
+        ],
+        "answer": 1,
+        "explanation": "The passage states that AI has 'revolutionized numerous industries, from healthcare to finance', indicating it affects multiple sectors."
+      },
+      {
+        "id": 1001,
+        "question": "Machine learning algorithms are described as being able to:",
+        "options": [
+          "Only store large amounts of data",
+          "Process data and make predictions with high accuracy",
+          "Replace human workers completely",
+          "Work without any data input"
+        ],
+        "answer": 1,
+        "explanation": "The passage specifically mentions that algorithms 'can process vast amounts of data to identify patterns and make predictions with remarkable accuracy'."
+      },
+      {
+        "id": 3,
+        "question": "The main concern raised about AI development is:",
+        "options": [
+          "Technical limitations",
+          "High costs of implementation",
+          "Privacy, job displacement, and ethical considerations",
+          "Lack of government support"
+        ],
+        "answer": 2,
+        "explanation": "The passage explicitly states that AI advancement 'raises important questions about privacy, job displacement, and ethical considerations'."
+      },
+      {
+        "id": 4,
+        "question": "As AI systems become more sophisticated, society must:",
+        "options": [
+          "Ignore the implications",
+          "Grapple with implications of autonomous decision-making",
+          "Stop developing AI technology",
+          "Focus only on technical improvements"
+        ],
+        "answer": 1,
+        "explanation": "The passage states that 'society must grapple with the implications of increasingly autonomous decision-making processes'."
+      },
+      {
+        "id": 5,
+        "question": "The tone of the passage regarding AI development is:",
+        "options": [
+          "Completely negative",
+          "Completely positive",
+          "Balanced, acknowledging both benefits and concerns",
+          "Indifferent"
+        ],
+        "answer": 2,
+        "explanation": "The passage presents both the benefits (revolutionizing industries, accurate predictions) and concerns (privacy, ethics), showing a balanced perspective."
+      }
+    ]
+  },
+  {
+    "id": 1001,
+    "title": "Scientific Research: Multiple Choice Practice",
+    "category": "Multiple Choice",
+    "difficulty": "Intermediate",
+    "duration": "16 min",
+    "questions": 7,
+    "description": "Practice multiple choice questions with scientific research texts and complex academic vocabulary.",
+    "passage": "Recent studies in neuroscience have revealed fascinating insights into how the human brain processes information during sleep. Research conducted at leading universities has shown that during REM (Rapid Eye Movement) sleep, the brain consolidates memories and processes emotional experiences. This discovery has significant implications for understanding learning processes and developing new therapeutic approaches for memory-related disorders. The findings suggest that quality sleep is not merely restorative but actively contributes to cognitive function and emotional well-being.",
+    "questions": [
+      {
+        "id": 1000,
+        "question": "The research mentioned in the passage was conducted:",
+        "options": [
+          "Only at one university",
+          "At leading universities",
+          "Only in sleep laboratories",
+          "Exclusively on animals"
+        ],
+        "answer": 1,
+        "explanation": "The passage states that 'Research conducted at leading universities' has shown these findings."
+      },
+      {
+        "id": 1001,
+        "question": "During REM sleep, the brain:",
+        "options": [
+          "Only rests and recovers",
+          "Consolidates memories and processes emotional experiences",
+          "Stops all activity",
+          "Only processes visual information"
+        ],
+        "answer": 1,
+        "explanation": "The passage explicitly states that during REM sleep, 'the brain consolidates memories and processes emotional experiences'."
+      }
+    ]
+  }
+]

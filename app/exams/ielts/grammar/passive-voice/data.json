@@ -1,0 +1,158 @@
+[
+  {
+    "id": 300,
+    "title": "PASSIVE VOICE PRACTICE & TIPS",
+    "category": "Passive Voice",
+    "difficulty": "Intermediate",
+    "duration": "14 min",
+    "questions": 9,
+    "description": "Learn to use passive voice correctly in different tenses.",
+    "grammarPoint": "Passive Voice",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Convert to passive voice: 'The chef cooks the meal.'",
+        "options": [
+          "The meal is cooked by the chef.",
+          "The meal was cooked by the chef.",
+          "The meal has been cooked by the chef.",
+          "The meal will be cooked by the chef."
+        ],
+        "answer": 0,
+        "explanation": "Present simple passive: am/is/are + past participle. 'The meal is cooked by the chef.'"
+      },
+      {
+        "id": 2,
+        "question": "Choose the correct passive form: 'The house _____ last year.'",
+        "options": [
+          "is built",
+          "was built",
+          "has been built",
+          "will be built"
+        ],
+        "answer": 1,
+        "explanation": "Past simple passive: was/were + past participle. 'Last year' indicates past time."
+      },
+      {
+        "id": 3,
+        "question": "Complete the passive: 'The project _____ by the team next month.'",
+        "options": [
+          "is completed",
+          "was completed",
+          "has been completed",
+          "will be completed"
+        ],
+        "answer": 3,
+        "explanation": "Future simple passive: will be + past participle. 'Next month' indicates future time."
+      },
+      {
+        "id": 4,
+        "question": "Convert to passive: 'They are building a new bridge.'",
+        "options": [
+          "A new bridge is being built.",
+          "A new bridge was being built.",
+          "A new bridge has been built.",
+          "A new bridge will be built."
+        ],
+        "answer": 0,
+        "explanation": "Present continuous passive: am/is/are being + past participle."
+      },
+      {
+        "id": 5,
+        "question": "Choose the correct form: 'The letter _____ yesterday.'",
+        "options": [
+          "is sent",
+          "was sent",
+          "has been sent",
+          "will be sent"
+        ],
+        "answer": 1,
+        "explanation": "Past simple passive: was/were + past participle. 'Yesterday' indicates past time."
+      },
+      {
+        "id": 6,
+        "question": "Complete: 'The work _____ by tomorrow.'",
+        "options": [
+          "is finished",
+          "was finished",
+          "has been finished",
+          "will be finished"
+        ],
+        "answer": 3,
+        "explanation": "Future simple passive: will be + past participle. 'By tomorrow' indicates future completion."
+      },
+      {
+        "id": 7,
+        "question": "Convert to passive: 'Someone has stolen my car.'",
+        "options": [
+          "My car is stolen.",
+          "My car was stolen.",
+          "My car has been stolen.",
+          "My car will be stolen."
+        ],
+        "answer": 2,
+        "explanation": "Present perfect passive: has/have been + past participle."
+      },
+      {
+        "id": 8,
+        "question": "Choose the correct form: 'The book _____ in many languages.'",
+        "options": [
+          "is translated",
+          "was translated",
+          "has been translated",
+          "will be translated"
+        ],
+        "answer": 2,
+        "explanation": "Present perfect passive for actions completed in the past with present relevance."
+      },
+      {
+        "id": 9,
+        "question": "Complete: 'The meeting _____ at 3 PM.'",
+        "options": [
+          "is held",
+          "was held",
+          "has been held",
+          "will be held"
+        ],
+        "answer": 3,
+        "explanation": "Future simple passive: will be + past participle for scheduled future events."
+      }
+    ]
+  },
+  {
+    "id": 301,
+    "title": "Academic Writing: Passive Voice",
+    "category": "Passive Voice",
+    "difficulty": "Advanced",
+    "duration": "18 min",
+    "questions": 11,
+    "description": "Advanced passive voice practice for academic writing contexts.",
+    "grammarPoint": "Academic Passive Voice",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Convert to academic passive: 'Researchers conducted the study.'",
+        "options": [
+          "The study was conducted by researchers.",
+          "The study is conducted by researchers.",
+          "The study has been conducted by researchers.",
+          "The study will be conducted by researchers."
+        ],
+        "answer": 0,
+        "explanation": "Academic writing often uses passive voice to focus on the research rather than the researchers."
+      },
+      {
+        "id": 2,
+        "question": "Choose the correct academic form: 'The results _____ in the next section.'",
+        "options": [
+          "are discussed",
+          "were discussed",
+          "have been discussed",
+          "will be discussed"
+        ],
+        "answer": 3,
+        "explanation": "Future passive is common in academic writing to indicate what will be covered next."
+      }
+    ]
+  }
+]

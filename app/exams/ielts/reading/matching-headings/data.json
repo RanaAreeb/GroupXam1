@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "title": "Matching Headings - Academic Reading",
+    "description": "Practice matching headings to paragraphs in academic texts",
+    "difficulty": "Intermediate",
+    "category": "Matching Headings",
+    "duration": "20 minutes",
+    "questions": [
+      {
+        "question": "Choose the correct heading for paragraph A",
+        "options": ["Introduction to renewable energy", "Benefits of solar power", "History of wind energy", "Future of hydroelectric power"],
+        "answer": 0,
+        "explanation": "Paragraph A introduces the topic of renewable energy sources."
+      },
+      {
+        "question": "Choose the correct heading for paragraph B", 
+        "options": ["Environmental impact", "Economic advantages", "Technical challenges", "Government policies"],
+        "answer": 1,
+        "explanation": "Paragraph B discusses the economic benefits of renewable energy."
+      },
+      {
+        "question": "Choose the correct heading for paragraph C",
+        "options": ["Research and development", "Implementation strategies", "Public awareness", "International cooperation"],
+        "answer": 2,
+        "explanation": "Paragraph C focuses on raising public awareness about renewable energy."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Matching Headings - Business Communication",
+    "description": "Practice matching headings in business and communication contexts",
+    "difficulty": "Advanced",
+    "category": "Matching Headings", 
+    "duration": "25 minutes",
+    "questions": [
+      {
+        "question": "Choose the correct heading for paragraph A",
+        "options": ["Email etiquette guidelines", "Meeting preparation tips", "Presentation skills", "Team collaboration"],
+        "answer": 0,
+        "explanation": "Paragraph A provides guidelines for proper email communication."
+      },
+      {
+        "question": "Choose the correct heading for paragraph B",
+        "options": ["Digital communication tools", "Face-to-face meetings", "Written reports", "Phone conversations"],
+        "answer": 1,
+        "explanation": "Paragraph B discusses the importance of in-person meetings."
+      },
+      {
+        "question": "Choose the correct heading for paragraph C",
+        "options": ["Cultural considerations", "Time management", "Technology integration", "Cost effectiveness"],
+        "answer": 0,
+        "explanation": "Paragraph C addresses cultural differences in business communication."
+      }
+    ]
+  }
+]

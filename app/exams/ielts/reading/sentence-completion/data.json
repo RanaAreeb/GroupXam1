@@ -1,0 +1,24 @@
+[
+  {
+    "id": 6,
+    "title": "SENTENCE COMPLETION PRACTICE & TIPS",
+    "category": "Sentence Completion",
+    "difficulty": "Beginner",
+    "duration": "14 min",
+    "questions": 8,
+    "description": "Complete sentences using information from the reading passage.",
+    "passage": "Sample passage about marine biology...",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Coral reefs are often called the '_____' of the ocean.",
+        "answer": "rainforests",
+        "explanation": "The passage compares coral reefs to rainforests due to their biodiversity."
+      }
+    ]
+  }
+]
+
+
+
+

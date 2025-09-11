@@ -1,0 +1,170 @@
+[
+  {
+    "id": 2000,
+    "title": "TRUE FALSE NOT GIVEN PRACTICE",
+    "category": "True/False/Not Given",
+    "difficulty": "Intermediate",
+    "duration": "15 min",
+    "questions": 8,
+    "description": "Master the art of identifying true, false, and not given statements in academic texts.",
+    "passage": "Climate change represents one of the most significant challenges facing humanity in the 21st century. Scientific consensus indicates that human activities, particularly the burning of fossil fuels, are the primary drivers of recent climate change. The Intergovernmental Panel on Climate Change (IPCC) has consistently reported that global temperatures have risen by approximately 1.1°C since pre-industrial times. However, there remains some disagreement among scientists regarding the exact mechanisms and long-term projections of climate change impacts.",
+    "questions": [
+      {
+        "id": 2000,
+        "question": "The text states that climate change is primarily caused by human activities.",
+        "answer": "TRUE",
+        "explanation": "The passage clearly states that human activities, particularly the burning of fossil fuels, are the primary drivers of recent climate change."
+      },
+      {
+        "id": 2001,
+        "question": "The author mentions that all scientists agree on climate change causes.",
+        "answer": "FALSE",
+        "explanation": "The passage indicates there is some disagreement among scientists regarding the exact mechanisms and long-term projections."
+      },
+      {
+        "id": 3,
+        "question": "The IPCC has reported on climate change for over 50 years.",
+        "answer": "NOT GIVEN",
+        "explanation": "The passage mentions the IPCC's consistent reporting but does not specify the duration of their reporting period."
+      },
+      {
+        "id": 4,
+        "question": "Global temperatures have increased by more than 1°C since pre-industrial times.",
+        "answer": "TRUE",
+        "explanation": "The passage explicitly states that global temperatures have risen by approximately 1.1°C since pre-industrial times."
+      },
+      {
+        "id": 5,
+        "question": "Fossil fuel consumption is mentioned as a key factor in climate change.",
+        "answer": "TRUE",
+        "explanation": "The passage specifically mentions that the burning of fossil fuels is a primary driver of recent climate change."
+      },
+      {
+        "id": 6,
+        "question": "The text suggests that climate change will be resolved within the next decade.",
+        "answer": "NOT GIVEN",
+        "explanation": "The passage discusses the challenge of climate change but does not make any predictions about when it might be resolved."
+      },
+      {
+        "id": 7,
+        "question": "Scientists disagree about whether climate change is happening.",
+        "answer": "FALSE",
+        "explanation": "The passage indicates scientific consensus on climate change, with disagreement only on mechanisms and projections, not on its existence."
+      },
+      {
+        "id": 8,
+        "question": "The IPCC is an international organization focused on climate research.",
+        "answer": "NOT GIVEN",
+        "explanation": "While the passage mentions the IPCC and its climate change reports, it does not provide details about the organization's structure or focus areas."
+      }
+    ]
+  },
+  {
+    "id": 2001,
+    "title": "Environmental Conservation: True/False/Not Given",
+    "category": "True/False/Not Given",
+    "difficulty": "Advanced",
+    "duration": "18 min",
+    "questions": 10,
+    "description": "Advanced practice with environmental conservation texts and complex true/false/not given questions.",
+    "passage": "Biodiversity loss has accelerated dramatically in recent decades, with scientists estimating that species are becoming extinct at rates 100 to 1,000 times higher than natural background rates. The primary causes include habitat destruction, climate change, pollution, and overexploitation of natural resources. Conservation efforts have shown mixed results, with some species recovering while others continue to decline. Protected areas now cover approximately 15% of the world's land surface, but many experts argue that this is insufficient to halt biodiversity loss.",
+    "questions": [
+      {
+        "id": 2000,
+        "question": "Species extinction rates are currently 100 times higher than natural rates.",
+        "answer": "TRUE",
+        "explanation": "The passage states that species are becoming extinct at rates 100 to 1,000 times higher than natural background rates."
+      },
+      {
+        "id": 2001,
+        "question": "Habitat destruction is the only cause of biodiversity loss mentioned in the text.",
+        "answer": "FALSE",
+        "explanation": "The passage lists multiple causes including habitat destruction, climate change, pollution, and overexploitation."
+      },
+      {
+        "id": 3,
+        "question": "All conservation efforts have been successful in protecting species.",
+        "answer": "FALSE",
+        "explanation": "The passage states that conservation efforts have shown mixed results, with some species recovering while others continue to decline."
+      },
+      {
+        "id": 4,
+        "question": "Protected areas cover exactly 15% of the world's land surface.",
+        "answer": "NOT GIVEN",
+        "explanation": "The passage says 'approximately 15%' which suggests an estimate rather than an exact figure."
+      },
+      {
+        "id": 5,
+        "question": "Many experts believe current protected area coverage is adequate.",
+        "answer": "FALSE",
+        "explanation": "The passage states that many experts argue that the current coverage is insufficient to halt biodiversity loss."
+      },
+      {
+        "id": 6,
+        "question": "The text suggests that international cooperation is essential for conservation success.",
+        "answer": "TRUE",
+        "explanation": "The passage emphasizes the need for global collaboration in conservation efforts."
+      },
+      {
+        "id": 7,
+        "question": "Climate change has no impact on biodiversity conservation.",
+        "answer": "FALSE",
+        "explanation": "The passage mentions climate change as one of the major threats to biodiversity."
+      },
+      {
+        "id": 8,
+        "question": "The author provides specific examples of successful conservation programs.",
+        "answer": "NOT GIVEN",
+        "explanation": "While the passage discusses conservation efforts, it doesn't provide specific examples of successful programs."
+      }
+    ]
+  },
+  {
+    "id": 2002,
+    "title": "Urban Development: True/False/Not Given Practice",
+    "category": "True/False/Not Given",
+    "difficulty": "Advanced",
+    "duration": "20 min",
+    "questions": 6,
+    "description": "Practice identifying true, false, and not given statements about urban development and city planning.",
+    "passage": "Urban development has become one of the most pressing challenges of the 21st century. As cities continue to grow at unprecedented rates, urban planners face complex decisions about infrastructure, housing, and sustainability. Smart city technologies are increasingly being implemented to address these challenges, with sensors, data analytics, and automated systems helping to optimize traffic flow, energy consumption, and public services. However, critics argue that these technological solutions often overlook social equity issues and may exacerbate existing inequalities.",
+    "questions": [
+      {
+        "id": 2002,
+        "question": "Urban development is considered a major challenge of the 21st century.",
+        "answer": "TRUE",
+        "explanation": "The passage explicitly states that urban development has become one of the most pressing challenges of the 21st century."
+      },
+      {
+        "id": 2003,
+        "question": "All urban planners agree on the best approaches to city development.",
+        "answer": "FALSE",
+        "explanation": "The passage states that urban planners face complex decisions, implying there are different approaches and no universal agreement."
+      },
+      {
+        "id": 2004,
+        "question": "Smart city technologies are being used to improve traffic management.",
+        "answer": "TRUE",
+        "explanation": "The passage specifically mentions that smart city technologies help optimize traffic flow."
+      },
+      {
+        "id": 2005,
+        "question": "The author believes smart city technologies are completely beneficial.",
+        "answer": "FALSE",
+        "explanation": "The passage presents both benefits and criticisms of smart city technologies, showing a balanced view."
+      },
+      {
+        "id": 2006,
+        "question": "Social equity issues are always considered in smart city planning.",
+        "answer": "FALSE",
+        "explanation": "The passage states that critics argue these technologies often overlook social equity issues."
+      },
+      {
+        "id": 2007,
+        "question": "The passage provides specific examples of smart city implementations.",
+        "answer": "NOT GIVEN",
+        "explanation": "While the passage mentions smart city technologies, it doesn't provide specific examples of implementations."
+      }
+    ]
+  }
+]

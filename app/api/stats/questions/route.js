@@ -78,6 +78,10 @@ export async function GET(request) {
             'app/exams/jamb/data',
             'app/exams/waec/data',
             'app/exams/wassce/data',
+            'app/exams/ielts/reading',
+            'app/exams/ielts/listening',
+            'app/exams/ielts/grammar',
+            'app/exams/ielts/mock-exams',
             'app/quiz/data',
             'app/flashcards/data'
         ];
@@ -86,6 +90,16 @@ export async function GET(request) {
         const cwd = process.cwd();
         console.log('Current working directory:', cwd);
         debugInfo.paths.cwd = cwd;
+
+        // Test if IELTS directories exist
+        const ieltsTestPaths = [
+            path.join(cwd, 'app/exams/ielts/reading'),
+            path.join(cwd, 'app/exams/ielts/listening'),
+            path.join(cwd, 'app/exams/ielts/grammar')
+        ];
+        ieltsTestPaths.forEach(testPath => {
+            console.log(`Testing path: ${testPath} - exists: ${fs.existsSync(testPath)}`);
+        });
 
         for (const dir of dataDirectories) {
             try {
@@ -99,6 +113,7 @@ export async function GET(request) {
                     debugInfo.fileCounts[dir] = count;
                     console.log(`Counted ${count} questions from ${dir}`);
                 } else {
+                    console.log(`Directory not found: ${fullPath}`);
                     console.log(`Directory not found: ${dir}`);
                     debugInfo.errors.push(`Directory not found: ${dir}`);
 
@@ -147,14 +162,37 @@ export async function GET(request) {
             }
         }
 
+        // Add IELTS exam questions from TypeScript data files
+        try {
+            const ieltsExamDataPath = path.join(cwd, 'app/exams/ielts/exams-data.ts');
+            if (fs.existsSync(ieltsExamDataPath)) {
+                const ieltsContent = fs.readFileSync(ieltsExamDataPath, 'utf8');
+
+                // Count questions from ieltsExams array
+                const ieltsExamMatches = ieltsContent.match(/questions:\s*\[[\s\S]*?\]/g);
+                if (ieltsExamMatches) {
+                    for (const match of ieltsExamMatches) {
+                        const questionMatches = match.match(/\{[^}]*q:\s*"[^"]*"/g);
+                        if (questionMatches) {
+                            totalQuestions += questionMatches.length;
+                        }
+                    }
+                }
+
+                debugInfo.fileCounts['ielts-exam-data'] = totalQuestions - (debugInfo.fileCounts['ielts-exam-data'] || 0);
+                console.log('Added IELTS exam questions from TypeScript files');
+            }
+        } catch (error) {
+            console.log('Error counting IELTS exam questions:', error);
+            debugInfo.errors.push(`Error counting IELTS exam questions: ${error.message}`);
+        }
+
+
         // Log debug information
         console.log('Debug info:', JSON.stringify(debugInfo, null, 2));
 
-        // Ensure we have a minimum reasonable count
-        if (totalQuestions < 1000) {
-            console.log(`Question count too low (${totalQuestions}), using fallback`);
-            totalQuestions = 15000; // Fallback to a reasonable number
-        }
+        // Log the final count
+        console.log(`Final question count: ${totalQuestions}`);
 
         // Update cache
         questionCountCache.count = totalQuestions;
@@ -169,7 +207,7 @@ export async function GET(request) {
         console.error('Error counting questions:', error);
         return NextResponse.json({
             error: 'Failed to count questions',
-            totalQuestions: 15000, // Consistent fallback number
+            totalQuestions: 0,
             debug: { error: error.message }
         }, { status: 500 });
     }
@@ -221,10 +259,29 @@ function countQuestionsInDirectory(dirPath) {
                             }
                         }
                     } else if (Array.isArray(data)) {
-                        count += data.length;
+                        // Handle IELTS data structure - array of practice objects
+                        for (const practice of data) {
+                            if (practice.questions && Array.isArray(practice.questions)) {
+                                count += practice.questions.length;
+                            } else if (typeof practice.questions === 'number') {
+                                count += practice.questions;
+                            }
+                        }
                     }
                 } catch (parseError) {
                     console.log(`Error parsing ${fullPath}:`, parseError);
+                }
+            } else if (item.endsWith('.ts')) {
+                try {
+                    const content = fs.readFileSync(fullPath, 'utf8');
+
+                    // Count questions in TypeScript files using regex
+                    const questionMatches = content.match(/\{[^}]*q:\s*"[^"]*"/g);
+                    if (questionMatches) {
+                        count += questionMatches.length;
+                    }
+                } catch (parseError) {
+                    console.log(`Error parsing TypeScript file ${fullPath}:`, parseError);
                 }
             }
         }

@@ -1,0 +1,85 @@
+[
+  {
+    "id": 1,
+    "title": "NOTE COMPLETION PRACTICE & TIPS",
+    "category": "Note Completion",
+    "difficulty": "Beginner",
+    "duration": "11 min",
+    "questions": 5,
+    "description": "Develop skills for completing notes while listening to lectures or talks.",
+    "audioUrl": "/audio/listening/note-completion-1.mp3",
+    "transcript": "Today's lecture focuses on renewable energy sources. Solar power is becoming increasingly cost-effective, with prices dropping by 40% over the past decade. Wind energy now accounts for approximately 15% of global electricity generation. Hydroelectric power remains the most reliable renewable source, providing consistent energy output. The main challenge facing renewable energy is storage technology, which needs significant improvement to handle intermittent power generation.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Complete the notes about renewable energy:",
+        "notes": [
+          {
+            "label": "Solar power prices have dropped by:",
+            "answer": "40%",
+            "explanation": "The speaker states that solar power prices have dropped by 40% over the past decade."
+          },
+          {
+            "label": "Wind energy accounts for:",
+            "answer": "15%",
+            "explanation": "The speaker mentions that wind energy accounts for approximately 15% of global electricity generation."
+          },
+          {
+            "label": "Most reliable renewable source:",
+            "answer": "Hydroelectric power",
+            "explanation": "The speaker states that hydroelectric power remains the most reliable renewable source."
+          },
+          {
+            "label": "Main challenge:",
+            "answer": "Storage technology",
+            "explanation": "The speaker identifies storage technology as the main challenge facing renewable energy."
+          },
+          {
+            "label": "Storage technology needs:",
+            "answer": "Significant improvement",
+            "explanation": "The speaker states that storage technology needs significant improvement."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Lecture on Climate Change: Note Completion",
+    "category": "Note Completion",
+    "difficulty": "Intermediate",
+    "duration": "17 min",
+    "questions": 8,
+    "description": "Practice note completion with academic lecture content.",
+    "audioUrl": "/audio/listening/climate-lecture.mp3",
+    "transcript": "Climate change represents one of the most pressing challenges of our time. The average global temperature has increased by 1.1 degrees Celsius since the late 19th century. This warming is primarily attributed to greenhouse gas emissions from human activities. The consequences include rising sea levels, more frequent extreme weather events, and ecosystem disruption. Mitigation strategies include transitioning to renewable energy, improving energy efficiency, and implementing carbon pricing mechanisms.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Complete the lecture notes on climate change:",
+        "notes": [
+          {
+            "label": "Temperature increase since late 19th century:",
+            "answer": "1.1 degrees Celsius",
+            "explanation": "The speaker states that the average global temperature has increased by 1.1 degrees Celsius since the late 19th century."
+          },
+          {
+            "label": "Primary cause:",
+            "answer": "Greenhouse gas emissions",
+            "explanation": "The speaker mentions that warming is primarily attributed to greenhouse gas emissions from human activities."
+          },
+          {
+            "label": "Consequences include:",
+            "answer": "Rising sea levels",
+            "explanation": "The speaker lists rising sea levels as one of the consequences of climate change."
+          },
+          {
+            "label": "Another consequence:",
+            "answer": "Extreme weather events",
+            "explanation": "The speaker mentions more frequent extreme weather events as a consequence."
+          }
+        ]
+      }
+    ]
+  }
+]

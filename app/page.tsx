@@ -508,13 +508,20 @@ export default function HomePage() {
               <span className="text-gray-800">with Confidence</span>
             </h1>
             <p className="text-base sm:text-xl text-gray-600 mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed px-4">
-              The most comprehensive study platform for WAEC/WASSCE/JAMB
+              The most comprehensive study platform for WAEC/WASSCE/JAMB/IELTS
               preparation. Practice with thousands of questions, master concepts
               with flashcards, and track your progress.
             </p>
 
             {/* Quick Start Widget */}
             <div className="grid grid-cols-3 gap-3 sm:flex sm:flex-row sm:gap-4 justify-center mb-8 sm:mb-12 px-4 max-w-md sm:max-w-none mx-auto">
+            <Button
+                asChild
+                size="lg"
+                className="bg-indigo-600 hover:bg-indigo-700 text-white text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 shadow-lg"
+              >
+                <Link href={isLoggedIn ? "/exams/ielts" : "/login"}>IELTS</Link>
+              </Button>
               <Button
                 asChild
                 size="lg"
@@ -536,6 +543,7 @@ export default function HomePage() {
               >
                 <Link href={isLoggedIn ? "/exams/jamb" : "/login"}>JAMB</Link>
               </Button>
+            
             </div>
 
             {/* Animated Counters */}
@@ -691,7 +699,7 @@ export default function HomePage() {
               </h2>
               <p className="text-base sm:text-xl text-gray-600 max-w-2xl mx-auto">
                 Comprehensive tools designed to help you master every aspect of
-                your WAEC/WASSCE preparation
+                your WAEC/WASSCE/JAMB/IELTS preparation
               </p>
             </div>
 

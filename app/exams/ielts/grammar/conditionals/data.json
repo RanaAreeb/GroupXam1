@@ -1,0 +1,170 @@
+[
+  {
+    "id": 1,
+    "title": "CONDITIONALS PRACTICE & TIPS",
+    "category": "Conditionals",
+    "difficulty": "Intermediate",
+    "duration": "16 min",
+    "questions": 10,
+    "description": "Master zero, first, second, and third conditional structures.",
+    "grammarPoint": "Conditional Sentences",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Complete the zero conditional: 'If you heat water to 100°C, it _____ .'",
+        "options": [
+          "will boil",
+          "boils",
+          "would boil",
+          "boiled"
+        ],
+        "answer": 1,
+        "explanation": "Zero conditional uses present simple in both clauses for general truths and facts."
+      },
+      {
+        "id": 2,
+        "question": "Choose the correct first conditional: 'If it rains tomorrow, we _____ the picnic.'",
+        "options": [
+          "cancel",
+          "will cancel",
+          "would cancel",
+          "cancelled"
+        ],
+        "answer": 1,
+        "explanation": "First conditional uses present simple in if-clause and will + base form in main clause for real future possibilities."
+      },
+      {
+        "id": 3,
+        "question": "Complete the second conditional: 'If I _____ a million dollars, I would travel the world.'",
+        "options": [
+          "have",
+          "had",
+          "will have",
+          "would have"
+        ],
+        "answer": 1,
+        "explanation": "Second conditional uses past simple in if-clause and would + base form in main clause for hypothetical situations."
+      },
+      {
+        "id": 4,
+        "question": "Choose the correct third conditional: 'If she _____ harder, she would have passed the exam.'",
+        "options": [
+          "studied",
+          "had studied",
+          "would study",
+          "studies"
+        ],
+        "answer": 1,
+        "explanation": "Third conditional uses past perfect in if-clause and would have + past participle in main clause for past hypothetical situations."
+      },
+      {
+        "id": 5,
+        "question": "Complete: 'If you _____ me earlier, I could have helped you.'",
+        "options": [
+          "told",
+          "had told",
+          "tell",
+          "would tell"
+        ],
+        "answer": 1,
+        "explanation": "Third conditional for past regret. Past perfect in if-clause, could have + past participle in main clause."
+      },
+      {
+        "id": 6,
+        "question": "Choose the correct form: 'If I _____ you, I would accept the job offer.'",
+        "options": [
+          "am",
+          "was",
+          "were",
+          "will be"
+        ],
+        "answer": 2,
+        "explanation": "Second conditional uses 'were' for all persons in the if-clause, even with 'I'."
+      },
+      {
+        "id": 7,
+        "question": "Complete: 'If you mix red and blue, you _____ purple.'",
+        "options": [
+          "get",
+          "will get",
+          "would get",
+          "got"
+        ],
+        "answer": 0,
+        "explanation": "Zero conditional for scientific facts. Present simple in both clauses."
+      },
+      {
+        "id": 8,
+        "question": "Choose the correct form: 'If he _____ the train, he would be here by now.'",
+        "options": [
+          "caught",
+          "had caught",
+          "catches",
+          "will catch"
+        ],
+        "answer": 1,
+        "explanation": "Third conditional for past hypothetical situation affecting the present."
+      },
+      {
+        "id": 9,
+        "question": "Complete: 'If you _____ me, I will help you with your homework.'",
+        "options": [
+          "ask",
+          "asked",
+          "will ask",
+          "would ask"
+        ],
+        "answer": 0,
+        "explanation": "First conditional for real future possibility. Present simple in if-clause."
+      },
+      {
+        "id": 10,
+        "question": "Choose the correct form: 'If I _____ more time, I would learn a new language.'",
+        "options": [
+          "have",
+          "had",
+          "will have",
+          "would have"
+        ],
+        "answer": 1,
+        "explanation": "Second conditional for hypothetical present situation. Past simple in if-clause."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Mixed Conditionals: Advanced Practice",
+    "category": "Conditionals",
+    "difficulty": "Advanced",
+    "duration": "20 min",
+    "questions": 12,
+    "description": "Advanced practice with mixed conditional structures and variations.",
+    "grammarPoint": "Mixed Conditionals",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Complete the mixed conditional: 'If I _____ harder in school, I would have a better job now.'",
+        "options": [
+          "studied",
+          "had studied",
+          "would study",
+          "studies"
+        ],
+        "answer": 1,
+        "explanation": "Mixed conditional: past perfect in if-clause (past action) + would + base form in main clause (present result)."
+      },
+      {
+        "id": 2,
+        "question": "Choose the correct form: 'If she _____ the job, she would be living in Paris now.'",
+        "options": [
+          "takes",
+          "took",
+          "had taken",
+          "would take"
+        ],
+        "answer": 2,
+        "explanation": "Mixed conditional: past perfect in if-clause (past decision) + would be + present participle (present continuous result)."
+      }
+    ]
+  }
+]

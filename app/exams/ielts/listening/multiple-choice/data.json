@@ -1,0 +1,184 @@
+[
+  {
+    "id": 1,
+    "title": "MULTIPLE CHOICE QUESTIONS PRACTICE & TIPS",
+    "category": "Multiple Choice",
+    "difficulty": "Beginner",
+    "duration": "12 min",
+    "questions": 5,
+    "description": "Master multiple choice questions in IELTS listening with strategic approaches.",
+    "audioUrl": "/audio/listening/multiple-choice-1.mp3",
+    "transcript": "Welcome to the university library orientation. The library is open from 8 AM to 10 PM on weekdays and 9 AM to 6 PM on weekends. Students can borrow up to 10 books for a period of 3 weeks. Late fees are 50 cents per day per book. The library also provides access to online databases and research materials.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "What are the library's weekday opening hours?",
+        "options": [
+          "8 AM to 9 PM",
+          "8 AM to 10 PM",
+          "9 AM to 10 PM",
+          "9 AM to 9 PM"
+        ],
+        "answer": 1,
+        "explanation": "The speaker clearly states that the library is open from 8 AM to 10 PM on weekdays."
+      },
+      {
+        "id": 2,
+        "question": "How many books can students borrow?",
+        "options": [
+          "5 books",
+          "8 books",
+          "10 books",
+          "12 books"
+        ],
+        "answer": 2,
+        "explanation": "The speaker mentions that students can borrow up to 10 books."
+      },
+      {
+        "id": 3,
+        "question": "What is the borrowing period for books?",
+        "options": [
+          "2 weeks",
+          "3 weeks",
+          "4 weeks",
+          "1 month"
+        ],
+        "answer": 1,
+        "explanation": "The speaker states that books can be borrowed for a period of 3 weeks."
+      },
+      {
+        "id": 4,
+        "question": "What is the late fee per day?",
+        "options": [
+          "25 cents",
+          "50 cents",
+          "75 cents",
+          "1 dollar"
+        ],
+        "answer": 1,
+        "explanation": "The speaker mentions that late fees are 50 cents per day per book."
+      },
+      {
+        "id": 5,
+        "question": "What additional services does the library provide?",
+        "options": [
+          "Only book borrowing",
+          "Online databases and research materials",
+          "Only computer access",
+          "Only study rooms"
+        ],
+        "answer": 1,
+        "explanation": "The speaker states that the library provides access to online databases and research materials."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "University Campus Tour: Multiple Choice",
+    "category": "Multiple Choice",
+    "difficulty": "Intermediate",
+    "duration": "15 min",
+    "questions": 6,
+    "description": "Practice multiple choice questions about university campus facilities and services.",
+    "audioUrl": "/audio/listening/campus-tour.mp3",
+    "transcript": "Good morning everyone, and welcome to our campus tour. I'm Sarah, and I'll be your guide today. Our university was established in 1952 and has grown to accommodate over 25,000 students. The main library is located in the center of campus, next to the student union building. We have three dining halls, with the largest one serving over 2,000 meals daily. The sports complex includes an Olympic-sized swimming pool and a state-of-the-art gymnasium.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "When was the university established?",
+        "options": [
+          "1950",
+          "1952",
+          "1955",
+          "1960"
+        ],
+        "answer": 1,
+        "explanation": "The speaker clearly states that the university was established in 1952."
+      },
+      {
+        "id": 2,
+        "question": "How many students does the university accommodate?",
+        "options": [
+          "Over 20,000",
+          "Over 25,000",
+          "Over 30,000",
+          "Over 35,000"
+        ],
+        "answer": 1,
+        "explanation": "The speaker mentions that the university has grown to accommodate over 25,000 students."
+      },
+      {
+        "id": 3,
+        "question": "Where is the main library located?",
+        "options": [
+          "Next to the sports complex",
+          "In the center of campus, next to the student union",
+          "Near the dining halls",
+          "At the entrance of the university"
+        ],
+        "answer": 1,
+        "explanation": "The speaker states that the main library is located in the center of campus, next to the student union building."
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Academic Support Services: Multiple Choice",
+    "category": "Multiple Choice",
+    "difficulty": "Advanced",
+    "duration": "18 min",
+    "questions": 4,
+    "description": "Listen to information about academic support services and answer multiple choice questions.",
+    "passage": "Our university offers comprehensive academic support services to help students succeed. The writing center provides one-on-one tutoring sessions, the math lab offers drop-in assistance, and the career services office helps with job placement and internship opportunities.",
+    "questions": [
+      {
+        "id": 4,
+        "question": "What type of tutoring does the writing center offer?",
+        "options": [
+          "Group sessions only",
+          "One-on-one sessions",
+          "Online sessions only",
+          "Peer tutoring only"
+        ],
+        "answer": 1,
+        "explanation": "The speaker states that the writing center provides one-on-one tutoring sessions."
+      },
+      {
+        "id": 5,
+        "question": "How does the math lab operate?",
+        "options": [
+          "By appointment only",
+          "Drop-in assistance",
+          "Scheduled classes",
+          "Online support only"
+        ],
+        "answer": 1,
+        "explanation": "The speaker mentions that the math lab offers drop-in assistance."
+      },
+      {
+        "id": 6,
+        "question": "What does the career services office help with?",
+        "options": [
+          "Only job placement",
+          "Only internship opportunities",
+          "Job placement and internships",
+          "Only resume writing"
+        ],
+        "answer": 2,
+        "explanation": "The speaker states that career services helps with job placement and internship opportunities."
+      },
+      {
+        "id": 7,
+        "question": "How would you describe the academic support services?",
+        "options": [
+          "Limited",
+          "Basic",
+          "Comprehensive",
+          "Expensive"
+        ],
+        "answer": 2,
+        "explanation": "The speaker describes the services as comprehensive."
+      }
+    ]
+  }
+]

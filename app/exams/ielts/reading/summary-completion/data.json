@@ -1,0 +1,34 @@
+[
+  {
+    "id": 18,
+    "title": "SUMMARY COMPLETION PRACTICE & TIPS",
+    "category": "Summary Completion",
+    "difficulty": "Intermediate",
+    "duration": "21 min",
+    "questions": 11,
+    "description": "Master the art of completing summaries from reading passages.",
+    "passage": "Sample passage about artificial intelligence...",
+    "summary": "Artificial intelligence has revolutionized many industries. The technology uses _____ to process information and make decisions. However, there are concerns about _____ and the need for proper _____.",
+    "blanks": [
+      {
+        "id": 1,
+        "answer": "algorithms",
+        "explanation": "The passage mentions that AI uses algorithms for processing."
+      },
+      {
+        "id": 2,
+        "answer": "privacy",
+        "explanation": "Privacy concerns are discussed in the passage."
+      },
+      {
+        "id": 3,
+        "answer": "regulation",
+        "explanation": "The need for regulation is mentioned."
+      }
+    ]
+  }
+]
+
+
+
+

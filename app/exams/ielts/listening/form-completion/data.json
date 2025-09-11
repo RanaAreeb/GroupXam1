@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1,
+    "title": "FORM COMPLETION PRACTICE & TIPS",
+    "category": "Form Completion",
+    "difficulty": "Beginner",
+    "duration": "10 min",
+    "questions": 4,
+    "description": "Learn to complete forms accurately while listening to conversations.",
+    "audioUrl": "/audio/listening/form-completion-1.mp3",
+    "transcript": "Good morning, I'd like to register for the conference. My name is Jennifer Smith, that's J-E-N-N-I-F-E-R S-M-I-T-H. I'm from the University of Cambridge, and my email address is j.smith@cam.ac.uk. I'll be staying at the Grand Hotel for three nights, from March 15th to March 18th. I'm particularly interested in the session on environmental science.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Complete the form with the information you hear:",
+        "formFields": [
+          {
+            "label": "Full Name:",
+            "answer": "Jennifer Smith",
+            "explanation": "The speaker clearly states 'My name is Jennifer Smith'."
+          },
+          {
+            "label": "Email Address:",
+            "answer": "j.smith@cam.ac.uk",
+            "explanation": "The speaker provides the email address as 'j.smith@cam.ac.uk'."
+          },
+          {
+            "label": "Institution:",
+            "answer": "University of Cambridge",
+            "explanation": "The speaker mentions 'I'm from the University of Cambridge'."
+          },
+          {
+            "label": "Accommodation:",
+            "answer": "Grand Hotel",
+            "explanation": "The speaker states 'I'll be staying at the Grand Hotel'."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Hotel Booking: Form Completion",
+    "category": "Form Completion",
+    "difficulty": "Intermediate",
+    "duration": "14 min",
+    "questions": 6,
+    "description": "Practice completing hotel booking forms with listening comprehension.",
+    "audioUrl": "/audio/listening/hotel-booking.mp3",
+    "transcript": "Hello, I'd like to make a reservation for next week. My name is Michael Johnson, M-I-C-H-A-E-L J-O-H-N-S-O-N. I need a room for two adults and one child. We'll be arriving on Tuesday, June 10th, and departing on Friday, June 13th. I'd prefer a room with a sea view if possible. My contact number is 07789 123456, and my email is m.johnson@email.com. I have a special dietary requirement - vegetarian meals.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Complete the hotel booking form:",
+        "formFields": [
+          {
+            "label": "Guest Name:",
+            "answer": "Michael Johnson",
+            "explanation": "The speaker spells out his name as 'M-I-C-H-A-E-L J-O-H-N-S-O-N'."
+          },
+          {
+            "label": "Number of Guests:",
+            "answer": "2 adults, 1 child",
+            "explanation": "The speaker states 'I need a room for two adults and one child'."
+          },
+          {
+            "label": "Check-in Date:",
+            "answer": "Tuesday, June 10th",
+            "explanation": "The speaker mentions 'We'll be arriving on Tuesday, June 10th'."
+          },
+          {
+            "label": "Check-out Date:",
+            "answer": "Friday, June 13th",
+            "explanation": "The speaker states 'departing on Friday, June 13th'."
+          },
+          {
+            "label": "Room Preference:",
+            "answer": "Sea view",
+            "explanation": "The speaker requests 'a room with a sea view if possible'."
+          },
+          {
+            "label": "Contact Number:",
+            "answer": "07789 123456",
+            "explanation": "The speaker provides his contact number as '07789 123456'."
+          }
+        ]
+      }
+    ]
+  }
+]

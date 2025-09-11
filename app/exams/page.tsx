@@ -67,6 +67,16 @@ const examTypes = [
     gradient: "from-blue-400 to-blue-600",
   },
   {
+    id: "ielts",
+    title: "IELTS",
+    description: "International English Language Testing System",
+    icon: BookOpen,
+    color: "indigo",
+    count: 3,
+    difficulty: "Intermediate",
+    gradient: "from-indigo-400 to-indigo-600",
+  },
+  {
     id: "jamb",
     title: "JAMB",
     description: "Joint Admissions and Matriculation Board",
