@@ -169,7 +169,7 @@ export default function HomePage() {
   // Fetch real-time question count
   const fetchQuestionCount = useCallback(async () => {
     try {
-      const response = await fetch('/api/stats/questions');
+      const response = await fetch(`/api/stats/questions?t=${Date.now()}`);
       const data = await response.json();
       
       if (data.success) {
