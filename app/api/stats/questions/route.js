@@ -146,13 +146,37 @@ export async function GET(request) {
                     if (!foundAltPath) {
                         debugInfo.errors.push(`No alternative path found for ${dir}`);
 
-                        // Special handling for flashcards - if directory is missing, use a fallback count
+                        // Special handling for missing directories - use fallback counts
                         if (dir === 'app/flashcards/data') {
                             console.log('Flashcards directory not found, using fallback count');
                             const fallbackFlashcardCount = 1154; // Known local count
                             totalQuestions += fallbackFlashcardCount;
                             debugInfo.fileCounts[`${dir} (fallback)`] = fallbackFlashcardCount;
                             debugInfo.errors.push(`Using fallback count for ${dir}: ${fallbackFlashcardCount}`);
+                        } else if (dir === 'app/exams/ielts/mock-exams') {
+                            console.log('IELTS mock-exams directory not found, using fallback count');
+                            const fallbackMockExamCount = 145; // Known local count from separated files
+                            totalQuestions += fallbackMockExamCount;
+                            debugInfo.fileCounts[`${dir} (fallback)`] = fallbackMockExamCount;
+                            debugInfo.errors.push(`Using fallback count for ${dir}: ${fallbackMockExamCount}`);
+                        } else if (dir === 'app/exams/ielts/reading') {
+                            console.log('IELTS reading directory not found, using fallback count');
+                            const fallbackReadingCount = 47; // Known local count
+                            totalQuestions += fallbackReadingCount;
+                            debugInfo.fileCounts[`${dir} (fallback)`] = fallbackReadingCount;
+                            debugInfo.errors.push(`Using fallback count for ${dir}: ${fallbackReadingCount}`);
+                        } else if (dir === 'app/exams/ielts/listening') {
+                            console.log('IELTS listening directory not found, using fallback count');
+                            const fallbackListeningCount = 16; // Known local count
+                            totalQuestions += fallbackListeningCount;
+                            debugInfo.fileCounts[`${dir} (fallback)`] = fallbackListeningCount;
+                            debugInfo.errors.push(`Using fallback count for ${dir}: ${fallbackListeningCount}`);
+                        } else if (dir === 'app/exams/ielts/grammar') {
+                            console.log('IELTS grammar directory not found, using fallback count');
+                            const fallbackGrammarCount = 39; // Known local count
+                            totalQuestions += fallbackGrammarCount;
+                            debugInfo.fileCounts[`${dir} (fallback)`] = fallbackGrammarCount;
+                            debugInfo.errors.push(`Using fallback count for ${dir}: ${fallbackGrammarCount}`);
                         }
                     }
                 }
@@ -167,6 +191,7 @@ export async function GET(request) {
             const ieltsExamDataPath = path.join(cwd, 'app/exams/ielts/exams-data.ts');
             if (fs.existsSync(ieltsExamDataPath)) {
                 const ieltsContent = fs.readFileSync(ieltsExamDataPath, 'utf8');
+                let ieltsExamQuestions = 0;
 
                 // Count questions from ieltsExams array
                 const ieltsExamMatches = ieltsContent.match(/questions:\s*\[[\s\S]*?\]/g);
@@ -174,13 +199,14 @@ export async function GET(request) {
                     for (const match of ieltsExamMatches) {
                         const questionMatches = match.match(/\{[^}]*q:\s*"[^"]*"/g);
                         if (questionMatches) {
-                            totalQuestions += questionMatches.length;
+                            ieltsExamQuestions += questionMatches.length;
                         }
                     }
                 }
 
-                debugInfo.fileCounts['ielts-exam-data'] = totalQuestions - (debugInfo.fileCounts['ielts-exam-data'] || 0);
-                console.log('Added IELTS exam questions from TypeScript files');
+                totalQuestions += ieltsExamQuestions;
+                debugInfo.fileCounts['ielts-exam-data'] = ieltsExamQuestions;
+                console.log(`Added ${ieltsExamQuestions} IELTS exam questions from TypeScript files`);
             }
         } catch (error) {
             console.log('Error counting IELTS exam questions:', error);
