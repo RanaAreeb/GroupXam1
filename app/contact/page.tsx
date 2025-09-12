@@ -32,10 +32,10 @@ function ContactForm() {
     if (packageParam) {
       setForm(prev => ({
         ...prev,
-        inquiryType: "package",
+        inquiryType: packageParam.includes('ielts') ? "package" : "proctorit",
         packageType: packageParam,
-        subject: `ProctorIT ${packageParam.charAt(0).toUpperCase() + packageParam.slice(1)} Package Inquiry`,
-        message: `Hi! I'm interested in learning more about the ProctorIT ${packageParam} package. Could you please provide more information about pricing, features, and payment options?`
+        subject: `${packageParam.includes('ielts') ? 'IELTS' : 'ProctorIT'} ${packageParam.charAt(0).toUpperCase() + packageParam.slice(1)} Package Inquiry`,
+        message: `Hi! I'm interested in learning more about the ${packageParam.includes('ielts') ? 'IELTS' : 'ProctorIT'} ${packageParam} package. Could you please provide more information about pricing, features, and payment options?`
       }));
     }
   }, [packageParam]);
@@ -121,7 +121,7 @@ function ContactForm() {
         </h1>
         <p className="text-lg text-gray-700 mb-8">
           {packageParam 
-            ? `Interested in ProctorIT ${packageParam} package? Get in touch for detailed pricing and payment information.`
+            ? `Interested in ${packageParam.includes('ielts') ? 'IELTS' : 'ProctorIT'} ${packageParam} package? Get in touch for detailed pricing and payment information.`
             : 'Have a question, suggestion, or need help? Fill out the form below and our team will get back to you soon.'
           }
         </p>
@@ -132,7 +132,7 @@ function ContactForm() {
             <div className="flex items-center gap-3 mb-3">
               <Package className="w-5 h-5 text-emerald-600" />
               <h3 className="font-semibold text-emerald-800">
-                ProctorIT {packageParam.charAt(0).toUpperCase() + packageParam.slice(1)} Package
+                {packageParam.includes('ielts') ? 'IELTS' : 'ProctorIT'} {packageParam.charAt(0).toUpperCase() + packageParam.slice(1)} Package
               </h3>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
@@ -142,11 +142,16 @@ function ContactForm() {
                   {packageParam === 'students' && '$2 one-time charge'}
                   {packageParam === 'k12' && '$10/month or $100/year'}
                   {packageParam === 'universities' && '$20/month or $240/year'}
+                  {packageParam === 'ielts-monthly' && '$1.99/month'}
+                  {packageParam === 'ielts-6months' && '$14.99 (6 months)'}
+                  {packageParam === 'ielts-yearly' && '$29.99/year'}
                 </span>
               </div>
               <div className="flex items-center gap-2">
                 <Shield className="w-4 h-4 text-emerald-600" />
-                <span className="text-gray-700">Secure proctoring technology</span>
+                <span className="text-gray-700">
+                  {packageParam.includes('ielts') ? 'Comprehensive IELTS preparation' : 'Secure proctoring technology'}
+                </span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-emerald-600" />
@@ -168,7 +173,8 @@ function ContactForm() {
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="general">General Inquiry</SelectItem>
-                <SelectItem value="package">ProctorIT Package Inquiry</SelectItem>
+                <SelectItem value="package">IELTS Package Inquiry</SelectItem>
+                <SelectItem value="proctorit">ProctorIT Package Inquiry</SelectItem>
                 <SelectItem value="support">Technical Support</SelectItem>
                 <SelectItem value="billing">Billing Question</SelectItem>
               </SelectContent>
@@ -178,13 +184,33 @@ function ContactForm() {
           {/* Package Type Selection (only show if package inquiry) */}
           {form.inquiryType === 'package' && (
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Package Type</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">IELTS Package Type</label>
               <Select 
                 value={form.packageType} 
                 onValueChange={(value) => setForm({ ...form, packageType: value })}
               >
                 <SelectTrigger className="bg-white/90">
-                  <SelectValue placeholder="Select package type" />
+                  <SelectValue placeholder="Select IELTS package type" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="ielts-monthly">Monthly Plan ($1.99/month)</SelectItem>
+                  <SelectItem value="ielts-6months">6 Month Plan ($14.99)</SelectItem>
+                  <SelectItem value="ielts-yearly">Yearly Plan ($29.99/year)</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          )}
+
+          {/* ProctorIT Package Type Selection */}
+          {form.inquiryType === 'proctorit' && (
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">ProctorIT Package Type</label>
+              <Select 
+                value={form.packageType} 
+                onValueChange={(value) => setForm({ ...form, packageType: value })}
+              >
+                <SelectTrigger className="bg-white/90">
+                  <SelectValue placeholder="Select ProctorIT package type" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="students">Students ($2 one-time)</SelectItem>
@@ -247,7 +273,7 @@ function ContactForm() {
         )}
 
         {/* Payment Information for Package Inquiries */}
-        {form.inquiryType === 'package' && (
+        {(form.inquiryType === 'package' || form.inquiryType === 'proctorit') && (
           <div className="mt-8 p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl border border-blue-200">
             <h3 className="text-lg font-bold text-blue-800 mb-4 flex items-center gap-2">
               <CreditCard className="w-5 h-5" />

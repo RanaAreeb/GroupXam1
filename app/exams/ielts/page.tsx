@@ -13,8 +13,9 @@ import { ieltsExams, mockExam, allMockExams } from "./exams-data";
 import { readingPractices, readingCategories, getReadingPracticesByCategory, getReadingPracticesByDifficulty } from "./reading/reading-data";
 import { listeningPractices, listeningCategories, getListeningPracticesByCategory, getListeningPracticesByDifficulty } from "./listening/listening-data";
 import { grammarPractices, grammarCategories, getGrammarPracticesByCategory, getGrammarPracticesByDifficulty } from "./grammar/grammar-data";
-import { BookOpen, Headphones, MessageSquare, Target, FileText, ArrowLeft, Clock, Users, Award, CheckCircle } from "lucide-react";
+import { BookOpen, Headphones, MessageSquare, Target, FileText, ArrowLeft, Clock, Users, Award, CheckCircle, Star, TrendingUp, Brain } from "lucide-react";
 import Whiteboard from "@/components/Whiteboard";
+import CanvasReveal from "@/components/CanvasReveal";
 import Link from "next/link";
 import { useSearchParams, useRouter } from "next/navigation";
 import {
@@ -276,12 +277,53 @@ export default function IELTSExamsPage() {
           <div className="text-center mb-10">
             <h1 className="text-4xl md:text-5xl font-bold mb-2">
               <span className="bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">
-                IELTS Practice Exams
+                IELTS Preparation
               </span>
             </h1>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Practice IELTS-style Reading, Listening, and Grammar questions with instant feedback.
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+              Master IELTS with our comprehensive preparation platform. Learn about the test, choose your package, and start practicing.
             </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/exams/ielts/info">
+                <Button size="lg" className="bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white px-8 py-3 rounded-full shadow-lg">
+                  Learn About IELTS & Packages
+                </Button>
+              </Link>
+              
+            </div>
+          </div>
+
+          {/* Quick Info Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <Card className="bg-gradient-to-br from-blue-50 to-indigo-100 border-0 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+              <CardContent className="p-6 text-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <BookOpen className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">Academic</h3>
+                <p className="text-gray-600 text-sm">For university admission and professional registration</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-gradient-to-br from-green-50 to-emerald-100 border-0 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+              <CardContent className="p-6 text-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Users className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">General Training</h3>
+                <p className="text-gray-600 text-sm">For work experience and immigration purposes</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-gradient-to-br from-purple-50 to-fuchsia-100 border-0 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+              <CardContent className="p-6 text-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-fuchsia-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Clock className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">2 Hours 45 Min</h3>
+                <p className="text-gray-600 text-sm">Total test duration</p>
+              </CardContent>
+            </Card>
           </div>
 
           {/* Action Buttons */}
@@ -386,6 +428,23 @@ export default function IELTSExamsPage() {
             </div>
           )}
 
+          {/* IELTS Information Link */}
+          {activeTab === "syllabus" && (
+            <div className="mb-12">
+              <div className="text-center mb-8">
+                <h2 className="text-3xl font-bold text-gray-800 mb-4">IELTS Information & Packages</h2>
+                <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
+                  Learn everything about IELTS and choose the perfect preparation package for your needs.
+                </p>
+                <Link href="/exams/ielts/info">
+                  <Button size="lg" className="bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white px-8 py-3 rounded-full shadow-lg">
+                    View IELTS Information & Packages
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          )}
+
           {activeTab === "practice" && !showReadingPractice && !showListeningPractice && !showGrammarPractice && openExam === null && (
             <div>
               <div className="text-center mb-8">
@@ -395,9 +454,7 @@ export default function IELTSExamsPage() {
                   {activeTab === "practice" ? <Target className="w-4 h-4" /> : <BookOpen className="w-4 h-4" />}
                   {activeTab === "practice" ? "Practice Questions" : "Mock Exams"} View Active
                 </div>
-                <h2 className="text-3xl font-bold text-gray-800 mb-6">
-                  {activeTab === "practice" ? `Available Practice (${ieltsExamsLength()} exams, ${getTotalIELTSQuestions()} questions)` : `Available Mock Exams (1)`}
-                </h2>
+                
               </div>
 
               {activeTab === "practice" && (
