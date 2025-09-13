@@ -7,7 +7,7 @@
     "duration": "21 min",
     "questions": 11,
     "description": "Master the art of completing summaries from reading passages.",
-    "passage": "Sample passage about artificial intelligence...",
+    "passage": "Artificial intelligence has emerged as one of the most transformative technologies of the 21st century, revolutionizing industries from healthcare to finance. Machine learning algorithms enable computers to process vast amounts of data and identify patterns that would be impossible for humans to detect. However, the rapid advancement of AI has raised significant ethical concerns, particularly regarding privacy, bias, and job displacement. Many experts argue that proper regulation and oversight are essential to ensure AI benefits society while minimizing potential risks.",
     "summary": "Artificial intelligence has revolutionized many industries. The technology uses _____ to process information and make decisions. However, there are concerns about _____ and the need for proper _____.",
     "blanks": [
       {
@@ -24,6 +24,72 @@
         "id": 3,
         "answer": "regulation",
         "explanation": "The need for regulation is mentioned."
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "title": "Climate Change: Summary Completion",
+    "category": "Summary Completion",
+    "difficulty": "Advanced",
+    "duration": "24 min",
+    "questions": 12,
+    "description": "Complete summaries about climate change and environmental science topics.",
+    "passage": "Climate change represents one of the most pressing challenges of our time, with global temperatures rising due to increased greenhouse gas emissions. The Intergovernmental Panel on Climate Change (IPCC) has warned that immediate action is necessary to limit global warming to 1.5°C above pre-industrial levels. Rising sea levels, extreme weather events, and ecosystem disruption are among the most significant impacts. Renewable energy sources, carbon capture technologies, and sustainable practices offer potential solutions to mitigate climate change effects.",
+    "summary": "Climate change is caused by increased _____ emissions, leading to rising global _____. The IPCC recommends limiting temperature rise to _____°C. Solutions include renewable energy and _____ technologies.",
+    "blanks": [
+      {
+        "id": 4,
+        "answer": "greenhouse gas",
+        "explanation": "The passage states that climate change is caused by increased greenhouse gas emissions."
+      },
+      {
+        "id": 5,
+        "answer": "temperatures",
+        "explanation": "The passage mentions rising global temperatures as a key impact."
+      },
+      {
+        "id": 6,
+        "answer": "1.5",
+        "explanation": "The passage states the IPCC recommends limiting warming to 1.5°C above pre-industrial levels."
+      },
+      {
+        "id": 7,
+        "answer": "carbon capture",
+        "explanation": "The passage mentions carbon capture technologies as a potential solution."
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "title": "Space Technology: Summary Completion",
+    "category": "Summary Completion",
+    "difficulty": "Intermediate",
+    "duration": "22 min",
+    "questions": 10,
+    "description": "Complete summaries about space exploration and satellite technology.",
+    "passage": "Space technology has advanced dramatically since the launch of Sputnik in 1957. Modern satellites provide essential services including global positioning, weather forecasting, and telecommunications. The International Space Station serves as a unique laboratory for scientific research in microgravity. Private companies like SpaceX have revolutionized space launch capabilities, reducing costs and increasing access to space. Future missions to Mars and beyond will require advanced propulsion systems and life support technologies.",
+    "summary": "Space technology began with the launch of _____ in 1957. Modern satellites provide _____ services and weather forecasting. The ISS serves as a _____ laboratory. Private companies have reduced launch _____.",
+    "blanks": [
+      {
+        "id": 8,
+        "answer": "Sputnik",
+        "explanation": "The passage states that space technology began with the launch of Sputnik in 1957."
+      },
+      {
+        "id": 9,
+        "answer": "global positioning",
+        "explanation": "The passage mentions that satellites provide global positioning services."
+      },
+      {
+        "id": 10,
+        "answer": "scientific",
+        "explanation": "The passage states that the ISS serves as a unique laboratory for scientific research."
+      },
+      {
+        "id": 11,
+        "answer": "costs",
+        "explanation": "The passage mentions that private companies have reduced launch costs."
       }
     ]
   }

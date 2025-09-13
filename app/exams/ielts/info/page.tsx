@@ -389,7 +389,7 @@ export default function IELTSInfoPage() {
           </div>
 
           {/* Pricing Packages */}
-          <div className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-3xl p-8 mb-16">
+          <div id="packages" className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-3xl p-8 mb-16">
             <div className="text-center mb-12">
               <h3 className="text-4xl font-bold text-gray-800 mb-4">Choose Your IELTS Package</h3>
               <p className="text-xl text-gray-600">Unlock your potential with our comprehensive IELTS preparation packages</p>

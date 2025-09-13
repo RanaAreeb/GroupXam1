@@ -57,6 +57,204 @@ import {
   DialogDescription,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
+
+// Add Manual Payment Form Component
+function AddManualPaymentForm({ 
+  onSubmit, 
+  onCancel, 
+  formData, 
+  setFormData,
+  isLoading
+}: { 
+  onSubmit: (data: any) => void; 
+  onCancel: () => void;
+  formData: any;
+  setFormData: (data: any) => void;
+  isLoading: boolean;
+}) {
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    onSubmit(formData);
+  };
+
+  const handleChange = (field: string, value: string) => {
+    setFormData((prev: any) => {
+      const newData = { ...prev, [field]: value };
+      
+      // Auto-set amount and duration based on package selection
+      if (field === 'package') {
+        switch (value) {
+          case 'monthly':
+            newData.amount = '1.99';
+            newData.duration = '30';
+            break;
+          case '6months':
+            newData.amount = '14.99';
+            newData.duration = '180';
+            break;
+          case 'yearly':
+            newData.amount = '29.99';
+            newData.duration = '365';
+            break;
+          case 'custom':
+            newData.amount = '';
+            newData.duration = '30';
+            break;
+        }
+      }
+      
+      return newData;
+    });
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <Label htmlFor="userEmail">User Email *</Label>
+          <Input
+            id="userEmail"
+            type="email"
+            value={formData.userEmail}
+            onChange={(e) => handleChange('userEmail', e.target.value)}
+            required
+            placeholder="user@example.com"
+          />
+        </div>
+        <div>
+          <Label htmlFor="userName">User Name *</Label>
+          <Input
+            id="userName"
+            value={formData.userName}
+            onChange={(e) => handleChange('userName', e.target.value)}
+            required
+            placeholder="John Doe"
+          />
+        </div>
+      </div>
+
+      <div className="grid grid-cols-3 gap-4">
+        <div>
+          <Label htmlFor="amount">Amount (USD) *</Label>
+          <div className="relative">
+            <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">$</span>
+            <Input
+              id="amount"
+              type="number"
+              value={formData.amount}
+              onChange={(e) => handleChange('amount', e.target.value)}
+              required
+              placeholder="50"
+              className="pl-8"
+            />
+          </div>
+        </div>
+        <div>
+          <Label htmlFor="package">Package *</Label>
+          <Select value={formData.package} onValueChange={(value) => handleChange('package', value)}>
+            <SelectTrigger>
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="monthly">Monthly ($1.99)</SelectItem>
+              <SelectItem value="6months">6 Months ($14.99)</SelectItem>
+              <SelectItem value="yearly">Yearly ($29.99)</SelectItem>
+              <SelectItem value="custom">Custom Amount</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+        <div>
+          <Label htmlFor="duration">Duration (days) *</Label>
+          <Select value={formData.duration} onValueChange={(value) => handleChange('duration', value)}>
+            <SelectTrigger>
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="7">7 days</SelectItem>
+              <SelectItem value="30">30 days</SelectItem>
+              <SelectItem value="90">90 days</SelectItem>
+              <SelectItem value="180">180 days</SelectItem>
+              <SelectItem value="365">365 days</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <Label htmlFor="paymentMethod">Payment Method *</Label>
+          <Select value={formData.paymentMethod} onValueChange={(value) => handleChange('paymentMethod', value)}>
+            <SelectTrigger>
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="bank_transfer">Bank Transfer</SelectItem>
+              <SelectItem value="cash">Cash</SelectItem>
+              <SelectItem value="mobile_money">Mobile Money</SelectItem>
+              <SelectItem value="other">Other</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+        <div>
+          <Label htmlFor="transactionId">Transaction ID</Label>
+          <Input
+            id="transactionId"
+            value={formData.transactionId}
+            onChange={(e) => handleChange('transactionId', e.target.value)}
+            placeholder="TXN123456789"
+          />
+        </div>
+      </div>
+
+      <div>
+        <Label htmlFor="paymentDate">Payment Date *</Label>
+        <Input
+          id="paymentDate"
+          type="date"
+          value={formData.paymentDate}
+          onChange={(e) => handleChange('paymentDate', e.target.value)}
+          required
+        />
+      </div>
+
+      <div>
+        <Label htmlFor="notes">Notes</Label>
+        <Textarea
+          id="notes"
+          value={formData.notes}
+          onChange={(e) => handleChange('notes', e.target.value)}
+          placeholder="Additional notes about this payment..."
+          rows={3}
+        />
+      </div>
+
+      <div className="flex justify-end gap-2 pt-4">
+        <Button type="button" variant="outline" onClick={onCancel}>
+          Cancel
+        </Button>
+        <Button 
+          type="submit" 
+          className="bg-green-600 hover:bg-green-700 text-white"
+          disabled={isLoading}
+        >
+          {isLoading ? (
+            <>
+              <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
+              Adding Payment...
+            </>
+          ) : (
+            'Add Payment'
+          )}
+        </Button>
+      </div>
+    </form>
+  );
+}
 
 interface AdminStats {
   totalUsers: number;
@@ -120,11 +318,20 @@ interface AdminStats {
     createdAt: string;
     approvedAt?: string;
   }[];
+  paymentStats?: {
+    totalPayments: number;
+    approvedPayments: number;
+    pendingPayments: number;
+    rejectedPayments: number;
+    totalRevenue: number;
+    recentPayments: any[];
+  };
 }
 
 export default function AdminDashboard() {
   const { isLoggedIn, user, loading } = useAuth();
   const router = useRouter();
+  const { toast } = useToast();
   const [stats, setStats] = useState<AdminStats | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isDateRangeLoading, setIsDateRangeLoading] = useState(false);
@@ -147,6 +354,29 @@ export default function AdminDashboard() {
   const [isVerifyingUser, setIsVerifyingUser] = useState<string | null>(null);
   const [isApprovingReview, setIsApprovingReview] = useState<string | null>(null);
   const [isRejectingReview, setIsRejectingReview] = useState<string | null>(null);
+  const [payments, setPayments] = useState<any[]>([]);
+  const [isLoadingPayments, setIsLoadingPayments] = useState(false);
+  const [showPaymentModal, setShowPaymentModal] = useState(false);
+  const [selectedPayment, setSelectedPayment] = useState<any>(null);
+  const [isProcessingPayment, setIsProcessingPayment] = useState<string | null>(null);
+  const [isAddingPayment, setIsAddingPayment] = useState(false);
+  const [users, setUsers] = useState<any[]>([]);
+  const [isLoadingUsers, setIsLoadingUsers] = useState(false);
+  const [showUserSelectionModal, setShowUserSelectionModal] = useState(false);
+  const [userSearchQuery, setUserSearchQuery] = useState('');
+  const [isFixingAccess, setIsFixingAccess] = useState(false);
+  const [formData, setFormData] = useState({
+    userEmail: '',
+    userName: '',
+    amount: '',
+    package: 'monthly',
+    duration: '30',
+    paymentMethod: 'bank_transfer',
+    transactionId: '',
+    paymentDate: new Date().toISOString().split('T')[0],
+    notes: '',
+    status: 'approved'
+  });
 
   // Check if user is admin
   const isAdmin = user?.email === "ranaareeb1029@gmail.com" || user?.email === "cliftonmanneh6@gmail.com";
@@ -168,6 +398,8 @@ export default function AdminDashboard() {
   useEffect(() => {
     if (isAdmin) {
       fetchAdminStats();
+      fetchPayments();
+      fetchUsers();
     }
   }, [isAdmin, dateRange, selectedPeriod]);
 
@@ -395,6 +627,211 @@ export default function AdminDashboard() {
     }
   };
 
+  // Payment management functions
+  const fetchPayments = async () => {
+    try {
+      setIsLoadingPayments(true);
+      const response = await fetch('/api/admin/payments');
+      const data = await response.json();
+      
+      if (data.success) {
+        setPayments(data.payments);
+      } else {
+        console.error('Failed to fetch payments:', data.error);
+      }
+    } catch (error) {
+      console.error('Failed to fetch payments:', error);
+    } finally {
+      setIsLoadingPayments(false);
+    }
+  };
+
+  const fetchUsers = async () => {
+    try {
+      setIsLoadingUsers(true);
+      const response = await fetch('/api/admin/users');
+      const data = await response.json();
+      
+      if (data.success) {
+        setUsers(data.users);
+      } else {
+        console.error('Failed to fetch users:', data.error);
+      }
+    } catch (error) {
+      console.error('Failed to fetch users:', error);
+    } finally {
+      setIsLoadingUsers(false);
+    }
+  };
+
+  const handleUserSelection = (selectedUser: any) => {
+    setFormData({
+      userEmail: selectedUser.email,
+      userName: selectedUser.name || selectedUser.email,
+      amount: '1.99',
+      package: 'monthly',
+      duration: '30',
+      paymentMethod: 'bank_transfer',
+      transactionId: '',
+      paymentDate: new Date().toISOString().split('T')[0],
+      notes: '',
+      status: 'approved'
+    });
+    setShowUserSelectionModal(false);
+    setShowPaymentModal(true);
+  };
+
+  // Filter users based on search query
+  const filteredUsers = users.filter(user => 
+    user.email.toLowerCase().includes(userSearchQuery.toLowerCase()) ||
+    (user.name && user.name.toLowerCase().includes(userSearchQuery.toLowerCase()))
+  );
+
+  // Fix user access based on their payments
+  const fixUserAccess = async () => {
+    try {
+      setIsFixingAccess(true);
+      
+      // Get all users with approved payments
+      const usersWithPayments = await Promise.all(
+        users.map(async (user) => {
+          const response = await fetch(`/api/admin/payments?userEmail=${user.email}`);
+          const data = await response.json();
+          const userPayments = data.payments || [];
+          const latestPayment = userPayments
+            .filter((p: any) => p.status === 'approved')
+            .sort((a: any, b: any) => new Date(b.paymentDate).getTime() - new Date(a.paymentDate).getTime())[0];
+          
+          return { user, latestPayment };
+        })
+      );
+
+      // Update each user's access
+      for (const { user, latestPayment } of usersWithPayments) {
+        if (latestPayment) {
+          // Determine access based on package type
+          let access = {};
+          switch (latestPayment.package) {
+            case 'monthly':
+            case '6months':
+            case 'yearly':
+              access = {
+                ielts: true,
+                proctor: latestPayment.package === '6months' || latestPayment.package === 'yearly',
+                university: latestPayment.package === 'yearly'
+              };
+              break;
+            default:
+              access = { ielts: true };
+          }
+
+          // Update user access via API
+          await fetch('/api/admin/fix-access', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              userEmail: user.email,
+              access,
+              packageType: latestPayment.package,
+              accessExpiresAt: latestPayment.expiresAt,
+              lastPaymentDate: latestPayment.paymentDate
+            })
+          });
+        }
+      }
+
+      // Refresh users and payments
+      await fetchUsers();
+      await fetchPayments();
+      
+      toast({
+        title: "Success",
+        description: "User access has been fixed based on their payments",
+        variant: "default",
+      });
+    } catch (error) {
+      console.error('Error fixing user access:', error);
+      toast({
+        title: "Error",
+        description: "Failed to fix user access. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsFixingAccess(false);
+    }
+  };
+
+  const processPayment = async (paymentId: string, action: 'approve' | 'reject') => {
+    try {
+      setIsProcessingPayment(paymentId);
+      const response = await fetch(`/api/admin/payments`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ paymentId, action }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        await fetchPayments();
+        await fetchAdminStats();
+        alert(`Payment ${action}d successfully`);
+      } else {
+        alert(`Failed to ${action} payment: ${data.error}`);
+      }
+    } catch (error) {
+      console.error(`Failed to ${action} payment:`, error);
+      alert(`Failed to ${action} payment. Please try again.`);
+    } finally {
+      setIsProcessingPayment(null);
+    }
+  };
+
+  const addManualPayment = async (paymentData: any) => {
+    if (isAddingPayment) return; // Prevent duplicate submissions
+    
+    try {
+      setIsAddingPayment(true);
+      const response = await fetch('/api/admin/payments', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(paymentData),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        await fetchPayments();
+        await fetchAdminStats();
+        setShowPaymentModal(false);
+        toast({
+          title: "Success",
+          description: "Payment added successfully",
+          variant: "default",
+        });
+      } else {
+        toast({
+          title: "Error",
+          description: `Failed to add payment: ${data.error}`,
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.error('Failed to add payment:', error);
+      toast({
+        title: "Error",
+        description: "Failed to add payment. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsAddingPayment(false);
+    }
+  };
+
   // Helper function to format session duration from seconds to readable format
   const formatSessionDuration = (seconds: number): string => {
     if (!seconds || seconds <= 0) return '0 minutes';
@@ -557,13 +994,14 @@ export default function AdminDashboard() {
             </div>
           ) : stats ? (
             <Tabs defaultValue="overview" className="space-y-6">
-              <TabsList className="grid w-full grid-cols-6">
+              <TabsList className="grid w-full grid-cols-7">
                 <TabsTrigger value="overview">Overview</TabsTrigger>
                 <TabsTrigger value="users">Users</TabsTrigger>
                 <TabsTrigger value="activity">Activity</TabsTrigger>
                 <TabsTrigger value="sessions">Sessions</TabsTrigger>
                 <TabsTrigger value="geography">Geography</TabsTrigger>
                 <TabsTrigger value="reviews">Reviews</TabsTrigger>
+                <TabsTrigger value="payments">Payments</TabsTrigger>
               </TabsList>
 
                              {/* Overview Tab */}
@@ -823,6 +1261,43 @@ export default function AdminDashboard() {
                     </div>
                   </CardContent>
                 </Card>
+
+                {/* Payment Statistics */}
+                {stats.paymentStats && (
+                  <Card className="border-0 shadow-lg bg-gradient-to-br from-green-50 to-green-100">
+                    <CardHeader>
+                      <CardTitle className="text-green-800">Payment Statistics</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div className="text-center p-4 bg-white/50 rounded-lg">
+                          <div className="text-2xl font-bold text-green-600">
+                            ₦{stats.paymentStats.totalRevenue?.toLocaleString() || '0'}
+                          </div>
+                          <div className="text-sm text-gray-600">Total Revenue</div>
+                        </div>
+                        <div className="text-center p-4 bg-white/50 rounded-lg">
+                          <div className="text-2xl font-bold text-green-600">
+                            {stats.paymentStats.totalPayments || 0}
+                          </div>
+                          <div className="text-sm text-gray-600">Total Payments</div>
+                        </div>
+                        <div className="text-center p-4 bg-white/50 rounded-lg">
+                          <div className="text-2xl font-bold text-green-600">
+                            {stats.paymentStats.approvedPayments || 0}
+                          </div>
+                          <div className="text-sm text-gray-600">Approved</div>
+                        </div>
+                        <div className="text-center p-4 bg-white/50 rounded-lg">
+                          <div className="text-2xl font-bold text-orange-600">
+                            {stats.paymentStats.pendingPayments || 0}
+                          </div>
+                          <div className="text-sm text-gray-600">Pending</div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                )}
               </TabsContent>
 
                              {/* Users Tab */}
@@ -1559,6 +2034,251 @@ export default function AdminDashboard() {
                    </CardContent>
                  </Card>
                </TabsContent>
+
+               {/* Payments Tab */}
+               <TabsContent value="payments" className="space-y-6">
+                 <Card className="border-0 shadow-lg bg-gradient-to-br from-green-50 to-green-100">
+                   <CardHeader>
+                     <div className="flex items-center justify-between">
+                       <CardTitle className="text-green-800">Payment Management</CardTitle>
+                       <div className="flex gap-2">
+                         <Button
+                           onClick={() => setShowPaymentModal(true)}
+                           className="bg-green-600 hover:bg-green-700 text-white"
+                           disabled={isAddingPayment}
+                         >
+                           {isAddingPayment ? (
+                             <>
+                               <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
+                               Adding Payment...
+                             </>
+                           ) : (
+                             'Add Manual Payment'
+                           )}
+                         </Button>
+                         <Button
+                           onClick={fixUserAccess}
+                           variant="outline"
+                           size="sm"
+                           disabled={isFixingAccess}
+                           className="bg-orange-100 hover:bg-orange-200 text-orange-700 border-orange-300"
+                         >
+                           {isFixingAccess ? (
+                             <>
+                               <div className="w-4 h-4 border-2 border-orange-600 border-t-transparent rounded-full animate-spin mr-2" />
+                               Fixing Access...
+                             </>
+                           ) : (
+                             <>
+                               <UserCheck className="w-4 h-4 mr-2" />
+                               Fix Access
+                             </>
+                           )}
+                         </Button>
+                         <Button
+                           onClick={() => exportData('payments')}
+                           variant="outline"
+                           size="sm"
+                         >
+                           <Download className="w-4 h-4 mr-2" />
+                           Export
+                         </Button>
+                       </div>
+                     </div>
+                   </CardHeader>
+                   <CardContent>
+                     {/* Users List Section */}
+                     <div className="mb-8">
+                       <div className="flex items-center justify-between mb-4">
+                         <h3 className="text-lg font-semibold text-gray-800">All Users ({users.length})</h3>
+                         <Button
+                           onClick={() => setShowUserSelectionModal(true)}
+                           className="bg-blue-600 hover:bg-blue-700 text-white"
+                           size="sm"
+                           disabled={isAddingPayment}
+                         >
+                           <Users className="w-4 h-4 mr-2" />
+                           Add Payment for User
+                         </Button>
+                       </div>
+                       
+                       {/* Search Bar */}
+                       <div className="mb-4">
+                         <div className="flex gap-2 items-center">
+                           <Input
+                             type="text"
+                             placeholder="Search users by email or name..."
+                             value={userSearchQuery}
+                             onChange={(e) => setUserSearchQuery(e.target.value)}
+                             className="max-w-md"
+                           />
+                           {userSearchQuery && (
+                             <Button
+                               variant="outline"
+                               size="sm"
+                               onClick={() => setUserSearchQuery('')}
+                               className="text-gray-500 hover:text-gray-700"
+                             >
+                               Clear
+                             </Button>
+                           )}
+                         </div>
+                         {userSearchQuery && (
+                           <p className="text-sm text-gray-600 mt-1">
+                             Showing {filteredUsers.length} of {users.length} users
+                           </p>
+                         )}
+                       </div>
+                       
+                       {isLoadingUsers ? (
+                         <div className="text-center py-4">
+                           <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-600 mx-auto mb-2"></div>
+                           <p className="text-gray-600 text-sm">Loading users...</p>
+                         </div>
+                       ) : (
+                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                           {filteredUsers && filteredUsers.length > 0 ? (
+                             filteredUsers.map((user) => (
+                               <div key={user._id} className="p-4 border rounded-lg bg-white/70 shadow-sm hover:shadow-md transition-shadow cursor-pointer"
+                                    onClick={() => handleUserSelection(user)}>
+                                 <div className="flex items-center gap-3">
+                                   <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                                     <span className="text-blue-600 font-bold text-sm">
+                                       {user.name ? user.name.charAt(0).toUpperCase() : user.email.charAt(0).toUpperCase()}
+                                     </span>
+                                   </div>
+                                   <div className="flex-1 min-w-0">
+                                     <h4 className="font-medium text-gray-900 truncate">
+                                       {user.name || 'No Name'}
+                                     </h4>
+                                     <p className="text-sm text-gray-600 truncate">{user.email}</p>
+                                     <div className="flex items-center gap-2 mt-1">
+                                       <Badge variant="outline" className="text-xs">
+                                         {user.access?.ielts ? 'IELTS' : 'No Access'}
+                                       </Badge>
+                                       <Badge variant="outline" className="text-xs">
+                                         {user.access?.proctor ? 'Proctor' : 'No Proctor'}
+                                       </Badge>
+                                       <Badge variant="outline" className="text-xs">
+                                         {user.access?.university ? 'University' : 'No University'}
+                                       </Badge>
+                                     </div>
+                                   </div>
+                                 </div>
+                               </div>
+                             ))
+                           ) : (
+                             <div className="col-span-full text-center py-8 text-gray-500">
+                               {userSearchQuery ? 'No users found matching your search' : 'No users found'}
+                             </div>
+                           )}
+                         </div>
+                       )}
+                     </div>
+
+                     {/* Payments List Section */}
+                     <div className="border-t pt-6">
+                       <h3 className="text-lg font-semibold text-gray-800 mb-4">Payment Records</h3>
+                       {isLoadingPayments ? (
+                       <div className="text-center py-8">
+                         <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-green-600 mx-auto mb-4"></div>
+                         <p className="text-gray-600">Loading payments...</p>
+                       </div>
+                     ) : (
+                       <div className="space-y-4">
+                         {payments && payments.length > 0 ? (
+                           payments.map((payment) => (
+                             <div key={payment._id} className="p-4 border rounded-lg bg-white/70 shadow-sm hover:shadow-md transition-shadow">
+                               <div className="flex items-center justify-between">
+                                 <div className="flex-1">
+                                   <div className="flex items-center gap-3 mb-2">
+                                     <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                                       <span className="text-green-600 font-bold">$</span>
+                                     </div>
+                                     <div>
+                                       <h3 className="font-semibold text-gray-900">{payment.userName || payment.userEmail}</h3>
+                                       <div className="flex items-center gap-2">
+                                         <Badge variant="outline" className="text-xs">
+                                           {payment.package}
+                                         </Badge>
+                                         <Badge variant={payment.status === 'approved' ? 'default' : payment.status === 'pending' ? 'secondary' : 'destructive'} className="text-xs">
+                                           {payment.status}
+                                         </Badge>
+                                         <Badge variant="outline" className="text-xs">
+                                           {payment.paymentMethod}
+                                         </Badge>
+                                       </div>
+                                     </div>
+                                   </div>
+                                   <div className="text-sm text-gray-600">
+                                     <p><strong>Amount:</strong> ${payment.amount?.toLocaleString()}</p>
+                                     <p><strong>Package:</strong> {payment.package} - {payment.duration} days</p>
+                                     <p><strong>Payment Date:</strong> {new Date(payment.paymentDate).toLocaleDateString()}</p>
+                                     <p><strong>Expires:</strong> {payment.expiresAt ? new Date(payment.expiresAt).toLocaleDateString() : 'N/A'}</p>
+                                     {payment.transactionId && <p><strong>Transaction ID:</strong> {payment.transactionId}</p>}
+                                     {payment.notes && <p><strong>Notes:</strong> {payment.notes}</p>}
+                                   </div>
+                                 </div>
+                                 <div className="flex flex-col gap-2 ml-4">
+                                   {payment.status === 'pending' && (
+                                     <>
+                                       <Button
+                                         size="sm"
+                                         variant="default"
+                                         onClick={() => processPayment(payment._id, 'approve')}
+                                         disabled={isProcessingPayment === payment._id}
+                                         className="bg-green-600 hover:bg-green-700 text-white"
+                                       >
+                                         {isProcessingPayment === payment._id ? (
+                                           <div className="w-3 h-3 border border-current border-t-transparent rounded-full animate-spin mr-1" />
+                                         ) : (
+                                           <UserCheck className="w-3 h-3 mr-1" />
+                                         )}
+                                         Approve
+                                       </Button>
+                                       <Button
+                                         size="sm"
+                                         variant="destructive"
+                                         onClick={() => processPayment(payment._id, 'reject')}
+                                         disabled={isProcessingPayment === payment._id}
+                                       >
+                                         {isProcessingPayment === payment._id ? (
+                                           <div className="w-3 h-3 border border-current border-t-transparent rounded-full animate-spin mr-1" />
+                                         ) : (
+                                           <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                           </svg>
+                                         )}
+                                         Reject
+                                       </Button>
+                                     </>
+                                   )}
+                                   {payment.status === 'approved' && (
+                                     <Badge variant="default" className="bg-green-600 text-white">
+                                       ✓ Approved
+                                     </Badge>
+                                   )}
+                                   {payment.status === 'rejected' && (
+                                     <Badge variant="destructive">
+                                       ✗ Rejected
+                                     </Badge>
+                                   )}
+                                 </div>
+                               </div>
+                             </div>
+                           ))
+                         ) : (
+                           <div className="text-center py-8 text-gray-500">
+                             <p>No payments found.</p>
+                             <p className="text-sm mt-2">Payments will appear here when users make payments or you add them manually.</p>
+                           </div>
+                         )}
+                       </div>
+                     )}
+                     </div>
+                   </CardContent>
+                 </Card>
+               </TabsContent>
             </Tabs>
           ) : (
             <div className="text-center py-12">
@@ -1830,6 +2550,117 @@ export default function AdminDashboard() {
                 <p className="text-sm mt-2">Page visit tracking will populate this data as users interact with the platform.</p>
               </div>
             )}
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Add Manual Payment Modal */}
+      <Dialog open={showPaymentModal} onOpenChange={setShowPaymentModal}>
+        <DialogContent className="max-w-2xl">
+          <DialogHeader>
+            <DialogTitle>Add Manual Payment</DialogTitle>
+            <DialogDescription>
+              Add a payment record for a user who has paid directly to your account
+            </DialogDescription>
+          </DialogHeader>
+          <AddManualPaymentForm 
+            onSubmit={addManualPayment}
+            onCancel={() => setShowPaymentModal(false)}
+            formData={formData}
+            setFormData={setFormData}
+            isLoading={isAddingPayment}
+          />
+        </DialogContent>
+      </Dialog>
+
+      {/* User Selection Modal */}
+      <Dialog open={showUserSelectionModal} onOpenChange={setShowUserSelectionModal}>
+        <DialogContent className="max-w-4xl">
+          <DialogHeader>
+            <DialogTitle>Select User for Payment</DialogTitle>
+            <DialogDescription>
+              Choose a user to add a payment record for
+            </DialogDescription>
+          </DialogHeader>
+          <div className="max-h-96 overflow-y-auto">
+            {/* Search Bar in Modal */}
+            <div className="mb-4 sticky top-0 bg-white z-10 pb-2">
+              <div className="flex gap-2 items-center">
+                <Input
+                  type="text"
+                  placeholder="Search users by email or name..."
+                  value={userSearchQuery}
+                  onChange={(e) => setUserSearchQuery(e.target.value)}
+                  className="flex-1"
+                />
+                {userSearchQuery && (
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => setUserSearchQuery('')}
+                    className="text-gray-500 hover:text-gray-700"
+                  >
+                    Clear
+                  </Button>
+                )}
+              </div>
+              {userSearchQuery && (
+                <p className="text-sm text-gray-600 mt-1">
+                  Showing {filteredUsers.length} of {users.length} users
+                </p>
+              )}
+            </div>
+            
+            {isLoadingUsers ? (
+              <div className="text-center py-8">
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-4"></div>
+                <p className="text-gray-600">Loading users...</p>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {filteredUsers && filteredUsers.length > 0 ? (
+                  filteredUsers.map((user) => (
+                    <div key={user._id} 
+                         className="p-4 border rounded-lg bg-white hover:bg-gray-50 cursor-pointer transition-colors"
+                         onClick={() => handleUserSelection(user)}>
+                      <div className="flex items-center gap-3">
+                        <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                          <span className="text-blue-600 font-bold">
+                            {user.name ? user.name.charAt(0).toUpperCase() : user.email.charAt(0).toUpperCase()}
+                          </span>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <h4 className="font-medium text-gray-900 truncate">
+                            {user.name || 'No Name'}
+                          </h4>
+                          <p className="text-sm text-gray-600 truncate">{user.email}</p>
+                          <div className="flex items-center gap-2 mt-2">
+                            <Badge variant="outline" className="text-xs">
+                              {user.access?.ielts ? 'IELTS' : 'No Access'}
+                            </Badge>
+                            <Badge variant="outline" className="text-xs">
+                              {user.access?.proctor ? 'Proctor' : 'No Proctor'}
+                            </Badge>
+                            <Badge variant="outline" className="text-xs">
+                              {user.access?.university ? 'University' : 'No University'}
+                            </Badge>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  <div className="col-span-full text-center py-8 text-gray-500">
+                    {userSearchQuery ? 'No users found matching your search' : 'No users found'}
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+          <div className="flex justify-end gap-2 pt-4">
+            <Button variant="outline" onClick={() => setShowUserSelectionModal(false)}>
+              Cancel
+            </Button>
           </div>
         </DialogContent>
       </Dialog>

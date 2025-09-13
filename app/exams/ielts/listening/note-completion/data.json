@@ -81,5 +81,138 @@
         ]
       }
     ]
+  },
+  {
+    "id": 3,
+    "title": "University Orientation: Note Completion",
+    "category": "Note Completion",
+    "difficulty": "Intermediate",
+    "duration": "19 min",
+    "questions": 9,
+    "description": "Practice completing notes during university orientation sessions.",
+    "audioUrl": "/audio/listening/university-orientation.mp3",
+    "transcript": "Welcome to your first day at university. The library is open from 8 AM to 10 PM on weekdays and 9 AM to 6 PM on weekends. You can borrow up to 15 books for a maximum of 4 weeks. Late fees are 50 pence per day per book. The student union building is located next to the main library and offers various services including career counseling and student support. The cafeteria serves meals from 7 AM to 8 PM, and the gymnasium is open 24 hours a day for students with valid ID cards. Your student ID number is your library card number, and you can access online resources through the university portal.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Complete the university orientation notes:",
+        "notes": [
+          {
+            "label": "Library weekday hours:",
+            "answer": "8 AM to 10 PM",
+            "explanation": "The speaker states that the library is open from 8 AM to 10 PM on weekdays."
+          },
+          {
+            "label": "Library weekend hours:",
+            "answer": "9 AM to 6 PM",
+            "explanation": "The speaker mentions that the library is open from 9 AM to 6 PM on weekends."
+          },
+          {
+            "label": "Maximum books to borrow:",
+            "answer": "15 books",
+            "explanation": "The speaker states that students can borrow up to 15 books."
+          },
+          {
+            "label": "Borrowing period:",
+            "answer": "4 weeks",
+            "explanation": "The speaker mentions that books can be borrowed for a maximum of 4 weeks."
+          },
+          {
+            "label": "Late fee per day:",
+            "answer": "50 pence",
+            "explanation": "The speaker states that late fees are 50 pence per day per book."
+          },
+          {
+            "label": "Student union location:",
+            "answer": "Next to main library",
+            "explanation": "The speaker states that the student union building is located next to the main library."
+          },
+          {
+            "label": "Cafeteria hours:",
+            "answer": "7 AM to 8 PM",
+            "explanation": "The speaker mentions that the cafeteria serves meals from 7 AM to 8 PM."
+          },
+          {
+            "label": "Gymnasium access:",
+            "answer": "24 hours a day",
+            "explanation": "The speaker states that the gymnasium is open 24 hours a day for students with valid ID cards."
+          },
+          {
+            "label": "Student ID is also:",
+            "answer": "Library card number",
+            "explanation": "The speaker mentions that the student ID number is the library card number."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Research Methods Lecture: Note Completion",
+    "category": "Note Completion",
+    "difficulty": "Advanced",
+    "duration": "22 min",
+    "questions": 10,
+    "description": "Practice completing notes during academic research methodology lectures.",
+    "audioUrl": "/audio/listening/research-methods.mp3",
+    "transcript": "Today we'll discuss qualitative research methods. The most common approach is the case study method, which involves in-depth analysis of a single subject or group. Interviews are typically conducted with 10 to 15 participants to ensure data saturation. The data collection process usually takes 3 to 6 months depending on the scope of the research. Coding is the primary method of data analysis, involving the identification of themes and patterns. The reliability of qualitative research depends on triangulation, which means using multiple data sources. Ethical considerations include obtaining informed consent and ensuring participant confidentiality. The research proposal must be approved by the ethics committee before data collection begins.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Complete the research methods lecture notes:",
+        "notes": [
+          {
+            "label": "Most common qualitative method:",
+            "answer": "Case study method",
+            "explanation": "The speaker states that the most common approach is the case study method."
+          },
+          {
+            "label": "Typical number of interview participants:",
+            "answer": "10 to 15",
+            "explanation": "The speaker mentions that interviews are typically conducted with 10 to 15 participants."
+          },
+          {
+            "label": "Data collection duration:",
+            "answer": "3 to 6 months",
+            "explanation": "The speaker states that the data collection process usually takes 3 to 6 months."
+          },
+          {
+            "label": "Primary analysis method:",
+            "answer": "Coding",
+            "explanation": "The speaker identifies coding as the primary method of data analysis."
+          },
+          {
+            "label": "Coding involves identifying:",
+            "answer": "Themes and patterns",
+            "explanation": "The speaker mentions that coding involves the identification of themes and patterns."
+          },
+          {
+            "label": "Reliability depends on:",
+            "answer": "Triangulation",
+            "explanation": "The speaker states that reliability depends on triangulation."
+          },
+          {
+            "label": "Triangulation means using:",
+            "answer": "Multiple data sources",
+            "explanation": "The speaker explains that triangulation means using multiple data sources."
+          },
+          {
+            "label": "Ethical consideration:",
+            "answer": "Informed consent",
+            "explanation": "The speaker lists obtaining informed consent as an ethical consideration."
+          },
+          {
+            "label": "Another ethical consideration:",
+            "answer": "Participant confidentiality",
+            "explanation": "The speaker mentions ensuring participant confidentiality as an ethical consideration."
+          },
+          {
+            "label": "Approval required from:",
+            "answer": "Ethics committee",
+            "explanation": "The speaker states that the research proposal must be approved by the ethics committee."
+          }
+        ]
+      }
+    ]
   }
 ]

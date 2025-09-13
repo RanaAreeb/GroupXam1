@@ -1,17 +1,6 @@
 import jwt from "jsonwebtoken";
 import { NextRequest } from "next/server";
-import { MongoClient } from "mongodb";
-
-const uri = process.env.MONGODB_URI;
-let client;
-let clientPromise;
-
-// Create a singleton MongoClient instance
-if (!global._mongoClientPromise) {
-    client = new MongoClient(uri);
-    global._mongoClientPromise = client.connect();
-}
-clientPromise = global._mongoClientPromise;
+import { getDatabase } from "@/lib/db";
 
 export async function GET(request) {
     try {
@@ -26,8 +15,7 @@ export async function GET(request) {
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
         // Get user details from database
-        const client = await clientPromise;
-        const db = client.db("groupxam");
+        const db = await getDatabase();
         const usersCollection = db.collection("users");
 
         const user = await usersCollection.findOne(
@@ -54,7 +42,12 @@ export async function GET(request) {
                 grade: user.grade,
                 bio: user.bio,
                 createdAt: user.createdAt,
-                lastLoginAt: user.lastLoginAt
+                lastLoginAt: user.lastLoginAt,
+                access: user.access,
+                packageType: user.packageType,
+                accessExpiresAt: user.accessExpiresAt,
+                hasPaidAccess: user.hasPaidAccess,
+                lastPaymentDate: user.lastPaymentDate
             }
         });
 

@@ -5,7 +5,6 @@
     "category": "True/False/Not Given",
     "difficulty": "Intermediate",
     "duration": "15 min",
-    "questions": 8,
     "description": "Master the art of identifying true, false, and not given statements in academic texts.",
     "passage": "Climate change represents one of the most significant challenges facing humanity in the 21st century. Scientific consensus indicates that human activities, particularly the burning of fossil fuels, are the primary drivers of recent climate change. The Intergovernmental Panel on Climate Change (IPCC) has consistently reported that global temperatures have risen by approximately 1.1°C since pre-industrial times. However, there remains some disagreement among scientists regarding the exact mechanisms and long-term projections of climate change impacts.",
     "questions": [
@@ -65,7 +64,6 @@
     "category": "True/False/Not Given",
     "difficulty": "Advanced",
     "duration": "18 min",
-    "questions": 10,
     "description": "Advanced practice with environmental conservation texts and complex true/false/not given questions.",
     "passage": "Biodiversity loss has accelerated dramatically in recent decades, with scientists estimating that species are becoming extinct at rates 100 to 1,000 times higher than natural background rates. The primary causes include habitat destruction, climate change, pollution, and overexploitation of natural resources. Conservation efforts have shown mixed results, with some species recovering while others continue to decline. Protected areas now cover approximately 15% of the world's land surface, but many experts argue that this is insufficient to halt biodiversity loss.",
     "questions": [
@@ -125,7 +123,6 @@
     "category": "True/False/Not Given",
     "difficulty": "Advanced",
     "duration": "20 min",
-    "questions": 6,
     "description": "Practice identifying true, false, and not given statements about urban development and city planning.",
     "passage": "Urban development has become one of the most pressing challenges of the 21st century. As cities continue to grow at unprecedented rates, urban planners face complex decisions about infrastructure, housing, and sustainability. Smart city technologies are increasingly being implemented to address these challenges, with sensors, data analytics, and automated systems helping to optimize traffic flow, energy consumption, and public services. However, critics argue that these technological solutions often overlook social equity issues and may exacerbate existing inequalities.",
     "questions": [
@@ -164,6 +161,148 @@
         "question": "The passage provides specific examples of smart city implementations.",
         "answer": "NOT GIVEN",
         "explanation": "While the passage mentions smart city technologies, it doesn't provide specific examples of implementations."
+      }
+    ]
+  },
+  {
+    "id": 2003,
+    "title": "Artificial Intelligence: True/False/Not Given Practice",
+    "category": "True/False/Not Given",
+    "difficulty": "Advanced",
+    "duration": "22 min",
+    "description": "Advanced practice with AI and technology texts, focusing on complex true/false/not given statements.",
+    "passage": "Artificial intelligence has emerged as one of the most transformative technologies of our time, revolutionizing industries from healthcare to finance. Machine learning algorithms can now process vast amounts of data to identify patterns and make predictions with remarkable accuracy. However, the rapid advancement of AI has also raised significant ethical concerns, particularly regarding privacy, bias, and job displacement. While some experts predict that AI will create more jobs than it eliminates, others warn of potential mass unemployment. The development of artificial general intelligence (AGI) remains a distant goal, with most current AI systems being narrow in scope and application.",
+    "questions": [
+      {
+        "id": 2008,
+        "question": "AI has transformed only the healthcare and finance industries.",
+        "answer": "FALSE",
+        "explanation": "The passage states that AI has revolutionized industries 'from healthcare to finance', implying it affects multiple sectors, not just these two."
+      },
+      {
+        "id": 2009,
+        "question": "Machine learning algorithms can identify patterns in large datasets.",
+        "answer": "TRUE",
+        "explanation": "The passage explicitly states that machine learning algorithms can 'process vast amounts of data to identify patterns'."
+      },
+      {
+        "id": 2010,
+        "question": "All experts agree that AI will create more jobs than it eliminates.",
+        "answer": "FALSE",
+        "explanation": "The passage shows disagreement among experts, with some predicting job creation while others warn of mass unemployment."
+      },
+      {
+        "id": 2011,
+        "question": "Privacy concerns are mentioned as a significant issue with AI development.",
+        "answer": "TRUE",
+        "explanation": "The passage specifically mentions privacy as one of the significant ethical concerns raised by AI advancement."
+      },
+      {
+        "id": 2012,
+        "question": "Artificial general intelligence has already been achieved.",
+        "answer": "FALSE",
+        "explanation": "The passage states that the development of AGI 'remains a distant goal', indicating it has not been achieved yet."
+      },
+      {
+        "id": 2013,
+        "question": "Current AI systems are limited in their scope and application.",
+        "answer": "TRUE",
+        "explanation": "The passage states that 'most current AI systems being narrow in scope and application'."
+      },
+      {
+        "id": 2014,
+        "question": "The passage provides specific examples of AI applications in different industries.",
+        "answer": "NOT GIVEN",
+        "explanation": "While the passage mentions AI's impact on various industries, it doesn't provide specific examples of applications."
+      },
+      {
+        "id": 2015,
+        "question": "Bias in AI systems is not considered a significant concern.",
+        "answer": "FALSE",
+        "explanation": "The passage lists bias as one of the significant ethical concerns raised by AI development."
+      },
+      {
+        "id": 2016,
+        "question": "The author believes AI development should be stopped immediately.",
+        "answer": "NOT GIVEN",
+        "explanation": "The passage presents both benefits and concerns of AI but doesn't express an opinion about stopping its development."
+      },
+      {
+        "id": 2017,
+        "question": "AI predictions are always completely accurate.",
+        "answer": "FALSE",
+        "explanation": "The passage states that AI can make predictions 'with remarkable accuracy', not complete accuracy."
+      }
+    ]
+  },
+  {
+    "id": 2004,
+    "title": "Space Exploration: True/False/Not Given Practice",
+    "category": "True/False/Not Given",
+    "difficulty": "Intermediate",
+    "duration": "18 min",
+    "description": "Practice with space exploration and astronomy texts, focusing on scientific facts and research findings.",
+    "passage": "Space exploration has entered a new era with the emergence of private companies alongside traditional government space agencies. Companies like SpaceX and Blue Origin have significantly reduced the cost of launching payloads into space, making space more accessible than ever before. The International Space Station continues to serve as a crucial platform for scientific research, with astronauts conducting experiments in microgravity that would be impossible on Earth. Recent discoveries of potentially habitable exoplanets have renewed interest in the search for extraterrestrial life, though no definitive evidence has been found yet.",
+    "questions": [
+      {
+        "id": 2018,
+        "question": "Only government agencies are involved in space exploration today.",
+        "answer": "FALSE",
+        "explanation": "The passage states that private companies have emerged alongside traditional government space agencies."
+      },
+      {
+        "id": 2019,
+        "question": "Private companies have made space launches more expensive.",
+        "answer": "FALSE",
+        "explanation": "The passage states that companies like SpaceX and Blue Origin have 'significantly reduced the cost of launching payloads into space'."
+      },
+      {
+        "id": 2020,
+        "question": "The International Space Station is no longer used for research.",
+        "answer": "FALSE",
+        "explanation": "The passage states that the ISS 'continues to serve as a crucial platform for scientific research'."
+      },
+      {
+        "id": 2021,
+        "question": "Microgravity experiments can only be conducted in space.",
+        "answer": "TRUE",
+        "explanation": "The passage states that astronauts conduct experiments in microgravity 'that would be impossible on Earth'."
+      },
+      {
+        "id": 2022,
+        "question": "Scientists have found definitive evidence of extraterrestrial life.",
+        "answer": "FALSE",
+        "explanation": "The passage states that 'no definitive evidence has been found yet' for extraterrestrial life."
+      },
+      {
+        "id": 2023,
+        "question": "Recent discoveries have increased interest in finding life beyond Earth.",
+        "answer": "TRUE",
+        "explanation": "The passage states that recent discoveries of potentially habitable exoplanets 'have renewed interest in the search for extraterrestrial life'."
+      },
+      {
+        "id": 2024,
+        "question": "The passage mentions specific names of exoplanets that have been discovered.",
+        "answer": "NOT GIVEN",
+        "explanation": "While the passage mentions discoveries of potentially habitable exoplanets, it doesn't provide specific names."
+      },
+      {
+        "id": 2025,
+        "question": "Space exploration is becoming less accessible to private companies.",
+        "answer": "FALSE",
+        "explanation": "The passage states that space is becoming 'more accessible than ever before' due to private companies."
+      },
+      {
+        "id": 2026,
+        "question": "The author believes that extraterrestrial life definitely exists.",
+        "answer": "NOT GIVEN",
+        "explanation": "The passage discusses the search for extraterrestrial life but doesn't express the author's personal belief about its existence."
+      },
+      {
+        "id": 2027,
+        "question": "All space research requires the International Space Station.",
+        "answer": "NOT GIVEN",
+        "explanation": "While the passage mentions the ISS as a crucial platform, it doesn't state that all space research requires it."
       }
     ]
   }

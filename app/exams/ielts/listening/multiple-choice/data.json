@@ -5,7 +5,6 @@
     "category": "Multiple Choice",
     "difficulty": "Beginner",
     "duration": "12 min",
-    "questions": 5,
     "description": "Master multiple choice questions in IELTS listening with strategic approaches.",
     "audioUrl": "/audio/listening/multiple-choice-1.mp3",
     "transcript": "Welcome to the university library orientation. The library is open from 8 AM to 10 PM on weekdays and 9 AM to 6 PM on weekends. Students can borrow up to 10 books for a period of 3 weeks. Late fees are 50 cents per day per book. The library also provides access to online databases and research materials.",
@@ -78,7 +77,6 @@
     "category": "Multiple Choice",
     "difficulty": "Intermediate",
     "duration": "15 min",
-    "questions": 6,
     "description": "Practice multiple choice questions about university campus facilities and services.",
     "audioUrl": "/audio/listening/campus-tour.mp3",
     "transcript": "Good morning everyone, and welcome to our campus tour. I'm Sarah, and I'll be your guide today. Our university was established in 1952 and has grown to accommodate over 25,000 students. The main library is located in the center of campus, next to the student union building. We have three dining halls, with the largest one serving over 2,000 meals daily. The sports complex includes an Olympic-sized swimming pool and a state-of-the-art gymnasium.",
@@ -127,7 +125,6 @@
     "category": "Multiple Choice",
     "difficulty": "Advanced",
     "duration": "18 min",
-    "questions": 4,
     "description": "Listen to information about academic support services and answer multiple choice questions.",
     "passage": "Our university offers comprehensive academic support services to help students succeed. The writing center provides one-on-one tutoring sessions, the math lab offers drop-in assistance, and the career services office helps with job placement and internship opportunities.",
     "questions": [
@@ -178,6 +175,270 @@
         ],
         "answer": 2,
         "explanation": "The speaker describes the services as comprehensive."
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Job Interview: Multiple Choice Practice",
+    "category": "Multiple Choice",
+    "difficulty": "Intermediate",
+    "duration": "16 min",
+    "description": "Practice multiple choice questions based on job interview conversations and workplace scenarios.",
+    "audioUrl": "/audio/listening/job-interview.mp3",
+    "transcript": "Good morning, Ms. Johnson. Thank you for coming in today. I'm David Chen, the HR manager. We're very excited about your application for the marketing coordinator position. Could you tell me a bit about your previous experience in digital marketing? I see you worked at Tech Solutions for two years. What were your main responsibilities there? Also, I noticed you have a certification in social media marketing. How do you think this will benefit our team?",
+    "questions": [
+      {
+        "id": 8,
+        "question": "What is the speaker's name?",
+        "options": [
+          "Ms. Johnson",
+          "David Chen",
+          "Tech Solutions",
+          "Marketing Coordinator"
+        ],
+        "answer": 1,
+        "explanation": "The speaker introduces himself as 'David Chen, the HR manager'."
+      },
+      {
+        "id": 9,
+        "question": "What position is being discussed?",
+        "options": [
+          "HR Manager",
+          "Marketing Coordinator",
+          "Digital Marketing Specialist",
+          "Social Media Manager"
+        ],
+        "answer": 1,
+        "explanation": "The speaker mentions 'your application for the marketing coordinator position'."
+      },
+      {
+        "id": 10,
+        "question": "How long did the candidate work at Tech Solutions?",
+        "options": [
+          "One year",
+          "Two years",
+          "Three years",
+          "Four years"
+        ],
+        "answer": 1,
+        "explanation": "The speaker states 'I see you worked at Tech Solutions for two years'."
+      },
+      {
+        "id": 11,
+        "question": "What certification does the candidate have?",
+        "options": [
+          "Digital Marketing",
+          "Social Media Marketing",
+          "Marketing Coordinator",
+          "HR Management"
+        ],
+        "answer": 1,
+        "explanation": "The speaker mentions 'you have a certification in social media marketing'."
+      },
+      {
+        "id": 12,
+        "question": "What does the speaker ask about regarding previous experience?",
+        "options": [
+          "Salary expectations",
+          "Main responsibilities",
+          "Reasons for leaving",
+          "Team size"
+        ],
+        "answer": 1,
+        "explanation": "The speaker asks 'What were your main responsibilities there?'"
+      },
+      {
+        "id": 13,
+        "question": "How does the speaker feel about the candidate's application?",
+        "options": [
+          "Neutral",
+          "Very excited",
+          "Concerned",
+          "Disappointed"
+        ],
+        "answer": 1,
+        "explanation": "The speaker states 'We're very excited about your application'."
+      },
+      {
+        "id": 14,
+        "question": "What does the speaker ask about the certification?",
+        "options": [
+          "When it was obtained",
+          "How it will benefit the team",
+          "Where it was obtained",
+          "How much it cost"
+        ],
+        "answer": 1,
+        "explanation": "The speaker asks 'How do you think this will benefit our team?'"
+      },
+      {
+        "id": 15,
+        "question": "What is the speaker's role?",
+        "options": [
+          "Marketing Manager",
+          "HR Manager",
+          "Team Leader",
+          "Company Director"
+        ],
+        "answer": 1,
+        "explanation": "The speaker introduces himself as 'David Chen, the HR manager'."
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Travel Information: Multiple Choice Practice",
+    "category": "Multiple Choice",
+    "difficulty": "Advanced",
+    "duration": "22 min",
+    "description": "Advanced practice with travel information, airport announcements, and tourist guidance.",
+    "audioUrl": "/audio/listening/travel-info.mp3",
+    "transcript": "Attention all passengers. This is a general announcement regarding flight delays and cancellations due to severe weather conditions. Flight BA 1234 to London has been delayed by 3 hours and will now depart at 6:30 PM. Passengers on this flight should proceed to Gate 15 for updated information. Flight KL 5678 to Amsterdam has been cancelled. Affected passengers should contact the airline desk for rebooking options. The weather is expected to improve by evening, and we anticipate normal operations to resume tomorrow morning. We apologize for any inconvenience caused.",
+    "questions": [
+      {
+        "id": 16,
+        "question": "What is the main reason for flight disruptions?",
+        "options": [
+          "Technical problems",
+          "Severe weather conditions",
+          "Staff shortages",
+          "Security issues"
+        ],
+        "answer": 1,
+        "explanation": "The announcement states 'due to severe weather conditions'."
+      },
+      {
+        "id": 17,
+        "question": "What is the new departure time for flight BA 1234?",
+        "options": [
+          "3:30 PM",
+          "6:30 PM",
+          "9:30 PM",
+          "12:30 PM"
+        ],
+        "answer": 1,
+        "explanation": "The announcement states 'will now depart at 6:30 PM'."
+      },
+      {
+        "id": 18,
+        "question": "How long has flight BA 1234 been delayed?",
+        "options": [
+          "2 hours",
+          "3 hours",
+          "4 hours",
+          "5 hours"
+        ],
+        "answer": 1,
+        "explanation": "The announcement states 'has been delayed by 3 hours'."
+      },
+      {
+        "id": 19,
+        "question": "What should passengers on flight BA 1234 do?",
+        "options": [
+          "Go to the check-in desk",
+          "Proceed to Gate 15",
+          "Wait in the departure lounge",
+          "Contact customer service"
+        ],
+        "answer": 1,
+        "explanation": "The announcement states 'should proceed to Gate 15 for updated information'."
+      },
+      {
+        "id": 20,
+        "question": "What happened to flight KL 5678?",
+        "options": [
+          "It was delayed",
+          "It was cancelled",
+          "It departed on time",
+          "It was diverted"
+        ],
+        "answer": 1,
+        "explanation": "The announcement states 'Flight KL 5678 to Amsterdam has been cancelled'."
+      },
+      {
+        "id": 21,
+        "question": "What should passengers on the cancelled flight do?",
+        "options": [
+          "Wait for the next flight",
+          "Contact the airline desk for rebooking",
+          "Go to Gate 15",
+          "Check the weather forecast"
+        ],
+        "answer": 1,
+        "explanation": "The announcement states 'Affected passengers should contact the airline desk for rebooking options'."
+      },
+      {
+        "id": 22,
+        "question": "When is the weather expected to improve?",
+        "options": [
+          "By afternoon",
+          "By evening",
+          "By tomorrow morning",
+          "By next week"
+        ],
+        "answer": 1,
+        "explanation": "The announcement states 'The weather is expected to improve by evening'."
+      },
+      {
+        "id": 23,
+        "question": "When are normal operations expected to resume?",
+        "options": [
+          "This evening",
+          "Tomorrow morning",
+          "Next week",
+          "In two days"
+        ],
+        "answer": 1,
+        "explanation": "The announcement states 'we anticipate normal operations to resume tomorrow morning'."
+      },
+      {
+        "id": 24,
+        "question": "What does the speaker apologize for?",
+        "options": [
+          "The weather",
+          "Any inconvenience caused",
+          "The delays",
+          "The cancellations"
+        ],
+        "answer": 1,
+        "explanation": "The announcement ends with 'We apologize for any inconvenience caused'."
+      },
+      {
+        "id": 25,
+        "question": "What is the destination of flight BA 1234?",
+        "options": [
+          "Amsterdam",
+          "London",
+          "Paris",
+          "Berlin"
+        ],
+        "answer": 1,
+        "explanation": "The announcement mentions 'Flight BA 1234 to London'."
+      },
+      {
+        "id": 26,
+        "question": "What is the destination of flight KL 5678?",
+        "options": [
+          "Amsterdam",
+          "London",
+          "Paris",
+          "Berlin"
+        ],
+        "answer": 0,
+        "explanation": "The announcement mentions 'Flight KL 5678 to Amsterdam'."
+      },
+      {
+        "id": 27,
+        "question": "What type of announcement is this?",
+        "options": [
+          "Security announcement",
+          "General announcement",
+          "Emergency announcement",
+          "Boarding announcement"
+        ],
+        "answer": 1,
+        "explanation": "The announcement begins with 'This is a general announcement'."
       }
     ]
   }

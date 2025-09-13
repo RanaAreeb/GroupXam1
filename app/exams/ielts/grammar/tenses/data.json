@@ -225,5 +225,161 @@
         "explanation": "Future perfect is used for actions completed before a specific future time."
       }
     ]
+  },
+  {
+    "id": 103,
+    "title": "Perfect Tenses: Advanced Practice",
+    "category": "Tenses",
+    "difficulty": "Advanced",
+    "duration": "20 min",
+    "questions": 12,
+    "description": "Master all perfect tenses including present perfect, past perfect, and future perfect.",
+    "grammarPoint": "Perfect Tenses",
+    "questions": [
+      {
+        "id": 16,
+        "question": "Choose the correct form: 'I _____ this book three times.'",
+        "options": [
+          "read",
+          "am reading",
+          "have read",
+          "will read"
+        ],
+        "answer": 2,
+        "explanation": "Present perfect is used for life experiences. 'Three times' indicates repeated action in the past with present relevance."
+      },
+      {
+        "id": 17,
+        "question": "Complete: 'She _____ in Paris for two years before moving to London.'",
+        "options": [
+          "lived",
+          "was living",
+          "had lived",
+          "has lived"
+        ],
+        "answer": 2,
+        "explanation": "Past perfect is used for actions completed before another past action. Living in Paris happened before moving to London."
+      },
+      {
+        "id": 18,
+        "question": "Choose the correct form: 'By next month, I _____ working here for five years.'",
+        "options": [
+          "will work",
+          "will be working",
+          "will have been working",
+          "am working"
+        ],
+        "answer": 2,
+        "explanation": "Future perfect continuous is used for actions that will have been ongoing up to a future point."
+      },
+      {
+        "id": 19,
+        "question": "Complete: 'The children _____ their homework when their parents arrived.'",
+        "options": [
+          "finished",
+          "were finishing",
+          "had finished",
+          "finish"
+        ],
+        "answer": 2,
+        "explanation": "Past perfect is used for actions completed before another past action. Homework was finished before parents arrived."
+      },
+      {
+        "id": 20,
+        "question": "Choose the correct form: 'I _____ never _____ such a beautiful sunset.'",
+        "options": [
+          "have / seen",
+          "am / seeing",
+          "do / see",
+          "will / see"
+        ],
+        "answer": 0,
+        "explanation": "Present perfect with 'never' expresses life experiences. 'Have never seen' is the correct form."
+      },
+      {
+        "id": 21,
+        "question": "Complete: 'By the time the doctor arrived, the patient _____ already _____ .'",
+        "options": [
+          "died",
+          "was dying",
+          "had died",
+          "dies"
+        ],
+        "answer": 2,
+        "explanation": "Past perfect is used for actions completed before another past action. The patient died before the doctor arrived."
+      },
+      {
+        "id": 22,
+        "question": "Choose the correct form: 'We _____ each other since childhood.'",
+        "options": [
+          "know",
+          "are knowing",
+          "have known",
+          "knew"
+        ],
+        "answer": 2,
+        "explanation": "Present perfect is used for actions that started in the past and continue to the present. 'Since childhood' indicates duration."
+      },
+      {
+        "id": 23,
+        "question": "Complete: 'The company _____ its profits by 20% last year.'",
+        "options": [
+          "increased",
+          "was increasing",
+          "had increased",
+          "has increased"
+        ],
+        "answer": 0,
+        "explanation": "Past simple is used for completed actions in the past. 'Last year' indicates a specific past time."
+      },
+      {
+        "id": 24,
+        "question": "Choose the correct form: 'I _____ just _____ my coffee when you called.'",
+        "options": [
+          "finished",
+          "was finishing",
+          "had just finished",
+          "finish"
+        ],
+        "answer": 2,
+        "explanation": "Past perfect with 'just' indicates an action completed immediately before another past action."
+      },
+      {
+        "id": 25,
+        "question": "Complete: 'By 2025, scientists _____ a cure for this disease.'",
+        "options": [
+          "will find",
+          "will be finding",
+          "will have found",
+          "find"
+        ],
+        "answer": 2,
+        "explanation": "Future perfect is used for actions completed before a specific future time."
+      },
+      {
+        "id": 26,
+        "question": "Choose the correct form: 'She _____ her keys and can't get into her house.'",
+        "options": [
+          "loses",
+          "is losing",
+          "has lost",
+          "lost"
+        ],
+        "answer": 2,
+        "explanation": "Present perfect is used for past actions with present consequences. Losing keys affects the present situation."
+      },
+      {
+        "id": 27,
+        "question": "Complete: 'The students _____ their exams before the summer holidays began.'",
+        "options": [
+          "took",
+          "were taking",
+          "had taken",
+          "take"
+        ],
+        "answer": 2,
+        "explanation": "Past perfect is used for actions completed before another past action. Exams were taken before holidays began."
+      }
+    ]
   }
 ]

@@ -54,5 +54,125 @@
         "explanation": "Paragraph C addresses cultural differences in business communication."
       }
     ]
+  },
+  {
+    "id": 3,
+    "title": "Matching Headings - Environmental Science",
+    "description": "Practice matching headings with environmental and sustainability topics",
+    "difficulty": "Intermediate",
+    "category": "Matching Headings",
+    "duration": "22 minutes",
+    "questions": [
+      {
+        "question": "Choose the correct heading for paragraph A",
+        "options": ["Climate change causes", "Biodiversity loss effects", "Pollution sources", "Renewable energy benefits"],
+        "answer": 0,
+        "explanation": "Paragraph A discusses the primary causes of climate change."
+      },
+      {
+        "question": "Choose the correct heading for paragraph B",
+        "options": ["Economic impacts", "Environmental consequences", "Social implications", "Political responses"],
+        "answer": 1,
+        "explanation": "Paragraph B focuses on the environmental effects of climate change."
+      },
+      {
+        "question": "Choose the correct heading for paragraph C",
+        "options": ["Individual actions", "Government policies", "International agreements", "Corporate responsibility"],
+        "answer": 2,
+        "explanation": "Paragraph C discusses global cooperation and international climate agreements."
+      },
+      {
+        "question": "Choose the correct heading for paragraph D",
+        "options": ["Future predictions", "Current mitigation strategies", "Historical context", "Scientific methodology"],
+        "answer": 1,
+        "explanation": "Paragraph D presents current strategies being implemented to address climate change."
+      },
+      {
+        "question": "Choose the correct heading for paragraph E",
+        "options": ["Research findings", "Public awareness campaigns", "Technology solutions", "Educational programs"],
+        "answer": 2,
+        "explanation": "Paragraph E focuses on technological innovations for climate solutions."
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Matching Headings - Technology and Society",
+    "description": "Practice matching headings with technology and social impact topics",
+    "difficulty": "Advanced",
+    "category": "Matching Headings",
+    "duration": "25 minutes",
+    "questions": [
+      {
+        "question": "Choose the correct heading for paragraph A",
+        "options": ["Digital transformation overview", "Social media evolution", "Artificial intelligence development", "Internet history"],
+        "answer": 0,
+        "explanation": "Paragraph A provides an overview of how digital technology has transformed society."
+      },
+      {
+        "question": "Choose the correct heading for paragraph B",
+        "options": ["Privacy concerns", "Economic benefits", "Educational impacts", "Healthcare applications"],
+        "answer": 0,
+        "explanation": "Paragraph B discusses privacy issues arising from digital technology use."
+      },
+      {
+        "question": "Choose the correct heading for paragraph C",
+        "options": ["Workplace changes", "Communication methods", "Entertainment options", "Shopping habits"],
+        "answer": 0,
+        "explanation": "Paragraph C examines how technology has changed the nature of work."
+      },
+      {
+        "question": "Choose the correct heading for paragraph D",
+        "options": ["Generational differences", "Accessibility challenges", "Cultural impacts", "Language evolution"],
+        "answer": 1,
+        "explanation": "Paragraph D addresses digital divide and accessibility issues."
+      },
+      {
+        "question": "Choose the correct heading for paragraph E",
+        "options": ["Future predictions", "Current regulations", "Ethical considerations", "Economic analysis"],
+        "answer": 2,
+        "explanation": "Paragraph E discusses ethical implications of technological advancement."
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Matching Headings - Health and Medicine",
+    "description": "Practice matching headings with medical and health-related topics",
+    "difficulty": "Advanced",
+    "category": "Matching Headings",
+    "duration": "24 minutes",
+    "questions": [
+      {
+        "question": "Choose the correct heading for paragraph A",
+        "options": ["Disease prevention strategies", "Medical research methods", "Healthcare system overview", "Patient care approaches"],
+        "answer": 2,
+        "explanation": "Paragraph A provides an overview of modern healthcare systems."
+      },
+      {
+        "question": "Choose the correct heading for paragraph B",
+        "options": ["Treatment innovations", "Diagnostic techniques", "Surgical procedures", "Rehabilitation methods"],
+        "answer": 0,
+        "explanation": "Paragraph B discusses recent innovations in medical treatment."
+      },
+      {
+        "question": "Choose the correct heading for paragraph C",
+        "options": ["Mental health awareness", "Physical fitness programs", "Nutrition guidelines", "Lifestyle modifications"],
+        "answer": 0,
+        "explanation": "Paragraph C focuses on mental health and psychological well-being."
+      },
+      {
+        "question": "Choose the correct heading for paragraph D",
+        "options": ["Global health challenges", "Local healthcare access", "Insurance systems", "Medical education"],
+        "answer": 0,
+        "explanation": "Paragraph D addresses worldwide health issues and disparities."
+      },
+      {
+        "question": "Choose the correct heading for paragraph E",
+        "options": ["Future medical technologies", "Current research findings", "Historical developments", "Ethical considerations"],
+        "answer": 0,
+        "explanation": "Paragraph E explores emerging technologies in medicine."
+      }
+    ]
   }
 ]

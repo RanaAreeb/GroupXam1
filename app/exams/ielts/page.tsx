@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import ProtectedRoute from "@/components/ProtectedRoute";
 import { useAuth } from "@/hooks/use-auth";
+import { usePaymentAccess } from "@/hooks/use-payment-access";
 import { trackQuizCompletion, getQuizSubject, getQuizType } from "@/lib/activityTracker";
 import { ieltsExams, mockExam, allMockExams } from "./exams-data";
 import { readingPractices, readingCategories, getReadingPracticesByCategory, getReadingPracticesByDifficulty } from "./reading/reading-data";
@@ -155,6 +156,7 @@ const generateQuestionsForPractice = (practice: any) => {
 
 export default function IELTSExamsPage() {
   const { user } = useAuth();
+  const { hasAccess, isLoading: isCheckingAccess } = usePaymentAccess();
   const [openExam, setOpenExam] = useState<number | null>(null);
   
   
@@ -180,6 +182,18 @@ export default function IELTSExamsPage() {
   const [whiteboardOpen, setWhiteboardOpen] = useState(false);
   const searchParams = useSearchParams();
   const router = useRouter();
+
+  // Check access before allowing actions
+  const handleAccessCheck = (action: () => void) => {
+    if (isCheckingAccess) return;
+    
+    if (hasAccess) {
+      action();
+    } else {
+      alert('Please purchase access first to use this feature. You will be redirected to our packages section.');
+      window.location.href = '/exams/ielts/info#packages';
+    }
+  };
 
   const handleStart = (examId: number) => {
     setOpenExam(examId);
@@ -474,41 +488,21 @@ export default function IELTSExamsPage() {
                             </div>
                           </div>
                           <Button 
-                            onClick={() => {
+                            onClick={() => handleAccessCheck(() => {
                               if (exam.subject === "Reading") {
+                                setActiveTab("practice");
+                                setSelectedReadingPractice(1);
                                 setShowReadingPractice(true);
-                                setShowListeningPractice(false);
-                                setShowGrammarPractice(false);
-                                setOpenExam(null);
-                                setShowFeedback(false);
-                                setSelectedReadingPractice(null);
-                                setSelectedListeningPractice(null);
-                                setSelectedGrammarPractice(null);
                               } else if (exam.subject === "Listening") {
+                                setActiveTab("practice");
+                                setSelectedListeningPractice(1);
                                 setShowListeningPractice(true);
-                                setShowReadingPractice(false);
-                                setShowGrammarPractice(false);
-                                setOpenExam(null);
-                                setShowFeedback(false);
-                                setSelectedReadingPractice(null);
-                                setSelectedListeningPractice(null);
-                                setSelectedGrammarPractice(null);
                               } else if (exam.subject === "Grammar & Vocabulary") {
+                                setActiveTab("practice");
+                                setSelectedGrammarPractice(1);
                                 setShowGrammarPractice(true);
-                                setShowReadingPractice(false);
-                                setShowListeningPractice(false);
-                                setOpenExam(null);
-                                setShowFeedback(false);
-                                setSelectedReadingPractice(null);
-                                setSelectedListeningPractice(null);
-                                setSelectedGrammarPractice(null);
-                              } else {
-                                setOpenExam(exam.id);
-                                setShowReadingPractice(false);
-                                setShowListeningPractice(false);
-                                setShowGrammarPractice(false);
                               }
-                            }}
+                            })}
                             className="bg-emerald-600 hover:bg-emerald-700 text-white mt-auto w-full rounded-full shadow-lg"
                           >
                             {exam.subject === "Reading" ? "Go to Reading Practice" : 
@@ -575,13 +569,13 @@ export default function IELTSExamsPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {readingPractices
                   .filter(practice => {
-                    const difficultyMatch = readingFilter === "all" || practice.difficulty.toLowerCase() === readingFilter;
+                    const difficultyMatch = readingFilter === "all" || practice.difficulty?.toLowerCase() === readingFilter;
                     const categoryMatch = readingCategoryFilter === "all" || practice.category === readingCategoryFilter;
                     return difficultyMatch && categoryMatch;
                   })
-                  .map((practice) => (
+                  .map((practice, index) => (
                     <div 
-                      key={practice.id} 
+                      key={`reading-${practice.id}-${index}`} 
                       className="group relative overflow-hidden rounded-2xl shadow-lg border-0 bg-white/90 backdrop-blur-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 p-6"
                     >
                       <div className="flex items-start justify-between mb-4">
@@ -634,31 +628,20 @@ export default function IELTSExamsPage() {
                           </Button>
                           <Button 
                             size="sm"
-                            onClick={() => {
-                              console.log("Start Practice button clicked for:", practice.title);
-                              
-                              // Create and start the practice directly
-                              const questions = generateQuestionsForPractice(practice);
-                              
+                            onClick={() => handleAccessCheck(() => {
+                              // Start the practice directly
                               const practiceExam = {
                                 id: 1000 + practice.id,
                                 title: practice.title,
                                 subject: "Reading",
-                                questions: questions
+                                questions: generateQuestionsForPractice(practice)
                               };
                               
-                              console.log("Creating practice exam:", practiceExam);
-                              console.log("Generated questions:", questions);
-                              
                               // Store the practice exam
-                              setPracticeExams(prev => {
-                                const updated = {
-                                  ...prev,
-                                  [practiceExam.id]: practiceExam
-                                };
-                                console.log("Updated practiceExams:", updated);
-                                return updated;
-                              });
+                              setPracticeExams(prev => ({
+                                ...prev,
+                                [practiceExam.id]: practiceExam
+                              }));
                               
                               // Set up the exam and switch to exam mode
                               setOpenExam(practiceExam.id);
@@ -672,9 +655,7 @@ export default function IELTSExamsPage() {
                                 ...prev,
                                 [practiceExam.id]: Array(practiceExam.questions.length).fill(-1)
                               }));
-                              
-                              console.log("Set openExam to:", practiceExam.id);
-                            }}
+                            })}
                             className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-4 py-1 text-xs relative z-10"
                           >
                             Start Practice
@@ -854,13 +835,13 @@ export default function IELTSExamsPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {listeningPractices
                   .filter(practice => {
-                    const difficultyMatch = listeningFilter === "all" || practice.difficulty.toLowerCase() === listeningFilter;
+                    const difficultyMatch = listeningFilter === "all" || practice.difficulty?.toLowerCase() === listeningFilter;
                     const categoryMatch = listeningCategoryFilter === "all" || practice.category === listeningCategoryFilter;
                     return difficultyMatch && categoryMatch;
                   })
-                  .map((practice) => (
+                  .map((practice, index) => (
                     <div 
-                      key={practice.id} 
+                      key={`listening-${practice.id}-${index}`} 
                       className="group relative overflow-hidden rounded-2xl shadow-lg border-0 bg-white/90 backdrop-blur-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 p-6"
                     >
                       <div className="flex items-start justify-between mb-4">
@@ -913,31 +894,20 @@ export default function IELTSExamsPage() {
                           </Button>
                           <Button 
                             size="sm"
-                            onClick={() => {
-                              console.log("Start Practice button clicked for:", practice.title);
-                              
-                              // Create and start the practice directly
-                              const questions = generateQuestionsForPractice(practice);
-                              
+                            onClick={() => handleAccessCheck(() => {
+                              // Start the practice directly
                               const practiceExam = {
                                 id: 2000 + practice.id,
                                 title: practice.title,
                                 subject: "Listening",
-                                questions: questions
+                                questions: generateQuestionsForPractice(practice)
                               };
                               
-                              console.log("Creating practice exam:", practiceExam);
-                              console.log("Generated questions:", questions);
-                              
                               // Store the practice exam
-                              setPracticeExams(prev => {
-                                const updated = {
-                                  ...prev,
-                                  [practiceExam.id]: practiceExam
-                                };
-                                console.log("Updated practiceExams:", updated);
-                                return updated;
-                              });
+                              setPracticeExams(prev => ({
+                                ...prev,
+                                [practiceExam.id]: practiceExam
+                              }));
                               
                               // Set up the exam and switch to exam mode
                               setOpenExam(practiceExam.id);
@@ -951,9 +921,7 @@ export default function IELTSExamsPage() {
                                 ...prev,
                                 [practiceExam.id]: Array(practiceExam.questions.length).fill(-1)
                               }));
-                              
-                              console.log("Set openExam to:", practiceExam.id);
-                            }}
+                            })}
                             className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-4 py-1 text-xs relative z-10"
                           >
                             Start Practice
@@ -1036,13 +1004,13 @@ export default function IELTSExamsPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {grammarPractices
                   .filter(practice => {
-                    const difficultyMatch = grammarFilter === "all" || practice.difficulty.toLowerCase() === grammarFilter;
+                    const difficultyMatch = grammarFilter === "all" || practice.difficulty?.toLowerCase() === grammarFilter;
                     const categoryMatch = grammarCategoryFilter === "all" || practice.category === grammarCategoryFilter;
                     return difficultyMatch && categoryMatch;
                   })
-                  .map((practice) => (
+                  .map((practice, index) => (
                     <div 
-                      key={practice.id} 
+                      key={`grammar-${practice.id}-${index}`} 
                       className="group relative overflow-hidden rounded-2xl shadow-lg border-0 bg-white/90 backdrop-blur-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 p-6"
                     >
                       <div className="flex items-start justify-between mb-4">
@@ -1095,31 +1063,20 @@ export default function IELTSExamsPage() {
                           </Button>
                           <Button 
                             size="sm"
-                            onClick={() => {
-                              console.log("Start Practice button clicked for:", practice.title);
-                              
-                              // Create and start the practice directly
-                              const questions = generateQuestionsForPractice(practice);
-                              
+                            onClick={() => handleAccessCheck(() => {
+                              // Start the practice directly
                               const practiceExam = {
                                 id: 3000 + practice.id,
                                 title: practice.title,
                                 subject: "Grammar & Vocabulary",
-                                questions: questions
+                                questions: generateQuestionsForPractice(practice)
                               };
                               
-                              console.log("Creating practice exam:", practiceExam);
-                              console.log("Generated questions:", questions);
-                              
                               // Store the practice exam
-                              setPracticeExams(prev => {
-                                const updated = {
-                                  ...prev,
-                                  [practiceExam.id]: practiceExam
-                                };
-                                console.log("Updated practiceExams:", updated);
-                                return updated;
-                              });
+                              setPracticeExams(prev => ({
+                                ...prev,
+                                [practiceExam.id]: practiceExam
+                              }));
                               
                               // Set up the exam and switch to exam mode
                               setOpenExam(practiceExam.id);
@@ -1133,9 +1090,7 @@ export default function IELTSExamsPage() {
                                 ...prev,
                                 [practiceExam.id]: Array(practiceExam.questions.length).fill(-1)
                               }));
-                              
-                              console.log("Set openExam to:", practiceExam.id);
-                            }}
+                            })}
                             className="bg-purple-600 hover:bg-purple-700 text-white rounded-full px-4 py-1 text-xs relative z-10"
                           >
                             Start Practice
@@ -1203,13 +1158,24 @@ export default function IELTSExamsPage() {
                       </div>
 
                       <div className="flex gap-2">
-                        <Button asChild className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-full shadow-lg flex-1 text-sm">
-                          <Link href={`/exams/ielts?open=${exam.id}&tab=mock`}>
-                            <Award className="w-4 h-4 mr-1" />
-                            Start Exam
-                          </Link>
+                        <Button 
+                          onClick={() => handleAccessCheck(() => {
+                            setOpenExam(exam.id);
+                            setActiveTab("mock");
+                          })}
+                          className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-full shadow-lg flex-1 text-sm"
+                        >
+                          <Award className="w-4 h-4 mr-1" />
+                          Start Exam
                         </Button>
-                        <Button variant="outline" className="px-3 py-2 rounded-full text-xs">
+                        <Button 
+                          onClick={() => handleAccessCheck(() => {
+                            // Show sample questions or preview
+                            alert('Sample questions preview coming soon!');
+                          })}
+                          variant="outline" 
+                          className="px-3 py-2 rounded-full text-xs"
+                        >
                           <FileText className="w-3 h-3 mr-1" />
                           Sample
                         </Button>
@@ -1511,7 +1477,7 @@ export default function IELTSExamsPage() {
           </Dialog>
         </div>
       </div>
-    </PageTransition>
+      </PageTransition>
     </ProtectedRoute>
   );
 }

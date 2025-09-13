@@ -1,18 +1,8 @@
 import jwt from "jsonwebtoken";
-import { MongoClient } from "mongodb";
 import { NextRequest } from "next/server";
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
-
-const uri = process.env.MONGODB_URI;
-let client;
-let clientPromise;
-
-if (!global._mongoClientPromise) {
-    client = new MongoClient(uri);
-    global._mongoClientPromise = client.connect();
-}
-clientPromise = global._mongoClientPromise;
+import { getDatabase } from "@/lib/db";
 
 // Cloudflare R2 configuration
 const r2Client = new S3Client({
@@ -63,8 +53,7 @@ export async function POST(request) {
         const fileName = `profile-images/${userId}_${timestamp}.${fileExtension}`;
 
         // Get current user to check for existing profile image
-        const client = await clientPromise;
-        const db = client.db("groupxam");
+        const db = await getDatabase();
         const usersCollection = db.collection("users");
 
         const currentUser = await usersCollection.findOne({ email: decoded.email });

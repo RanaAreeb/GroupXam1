@@ -17,6 +17,15 @@ interface AuthUser {
   bio?: string;
   createdAt?: string;
   lastLoginAt?: string;
+  access?: {
+    ielts?: boolean;
+    proctor?: boolean;
+    university?: boolean;
+  };
+  packageType?: string;
+  accessExpiresAt?: string;
+  hasPaidAccess?: boolean;
+  lastPaymentDate?: string;
 }
 
 interface AuthState {

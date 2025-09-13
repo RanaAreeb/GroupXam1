@@ -5,7 +5,6 @@
     "category": "Conditionals",
     "difficulty": "Intermediate",
     "duration": "16 min",
-    "questions": 10,
     "description": "Master zero, first, second, and third conditional structures.",
     "grammarPoint": "Conditional Sentences",
     "questions": [
@@ -137,7 +136,6 @@
     "category": "Conditionals",
     "difficulty": "Advanced",
     "duration": "20 min",
-    "questions": 12,
     "description": "Advanced practice with mixed conditional structures and variations.",
     "grammarPoint": "Mixed Conditionals",
     "questions": [
@@ -164,6 +162,268 @@
         ],
         "answer": 2,
         "explanation": "Mixed conditional: past perfect in if-clause (past decision) + would be + present participle (present continuous result)."
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Passive Voice: Comprehensive Practice",
+    "category": "Passive Voice",
+    "difficulty": "Intermediate",
+    "duration": "18 min",
+    "description": "Master passive voice constructions across different tenses and contexts.",
+    "grammarPoint": "Passive Voice",
+    "questions": [
+      {
+        "id": 11,
+        "question": "Complete the passive voice: 'The report _____ by the manager yesterday.'",
+        "options": [
+          "was written",
+          "is written",
+          "wrote",
+          "has written"
+        ],
+        "answer": 0,
+        "explanation": "Past simple passive: was/were + past participle. 'The report was written by the manager yesterday.'"
+      },
+      {
+        "id": 12,
+        "question": "Choose the correct passive form: 'The building _____ next year.'",
+        "options": [
+          "will be built",
+          "will build",
+          "is building",
+          "builds"
+        ],
+        "answer": 0,
+        "explanation": "Future passive: will be + past participle. 'The building will be built next year.'"
+      },
+      {
+        "id": 13,
+        "question": "Complete: 'The letter _____ by the secretary every morning.'",
+        "options": [
+          "is typed",
+          "types",
+          "is typing",
+          "typed"
+        ],
+        "answer": 0,
+        "explanation": "Present simple passive: is/are + past participle for habitual actions."
+      },
+      {
+        "id": 14,
+        "question": "Choose the correct form: 'The project _____ by the team for months.'",
+        "options": [
+          "has been worked on",
+          "has worked on",
+          "is working on",
+          "works on"
+        ],
+        "answer": 0,
+        "explanation": "Present perfect passive: has/have been + past participle for ongoing actions."
+      },
+      {
+        "id": 15,
+        "question": "Complete: 'The meeting _____ at 3 PM tomorrow.'",
+        "options": [
+          "will be held",
+          "will hold",
+          "holds",
+          "is holding"
+        ],
+        "answer": 0,
+        "explanation": "Future passive: will be + past participle for scheduled events."
+      },
+      {
+        "id": 16,
+        "question": "Choose the correct form: 'The car _____ by the mechanic right now.'",
+        "options": [
+          "is being repaired",
+          "is repairing",
+          "repairs",
+          "repaired"
+        ],
+        "answer": 0,
+        "explanation": "Present continuous passive: is/are being + past participle for actions in progress."
+      },
+      {
+        "id": 17,
+        "question": "Complete: 'The book _____ by millions of readers.'",
+        "options": [
+          "is read",
+          "reads",
+          "is reading",
+          "read"
+        ],
+        "answer": 0,
+        "explanation": "Present simple passive: is/are + past participle for general statements."
+      },
+      {
+        "id": 18,
+        "question": "Choose the correct form: 'The house _____ when we arrived.'",
+        "options": [
+          "was being painted",
+          "was painting",
+          "painted",
+          "is painting"
+        ],
+        "answer": 0,
+        "explanation": "Past continuous passive: was/were being + past participle for actions in progress in the past."
+      },
+      {
+        "id": 19,
+        "question": "Complete: 'The documents _____ by the lawyer yesterday.'",
+        "options": [
+          "were reviewed",
+          "reviewed",
+          "are reviewing",
+          "review"
+        ],
+        "answer": 0,
+        "explanation": "Past simple passive: was/were + past participle for completed actions in the past."
+      },
+      {
+        "id": 20,
+        "question": "Choose the correct form: 'The problem _____ by the engineers next week.'",
+        "options": [
+          "will be solved",
+          "will solve",
+          "solves",
+          "is solving"
+        ],
+        "answer": 0,
+        "explanation": "Future passive: will be + past participle for future actions."
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Reported Speech: Advanced Practice",
+    "category": "Reported Speech",
+    "difficulty": "Advanced",
+    "duration": "22 min",
+    "description": "Advanced practice with reported speech, including tense changes and reporting verbs.",
+    "grammarPoint": "Reported Speech",
+    "questions": [
+      {
+        "id": 21,
+        "question": "Complete the reported speech: 'I am studying English,' he said. → He said he _____ English.",
+        "options": [
+          "is studying",
+          "was studying",
+          "studied",
+          "studies"
+        ],
+        "answer": 1,
+        "explanation": "Present continuous changes to past continuous in reported speech: 'was studying'."
+      },
+      {
+        "id": 22,
+        "question": "Choose the correct form: 'I will help you,' she said. → She said she _____ me.",
+        "options": [
+          "will help",
+          "would help",
+          "helps",
+          "helped"
+        ],
+        "answer": 1,
+        "explanation": "Future simple changes to would + base form in reported speech: 'would help'."
+      },
+      {
+        "id": 23,
+        "question": "Complete: 'I have finished my homework,' he said. → He said he _____ his homework.",
+        "options": [
+          "has finished",
+          "had finished",
+          "finished",
+          "finishes"
+        ],
+        "answer": 1,
+        "explanation": "Present perfect changes to past perfect in reported speech: 'had finished'."
+      },
+      {
+        "id": 24,
+        "question": "Choose the correct form: 'I can speak French,' she said. → She said she _____ French.",
+        "options": [
+          "can speak",
+          "could speak",
+          "speaks",
+          "spoke"
+        ],
+        "answer": 1,
+        "explanation": "Can changes to could in reported speech: 'could speak'."
+      },
+      {
+        "id": 25,
+        "question": "Complete: 'I went to the cinema yesterday,' he said. → He said he _____ to the cinema the day before.",
+        "options": [
+          "goes",
+          "went",
+          "had gone",
+          "go"
+        ],
+        "answer": 2,
+        "explanation": "Past simple often changes to past perfect in reported speech: 'had gone'."
+      },
+      {
+        "id": 26,
+        "question": "Choose the correct form: 'I must leave now,' she said. → She said she _____ leave then.",
+        "options": [
+          "must",
+          "had to",
+          "has to",
+          "needs to"
+        ],
+        "answer": 1,
+        "explanation": "Must changes to had to in reported speech: 'had to leave'."
+      },
+      {
+        "id": 27,
+        "question": "Complete: 'I am going to buy a car,' he said. → He said he _____ to buy a car.",
+        "options": [
+          "is going",
+          "was going",
+          "goes",
+          "went"
+        ],
+        "answer": 1,
+        "explanation": "Be going to changes to was/were going to in reported speech: 'was going'."
+      },
+      {
+        "id": 28,
+        "question": "Choose the correct form: 'I may come tomorrow,' she said. → She said she _____ come the next day.",
+        "options": [
+          "may",
+          "might",
+          "can",
+          "will"
+        ],
+        "answer": 1,
+        "explanation": "May changes to might in reported speech: 'might come'."
+      },
+      {
+        "id": 29,
+        "question": "Complete: 'I don't like coffee,' he said. → He said he _____ coffee.",
+        "options": [
+          "doesn't like",
+          "didn't like",
+          "likes",
+          "liked"
+        ],
+        "answer": 1,
+        "explanation": "Present simple changes to past simple in reported speech: 'didn't like'."
+      },
+      {
+        "id": 30,
+        "question": "Choose the correct form: 'I have been working here for 5 years,' she said. → She said she _____ there for 5 years.",
+        "options": [
+          "has been working",
+          "had been working",
+          "works",
+          "worked"
+        ],
+        "answer": 1,
+        "explanation": "Present perfect continuous changes to past perfect continuous in reported speech: 'had been working'."
       }
     ]
   }

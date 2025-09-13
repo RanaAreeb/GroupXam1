@@ -154,5 +154,197 @@
         "explanation": "Future passive is common in academic writing to indicate what will be covered next."
       }
     ]
+  },
+  {
+    "id": 302,
+    "title": "Complex Passive Voice: Advanced Practice",
+    "category": "Passive Voice",
+    "difficulty": "Advanced",
+    "duration": "22 min",
+    "questions": 15,
+    "description": "Master complex passive voice constructions including modal passives and causative passives.",
+    "grammarPoint": "Complex Passive Voice",
+    "questions": [
+      {
+        "id": 10,
+        "question": "Convert to passive: 'You must complete this form.'",
+        "options": [
+          "This form must be completed.",
+          "This form must completed.",
+          "This form must be complete.",
+          "This form must completing."
+        ],
+        "answer": 0,
+        "explanation": "Modal passive: modal + be + past participle. 'Must be completed' is the correct form."
+      },
+      {
+        "id": 11,
+        "question": "Choose the correct form: 'The work _____ by Friday.'",
+        "options": [
+          "should be finished",
+          "should finished",
+          "should be finish",
+          "should finishing"
+        ],
+        "answer": 0,
+        "explanation": "Modal passive: should + be + past participle. 'Should be finished' is correct."
+      },
+      {
+        "id": 12,
+        "question": "Complete: 'The report _____ by the committee yesterday.'",
+        "options": [
+          "is being reviewed",
+          "was being reviewed",
+          "has been reviewed",
+          "will be reviewed"
+        ],
+        "answer": 1,
+        "explanation": "Past continuous passive: was/were being + past participle for actions in progress in the past."
+      },
+      {
+        "id": 13,
+        "question": "Convert to passive: 'Someone might have stolen the money.'",
+        "options": [
+          "The money might be stolen.",
+          "The money might have been stolen.",
+          "The money might stolen.",
+          "The money might have stolen."
+        ],
+        "answer": 1,
+        "explanation": "Modal perfect passive: modal + have been + past participle. 'Might have been stolen' is correct."
+      },
+      {
+        "id": 14,
+        "question": "Choose the correct form: 'The building _____ for years.'",
+        "options": [
+          "is being renovated",
+          "was being renovated",
+          "has been being renovated",
+          "will be renovated"
+        ],
+        "answer": 2,
+        "explanation": "Present perfect continuous passive: has/have been being + past participle for ongoing actions."
+      },
+      {
+        "id": 15,
+        "question": "Complete: 'The documents _____ by the lawyer right now.'",
+        "options": [
+          "are being prepared",
+          "were being prepared",
+          "have been prepared",
+          "will be prepared"
+        ],
+        "answer": 0,
+        "explanation": "Present continuous passive: am/is/are being + past participle for actions in progress now."
+      },
+      {
+        "id": 16,
+        "question": "Convert to passive: 'They had already finished the project.'",
+        "options": [
+          "The project had already been finished.",
+          "The project has already been finished.",
+          "The project was already finished.",
+          "The project is already finished."
+        ],
+        "answer": 0,
+        "explanation": "Past perfect passive: had been + past participle for actions completed before another past action."
+      },
+      {
+        "id": 17,
+        "question": "Choose the correct form: 'The problem _____ by the engineers next week.'",
+        "options": [
+          "is solved",
+          "was solved",
+          "has been solved",
+          "will be solved"
+        ],
+        "answer": 3,
+        "explanation": "Future simple passive: will be + past participle for future actions."
+      },
+      {
+        "id": 18,
+        "question": "Complete: 'The house _____ when we arrived.'",
+        "options": [
+          "is being painted",
+          "was being painted",
+          "has been painted",
+          "will be painted"
+        ],
+        "answer": 1,
+        "explanation": "Past continuous passive: was/were being + past participle for actions in progress in the past."
+      },
+      {
+        "id": 19,
+        "question": "Convert to passive: 'People speak English all over the world.'",
+        "options": [
+          "English is spoken all over the world.",
+          "English was spoken all over the world.",
+          "English has been spoken all over the world.",
+          "English will be spoken all over the world."
+        ],
+        "answer": 0,
+        "explanation": "Present simple passive: am/is/are + past participle for general statements."
+      },
+      {
+        "id": 20,
+        "question": "Choose the correct form: 'The meeting _____ by the manager tomorrow.'",
+        "options": [
+          "is chaired",
+          "was chaired",
+          "has been chaired",
+          "will be chaired"
+        ],
+        "answer": 3,
+        "explanation": "Future simple passive: will be + past participle for scheduled future events."
+      },
+      {
+        "id": 21,
+        "question": "Complete: 'The car _____ by the mechanic right now.'",
+        "options": [
+          "is being repaired",
+          "was being repaired",
+          "has been repaired",
+          "will be repaired"
+        ],
+        "answer": 0,
+        "explanation": "Present continuous passive: am/is/are being + past participle for actions in progress now."
+      },
+      {
+        "id": 22,
+        "question": "Convert to passive: 'They will have completed the work by then.'",
+        "options": [
+          "The work will have been completed by then.",
+          "The work will be completed by then.",
+          "The work has been completed by then.",
+          "The work was completed by then."
+        ],
+        "answer": 0,
+        "explanation": "Future perfect passive: will have been + past participle for actions completed before a future time."
+      },
+      {
+        "id": 23,
+        "question": "Choose the correct form: 'The book _____ by millions of readers.'",
+        "options": [
+          "is read",
+          "was read",
+          "has been read",
+          "will be read"
+        ],
+        "answer": 2,
+        "explanation": "Present perfect passive: has/have been + past participle for actions with present relevance."
+      },
+      {
+        "id": 24,
+        "question": "Complete: 'The decision _____ by the board yesterday.'",
+        "options": [
+          "is made",
+          "was made",
+          "has been made",
+          "will be made"
+        ],
+        "answer": 1,
+        "explanation": "Past simple passive: was/were + past participle for completed actions in the past."
+      }
+    ]
   }
 ]

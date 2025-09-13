@@ -106,5 +106,269 @@
         "explanation": "The passage explicitly states that during REM sleep, 'the brain consolidates memories and processes emotional experiences'."
       }
     ]
+  },
+  {
+    "id": 1002,
+    "title": "Environmental Science: Multiple Choice Practice",
+    "category": "Multiple Choice",
+    "difficulty": "Intermediate",
+    "duration": "18 min",
+    "questions": 8,
+    "description": "Practice multiple choice questions with environmental science texts and climate change topics.",
+    "passage": "Climate change represents one of the most pressing challenges of our time, affecting ecosystems, weather patterns, and human societies worldwide. Rising global temperatures, primarily caused by increased greenhouse gas emissions, have led to melting ice caps, rising sea levels, and more frequent extreme weather events. Scientists have documented significant changes in precipitation patterns, with some regions experiencing increased drought while others face more intense rainfall. The Intergovernmental Panel on Climate Change (IPCC) has warned that immediate action is necessary to limit global warming to 1.5°C above pre-industrial levels to avoid catastrophic consequences.",
+    "questions": [
+      {
+        "id": 1002,
+        "question": "What is described as the primary cause of rising global temperatures?",
+        "options": [
+          "Natural climate cycles",
+          "Increased greenhouse gas emissions",
+          "Solar radiation changes",
+          "Volcanic activity"
+        ],
+        "answer": 1,
+        "explanation": "The passage states that rising global temperatures are 'primarily caused by increased greenhouse gas emissions'."
+      },
+      {
+        "id": 1003,
+        "question": "According to the passage, climate change has led to:",
+        "options": [
+          "Only weather pattern changes",
+          "Melting ice caps, rising sea levels, and extreme weather events",
+          "Only temperature increases",
+          "Only ecosystem changes"
+        ],
+        "answer": 1,
+        "explanation": "The passage lists multiple effects: 'melting ice caps, rising sea levels, and more frequent extreme weather events'."
+      },
+      {
+        "id": 1004,
+        "question": "What have scientists documented regarding precipitation patterns?",
+        "options": [
+          "No significant changes",
+          "Uniform increases everywhere",
+          "Significant changes with regional variations",
+          "Only decreases in all regions"
+        ],
+        "answer": 2,
+        "explanation": "The passage states that 'Scientists have documented significant changes in precipitation patterns, with some regions experiencing increased drought while others face more intense rainfall'."
+      },
+      {
+        "id": 1005,
+        "question": "What temperature limit does the IPCC recommend?",
+        "options": [
+          "2°C above pre-industrial levels",
+          "1.5°C above pre-industrial levels",
+          "1°C above pre-industrial levels",
+          "3°C above pre-industrial levels"
+        ],
+        "answer": 1,
+        "explanation": "The passage states that the IPCC has warned to 'limit global warming to 1.5°C above pre-industrial levels'."
+      },
+      {
+        "id": 1006,
+        "question": "What does the IPCC warn is necessary to avoid catastrophic consequences?",
+        "options": [
+          "Gradual action over decades",
+          "Immediate action",
+          "No action needed",
+          "Only technological solutions"
+        ],
+        "answer": 1,
+        "explanation": "The passage states that the IPCC has warned that 'immediate action is necessary' to avoid catastrophic consequences."
+      },
+      {
+        "id": 1007,
+        "question": "The tone of the passage regarding climate change is:",
+        "options": [
+          "Optimistic and reassuring",
+          "Urgent and concerned",
+          "Neutral and objective",
+          "Dismissive and skeptical"
+        ],
+        "answer": 1,
+        "explanation": "The passage uses urgent language like 'most pressing challenges' and 'immediate action is necessary', indicating concern."
+      },
+      {
+        "id": 1008,
+        "question": "What does the passage suggest about the global nature of climate change?",
+        "options": [
+          "It only affects certain regions",
+          "It affects ecosystems, weather patterns, and human societies worldwide",
+          "It primarily affects developed countries",
+          "It only affects natural environments"
+        ],
+        "answer": 1,
+        "explanation": "The passage states that climate change is 'affecting ecosystems, weather patterns, and human societies worldwide'."
+      },
+      {
+        "id": 1009,
+        "question": "According to the passage, what is the relationship between temperature rise and consequences?",
+        "options": [
+          "No relationship exists",
+          "Higher temperatures lead to more severe consequences",
+          "Lower temperatures cause more problems",
+          "Temperature has no impact on consequences"
+        ],
+        "answer": 1,
+        "explanation": "The passage implies that limiting temperature rise to 1.5°C is necessary to 'avoid catastrophic consequences', suggesting higher temperatures lead to worse outcomes."
+      }
+    ]
+  },
+  {
+    "id": 1003,
+    "title": "Technology and Society: Multiple Choice Practice",
+    "category": "Multiple Choice",
+    "difficulty": "Advanced",
+    "duration": "20 min",
+    "questions": 12,
+    "description": "Advanced practice with technology and social impact texts, including digital transformation and privacy concerns.",
+    "passage": "The digital revolution has fundamentally transformed how we communicate, work, and access information. Social media platforms have created new forms of social interaction, enabling global connectivity but also raising concerns about privacy, misinformation, and mental health impacts. The rise of artificial intelligence and automation has revolutionized industries, creating new job opportunities while simultaneously displacing traditional roles. Remote work, accelerated by the COVID-19 pandemic, has become a permanent feature of many organizations, challenging traditional notions of workplace culture and collaboration. As technology continues to evolve rapidly, society must navigate the complex balance between innovation and ethical considerations.",
+    "questions": [
+      {
+        "id": 1010,
+        "question": "What has the digital revolution fundamentally transformed?",
+        "options": [
+          "Only communication methods",
+          "How we communicate, work, and access information",
+          "Only work practices",
+          "Only information access"
+        ],
+        "answer": 1,
+        "explanation": "The passage states that the digital revolution has 'fundamentally transformed how we communicate, work, and access information'."
+      },
+      {
+        "id": 1011,
+        "question": "What concerns are raised about social media platforms?",
+        "options": [
+          "Only technical issues",
+          "Privacy, misinformation, and mental health impacts",
+          "Only privacy concerns",
+          "Only misinformation problems"
+        ],
+        "answer": 1,
+        "explanation": "The passage mentions that social media platforms have raised 'concerns about privacy, misinformation, and mental health impacts'."
+      },
+      {
+        "id": 1012,
+        "question": "What has AI and automation done to industries?",
+        "options": [
+          "Only created job opportunities",
+          "Only displaced traditional roles",
+          "Revolutionized industries, creating opportunities while displacing traditional roles",
+          "Had no significant impact"
+        ],
+        "answer": 2,
+        "explanation": "The passage states that AI and automation have 'revolutionized industries, creating new job opportunities while simultaneously displacing traditional roles'."
+      },
+      {
+        "id": 1013,
+        "question": "What has remote work become in many organizations?",
+        "options": [
+          "A temporary solution",
+          "A permanent feature",
+          "An unpopular option",
+          "A declining trend"
+        ],
+        "answer": 1,
+        "explanation": "The passage states that remote work 'has become a permanent feature of many organizations'."
+      },
+      {
+        "id": 1014,
+        "question": "What accelerated the adoption of remote work?",
+        "options": [
+          "Economic factors only",
+          "The COVID-19 pandemic",
+          "Technological advances only",
+          "Government policies"
+        ],
+        "answer": 1,
+        "explanation": "The passage states that remote work was 'accelerated by the COVID-19 pandemic'."
+      },
+      {
+        "id": 1015,
+        "question": "What does remote work challenge?",
+        "options": [
+          "Only productivity levels",
+          "Traditional notions of workplace culture and collaboration",
+          "Only work-life balance",
+          "Only communication methods"
+        ],
+        "answer": 1,
+        "explanation": "The passage states that remote work has 'challenged traditional notions of workplace culture and collaboration'."
+      },
+      {
+        "id": 1016,
+        "question": "What must society navigate as technology evolves?",
+        "options": [
+          "Only technical challenges",
+          "The complex balance between innovation and ethical considerations",
+          "Only economic impacts",
+          "Only social changes"
+        ],
+        "answer": 1,
+        "explanation": "The passage states that 'society must navigate the complex balance between innovation and ethical considerations'."
+      },
+      {
+        "id": 1017,
+        "question": "How does the passage describe the pace of technological evolution?",
+        "options": [
+          "Slow and gradual",
+          "Rapid",
+          "Stable",
+          "Declining"
+        ],
+        "answer": 1,
+        "explanation": "The passage states that 'technology continues to evolve rapidly'."
+      },
+      {
+        "id": 1018,
+        "question": "What does the passage suggest about social media's global impact?",
+        "options": [
+          "It only affects local communities",
+          "It enables global connectivity",
+          "It has no social impact",
+          "It only affects young people"
+        ],
+        "answer": 1,
+        "explanation": "The passage states that social media platforms have 'enabled global connectivity'."
+      },
+      {
+        "id": 1019,
+        "question": "What is the main theme of the passage?",
+        "options": [
+          "Technology is always beneficial",
+          "Technology has both positive and negative impacts",
+          "Technology should be avoided",
+          "Technology has no social implications"
+        ],
+        "answer": 1,
+        "explanation": "The passage presents both benefits (global connectivity, new opportunities) and concerns (privacy, job displacement), showing balanced impacts."
+      },
+      {
+        "id": 1020,
+        "question": "According to the passage, what is necessary for society regarding technology?",
+        "options": [
+          "Complete acceptance of all technology",
+          "Rejection of new technology",
+          "Careful navigation of innovation and ethics",
+          "Ignoring ethical considerations"
+        ],
+        "answer": 2,
+        "explanation": "The passage emphasizes the need to 'navigate the complex balance between innovation and ethical considerations'."
+      },
+      {
+        "id": 1021,
+        "question": "What does the passage imply about the future of work?",
+        "options": [
+          "Work will remain unchanged",
+          "Work is becoming more flexible and technology-dependent",
+          "Work will become obsolete",
+          "Work will return to traditional methods"
+        ],
+        "answer": 1,
+        "explanation": "The passage suggests work is evolving with remote work becoming permanent and AI/automation changing industries."
+      }
+    ]
   }
 ]

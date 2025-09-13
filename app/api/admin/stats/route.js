@@ -389,6 +389,29 @@ export async function GET(request) {
             .sort({ createdAt: -1 })
             .toArray();
 
+        // Get payment statistics
+        const totalPayments = await db.collection('payments').countDocuments();
+        const approvedPayments = await db.collection('payments').countDocuments({ status: 'approved' });
+        const pendingPayments = await db.collection('payments').countDocuments({ status: 'pending' });
+        const rejectedPayments = await db.collection('payments').countDocuments({ status: 'rejected' });
+
+        // Get revenue data
+        const revenueData = await db.collection('payments').aggregate([
+            { $match: { status: 'approved' } },
+            { $group: { _id: null, totalRevenue: { $sum: '$amount' } } }
+        ]).toArray();
+
+        const totalRevenue = revenueData.length > 0 ? revenueData[0].totalRevenue : 0;
+
+        // Get recent payments
+        const recentPayments = await db.collection('payments')
+            .find({})
+            .sort({ paymentDate: -1 })
+            .limit(20)
+            .toArray();
+
+        console.log('Fetched payment stats:', { totalPayments, approvedPayments, pendingPayments, totalRevenue });
+
         const stats = {
             totalUsers,
             dailySignups,
@@ -404,7 +427,15 @@ export async function GET(request) {
             activities: allActivities,
             users,
             userSessionStats,
-            reviews
+            reviews,
+            paymentStats: {
+                totalPayments,
+                approvedPayments,
+                pendingPayments,
+                rejectedPayments,
+                totalRevenue,
+                recentPayments
+            }
         };
 
         return NextResponse.json({

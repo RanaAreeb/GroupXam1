@@ -7,13 +7,139 @@
     "duration": "14 min",
     "questions": 8,
     "description": "Complete sentences using information from the reading passage.",
-    "passage": "Sample passage about marine biology...",
+    "passage": "Marine biology is the scientific study of organisms that live in the ocean and other saltwater environments. Coral reefs, often called the 'rainforests of the ocean,' are among the most diverse ecosystems on Earth. These underwater structures are built by tiny marine animals called coral polyps, which secrete calcium carbonate to form their skeletons. Coral reefs support approximately 25% of all marine species despite covering less than 1% of the ocean floor. However, these vital ecosystems are under threat from climate change, pollution, and overfishing.",
     "questions": [
       {
         "id": 1,
         "question": "Coral reefs are often called the '_____' of the ocean.",
         "answer": "rainforests",
         "explanation": "The passage compares coral reefs to rainforests due to their biodiversity."
+      },
+      {
+        "id": 2,
+        "question": "Coral reefs are built by tiny marine animals called coral _____.",
+        "answer": "polyps",
+        "explanation": "The passage states that coral reefs are built by tiny marine animals called coral polyps."
+      },
+      {
+        "id": 3,
+        "question": "Coral polyps secrete _____ to form their skeletons.",
+        "answer": "calcium carbonate",
+        "explanation": "The passage mentions that coral polyps secrete calcium carbonate to form their skeletons."
+      },
+      {
+        "id": 4,
+        "question": "Coral reefs support approximately _____% of all marine species.",
+        "answer": "25",
+        "explanation": "The passage states that coral reefs support approximately 25% of all marine species."
+      },
+      {
+        "id": 5,
+        "question": "Coral reefs cover less than _____% of the ocean floor.",
+        "answer": "1",
+        "explanation": "The passage mentions that coral reefs cover less than 1% of the ocean floor."
+      },
+      {
+        "id": 6,
+        "question": "Coral reefs are under threat from climate change, pollution, and _____.",
+        "answer": "overfishing",
+        "explanation": "The passage lists overfishing as one of the threats to coral reefs."
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Space Exploration: Sentence Completion",
+    "category": "Sentence Completion",
+    "difficulty": "Intermediate",
+    "duration": "18 min",
+    "questions": 10,
+    "description": "Complete sentences about space exploration and astronomy using information from the passage.",
+    "passage": "Space exploration has revolutionized our understanding of the universe and our place within it. The International Space Station (ISS) serves as a unique laboratory for scientific research in microgravity conditions. Astronauts aboard the ISS conduct experiments that would be impossible on Earth, studying everything from human physiology to materials science. Recent missions to Mars have revealed evidence of ancient water and potential signs of past microbial life. The James Webb Space Telescope, launched in 2021, is designed to observe the universe in infrared light, allowing scientists to study the formation of the first stars and galaxies.",
+    "questions": [
+      {
+        "id": 7,
+        "question": "The International Space Station serves as a unique _____ for scientific research.",
+        "answer": "laboratory",
+        "explanation": "The passage states that the ISS serves as a unique laboratory for scientific research."
+      },
+      {
+        "id": 8,
+        "question": "Experiments on the ISS are conducted in _____ conditions.",
+        "answer": "microgravity",
+        "explanation": "The passage mentions that experiments are conducted in microgravity conditions."
+      },
+      {
+        "id": 9,
+        "question": "Recent Mars missions have revealed evidence of ancient _____.",
+        "answer": "water",
+        "explanation": "The passage states that Mars missions have revealed evidence of ancient water."
+      },
+      {
+        "id": 10,
+        "question": "Scientists are looking for signs of past _____ life on Mars.",
+        "answer": "microbial",
+        "explanation": "The passage mentions potential signs of past microbial life on Mars."
+      },
+      {
+        "id": 11,
+        "question": "The James Webb Space Telescope was launched in _____.",
+        "answer": "2021",
+        "explanation": "The passage states that the James Webb Space Telescope was launched in 2021."
+      },
+      {
+        "id": 12,
+        "question": "The James Webb telescope observes the universe in _____ light.",
+        "answer": "infrared",
+        "explanation": "The passage mentions that the telescope is designed to observe the universe in infrared light."
+      },
+      {
+        "id": 13,
+        "question": "The telescope allows scientists to study the formation of the first _____ and galaxies.",
+        "answer": "stars",
+        "explanation": "The passage states that the telescope allows study of the formation of the first stars and galaxies."
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Renewable Energy: Sentence Completion",
+    "category": "Sentence Completion",
+    "difficulty": "Advanced",
+    "duration": "20 min",
+    "questions": 8,
+    "description": "Complete sentences about renewable energy technologies and their environmental impact.",
+    "passage": "Renewable energy sources are becoming increasingly important as the world seeks to reduce carbon emissions and combat climate change. Solar power has experienced dramatic cost reductions, making it competitive with fossil fuels in many regions. Wind energy, particularly offshore wind farms, has shown significant potential for large-scale electricity generation. Hydropower remains the largest source of renewable electricity globally, while geothermal energy offers reliable baseload power. Energy storage technologies, particularly lithium-ion batteries, are crucial for integrating intermittent renewable sources into the grid.",
+    "questions": [
+      {
+        "id": 14,
+        "question": "Solar power has experienced dramatic _____ reductions.",
+        "answer": "cost",
+        "explanation": "The passage states that solar power has experienced dramatic cost reductions."
+      },
+      {
+        "id": 15,
+        "question": "Offshore _____ farms have shown significant potential for electricity generation.",
+        "answer": "wind",
+        "explanation": "The passage mentions that offshore wind farms have shown significant potential."
+      },
+      {
+        "id": 16,
+        "question": "_____ remains the largest source of renewable electricity globally.",
+        "answer": "Hydropower",
+        "explanation": "The passage states that hydropower remains the largest source of renewable electricity globally."
+      },
+      {
+        "id": 17,
+        "question": "Geothermal energy offers reliable _____ power.",
+        "answer": "baseload",
+        "explanation": "The passage mentions that geothermal energy offers reliable baseload power."
+      },
+      {
+        "id": 18,
+        "question": "_____-ion batteries are crucial for integrating renewable sources.",
+        "answer": "Lithium",
+        "explanation": "The passage states that lithium-ion batteries are crucial for integrating renewable sources."
       }
     ]
   }

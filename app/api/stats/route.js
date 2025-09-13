@@ -1,20 +1,8 @@
-import { MongoClient } from "mongodb";
-
-const uri = process.env.MONGODB_URI;
-let client;
-let clientPromise;
-
-// Create a singleton MongoClient instance
-if (!global._mongoClientPromise) {
-    client = new MongoClient(uri);
-    global._mongoClientPromise = client.connect();
-}
-clientPromise = global._mongoClientPromise;
+import { getDatabase } from "@/lib/db";
 
 export async function GET() {
     try {
-        const client = await clientPromise;
-        const db = client.db("groupxam");
+        const db = await getDatabase();
 
         // Get total exams
         const examsCollection = db.collection("exams");

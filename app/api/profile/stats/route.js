@@ -1,15 +1,5 @@
 import jwt from "jsonwebtoken";
-import { MongoClient } from "mongodb";
-
-const uri = process.env.MONGODB_URI;
-let client;
-let clientPromise;
-
-if (!global._mongoClientPromise) {
-    client = new MongoClient(uri);
-    global._mongoClientPromise = client.connect();
-}
-clientPromise = global._mongoClientPromise;
+import { getDatabase } from "@/lib/db";
 
 export async function GET(request) {
     try {
@@ -20,8 +10,7 @@ export async function GET(request) {
         }
 
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        const client = await clientPromise;
-        const db = client.db("groupxam");
+        const db = await getDatabase();
 
         // Get user exam submissions
         const examSubmissionsCollection = db.collection("examSubmissions");

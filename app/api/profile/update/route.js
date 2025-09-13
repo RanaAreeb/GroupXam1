@@ -1,15 +1,6 @@
 import jwt from "jsonwebtoken";
-import { MongoClient, ObjectId } from "mongodb";
-
-const uri = process.env.MONGODB_URI;
-let client;
-let clientPromise;
-
-if (!global._mongoClientPromise) {
-    client = new MongoClient(uri);
-    global._mongoClientPromise = client.connect();
-}
-clientPromise = global._mongoClientPromise;
+import { ObjectId } from "mongodb";
+import { getDatabase } from "@/lib/db";
 
 export async function PUT(request) {
     try {
@@ -22,8 +13,7 @@ export async function PUT(request) {
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
         const data = await request.json();
 
-        const client = await clientPromise;
-        const db = client.db("groupxam");
+        const db = await getDatabase();
         const usersCollection = db.collection("users");
 
         // Validate and sanitize data

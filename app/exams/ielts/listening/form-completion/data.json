@@ -86,5 +86,118 @@
         ]
       }
     ]
+  },
+  {
+    "id": 3,
+    "title": "University Application: Form Completion",
+    "category": "Form Completion",
+    "difficulty": "Advanced",
+    "duration": "18 min",
+    "questions": 8,
+    "description": "Practice completing university application forms with detailed information.",
+    "audioUrl": "/audio/listening/university-application.mp3",
+    "transcript": "Good afternoon, I'm calling about my university application. My full name is Sarah Elizabeth Thompson, that's S-A-R-A-H E-L-I-Z-A-B-E-T-H T-H-O-M-P-S-O-N. I'm applying for the Master's program in Environmental Science. I completed my undergraduate degree at Oxford University with a first-class honors in Biology. My student ID number is 2023-ES-7894. I'm particularly interested in climate change research and would like to work with Professor Johnson. My preferred start date is September 2024, and I'm applying for the scholarship program as well.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Complete the university application form:",
+        "formFields": [
+          {
+            "label": "Full Name:",
+            "answer": "Sarah Elizabeth Thompson",
+            "explanation": "The speaker spells out her full name as 'S-A-R-A-H E-L-I-Z-A-B-E-T-H T-H-O-M-P-S-O-N'."
+          },
+          {
+            "label": "Program Applied For:",
+            "answer": "Master's in Environmental Science",
+            "explanation": "The speaker states 'I'm applying for the Master's program in Environmental Science'."
+          },
+          {
+            "label": "Previous Institution:",
+            "answer": "Oxford University",
+            "explanation": "The speaker mentions 'I completed my undergraduate degree at Oxford University'."
+          },
+          {
+            "label": "Previous Degree:",
+            "answer": "First-class honors in Biology",
+            "explanation": "The speaker states 'with a first-class honors in Biology'."
+          },
+          {
+            "label": "Student ID:",
+            "answer": "2023-ES-7894",
+            "explanation": "The speaker provides her student ID as '2023-ES-7894'."
+          },
+          {
+            "label": "Research Interest:",
+            "answer": "Climate change research",
+            "explanation": "The speaker mentions 'I'm particularly interested in climate change research'."
+          },
+          {
+            "label": "Preferred Supervisor:",
+            "answer": "Professor Johnson",
+            "explanation": "The speaker states 'I would like to work with Professor Johnson'."
+          },
+          {
+            "label": "Start Date:",
+            "answer": "September 2024",
+            "explanation": "The speaker mentions 'My preferred start date is September 2024'."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Job Application: Form Completion",
+    "category": "Form Completion",
+    "difficulty": "Intermediate",
+    "duration": "16 min",
+    "questions": 7,
+    "description": "Practice completing job application forms with professional information.",
+    "audioUrl": "/audio/listening/job-application.mp3",
+    "transcript": "Hello, I'm interested in the Marketing Manager position advertised on your website. My name is David Chen, D-A-V-I-D C-H-E-N. I have over five years of experience in digital marketing, currently working at Tech Solutions Ltd. I have a Bachelor's degree in Business Administration from London Business School. My current salary is £45,000 per annum, and I'm looking for a salary range of £50,000 to £55,000. I'm available to start immediately and can work flexible hours. My reference is my current manager, Ms. Sarah Williams, and her contact number is 020 7123 4567.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Complete the job application form:",
+        "formFields": [
+          {
+            "label": "Applicant Name:",
+            "answer": "David Chen",
+            "explanation": "The speaker spells out his name as 'D-A-V-I-D C-H-E-N'."
+          },
+          {
+            "label": "Position Applied For:",
+            "answer": "Marketing Manager",
+            "explanation": "The speaker states 'I'm interested in the Marketing Manager position'."
+          },
+          {
+            "label": "Years of Experience:",
+            "answer": "Over 5 years",
+            "explanation": "The speaker mentions 'I have over five years of experience in digital marketing'."
+          },
+          {
+            "label": "Current Company:",
+            "answer": "Tech Solutions Ltd",
+            "explanation": "The speaker states 'currently working at Tech Solutions Ltd'."
+          },
+          {
+            "label": "Education:",
+            "answer": "Bachelor's in Business Administration",
+            "explanation": "The speaker mentions 'I have a Bachelor's degree in Business Administration'."
+          },
+          {
+            "label": "Expected Salary:",
+            "answer": "£50,000-£55,000",
+            "explanation": "The speaker states 'I'm looking for a salary range of £50,000 to £55,000'."
+          },
+          {
+            "label": "Reference Contact:",
+            "answer": "020 7123 4567",
+            "explanation": "The speaker provides the reference contact number as '020 7123 4567'."
+          }
+        ]
+      }
+    ]
   }
 ]
