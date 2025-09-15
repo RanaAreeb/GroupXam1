@@ -10,7 +10,6 @@ import {
   Clock,
   Brain,
   MessageSquare,
-  Play,
   Star,
   ArrowRight,
   BookOpen,
@@ -18,9 +17,10 @@ import {
   Users,
   FileText,
   Code,
-  ChevronLeft,
-  ChevronRight,
   TrendingUp,
+  GraduationCap,
+  Award,
+  Users2,
 } from "lucide-react";
 import Header from "@/components/ui/header";
 import Image from "next/image";
@@ -28,6 +28,7 @@ import { useAuth } from "@/hooks/use-auth";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { MdGroups } from "react-icons/md";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
+import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
 
 // Add type for Exam
 interface Exam {
@@ -340,10 +341,19 @@ export default function HomePage() {
 
   // Reviews state for carousel
   const [reviews, setReviews] = useState<Review[]>([]);
+  const [isLoadingReviews, setIsLoadingReviews] = useState(true);
+  
   useEffect(() => {
     fetch("/api/reviews")
       .then((res) => (res.ok ? res.json() : []))
-      .then((data) => setReviews(Array.isArray(data) ? data : []));
+      .then((data) => setReviews(Array.isArray(data) ? data : []))
+      .catch((error) => {
+        console.error('Failed to fetch reviews:', error);
+        setReviews([]);
+      })
+      .finally(() => {
+        setIsLoadingReviews(false);
+      });
   }, []);
 
   // Scroll functionality for feature carousel
@@ -379,6 +389,98 @@ export default function HomePage() {
       return () => scrollContainer.removeEventListener("scroll", handleScroll);
     }
   }, []);
+
+  // Gallery Slideshow state
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const slideshowIntervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Testimonials Carousel state
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [isTestimonialAutoPlaying, setIsTestimonialAutoPlaying] = useState(true);
+  const testimonialIntervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  const galleryImages = [
+    {
+      src: "/gallery/image1.png",
+      alt: "groupXam School Partnership"
+    },
+    {
+      src: "/gallery/image2.png", 
+      alt: "groupXam Field Work"
+    },
+    {
+      src: "/gallery/image3.png",
+      alt: "groupXam Educational Impact"
+    }
+  ];
+
+  // Auto-play gallery slideshow
+  useEffect(() => {
+    if (isAutoPlaying) {
+      slideshowIntervalRef.current = setInterval(() => {
+        setCurrentSlide((prev) => (prev + 1) % galleryImages.length);
+      }, 5000);
+    } else {
+      if (slideshowIntervalRef.current) {
+        clearInterval(slideshowIntervalRef.current);
+      }
+    }
+
+    return () => {
+      if (slideshowIntervalRef.current) {
+        clearInterval(slideshowIntervalRef.current);
+      }
+    };
+  }, [isAutoPlaying, galleryImages.length]);
+
+  // Auto-play testimonials carousel
+  useEffect(() => {
+    if (isTestimonialAutoPlaying && reviews.length > 0) {
+      testimonialIntervalRef.current = setInterval(() => {
+        setCurrentTestimonial((prev) => (prev + 1) % reviews.length);
+      }, 6000);
+    } else {
+      if (testimonialIntervalRef.current) {
+        clearInterval(testimonialIntervalRef.current);
+      }
+    }
+
+    return () => {
+      if (testimonialIntervalRef.current) {
+        clearInterval(testimonialIntervalRef.current);
+      }
+    };
+  }, [isTestimonialAutoPlaying, reviews.length]);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % galleryImages.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+  };
+
+  const toggleAutoPlay = () => {
+    setIsAutoPlaying(!isAutoPlaying);
+  };
+
+  // Testimonials carousel functions
+  const nextTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev + 1) % reviews.length);
+  };
+
+  const prevTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev - 1 + reviews.length) % reviews.length);
+  };
+
+  const goToTestimonial = (index: number) => {
+    setCurrentTestimonial(index);
+  };
 
   // Reveal-on-scroll animations
   useEffect(() => {
@@ -451,6 +553,76 @@ export default function HomePage() {
             html { scroll-behavior: auto; }
             .reveal-on-scroll { opacity: 1 !important; transform: none !important; transition: none !important; }
           }
+          
+          /* Slideshow animations */
+          @keyframes slideInFromRight {
+            0% { transform: translateX(100%); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+          }
+          
+          @keyframes slideInFromLeft {
+            0% { transform: translateX(-100%); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+          }
+          
+          @keyframes fadeInUp {
+            0% { transform: translateY(30px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+          }
+          
+          .slide-in-right { animation: slideInFromRight 0.7s ease-out; }
+          .slide-in-left { animation: slideInFromLeft 0.7s ease-out; }
+          .fade-in-up { animation: fadeInUp 0.6s ease-out; }
+          
+          /* Custom gradient animation */
+          @keyframes gradient-x {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+          }
+          
+          .animate-gradient-x {
+            background-size: 200% 200%;
+            animation: gradient-x 3s ease infinite;
+          }
+          
+          /* Hover effects for slideshow */
+          .slideshow-slide {
+            transition: transform 0.3s ease, filter 0.3s ease;
+          }
+          
+          .slideshow-slide:hover {
+            transform: scale(1.02);
+            filter: brightness(1.1);
+          }
+          
+          /* Pulse animation for indicators */
+          @keyframes pulse-indicator {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+          }
+          
+          .pulse-indicator {
+            animation: pulse-indicator 2s ease-in-out infinite;
+          }
+          
+          /* High quality image rendering */
+          .slideshow-slide img {
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            image-rendering: high-quality;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+          }
+          
+          /* Ensure sharp rendering on high DPI displays */
+          @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .slideshow-slide img {
+              image-rendering: -webkit-optimize-contrast;
+              image-rendering: crisp-edges;
+            }
+          }
         `}</style>
 
         {/* Animated Hero Section */}
@@ -481,7 +653,8 @@ export default function HomePage() {
 
           <div className="container mx-auto text-center relative z-10">
             <Badge className="mb-4 sm:mb-6 bg-emerald-100 text-emerald-700 hover:bg-emerald-200 px-3 sm:px-4 py-1 sm:py-2 text-xs sm:text-sm font-medium animate-pulse">
-              🎓 Trusted by {totalUsers > 0 ? (
+              <GraduationCap className="w-4 h-4 mr-1 inline" />
+              Trusted by {totalUsers > 0 ? (
                 totalUsers.toLocaleString() + '+ Students'
               ) : (
                 <span className="flex items-center gap-2">
@@ -642,6 +815,125 @@ export default function HomePage() {
                 </div>
               </div>
             )}
+          </div>
+        </section>
+
+        {/* Modern Gallery Slideshow */}
+        <section className="py-8 sm:py-12 px-4 bg-gradient-to-br from-gray-50 to-blue-50 reveal-on-scroll">
+          <div className="container mx-auto">
+            <div className="text-center mb-8">
+              <Badge className="mb-4 bg-emerald-100 text-emerald-700 hover:bg-emerald-200 px-4 py-2 text-sm font-medium">
+                <BookOpen className="w-4 h-4 mr-1 inline" />
+                Real Field Work & School Partnerships
+              </Badge>
+              <h2 className="text-2xl sm:text-4xl font-bold text-gray-800 mb-3">
+                groupXam in <span className="text-emerald-600">Action</span>
+              </h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Discover how we're working directly with schools and students to transform education through innovative learning solutions
+              </p>
+            </div>
+
+            {/* Slideshow Container */}
+            <div className="relative max-w-6xl mx-auto">
+              {/* Main Slideshow */}
+              <div className="relative overflow-hidden rounded-3xl shadow-2xl bg-white">
+                <div 
+                  className="flex transition-transform duration-700 ease-in-out"
+                  style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+                >
+                  {galleryImages.map((image, index) => (
+                    <div key={index} className="w-full flex-shrink-0 relative slideshow-slide">
+                      <div className="relative h-64 sm:h-80 md:h-96 lg:h-[600px] xl:h-[700px]">
+                        <Image
+                          src={image.src}
+                          alt={image.alt}
+                          fill
+                          className="object-cover"
+                          priority={index === 0}
+                          quality={100}
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
+                          placeholder="blur"
+                          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Navigation Arrows */}
+                <button
+                  onClick={prevSlide}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 z-10"
+                  aria-label="Previous slide"
+                >
+                  <ChevronLeft className="w-6 h-6 text-gray-700" />
+                </button>
+                <button
+                  onClick={nextSlide}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 z-10"
+                  aria-label="Next slide"
+                >
+                  <ChevronRight className="w-6 h-6 text-gray-700" />
+                </button>
+
+                {/* Play/Pause Button */}
+                <button
+                  onClick={toggleAutoPlay}
+                  className="absolute top-4 right-4 w-10 h-10 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 z-10"
+                  aria-label={isAutoPlaying ? "Pause slideshow" : "Play slideshow"}
+                >
+                  {isAutoPlaying ? (
+                    <Pause className="w-5 h-5 text-gray-700" />
+                  ) : (
+                    <Play className="w-5 h-5 text-gray-700" />
+                  )}
+                </button>
+              </div>
+
+              {/* Slide Indicators */}
+              <div className="flex justify-center mt-6 space-x-3">
+                {galleryImages.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => goToSlide(index)}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      index === currentSlide
+                        ? "bg-emerald-500 scale-125 shadow-lg pulse-indicator"
+                        : "bg-gray-300 hover:bg-gray-400 hover:scale-110"
+                    }`}
+                    aria-label={`Go to slide ${index + 1}`}
+                  />
+                ))}
+              </div>
+
+              {/* Thumbnail Navigation */}
+              <div className="flex justify-center mt-6 space-x-4 overflow-x-auto pb-2">
+                {galleryImages.map((image, index) => (
+                  <button
+                    key={index}
+                    onClick={() => goToSlide(index)}
+                    className={`relative w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden transition-all duration-300 flex-shrink-0 ${
+                      index === currentSlide
+                        ? "ring-4 ring-emerald-500 scale-110 shadow-lg"
+                        : "hover:scale-105 shadow-md"
+                    }`}
+                  >
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      fill
+                      className="object-cover"
+                      quality={95}
+                      sizes="(max-width: 768px) 80px, 96px"
+                    />
+                    <div className={`absolute inset-0 transition-opacity duration-300 ${
+                      index === currentSlide ? "bg-emerald-500/20" : "bg-black/0 hover:bg-black/10"
+                    }`}></div>
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
@@ -929,85 +1221,145 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Testimonials */}
-        <section className="py-12 sm:py-20 px-4 bg-white reveal-on-scroll">
+        {/* Testimonials Carousel */}
+        <section className="py-16 sm:py-24 px-4 bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50 reveal-on-scroll">
           <div className="container mx-auto">
-            <div className="text-center mb-12 sm:mb-16">
-              <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-3 sm:mb-4 px-4">
-                What are students saying.
+            <div className="text-center mb-16">
+              <Badge className="mb-4 bg-emerald-100 text-emerald-700 hover:bg-emerald-200 px-4 py-2 text-sm font-medium">
+                <Award className="w-4 h-4 mr-1 inline" />
+                Student Success Stories
+              </Badge>
+              <h2 className="text-3xl sm:text-5xl font-bold text-gray-800 mb-4">
+                <span className="text-emerald-600">Testimonials</span>
               </h2>
-              <p className="text-base sm:text-xl text-gray-600 px-4">
-                Join thousands of successful students
+              <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
+                Real feedback from students who've achieved their academic goals with groupXam
               </p>
             </div>
-            <div className="flex justify-center mt-2 mb-10">
+
+            {/* Testimonials Carousel */}
+            {isLoadingReviews ? (
+              <div className="text-center py-16">
+                <div className="w-24 h-24 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <div className="w-8 h-8 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+                </div>
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">Loading testimonials...</h3>
+                <p className="text-gray-600 mb-6">We're fetching the latest student success stories!</p>
+              </div>
+            ) : reviews.length > 0 ? (
+              <div className="relative max-w-6xl mx-auto">
+                {/* Main Carousel */}
+                <div className="relative overflow-hidden rounded-3xl bg-white shadow-2xl">
+                  <div 
+                    className="flex transition-transform duration-700 ease-in-out"
+                    style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}
+                  >
+                    {reviews.map((review, index) => (
+                      <div key={review._id || index} className="w-full flex-shrink-0">
+                        <div className="p-8 sm:p-12 md:p-16 text-center">
+                          {/* Quote Icon */}
+                          <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg">
+                            <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                              <path fillRule="evenodd" d="M10 2C5.477 2 2 5.477 2 10c0 1.5.375 2.9 1.031 4.125L2 18l3.875-1.031C7.1 17.625 8.5 18 10 18c4.523 0 8-3.477 8-8s-3.477-8-8-8zm0 14c-3.314 0-6-2.686-6-6s2.686-6 6-6 6 2.686 6 6-2.686 6-6 6z" clipRule="evenodd" />
+                              <path d="M7 9a1 1 0 011-1h4a1 1 0 110 2H8a1 1 0 01-1-1zm0 3a1 1 0 011-1h2a1 1 0 110 2H8a1 1 0 01-1-1z" />
+                            </svg>
+                          </div>
+
+                          {/* Rating Stars */}
+                          <div className="flex justify-center mb-8">
+                            {[...Array(5)].map((_, i) => (
+                              <Star
+                                key={i}
+                                className={`w-6 h-6 sm:w-7 sm:h-7 mx-1 ${
+                                  i < review.rating ? "text-yellow-400" : "text-gray-200"
+                                } fill-current transition-colors duration-300`}
+                              />
+                            ))}
+                          </div>
+
+                          {/* Quote */}
+                          <blockquote className="text-lg sm:text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed italic max-w-4xl mx-auto">
+                            "{review.quote}"
+                          </blockquote>
+
+                          {/* Author */}
+                          <div className="flex items-center justify-center">
+                            <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4 shadow-lg">
+                              {review.initial}
+                            </div>
+                            <div className="text-left">
+                              <div className="font-semibold text-gray-800 text-lg">
+                                {review.name}
+                              </div>
+                              <div className="text-sm text-gray-500">
+                                {review.details}
+                              </div>
+                              {review.createdAt && (
+                                <div className="text-xs text-gray-400 mt-1">
+                                  {new Date(review.createdAt).toLocaleDateString()}
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Navigation Arrows */}
+                  <button
+                    onClick={prevTestimonial}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 z-10"
+                    aria-label="Previous testimonial"
+                  >
+                    <ChevronLeft className="w-6 h-6 text-gray-700" />
+                  </button>
+                  <button
+                    onClick={nextTestimonial}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 z-10"
+                    aria-label="Next testimonial"
+                  >
+                    <ChevronRight className="w-6 h-6 text-gray-700" />
+                  </button>
+                </div>
+
+                {/* Carousel Indicators */}
+                <div className="flex justify-center mt-8 space-x-3">
+                  {reviews.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => goToTestimonial(index)}
+                      className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                        index === currentTestimonial
+                          ? "bg-emerald-500 scale-125 shadow-lg pulse-indicator"
+                          : "bg-gray-300 hover:bg-gray-400 hover:scale-110"
+                      }`}
+                      aria-label={`Go to testimonial ${index + 1}`}
+                    />
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <div className="text-center py-16">
+                <div className="w-24 h-24 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Star className="w-12 h-12 text-white" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">No testimonials yet</h3>
+                <p className="text-gray-600 mb-6">Be the first to share your success story!</p>
+              </div>
+            )}
+
+            {/* Call to Action */}
+            <div className="text-center mt-12">
               <Button
                 asChild
-                className="bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-bold text-lg px-8 py-3 rounded-full shadow-xl animate-fade-in"
+                className="bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-semibold text-lg px-8 py-4 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
               >
-                <Link href="/testimonials">Share Testimonials</Link>
+                <Link href="/testimonials">
+                  Share Testimonials
+                </Link>
               </Button>
             </div>
-            {/* Marquee Train Animation */}
-            <div className="overflow-hidden relative">
-              <div
-                className="flex gap-8 animate-marquee"
-                style={{ minWidth: "200%", willChange: "transform" }}
-              >
-                {reviews.concat(reviews).map((t, idx) => (
-                  <div
-                    className="flex flex-col h-full min-w-[320px] max-w-xs mx-auto"
-                    key={`${t._id || 'review'}-${idx}`}
-                  >
-                    <div className="border-0 shadow-lg rounded-xl bg-white flex flex-col h-full p-6 sm:p-8">
-                      <div className="flex mb-4 gap-1">
-                        {[...Array(5)].map((_, i) => (
-                          <Star
-                            key={i}
-                            className={`w-4 h-4 sm:w-5 sm:h-5 ${
-                              i < t.rating ? "text-yellow-400" : "text-gray-300"
-                            } fill-current`}
-                          />
-                        ))}
-                      </div>
-                      <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 italic">
-                        {t.quote}
-                      </p>
-                      <div className="flex items-center mt-auto">
-                        <div
-                          className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-full flex items-center justify-center text-white font-bold mr-3 sm:mr-4 text-sm sm:text-base`}
-                        >
-                          {t.initial}
-                        </div>
-                        <div>
-                          <div className="font-semibold text-sm sm:text-base">
-                            {t.name}
-                          </div>
-                          <div className="text-xs sm:text-sm text-gray-500">
-                            {t.details}
-                          </div>
-                          {t.createdAt && (
-                            <div className="text-xs text-gray-400 mt-1">
-                              {new Date(t.createdAt).toLocaleDateString()}
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            {/* Marquee Animation CSS */}
-            <style>{`
-            @keyframes marquee {
-              0% { transform: translateX(0); }
-              100% { transform: translateX(-50%); }
-            }
-            .animate-marquee {
-              animation: marquee 30s linear infinite;
-            }
-          `}</style>
           </div>
         </section>
 

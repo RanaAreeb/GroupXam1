@@ -33,24 +33,36 @@ export async function POST(request) {
             return Response.json({ error: "No file provided" }, { status: 400 });
         }
 
-        // Validate file type and size
+        // Enhanced validation for profile images
         if (!file.type.startsWith("image/")) {
             return Response.json({ error: "File must be an image" }, { status: 400 });
         }
 
-        if (file.size > 5 * 1024 * 1024) { // 5MB limit
-            return Response.json({ error: "File size must be less than 5MB" }, { status: 400 });
+        if (file.size > 2 * 1024 * 1024) { // 2MB input limit (will be compressed to ~150KB)
+            return Response.json({ error: "File size must be less than 2MB" }, { status: 400 });
         }
 
-        // Convert file to buffer
-        const bytes = await file.arrayBuffer();
+        // Import image processing functions
+        const { standardizeProfileImage, getProfileImageSpecs } = await import("@/lib/imageUtils.js");
+
+        // Process and standardize the image
+        let processedImage;
+        try {
+            processedImage = await standardizeProfileImage(file);
+        } catch (processingError) {
+            return Response.json({
+                error: `Image processing failed: ${processingError.message}`
+            }, { status: 400 });
+        }
+
+        // Convert processed file to buffer
+        const bytes = await processedImage.file.arrayBuffer();
         const buffer = Buffer.from(bytes);
 
-        // Generate unique filename
+        // Generate unique filename with standardized format
         const timestamp = Date.now();
         const userId = decoded.email.split('@')[0]; // Use email prefix as user identifier
-        const fileExtension = file.name.split('.').pop() || 'jpg';
-        const fileName = `profile-images/${userId}_${timestamp}.${fileExtension}`;
+        const fileName = `profile-images/${userId}_${timestamp}.jpg`; // Always JPEG for consistency
 
         // Get current user to check for existing profile image
         const db = await getDatabase();
@@ -84,7 +96,15 @@ export async function POST(request) {
         return Response.json({
             success: true,
             imageUrl: imageUrl,
-            message: "Profile picture updated successfully"
+            message: "Profile picture updated successfully",
+            imageInfo: {
+                originalSize: file.size,
+                processedSize: processedImage.size,
+                dimensions: processedImage.dimensions,
+                format: processedImage.format,
+                quality: processedImage.quality,
+                optimized: processedImage.optimized
+            }
         });
 
     } catch (error) {
