@@ -92,14 +92,32 @@ function AddManualPaymentForm({
           case 'monthly':
             newData.amount = '1.99';
             newData.duration = '30';
+            newData.serviceType = 'ielts';
             break;
           case '6months':
             newData.amount = '14.99';
             newData.duration = '180';
+            newData.serviceType = 'ielts';
             break;
           case 'yearly':
             newData.amount = '29.99';
             newData.duration = '365';
+            newData.serviceType = 'ielts';
+            break;
+          case 'proctor_students':
+            newData.amount = '2.00';
+            newData.duration = '30';
+            newData.serviceType = 'proctoring';
+            break;
+          case 'proctor_k12':
+            newData.amount = '10.00';
+            newData.duration = '30';
+            newData.serviceType = 'proctoring';
+            break;
+          case 'proctor_universities':
+            newData.amount = '20.00';
+            newData.duration = '30';
+            newData.serviceType = 'proctoring';
             break;
           case 'custom':
             newData.amount = '';
@@ -155,15 +173,18 @@ function AddManualPaymentForm({
           </div>
         </div>
         <div>
-          <Label htmlFor="package">Package *</Label>
+          <Label htmlFor="package">Package/Service *</Label>
           <Select value={formData.package} onValueChange={(value) => handleChange('package', value)}>
             <SelectTrigger>
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="monthly">Monthly ($1.99)</SelectItem>
-              <SelectItem value="6months">6 Months ($14.99)</SelectItem>
-              <SelectItem value="yearly">Yearly ($29.99)</SelectItem>
+              <SelectItem value="monthly">IELTS Monthly ($1.99)</SelectItem>
+              <SelectItem value="6months">IELTS 6 Months ($14.99)</SelectItem>
+              <SelectItem value="yearly">IELTS Yearly ($29.99)</SelectItem>
+              <SelectItem value="proctor_students">ProctorIT Students ($2.00)</SelectItem>
+              <SelectItem value="proctor_k12">ProctorIT K-12 Schools ($10.00)</SelectItem>
+              <SelectItem value="proctor_universities">ProctorIT Universities ($20.00)</SelectItem>
               <SelectItem value="custom">Custom Amount</SelectItem>
             </SelectContent>
           </Select>
@@ -364,6 +385,7 @@ export default function AdminDashboard() {
   const [isLoadingUsers, setIsLoadingUsers] = useState(false);
   const [showUserSelectionModal, setShowUserSelectionModal] = useState(false);
   const [userSearchQuery, setUserSearchQuery] = useState('');
+  const [userRoleFilter, setUserRoleFilter] = useState<string>('all');
   const [isFixingAccess, setIsFixingAccess] = useState(false);
   const [formData, setFormData] = useState({
     userEmail: '',
@@ -375,7 +397,8 @@ export default function AdminDashboard() {
     transactionId: '',
     paymentDate: new Date().toISOString().split('T')[0],
     notes: '',
-    status: 'approved'
+    status: 'approved',
+    serviceType: 'ielts'
   });
 
   // Check if user is admin
@@ -675,7 +698,8 @@ export default function AdminDashboard() {
       transactionId: '',
       paymentDate: new Date().toISOString().split('T')[0],
       notes: '',
-      status: 'approved'
+      status: 'approved',
+      serviceType: 'ielts'
     });
     setShowUserSelectionModal(false);
     setShowPaymentModal(true);
@@ -709,6 +733,8 @@ export default function AdminDashboard() {
       // Update each user's access
       for (const { user, latestPayment } of usersWithPayments) {
         if (latestPayment) {
+          console.log(`Processing user: ${user.email}, Package: ${latestPayment.package}`);
+          
           // Determine access based on package type
           let access = {};
           switch (latestPayment.package) {
@@ -721,9 +747,20 @@ export default function AdminDashboard() {
                 university: latestPayment.package === 'yearly'
               };
               break;
+            case 'proctor_students':
+              access = { proctor: true };
+              break;
+            case 'proctor_k12':
+              access = { proctor: true };
+              break;
+            case 'proctor_universities':
+              access = { proctor: true, university: true };
+              break;
             default:
               access = { ielts: true };
           }
+          
+          console.log(`Setting access for ${user.email}:`, access);
 
           // Update user access via API
           await fetch('/api/admin/fix-access', {
@@ -760,6 +797,7 @@ export default function AdminDashboard() {
       setIsFixingAccess(false);
     }
   };
+
 
   const processPayment = async (paymentId: string, action: 'approve' | 'reject') => {
     try {
@@ -1046,9 +1084,49 @@ export default function AdminDashboard() {
                         <DialogHeader>
                           <DialogTitle>All Users ({stats.totalUsers})</DialogTitle>
                         </DialogHeader>
-                                                 <div className="space-y-4">
-                           {stats.users && stats.users.length > 0 ? (
-                             stats.users.map((user) => (
+                        
+                        {/* Filter Section */}
+                        <div className="mb-4 p-4 bg-gray-50 rounded-lg">
+                          <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+                            <div className="flex-1">
+                              <label className="text-sm font-medium text-gray-700 mb-2 block">Filter by Role</label>
+                              <div className="flex gap-2">
+                                <Select value={userRoleFilter} onValueChange={setUserRoleFilter}>
+                                  <SelectTrigger className="w-full sm:w-48">
+                                    <SelectValue placeholder="Select role" />
+                                  </SelectTrigger>
+                                  <SelectContent>
+                                    <SelectItem value="all">All Users</SelectItem>
+                                    <SelectItem value="student">Students</SelectItem>
+                                    <SelectItem value="university">Universities</SelectItem>
+                                  </SelectContent>
+                                </Select>
+                                {userRoleFilter !== 'all' && (
+                                  <Button
+                                    variant="outline"
+                                    size="sm"
+                                    onClick={() => setUserRoleFilter('all')}
+                                    className="text-xs"
+                                  >
+                                    Reset
+                                  </Button>
+                                )}
+                              </div>
+                            </div>
+                            <div className="text-sm text-gray-600">
+                              {userRoleFilter === 'all' 
+                                ? `Showing ${stats.users?.length || 0} users`
+                                : `Showing ${stats.users?.filter(user => user.role === userRoleFilter).length || 0} ${userRoleFilter} users`
+                              }
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div className="space-y-4">
+                           {stats.users && stats.users.length > 0 && stats.users.filter(user => userRoleFilter === 'all' || user.role === userRoleFilter).length > 0 ? (
+                             stats.users
+                               .filter(user => userRoleFilter === 'all' || user.role === userRoleFilter)
+                               .map((user) => (
                             <div key={user._id} className="p-4 border rounded-lg bg-gray-50">
                               <div className="flex items-center justify-between">
                                 <div>
@@ -1111,7 +1189,12 @@ export default function AdminDashboard() {
                           ))
                           ) : (
                             <div className="text-center py-8">
-                              <p className="text-gray-500">No users found</p>
+                              <p className="text-gray-500">
+                                {userRoleFilter === 'all' 
+                                  ? 'No users found' 
+                                  : `No ${userRoleFilter} users found`
+                                }
+                              </p>
                             </div>
                           )}
                         </div>
@@ -2042,20 +2125,20 @@ export default function AdminDashboard() {
                      <div className="flex items-center justify-between">
                        <CardTitle className="text-green-800">Payment Management</CardTitle>
                        <div className="flex gap-2">
-                         <Button
-                           onClick={() => setShowPaymentModal(true)}
-                           className="bg-green-600 hover:bg-green-700 text-white"
-                           disabled={isAddingPayment}
-                         >
-                           {isAddingPayment ? (
-                             <>
-                               <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
-                               Adding Payment...
-                             </>
-                           ) : (
-                             'Add Manual Payment'
-                           )}
-                         </Button>
+                        <Button
+                          onClick={() => setShowPaymentModal(true)}
+                          className="bg-green-600 hover:bg-green-700 text-white"
+                          disabled={isAddingPayment}
+                        >
+                          {isAddingPayment ? (
+                            <>
+                              <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
+                              Adding Payment...
+                            </>
+                          ) : (
+                            'Add Manual Payment'
+                          )}
+                        </Button>
                          <Button
                            onClick={fixUserAccess}
                            variant="outline"

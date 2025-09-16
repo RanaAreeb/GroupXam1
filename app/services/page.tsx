@@ -4,6 +4,12 @@ import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import {
   Calendar,
   BookOpen,
   ArrowRight,
@@ -28,12 +34,64 @@ import {
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 import Header from "@/components/ui/header";
 import { useAuth } from "@/hooks/use-auth";
+import { usePaymentProtection } from "@/hooks/use-payment-protection";
 
 // Services page - simplified without exam functionality
 
 export default function ServicesPage() {
   const { isLoggedIn, user } = useAuth();
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
+  const [showPaymentModal, setShowPaymentModal] = useState(false);
+  const [selectedPackage, setSelectedPackage] = useState<"students" | "k12" | "universities" | null>(null);
+
+  // Navigation links for header
+  const navLinks = (
+    <>
+      <Link href="/" className="text-gray-600 hover:text-emerald-600 transition-colors font-medium">
+        Home
+      </Link>
+      <Link href="/services" className="text-emerald-600 font-medium">
+        Services
+      </Link>
+      
+      <Link href="/contact" className="text-gray-600 hover:text-emerald-600 transition-colors font-medium">
+        Contact
+      </Link>
+    </>
+  );
+
+  // Function to handle exam access with payment check
+  const handleExamAccess = (packageType: "students" | "k12" | "universities") => {
+    if (!isLoggedIn) {
+      // Redirect to login if not logged in
+      window.location.href = "/login";
+      return;
+    }
+    
+    // Check if user has access to the required package
+    if (user?.access) {
+      // Check specific access based on package type
+      let hasAccess = false;
+      
+      if (packageType === "students") {
+        hasAccess = !!(user.access.ielts || user.access.proctor);
+      } else if (packageType === "k12") {
+        hasAccess = !!user.access.proctor;
+      } else if (packageType === "universities") {
+        hasAccess = !!(user.access.university || user.access.proctor);
+      }
+      
+      if (hasAccess) {
+        // User has access, redirect to services exam page
+        window.location.href = "/services/exam";
+        return;
+      }
+    }
+    
+    // User doesn't have access, show payment modal
+    setSelectedPackage(packageType);
+    setShowPaymentModal(true);
+  };
 
   // Simplified services page - exam functionality moved to /services/exam
 
@@ -48,7 +106,7 @@ export default function ServicesPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header />
+      <Header navLinks={navLinks} />
 
       {/* Hero Section - Ultra-sophisticated with mind-blowing animations */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/20">
@@ -106,7 +164,7 @@ export default function ServicesPage() {
                   size="lg" 
                   className="group bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white px-8 py-4 text-lg font-semibold shadow-2xl hover:shadow-emerald-500/25 transition-all duration-300 transform hover:-translate-y-1"
                 >
-                  <Link href="/services/exam">
+                  <Link href="/signup">
                     <Calendar className="w-5 h-5 mr-3 group-hover:rotate-12 transition-transform duration-300" />
                     Start Your Journey
                     <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform duration-300" />
@@ -519,26 +577,22 @@ export default function ServicesPage() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
-                asChild 
+                onClick={() => handleExamAccess("students")}
                 size="lg" 
                 className="group bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white px-8 py-4 text-lg font-semibold shadow-2xl hover:shadow-emerald-500/25 transition-all duration-300 transform hover:-translate-y-1"
               >
-                <Link href="/services/exam">
-                  <BookOpen className="w-5 h-5 mr-3 group-hover:rotate-12 transition-transform duration-300" />
-                  Browse All Exams
-                  <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform duration-300" />
-                </Link>
+                <BookOpen className="w-5 h-5 mr-3 group-hover:rotate-12 transition-transform duration-300" />
+                Browse All Exams
+                <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform duration-300" />
               </Button>
               <Button 
-                asChild 
+                onClick={() => handleExamAccess("students")}
                 variant="outline" 
                 size="lg" 
                 className="group border-2 border-slate-300 text-slate-700 hover:border-slate-400 hover:bg-slate-50 px-8 py-4 text-lg font-semibold backdrop-blur-sm bg-white/50 hover:bg-white/80 transition-all duration-300"
               >
-                <Link href="/services/exam">
-                  <Search className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform duration-300" />
-                  Search Exams
-                </Link>
+                <Search className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform duration-300" />
+                Search Exams
               </Button>
             </div>
 
@@ -618,13 +672,11 @@ export default function ServicesPage() {
                 </div>
 
                 <Button 
-                  asChild 
+                  onClick={() => handleExamAccess("students")}
                   className="w-full bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-semibold py-3 rounded-xl transition-all duration-300 group-hover:shadow-2xl mt-auto"
                 >
-                  <Link href="/contact?package=students">
-                    Get Started
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Link>
+                  Get Started
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </div>
             </div>
@@ -677,20 +729,18 @@ export default function ServicesPage() {
                 </div>
 
                 <Button 
-                  asChild 
+                  onClick={() => handleExamAccess("k12")}
                   className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold py-3 rounded-xl transition-all duration-300 group-hover:shadow-2xl mt-auto"
                 >
-                  <Link href="/contact?package=k12">
-                    Choose Plan
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Link>
+                  Choose Plan
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </div>
             </div>
 
             {/* Universities Package */}
             <div className="group relative h-full">
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-emerald-500/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+              <div className="absolute inset-0 bg-gradiimage.png from-purple-500/10 to-emerald-500/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
               <div className="relative bg-white/90 backdrop-blur-md rounded-3xl p-8 border border-purple-200/50 hover:border-purple-300 shadow-xl hover:shadow-2xl transition-all duration-500 group-hover:transform group-hover:-translate-y-2 h-full flex flex-col">
                 <div className="text-center mb-8">
                   <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
@@ -730,13 +780,11 @@ export default function ServicesPage() {
                 </div>
 
                 <Button 
-                  asChild 
+                  onClick={() => handleExamAccess("universities")}
                   className="w-full bg-gradient-to-r from-purple-500 to-emerald-600 hover:from-purple-600 hover:to-emerald-700 text-white font-semibold py-3 rounded-xl transition-all duration-300 group-hover:shadow-2xl mt-auto"
                 >
-                  <Link href="/contact?package=universities">
-                    Enterprise Solution
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Link>
+                  Enterprise Solution
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </div>
             </div>
@@ -891,7 +939,7 @@ export default function ServicesPage() {
                 size="lg" 
                 className="bg-white text-emerald-600 hover:bg-gray-100 px-10 py-5 text-xl font-semibold shadow-2xl hover:shadow-3xl transition-all duration-300"
               >
-                <Link href="/services/exam">
+                <Link href="/signup">
                   <Calendar className="w-6 h-6 mr-3" />
                   Start Registration
                 </Link>
@@ -1212,6 +1260,43 @@ export default function ServicesPage() {
         .bg-left { background-position: left; }
         .bg-right { background-position: right; }
       `}</style>
+
+      {/* Payment Modal */}
+      <Dialog open={showPaymentModal} onOpenChange={setShowPaymentModal}>
+        <DialogContent className="max-w-md">
+          <DialogHeader>
+            <DialogTitle className="text-center text-2xl font-bold text-gray-800">
+              Payment Required
+            </DialogTitle>
+          </DialogHeader>
+          <div className="text-center py-6">
+            <Award className="w-16 h-16 text-emerald-600 mx-auto mb-4" />
+            <p className="text-gray-600 mb-6">
+              To access exam features and proctoring tools, you need to purchase a package.
+              Choose the package that best fits your needs.
+            </p>
+            <div className="space-y-4">
+              <Button 
+                onClick={() => {
+                  setShowPaymentModal(false);
+                  window.location.href = `/contact?package=${selectedPackage}`;
+                }}
+                className="w-full bg-emerald-600 hover:bg-emerald-700"
+              >
+                <ArrowRight className="w-4 h-4 mr-2" />
+                Continue to Payment
+              </Button>
+              <Button 
+                onClick={() => setShowPaymentModal(false)}
+                variant="outline" 
+                className="w-full"
+              >
+                Cancel
+              </Button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
 
       {/* Simplified registration - no complex forms needed */}
     </div>

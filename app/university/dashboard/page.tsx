@@ -105,6 +105,10 @@ interface SubmittedExam {
 
 export default function UniversityDashboard() {
   const { user, logout } = useAuth();
+  
+  // Check if user has university access directly from auth context
+  const hasAccess = user?.access?.university || user?.access?.proctor || false;
+  const paymentLoading = false; // No longer using payment protection hook
   const [activeTab, setActiveTab] = useState("overview");
   const [exams, setExams] = useState<Exam[]>([]);
   const [submittedExams, setSubmittedExams] = useState<SubmittedExam[]>([]);
@@ -150,9 +154,12 @@ export default function UniversityDashboard() {
   };
 
   useEffect(() => {
-    fetchExams();
-    fetchSubmissions();
-  }, []);
+    // Only fetch data if user has access
+    if (hasAccess) {
+      fetchExams();
+      fetchSubmissions();
+    }
+  }, [hasAccess]);
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -186,6 +193,44 @@ export default function UniversityDashboard() {
       minute: "2-digit",
     });
   };
+
+
+  // Show payment required message if no access
+  if (!hasAccess) {
+    return (
+      <div className="min-h-screen bg-background">
+        <Header />
+        <div className="container mx-auto py-8">
+          <div className="max-w-2xl mx-auto text-center">
+            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-8">
+              <Award className="w-16 h-16 text-yellow-600 mx-auto mb-4" />
+              <h2 className="text-2xl font-bold text-gray-800 mb-4">
+                Payment Required
+              </h2>
+              <p className="text-gray-600 mb-6">
+                You need to purchase a Universities package to access the dashboard features.
+                This includes creating exams, managing submissions, and accessing proctoring tools.
+              </p>
+              <div className="space-y-4">
+                <Button asChild className="w-full bg-emerald-600 hover:bg-emerald-700">
+                  <a href="/services?package=universities">
+                    <ArrowRight className="w-4 h-4 mr-2" />
+                    View Universities Package
+                  </a>
+                </Button>
+                <Button asChild variant="outline" className="w-full">
+                  <a href="/">
+                    <ArrowRight className="w-4 h-4 mr-2" />
+                    Back to Home
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   if (loading) {
     return (
@@ -424,7 +469,7 @@ export default function UniversityDashboard() {
               </div>
               <Card className="bg-card border border-border">
                 <CardContent className="p-6">
-                  <CreateExamForm onExamCreated={fetchExams} />
+                  <CreateExamForm onExamCreatedAction={fetchExams} />
                 </CardContent>
               </Card>
             </TabsContent>

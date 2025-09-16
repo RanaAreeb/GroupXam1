@@ -835,16 +835,16 @@ export default function HomePage() {
             </div>
 
             {/* Slideshow Container */}
-            <div className="relative max-w-6xl mx-auto">
+            <div className="relative max-w-4xl mx-auto px-2 sm:px-4">
               {/* Main Slideshow */}
-              <div className="relative overflow-hidden rounded-3xl shadow-2xl bg-white">
+              <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl shadow-xl sm:shadow-2xl bg-white">
                 <div 
                   className="flex transition-transform duration-700 ease-in-out"
                   style={{ transform: `translateX(-${currentSlide * 100}%)` }}
                 >
                   {galleryImages.map((image, index) => (
                     <div key={index} className="w-full flex-shrink-0 relative slideshow-slide">
-                      <div className="relative h-64 sm:h-80 md:h-96 lg:h-[600px] xl:h-[700px]">
+                      <div className="relative h-64 sm:h-72 md:h-80 lg:h-96 xl:h-[500px]">
                         <Image
                           src={image.src}
                           alt={image.alt}
@@ -852,7 +852,7 @@ export default function HomePage() {
                           className="object-cover"
                           priority={index === 0}
                           quality={100}
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
+                          sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1024px) 100vw, (max-width: 1280px) 100vw, 100vw"
                           placeholder="blur"
                           blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                         />
@@ -864,40 +864,40 @@ export default function HomePage() {
                 {/* Navigation Arrows */}
                 <button
                   onClick={prevSlide}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 z-10"
+                  className="absolute left-2 sm:left-4 top-[55%] -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 z-10"
                   aria-label="Previous slide"
                 >
-                  <ChevronLeft className="w-6 h-6 text-gray-700" />
+                  <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-gray-700" />
                 </button>
                 <button
                   onClick={nextSlide}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 z-10"
+                  className="absolute right-2 sm:right-4 top-[55%] -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 z-10"
                   aria-label="Next slide"
                 >
-                  <ChevronRight className="w-6 h-6 text-gray-700" />
+                  <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-gray-700" />
                 </button>
 
                 {/* Play/Pause Button */}
                 <button
                   onClick={toggleAutoPlay}
-                  className="absolute top-4 right-4 w-10 h-10 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 z-10"
+                  className="absolute top-2 sm:top-4 right-2 sm:right-4 w-8 h-8 sm:w-10 sm:h-10 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 z-10"
                   aria-label={isAutoPlaying ? "Pause slideshow" : "Play slideshow"}
                 >
                   {isAutoPlaying ? (
-                    <Pause className="w-5 h-5 text-gray-700" />
+                    <Pause className="w-4 h-4 sm:w-5 sm:h-5 text-gray-700" />
                   ) : (
-                    <Play className="w-5 h-5 text-gray-700" />
+                    <Play className="w-4 h-4 sm:w-5 sm:h-5 text-gray-700" />
                   )}
                 </button>
               </div>
 
               {/* Slide Indicators */}
-              <div className="flex justify-center mt-6 space-x-3">
+              <div className="flex justify-center mt-4 sm:mt-6 space-x-2 sm:space-x-3">
                 {galleryImages.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => goToSlide(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
                       index === currentSlide
                         ? "bg-emerald-500 scale-125 shadow-lg pulse-indicator"
                         : "bg-gray-300 hover:bg-gray-400 hover:scale-110"
@@ -908,16 +908,17 @@ export default function HomePage() {
               </div>
 
               {/* Thumbnail Navigation */}
-              <div className="flex justify-center mt-6 space-x-4 overflow-x-auto pb-2">
+              <div className="flex justify-center mt-6 sm:mt-8 space-x-3 sm:space-x-5 overflow-x-auto pb-6 pt-2 px-4">
                 {galleryImages.map((image, index) => (
                   <button
                     key={index}
                     onClick={() => goToSlide(index)}
-                    className={`relative w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden transition-all duration-300 flex-shrink-0 ${
+                    className={`relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-lg sm:rounded-xl overflow-hidden transition-all duration-300 flex-shrink-0 transform-gpu ${
                       index === currentSlide
-                        ? "ring-4 ring-emerald-500 scale-110 shadow-lg"
+                        ? "ring-2 sm:ring-4 ring-emerald-500 scale-105 shadow-lg"
                         : "hover:scale-105 shadow-md"
                     }`}
+                    style={{ transformOrigin: 'center center' }}
                   >
                     <Image
                       src={image.src}
@@ -925,7 +926,7 @@ export default function HomePage() {
                       fill
                       className="object-cover"
                       quality={95}
-                      sizes="(max-width: 768px) 80px, 96px"
+                      sizes="(max-width: 640px) 64px, (max-width: 768px) 80px, 96px"
                     />
                     <div className={`absolute inset-0 transition-opacity duration-300 ${
                       index === currentSlide ? "bg-emerald-500/20" : "bg-black/0 hover:bg-black/10"
@@ -1222,55 +1223,55 @@ export default function HomePage() {
         </section>
 
         {/* Testimonials Carousel */}
-        <section className="py-16 sm:py-24 px-4 bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50 reveal-on-scroll">
-          <div className="container mx-auto">
-            <div className="text-center mb-16">
+        <section className="py-12 sm:py-16 px-4 bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50 reveal-on-scroll">
+          <div className="container mx-auto max-w-4xl">
+            <div className="text-center mb-10 sm:mb-12">
               <Badge className="mb-4 bg-emerald-100 text-emerald-700 hover:bg-emerald-200 px-4 py-2 text-sm font-medium">
                 <Award className="w-4 h-4 mr-1 inline" />
                 Student Success Stories
               </Badge>
-              <h2 className="text-3xl sm:text-5xl font-bold text-gray-800 mb-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-3">
                 <span className="text-emerald-600">Testimonials</span>
               </h2>
-              <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
+              <p className="text-base sm:text-lg text-gray-600 max-w-xl mx-auto">
                 Real feedback from students who've achieved their academic goals with groupXam
               </p>
             </div>
 
             {/* Testimonials Carousel */}
             {isLoadingReviews ? (
-              <div className="text-center py-16">
-                <div className="w-24 h-24 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <div className="w-8 h-8 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+              <div className="text-center py-12">
+                <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-6 h-6 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">Loading testimonials...</h3>
-                <p className="text-gray-600 mb-6">We're fetching the latest student success stories!</p>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">Loading testimonials...</h3>
+                <p className="text-gray-600 mb-4">We're fetching the latest student success stories!</p>
               </div>
             ) : reviews.length > 0 ? (
-              <div className="relative max-w-6xl mx-auto">
+              <div className="relative max-w-3xl mx-auto">
                 {/* Main Carousel */}
-                <div className="relative overflow-hidden rounded-3xl bg-white shadow-2xl">
+                <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-white shadow-xl sm:shadow-2xl">
                   <div 
                     className="flex transition-transform duration-700 ease-in-out"
                     style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}
                   >
                     {reviews.map((review, index) => (
                       <div key={review._id || index} className="w-full flex-shrink-0">
-                        <div className="p-8 sm:p-12 md:p-16 text-center">
+                        <div className="p-6 sm:p-8 md:p-10 text-center">
                           {/* Quote Icon */}
-                          <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg">
-                            <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                          <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                            <svg className="w-6 h-6 sm:w-7 sm:h-7 text-white" fill="currentColor" viewBox="0 0 20 20">
                               <path fillRule="evenodd" d="M10 2C5.477 2 2 5.477 2 10c0 1.5.375 2.9 1.031 4.125L2 18l3.875-1.031C7.1 17.625 8.5 18 10 18c4.523 0 8-3.477 8-8s-3.477-8-8-8zm0 14c-3.314 0-6-2.686-6-6s2.686-6 6-6 6 2.686 6 6-2.686 6-6 6z" clipRule="evenodd" />
                               <path d="M7 9a1 1 0 011-1h4a1 1 0 110 2H8a1 1 0 01-1-1zm0 3a1 1 0 011-1h2a1 1 0 110 2H8a1 1 0 01-1-1z" />
                             </svg>
                           </div>
 
                           {/* Rating Stars */}
-                          <div className="flex justify-center mb-8">
+                          <div className="flex justify-center mb-6">
                             {[...Array(5)].map((_, i) => (
                               <Star
                                 key={i}
-                                className={`w-6 h-6 sm:w-7 sm:h-7 mx-1 ${
+                                className={`w-5 h-5 sm:w-6 sm:h-6 mx-0.5 sm:mx-1 ${
                                   i < review.rating ? "text-yellow-400" : "text-gray-200"
                                 } fill-current transition-colors duration-300`}
                               />
@@ -1278,20 +1279,20 @@ export default function HomePage() {
                           </div>
 
                           {/* Quote */}
-                          <blockquote className="text-lg sm:text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed italic max-w-4xl mx-auto">
+                          <blockquote className="text-base sm:text-lg md:text-xl text-gray-700 mb-6 leading-relaxed italic max-w-2xl mx-auto">
                             "{review.quote}"
                           </blockquote>
 
                           {/* Author */}
                           <div className="flex items-center justify-center">
-                            <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4 shadow-lg">
+                            <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-full flex items-center justify-center text-white font-bold text-lg sm:text-xl mr-3 sm:mr-4 shadow-lg">
                               {review.initial}
                             </div>
                             <div className="text-left">
-                              <div className="font-semibold text-gray-800 text-lg">
+                              <div className="font-semibold text-gray-800 text-base sm:text-lg">
                                 {review.name}
                               </div>
-                              <div className="text-sm text-gray-500">
+                              <div className="text-xs sm:text-sm text-gray-500">
                                 {review.details}
                               </div>
                               {review.createdAt && (
@@ -1309,27 +1310,27 @@ export default function HomePage() {
                   {/* Navigation Arrows */}
                   <button
                     onClick={prevTestimonial}
-                    className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 z-10"
+                    className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 z-10"
                     aria-label="Previous testimonial"
                   >
-                    <ChevronLeft className="w-6 h-6 text-gray-700" />
+                    <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-gray-700" />
                   </button>
                   <button
                     onClick={nextTestimonial}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 z-10"
+                    className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 z-10"
                     aria-label="Next testimonial"
                   >
-                    <ChevronRight className="w-6 h-6 text-gray-700" />
+                    <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-gray-700" />
                   </button>
                 </div>
 
                 {/* Carousel Indicators */}
-                <div className="flex justify-center mt-8 space-x-3">
+                <div className="flex justify-center mt-6 space-x-2">
                   {reviews.map((_, index) => (
                     <button
                       key={index}
                       onClick={() => goToTestimonial(index)}
-                      className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
                         index === currentTestimonial
                           ? "bg-emerald-500 scale-125 shadow-lg pulse-indicator"
                           : "bg-gray-300 hover:bg-gray-400 hover:scale-110"
@@ -1340,20 +1341,20 @@ export default function HomePage() {
                 </div>
               </div>
             ) : (
-              <div className="text-center py-16">
-                <div className="w-24 h-24 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Star className="w-12 h-12 text-white" />
+              <div className="text-center py-12">
+                <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Star className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">No testimonials yet</h3>
-                <p className="text-gray-600 mb-6">Be the first to share your success story!</p>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">No testimonials yet</h3>
+                <p className="text-gray-600 mb-4">Be the first to share your success story!</p>
               </div>
             )}
 
             {/* Call to Action */}
-            <div className="text-center mt-12">
+            <div className="text-center mt-8 sm:mt-10">
               <Button
                 asChild
-                className="bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-semibold text-lg px-8 py-4 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+                className="bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-semibold text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
               >
                 <Link href="/testimonials">
                   Share Testimonials

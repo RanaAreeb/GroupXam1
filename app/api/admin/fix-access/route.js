@@ -13,6 +13,22 @@ export async function POST(request) {
 
         const db = await getDatabase();
 
+        // Determine paymentStatus based on packageType
+        let paymentStatusPackageType = 'students';
+        if (packageType === 'yearly' || packageType === 'proctor_universities') {
+            paymentStatusPackageType = 'universities';
+        } else if (packageType === '6months' || packageType === 'proctor_k12') {
+            paymentStatusPackageType = 'k12';
+        } else if (packageType === 'proctor_students') {
+            paymentStatusPackageType = 'students';
+        }
+
+        const paymentStatus = {
+            hasAccess: true,
+            packageType: paymentStatusPackageType,
+            expiryDate: accessExpiresAt ? new Date(accessExpiresAt).toISOString() : null
+        };
+
         // Update user's access
         await db.collection('users').updateOne(
             { email: userEmail },
@@ -21,6 +37,7 @@ export async function POST(request) {
                     hasPaidAccess: true,
                     packageType,
                     access,
+                    paymentStatus,
                     accessExpiresAt: accessExpiresAt ? new Date(accessExpiresAt) : null,
                     lastPaymentDate: lastPaymentDate ? new Date(lastPaymentDate) : null
                 }

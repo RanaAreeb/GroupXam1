@@ -37,7 +37,8 @@ export async function POST(request) {
             transactionId,
             paymentDate,
             notes,
-            status = 'approved'
+            status = 'approved',
+            serviceType = 'ielts'
         } = await request.json();
 
         // Validate required fields
@@ -65,6 +66,7 @@ export async function POST(request) {
             expiresAt,
             notes: notes || null,
             status,
+            serviceType,
             createdAt: new Date(),
             updatedAt: new Date()
         };
@@ -76,6 +78,8 @@ export async function POST(request) {
         if (status === 'approved') {
             // Determine access based on package type
             let access = {};
+            let paymentStatus = {};
+
             switch (packageType) {
                 case 'monthly':
                 case '6months':
@@ -85,9 +89,43 @@ export async function POST(request) {
                         proctor: packageType === '6months' || packageType === 'yearly',
                         university: packageType === 'yearly'
                     };
+                    paymentStatus = {
+                        hasAccess: true,
+                        packageType: packageType === 'yearly' ? 'universities' : 'k12',
+                        expiryDate: expiresAt.toISOString()
+                    };
+                    break;
+                case 'proctor_students':
+                    access = { proctor: true };
+                    paymentStatus = {
+                        hasAccess: true,
+                        packageType: 'students',
+                        expiryDate: expiresAt.toISOString()
+                    };
+                    break;
+                case 'proctor_k12':
+                    access = { proctor: true };
+                    paymentStatus = {
+                        hasAccess: true,
+                        packageType: 'k12',
+                        expiryDate: expiresAt.toISOString()
+                    };
+                    break;
+                case 'proctor_universities':
+                    access = { proctor: true };
+                    paymentStatus = {
+                        hasAccess: true,
+                        packageType: 'universities',
+                        expiryDate: expiresAt.toISOString()
+                    };
                     break;
                 default:
                     access = { ielts: true }; // Default to IELTS access
+                    paymentStatus = {
+                        hasAccess: true,
+                        packageType: 'students',
+                        expiryDate: expiresAt.toISOString()
+                    };
             }
 
             await db.collection('users').updateOne(
@@ -97,11 +135,14 @@ export async function POST(request) {
                         hasPaidAccess: true,
                         packageType,
                         access,
+                        paymentStatus,
                         accessExpiresAt: expiresAt,
                         lastPaymentDate: new Date(paymentDate)
                     }
                 }
             );
+
+            console.log(`Updated user access for ${userEmail}:`, { access, paymentStatus });
         }
 
         console.log('Added payment:', result.insertedId);
@@ -152,6 +193,8 @@ export async function PATCH(request) {
         if (action === 'approve') {
             // Determine access based on package type
             let access = {};
+            let paymentStatus = {};
+
             switch (payment.package) {
                 case 'monthly':
                 case '6months':
@@ -161,9 +204,43 @@ export async function PATCH(request) {
                         proctor: payment.package === '6months' || payment.package === 'yearly',
                         university: payment.package === 'yearly'
                     };
+                    paymentStatus = {
+                        hasAccess: true,
+                        packageType: payment.package === 'yearly' ? 'universities' : 'k12',
+                        expiryDate: payment.expiresAt.toISOString()
+                    };
+                    break;
+                case 'proctor_students':
+                    access = { proctor: true };
+                    paymentStatus = {
+                        hasAccess: true,
+                        packageType: 'students',
+                        expiryDate: payment.expiresAt.toISOString()
+                    };
+                    break;
+                case 'proctor_k12':
+                    access = { proctor: true };
+                    paymentStatus = {
+                        hasAccess: true,
+                        packageType: 'k12',
+                        expiryDate: payment.expiresAt.toISOString()
+                    };
+                    break;
+                case 'proctor_universities':
+                    access = { proctor: true, university: true };
+                    paymentStatus = {
+                        hasAccess: true,
+                        packageType: 'universities',
+                        expiryDate: payment.expiresAt.toISOString()
+                    };
                     break;
                 default:
                     access = { ielts: true }; // Default to IELTS access
+                    paymentStatus = {
+                        hasAccess: true,
+                        packageType: 'students',
+                        expiryDate: payment.expiresAt.toISOString()
+                    };
             }
 
             await db.collection('users').updateOne(
@@ -173,11 +250,14 @@ export async function PATCH(request) {
                         hasPaidAccess: true,
                         packageType: payment.package,
                         access,
+                        paymentStatus,
                         accessExpiresAt: payment.expiresAt,
                         lastPaymentDate: payment.paymentDate
                     }
                 }
             );
+
+            console.log(`Updated user access for ${payment.userEmail}:`, { access, paymentStatus });
         } else if (action === 'reject') {
             // Remove access if payment is rejected
             await db.collection('users').updateOne(
@@ -187,6 +267,7 @@ export async function PATCH(request) {
                         hasPaidAccess: "",
                         packageType: "",
                         access: "",
+                        paymentStatus: "",
                         accessExpiresAt: "",
                         lastPaymentDate: ""
                     }
