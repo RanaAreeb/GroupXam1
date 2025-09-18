@@ -687,7 +687,7 @@ export default function HomePage() {
               <span className="text-gray-800">with Confidence</span>
             </h1>
             <p className="text-base sm:text-xl text-gray-600 mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed px-4">
-            Smarter Prep. Stronger Results. With 24/7 access to educational tools
+            With 24/7 access to educational tools
             </p>
 
             {/* Quick Start Widget */}
@@ -831,7 +831,7 @@ export default function HomePage() {
                 Real Field Work & School Partnerships
               </Badge>
               <h2 className="text-2xl sm:text-4xl font-bold text-gray-800 mb-3">
-                groupXam in <span className="text-emerald-600">Action</span>
+                GroupXam in <span className="text-emerald-600">Action</span>
               </h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
                 Discover how we're working directly with schools and students to transform education through innovative learning solutions

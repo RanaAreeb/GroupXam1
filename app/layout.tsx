@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import CookieConsent from "@/components/CookieConsent";
 import SessionTracker from "@/components/SessionTracker";
+import AlertProvider from "@/components/AlertProvider";
 
 export const metadata: Metadata = {
   title:
@@ -281,7 +282,9 @@ export default function RootLayout({
       <body>
         <CookieConsent />
         <SessionTracker>
-          {children}
+          <AlertProvider>
+            {children}
+          </AlertProvider>
         </SessionTracker>
       </body>
     </html>

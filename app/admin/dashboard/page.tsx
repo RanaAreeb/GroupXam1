@@ -401,6 +401,22 @@ export default function AdminDashboard() {
     serviceType: 'ielts'
   });
 
+  // Alert management state
+  const [alerts, setAlerts] = useState<any[]>([]);
+  const [isLoadingAlerts, setIsLoadingAlerts] = useState(false);
+  const [showCreateAlertModal, setShowCreateAlertModal] = useState(false);
+  const [isCreatingAlert, setIsCreatingAlert] = useState(false);
+  const [alertFormData, setAlertFormData] = useState({
+    type: 'testimonial',
+    title: 'Share Your Experience',
+    message: 'We would love to hear about your experience with groupXam!',
+    isActive: true,
+    showOnce: true,
+    expiresAt: '',
+    buttonText: 'Leave Testimonial',
+    buttonAction: 'open_testimonial'
+  });
+
   // Check if user is admin
   const isAdmin = user?.email === "ranaareeb1029@gmail.com" || user?.email === "cliftonmanneh6@gmail.com";
 
@@ -423,6 +439,7 @@ export default function AdminDashboard() {
       fetchAdminStats();
       fetchPayments();
       fetchUsers();
+      fetchAlerts();
     }
   }, [isAdmin, dateRange, selectedPeriod]);
 
@@ -870,6 +887,153 @@ export default function AdminDashboard() {
     }
   };
 
+  // Alert management functions
+  const fetchAlerts = async () => {
+    try {
+      setIsLoadingAlerts(true);
+      const response = await fetch('/api/admin/alerts');
+      const data = await response.json();
+      
+      if (data.success) {
+        setAlerts(data.alerts || []);
+      } else {
+        console.error('Failed to fetch alerts:', data.error);
+      }
+    } catch (error) {
+      console.error('Failed to fetch alerts:', error);
+    } finally {
+      setIsLoadingAlerts(false);
+    }
+  };
+
+  const createAlert = async (alertData: any) => {
+    if (isCreatingAlert) return;
+    
+    try {
+      setIsCreatingAlert(true);
+      const response = await fetch('/api/admin/alerts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(alertData),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        await fetchAlerts();
+        setShowCreateAlertModal(false);
+        setAlertFormData({
+          type: 'testimonial',
+          title: 'Share Your Experience',
+          message: 'We would love to hear about your experience with groupXam!',
+          isActive: true,
+          showOnce: true,
+          expiresAt: '',
+          buttonText: 'Leave Testimonial',
+          buttonAction: 'open_testimonial'
+        });
+        toast({
+          title: "Success",
+          description: "Alert created successfully",
+          variant: "default",
+        });
+      } else {
+        toast({
+          title: "Error",
+          description: `Failed to create alert: ${data.error}`,
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.error('Failed to create alert:', error);
+      toast({
+        title: "Error",
+        description: "Failed to create alert. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsCreatingAlert(false);
+    }
+  };
+
+  const toggleAlert = async (alertId: string, isActive: boolean) => {
+    try {
+      const response = await fetch('/api/admin/alerts', {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ alertId, isActive }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        await fetchAlerts();
+        toast({
+          title: "Success",
+          description: `Alert ${isActive ? 'activated' : 'deactivated'} successfully`,
+          variant: "default",
+        });
+      } else {
+        toast({
+          title: "Error",
+          description: `Failed to update alert: ${data.error}`,
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.error('Failed to update alert:', error);
+      toast({
+        title: "Error",
+        description: "Failed to update alert. Please try again.",
+        variant: "destructive",
+      });
+    }
+  };
+
+  const deleteAlert = async (alertId: string) => {
+    if (!confirm('Are you sure you want to delete this alert? This action cannot be undone.')) {
+      return;
+    }
+
+    try {
+      const response = await fetch('/api/admin/alerts', {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ alertId }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        await fetchAlerts();
+        toast({
+          title: "Success",
+          description: "Alert deleted successfully",
+          variant: "default",
+        });
+      } else {
+        toast({
+          title: "Error",
+          description: `Failed to delete alert: ${data.error}`,
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.error('Failed to delete alert:', error);
+      toast({
+        title: "Error",
+        description: "Failed to delete alert. Please try again.",
+        variant: "destructive",
+      });
+    }
+  };
+
   // Helper function to format session duration from seconds to readable format
   const formatSessionDuration = (seconds: number): string => {
     if (!seconds || seconds <= 0) return '0 minutes';
@@ -1032,7 +1196,7 @@ export default function AdminDashboard() {
             </div>
           ) : stats ? (
             <Tabs defaultValue="overview" className="space-y-6">
-              <TabsList className="grid w-full grid-cols-7">
+              <TabsList className="grid w-full grid-cols-8">
                 <TabsTrigger value="overview">Overview</TabsTrigger>
                 <TabsTrigger value="users">Users</TabsTrigger>
                 <TabsTrigger value="activity">Activity</TabsTrigger>
@@ -1040,6 +1204,7 @@ export default function AdminDashboard() {
                 <TabsTrigger value="geography">Geography</TabsTrigger>
                 <TabsTrigger value="reviews">Reviews</TabsTrigger>
                 <TabsTrigger value="payments">Payments</TabsTrigger>
+                <TabsTrigger value="alerts">Alerts</TabsTrigger>
               </TabsList>
 
                              {/* Overview Tab */}
@@ -2362,6 +2527,115 @@ export default function AdminDashboard() {
                    </CardContent>
                  </Card>
                </TabsContent>
+
+               {/* Alerts Tab */}
+               <TabsContent value="alerts" className="space-y-6">
+                 <Card className="border-0 shadow-lg bg-gradient-to-br from-indigo-50 to-indigo-100">
+                   <CardHeader>
+                     <div className="flex items-center justify-between">
+                       <CardTitle className="text-indigo-800">Alert Management</CardTitle>
+                       <div className="flex gap-2">
+                         <Button
+                           onClick={() => setShowCreateAlertModal(true)}
+                           className="bg-indigo-600 hover:bg-indigo-700 text-white"
+                           disabled={isCreatingAlert}
+                         >
+                           {isCreatingAlert ? (
+                             <>
+                               <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
+                               Creating Alert...
+                             </>
+                           ) : (
+                             'Create New Alert'
+                           )}
+                         </Button>
+                         <Button
+                           onClick={fetchAlerts}
+                           variant="outline"
+                           size="sm"
+                           disabled={isLoadingAlerts}
+                         >
+                           <RefreshCw className={`w-4 h-4 mr-2 ${isLoadingAlerts ? 'animate-spin' : ''}`} />
+                           Refresh
+                         </Button>
+                       </div>
+                     </div>
+                   </CardHeader>
+                   <CardContent>
+                     {isLoadingAlerts ? (
+                       <div className="text-center py-8">
+                         <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-600 mx-auto mb-4"></div>
+                         <p className="text-gray-600">Loading alerts...</p>
+                       </div>
+                     ) : (
+                       <div className="space-y-4">
+                         {alerts && alerts.length > 0 ? (
+                           alerts.map((alert) => (
+                             <div key={alert._id} className="p-4 border rounded-lg bg-white/70 shadow-sm hover:shadow-md transition-shadow">
+                               <div className="flex items-center justify-between">
+                                 <div className="flex-1">
+                                   <div className="flex items-center gap-3 mb-2">
+                                     <div className="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center">
+                                       <span className="text-indigo-600 font-bold">!</span>
+                                     </div>
+                                     <div>
+                                       <h3 className="font-semibold text-gray-900">{alert.title}</h3>
+                                       <div className="flex items-center gap-2">
+                                         <Badge variant="outline" className="text-xs">
+                                           {alert.type}
+                                         </Badge>
+                                         <Badge variant={alert.isActive ? "default" : "secondary"} className="text-xs">
+                                           {alert.isActive ? "Active" : "Inactive"}
+                                         </Badge>
+                                         {alert.showOnce && (
+                                           <Badge variant="outline" className="text-xs">
+                                             Show Once
+                                           </Badge>
+                                         )}
+                                       </div>
+                                     </div>
+                                   </div>
+                                   <div className="text-sm text-gray-600">
+                                     <p><strong>Message:</strong> {alert.message}</p>
+                                     <p><strong>Button Text:</strong> {alert.buttonText}</p>
+                                     <p><strong>Action:</strong> {alert.buttonAction}</p>
+                                     <p><strong>Created:</strong> {new Date(alert.createdAt).toLocaleDateString()}</p>
+                                     {alert.expiresAt && (
+                                       <p><strong>Expires:</strong> {new Date(alert.expiresAt).toLocaleDateString()}</p>
+                                     )}
+                                   </div>
+                                 </div>
+                                 <div className="flex flex-col gap-2 ml-4">
+                                   <Button
+                                     size="sm"
+                                     variant={alert.isActive ? "outline" : "default"}
+                                     onClick={() => toggleAlert(alert._id, !alert.isActive)}
+                                     className={alert.isActive ? "text-red-600 border-red-600 hover:bg-red-50" : "bg-green-600 hover:bg-green-700 text-white"}
+                                   >
+                                     {alert.isActive ? 'Deactivate' : 'Activate'}
+                                   </Button>
+                                   <Button
+                                     size="sm"
+                                     variant="destructive"
+                                     onClick={() => deleteAlert(alert._id)}
+                                   >
+                                     Delete
+                                   </Button>
+                                 </div>
+                               </div>
+                             </div>
+                           ))
+                         ) : (
+                           <div className="text-center py-8 text-gray-500">
+                             <p>No alerts found.</p>
+                             <p className="text-sm mt-2">Create your first alert to start engaging with users.</p>
+                           </div>
+                         )}
+                       </div>
+                     )}
+                   </CardContent>
+                 </Card>
+               </TabsContent>
             </Tabs>
           ) : (
             <div className="text-center py-12">
@@ -2745,6 +3019,140 @@ export default function AdminDashboard() {
               Cancel
             </Button>
           </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Create Alert Modal */}
+      <Dialog open={showCreateAlertModal} onOpenChange={setShowCreateAlertModal}>
+        <DialogContent className="max-w-2xl">
+          <DialogHeader>
+            <DialogTitle>Create New Alert</DialogTitle>
+            <DialogDescription>
+              Create a popup alert that will be shown to users
+            </DialogDescription>
+          </DialogHeader>
+          <form onSubmit={(e) => {
+            e.preventDefault();
+            createAlert(alertFormData);
+          }} className="space-y-4">
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <Label htmlFor="type">Alert Type *</Label>
+                <Select value={alertFormData.type} onValueChange={(value) => setAlertFormData({...alertFormData, type: value})}>
+                  <SelectTrigger>
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="testimonial">Testimonial Request</SelectItem>
+                    <SelectItem value="announcement">Announcement</SelectItem>
+                    <SelectItem value="promotion">Promotion</SelectItem>
+                    <SelectItem value="custom">Custom</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+
+            <div>
+              <Label htmlFor="title">Alert Title *</Label>
+              <Input
+                id="title"
+                value={alertFormData.title}
+                onChange={(e) => setAlertFormData({...alertFormData, title: e.target.value})}
+                required
+                placeholder="Enter alert title"
+              />
+            </div>
+
+            <div>
+              <Label htmlFor="message">Alert Message *</Label>
+              <Textarea
+                id="message"
+                value={alertFormData.message}
+                onChange={(e) => setAlertFormData({...alertFormData, message: e.target.value})}
+                required
+                placeholder="Enter alert message"
+                rows={3}
+              />
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <Label htmlFor="buttonText">Button Text *</Label>
+                <Input
+                  id="buttonText"
+                  value={alertFormData.buttonText}
+                  onChange={(e) => setAlertFormData({...alertFormData, buttonText: e.target.value})}
+                  required
+                  placeholder="e.g., Leave Testimonial"
+                />
+              </div>
+              <div>
+                <Label htmlFor="buttonAction">Button Action *</Label>
+                <Select value={alertFormData.buttonAction} onValueChange={(value) => setAlertFormData({...alertFormData, buttonAction: value})}>
+                  <SelectTrigger>
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="open_testimonial">Open Testimonial Form</SelectItem>
+                    <SelectItem value="redirect_to_page">Redirect to Page</SelectItem>
+                    <SelectItem value="close_alert">Just Close Alert</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+
+            <div>
+              <Label htmlFor="expiresAt">Expiration Date (Optional)</Label>
+              <Input
+                id="expiresAt"
+                type="datetime-local"
+                value={alertFormData.expiresAt}
+                onChange={(e) => setAlertFormData({...alertFormData, expiresAt: e.target.value})}
+              />
+            </div>
+
+            <div className="flex items-center space-x-2">
+              <input
+                type="checkbox"
+                id="isActive"
+                checked={alertFormData.isActive}
+                onChange={(e) => setAlertFormData({...alertFormData, isActive: e.target.checked})}
+                className="rounded"
+              />
+              <Label htmlFor="isActive">Activate alert immediately</Label>
+            </div>
+
+            <div className="flex items-center space-x-2">
+              <input
+                type="checkbox"
+                id="showOnce"
+                checked={alertFormData.showOnce}
+                onChange={(e) => setAlertFormData({...alertFormData, showOnce: e.target.checked})}
+                className="rounded"
+              />
+              <Label htmlFor="showOnce">Show only once per user</Label>
+            </div>
+
+            <div className="flex justify-end gap-2 pt-4">
+              <Button type="button" variant="outline" onClick={() => setShowCreateAlertModal(false)}>
+                Cancel
+              </Button>
+              <Button 
+                type="submit" 
+                className="bg-indigo-600 hover:bg-indigo-700 text-white"
+                disabled={isCreatingAlert}
+              >
+                {isCreatingAlert ? (
+                  <>
+                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
+                    Creating Alert...
+                  </>
+                ) : (
+                  'Create Alert'
+                )}
+              </Button>
+            </div>
+          </form>
         </DialogContent>
       </Dialog>
     </PageTransition>
