@@ -413,6 +413,11 @@ export default function HomePage() {
       src: "/gallery/image3.png",
       alt: "groupXam Educational Impact"
     }
+    ,
+    {
+      src: "/gallery/image4.png",
+      alt: "groupXam Educational Impact"
+    }
   ];
 
   // Auto-play gallery slideshow
@@ -623,6 +628,7 @@ export default function HomePage() {
               image-rendering: crisp-edges;
             }
           }
+          
         `}</style>
 
         {/* Animated Hero Section */}
@@ -681,9 +687,7 @@ export default function HomePage() {
               <span className="text-gray-800">with Confidence</span>
             </h1>
             <p className="text-base sm:text-xl text-gray-600 mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed px-4">
-              The most comprehensive study platform for WAEC/WASSCE/JAMB/IELTS
-              preparation. Practice with thousands of questions, master concepts
-              with flashcards, and track your progress.
+            Smarter Prep. Stronger Results. With 24/7 access to educational tools
             </p>
 
             {/* Quick Start Widget */}
@@ -844,12 +848,12 @@ export default function HomePage() {
                 >
                   {galleryImages.map((image, index) => (
                     <div key={index} className="w-full flex-shrink-0 relative slideshow-slide">
-                      <div className="relative h-64 sm:h-72 md:h-80 lg:h-96 xl:h-[500px]">
+                      <div className={`relative h-64 sm:h-72 md:h-80 lg:h-96 xl:h-[500px] ${index === 3 ? 'bg-transparent' : 'bg-gray-100'}`}>
                         <Image
                           src={image.src}
                           alt={image.alt}
                           fill
-                          className="object-cover"
+                          className={`${index === 3 ? 'object-contain' : 'object-cover'}`}
                           priority={index === 0}
                           quality={100}
                           sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1024px) 100vw, (max-width: 1280px) 100vw, 100vw"
@@ -924,7 +928,7 @@ export default function HomePage() {
                       src={image.src}
                       alt={image.alt}
                       fill
-                      className="object-cover"
+                      className={`${index === 3 ? 'object-contain' : 'object-cover'}`}
                       quality={95}
                       sizes="(max-width: 640px) 64px, (max-width: 768px) 80px, 96px"
                     />
