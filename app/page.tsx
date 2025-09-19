@@ -413,11 +413,7 @@ export default function HomePage() {
       src: "/gallery/image3.png",
       alt: "groupXam Educational Impact"
     }
-    ,
-    {
-      src: "/gallery/image4.png",
-      alt: "groupXam Educational Impact"
-    }
+    
   ];
 
   // Auto-play gallery slideshow
