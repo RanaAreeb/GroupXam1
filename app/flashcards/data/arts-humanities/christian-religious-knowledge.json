@@ -1,0 +1,232 @@
+{
+  "id": "christian-religious-knowledge-flashcards",
+  "title": "Christian Religious Knowledge Flashcards",
+  "subject": "Christian Religious Knowledge",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "christian-religious-knowledge-fundamentals",
+      "title": "Christian Religious Knowledge Fundamentals",
+      "cardCount": 50,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is the holy book of Christianity?",
+          "back": "The Bible - consisting of the Old Testament and New Testament"
+        },
+        {
+          "front": "Who is the central figure of Christianity?",
+          "back": "Jesus Christ - the Son of God and Savior of humanity"
+        },
+        {
+          "front": "What is the Trinity in Christianity?",
+          "back": "The belief in one God in three persons: Father, Son, and Holy Spirit"
+        },
+        {
+          "front": "What is the meaning of 'Christ'?",
+          "back": "The Anointed One - the Greek translation of the Hebrew 'Messiah'"
+        },
+        {
+          "front": "What is the meaning of 'Gospel'?",
+          "back": "Good News - the message of salvation through Jesus Christ"
+        },
+        {
+          "front": "What are the four Gospels in the New Testament?",
+          "back": "Matthew, Mark, Luke, and John - the accounts of Jesus' life and teachings"
+        },
+        {
+          "front": "What is the meaning of 'Apostle'?",
+          "back": "One who is sent - the twelve disciples chosen by Jesus to spread his message"
+        },
+        {
+          "front": "What is the meaning of 'Disciple'?",
+          "back": "A follower or student - someone who follows Jesus' teachings"
+        },
+        {
+          "front": "What is the meaning of 'Salvation'?",
+          "back": "Deliverance from sin and eternal life with God through Jesus Christ"
+        },
+        {
+          "front": "What is the meaning of 'Grace'?",
+          "back": "Unmerited favor - God's free gift of love and forgiveness"
+        },
+        {
+          "front": "What is the meaning of 'Faith'?",
+          "back": "Trust and belief in God and his promises"
+        },
+        {
+          "front": "What is the meaning of 'Repentance'?",
+          "back": "Turning away from sin and turning toward God"
+        },
+        {
+          "front": "What is the meaning of 'Baptism'?",
+          "back": "A sacrament of initiation - being washed with water as a sign of new life"
+        },
+        {
+          "front": "What is the meaning of 'Communion'?",
+          "back": "The Lord's Supper - sharing bread and wine in remembrance of Jesus"
+        },
+        {
+          "front": "What is the meaning of 'Prayer'?",
+          "back": "Communication with God - speaking to and listening to God"
+        },
+        {
+          "front": "What is the meaning of 'Worship'?",
+          "back": "Honoring and praising God - expressing love and devotion to God"
+        },
+        {
+          "front": "What is the meaning of 'Church'?",
+          "back": "The body of believers - the community of Christians worldwide"
+        },
+        {
+          "front": "What is the meaning of 'Pastor'?",
+          "back": "A spiritual shepherd - a leader who guides and cares for a congregation"
+        },
+        {
+          "front": "What is the meaning of 'Minister'?",
+          "back": "One who serves - a person who serves God and the church"
+        },
+        {
+          "front": "What is the meaning of 'Priest'?",
+          "back": "A religious leader - someone who performs religious ceremonies and rituals"
+        },
+        {
+          "front": "What is the meaning of 'Bishop'?",
+          "back": "An overseer - a senior church leader who supervises multiple churches"
+        },
+        {
+          "front": "What is the meaning of 'Deacon'?",
+          "back": "A servant - a church leader who serves the congregation"
+        },
+        {
+          "front": "What is the meaning of 'Elder'?",
+          "back": "A senior leader - an experienced church leader who provides guidance"
+        },
+        {
+          "front": "What is the meaning of 'Sermon'?",
+          "back": "A religious discourse - a talk given during worship service"
+        },
+        {
+          "front": "What is the meaning of 'Hymn'?",
+          "back": "A religious song - a song of praise and worship to God"
+        },
+        {
+          "front": "What is the meaning of 'Psalm'?",
+          "back": "A sacred song - a poem or song used in worship"
+        },
+        {
+          "front": "What is the meaning of 'Testament'?",
+          "back": "A covenant or agreement - the Old and New Testaments of the Bible"
+        },
+        {
+          "front": "What is the meaning of 'Covenant'?",
+          "back": "A binding agreement - God's promise to his people"
+        },
+        {
+          "front": "What is the meaning of 'Prophecy'?",
+          "back": "A message from God - a prediction or revelation from God"
+        },
+        {
+          "front": "What is the meaning of 'Miracle'?",
+          "back": "A supernatural event - an act that defies natural laws"
+        },
+        {
+          "front": "What is the meaning of 'Parable'?",
+          "back": "A simple story - a story used to teach a moral or spiritual lesson"
+        },
+        {
+          "front": "What is the meaning of 'Commandment'?",
+          "back": "A divine rule - a law or instruction given by God"
+        },
+        {
+          "front": "What is the meaning of 'Sin'?",
+          "back": "Wrongdoing - actions that go against God's will"
+        },
+        {
+          "front": "What is the meaning of 'Righteousness'?",
+          "back": "Right living - living according to God's standards"
+        },
+        {
+          "front": "What is the meaning of 'Holiness'?",
+          "back": "Being set apart - being pure and dedicated to God"
+        },
+        {
+          "front": "What is the meaning of 'Sanctification'?",
+          "back": "The process of becoming holy - being made pure and set apart for God"
+        },
+        {
+          "front": "What is the meaning of 'Justification'?",
+          "back": "Being declared righteous - being made right with God through faith"
+        },
+        {
+          "front": "What is the meaning of 'Redemption'?",
+          "back": "Being bought back - being saved from sin and its consequences"
+        },
+        {
+          "front": "What is the meaning of 'Reconciliation'?",
+          "back": "Being restored - being brought back into relationship with God"
+        },
+        {
+          "front": "What is the meaning of 'Atonement'?",
+          "back": "Making amends - Jesus' death paying the price for human sin"
+        },
+        {
+          "front": "What is the meaning of 'Resurrection'?",
+          "back": "Rising from the dead - Jesus' return to life after death"
+        },
+        {
+          "front": "What is the meaning of 'Ascension'?",
+          "back": "Going up - Jesus' return to heaven after his resurrection"
+        },
+        {
+          "front": "What is the meaning of 'Pentecost'?",
+          "back": "The coming of the Holy Spirit - when the Holy Spirit descended on the disciples"
+        },
+        {
+          "front": "What is the meaning of 'Incarnation'?",
+          "back": "Becoming flesh - God becoming human in Jesus Christ"
+        },
+        {
+          "front": "What is the meaning of 'Crucifixion'?",
+          "back": "Death on a cross - Jesus' execution by being nailed to a cross"
+        },
+        {
+          "front": "What is the meaning of 'Nativity'?",
+          "back": "Birth - the birth of Jesus Christ"
+        },
+        {
+          "front": "What is the meaning of 'Epiphany'?",
+          "back": "Revelation - the manifestation of Jesus to the Gentiles"
+        },
+        {
+          "front": "What is the meaning of 'Lent'?",
+          "back": "A period of fasting - the 40 days before Easter"
+        },
+        {
+          "front": "What is the meaning of 'Easter'?",
+          "back": "Resurrection Sunday - the celebration of Jesus' resurrection"
+        },
+        {
+          "front": "What is the meaning of 'Christmas'?",
+          "back": "Christ's Mass - the celebration of Jesus' birth"
+        },
+        {
+          "front": "What is the meaning of 'Advent'?",
+          "back": "Coming - the period before Christmas celebrating Jesus' coming"
+        },
+        {
+          "front": "What is the meaning of 'Good Friday'?",
+          "back": "The day of Jesus' crucifixion - commemorating his death on the cross"
+        },
+        {
+          "front": "What is the meaning of 'Palm Sunday'?",
+          "back": "The day Jesus entered Jerusalem - when people waved palm branches"
+        },
+        {
+          "front": "What is the meaning of 'Maundy Thursday'?",
+          "back": "The day of the Last Supper - when Jesus shared his final meal with disciples"
+        }
+      ]
+    }
+  ]
+}

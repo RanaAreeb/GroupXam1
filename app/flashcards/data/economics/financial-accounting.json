@@ -1,0 +1,236 @@
+{
+  "id": "financial-accounting-flashcards",
+  "title": "Financial Accounting Flashcards",
+  "subject": "Financial Accounting",
+  "difficulty": "Advanced",
+  "sets": [
+    {
+      "id": "financial-accounting-fundamentals",
+      "title": "Financial Accounting Fundamentals",
+      "cardCount": 50,
+      "difficulty": "Advanced",
+      "cards": [
+        {
+          "front": "What is the primary purpose of financial accounting?",
+          "back": "To provide financial information about a business to external users for decision-making purposes"
+        },
+        {
+          "front": "What are the three main financial statements?",
+          "back": "Income Statement, Balance Sheet, and Statement of Cash Flows"
+        },
+        {
+          "front": "What is the accounting equation?",
+          "back": "Assets = Liabilities + Owner's Equity (or Stockholders' Equity)"
+        },
+        {
+          "front": "What is the difference between assets and liabilities?",
+          "back": "Assets are resources owned by the business, while liabilities are debts owed by the business"
+        },
+        {
+          "front": "What is the purpose of the income statement?",
+          "back": "To show a company's revenues, expenses, and net income over a specific period"
+        },
+        {
+          "front": "What is the difference between revenue and income?",
+          "back": "Revenue is total sales, while income (net income) is revenue minus all expenses"
+        },
+        {
+          "front": "What is the purpose of the balance sheet?",
+          "back": "To show a company's assets, liabilities, and equity at a specific point in time"
+        },
+        {
+          "front": "What is the difference between current and non-current assets?",
+          "back": "Current assets are expected to be converted to cash within one year, while non-current assets are long-term"
+        },
+        {
+          "front": "What is the purpose of the statement of cash flows?",
+          "back": "To show how cash and cash equivalents changed during a period through operating, investing, and financing activities"
+        },
+        {
+          "front": "What is the difference between cash and accrual accounting?",
+          "back": "Cash accounting records transactions when cash is received/paid, while accrual accounting records when earned/incurred"
+        },
+        {
+          "front": "What is the purpose of the trial balance?",
+          "back": "To verify that total debits equal total credits and to prepare for financial statement preparation"
+        },
+        {
+          "front": "What is the difference between debits and credits?",
+          "back": "Debits increase assets and expenses, while credits increase liabilities, equity, and revenues"
+        },
+        {
+          "front": "What is the purpose of adjusting entries?",
+          "back": "To update account balances at the end of an accounting period to reflect accruals and deferrals"
+        },
+        {
+          "front": "What is the difference between accounts receivable and accounts payable?",
+          "back": "Accounts receivable are amounts owed to the business, while accounts payable are amounts owed by the business"
+        },
+        {
+          "front": "What is the purpose of depreciation?",
+          "back": "To allocate the cost of long-term assets over their useful lives to match expenses with revenues"
+        },
+        {
+          "front": "What is the difference between gross profit and net profit?",
+          "back": "Gross profit is revenue minus cost of goods sold, while net profit is gross profit minus all other expenses"
+        },
+        {
+          "front": "What is the purpose of inventory valuation?",
+          "back": "To determine the cost of goods sold and the value of ending inventory using methods like FIFO, LIFO, or weighted average"
+        },
+        {
+          "front": "What is the difference between FIFO and LIFO?",
+          "back": "FIFO assumes first items purchased are first sold, while LIFO assumes last items purchased are first sold"
+        },
+        {
+          "front": "What is the purpose of the general ledger?",
+          "back": "To record all financial transactions in individual accounts for each asset, liability, equity, revenue, and expense"
+        },
+        {
+          "front": "What is the difference between working capital and net working capital?",
+          "back": "Working capital is current assets minus current liabilities, while net working capital is the same concept"
+        },
+        {
+          "front": "What is the purpose of financial ratios?",
+          "back": "To analyze a company's financial performance, liquidity, profitability, and efficiency for decision-making"
+        },
+        {
+          "front": "What is the difference between current ratio and quick ratio?",
+          "back": "Current ratio includes all current assets, while quick ratio excludes inventory (more liquid assets only)"
+        },
+        {
+          "front": "What is the purpose of the chart of accounts?",
+          "back": "To provide a systematic listing of all accounts used by a business for recording transactions"
+        },
+        {
+          "front": "What is the difference between retained earnings and dividends?",
+          "back": "Retained earnings are profits kept in the business, while dividends are profits distributed to shareholders"
+        },
+        {
+          "front": "What is the purpose of the closing process?",
+          "back": "To transfer temporary account balances to permanent accounts and prepare for the next accounting period"
+        },
+        {
+          "front": "What is the difference between operating and non-operating income?",
+          "back": "Operating income comes from main business activities, while non-operating income comes from other sources"
+        },
+        {
+          "front": "What is the purpose of the post-closing trial balance?",
+          "back": "To verify that all temporary accounts have been closed and only permanent accounts have balances"
+        },
+        {
+          "front": "What is the difference between tangible and intangible assets?",
+          "back": "Tangible assets have physical form, while intangible assets lack physical form but have value"
+        },
+        {
+          "front": "What is the purpose of the statement of retained earnings?",
+          "back": "To show changes in retained earnings during a period, including net income and dividends"
+        },
+        {
+          "front": "What is the difference between cost and market value?",
+          "back": "Cost is the original purchase price, while market value is the current selling price"
+        },
+        {
+          "front": "What is the purpose of the accounting cycle?",
+          "back": "To provide a systematic process for recording, classifying, and summarizing financial transactions"
+        },
+        {
+          "front": "What is the difference between single-entry and double-entry bookkeeping?",
+          "back": "Single-entry records each transaction once, while double-entry records each transaction twice (debit and credit)"
+        },
+        {
+          "front": "What is the purpose of the journal?",
+          "back": "To record financial transactions in chronological order before posting to the general ledger"
+        },
+        {
+          "front": "What is the difference between bad debts and doubtful accounts?",
+          "back": "Bad debts are uncollectible accounts, while doubtful accounts are accounts that may become uncollectible"
+        },
+        {
+          "front": "What is the purpose of the subsidiary ledger?",
+          "back": "To provide detailed information for specific accounts like accounts receivable and accounts payable"
+        },
+        {
+          "front": "What is the difference between capital and revenue expenditure?",
+          "back": "Capital expenditure creates long-term assets, while revenue expenditure covers day-to-day operations"
+        },
+        {
+          "front": "What is the purpose of the bank reconciliation?",
+          "back": "To compare the company's cash records with the bank's records and identify any differences"
+        },
+        {
+          "front": "What is the difference between gross margin and net margin?",
+          "back": "Gross margin is gross profit divided by revenue, while net margin is net income divided by revenue"
+        },
+        {
+          "front": "What is the purpose of the worksheet?",
+          "back": "To organize and summarize accounting information before preparing financial statements"
+        },
+        {
+          "front": "What is the difference between prepaid expenses and accrued expenses?",
+          "back": "Prepaid expenses are paid in advance, while accrued expenses are incurred but not yet paid"
+        },
+        {
+          "front": "What is the purpose of the audit trail?",
+          "back": "To provide a clear path from source documents to financial statements for verification and control"
+        },
+        {
+          "front": "What is the difference between book value and market value?",
+          "back": "Book value is the cost minus accumulated depreciation, while market value is the current selling price"
+        },
+        {
+          "front": "What is the purpose of the accounting period?",
+          "back": "To divide business operations into specific time periods for reporting and analysis purposes"
+        },
+        {
+          "front": "What is the difference between operating cash flow and free cash flow?",
+          "back": "Operating cash flow is from operations, while free cash flow is operating cash flow minus capital expenditures"
+        },
+        {
+          "front": "What is the purpose of the going concern assumption?",
+          "back": "To assume that the business will continue operating indefinitely for financial reporting purposes"
+        },
+        {
+          "front": "What is the difference between horizontal and vertical analysis?",
+          "back": "Horizontal analysis compares items over time, while vertical analysis compares items as percentages of a base"
+        },
+        {
+          "front": "What is the purpose of the materiality concept?",
+          "back": "To focus on significant items that could influence users' decisions and ignore immaterial items"
+        },
+        {
+          "front": "What is the difference between return on assets and return on equity?",
+          "back": "ROA measures efficiency using total assets, while ROE measures profitability using shareholders' equity"
+        },
+        {
+          "front": "What is the purpose of the consistency principle?",
+          "back": "To use the same accounting methods and procedures from period to period for comparability"
+        },
+        {
+          "front": "What is the difference between debt-to-equity and debt-to-assets ratio?",
+          "back": "Debt-to-equity compares debt to equity, while debt-to-assets compares debt to total assets"
+        },
+        {
+          "front": "What is the purpose of the conservatism principle?",
+          "back": "To choose accounting methods that are less likely to overstate assets and income"
+        },
+        {
+          "front": "What is the difference between earnings per share and price-earnings ratio?",
+          "back": "EPS is net income divided by shares outstanding, while P/E ratio is stock price divided by EPS"
+        },
+        {
+          "front": "What is the purpose of the full disclosure principle?",
+          "back": "To provide all relevant information that could influence users' decisions in financial statements"
+        },
+        {
+          "front": "What is the difference between operating leverage and financial leverage?",
+          "back": "Operating leverage relates to fixed costs, while financial leverage relates to debt financing"
+        },
+        {
+          "front": "What is the purpose of the matching principle?",
+          "back": "To match expenses with the revenues they help generate in the same accounting period"
+        }
+      ]
+    }
+  ]
+}

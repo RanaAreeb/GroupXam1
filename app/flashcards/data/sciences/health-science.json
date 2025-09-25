@@ -1,0 +1,228 @@
+{
+  "id": "health-science-flashcards",
+  "title": "Health Science Flashcards",
+  "subject": "Health Science",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "health-science-fundamentals",
+      "title": "Health Science Fundamentals",
+      "cardCount": 50,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is the primary function of the cardiovascular system?",
+          "back": "To transport oxygen, nutrients, and waste products throughout the body via blood circulation"
+        },
+        {
+          "front": "What is the normal resting heart rate for adults?",
+          "back": "60-100 beats per minute - varies based on age, fitness level, and health conditions"
+        },
+        {
+          "front": "What is the main function of the respiratory system?",
+          "back": "To exchange oxygen and carbon dioxide between the body and the environment"
+        },
+        {
+          "front": "What is the normal blood pressure range for adults?",
+          "back": "Less than 120/80 mmHg - systolic pressure over diastolic pressure"
+        },
+        {
+          "front": "What is the primary function of the nervous system?",
+          "back": "To coordinate and control body functions through electrical and chemical signals"
+        },
+        {
+          "front": "What is the difference between arteries and veins?",
+          "back": "Arteries carry blood away from the heart, while veins carry blood toward the heart"
+        },
+        {
+          "front": "What is the main function of the digestive system?",
+          "back": "To break down food, absorb nutrients, and eliminate waste products"
+        },
+        {
+          "front": "What is the normal body temperature range?",
+          "back": "97.8°F to 99.1°F (36.5°C to 37.3°C) - varies slightly among individuals"
+        },
+        {
+          "front": "What is the primary function of the immune system?",
+          "back": "To protect the body from harmful substances, pathogens, and abnormal cells"
+        },
+        {
+          "front": "What is the difference between aerobic and anaerobic exercise?",
+          "back": "Aerobic uses oxygen for energy (endurance), while anaerobic doesn't use oxygen (short bursts)"
+        },
+        {
+          "front": "What is the main function of the endocrine system?",
+          "back": "To regulate body functions through hormone production and secretion"
+        },
+        {
+          "front": "What is the normal range for blood glucose levels?",
+          "back": "70-100 mg/dL when fasting, less than 140 mg/dL two hours after eating"
+        },
+        {
+          "front": "What is the primary function of the musculoskeletal system?",
+          "back": "To provide structure, support, and movement for the body"
+        },
+        {
+          "front": "What is the difference between acute and chronic diseases?",
+          "back": "Acute diseases develop quickly and are short-term, while chronic diseases develop slowly and are long-term"
+        },
+        {
+          "front": "What is the main function of the urinary system?",
+          "back": "To filter blood, remove waste products, and maintain fluid and electrolyte balance"
+        },
+        {
+          "front": "What is the normal range for cholesterol levels?",
+          "back": "Total cholesterol less than 200 mg/dL, LDL less than 100 mg/dL, HDL above 40 mg/dL"
+        },
+        {
+          "front": "What is the primary function of the integumentary system?",
+          "back": "To protect the body from external damage and regulate temperature"
+        },
+        {
+          "front": "What is the difference between pathogens and antigens?",
+          "back": "Pathogens cause disease, while antigens are substances that trigger immune responses"
+        },
+        {
+          "front": "What is the main function of the lymphatic system?",
+          "back": "To transport lymph, fight infections, and maintain fluid balance"
+        },
+        {
+          "front": "What is the normal range for hemoglobin levels?",
+          "back": "12-16 g/dL for women, 14-18 g/dL for men - varies with age and health"
+        },
+        {
+          "front": "What is the primary function of the reproductive system?",
+          "back": "To produce offspring and maintain sexual characteristics"
+        },
+        {
+          "front": "What is the difference between vitamins and minerals?",
+          "back": "Vitamins are organic compounds needed in small amounts, while minerals are inorganic elements"
+        },
+        {
+          "front": "What is the main function of the skeletal system?",
+          "back": "To provide structure, protect organs, and store minerals like calcium"
+        },
+        {
+          "front": "What is the normal range for white blood cell count?",
+          "back": "4,500-11,000 cells per microliter of blood - varies with age and health"
+        },
+        {
+          "front": "What is the primary function of the muscular system?",
+          "back": "To provide movement, maintain posture, and generate heat"
+        },
+        {
+          "front": "What is the difference between infectious and non-infectious diseases?",
+          "back": "Infectious diseases are caused by pathogens and can spread, while non-infectious diseases are not contagious"
+        },
+        {
+          "front": "What is the main function of the liver?",
+          "back": "To filter blood, produce bile, store nutrients, and detoxify harmful substances"
+        },
+        {
+          "front": "What is the normal range for platelet count?",
+          "back": "150,000-450,000 platelets per microliter of blood"
+        },
+        {
+          "front": "What is the primary function of the kidneys?",
+          "back": "To filter blood, remove waste products, and maintain fluid and electrolyte balance"
+        },
+        {
+          "front": "What is the difference between prevention and treatment?",
+          "back": "Prevention stops disease before it occurs, while treatment manages existing disease"
+        },
+        {
+          "front": "What is the main function of the pancreas?",
+          "back": "To produce digestive enzymes and hormones like insulin and glucagon"
+        },
+        {
+          "front": "What is the normal range for blood pH?",
+          "back": "7.35-7.45 - slightly alkaline, critical for proper body function"
+        },
+        {
+          "front": "What is the primary function of the brain?",
+          "back": "To control body functions, process information, and coordinate responses"
+        },
+        {
+          "front": "What is the difference between symptoms and signs?",
+          "back": "Symptoms are what patients feel, while signs are what healthcare providers observe"
+        },
+        {
+          "front": "What is the main function of the lungs?",
+          "back": "To exchange oxygen and carbon dioxide between blood and air"
+        },
+        {
+          "front": "What is the normal range for oxygen saturation?",
+          "back": "95-100% - percentage of hemoglobin carrying oxygen"
+        },
+        {
+          "front": "What is the primary function of the heart?",
+          "back": "To pump blood throughout the body and maintain circulation"
+        },
+        {
+          "front": "What is the difference between diagnosis and prognosis?",
+          "back": "Diagnosis identifies the disease, while prognosis predicts the likely outcome"
+        },
+        {
+          "front": "What is the main function of the stomach?",
+          "back": "To break down food mechanically and chemically, and begin protein digestion"
+        },
+        {
+          "front": "What is the normal range for respiratory rate?",
+          "back": "12-20 breaths per minute for adults - varies with age and activity"
+        },
+        {
+          "front": "What is the primary function of the small intestine?",
+          "back": "To absorb nutrients from digested food into the bloodstream"
+        },
+        {
+          "front": "What is the difference between immunity and resistance?",
+          "back": "Immunity is protection against specific diseases, while resistance is general ability to fight disease"
+        },
+        {
+          "front": "What is the main function of the large intestine?",
+          "back": "To absorb water and electrolytes, and form and store feces"
+        },
+        {
+          "front": "What is the normal range for body mass index (BMI)?",
+          "back": "18.5-24.9 kg/m² for adults - indicates healthy weight range"
+        },
+        {
+          "front": "What is the primary function of the thyroid gland?",
+          "back": "To produce hormones that regulate metabolism and growth"
+        },
+        {
+          "front": "What is the difference between acute and chronic pain?",
+          "back": "Acute pain is short-term and protective, while chronic pain persists beyond normal healing time"
+        },
+        {
+          "front": "What is the main function of the adrenal glands?",
+          "back": "To produce hormones that regulate stress response and metabolism"
+        },
+        {
+          "front": "What is the normal range for blood pressure in children?",
+          "back": "Varies by age, height, and gender - generally lower than adults"
+        },
+        {
+          "front": "What is the primary function of the pituitary gland?",
+          "back": "To produce hormones that control other endocrine glands and body functions"
+        },
+        {
+          "front": "What is the difference between communicable and non-communicable diseases?",
+          "back": "Communicable diseases can spread between people, while non-communicable diseases cannot"
+        },
+        {
+          "front": "What is the main function of the gallbladder?",
+          "back": "To store and concentrate bile produced by the liver"
+        },
+        {
+          "front": "What is the normal range for red blood cell count?",
+          "back": "4.2-5.4 million cells per microliter for women, 4.7-6.1 million for men"
+        },
+        {
+          "front": "What is the primary function of the spleen?",
+          "back": "To filter blood, remove old red blood cells, and store platelets"
+        }
+      ]
+    }
+  ]
+}

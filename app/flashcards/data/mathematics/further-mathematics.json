@@ -1,0 +1,304 @@
+{
+  "id": "further-mathematics-flashcards",
+  "title": "Further Mathematics Flashcards",
+  "subject": "Further Mathematics",
+  "difficulty": "Advanced",
+  "sets": [
+    {
+      "id": "further-mathematics-fundamentals",
+      "title": "Further Mathematics Fundamentals",
+      "cardCount": 50,
+      "difficulty": "Advanced",
+      "cards": [
+        {
+          "front": "What is the derivative of sin(x)?",
+          "back": "cos(x) - the derivative of sine is cosine"
+        },
+        {
+          "front": "What is the derivative of cos(x)?",
+          "back": "-sin(x) - the derivative of cosine is negative sine"
+        },
+        {
+          "front": "What is the integral of 1/x?",
+          "back": "ln|x| + C - the integral of 1/x is the natural logarithm of the absolute value of x"
+        },
+        {
+          "front": "What is the chain rule for derivatives?",
+          "back": "If y = f(g(x)), then dy/dx = f'(g(x)) × g'(x)"
+        },
+        {
+          "front": "What is the product rule for derivatives?",
+          "back": "If y = u × v, then dy/dx = u(dv/dx) + v(du/dx)"
+        },
+        {
+          "front": "What is the quotient rule for derivatives?",
+          "back": "If y = u/v, then dy/dx = [v(du/dx) - u(dv/dx)] / v²"
+        },
+        {
+          "front": "What is the derivative of e^x?",
+          "back": "e^x - the derivative of e^x is itself"
+        },
+        {
+          "front": "What is the derivative of ln(x)?",
+          "back": "1/x - the derivative of natural logarithm is 1/x"
+        },
+        {
+          "front": "What is the integral of e^x?",
+          "back": "e^x + C - the integral of e^x is itself plus a constant"
+        },
+        {
+          "front": "What is the derivative of x^n?",
+          "back": "nx^(n-1) - the power rule for derivatives"
+        },
+        {
+          "front": "What is the integral of x^n?",
+          "back": "x^(n+1)/(n+1) + C - the power rule for integrals (when n ≠ -1)"
+        },
+        {
+          "front": "What is the derivative of tan(x)?",
+          "back": "sec²(x) - the derivative of tangent is secant squared"
+        },
+        {
+          "front": "What is the derivative of sec(x)?",
+          "back": "sec(x)tan(x) - the derivative of secant"
+        },
+        {
+          "front": "What is the derivative of csc(x)?",
+          "back": "-csc(x)cot(x) - the derivative of cosecant"
+        },
+        {
+          "front": "What is the derivative of cot(x)?",
+          "back": "-csc²(x) - the derivative of cotangent is negative cosecant squared"
+        },
+        {
+          "front": "What is the integral of sin(x)?",
+          "back": "-cos(x) + C - the integral of sine is negative cosine"
+        },
+        {
+          "front": "What is the integral of cos(x)?",
+          "back": "sin(x) + C - the integral of cosine is sine"
+        },
+        {
+          "front": "What is the integral of sec²(x)?",
+          "back": "tan(x) + C - the integral of secant squared is tangent"
+        },
+        {
+          "front": "What is the derivative of arcsin(x)?",
+          "back": "1/√(1-x²) - the derivative of inverse sine"
+        },
+        {
+          "front": "What is the derivative of arccos(x)?",
+          "back": "-1/√(1-x²) - the derivative of inverse cosine"
+        },
+        {
+          "front": "What is the derivative of arctan(x)?",
+          "back": "1/(1+x²) - the derivative of inverse tangent"
+        },
+        {
+          "front": "What is the integral of 1/(1+x²)?",
+          "back": "arctan(x) + C - the integral of 1/(1+x²) is inverse tangent"
+        },
+        {
+          "front": "What is the integral of 1/√(1-x²)?",
+          "back": "arcsin(x) + C - the integral of 1/√(1-x²) is inverse sine"
+        },
+        {
+          "front": "What is the integral of -1/√(1-x²)?",
+          "back": "arccos(x) + C - the integral of -1/√(1-x²) is inverse cosine"
+        },
+        {
+          "front": "What is the derivative of a^x?",
+          "back": "a^x × ln(a) - the derivative of a to the power of x"
+        },
+        {
+          "front": "What is the derivative of log_a(x)?",
+          "back": "1/(x × ln(a)) - the derivative of logarithm base a"
+        },
+        {
+          "front": "What is the integral of a^x?",
+          "back": "a^x/ln(a) + C - the integral of a to the power of x"
+        },
+        {
+          "front": "What is the derivative of sinh(x)?",
+          "back": "cosh(x) - the derivative of hyperbolic sine is hyperbolic cosine"
+        },
+        {
+          "front": "What is the derivative of cosh(x)?",
+          "back": "sinh(x) - the derivative of hyperbolic cosine is hyperbolic sine"
+        },
+        {
+          "front": "What is the derivative of tanh(x)?",
+          "back": "sech²(x) - the derivative of hyperbolic tangent is hyperbolic secant squared"
+        },
+        {
+          "front": "What is the integral of sinh(x)?",
+          "back": "cosh(x) + C - the integral of hyperbolic sine is hyperbolic cosine"
+        },
+        {
+          "front": "What is the integral of cosh(x)?",
+          "back": "sinh(x) + C - the integral of hyperbolic cosine is hyperbolic sine"
+        },
+        {
+          "front": "What is the derivative of |x|?",
+          "back": "x/|x| or sign(x) - the derivative of absolute value"
+        },
+        {
+          "front": "What is the integral of 1/√(x²-1)?",
+          "back": "ln|x + √(x²-1)| + C - the integral of 1/√(x²-1)"
+        },
+        {
+          "front": "What is the derivative of x^x?",
+          "back": "x^x(1 + ln(x)) - the derivative of x to the power of x"
+        },
+        {
+          "front": "What is the integral of 1/(x²+1)?",
+          "back": "arctan(x) + C - the integral of 1/(x²+1) is inverse tangent"
+        },
+        {
+          "front": "What is the derivative of √(x)?",
+          "back": "1/(2√x) - the derivative of square root of x"
+        },
+        {
+          "front": "What is the integral of √(x)?",
+          "back": "(2/3)x^(3/2) + C - the integral of square root of x"
+        },
+        {
+          "front": "What is the derivative of 1/x?",
+          "back": "-1/x² - the derivative of 1/x is negative 1/x²"
+        },
+        {
+          "front": "What is the integral of 1/x²?",
+          "back": "-1/x + C - the integral of 1/x² is negative 1/x"
+        },
+        {
+          "front": "What is the derivative of x^(1/3)?",
+          "back": "(1/3)x^(-2/3) - the derivative of cube root of x"
+        },
+        {
+          "front": "What is the integral of x^(1/3)?",
+          "back": "(3/4)x^(4/3) + C - the integral of cube root of x"
+        },
+        {
+          "front": "What is the derivative of sin²(x)?",
+          "back": "2sin(x)cos(x) or sin(2x) - the derivative of sine squared"
+        },
+        {
+          "front": "What is the derivative of cos²(x)?",
+          "back": "-2cos(x)sin(x) or -sin(2x) - the derivative of cosine squared"
+        },
+        {
+          "front": "What is the integral of sin²(x)?",
+          "back": "(x/2) - (sin(2x)/4) + C - the integral of sine squared"
+        },
+        {
+          "front": "What is the integral of cos²(x)?",
+          "back": "(x/2) + (sin(2x)/4) + C - the integral of cosine squared"
+        },
+        {
+          "front": "What is the derivative of e^(2x)?",
+          "back": "2e^(2x) - the derivative of e to the power of 2x"
+        },
+        {
+          "front": "What is the integral of e^(2x)?",
+          "back": "(1/2)e^(2x) + C - the integral of e to the power of 2x"
+        },
+        {
+          "front": "What is the derivative of ln(2x)?",
+          "back": "1/x - the derivative of natural logarithm of 2x"
+        },
+        {
+          "front": "What is the integral of 1/(2x)?",
+          "back": "(1/2)ln|x| + C - the integral of 1/(2x)"
+        },
+        {
+          "front": "What is the derivative of sin(3x)?",
+          "back": "3cos(3x) - the derivative of sine of 3x"
+        },
+        {
+          "front": "What is the integral of cos(3x)?",
+          "back": "(1/3)sin(3x) + C - the integral of cosine of 3x"
+        },
+        {
+          "front": "What is the derivative of (x²+1)³?",
+          "back": "3(x²+1)²(2x) or 6x(x²+1)² - using chain rule"
+        },
+        {
+          "front": "What is the integral of x(x²+1)²?",
+          "back": "(1/6)(x²+1)³ + C - using substitution"
+        },
+        {
+          "front": "What is the derivative of x²e^x?",
+          "back": "e^x(x²+2x) - using product rule"
+        },
+        {
+          "front": "What is the integral of xe^x?",
+          "back": "e^x(x-1) + C - using integration by parts"
+        },
+        {
+          "front": "What is the derivative of x³ln(x)?",
+          "back": "x²(3ln(x)+1) - using product rule"
+        },
+        {
+          "front": "What is the integral of x²ln(x)?",
+          "back": "(1/3)x³ln(x) - (1/9)x³ + C - using integration by parts"
+        },
+        {
+          "front": "What is the derivative of (x+1)/(x-1)?",
+          "back": "-2/(x-1)² - using quotient rule"
+        },
+        {
+          "front": "What is the integral of 1/(x²-1)?",
+          "back": "(1/2)ln|(x-1)/(x+1)| + C - using partial fractions"
+        },
+        {
+          "front": "What is the derivative of √(x²+1)?",
+          "back": "x/√(x²+1) - using chain rule"
+        },
+        {
+          "front": "What is the integral of x/√(x²+1)?",
+          "back": "√(x²+1) + C - using substitution"
+        },
+        {
+          "front": "What is the derivative of e^(x²)?",
+          "back": "2xe^(x²) - using chain rule"
+        },
+        {
+          "front": "What is the integral of xe^(x²)?",
+          "back": "(1/2)e^(x²) + C - using substitution"
+        },
+        {
+          "front": "What is the derivative of ln(x²+1)?",
+          "back": "2x/(x²+1) - using chain rule"
+        },
+        {
+          "front": "What is the integral of 2x/(x²+1)?",
+          "back": "ln(x²+1) + C - using substitution"
+        },
+        {
+          "front": "What is the derivative of sin(x²)?",
+          "back": "2xcos(x²) - using chain rule"
+        },
+        {
+          "front": "What is the integral of xcos(x²)?",
+          "back": "(1/2)sin(x²) + C - using substitution"
+        },
+        {
+          "front": "What is the derivative of cos(x²)?",
+          "back": "-2xsin(x²) - using chain rule"
+        },
+        {
+          "front": "What is the integral of xsin(x²)?",
+          "back": "-(1/2)cos(x²) + C - using substitution"
+        },
+        {
+          "front": "What is the derivative of tan(x²)?",
+          "back": "2xsec²(x²) - using chain rule"
+        },
+        {
+          "front": "What is the integral of xsec²(x²)?",
+          "back": "(1/2)tan(x²) + C - using substitution"
+        }
+      ]
+    }
+  ]
+}

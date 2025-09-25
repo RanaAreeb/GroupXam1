@@ -1,0 +1,236 @@
+{
+  "id": "engineering-science-flashcards",
+  "title": "Engineering Science Flashcards",
+  "subject": "Engineering Science",
+  "difficulty": "Advanced",
+  "sets": [
+    {
+      "id": "engineering-science-fundamentals",
+      "title": "Engineering Science Fundamentals",
+      "cardCount": 50,
+      "difficulty": "Advanced",
+      "cards": [
+        {
+          "front": "What is the fundamental principle behind Newton's First Law of Motion?",
+          "back": "An object at rest stays at rest, and an object in motion stays in motion, unless acted upon by an external force"
+        },
+        {
+          "front": "What is the formula for calculating force?",
+          "back": "F = ma (Force = mass × acceleration) - Newton's Second Law"
+        },
+        {
+          "front": "What is the difference between stress and strain in materials?",
+          "back": "Stress is force per unit area, while strain is the deformation per unit length"
+        },
+        {
+          "front": "What is the principle of conservation of energy?",
+          "back": "Energy cannot be created or destroyed, only converted from one form to another"
+        },
+        {
+          "front": "What is the difference between static and dynamic friction?",
+          "back": "Static friction prevents motion, while dynamic friction opposes motion between moving surfaces"
+        },
+        {
+          "front": "What is the formula for calculating work?",
+          "back": "W = F × d (Work = Force × distance) - work is done when force causes displacement"
+        },
+        {
+          "front": "What is the principle of moments in mechanics?",
+          "back": "For a body in equilibrium, the sum of clockwise moments equals the sum of counterclockwise moments"
+        },
+        {
+          "front": "What is the difference between elastic and plastic deformation?",
+          "back": "Elastic deformation is reversible, while plastic deformation is permanent"
+        },
+        {
+          "front": "What is the formula for calculating power?",
+          "back": "P = W/t (Power = Work/time) or P = F × v (Power = Force × velocity)"
+        },
+        {
+          "front": "What is the principle of Archimedes' buoyancy?",
+          "back": "The buoyant force on an object equals the weight of the fluid it displaces"
+        },
+        {
+          "front": "What is the difference between tension and compression?",
+          "back": "Tension pulls materials apart, while compression pushes materials together"
+        },
+        {
+          "front": "What is the formula for calculating kinetic energy?",
+          "back": "KE = ½mv² (Kinetic Energy = ½ × mass × velocity²)"
+        },
+        {
+          "front": "What is the principle of Pascal's law?",
+          "back": "Pressure applied to a confined fluid is transmitted equally in all directions"
+        },
+        {
+          "front": "What is the difference between brittle and ductile materials?",
+          "back": "Brittle materials break without deformation, while ductile materials deform before breaking"
+        },
+        {
+          "front": "What is the formula for calculating potential energy?",
+          "back": "PE = mgh (Potential Energy = mass × gravity × height)"
+        },
+        {
+          "front": "What is the principle of Bernoulli's equation?",
+          "back": "In fluid flow, pressure decreases as velocity increases, and vice versa"
+        },
+        {
+          "front": "What is the difference between heat and temperature?",
+          "back": "Heat is energy transfer, while temperature is a measure of average kinetic energy"
+        },
+        {
+          "front": "What is the formula for calculating efficiency?",
+          "back": "Efficiency = (Useful output/Total input) × 100%"
+        },
+        {
+          "front": "What is the principle of the lever?",
+          "back": "A lever amplifies force by using a fulcrum to change the direction and magnitude of force"
+        },
+        {
+          "front": "What is the difference between conductors and insulators?",
+          "back": "Conductors allow easy flow of electricity/heat, while insulators resist flow"
+        },
+        {
+          "front": "What is the formula for calculating momentum?",
+          "back": "p = mv (Momentum = mass × velocity) - momentum is conserved in collisions"
+        },
+        {
+          "front": "What is the principle of the inclined plane?",
+          "back": "An inclined plane reduces the force needed to lift objects by increasing the distance"
+        },
+        {
+          "front": "What is the difference between series and parallel circuits?",
+          "back": "Series circuits have one path for current, while parallel circuits have multiple paths"
+        },
+        {
+          "front": "What is the formula for calculating pressure?",
+          "back": "P = F/A (Pressure = Force/Area) - pressure is force per unit area"
+        },
+        {
+          "front": "What is the principle of the wheel and axle?",
+          "back": "A wheel and axle amplifies force by using a larger wheel to turn a smaller axle"
+        },
+        {
+          "front": "What is the difference between AC and DC current?",
+          "back": "AC (Alternating Current) changes direction, while DC (Direct Current) flows in one direction"
+        },
+        {
+          "front": "What is the formula for calculating density?",
+          "back": "ρ = m/V (Density = mass/volume) - density is mass per unit volume"
+        },
+        {
+          "front": "What is the principle of the pulley?",
+          "back": "A pulley changes the direction of force and can reduce the effort needed to lift loads"
+        },
+        {
+          "front": "What is the difference between renewable and non-renewable energy?",
+          "back": "Renewable energy can be replenished, while non-renewable energy is finite"
+        },
+        {
+          "front": "What is the formula for calculating velocity?",
+          "back": "v = d/t (Velocity = distance/time) - velocity is displacement per unit time"
+        },
+        {
+          "front": "What is the principle of the screw?",
+          "back": "A screw converts rotational motion to linear motion and amplifies force"
+        },
+        {
+          "front": "What is the difference between potential and kinetic energy?",
+          "back": "Potential energy is stored energy, while kinetic energy is energy of motion"
+        },
+        {
+          "front": "What is the formula for calculating acceleration?",
+          "back": "a = (v - u)/t (Acceleration = change in velocity/time)"
+        },
+        {
+          "front": "What is the principle of the wedge?",
+          "back": "A wedge amplifies force by converting a small force over a large distance into a large force over a small distance"
+        },
+        {
+          "front": "What is the difference between mass and weight?",
+          "back": "Mass is the amount of matter, while weight is the force of gravity on mass"
+        },
+        {
+          "front": "What is the formula for calculating frequency?",
+          "back": "f = 1/T (Frequency = 1/Period) - frequency is cycles per second"
+        },
+        {
+          "front": "What is the principle of the gear?",
+          "back": "Gears transmit motion and force between rotating shafts, changing speed and torque"
+        },
+        {
+          "front": "What is the difference between speed and velocity?",
+          "back": "Speed is distance per time, while velocity is displacement per time (includes direction)"
+        },
+        {
+          "front": "What is the formula for calculating wavelength?",
+          "back": "λ = v/f (Wavelength = velocity/frequency) - wavelength is distance between wave peaks"
+        },
+        {
+          "front": "What is the principle of the hydraulic system?",
+          "back": "Hydraulic systems use pressurized fluid to transmit force and motion"
+        },
+        {
+          "front": "What is the difference between elastic and inelastic collisions?",
+          "back": "Elastic collisions conserve kinetic energy, while inelastic collisions do not"
+        },
+        {
+          "front": "What is the formula for calculating torque?",
+          "back": "τ = F × r (Torque = Force × radius) - torque is rotational force"
+        },
+        {
+          "front": "What is the principle of the pneumatic system?",
+          "back": "Pneumatic systems use compressed air to transmit force and motion"
+        },
+        {
+          "front": "What is the difference between static and dynamic equilibrium?",
+          "back": "Static equilibrium is at rest, while dynamic equilibrium is moving at constant velocity"
+        },
+        {
+          "front": "What is the formula for calculating centripetal force?",
+          "back": "F = mv²/r (Centripetal Force = mass × velocity²/radius)"
+        },
+        {
+          "front": "What is the principle of the electromagnetic system?",
+          "back": "Electromagnetic systems use magnetic fields to generate motion and force"
+        },
+        {
+          "front": "What is the difference between linear and angular motion?",
+          "back": "Linear motion is straight-line movement, while angular motion is rotational movement"
+        },
+        {
+          "front": "What is the formula for calculating wave speed?",
+          "back": "v = fλ (Wave Speed = frequency × wavelength)"
+        },
+        {
+          "front": "What is the principle of the thermodynamic system?",
+          "back": "Thermodynamic systems convert heat energy into mechanical work"
+        },
+        {
+          "front": "What is the difference between laminar and turbulent flow?",
+          "back": "Laminar flow is smooth and orderly, while turbulent flow is chaotic and irregular"
+        },
+        {
+          "front": "What is the formula for calculating mechanical advantage?",
+          "back": "MA = Load/Effort (Mechanical Advantage = Load force/Effort force)"
+        },
+        {
+          "front": "What is the principle of the feedback control system?",
+          "back": "Feedback control systems use output information to adjust input for desired performance"
+        },
+        {
+          "front": "What is the difference between precision and accuracy?",
+          "back": "Precision is consistency of measurements, while accuracy is closeness to true value"
+        },
+        {
+          "front": "What is the formula for calculating Reynolds number?",
+          "back": "Re = ρvD/μ (Reynolds Number = density × velocity × diameter/viscosity)"
+        },
+        {
+          "front": "What is the principle of the safety factor in engineering?",
+          "back": "Safety factor is the ratio of failure load to working load, providing a margin of safety"
+        }
+      ]
+    }
+  ]
+}

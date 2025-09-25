@@ -1,0 +1,228 @@
+{
+  "id": "principles-of-cost-accounting-flashcards",
+  "title": "Principles of Cost Accounting Flashcards",
+  "subject": "Principles of Cost Accounting",
+  "difficulty": "Advanced",
+  "sets": [
+    {
+      "id": "principles-of-cost-accounting-fundamentals",
+      "title": "Principles of Cost Accounting Fundamentals",
+      "cardCount": 50,
+      "difficulty": "Advanced",
+      "cards": [
+        {
+          "front": "What is the primary purpose of cost accounting?",
+          "back": "To determine the cost of products, services, or activities for decision-making and control purposes"
+        },
+        {
+          "front": "What is the difference between cost accounting and financial accounting?",
+          "back": "Cost accounting focuses on internal decision-making and cost control, while financial accounting focuses on external reporting"
+        },
+        {
+          "front": "What are the three main elements of cost?",
+          "back": "Direct materials, direct labor, and manufacturing overhead"
+        },
+        {
+          "front": "What is the difference between direct and indirect costs?",
+          "back": "Direct costs can be traced to specific products, while indirect costs cannot be directly traced"
+        },
+        {
+          "front": "What is the formula for calculating total manufacturing cost?",
+          "back": "Total Manufacturing Cost = Direct Materials + Direct Labor + Manufacturing Overhead"
+        },
+        {
+          "front": "What is the difference between fixed and variable costs?",
+          "back": "Fixed costs remain constant regardless of production volume, while variable costs change with production volume"
+        },
+        {
+          "front": "What is the purpose of cost allocation?",
+          "back": "To assign indirect costs to cost objects (products, services, or departments) using appropriate allocation bases"
+        },
+        {
+          "front": "What is the difference between job costing and process costing?",
+          "back": "Job costing is used for unique products, while process costing is used for identical products produced continuously"
+        },
+        {
+          "front": "What is the formula for calculating predetermined overhead rate?",
+          "back": "Predetermined Overhead Rate = Estimated Total Overhead / Estimated Total Allocation Base"
+        },
+        {
+          "front": "What is the difference between actual and normal costing?",
+          "back": "Actual costing uses actual overhead rates, while normal costing uses predetermined overhead rates"
+        },
+        {
+          "front": "What is the purpose of cost-volume-profit (CVP) analysis?",
+          "back": "To analyze the relationship between costs, volume, and profit to make business decisions"
+        },
+        {
+          "front": "What is the formula for calculating contribution margin?",
+          "back": "Contribution Margin = Sales Revenue - Variable Costs"
+        },
+        {
+          "front": "What is the difference between absorption and variable costing?",
+          "back": "Absorption costing includes all manufacturing costs, while variable costing includes only variable manufacturing costs"
+        },
+        {
+          "front": "What is the purpose of standard costing?",
+          "back": "To establish predetermined costs for comparison with actual costs and identify variances"
+        },
+        {
+          "front": "What is the formula for calculating break-even point in units?",
+          "back": "Break-even Point (Units) = Fixed Costs / (Selling Price per Unit - Variable Cost per Unit)"
+        },
+        {
+          "front": "What is the difference between relevant and irrelevant costs?",
+          "back": "Relevant costs affect decision-making, while irrelevant costs do not affect the decision"
+        },
+        {
+          "front": "What is the purpose of activity-based costing (ABC)?",
+          "back": "To allocate overhead costs based on activities that drive costs, providing more accurate product costs"
+        },
+        {
+          "front": "What is the formula for calculating cost of goods manufactured?",
+          "back": "Cost of Goods Manufactured = Beginning WIP + Total Manufacturing Costs - Ending WIP"
+        },
+        {
+          "front": "What is the difference between prime costs and conversion costs?",
+          "back": "Prime costs include direct materials and direct labor, while conversion costs include direct labor and overhead"
+        },
+        {
+          "front": "What is the purpose of variance analysis?",
+          "back": "To identify and analyze differences between actual and standard costs for control purposes"
+        },
+        {
+          "front": "What is the formula for calculating margin of safety?",
+          "back": "Margin of Safety = Actual Sales - Break-even Sales"
+        },
+        {
+          "front": "What is the difference between sunk costs and opportunity costs?",
+          "back": "Sunk costs are past costs that cannot be recovered, while opportunity costs are benefits foregone from alternatives"
+        },
+        {
+          "front": "What is the purpose of cost behavior analysis?",
+          "back": "To understand how costs change with changes in activity levels for planning and decision-making"
+        },
+        {
+          "front": "What is the formula for calculating degree of operating leverage?",
+          "back": "Degree of Operating Leverage = Contribution Margin / Net Operating Income"
+        },
+        {
+          "front": "What is the difference between controllable and uncontrollable costs?",
+          "back": "Controllable costs can be influenced by management decisions, while uncontrollable costs cannot"
+        },
+        {
+          "front": "What is the purpose of cost centers?",
+          "back": "To accumulate costs for specific departments or activities for control and performance measurement"
+        },
+        {
+          "front": "What is the formula for calculating target profit in units?",
+          "back": "Target Profit (Units) = (Fixed Costs + Target Profit) / (Selling Price per Unit - Variable Cost per Unit)"
+        },
+        {
+          "front": "What is the difference between incremental and differential costs?",
+          "back": "Incremental costs are additional costs from an alternative, while differential costs are the difference between alternatives"
+        },
+        {
+          "front": "What is the purpose of responsibility accounting?",
+          "back": "To assign costs and revenues to specific managers for performance evaluation and control"
+        },
+        {
+          "front": "What is the formula for calculating cost per equivalent unit?",
+          "back": "Cost per Equivalent Unit = Total Costs / Total Equivalent Units"
+        },
+        {
+          "front": "What is the difference between joint costs and separable costs?",
+          "back": "Joint costs are incurred before split-off point, while separable costs are incurred after split-off point"
+        },
+        {
+          "front": "What is the purpose of cost estimation?",
+          "back": "To predict future costs for budgeting, planning, and decision-making purposes"
+        },
+        {
+          "front": "What is the formula for calculating overhead variance?",
+          "back": "Overhead Variance = Actual Overhead - Applied Overhead"
+        },
+        {
+          "front": "What is the difference between avoidable and unavoidable costs?",
+          "back": "Avoidable costs can be eliminated by discontinuing an activity, while unavoidable costs cannot"
+        },
+        {
+          "front": "What is the purpose of cost control?",
+          "back": "To monitor and manage costs to ensure they stay within budget and achieve profitability targets"
+        },
+        {
+          "front": "What is the formula for calculating cost of goods sold?",
+          "back": "Cost of Goods Sold = Beginning Inventory + Cost of Goods Manufactured - Ending Inventory"
+        },
+        {
+          "front": "What is the difference between committed and discretionary costs?",
+          "back": "Committed costs are long-term obligations, while discretionary costs can be adjusted in the short term"
+        },
+        {
+          "front": "What is the purpose of cost reporting?",
+          "back": "To provide management with cost information for decision-making, control, and performance evaluation"
+        },
+        {
+          "front": "What is the formula for calculating contribution margin ratio?",
+          "back": "Contribution Margin Ratio = Contribution Margin / Sales Revenue"
+        },
+        {
+          "front": "What is the difference between product costs and period costs?",
+          "back": "Product costs are inventoried until sold, while period costs are expensed in the period incurred"
+        },
+        {
+          "front": "What is the purpose of cost management?",
+          "back": "To plan, control, and optimize costs to achieve organizational objectives and competitive advantage"
+        },
+        {
+          "front": "What is the formula for calculating return on investment (ROI)?",
+          "back": "ROI = Net Operating Income / Average Operating Assets"
+        },
+        {
+          "front": "What is the difference between direct and indirect materials?",
+          "back": "Direct materials become part of the product, while indirect materials support production but don't become part of the product"
+        },
+        {
+          "front": "What is the purpose of cost accounting standards?",
+          "back": "To ensure consistency, comparability, and reliability in cost accounting practices and reporting"
+        },
+        {
+          "front": "What is the formula for calculating residual income?",
+          "back": "Residual Income = Net Operating Income - (Required Rate of Return × Average Operating Assets)"
+        },
+        {
+          "front": "What is the difference between direct and indirect labor?",
+          "back": "Direct labor works directly on products, while indirect labor supports production but doesn't work directly on products"
+        },
+        {
+          "front": "What is the purpose of cost accounting systems?",
+          "back": "To collect, process, and report cost information for management decision-making and control"
+        },
+        {
+          "front": "What is the formula for calculating economic value added (EVA)?",
+          "back": "EVA = Net Operating Income - (Cost of Capital × Average Operating Assets)"
+        },
+        {
+          "front": "What is the difference between manufacturing and non-manufacturing costs?",
+          "back": "Manufacturing costs are product costs, while non-manufacturing costs are period costs"
+        },
+        {
+          "front": "What is the purpose of cost accounting information?",
+          "back": "To support planning, control, decision-making, and performance evaluation in organizations"
+        },
+        {
+          "front": "What is the formula for calculating throughput?",
+          "back": "Throughput = Sales Revenue - Direct Materials Cost"
+        },
+        {
+          "front": "What is the difference between cost accounting and management accounting?",
+          "back": "Cost accounting focuses on cost determination, while management accounting provides broader information for management"
+        },
+        {
+          "front": "What is the purpose of cost accounting principles?",
+          "back": "To provide guidelines for consistent and reliable cost measurement, allocation, and reporting"
+        }
+      ]
+    }
+  ]
+}

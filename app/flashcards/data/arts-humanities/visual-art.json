@@ -1,0 +1,248 @@
+{
+  "id": "visual-art-flashcards",
+  "title": "Visual Art Flashcards",
+  "subject": "Visual Art",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "visual-art-fundamentals",
+      "title": "Visual Art Fundamentals",
+      "cardCount": 50,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is the primary purpose of visual art?",
+          "back": "To express ideas, emotions, and experiences through visual means"
+        },
+        {
+          "front": "What are the three primary colors?",
+          "back": "Red, blue, and yellow - colors that cannot be created by mixing other colors"
+        },
+        {
+          "front": "What are the three secondary colors?",
+          "back": "Green, orange, and purple - colors created by mixing two primary colors"
+        },
+        {
+          "front": "What is the difference between warm and cool colors?",
+          "back": "Warm colors (red, orange, yellow) suggest heat and energy, while cool colors (blue, green, purple) suggest calm and tranquility"
+        },
+        {
+          "front": "What is the meaning of 'hue' in color theory?",
+          "back": "The pure color itself - the name of the color (red, blue, green, etc.)"
+        },
+        {
+          "front": "What is the meaning of 'value' in art?",
+          "back": "The lightness or darkness of a color - how light or dark a color appears"
+        },
+        {
+          "front": "What is the meaning of 'saturation' in color theory?",
+          "back": "The intensity or purity of a color - how vivid or dull a color appears"
+        },
+        {
+          "front": "What is the meaning of 'line' in art?",
+          "back": "A mark made by a moving point - the most basic element of art"
+        },
+        {
+          "front": "What is the meaning of 'shape' in art?",
+          "back": "A two-dimensional area defined by boundaries - can be geometric or organic"
+        },
+        {
+          "front": "What is the meaning of 'form' in art?",
+          "back": "A three-dimensional object - has length, width, and height"
+        },
+        {
+          "front": "What is the meaning of 'texture' in art?",
+          "back": "The surface quality of an object - how it feels or appears to feel"
+        },
+        {
+          "front": "What is the meaning of 'space' in art?",
+          "back": "The area around, between, or within objects - can be positive or negative"
+        },
+        {
+          "front": "What is the meaning of 'balance' in art?",
+          "back": "The distribution of visual weight - can be symmetrical, asymmetrical, or radial"
+        },
+        {
+          "front": "What is the meaning of 'contrast' in art?",
+          "back": "The difference between elements - creates visual interest and emphasis"
+        },
+        {
+          "front": "What is the meaning of 'emphasis' in art?",
+          "back": "The focal point - the area that draws the viewer's attention"
+        },
+        {
+          "front": "What is the meaning of 'movement' in art?",
+          "back": "The path the viewer's eye takes through the artwork"
+        },
+        {
+          "front": "What is the meaning of 'pattern' in art?",
+          "back": "The repetition of elements - creates rhythm and visual interest"
+        },
+        {
+          "front": "What is the meaning of 'rhythm' in art?",
+          "back": "The repetition of elements with variation - creates visual flow"
+        },
+        {
+          "front": "What is the meaning of 'unity' in art?",
+          "back": "The sense of wholeness - all elements work together harmoniously"
+        },
+        {
+          "front": "What is the meaning of 'variety' in art?",
+          "back": "The use of different elements - creates visual interest and prevents monotony"
+        },
+        {
+          "front": "What is the meaning of 'proportion' in art?",
+          "back": "The relationship between parts - how elements relate to each other in size"
+        },
+        {
+          "front": "What is the meaning of 'scale' in art?",
+          "back": "The size of an object in relation to other objects or the environment"
+        },
+        {
+          "front": "What is the meaning of 'perspective' in art?",
+          "back": "The technique of creating the illusion of depth on a flat surface"
+        },
+        {
+          "front": "What is the meaning of 'foreshortening' in art?",
+          "back": "The technique of shortening objects to create the illusion of depth"
+        },
+        {
+          "front": "What is the meaning of 'chiaroscuro' in art?",
+          "back": "The use of light and dark to create the illusion of form and depth"
+        },
+        {
+          "front": "What is the meaning of 'sfumato' in art?",
+          "back": "The technique of blending colors and tones to create soft, hazy edges"
+        },
+        {
+          "front": "What is the meaning of 'impasto' in art?",
+          "back": "The technique of applying paint thickly to create texture"
+        },
+        {
+          "front": "What is the meaning of 'glazing' in art?",
+          "back": "The technique of applying thin, transparent layers of paint"
+        },
+        {
+          "front": "What is the meaning of 'scumbling' in art?",
+          "back": "The technique of applying a thin layer of opaque paint over a dry layer"
+        },
+        {
+          "front": "What is the meaning of 'wet-on-wet' in art?",
+          "back": "The technique of applying wet paint onto wet paint"
+        },
+        {
+          "front": "What is the meaning of 'wet-on-dry' in art?",
+          "back": "The technique of applying wet paint onto dry paint"
+        },
+        {
+          "front": "What is the meaning of 'composition' in art?",
+          "back": "The arrangement of elements in an artwork - the overall design"
+        },
+        {
+          "front": "What is the meaning of 'medium' in art?",
+          "back": "The material used to create art - paint, clay, pencil, etc."
+        },
+        {
+          "front": "What is the meaning of 'technique' in art?",
+          "back": "The method or skill used to create art - how the medium is applied"
+        },
+        {
+          "front": "What is the meaning of 'style' in art?",
+          "back": "The distinctive manner of expression - the artist's personal approach"
+        },
+        {
+          "front": "What is the meaning of 'genre' in art?",
+          "back": "A category of art - landscape, portrait, still life, etc."
+        },
+        {
+          "front": "What is the meaning of 'subject matter' in art?",
+          "back": "What the artwork is about - the content or theme"
+        },
+        {
+          "front": "What is the meaning of 'content' in art?",
+          "back": "The meaning or message of the artwork - what it communicates"
+        },
+        {
+          "front": "What is the meaning of 'form' in art?",
+          "back": "The physical structure of the artwork - how it is organized"
+        },
+        {
+          "front": "What is the meaning of 'function' in art?",
+          "back": "The purpose or use of the artwork - why it was created"
+        },
+        {
+          "front": "What is the meaning of 'aesthetic' in art?",
+          "back": "The study of beauty and taste - what makes something beautiful"
+        },
+        {
+          "front": "What is the meaning of 'critique' in art?",
+          "back": "The analysis and evaluation of an artwork - examining its strengths and weaknesses"
+        },
+        {
+          "front": "What is the meaning of 'gallery' in art?",
+          "back": "A space for displaying art - where artworks are shown to the public"
+        },
+        {
+          "front": "What is the meaning of 'exhibition' in art?",
+          "back": "A public display of artworks - a curated show of art"
+        },
+        {
+          "front": "What is the meaning of 'curator' in art?",
+          "back": "A person who selects and organizes artworks for display"
+        },
+        {
+          "front": "What is the meaning of 'collector' in art?",
+          "back": "A person who acquires and owns artworks"
+        },
+        {
+          "front": "What is the meaning of 'patron' in art?",
+          "back": "A person who supports artists financially or otherwise"
+        },
+        {
+          "front": "What is the meaning of 'commission' in art?",
+          "back": "A request to create a specific artwork for a client"
+        },
+        {
+          "front": "What is the meaning of 'studio' in art?",
+          "back": "The workspace where an artist creates their art"
+        },
+        {
+          "front": "What is the meaning of 'sketch' in art?",
+          "back": "A quick, rough drawing - often used as a preliminary study"
+        },
+        {
+          "front": "What is the meaning of 'study' in art?",
+          "back": "A detailed drawing or painting made to understand a subject"
+        },
+        {
+          "front": "What is the meaning of 'masterpiece' in art?",
+          "back": "An outstanding work of art - considered the artist's best work"
+        },
+        {
+          "front": "What is the meaning of 'original' in art?",
+          "back": "The first or authentic version of an artwork"
+        },
+        {
+          "front": "What is the meaning of 'reproduction' in art?",
+          "back": "A copy of an original artwork - not the original"
+        },
+        {
+          "front": "What is the meaning of 'authenticity' in art?",
+          "back": "The quality of being genuine - verified as the real work of the artist"
+        },
+        {
+          "front": "What is the meaning of 'provenance' in art?",
+          "back": "The history of ownership of an artwork - its chain of custody"
+        },
+        {
+          "front": "What is the meaning of 'conservation' in art?",
+          "back": "The preservation and restoration of artworks - maintaining their condition"
+        },
+        {
+          "front": "What is the meaning of 'restoration' in art?",
+          "back": "The process of repairing and returning an artwork to its original condition"
+        }
+      ]
+    }
+  ]
+}

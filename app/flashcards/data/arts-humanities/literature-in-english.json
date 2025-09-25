@@ -1,0 +1,248 @@
+{
+  "id": "literature-in-english-flashcards",
+  "title": "Literature-in-English Flashcards",
+  "subject": "Literature-in-English",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "literature-in-english-fundamentals",
+      "title": "Literature-in-English Fundamentals",
+      "cardCount": 50,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is the definition of literature?",
+          "back": "Written works of artistic value, including poetry, prose, and drama"
+        },
+        {
+          "front": "What is the difference between prose and poetry?",
+          "back": "Prose is written in sentences and paragraphs, while poetry uses lines and stanzas"
+        },
+        {
+          "front": "What is the meaning of 'theme' in literature?",
+          "back": "The central idea or message that the author wants to convey"
+        },
+        {
+          "front": "What is the meaning of 'plot' in literature?",
+          "back": "The sequence of events that make up the story"
+        },
+        {
+          "front": "What is the meaning of 'character' in literature?",
+          "back": "A person, animal, or being in a story"
+        },
+        {
+          "front": "What is the meaning of 'setting' in literature?",
+          "back": "The time and place where the story takes place"
+        },
+        {
+          "front": "What is the meaning of 'point of view' in literature?",
+          "back": "The perspective from which the story is told"
+        },
+        {
+          "front": "What is the meaning of 'tone' in literature?",
+          "back": "The author's attitude toward the subject or audience"
+        },
+        {
+          "front": "What is the meaning of 'mood' in literature?",
+          "back": "The emotional atmosphere that the author creates"
+        },
+        {
+          "front": "What is the meaning of 'symbolism' in literature?",
+          "back": "The use of symbols to represent ideas or qualities"
+        },
+        {
+          "front": "What is the meaning of 'metaphor' in literature?",
+          "back": "A comparison between two things without using 'like' or 'as'"
+        },
+        {
+          "front": "What is the meaning of 'simile' in literature?",
+          "back": "A comparison between two things using 'like' or 'as'"
+        },
+        {
+          "front": "What is the meaning of 'personification' in literature?",
+          "back": "Giving human characteristics to non-human things"
+        },
+        {
+          "front": "What is the meaning of 'alliteration' in literature?",
+          "back": "The repetition of consonant sounds at the beginning of words"
+        },
+        {
+          "front": "What is the meaning of 'rhyme' in literature?",
+          "back": "The repetition of similar sounds in words"
+        },
+        {
+          "front": "What is the meaning of 'rhythm' in literature?",
+          "back": "The pattern of stressed and unstressed syllables in poetry"
+        },
+        {
+          "front": "What is the meaning of 'stanza' in literature?",
+          "back": "A group of lines in a poem, similar to a paragraph in prose"
+        },
+        {
+          "front": "What is the meaning of 'verse' in literature?",
+          "back": "A single line of poetry"
+        },
+        {
+          "front": "What is the meaning of 'narrator' in literature?",
+          "back": "The person who tells the story"
+        },
+        {
+          "front": "What is the meaning of 'protagonist' in literature?",
+          "back": "The main character in a story"
+        },
+        {
+          "front": "What is the meaning of 'antagonist' in literature?",
+          "back": "The character who opposes the protagonist"
+        },
+        {
+          "front": "What is the meaning of 'conflict' in literature?",
+          "back": "The struggle between opposing forces in a story"
+        },
+        {
+          "front": "What is the meaning of 'climax' in literature?",
+          "back": "The turning point or most intense moment in the story"
+        },
+        {
+          "front": "What is the meaning of 'resolution' in literature?",
+          "back": "The conclusion of the story where conflicts are resolved"
+        },
+        {
+          "front": "What is the meaning of 'foreshadowing' in literature?",
+          "back": "Hints or clues about what will happen later in the story"
+        },
+        {
+          "front": "What is the meaning of 'flashback' in literature?",
+          "back": "A scene that takes place before the current time in the story"
+        },
+        {
+          "front": "What is the meaning of 'irony' in literature?",
+          "back": "A contrast between what is expected and what actually happens"
+        },
+        {
+          "front": "What is the meaning of 'satire' in literature?",
+          "back": "The use of humor, irony, or exaggeration to criticize"
+        },
+        {
+          "front": "What is the meaning of 'allegory' in literature?",
+          "back": "A story with a hidden meaning, often moral or political"
+        },
+        {
+          "front": "What is the meaning of 'fable' in literature?",
+          "back": "A short story that teaches a moral lesson, often with animals"
+        },
+        {
+          "front": "What is the meaning of 'myth' in literature?",
+          "back": "A traditional story that explains natural phenomena or cultural beliefs"
+        },
+        {
+          "front": "What is the meaning of 'legend' in literature?",
+          "back": "A traditional story about historical events or people"
+        },
+        {
+          "front": "What is the meaning of 'folktale' in literature?",
+          "back": "A traditional story passed down through generations"
+        },
+        {
+          "front": "What is the meaning of 'fairy tale' in literature?",
+          "back": "A children's story with magical elements and happy endings"
+        },
+        {
+          "front": "What is the meaning of 'novel' in literature?",
+          "back": "A long work of fiction with complex characters and plot"
+        },
+        {
+          "front": "What is the meaning of 'short story' in literature?",
+          "back": "A brief work of fiction with few characters and simple plot"
+        },
+        {
+          "front": "What is the meaning of 'drama' in literature?",
+          "back": "A work written to be performed on stage"
+        },
+        {
+          "front": "What is the meaning of 'tragedy' in literature?",
+          "back": "A serious drama with an unhappy ending"
+        },
+        {
+          "front": "What is the meaning of 'comedy' in literature?",
+          "back": "A humorous drama with a happy ending"
+        },
+        {
+          "front": "What is the meaning of 'sonnet' in literature?",
+          "back": "A 14-line poem with a specific rhyme scheme"
+        },
+        {
+          "front": "What is the meaning of 'haiku' in literature?",
+          "back": "A Japanese poem with 3 lines and 17 syllables"
+        },
+        {
+          "front": "What is the meaning of 'limerick' in literature?",
+          "back": "A humorous 5-line poem with a specific rhyme scheme"
+        },
+        {
+          "front": "What is the meaning of 'ballad' in literature?",
+          "back": "A narrative poem that tells a story, often set to music"
+        },
+        {
+          "front": "What is the meaning of 'epic' in literature?",
+          "back": "A long narrative poem about heroic deeds"
+        },
+        {
+          "front": "What is the meaning of 'ode' in literature?",
+          "back": "A lyric poem that praises or celebrates something"
+        },
+        {
+          "front": "What is the meaning of 'elegy' in literature?",
+          "back": "A mournful poem, often written for someone who has died"
+        },
+        {
+          "front": "What is the meaning of 'autobiography' in literature?",
+          "back": "A person's account of their own life"
+        },
+        {
+          "front": "What is the meaning of 'biography' in literature?",
+          "back": "An account of someone's life written by another person"
+        },
+        {
+          "front": "What is the meaning of 'memoir' in literature?",
+          "back": "A personal account of specific events or experiences"
+        },
+        {
+          "front": "What is the meaning of 'essay' in literature?",
+          "back": "A short piece of writing on a particular subject"
+        },
+        {
+          "front": "What is the meaning of 'criticism' in literature?",
+          "back": "The analysis and evaluation of literary works"
+        },
+        {
+          "front": "What is the meaning of 'genre' in literature?",
+          "back": "A category of literary composition, such as fiction, poetry, or drama"
+        },
+        {
+          "front": "What is the meaning of 'style' in literature?",
+          "back": "The distinctive manner of expression used by an author"
+        },
+        {
+          "front": "What is the meaning of 'voice' in literature?",
+          "back": "The distinctive style or manner of expression of an author"
+        },
+        {
+          "front": "What is the meaning of 'imagery' in literature?",
+          "back": "The use of vivid descriptions to create mental pictures"
+        },
+        {
+          "front": "What is the meaning of 'dialogue' in literature?",
+          "back": "Conversation between characters in a story"
+        },
+        {
+          "front": "What is the meaning of 'monologue' in literature?",
+          "back": "A long speech by one character in a story"
+        },
+        {
+          "front": "What is the meaning of 'soliloquy' in literature?",
+          "back": "A speech in which a character speaks their thoughts aloud"
+        }
+      ]
+    }
+  ]
+}

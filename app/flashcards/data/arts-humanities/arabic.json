@@ -1,0 +1,232 @@
+{
+  "id": "arabic-flashcards",
+  "title": "Arabic Flashcards",
+  "subject": "Arabic",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "arabic-fundamentals",
+      "title": "Arabic Fundamentals",
+      "cardCount": 50,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is the Arabic word for 'book'?",
+          "back": "كتاب (kitab) - the Arabic word for book"
+        },
+        {
+          "front": "What is the Arabic word for 'house'?",
+          "back": "بيت (bayt) - the Arabic word for house"
+        },
+        {
+          "front": "What is the Arabic word for 'water'?",
+          "back": "ماء (maa) - the Arabic word for water"
+        },
+        {
+          "front": "What is the Arabic word for 'food'?",
+          "back": "طعام (ta'aam) - the Arabic word for food"
+        },
+        {
+          "front": "What is the Arabic word for 'friend'?",
+          "back": "صديق (sadeeq) - the Arabic word for friend"
+        },
+        {
+          "front": "What is the Arabic word for 'school'?",
+          "back": "مدرسة (madrasa) - the Arabic word for school"
+        },
+        {
+          "front": "What is the Arabic word for 'car'?",
+          "back": "سيارة (sayyara) - the Arabic word for car"
+        },
+        {
+          "front": "What is the Arabic word for 'tree'?",
+          "back": "شجرة (shajara) - the Arabic word for tree"
+        },
+        {
+          "front": "What is the Arabic word for 'sun'?",
+          "back": "شمس (shams) - the Arabic word for sun"
+        },
+        {
+          "front": "What is the Arabic word for 'moon'?",
+          "back": "قمر (qamar) - the Arabic word for moon"
+        },
+        {
+          "front": "What is the Arabic word for 'star'?",
+          "back": "نجمة (najma) - the Arabic word for star"
+        },
+        {
+          "front": "What is the Arabic word for 'sky'?",
+          "back": "سماء (samaa) - the Arabic word for sky"
+        },
+        {
+          "front": "What is the Arabic word for 'earth'?",
+          "back": "أرض (ard) - the Arabic word for earth"
+        },
+        {
+          "front": "What is the Arabic word for 'mountain'?",
+          "back": "جبل (jabal) - the Arabic word for mountain"
+        },
+        {
+          "front": "What is the Arabic word for 'river'?",
+          "back": "نهر (nahr) - the Arabic word for river"
+        },
+        {
+          "front": "What is the Arabic word for 'sea'?",
+          "back": "بحر (bahr) - the Arabic word for sea"
+        },
+        {
+          "front": "What is the Arabic word for 'city'?",
+          "back": "مدينة (madina) - the Arabic word for city"
+        },
+        {
+          "front": "What is the Arabic word for 'village'?",
+          "back": "قرية (qarya) - the Arabic word for village"
+        },
+        {
+          "front": "What is the Arabic word for 'country'?",
+          "back": "بلد (balad) - the Arabic word for country"
+        },
+        {
+          "front": "What is the Arabic word for 'world'?",
+          "back": "عالم (aalam) - the Arabic word for world"
+        },
+        {
+          "front": "What is the Arabic word for 'time'?",
+          "back": "وقت (waqt) - the Arabic word for time"
+        },
+        {
+          "front": "What is the Arabic word for 'day'?",
+          "back": "يوم (yawm) - the Arabic word for day"
+        },
+        {
+          "front": "What is the Arabic word for 'night'?",
+          "back": "ليل (layl) - the Arabic word for night"
+        },
+        {
+          "front": "What is the Arabic word for 'morning'?",
+          "back": "صباح (sabah) - the Arabic word for morning"
+        },
+        {
+          "front": "What is the Arabic word for 'evening'?",
+          "back": "مساء (masaa) - the Arabic word for evening"
+        },
+        {
+          "front": "What is the Arabic word for 'year'?",
+          "back": "سنة (sana) - the Arabic word for year"
+        },
+        {
+          "front": "What is the Arabic word for 'month'?",
+          "back": "شهر (shahr) - the Arabic word for month"
+        },
+        {
+          "front": "What is the Arabic word for 'week'?",
+          "back": "أسبوع (usbuu) - the Arabic word for week"
+        },
+        {
+          "front": "What is the Arabic word for 'hour'?",
+          "back": "ساعة (saa'a) - the Arabic word for hour"
+        },
+        {
+          "front": "What is the Arabic word for 'minute'?",
+          "back": "دقيقة (daqeeqa) - the Arabic word for minute"
+        },
+        {
+          "front": "What is the Arabic word for 'second'?",
+          "back": "ثانية (thaaniya) - the Arabic word for second"
+        },
+        {
+          "front": "What is the Arabic word for 'today'?",
+          "back": "اليوم (al-yawm) - the Arabic word for today"
+        },
+        {
+          "front": "What is the Arabic word for 'yesterday'?",
+          "back": "أمس (ams) - the Arabic word for yesterday"
+        },
+        {
+          "front": "What is the Arabic word for 'tomorrow'?",
+          "back": "غداً (ghadan) - the Arabic word for tomorrow"
+        },
+        {
+          "front": "What is the Arabic word for 'now'?",
+          "back": "الآن (al-aan) - the Arabic word for now"
+        },
+        {
+          "front": "What is the Arabic word for 'here'?",
+          "back": "هنا (huna) - the Arabic word for here"
+        },
+        {
+          "front": "What is the Arabic word for 'there'?",
+          "back": "هناك (hunaak) - the Arabic word for there"
+        },
+        {
+          "front": "What is the Arabic word for 'where'?",
+          "back": "أين (ayn) - the Arabic word for where"
+        },
+        {
+          "front": "What is the Arabic word for 'when'?",
+          "back": "متى (mataa) - the Arabic word for when"
+        },
+        {
+          "front": "What is the Arabic word for 'how'?",
+          "back": "كيف (kayf) - the Arabic word for how"
+        },
+        {
+          "front": "What is the Arabic word for 'what'?",
+          "back": "ماذا (maadha) - the Arabic word for what"
+        },
+        {
+          "front": "What is the Arabic word for 'who'?",
+          "back": "من (man) - the Arabic word for who"
+        },
+        {
+          "front": "What is the Arabic word for 'why'?",
+          "back": "لماذا (limaadha) - the Arabic word for why"
+        },
+        {
+          "front": "What is the Arabic word for 'yes'?",
+          "back": "نعم (na'am) - the Arabic word for yes"
+        },
+        {
+          "front": "What is the Arabic word for 'no'?",
+          "back": "لا (laa) - the Arabic word for no"
+        },
+        {
+          "front": "What is the Arabic word for 'please'?",
+          "back": "من فضلك (min fadlik) - the Arabic word for please"
+        },
+        {
+          "front": "What is the Arabic word for 'thank you'?",
+          "back": "شكراً (shukran) - the Arabic word for thank you"
+        },
+        {
+          "front": "What is the Arabic word for 'welcome'?",
+          "back": "أهلاً وسهلاً (ahlan wa sahlan) - the Arabic word for welcome"
+        },
+        {
+          "front": "What is the Arabic word for 'goodbye'?",
+          "back": "وداعاً (wadaa'an) - the Arabic word for goodbye"
+        },
+        {
+          "front": "What is the Arabic word for 'hello'?",
+          "back": "مرحباً (marhaban) - the Arabic word for hello"
+        },
+        {
+          "front": "What is the Arabic word for 'good'?",
+          "back": "جيد (jayyid) - the Arabic word for good"
+        },
+        {
+          "front": "What is the Arabic word for 'bad'?",
+          "back": "سيء (sayyi) - the Arabic word for bad"
+        },
+        {
+          "front": "What is the Arabic word for 'big'?",
+          "back": "كبير (kabeer) - the Arabic word for big"
+        },
+        {
+          "front": "What is the Arabic word for 'small'?",
+          "back": "صغير (sagheer) - the Arabic word for small"
+        }
+      ]
+    }
+  ]
+}

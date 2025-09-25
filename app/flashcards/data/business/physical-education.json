@@ -1,0 +1,256 @@
+{
+  "id": "physical-education-flashcards",
+  "title": "Physical Education Flashcards",
+  "subject": "Physical Education",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "physical-education-fundamentals",
+      "title": "Physical Education Fundamentals",
+      "cardCount": 50,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is the primary goal of physical education?",
+          "back": "To develop physical fitness, motor skills, and promote healthy lifestyles"
+        },
+        {
+          "front": "What are the five components of physical fitness?",
+          "back": "Cardiovascular endurance, muscular strength, muscular endurance, flexibility, and body composition"
+        },
+        {
+          "front": "What is cardiovascular endurance?",
+          "back": "The ability of the heart and lungs to supply oxygen to working muscles during sustained activity"
+        },
+        {
+          "front": "What is muscular strength?",
+          "back": "The maximum amount of force a muscle can produce in a single effort"
+        },
+        {
+          "front": "What is muscular endurance?",
+          "back": "The ability of muscles to perform repeated contractions over time"
+        },
+        {
+          "front": "What is flexibility?",
+          "back": "The range of motion around a joint"
+        },
+        {
+          "front": "What is body composition?",
+          "back": "The ratio of fat mass to lean mass in the body"
+        },
+        {
+          "front": "What is the FITT principle?",
+          "back": "Frequency, Intensity, Time, and Type - the four elements of exercise prescription"
+        },
+        {
+          "front": "What is the recommended frequency for cardiovascular exercise?",
+          "back": "3-5 times per week for optimal health benefits"
+        },
+        {
+          "front": "What is the recommended duration for cardiovascular exercise?",
+          "back": "20-60 minutes per session for health benefits"
+        },
+        {
+          "front": "What is the target heart rate zone?",
+          "back": "60-80% of maximum heart rate for cardiovascular fitness"
+        },
+        {
+          "front": "How do you calculate maximum heart rate?",
+          "back": "220 minus your age in years"
+        },
+        {
+          "front": "What is the difference between aerobic and anaerobic exercise?",
+          "back": "Aerobic uses oxygen for energy (endurance), while anaerobic doesn't use oxygen (short bursts)"
+        },
+        {
+          "front": "What is the importance of warming up before exercise?",
+          "back": "To prepare the body for activity, increase blood flow, and reduce injury risk"
+        },
+        {
+          "front": "What is the importance of cooling down after exercise?",
+          "back": "To gradually return the body to rest, prevent blood pooling, and reduce muscle soreness"
+        },
+        {
+          "front": "What is the importance of stretching?",
+          "back": "To improve flexibility, reduce muscle tension, and prevent injury"
+        },
+        {
+          "front": "What is the difference between static and dynamic stretching?",
+          "back": "Static stretching holds positions, while dynamic stretching involves movement"
+        },
+        {
+          "front": "What is the importance of hydration during exercise?",
+          "back": "To maintain performance, prevent dehydration, and regulate body temperature"
+        },
+        {
+          "front": "What is the importance of proper nutrition for physical activity?",
+          "back": "To provide energy, support recovery, and maintain health"
+        },
+        {
+          "front": "What is the importance of rest and recovery?",
+          "back": "To allow the body to repair, adapt, and prevent overtraining"
+        },
+        {
+          "front": "What is the importance of proper form in exercise?",
+          "back": "To maximize effectiveness, prevent injury, and ensure safety"
+        },
+        {
+          "front": "What is the importance of progression in exercise?",
+          "back": "To gradually increase intensity and challenge the body for continued improvement"
+        },
+        {
+          "front": "What is the importance of variety in exercise?",
+          "back": "To prevent boredom, work different muscle groups, and maintain motivation"
+        },
+        {
+          "front": "What is the importance of consistency in exercise?",
+          "back": "To achieve and maintain fitness goals and health benefits"
+        },
+        {
+          "front": "What is the importance of goal setting in physical activity?",
+          "back": "To provide direction, motivation, and measure progress"
+        },
+        {
+          "front": "What is the importance of tracking progress?",
+          "back": "To monitor improvement, adjust programs, and maintain motivation"
+        },
+        {
+          "front": "What is the importance of safety in physical activity?",
+          "back": "To prevent injury, ensure proper equipment use, and create a safe environment"
+        },
+        {
+          "front": "What is the importance of teamwork in physical education?",
+          "back": "To develop social skills, cooperation, and communication"
+        },
+        {
+          "front": "What is the importance of sportsmanship?",
+          "back": "To promote fair play, respect, and positive competition"
+        },
+        {
+          "front": "What is the importance of leadership in physical activity?",
+          "back": "To develop confidence, responsibility, and guide others"
+        },
+        {
+          "front": "What is the importance of communication in physical activity?",
+          "back": "To coordinate activities, share information, and build relationships"
+        },
+        {
+          "front": "What is the importance of problem-solving in physical activity?",
+          "back": "To overcome challenges, adapt to situations, and improve performance"
+        },
+        {
+          "front": "What is the importance of decision-making in physical activity?",
+          "back": "To make quick choices, assess situations, and respond appropriately"
+        },
+        {
+          "front": "What is the importance of concentration in physical activity?",
+          "back": "To maintain focus, improve performance, and prevent injury"
+        },
+        {
+          "front": "What is the importance of self-discipline in physical activity?",
+          "back": "To maintain commitment, overcome obstacles, and achieve goals"
+        },
+        {
+          "front": "What is the importance of self-confidence in physical activity?",
+          "back": "To take risks, try new activities, and believe in abilities"
+        },
+        {
+          "front": "What is the importance of self-esteem in physical activity?",
+          "back": "To feel good about oneself, accept challenges, and maintain motivation"
+        },
+        {
+          "front": "What is the importance of stress management in physical activity?",
+          "back": "To reduce tension, improve mood, and enhance well-being"
+        },
+        {
+          "front": "What is the importance of time management in physical activity?",
+          "back": "To balance activities, prioritize goals, and maintain consistency"
+        },
+        {
+          "front": "What is the importance of energy management in physical activity?",
+          "back": "To pace activities, maintain performance, and prevent fatigue"
+        },
+        {
+          "front": "What is the importance of injury prevention in physical activity?",
+          "back": "To maintain health, ensure safety, and continue participation"
+        },
+        {
+          "front": "What is the importance of first aid knowledge in physical activity?",
+          "back": "To respond to emergencies, provide immediate care, and ensure safety"
+        },
+        {
+          "front": "What is the importance of equipment knowledge in physical activity?",
+          "back": "To use equipment safely, effectively, and appropriately"
+        },
+        {
+          "front": "What is the importance of facility knowledge in physical activity?",
+          "back": "To navigate spaces, use resources, and maintain safety"
+        },
+        {
+          "front": "What is the importance of rule knowledge in physical activity?",
+          "back": "To participate safely, fairly, and effectively"
+        },
+        {
+          "front": "What is the importance of skill development in physical activity?",
+          "back": "To improve performance, increase confidence, and enhance enjoyment"
+        },
+        {
+          "front": "What is the importance of technique in physical activity?",
+          "back": "To perform efficiently, prevent injury, and achieve goals"
+        },
+        {
+          "front": "What is the importance of strategy in physical activity?",
+          "back": "To plan approaches, make decisions, and achieve success"
+        },
+        {
+          "front": "What is the importance of tactics in physical activity?",
+          "back": "To adapt to situations, respond to opponents, and achieve objectives"
+        },
+        {
+          "front": "What is the importance of mental preparation in physical activity?",
+          "back": "To focus attention, build confidence, and enhance performance"
+        },
+        {
+          "front": "What is the importance of physical preparation in physical activity?",
+          "back": "To condition the body, prevent injury, and optimize performance"
+        },
+        {
+          "front": "What is the importance of emotional preparation in physical activity?",
+          "back": "To manage feelings, maintain motivation, and handle pressure"
+        },
+        {
+          "front": "What is the importance of social preparation in physical activity?",
+          "back": "To build relationships, work with others, and create support systems"
+        },
+        {
+          "front": "What is the importance of environmental awareness in physical activity?",
+          "back": "To adapt to conditions, ensure safety, and optimize performance"
+        },
+        {
+          "front": "What is the importance of cultural awareness in physical activity?",
+          "back": "To respect diversity, understand differences, and promote inclusion"
+        },
+        {
+          "front": "What is the importance of lifelong learning in physical activity?",
+          "back": "To continue growing, adapting, and improving throughout life"
+        },
+        {
+          "front": "What is the importance of community involvement in physical activity?",
+          "back": "To build connections, support others, and contribute to society"
+        },
+        {
+          "front": "What is the importance of environmental stewardship in physical activity?",
+          "back": "To protect natural resources, promote sustainability, and respect the environment"
+        },
+        {
+          "front": "What is the importance of health promotion in physical activity?",
+          "back": "To encourage healthy behaviors, prevent disease, and improve quality of life"
+        },
+        {
+          "front": "What is the importance of wellness in physical activity?",
+          "back": "To achieve balance, maintain health, and enhance overall well-being"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,224 @@
+{
+  "id": "agricultural-science-flashcards",
+  "title": "Agricultural Science Flashcards",
+  "subject": "Agricultural Science",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "agricultural-science-fundamentals",
+      "title": "Agricultural Science Fundamentals",
+      "cardCount": 50,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is the primary purpose of crop rotation?",
+          "back": "To maintain soil fertility and reduce pest and disease problems by alternating different crops in the same field"
+        },
+        {
+          "front": "Which of the following is a leguminous crop?",
+          "back": "Soybean - leguminous crops have the ability to fix atmospheric nitrogen through symbiotic bacteria"
+        },
+        {
+          "front": "What is the main function of chlorophyll in plants?",
+          "back": "To capture light energy and convert it into chemical energy during photosynthesis"
+        },
+        {
+          "front": "What is the ideal pH range for most agricultural crops?",
+          "back": "6.0 to 7.5 - this range provides optimal nutrient availability for most plants"
+        },
+        {
+          "front": "What is the process by which plants lose water through their leaves?",
+          "back": "Transpiration - the evaporation of water from plant surfaces, mainly through stomata"
+        },
+        {
+          "front": "What is the difference between organic and inorganic fertilizers?",
+          "back": "Organic fertilizers come from natural sources (manure, compost) while inorganic fertilizers are chemically manufactured"
+        },
+        {
+          "front": "What is the primary function of the root system in plants?",
+          "back": "To anchor the plant and absorb water and nutrients from the soil"
+        },
+        {
+          "front": "What is the term for the practice of growing different crops together?",
+          "back": "Intercropping - growing two or more crops simultaneously in the same field"
+        },
+        {
+          "front": "What is the main cause of soil erosion?",
+          "back": "Water and wind action on exposed soil surfaces, often accelerated by poor farming practices"
+        },
+        {
+          "front": "What is the purpose of plowing in agriculture?",
+          "back": "To break up soil, incorporate organic matter, and prepare seedbeds for planting"
+        },
+        {
+          "front": "What is the difference between annual and perennial crops?",
+          "back": "Annual crops complete their life cycle in one year, while perennial crops live for multiple years"
+        },
+        {
+          "front": "What is the primary function of nitrogen in plant growth?",
+          "back": "Essential for protein synthesis, chlorophyll formation, and overall plant growth"
+        },
+        {
+          "front": "What is the term for the practice of leaving fields uncultivated to restore fertility?",
+          "back": "Fallowing - allowing land to rest and recover its natural fertility"
+        },
+        {
+          "front": "What is the main purpose of irrigation in agriculture?",
+          "back": "To provide water to crops when natural rainfall is insufficient"
+        },
+        {
+          "front": "What is the difference between monoculture and polyculture?",
+          "back": "Monoculture grows one crop type, while polyculture grows multiple crop types together"
+        },
+        {
+          "front": "What is the primary function of phosphorus in plants?",
+          "back": "Essential for energy transfer, root development, and flowering"
+        },
+        {
+          "front": "What is the term for the practice of growing crops without soil?",
+          "back": "Hydroponics - growing plants in nutrient-rich water solutions"
+        },
+        {
+          "front": "What is the main function of potassium in plant growth?",
+          "back": "Regulates water movement, enzyme activation, and improves disease resistance"
+        },
+        {
+          "front": "What is the difference between intensive and extensive farming?",
+          "back": "Intensive farming uses high inputs for maximum yield, while extensive farming uses low inputs over large areas"
+        },
+        {
+          "front": "What is the primary purpose of green manure?",
+          "back": "To improve soil fertility by incorporating fresh plant material into the soil"
+        },
+        {
+          "front": "What is the term for the practice of growing crops in rows?",
+          "back": "Row cropping - planting crops in organized rows for easier management"
+        },
+        {
+          "front": "What is the main function of calcium in plants?",
+          "back": "Essential for cell wall structure, root development, and enzyme activation"
+        },
+        {
+          "front": "What is the difference between tillage and no-till farming?",
+          "back": "Tillage involves soil disturbance, while no-till farming minimizes soil disturbance"
+        },
+        {
+          "front": "What is the primary function of magnesium in plants?",
+          "back": "Central component of chlorophyll and essential for photosynthesis"
+        },
+        {
+          "front": "What is the term for the practice of growing crops in controlled environments?",
+          "back": "Protected cultivation - using greenhouses, tunnels, or other structures"
+        },
+        {
+          "front": "What is the main function of sulfur in plants?",
+          "back": "Essential for protein synthesis and enzyme function"
+        },
+        {
+          "front": "What is the difference between organic and conventional farming?",
+          "back": "Organic farming avoids synthetic inputs, while conventional farming uses them"
+        },
+        {
+          "front": "What is the primary purpose of mulching?",
+          "back": "To conserve soil moisture, suppress weeds, and moderate soil temperature"
+        },
+        {
+          "front": "What is the term for the practice of growing crops in water?",
+          "back": "Aquaponics - combining fish farming with hydroponic plant cultivation"
+        },
+        {
+          "front": "What is the main function of iron in plants?",
+          "back": "Essential for chlorophyll synthesis and electron transport"
+        },
+        {
+          "front": "What is the difference between determinate and indeterminate plants?",
+          "back": "Determinate plants have limited growth, while indeterminate plants continue growing"
+        },
+        {
+          "front": "What is the primary purpose of crop breeding?",
+          "back": "To develop improved varieties with better yield, disease resistance, and quality"
+        },
+        {
+          "front": "What is the term for the practice of growing crops in containers?",
+          "back": "Container gardening - growing plants in pots, bags, or other containers"
+        },
+        {
+          "front": "What is the main function of zinc in plants?",
+          "back": "Essential for enzyme function and hormone synthesis"
+        },
+        {
+          "front": "What is the difference between C3 and C4 plants?",
+          "back": "C3 plants use standard photosynthesis, while C4 plants have a more efficient carbon fixation process"
+        },
+        {
+          "front": "What is the primary purpose of soil testing?",
+          "back": "To determine nutrient levels and pH for proper fertilizer application"
+        },
+        {
+          "front": "What is the term for the practice of growing crops in raised beds?",
+          "back": "Raised bed gardening - growing plants in elevated soil areas"
+        },
+        {
+          "front": "What is the main function of manganese in plants?",
+          "back": "Essential for photosynthesis and enzyme activation"
+        },
+        {
+          "front": "What is the difference between warm-season and cool-season crops?",
+          "back": "Warm-season crops grow best in hot weather, while cool-season crops prefer cooler temperatures"
+        },
+        {
+          "front": "What is the primary purpose of crop rotation planning?",
+          "back": "To optimize soil health, pest management, and yield over multiple seasons"
+        },
+        {
+          "front": "What is the term for the practice of growing crops in vertical structures?",
+          "back": "Vertical farming - growing crops in stacked layers or vertical towers"
+        },
+        {
+          "front": "What is the main function of copper in plants?",
+          "back": "Essential for enzyme function and chlorophyll synthesis"
+        },
+        {
+          "front": "What is the difference between heirloom and hybrid varieties?",
+          "back": "Heirloom varieties are open-pollinated and stable, while hybrids are cross-bred for specific traits"
+        },
+        {
+          "front": "What is the primary purpose of integrated pest management?",
+          "back": "To control pests using multiple strategies while minimizing environmental impact"
+        },
+        {
+          "front": "What is the term for the practice of growing crops in urban areas?",
+          "back": "Urban agriculture - growing food in cities and urban environments"
+        },
+        {
+          "front": "What is the main function of boron in plants?",
+          "back": "Essential for cell wall formation and reproductive development"
+        },
+        {
+          "front": "What is the difference between GMO and non-GMO crops?",
+          "back": "GMO crops have modified genetic material, while non-GMO crops have natural genetics"
+        },
+        {
+          "front": "What is the primary purpose of sustainable agriculture?",
+          "back": "To meet current food needs while preserving resources for future generations"
+        },
+        {
+          "front": "What is the term for the practice of growing crops in artificial light?",
+          "back": "Indoor farming - growing crops in controlled indoor environments with artificial lighting"
+        },
+        {
+          "front": "What is the main function of molybdenum in plants?",
+          "back": "Essential for nitrogen fixation and enzyme function"
+        },
+        {
+          "front": "What is the difference between organic and synthetic pesticides?",
+          "back": "Organic pesticides come from natural sources, while synthetic pesticides are chemically manufactured"
+        },
+        {
+          "front": "What is the primary purpose of precision agriculture?",
+          "back": "To optimize farming practices using technology and data for better efficiency"
+        }
+      ]
+    }
+  ]
+}

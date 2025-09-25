@@ -1,0 +1,272 @@
+{
+  "id": "auto-mechanics-flashcards",
+  "title": "Auto Mechanics Flashcards",
+  "subject": "Auto Mechanics",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "auto-mechanics-fundamentals",
+      "title": "Auto Mechanics Fundamentals",
+      "cardCount": 50,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is the primary function of an engine?",
+          "back": "To convert fuel into mechanical energy to power the vehicle"
+        },
+        {
+          "front": "What are the four strokes of a four-stroke engine?",
+          "back": "Intake, compression, power, and exhaust strokes"
+        },
+        {
+          "front": "What is the purpose of the transmission?",
+          "back": "To transfer power from the engine to the wheels at different speeds"
+        },
+        {
+          "front": "What is the difference between automatic and manual transmission?",
+          "back": "Automatic shifts gears automatically, while manual requires driver to shift gears"
+        },
+        {
+          "front": "What is the purpose of the brake system?",
+          "back": "To slow down or stop the vehicle safely"
+        },
+        {
+          "front": "What is the difference between disc and drum brakes?",
+          "back": "Disc brakes use pads and rotors, while drum brakes use shoes and drums"
+        },
+        {
+          "front": "What is the purpose of the suspension system?",
+          "back": "To provide a smooth ride and maintain tire contact with the road"
+        },
+        {
+          "front": "What is the purpose of the steering system?",
+          "back": "To control the direction of the vehicle"
+        },
+        {
+          "front": "What is the purpose of the electrical system?",
+          "back": "To provide power for starting, lighting, and other electrical components"
+        },
+        {
+          "front": "What is the purpose of the cooling system?",
+          "back": "To regulate engine temperature and prevent overheating"
+        },
+        {
+          "front": "What is the purpose of the lubrication system?",
+          "back": "To reduce friction and wear between moving parts"
+        },
+        {
+          "front": "What is the purpose of the fuel system?",
+          "back": "To deliver fuel to the engine for combustion"
+        },
+        {
+          "front": "What is the purpose of the exhaust system?",
+          "back": "To remove exhaust gases from the engine and reduce noise"
+        },
+        {
+          "front": "What is the purpose of the air intake system?",
+          "back": "To provide clean air to the engine for combustion"
+        },
+        {
+          "front": "What is the purpose of the ignition system?",
+          "back": "To create a spark to ignite the fuel-air mixture"
+        },
+        {
+          "front": "What is the purpose of the charging system?",
+          "back": "To recharge the battery and power electrical components"
+        },
+        {
+          "front": "What is the purpose of the starting system?",
+          "back": "To crank the engine and start the vehicle"
+        },
+        {
+          "front": "What is the purpose of the lighting system?",
+          "back": "To provide visibility and signal other drivers"
+        },
+        {
+          "front": "What is the purpose of the heating and air conditioning system?",
+          "back": "To maintain comfortable temperature inside the vehicle"
+        },
+        {
+          "front": "What is the purpose of the windshield wiper system?",
+          "back": "To clear rain and debris from the windshield"
+        },
+        {
+          "front": "What is the purpose of the horn system?",
+          "back": "To alert other drivers and pedestrians"
+        },
+        {
+          "front": "What is the purpose of the seat belt system?",
+          "back": "To restrain occupants in case of a collision"
+        },
+        {
+          "front": "What is the purpose of the airbag system?",
+          "back": "To protect occupants from injury in a collision"
+        },
+        {
+          "front": "What is the purpose of the anti-lock brake system (ABS)?",
+          "back": "To prevent wheel lockup during hard braking"
+        },
+        {
+          "front": "What is the purpose of the traction control system?",
+          "back": "To prevent wheel spin during acceleration"
+        },
+        {
+          "front": "What is the purpose of the stability control system?",
+          "back": "To help maintain vehicle control during turns"
+        },
+        {
+          "front": "What is the purpose of the cruise control system?",
+          "back": "To maintain a constant speed without driver input"
+        },
+        {
+          "front": "What is the purpose of the power steering system?",
+          "back": "To make steering easier by using hydraulic or electric assistance"
+        },
+        {
+          "front": "What is the purpose of the power windows system?",
+          "back": "To raise and lower windows using electric motors"
+        },
+        {
+          "front": "What is the purpose of the power locks system?",
+          "back": "To lock and unlock doors using electric actuators"
+        },
+        {
+          "front": "What is the purpose of the alarm system?",
+          "back": "To deter theft and alert others of unauthorized access"
+        },
+        {
+          "front": "What is the purpose of the remote keyless entry system?",
+          "back": "To lock and unlock doors remotely using a key fob"
+        },
+        {
+          "front": "What is the purpose of the tire pressure monitoring system?",
+          "back": "To monitor tire pressure and alert the driver of low pressure"
+        },
+        {
+          "front": "What is the purpose of the backup camera system?",
+          "back": "To provide a view behind the vehicle when reversing"
+        },
+        {
+          "front": "What is the purpose of the parking assist system?",
+          "back": "To help the driver park the vehicle safely"
+        },
+        {
+          "front": "What is the purpose of the lane departure warning system?",
+          "back": "To alert the driver when the vehicle drifts out of its lane"
+        },
+        {
+          "front": "What is the purpose of the blind spot monitoring system?",
+          "back": "To alert the driver of vehicles in blind spots"
+        },
+        {
+          "front": "What is the purpose of the forward collision warning system?",
+          "back": "To alert the driver of potential frontal collisions"
+        },
+        {
+          "front": "What is the purpose of the automatic emergency braking system?",
+          "back": "To automatically apply brakes to prevent or reduce collision impact"
+        },
+        {
+          "front": "What is the purpose of the adaptive cruise control system?",
+          "back": "To maintain a safe following distance from the vehicle ahead"
+        },
+        {
+          "front": "What is the purpose of the lane keeping assist system?",
+          "back": "To help keep the vehicle centered in its lane"
+        },
+        {
+          "front": "What is the purpose of the traffic sign recognition system?",
+          "back": "To recognize and display traffic signs to the driver"
+        },
+        {
+          "front": "What is the purpose of the night vision system?",
+          "back": "To enhance visibility in low-light conditions"
+        },
+        {
+          "front": "What is the purpose of the head-up display system?",
+          "back": "To project important information onto the windshield"
+        },
+        {
+          "front": "What is the purpose of the infotainment system?",
+          "back": "To provide entertainment and information to the driver and passengers"
+        },
+        {
+          "front": "What is the purpose of the navigation system?",
+          "back": "To provide directions and route guidance to the driver"
+        },
+        {
+          "front": "What is the purpose of the Bluetooth system?",
+          "back": "To connect mobile devices wirelessly to the vehicle"
+        },
+        {
+          "front": "What is the purpose of the USB port system?",
+          "back": "To connect and charge electronic devices"
+        },
+        {
+          "front": "What is the purpose of the auxiliary input system?",
+          "back": "To connect external audio devices to the vehicle's sound system"
+        },
+        {
+          "front": "What is the purpose of the satellite radio system?",
+          "back": "To receive satellite radio broadcasts"
+        },
+        {
+          "front": "What is the purpose of the HD radio system?",
+          "back": "To receive high-definition radio broadcasts"
+        },
+        {
+          "front": "What is the purpose of the CD player system?",
+          "back": "To play compact discs in the vehicle"
+        },
+        {
+          "front": "What is the purpose of the DVD player system?",
+          "back": "To play DVDs in the vehicle for rear-seat entertainment"
+        },
+        {
+          "front": "What is the purpose of the rear-seat entertainment system?",
+          "back": "To provide entertainment for rear-seat passengers"
+        },
+        {
+          "front": "What is the purpose of the wireless charging system?",
+          "back": "To charge compatible devices without cables"
+        },
+        {
+          "front": "What is the purpose of the Wi-Fi hotspot system?",
+          "back": "To provide internet connectivity for passengers' devices"
+        },
+        {
+          "front": "What is the purpose of the smartphone integration system?",
+          "back": "To integrate smartphone functions with the vehicle's systems"
+        },
+        {
+          "front": "What is the purpose of the voice recognition system?",
+          "back": "To control vehicle functions using voice commands"
+        },
+        {
+          "front": "What is the purpose of the gesture control system?",
+          "back": "To control vehicle functions using hand gestures"
+        },
+        {
+          "front": "What is the purpose of the touch screen system?",
+          "back": "To control vehicle functions using touch input"
+        },
+        {
+          "front": "What is the purpose of the steering wheel controls?",
+          "back": "To control vehicle functions without taking hands off the wheel"
+        },
+        {
+          "front": "What is the purpose of the instrument cluster?",
+          "back": "To display important vehicle information to the driver"
+        },
+        {
+          "front": "What is the purpose of the warning light system?",
+          "back": "To alert the driver of potential problems or issues"
+        },
+        {
+          "front": "What is the purpose of the diagnostic system?",
+          "back": "To identify and report vehicle problems for repair"
+        }
+      ]
+    }
+  ]
+}

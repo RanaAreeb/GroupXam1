@@ -1,0 +1,236 @@
+{
+  "id": "islamic-studies-flashcards",
+  "title": "Islamic Studies Flashcards",
+  "subject": "Islamic Studies",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "islamic-studies-fundamentals",
+      "title": "Islamic Studies Fundamentals",
+      "cardCount": 50,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is the first pillar of Islam?",
+          "back": "Shahada - the declaration of faith that there is no god but Allah and Muhammad is His messenger"
+        },
+        {
+          "front": "What is the second pillar of Islam?",
+          "back": "Salah - the five daily prayers performed at specific times throughout the day"
+        },
+        {
+          "front": "What is the third pillar of Islam?",
+          "back": "Zakat - the obligatory charity given to the poor and needy (2.5% of wealth annually)"
+        },
+        {
+          "front": "What is the fourth pillar of Islam?",
+          "back": "Sawm - fasting during the month of Ramadan from dawn to sunset"
+        },
+        {
+          "front": "What is the fifth pillar of Islam?",
+          "back": "Hajj - the pilgrimage to Mecca that every able Muslim must perform once in their lifetime"
+        },
+        {
+          "front": "What is the holy book of Islam?",
+          "back": "The Quran - the divine revelation received by Prophet Muhammad over 23 years"
+        },
+        {
+          "front": "Who is the final prophet in Islam?",
+          "back": "Prophet Muhammad (peace be upon him) - the last messenger sent by Allah"
+        },
+        {
+          "front": "What is the name of the Islamic calendar?",
+          "back": "Hijri calendar - based on the migration (Hijra) of Prophet Muhammad from Mecca to Medina"
+        },
+        {
+          "front": "What is the meaning of 'Allah'?",
+          "back": "The Arabic word for God - the one and only deity in Islam"
+        },
+        {
+          "front": "What is the meaning of 'Islam'?",
+          "back": "Submission to the will of Allah - the religion of peace and submission"
+        },
+        {
+          "front": "What is the meaning of 'Muslim'?",
+          "back": "One who submits to Allah - a follower of Islam"
+        },
+        {
+          "front": "What is the meaning of 'Sunnah'?",
+          "back": "The teachings and practices of Prophet Muhammad - the second source of Islamic law"
+        },
+        {
+          "front": "What is the meaning of 'Hadith'?",
+          "back": "Sayings and actions of Prophet Muhammad - recorded traditions and teachings"
+        },
+        {
+          "front": "What is the meaning of 'Shariah'?",
+          "back": "Islamic law - the legal framework based on Quran and Sunnah"
+        },
+        {
+          "front": "What is the meaning of 'Iman'?",
+          "back": "Faith - the six articles of faith in Islam"
+        },
+        {
+          "front": "What is the meaning of 'Tawhid'?",
+          "back": "Oneness of Allah - the fundamental belief in the unity of God"
+        },
+        {
+          "front": "What is the meaning of 'Akhirah'?",
+          "back": "The Hereafter - life after death and the Day of Judgment"
+        },
+        {
+          "front": "What is the meaning of 'Qiyamah'?",
+          "back": "The Day of Resurrection - when all people will be judged by Allah"
+        },
+        {
+          "front": "What is the meaning of 'Jannah'?",
+          "back": "Paradise - the eternal reward for righteous believers"
+        },
+        {
+          "front": "What is the meaning of 'Jahannam'?",
+          "back": "Hell - the eternal punishment for disbelievers and sinners"
+        },
+        {
+          "front": "What is the meaning of 'Malaikah'?",
+          "back": "Angels - spiritual beings created by Allah to serve Him"
+        },
+        {
+          "front": "What is the meaning of 'Kutub'?",
+          "back": "Books - the divine scriptures revealed by Allah to various prophets"
+        },
+        {
+          "front": "What is the meaning of 'Rusul'?",
+          "back": "Messengers - prophets sent by Allah to guide humanity"
+        },
+        {
+          "front": "What is the meaning of 'Qadar'?",
+          "back": "Divine Decree - Allah's predestination and knowledge of all things"
+        },
+        {
+          "front": "What is the meaning of 'Dua'?",
+          "back": "Supplication - personal prayer and communication with Allah"
+        },
+        {
+          "front": "What is the meaning of 'Dhikr'?",
+          "back": "Remembrance of Allah - the practice of remembering and praising Allah"
+        },
+        {
+          "front": "What is the meaning of 'Tasbih'?",
+          "back": "Glorification of Allah - saying 'Subhan Allah' (Glory be to Allah)"
+        },
+        {
+          "front": "What is the meaning of 'Tahmid'?",
+          "back": "Praise of Allah - saying 'Alhamdulillah' (Praise be to Allah)"
+        },
+        {
+          "front": "What is the meaning of 'Takbir'?",
+          "back": "Magnification of Allah - saying 'Allahu Akbar' (Allah is Great)"
+        },
+        {
+          "front": "What is the meaning of 'Tahlil'?",
+          "back": "Declaration of Allah's unity - saying 'La ilaha illa Allah' (There is no god but Allah)"
+        },
+        {
+          "front": "What is the meaning of 'Istighfar'?",
+          "back": "Seeking forgiveness - asking Allah for pardon and mercy"
+        },
+        {
+          "front": "What is the meaning of 'Tawbah'?",
+          "back": "Repentance - turning back to Allah and seeking forgiveness for sins"
+        },
+        {
+          "front": "What is the meaning of 'Sabr'?",
+          "back": "Patience - enduring difficulties with faith and perseverance"
+        },
+        {
+          "front": "What is the meaning of 'Shukr'?",
+          "back": "Gratitude - being thankful to Allah for His blessings"
+        },
+        {
+          "front": "What is the meaning of 'Tawakkul'?",
+          "back": "Trust in Allah - relying on Allah while taking necessary actions"
+        },
+        {
+          "front": "What is the meaning of 'Ihsan'?",
+          "back": "Excellence - doing good deeds with sincerity and perfection"
+        },
+        {
+          "front": "What is the meaning of 'Adl'?",
+          "back": "Justice - fairness and equity in all dealings"
+        },
+        {
+          "front": "What is the meaning of 'Amanah'?",
+          "back": "Trust - fulfilling responsibilities and keeping promises"
+        },
+        {
+          "front": "What is the meaning of 'Sidq'?",
+          "back": "Truthfulness - being honest and sincere in words and actions"
+        },
+        {
+          "front": "What is the meaning of 'Haya'?",
+          "back": "Modesty - having a sense of shame and decency"
+        },
+        {
+          "front": "What is the meaning of 'Karim'?",
+          "back": "Generous - being kind and giving to others"
+        },
+        {
+          "front": "What is the meaning of 'Halal'?",
+          "back": "Permissible - what is allowed in Islam"
+        },
+        {
+          "front": "What is the meaning of 'Haram'?",
+          "back": "Forbidden - what is prohibited in Islam"
+        },
+        {
+          "front": "What is the meaning of 'Makruh'?",
+          "back": "Disliked - what is discouraged but not forbidden in Islam"
+        },
+        {
+          "front": "What is the meaning of 'Mustahabb'?",
+          "back": "Recommended - what is encouraged but not obligatory in Islam"
+        },
+        {
+          "front": "What is the meaning of 'Wajib'?",
+          "back": "Obligatory - what is required in Islam"
+        },
+        {
+          "front": "What is the meaning of 'Fard'?",
+          "back": "Compulsory - what is mandatory in Islam"
+        },
+        {
+          "front": "What is the meaning of 'Sunnah'?",
+          "back": "Recommended - what is encouraged based on Prophet's practice"
+        },
+        {
+          "front": "What is the meaning of 'Nafl'?",
+          "back": "Voluntary - what is optional in Islam"
+        },
+        {
+          "front": "What is the meaning of 'Mubah'?",
+          "back": "Neutral - what is neither encouraged nor discouraged in Islam"
+        },
+        {
+          "front": "What is the meaning of 'Ijtihad'?",
+          "back": "Independent reasoning - the process of deriving Islamic law from sources"
+        },
+        {
+          "front": "What is the meaning of 'Ijma'?",
+          "back": "Consensus - agreement among Islamic scholars on a matter"
+        },
+        {
+          "front": "What is the meaning of 'Qiyas'?",
+          "back": "Analogical reasoning - deriving law by comparing similar cases"
+        },
+        {
+          "front": "What is the meaning of 'Istihsan'?",
+          "back": "Juridical preference - choosing the better option when multiple solutions exist"
+        },
+        {
+          "front": "What is the meaning of 'Maslahah'?",
+          "back": "Public interest - considering the welfare of the community in legal decisions"
+        }
+      ]
+    }
+  ]
+}

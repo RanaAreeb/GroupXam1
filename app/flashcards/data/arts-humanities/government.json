@@ -1,0 +1,248 @@
+{
+  "id": "government-flashcards",
+  "title": "Government Flashcards",
+  "subject": "Government",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "government-fundamentals",
+      "title": "Government Fundamentals",
+      "cardCount": 50,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is the primary purpose of government?",
+          "back": "To maintain order, provide public services, and protect the rights and welfare of citizens"
+        },
+        {
+          "front": "What is the difference between democracy and autocracy?",
+          "back": "Democracy is rule by the people, while autocracy is rule by a single person with absolute power"
+        },
+        {
+          "front": "What are the three branches of government in a democratic system?",
+          "back": "Executive (enforces laws), Legislative (makes laws), and Judicial (interprets laws)"
+        },
+        {
+          "front": "What is the principle of separation of powers?",
+          "back": "The division of government functions among different branches to prevent concentration of power"
+        },
+        {
+          "front": "What is the difference between federal and unitary government?",
+          "back": "Federal government divides power between central and regional governments, while unitary government concentrates power at the center"
+        },
+        {
+          "front": "What is the purpose of checks and balances?",
+          "back": "To ensure that no single branch of government becomes too powerful by allowing each branch to limit the others"
+        },
+        {
+          "front": "What is the difference between a republic and a monarchy?",
+          "back": "A republic is ruled by elected officials, while a monarchy is ruled by a hereditary king or queen"
+        },
+        {
+          "front": "What is the role of the constitution in government?",
+          "back": "To establish the fundamental principles, structure, and powers of government"
+        },
+        {
+          "front": "What is the difference between civil rights and civil liberties?",
+          "back": "Civil rights are protections against discrimination, while civil liberties are freedoms from government interference"
+        },
+        {
+          "front": "What is the purpose of political parties?",
+          "back": "To organize citizens with similar political views and compete for government power"
+        },
+        {
+          "front": "What is the difference between direct and representative democracy?",
+          "back": "Direct democracy involves citizens voting directly on issues, while representative democracy involves elected officials making decisions"
+        },
+        {
+          "front": "What is the role of the judiciary in government?",
+          "back": "To interpret laws, resolve disputes, and ensure that government actions comply with the constitution"
+        },
+        {
+          "front": "What is the difference between a presidential and parliamentary system?",
+          "back": "Presidential system separates executive and legislative branches, while parliamentary system fuses them"
+        },
+        {
+          "front": "What is the purpose of elections in a democracy?",
+          "back": "To allow citizens to choose their representatives and hold government accountable"
+        },
+        {
+          "front": "What is the difference between majority rule and minority rights?",
+          "back": "Majority rule means decisions are made by the majority, while minority rights protect the interests of smaller groups"
+        },
+        {
+          "front": "What is the role of the executive branch?",
+          "back": "To enforce laws, manage government operations, and conduct foreign policy"
+        },
+        {
+          "front": "What is the difference between a bill and a law?",
+          "back": "A bill is a proposed law, while a law is a bill that has been passed by the legislature and signed by the executive"
+        },
+        {
+          "front": "What is the purpose of the legislative branch?",
+          "back": "To make laws, approve budgets, and oversee government operations"
+        },
+        {
+          "front": "What is the difference between local and national government?",
+          "back": "Local government manages local affairs, while national government manages national affairs"
+        },
+        {
+          "front": "What is the role of the media in government?",
+          "back": "To inform citizens, hold government accountable, and facilitate public debate"
+        },
+        {
+          "front": "What is the difference between a dictatorship and a totalitarian regime?",
+          "back": "A dictatorship is rule by one person, while totalitarianism seeks to control all aspects of society"
+        },
+        {
+          "front": "What is the purpose of public policy?",
+          "back": "To address public problems and improve the welfare of citizens through government action"
+        },
+        {
+          "front": "What is the difference between a state and a nation?",
+          "back": "A state is a political entity with government, while a nation is a group of people with shared identity"
+        },
+        {
+          "front": "What is the role of interest groups in government?",
+          "back": "To influence government decisions by representing specific interests and advocating for policies"
+        },
+        {
+          "front": "What is the difference between a confederation and a federation?",
+          "back": "A confederation is a loose alliance of states, while a federation is a stronger union with shared government"
+        },
+        {
+          "front": "What is the purpose of the rule of law?",
+          "back": "To ensure that everyone, including government officials, is subject to and accountable under the law"
+        },
+        {
+          "front": "What is the difference between a primary and general election?",
+          "back": "A primary election chooses party candidates, while a general election chooses officeholders"
+        },
+        {
+          "front": "What is the role of the bureaucracy in government?",
+          "back": "To implement government policies and provide public services through administrative agencies"
+        },
+        {
+          "front": "What is the difference between a coalition and a majority government?",
+          "back": "A coalition is formed by multiple parties, while a majority government is formed by one party with majority seats"
+        },
+        {
+          "front": "What is the purpose of public opinion in government?",
+          "back": "To influence government decisions and hold officials accountable to citizen preferences"
+        },
+        {
+          "front": "What is the difference between a referendum and an initiative?",
+          "back": "A referendum is a vote on a proposed law, while an initiative is a citizen-proposed law"
+        },
+        {
+          "front": "What is the role of the opposition in government?",
+          "back": "To challenge government policies, provide alternative viewpoints, and hold the ruling party accountable"
+        },
+        {
+          "front": "What is the difference between a cabinet and a council?",
+          "back": "A cabinet is a group of senior government ministers, while a council is a local government body"
+        },
+        {
+          "front": "What is the purpose of government regulation?",
+          "back": "To protect public health, safety, and welfare by setting standards and rules for private activities"
+        },
+        {
+          "front": "What is the difference between a veto and a filibuster?",
+          "back": "A veto is the executive's power to reject legislation, while a filibuster is the legislative tactic to delay voting"
+        },
+        {
+          "front": "What is the role of the civil service in government?",
+          "back": "To provide professional, non-partisan administration of government programs and services"
+        },
+        {
+          "front": "What is the difference between a mandate and a directive?",
+          "back": "A mandate is an official order or commission, while a directive is a specific instruction or guideline"
+        },
+        {
+          "front": "What is the purpose of government transparency?",
+          "back": "To ensure that government operations are open, accountable, and accessible to citizens"
+        },
+        {
+          "front": "What is the difference between a resolution and a statute?",
+          "back": "A resolution is a formal expression of opinion, while a statute is a written law passed by legislature"
+        },
+        {
+          "front": "What is the role of the ombudsman in government?",
+          "back": "To investigate citizen complaints about government services and ensure fair treatment"
+        },
+        {
+          "front": "What is the difference between a decree and an ordinance?",
+          "back": "A decree is an official order issued by authority, while an ordinance is a local law or regulation"
+        },
+        {
+          "front": "What is the purpose of government accountability?",
+          "back": "To ensure that government officials are responsible for their actions and can be held to account"
+        },
+        {
+          "front": "What is the difference between a caucus and a committee?",
+          "back": "A caucus is a group of legislators with common interests, while a committee is a formal group for specific purposes"
+        },
+        {
+          "front": "What is the role of the attorney general in government?",
+          "back": "To serve as the chief legal advisor to the government and represent the state in legal matters"
+        },
+        {
+          "front": "What is the difference between a proclamation and a declaration?",
+          "back": "A proclamation is an official announcement, while a declaration is a formal statement of intent"
+        },
+        {
+          "front": "What is the purpose of government efficiency?",
+          "back": "To ensure that government resources are used effectively to achieve desired outcomes"
+        },
+        {
+          "front": "What is the difference between a tribunal and a court?",
+          "back": "A tribunal is a specialized court for specific matters, while a court is a general judicial body"
+        },
+        {
+          "front": "What is the role of the comptroller in government?",
+          "back": "To oversee government finances, audit expenditures, and ensure fiscal responsibility"
+        },
+        {
+          "front": "What is the difference between a charter and a constitution?",
+          "back": "A charter is a document granting rights or privileges, while a constitution is the fundamental law of a state"
+        },
+        {
+          "front": "What is the purpose of government legitimacy?",
+          "back": "To ensure that government authority is recognized as rightful and acceptable by citizens"
+        },
+        {
+          "front": "What is the difference between a mandate and a referendum?",
+          "back": "A mandate is authority to govern, while a referendum is a direct vote on a specific issue"
+        },
+        {
+          "front": "What is the role of the speaker in government?",
+          "back": "To preside over legislative sessions, maintain order, and represent the legislature"
+        },
+        {
+          "front": "What is the difference between a motion and a bill?",
+          "back": "A motion is a proposal for action, while a bill is a proposed law"
+        },
+        {
+          "front": "What is the purpose of government stability?",
+          "back": "To ensure consistent and predictable government operations for economic and social development"
+        },
+        {
+          "front": "What is the difference between a resolution and a motion?",
+          "back": "A resolution is a formal decision, while a motion is a proposal for discussion or action"
+        },
+        {
+          "front": "What is the role of the whip in government?",
+          "back": "To ensure party discipline and coordinate voting among party members in the legislature"
+        },
+        {
+          "front": "What is the difference between a session and a term?",
+          "back": "A session is a period of legislative activity, while a term is the length of an official's service"
+        },
+        {
+          "front": "What is the purpose of government continuity?",
+          "back": "To ensure smooth transitions and consistent policies across different administrations"
+        }
+      ]
+    }
+  ]
+}
