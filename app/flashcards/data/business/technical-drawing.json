@@ -1,0 +1,224 @@
+{
+  "id": "technical-drawing-flashcards",
+  "title": "Technical Drawing Flashcards",
+  "subject": "Technical Drawing",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "technical-drawing-fundamentals",
+      "title": "Technical Drawing Fundamentals",
+      "cardCount": 50,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What is the purpose of technical drawing?",
+          "back": "To communicate design ideas, specifications, and manufacturing instructions clearly and accurately."
+        },
+        {
+          "front": "What are the three main types of technical drawings?",
+          "back": "Orthographic projections, isometric drawings, and section views."
+        },
+        {
+          "front": "What is the difference between first-angle and third-angle projection?",
+          "back": "First-angle projection shows the object as if viewed from the front, while third-angle projection shows it as if viewed from the back."
+        },
+        {
+          "front": "What are the standard drawing sheet sizes?",
+          "back": "A0, A1, A2, A3, A4, and A5 (with A0 being the largest)."
+        },
+        {
+          "front": "What is the purpose of dimensioning in technical drawings?",
+          "back": "To specify the exact size, location, and tolerances of features."
+        },
+        {
+          "front": "What are the key elements of a title block?",
+          "back": "Drawing number, title, scale, date, drafter name, and approval signatures."
+        },
+        {
+          "front": "What is the importance of line types in technical drawing?",
+          "back": "To convey different types of information and improve drawing clarity."
+        },
+        {
+          "front": "What are the different types of lines used in technical drawing?",
+          "back": "Continuous lines, dashed lines, center lines, and dimension lines."
+        },
+        {
+          "front": "What is the purpose of section views?",
+          "back": "To show internal features and hidden details of objects."
+        },
+        {
+          "front": "What are the benefits of computer-aided design (CAD)?",
+          "back": "Improved accuracy, easier modifications, and better documentation."
+        },
+        {
+          "front": "What is the importance of drawing standards?",
+          "back": "To ensure consistency, clarity, and universal understanding."
+        },
+        {
+          "front": "What are the key principles of good technical drawing?",
+          "back": "Clarity, accuracy, completeness, and adherence to standards."
+        },
+        {
+          "front": "What is the purpose of auxiliary views?",
+          "back": "To show true shape and size of inclined surfaces."
+        },
+        {
+          "front": "What are the different types of dimensioning systems?",
+          "back": "Chain dimensioning, baseline dimensioning, and coordinate dimensioning."
+        },
+        {
+          "front": "What is the importance of scale in technical drawing?",
+          "back": "To represent objects at appropriate sizes for clarity and understanding."
+        },
+        {
+          "front": "What are the benefits of 3D modeling in technical drawing?",
+          "back": "Better visualization, improved accuracy, and easier design validation."
+        },
+        {
+          "front": "What is the purpose of detail drawings?",
+          "back": "To provide specific information about individual components."
+        },
+        {
+          "front": "What are the key elements of assembly drawings?",
+          "back": "Component relationships, assembly sequence, and overall dimensions."
+        },
+        {
+          "front": "What is the importance of drawing revision control?",
+          "back": "To track changes, maintain accuracy, and ensure proper documentation."
+        },
+        {
+          "front": "What are the different types of projection methods?",
+          "back": "Orthographic, isometric, oblique, and perspective projections."
+        },
+        {
+          "front": "What is the purpose of geometric dimensioning and tolerancing (GD&T)?",
+          "back": "To specify precise geometric requirements and tolerances."
+        },
+        {
+          "front": "What are the benefits of standardized drawing practices?",
+          "back": "Improved communication, reduced errors, and better efficiency."
+        },
+        {
+          "front": "What is the importance of drawing quality control?",
+          "back": "To ensure accuracy, completeness, and compliance with standards."
+        },
+        {
+          "front": "What are the key factors in choosing drawing scales?",
+          "back": "Object size, drawing sheet size, and required detail level."
+        },
+        {
+          "front": "What is the purpose of exploded views?",
+          "back": "To show how components fit together and their assembly sequence."
+        },
+        {
+          "front": "What are the different types of technical drawing software?",
+          "back": "2D CAD, 3D CAD, BIM, and specialized drawing applications."
+        },
+        {
+          "front": "What is the importance of drawing documentation?",
+          "back": "To provide complete information for manufacturing and maintenance."
+        },
+        {
+          "front": "What are the benefits of digital drawing storage?",
+          "back": "Easy access, version control, and reduced storage space."
+        },
+        {
+          "front": "What is the purpose of drawing templates?",
+          "back": "To ensure consistency and speed up the drawing process."
+        },
+        {
+          "front": "What are the key elements of effective technical communication?",
+          "back": "Clarity, accuracy, completeness, and appropriate detail level."
+        },
+        {
+          "front": "What is the importance of drawing review processes?",
+          "back": "To ensure accuracy, catch errors, and maintain quality standards."
+        },
+        {
+          "front": "What are the different types of drawing views?",
+          "back": "Front view, top view, side view, and auxiliary views."
+        },
+        {
+          "front": "What is the purpose of drawing annotations?",
+          "back": "To provide additional information and clarify drawing elements."
+        },
+        {
+          "front": "What are the benefits of collaborative drawing tools?",
+          "back": "Real-time collaboration, version control, and improved communication."
+        },
+        {
+          "front": "What is the importance of drawing security?",
+          "back": "To protect intellectual property and ensure confidentiality."
+        },
+        {
+          "front": "What are the key factors in drawing presentation?",
+          "back": "Layout, clarity, and professional appearance."
+        },
+        {
+          "front": "What is the purpose of drawing standards organizations?",
+          "back": "To establish and maintain consistent drawing practices."
+        },
+        {
+          "front": "What are the different types of drawing media?",
+          "back": "Paper, vellum, and digital formats."
+        },
+        {
+          "front": "What is the importance of drawing training?",
+          "back": "To develop skills, ensure quality, and maintain standards."
+        },
+        {
+          "front": "What are the benefits of automated drawing tools?",
+          "back": "Increased productivity, consistency, and reduced errors."
+        },
+        {
+          "front": "What is the purpose of drawing validation?",
+          "back": "To ensure accuracy, completeness, and compliance with requirements."
+        },
+        {
+          "front": "What are the key elements of drawing workflow?",
+          "back": "Planning, creation, review, and approval processes."
+        },
+        {
+          "front": "What is the importance of drawing accessibility?",
+          "back": "To ensure drawings can be used by all stakeholders effectively."
+        },
+        {
+          "front": "What are the different types of drawing symbols?",
+          "back": "Geometric symbols, material symbols, and process symbols."
+        },
+        {
+          "front": "What is the purpose of drawing optimization?",
+          "back": "To improve efficiency, reduce costs, and enhance quality."
+        },
+        {
+          "front": "What are the benefits of drawing integration?",
+          "back": "Better coordination, reduced errors, and improved efficiency."
+        },
+        {
+          "front": "What is the importance of drawing innovation?",
+          "back": "To improve processes, reduce costs, and enhance quality."
+        },
+        {
+          "front": "What are the key factors in drawing success?",
+          "back": "Skill development, attention to detail, and adherence to standards."
+        },
+        {
+          "front": "What is the purpose of drawing maintenance?",
+          "back": "To ensure accuracy, update information, and maintain relevance."
+        },
+        {
+          "front": "What are the different types of drawing applications?",
+          "back": "Engineering, architecture, manufacturing, and construction."
+        },
+        {
+          "front": "What is the importance of drawing ethics?",
+          "back": "To ensure accuracy, integrity, and professional responsibility."
+        },
+        {
+          "front": "What are the benefits of drawing excellence?",
+          "back": "Better communication, reduced errors, and improved outcomes."
+        }
+      ]
+    }
+  ]
+}

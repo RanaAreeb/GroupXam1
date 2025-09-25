@@ -9,6 +9,9 @@ import biochemistryFlashcards from "./data/sciences/biochemistry.json";
 import pharmacologyFlashcards from "./data/sciences/pharmacology.json";
 import ecologyFlashcards from "./data/sciences/ecology.json";
 import psychologyFlashcards from "./data/sciences/psychology.json";
+import agriculturalScienceFlashcards from "./data/sciences/agricultural-science.json";
+import healthScienceFlashcards from "./data/sciences/health-science.json";
+import engineeringScienceFlashcards from "./data/sciences/engineering-science.json";
 
 import algebraFlashcards from "./data/mathematics/algebra.json";
 import calculusFlashcards from "./data/mathematics/calculus.json";
@@ -17,6 +20,7 @@ import arithmeticFlashcards from "./data/mathematics/arithmetic.json";
 import geometryFlashcards from "./data/mathematics/geometry.json";
 import trigonometryFlashcards from "./data/mathematics/trigonometry.json";
 import pythagoreanTheoremFlashcards from "./data/mathematics/pythagorean-theorem.json";
+import furtherMathematicsFlashcards from "./data/mathematics/further-mathematics.json";
 
 import englishFlashcards from "./data/arts-humanities/english.json";
 import literatureFlashcards from "./data/arts-humanities/literature.json";
@@ -30,6 +34,12 @@ import creativeWritingFlashcards from "./data/arts-humanities/creative-writing.j
 import foreignLanguagesFlashcards from "./data/arts-humanities/foreign-languages.json";
 import religiousStudiesFlashcards from "./data/arts-humanities/religious-studies.json";
 import culturalStudiesFlashcards from "./data/arts-humanities/cultural-studies.json";
+import governmentFlashcards from "./data/arts-humanities/government.json";
+import arabicFlashcards from "./data/arts-humanities/arabic.json";
+import islamicStudiesFlashcards from "./data/arts-humanities/islamic-studies.json";
+import christianReligiousKnowledgeFlashcards from "./data/arts-humanities/christian-religious-knowledge.json";
+import visualArtFlashcards from "./data/arts-humanities/visual-art.json";
+import literatureInEnglishFlashcards from "./data/arts-humanities/literature-in-english.json";
 
 import economicsFlashcards from "./data/economics/economics.json";
 import microEconomicsFlashcards from "./data/economics/micro-economics.json";
@@ -37,6 +47,9 @@ import macroEconomicsFlashcards from "./data/economics/macro-economics.json";
 import accountingFlashcards from "./data/economics/accounting.json";
 import financeFlashcards from "./data/economics/finance.json";
 import politicalScienceFlashcards from "./data/economics/political-science.json";
+import commerceFlashcards from "./data/economics/commerce.json";
+import principlesOfCostAccountingFlashcards from "./data/economics/principles-of-cost-accounting.json";
+import financialAccountingFlashcards from "./data/economics/financial-accounting.json";
 
 // Medicine imports
 import pathologyFlashcards from "./data/medicine/pathology.json";
@@ -56,6 +69,14 @@ import internationalBusinessFlashcards from "./data/business/international-busin
 import supplyChainManagementFlashcards from "./data/business/supply-chain-management.json";
 import projectManagementFlashcards from "./data/business/project-management.json";
 import businessEthicsFlashcards from "./data/business/business-ethics.json";
+import autoMechanicsFlashcards from "./data/business/auto-mechanics.json";
+import physicalEducationFlashcards from "./data/business/physical-education.json";
+import homeManagementFlashcards from "./data/business/home-management.json";
+import clothingAndTextilesFlashcards from "./data/business/clothing-and-textiles.json";
+import metalworkFlashcards from "./data/business/metalwork.json";
+import technicalDrawingFlashcards from "./data/business/technical-drawing.json";
+import typewritingFlashcards from "./data/business/typewriting.json";
+import foodsAndNutritionFlashcards from "./data/business/foods-and-nutrition.json";
 
 // Law imports
 import constitutionalLawFlashcards from "./data/law/constitutional-law.json";
@@ -98,6 +119,9 @@ const flashcardData: Record<string, FlashcardData> = {
   biology: biologyFlashcards as FlashcardData,
   ecology: ecologyFlashcards as FlashcardData,
   psychology: psychologyFlashcards as FlashcardData,
+  "agricultural science": agriculturalScienceFlashcards as FlashcardData,
+  "health science": healthScienceFlashcards as FlashcardData,
+  "engineering science": engineeringScienceFlashcards as FlashcardData,
 
   // Mathematics
   algebra: algebraFlashcards as FlashcardData,
@@ -107,6 +131,7 @@ const flashcardData: Record<string, FlashcardData> = {
   geometry: geometryFlashcards as FlashcardData,
   trigonometry: trigonometryFlashcards as FlashcardData,
   "pythagorean theorem": pythagoreanTheoremFlashcards as FlashcardData,
+  "further mathematics (elective)": furtherMathematicsFlashcards as FlashcardData,
 
   // Arts & Humanities
   english: englishFlashcards as FlashcardData,
@@ -121,6 +146,12 @@ const flashcardData: Record<string, FlashcardData> = {
   "foreign languages": foreignLanguagesFlashcards as FlashcardData,
   "religious studies": religiousStudiesFlashcards as FlashcardData,
   "cultural studies": culturalStudiesFlashcards as FlashcardData,
+  government: governmentFlashcards as FlashcardData,
+  arabic: arabicFlashcards as FlashcardData,
+  "islamic studies": islamicStudiesFlashcards as FlashcardData,
+  "christian religious knowledge": christianReligiousKnowledgeFlashcards as FlashcardData,
+  "visual art": visualArtFlashcards as FlashcardData,
+  "literature-in-english": literatureInEnglishFlashcards as FlashcardData,
 
   // Economics
   economics: economicsFlashcards as FlashcardData,
@@ -129,6 +160,9 @@ const flashcardData: Record<string, FlashcardData> = {
   accounting: accountingFlashcards as FlashcardData,
   finance: financeFlashcards as FlashcardData,
   "political science": politicalScienceFlashcards as FlashcardData,
+  commerce: commerceFlashcards as FlashcardData,
+  "principles of cost accounting": principlesOfCostAccountingFlashcards as FlashcardData,
+  "financial accounting": financialAccountingFlashcards as FlashcardData,
 
   // Medicine
   anatomy: anatomyFlashcards as FlashcardData,
@@ -153,6 +187,14 @@ const flashcardData: Record<string, FlashcardData> = {
   "supply chain management": supplyChainManagementFlashcards as FlashcardData,
   "project management": projectManagementFlashcards as FlashcardData,
   "business ethics": businessEthicsFlashcards as FlashcardData,
+  "auto mechanics": autoMechanicsFlashcards as FlashcardData,
+  "physical education": physicalEducationFlashcards as FlashcardData,
+  "home management": homeManagementFlashcards as FlashcardData,
+  "clothing and textiles": clothingAndTextilesFlashcards as FlashcardData,
+  "metalwork": metalworkFlashcards as FlashcardData,
+  "technical drawing": technicalDrawingFlashcards as FlashcardData,
+  "typewriting": typewritingFlashcards as FlashcardData,
+  "foods and nutrition": foodsAndNutritionFlashcards as FlashcardData,
 
   // Law
   "constitutional law": constitutionalLawFlashcards as FlashcardData,

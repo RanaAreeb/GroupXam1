@@ -1,0 +1,220 @@
+{
+  "id": "metalwork-flashcards",
+  "title": "Metalwork Flashcards",
+  "subject": "Metalwork",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "metalwork-fundamentals",
+      "title": "Metalwork Fundamentals",
+      "cardCount": 50,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What are the three main categories of metals?",
+          "back": "Ferrous metals, non-ferrous metals, and alloys."
+        },
+        {
+          "front": "What is the difference between ferrous and non-ferrous metals?",
+          "back": "Ferrous metals contain iron, while non-ferrous metals do not contain iron."
+        },
+        {
+          "front": "What are the properties of steel?",
+          "back": "High strength, durability, malleability, and good corrosion resistance."
+        },
+        {
+          "front": "What is the purpose of annealing in metalwork?",
+          "back": "To soften metal, relieve stress, and improve machinability."
+        },
+        {
+          "front": "What are the basic metalworking tools?",
+          "back": "Hammers, files, chisels, drills, and measuring instruments."
+        },
+        {
+          "front": "What is the importance of safety in metalwork?",
+          "back": "To prevent injuries, protect health, and ensure proper work practices."
+        },
+        {
+          "front": "What are the different types of metal cutting methods?",
+          "back": "Sawing, shearing, turning, milling, and grinding."
+        },
+        {
+          "front": "What is the purpose of metal finishing?",
+          "back": "To improve appearance, protect against corrosion, and enhance durability."
+        },
+        {
+          "front": "What are the key factors in metal selection?",
+          "back": "Strength requirements, corrosion resistance, cost, and workability."
+        },
+        {
+          "front": "What is the importance of proper metal storage?",
+          "back": "To prevent corrosion, maintain quality, and ensure safety."
+        },
+        {
+          "front": "What are the benefits of metal recycling?",
+          "back": "Resource conservation, energy savings, and environmental protection."
+        },
+        {
+          "front": "What is the purpose of metal testing?",
+          "back": "To verify properties, ensure quality, and meet specifications."
+        },
+        {
+          "front": "What are the different types of metal joining methods?",
+          "back": "Welding, brazing, soldering, and mechanical fastening."
+        },
+        {
+          "front": "What is the importance of metal heat treatment?",
+          "back": "To alter properties, improve performance, and extend service life."
+        },
+        {
+          "front": "What are the key elements of metal fabrication?",
+          "back": "Cutting, forming, joining, and finishing operations."
+        },
+        {
+          "front": "What is the purpose of metal inspection?",
+          "back": "To ensure quality, detect defects, and verify compliance."
+        },
+        {
+          "front": "What are the benefits of precision metalwork?",
+          "back": "Better fit, improved performance, and reduced waste."
+        },
+        {
+          "front": "What is the importance of metalwork documentation?",
+          "back": "To track processes, ensure quality, and facilitate maintenance."
+        },
+        {
+          "front": "What are the different types of metal forming processes?",
+          "back": "Forging, rolling, extrusion, and drawing."
+        },
+        {
+          "front": "What is the purpose of metal surface treatment?",
+          "back": "To improve appearance, enhance properties, and provide protection."
+        },
+        {
+          "front": "What are the key factors in metalwork quality control?",
+          "back": "Dimensional accuracy, surface finish, and material properties."
+        },
+        {
+          "front": "What is the importance of metalwork training?",
+          "back": "To develop skills, ensure safety, and maintain quality standards."
+        },
+        {
+          "front": "What are the benefits of automated metalwork?",
+          "back": "Increased productivity, consistency, and reduced labor costs."
+        },
+        {
+          "front": "What is the purpose of metalwork maintenance?",
+          "back": "To ensure performance, prevent failures, and extend service life."
+        },
+        {
+          "front": "What are the different types of metal coatings?",
+          "back": "Galvanizing, anodizing, painting, and powder coating."
+        },
+        {
+          "front": "What is the importance of metalwork safety equipment?",
+          "back": "To protect workers, prevent accidents, and ensure compliance."
+        },
+        {
+          "front": "What are the key elements of metalwork design?",
+          "back": "Functionality, manufacturability, and cost-effectiveness."
+        },
+        {
+          "front": "What is the purpose of metalwork testing?",
+          "back": "To verify performance, ensure reliability, and meet standards."
+        },
+        {
+          "front": "What are the benefits of sustainable metalwork?",
+          "back": "Environmental protection, resource efficiency, and cost savings."
+        },
+        {
+          "front": "What is the importance of metalwork innovation?",
+          "back": "To improve processes, reduce costs, and enhance quality."
+        },
+        {
+          "front": "What are the different types of metalwork applications?",
+          "back": "Construction, automotive, aerospace, and consumer products."
+        },
+        {
+          "front": "What is the purpose of metalwork quality assurance?",
+          "back": "To ensure consistent quality, meet specifications, and satisfy customers."
+        },
+        {
+          "front": "What are the key factors in metalwork cost control?",
+          "back": "Material selection, process optimization, and waste reduction."
+        },
+        {
+          "front": "What is the importance of metalwork standards?",
+          "back": "To ensure consistency, quality, and interoperability."
+        },
+        {
+          "front": "What are the benefits of metalwork collaboration?",
+          "back": "Knowledge sharing, innovation, and improved outcomes."
+        },
+        {
+          "front": "What is the purpose of metalwork research?",
+          "back": "To develop new techniques, improve materials, and solve problems."
+        },
+        {
+          "front": "What are the different types of metalwork equipment?",
+          "back": "Machine tools, measuring instruments, and safety equipment."
+        },
+        {
+          "front": "What is the importance of metalwork education?",
+          "back": "To develop skills, knowledge, and professional competence."
+        },
+        {
+          "front": "What are the key elements of metalwork project management?",
+          "back": "Planning, scheduling, resource allocation, and quality control."
+        },
+        {
+          "front": "What is the purpose of metalwork certification?",
+          "back": "To verify competence, ensure quality, and meet industry standards."
+        },
+        {
+          "front": "What are the benefits of metalwork technology?",
+          "back": "Improved efficiency, accuracy, and productivity."
+        },
+        {
+          "front": "What is the importance of metalwork sustainability?",
+          "back": "To reduce environmental impact and promote responsible practices."
+        },
+        {
+          "front": "What are the different types of metalwork careers?",
+          "back": "Machinist, welder, fabricator, and quality inspector."
+        },
+        {
+          "front": "What is the purpose of metalwork networking?",
+          "back": "To share knowledge, find opportunities, and build relationships."
+        },
+        {
+          "front": "What are the key factors in metalwork success?",
+          "back": "Skill development, continuous learning, and attention to detail."
+        },
+        {
+          "front": "What is the importance of metalwork ethics?",
+          "back": "To ensure fair practices, quality work, and professional integrity."
+        },
+        {
+          "front": "What are the benefits of metalwork apprenticeships?",
+          "back": "Hands-on learning, skill development, and career preparation."
+        },
+        {
+          "front": "What is the purpose of metalwork competitions?",
+          "back": "To showcase skills, promote excellence, and encourage innovation."
+        },
+        {
+          "front": "What are the different types of metalwork materials?",
+          "back": "Steel, aluminum, copper, and various alloys."
+        },
+        {
+          "front": "What is the importance of metalwork safety culture?",
+          "back": "To prevent accidents, protect workers, and ensure compliance."
+        },
+        {
+          "front": "What are the key elements of metalwork excellence?",
+          "back": "Quality, precision, innovation, and continuous improvement."
+        }
+      ]
+    }
+  ]
+}

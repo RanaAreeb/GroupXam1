@@ -1,0 +1,220 @@
+{
+  "id": "foods-and-nutrition-flashcards",
+  "title": "Foods and Nutrition Flashcards",
+  "subject": "Foods and Nutrition",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "foods-and-nutrition-fundamentals",
+      "title": "Foods and Nutrition Fundamentals",
+      "cardCount": 50,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What are the six essential nutrients?",
+          "back": "Carbohydrates, proteins, fats, vitamins, minerals, and water."
+        },
+        {
+          "front": "What is the difference between macronutrients and micronutrients?",
+          "back": "Macronutrients are needed in large amounts (carbs, proteins, fats), while micronutrients are needed in small amounts (vitamins, minerals)."
+        },
+        {
+          "front": "What is the purpose of carbohydrates in the body?",
+          "back": "To provide energy, support brain function, and fuel physical activity."
+        },
+        {
+          "front": "What are the different types of carbohydrates?",
+          "back": "Simple carbohydrates (sugars) and complex carbohydrates (starches and fiber)."
+        },
+        {
+          "front": "What is the importance of protein in nutrition?",
+          "back": "To build and repair tissues, support immune function, and provide energy."
+        },
+        {
+          "front": "What are complete and incomplete proteins?",
+          "back": "Complete proteins contain all essential amino acids, while incomplete proteins lack one or more essential amino acids."
+        },
+        {
+          "front": "What is the role of fats in the body?",
+          "back": "To provide energy, support cell function, and help absorb fat-soluble vitamins."
+        },
+        {
+          "front": "What are the different types of fats?",
+          "back": "Saturated fats, unsaturated fats (monounsaturated and polyunsaturated), and trans fats."
+        },
+        {
+          "front": "What is the importance of vitamins in nutrition?",
+          "back": "To support various body functions, prevent deficiencies, and maintain health."
+        },
+        {
+          "front": "What are water-soluble and fat-soluble vitamins?",
+          "back": "Water-soluble vitamins (B and C) are not stored in the body, while fat-soluble vitamins (A, D, E, K) are stored in fat tissue."
+        },
+        {
+          "front": "What is the purpose of minerals in the body?",
+          "back": "To support bone health, nerve function, and various metabolic processes."
+        },
+        {
+          "front": "What are the major and trace minerals?",
+          "back": "Major minerals (calcium, phosphorus, magnesium) are needed in larger amounts, while trace minerals (iron, zinc, iodine) are needed in smaller amounts."
+        },
+        {
+          "front": "What is the importance of water in nutrition?",
+          "back": "To maintain hydration, support digestion, and regulate body temperature."
+        },
+        {
+          "front": "What is the purpose of dietary fiber?",
+          "back": "To support digestive health, regulate blood sugar, and promote satiety."
+        },
+        {
+          "front": "What are the different types of dietary fiber?",
+          "back": "Soluble fiber (dissolves in water) and insoluble fiber (does not dissolve in water)."
+        },
+        {
+          "front": "What is the importance of meal planning?",
+          "back": "To ensure balanced nutrition, save time, and control food costs."
+        },
+        {
+          "front": "What are the benefits of food preservation?",
+          "back": "To extend shelf life, maintain nutritional value, and prevent food waste."
+        },
+        {
+          "front": "What is the purpose of food safety practices?",
+          "back": "To prevent foodborne illnesses and ensure safe food consumption."
+        },
+        {
+          "front": "What are the key principles of food safety?",
+          "back": "Clean, separate, cook, and chill."
+        },
+        {
+          "front": "What is the importance of food labeling?",
+          "back": "To provide nutritional information, ingredient lists, and allergen warnings."
+        },
+        {
+          "front": "What are the benefits of organic foods?",
+          "back": "Reduced pesticide exposure, potential environmental benefits, and often better taste."
+        },
+        {
+          "front": "What is the purpose of food fortification?",
+          "back": "To add essential nutrients to foods and prevent deficiencies."
+        },
+        {
+          "front": "What are the different types of cooking methods?",
+          "back": "Dry heat methods (baking, grilling) and moist heat methods (boiling, steaming)."
+        },
+        {
+          "front": "What is the importance of food storage?",
+          "back": "To maintain quality, prevent spoilage, and ensure food safety."
+        },
+        {
+          "front": "What are the benefits of meal prep?",
+          "back": "Time savings, portion control, and better nutrition planning."
+        },
+        {
+          "front": "What is the purpose of nutritional assessment?",
+          "back": "To evaluate dietary intake, identify deficiencies, and plan interventions."
+        },
+        {
+          "front": "What are the different types of diets?",
+          "back": "Mediterranean, vegetarian, vegan, ketogenic, and balanced diets."
+        },
+        {
+          "front": "What is the importance of portion control?",
+          "back": "To manage calorie intake, maintain healthy weight, and prevent overeating."
+        },
+        {
+          "front": "What are the benefits of mindful eating?",
+          "back": "Better digestion, improved satisfaction, and healthier relationship with food."
+        },
+        {
+          "front": "What is the purpose of food allergies and intolerances management?",
+          "back": "To prevent adverse reactions and ensure safe food consumption."
+        },
+        {
+          "front": "What are the key factors in choosing healthy foods?",
+          "back": "Nutritional value, freshness, processing level, and personal preferences."
+        },
+        {
+          "front": "What is the importance of food sustainability?",
+          "back": "To protect the environment, support local communities, and ensure future food security."
+        },
+        {
+          "front": "What are the benefits of seasonal eating?",
+          "back": "Better taste, higher nutritional value, and environmental benefits."
+        },
+        {
+          "front": "What is the purpose of food waste reduction?",
+          "back": "To save money, protect the environment, and improve food security."
+        },
+        {
+          "front": "What are the different types of food processing?",
+          "back": "Minimal processing, moderate processing, and ultra-processing."
+        },
+        {
+          "front": "What is the importance of food education?",
+          "back": "To promote healthy eating habits and improve nutritional knowledge."
+        },
+        {
+          "front": "What are the benefits of home cooking?",
+          "back": "Better control over ingredients, cost savings, and improved nutrition."
+        },
+        {
+          "front": "What is the purpose of food budgeting?",
+          "back": "To manage food costs, plan purchases, and reduce waste."
+        },
+        {
+          "front": "What are the key elements of a balanced diet?",
+          "back": "Variety, moderation, and appropriate portion sizes."
+        },
+        {
+          "front": "What is the importance of food culture?",
+          "back": "To preserve traditions, promote diversity, and enhance social connections."
+        },
+        {
+          "front": "What are the benefits of food innovation?",
+          "back": "Improved nutrition, better taste, and enhanced convenience."
+        },
+        {
+          "front": "What is the purpose of food research?",
+          "back": "To improve nutrition, develop new products, and enhance food safety."
+        },
+        {
+          "front": "What are the different types of food careers?",
+          "back": "Nutritionist, chef, food scientist, and dietitian."
+        },
+        {
+          "front": "What is the importance of food ethics?",
+          "back": "To ensure fair practices, animal welfare, and environmental responsibility."
+        },
+        {
+          "front": "What are the key factors in food success?",
+          "back": "Quality, nutrition, taste, and sustainability."
+        },
+        {
+          "front": "What is the purpose of food marketing?",
+          "back": "To promote products, educate consumers, and influence purchasing decisions."
+        },
+        {
+          "front": "What are the benefits of food collaboration?",
+          "back": "Knowledge sharing, innovation, and improved outcomes."
+        },
+        {
+          "front": "What is the importance of food accessibility?",
+          "back": "To ensure all people have access to nutritious and affordable food."
+        },
+        {
+          "front": "What are the different types of food systems?",
+          "back": "Local, regional, national, and global food systems."
+        },
+        {
+          "front": "What is the purpose of food policy?",
+          "back": "To regulate food production, ensure safety, and promote public health."
+        },
+        {
+          "front": "What are the key elements of food excellence?",
+          "back": "Quality, nutrition, safety, and sustainability."
+        }
+      ]
+    }
+  ]
+}

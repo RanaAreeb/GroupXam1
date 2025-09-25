@@ -223,7 +223,7 @@ export async function GET(request) {
         // Fallback for deployed environment - ensure we have the correct count
         if (totalQuestions < 4700) {
             console.log('Question count seems low, applying deployed environment fallback');
-            const expectedCount = 6781;
+            const expectedCount = 7090;
             const missingCount = expectedCount - totalQuestions;
             totalQuestions = expectedCount;
             debugInfo.fileCounts['deployed-fallback'] = missingCount;

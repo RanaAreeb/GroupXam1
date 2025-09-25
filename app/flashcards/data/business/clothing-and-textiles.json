@@ -1,0 +1,228 @@
+{
+  "id": "clothing-and-textiles-flashcards",
+  "title": "Clothing and Textiles Flashcards",
+  "subject": "Clothing and Textiles",
+  "difficulty": "Intermediate",
+  "sets": [
+    {
+      "id": "clothing-and-textiles-fundamentals",
+      "title": "Clothing and Textiles Fundamentals",
+      "cardCount": 50,
+      "difficulty": "Intermediate",
+      "cards": [
+        {
+          "front": "What are the three main categories of fibers?",
+          "back": "Natural fibers, synthetic fibers, and regenerated fibers."
+        },
+        {
+          "front": "What is the difference between natural and synthetic fibers?",
+          "back": "Natural fibers come from plants or animals, while synthetic fibers are man-made from chemicals."
+        },
+        {
+          "front": "What are the properties of cotton fiber?",
+          "back": "Soft, breathable, absorbent, durable, and easy to care for."
+        },
+        {
+          "front": "What is the purpose of fabric finishing?",
+          "back": "To improve appearance, texture, durability, and performance of fabrics."
+        },
+        {
+          "front": "What are the basic principles of color theory in fashion?",
+          "back": "Color harmony, contrast, temperature, and psychological effects of colors."
+        },
+        {
+          "front": "What is the importance of proper garment care?",
+          "back": "To maintain appearance, extend lifespan, and preserve fabric properties."
+        },
+        {
+          "front": "What are the key elements of fashion design?",
+          "back": "Line, shape, color, texture, and proportion."
+        },
+        {
+          "front": "What is the purpose of pattern making?",
+          "back": "To create templates for cutting fabric pieces that will form a garment."
+        },
+        {
+          "front": "What are the different types of fabric construction?",
+          "back": "Woven, knitted, and non-woven fabrics."
+        },
+        {
+          "front": "What is the importance of fabric testing?",
+          "back": "To ensure quality, safety, and performance standards are met."
+        },
+        {
+          "front": "What are the benefits of sustainable fashion?",
+          "back": "Environmental protection, ethical production, and long-term cost savings."
+        },
+        {
+          "front": "What is the purpose of fashion forecasting?",
+          "back": "To predict trends and help designers and retailers plan future collections."
+        },
+        {
+          "front": "What are the key factors in choosing appropriate clothing?",
+          "back": "Occasion, climate, personal style, comfort, and budget."
+        },
+        {
+          "front": "What is the importance of proper fit in clothing?",
+          "back": "To ensure comfort, appearance, and professional presentation."
+        },
+        {
+          "front": "What are the different types of textile printing methods?",
+          "back": "Screen printing, digital printing, block printing, and roller printing."
+        },
+        {
+          "front": "What is the purpose of fabric dyeing?",
+          "back": "To add color, pattern, and aesthetic appeal to textiles."
+        },
+        {
+          "front": "What are the benefits of natural fibers?",
+          "back": "Biodegradability, breathability, and often better comfort properties."
+        },
+        {
+          "front": "What is the importance of textile recycling?",
+          "back": "To reduce waste, conserve resources, and minimize environmental impact."
+        },
+        {
+          "front": "What are the key elements of fashion merchandising?",
+          "back": "Product selection, pricing, promotion, and placement."
+        },
+        {
+          "front": "What is the purpose of fashion illustration?",
+          "back": "To communicate design ideas visually before production."
+        },
+        {
+          "front": "What are the different types of fabric finishes?",
+          "back": "Mechanical, chemical, and biological finishes."
+        },
+        {
+          "front": "What is the importance of fabric care labels?",
+          "back": "To provide instructions for proper garment maintenance and care."
+        },
+        {
+          "front": "What are the benefits of quality textiles?",
+          "back": "Better durability, appearance, comfort, and value for money."
+        },
+        {
+          "front": "What is the purpose of fashion shows?",
+          "back": "To showcase new designs, generate publicity, and attract buyers."
+        },
+        {
+          "front": "What are the key factors in textile selection?",
+          "back": "End use, durability, care requirements, and cost."
+        },
+        {
+          "front": "What is the importance of fashion history?",
+          "back": "To understand trends, cultural influences, and design evolution."
+        },
+        {
+          "front": "What are the different types of fashion accessories?",
+          "back": "Jewelry, bags, shoes, scarves, and belts."
+        },
+        {
+          "front": "What is the purpose of fashion photography?",
+          "back": "To showcase clothing and accessories in an appealing way."
+        },
+        {
+          "front": "What are the benefits of custom clothing?",
+          "back": "Perfect fit, unique design, and personal expression."
+        },
+        {
+          "front": "What is the importance of fashion ethics?",
+          "back": "To ensure fair labor practices and environmental responsibility."
+        },
+        {
+          "front": "What are the key elements of fashion marketing?",
+          "back": "Brand positioning, target audience, and promotional strategies."
+        },
+        {
+          "front": "What is the purpose of fashion retailing?",
+          "back": "To make fashion products available to consumers through various channels."
+        },
+        {
+          "front": "What are the different types of fashion careers?",
+          "back": "Design, merchandising, marketing, retail, and production."
+        },
+        {
+          "front": "What is the importance of fashion education?",
+          "back": "To develop skills, knowledge, and creativity in fashion-related fields."
+        },
+        {
+          "front": "What are the benefits of fashion technology?",
+          "back": "Improved efficiency, innovation, and sustainability in fashion production."
+        },
+        {
+          "front": "What is the purpose of fashion branding?",
+          "back": "To create identity, build loyalty, and differentiate products in the market."
+        },
+        {
+          "front": "What are the key factors in fashion trend analysis?",
+          "back": "Cultural influences, economic factors, and consumer behavior."
+        },
+        {
+          "front": "What is the importance of fashion sustainability?",
+          "back": "To reduce environmental impact and promote ethical practices."
+        },
+        {
+          "front": "What are the different types of fashion retail formats?",
+          "back": "Department stores, specialty stores, online retail, and pop-up shops."
+        },
+        {
+          "front": "What is the purpose of fashion styling?",
+          "back": "To create cohesive looks and enhance personal appearance."
+        },
+        {
+          "front": "What are the benefits of fashion collaboration?",
+          "back": "Innovation, expanded reach, and shared resources."
+        },
+        {
+          "front": "What is the importance of fashion quality control?",
+          "back": "To ensure products meet standards and customer expectations."
+        },
+        {
+          "front": "What are the key elements of fashion communication?",
+          "back": "Visual presentation, messaging, and brand storytelling."
+        },
+        {
+          "front": "What is the purpose of fashion research?",
+          "back": "To understand market trends, consumer needs, and industry developments."
+        },
+        {
+          "front": "What are the different types of fashion media?",
+          "back": "Magazines, websites, social media, and fashion blogs."
+        },
+        {
+          "front": "What is the importance of fashion innovation?",
+          "back": "To drive industry growth and meet changing consumer demands."
+        },
+        {
+          "front": "What are the benefits of fashion networking?",
+          "back": "Career opportunities, knowledge sharing, and industry connections."
+        },
+        {
+          "front": "What is the purpose of fashion exhibitions?",
+          "back": "To showcase collections, educate the public, and promote designers."
+        },
+        {
+          "front": "What are the key factors in fashion entrepreneurship?",
+          "back": "Innovation, market understanding, and business acumen."
+        },
+        {
+          "front": "What is the importance of fashion diversity?",
+          "back": "To represent all people and promote inclusivity in fashion."
+        },
+        {
+          "front": "What are the different types of fashion events?",
+          "back": "Fashion weeks, trade shows, and charity fashion shows."
+        },
+        {
+          "front": "What is the purpose of fashion criticism?",
+          "back": "To evaluate designs, provide feedback, and influence industry standards."
+        },
+        {
+          "front": "What are the benefits of fashion education programs?",
+          "back": "Skill development, industry knowledge, and career preparation."
+        }
+      ]
+    }
+  ]
+}
