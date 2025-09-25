@@ -1,0 +1,360 @@
+{
+  "id": "auto-mechanics-quiz-1",
+  "title": "Auto Mechanics Quiz 1",
+  "subject": "Auto Mechanics",
+  "difficulty": "Intermediate",
+  "questions": 50,
+  "timeLimit": 1800,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the primary function of an engine?",
+      "options": ["Convert fuel to motion", "Store energy", "Cool the vehicle", "Generate electricity"],
+      "correctAnswer": 0,
+      "explanation": "An engine's primary function is to convert fuel into mechanical motion to power the vehicle."
+    },
+    {
+      "id": 2,
+      "question": "What does the acronym ABS stand for?",
+      "options": ["Automatic Brake System", "Anti-lock Braking System", "Advanced Brake System", "Automatic Brake Safety"],
+      "correctAnswer": 1,
+      "explanation": "ABS stands for Anti-lock Braking System, which prevents wheels from locking during braking."
+    },
+    {
+      "id": 3,
+      "question": "What is the purpose of a catalytic converter?",
+      "options": ["Increase engine power", "Reduce emissions", "Improve fuel economy", "Cool the engine"],
+      "correctAnswer": 1,
+      "explanation": "A catalytic converter reduces harmful emissions by converting pollutants into less harmful substances."
+    },
+    {
+      "id": 4,
+      "question": "What type of oil is typically used in modern engines?",
+      "options": ["Mineral oil", "Synthetic oil", "Vegetable oil", "Hydraulic oil"],
+      "correctAnswer": 1,
+      "explanation": "Modern engines typically use synthetic oil for better performance and protection."
+    },
+    {
+      "id": 5,
+      "question": "What is the function of a radiator?",
+      "options": ["Heat the engine", "Cool the engine", "Store coolant", "Filter air"],
+      "correctAnswer": 1,
+      "explanation": "A radiator cools the engine by dissipating heat from the coolant."
+    },
+    {
+      "id": 6,
+      "question": "What does the check engine light indicate?",
+      "options": ["Low fuel", "Engine problem", "Door open", "Battery low"],
+      "correctAnswer": 1,
+      "explanation": "The check engine light indicates a problem with the engine or emissions system."
+    },
+    {
+      "id": 7,
+      "question": "What is the purpose of a timing belt?",
+      "options": ["Drive accessories", "Synchronize engine components", "Transmit power", "Cool the engine"],
+      "correctAnswer": 1,
+      "explanation": "A timing belt synchronizes the rotation of the crankshaft and camshaft."
+    },
+    {
+      "id": 8,
+      "question": "What type of transmission has no clutch pedal?",
+      "options": ["Manual", "Automatic", "CVT", "Both B and C"],
+      "correctAnswer": 3,
+      "explanation": "Both automatic and CVT transmissions operate without a clutch pedal."
+    },
+    {
+      "id": 9,
+      "question": "What is the function of a spark plug?",
+      "options": ["Ignite fuel", "Cool the engine", "Filter air", "Store electricity"],
+      "correctAnswer": 0,
+      "explanation": "A spark plug ignites the fuel-air mixture in the combustion chamber."
+    },
+    {
+      "id": 10,
+      "question": "What does the acronym ECU stand for?",
+      "options": ["Engine Control Unit", "Electronic Control Unit", "Engine Computer Unit", "Electronic Computer Unit"],
+      "correctAnswer": 1,
+      "explanation": "ECU stands for Electronic Control Unit, which manages various engine functions."
+    },
+    {
+      "id": 11,
+      "question": "What is the purpose of a fuel filter?",
+      "options": ["Store fuel", "Clean fuel", "Pressurize fuel", "Heat fuel"],
+      "correctAnswer": 1,
+      "explanation": "A fuel filter removes contaminants from fuel before it reaches the engine."
+    },
+    {
+      "id": 12,
+      "question": "What type of brake system uses hydraulic pressure?",
+      "options": ["Drum brakes", "Disc brakes", "Both A and B", "Neither A nor B"],
+      "correctAnswer": 2,
+      "explanation": "Both drum and disc brake systems use hydraulic pressure to apply braking force."
+    },
+    {
+      "id": 13,
+      "question": "What is the function of a thermostat?",
+      "options": ["Control temperature", "Measure temperature", "Store coolant", "Filter coolant"],
+      "correctAnswer": 0,
+      "explanation": "A thermostat controls the flow of coolant to maintain optimal engine temperature."
+    },
+    {
+      "id": 14,
+      "question": "What does the acronym OBD stand for?",
+      "options": ["On-Board Diagnostics", "Off-Board Diagnostics", "On-Board Data", "Off-Board Data"],
+      "correctAnswer": 0,
+      "explanation": "OBD stands for On-Board Diagnostics, a system that monitors vehicle performance."
+    },
+    {
+      "id": 15,
+      "question": "What is the purpose of a muffler?",
+      "options": ["Increase power", "Reduce noise", "Filter exhaust", "Cool exhaust"],
+      "correctAnswer": 1,
+      "explanation": "A muffler reduces exhaust noise by dampening sound waves."
+    },
+    {
+      "id": 16,
+      "question": "What type of engine has cylinders arranged in a V-shape?",
+      "options": ["Inline engine", "V-engine", "Boxer engine", "Rotary engine"],
+      "correctAnswer": 1,
+      "explanation": "A V-engine has cylinders arranged in a V-shape configuration."
+    },
+    {
+      "id": 17,
+      "question": "What is the function of a water pump?",
+      "options": ["Store water", "Filter water", "Circulate coolant", "Heat water"],
+      "correctAnswer": 2,
+      "explanation": "A water pump circulates coolant through the engine cooling system."
+    },
+    {
+      "id": 18,
+      "question": "What does the acronym CVT stand for?",
+      "options": ["Constant Velocity Transmission", "Continuously Variable Transmission", "Controlled Variable Transmission", "Constant Variable Transmission"],
+      "correctAnswer": 1,
+      "explanation": "CVT stands for Continuously Variable Transmission, which provides seamless gear changes."
+    },
+    {
+      "id": 19,
+      "question": "What is the purpose of a serpentine belt?",
+      "options": ["Drive accessories", "Cool the engine", "Filter air", "Store energy"],
+      "correctAnswer": 0,
+      "explanation": "A serpentine belt drives multiple accessories like the alternator, power steering, and air conditioning."
+    },
+    {
+      "id": 20,
+      "question": "What type of suspension system uses springs and shock absorbers?",
+      "options": ["Air suspension", "Hydraulic suspension", "Coil spring suspension", "All of the above"],
+      "correctAnswer": 2,
+      "explanation": "Coil spring suspension uses springs and shock absorbers to provide ride comfort and handling."
+    },
+    {
+      "id": 21,
+      "question": "What is the function of an alternator?",
+      "options": ["Start the engine", "Generate electricity", "Store electricity", "Filter electricity"],
+      "correctAnswer": 1,
+      "explanation": "An alternator generates electricity to power the vehicle's electrical systems and charge the battery."
+    },
+    {
+      "id": 22,
+      "question": "What does the acronym A/C stand for?",
+      "options": ["Air Conditioner", "Automatic Control", "Air Control", "Automatic Conditioner"],
+      "correctAnswer": 0,
+      "explanation": "A/C stands for Air Conditioner, which cools and dehumidifies the vehicle's interior."
+    },
+    {
+      "id": 23,
+      "question": "What is the purpose of a power steering pump?",
+      "options": ["Steer the vehicle", "Assist steering", "Store power", "Generate power"],
+      "correctAnswer": 1,
+      "explanation": "A power steering pump provides hydraulic assistance to make steering easier."
+    },
+    {
+      "id": 24,
+      "question": "What type of fuel injection system is most common in modern vehicles?",
+      "options": ["Carburetor", "Port fuel injection", "Direct fuel injection", "Both B and C"],
+      "correctAnswer": 3,
+      "explanation": "Both port fuel injection and direct fuel injection are common in modern vehicles."
+    },
+    {
+      "id": 25,
+      "question": "What is the function of a camshaft?",
+      "options": ["Control valve timing", "Drive the crankshaft", "Cool the engine", "Filter air"],
+      "correctAnswer": 0,
+      "explanation": "A camshaft controls the timing of intake and exhaust valve opening and closing."
+    },
+    {
+      "id": 26,
+      "question": "What does the acronym TPMS stand for?",
+      "options": ["Tire Pressure Monitoring System", "Tire Pressure Management System", "Tire Pressure Measurement System", "Tire Pressure Maintenance System"],
+      "correctAnswer": 0,
+      "explanation": "TPMS stands for Tire Pressure Monitoring System, which monitors tire pressure."
+    },
+    {
+      "id": 27,
+      "question": "What is the purpose of a differential?",
+      "options": ["Increase speed", "Allow wheel speed differences", "Reduce noise", "Store power"],
+      "correctAnswer": 1,
+      "explanation": "A differential allows the drive wheels to rotate at different speeds when turning."
+    },
+    {
+      "id": 28,
+      "question": "What type of brake pad material is most common?",
+      "options": ["Ceramic", "Metallic", "Organic", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Brake pads can be made from ceramic, metallic, or organic materials."
+    },
+    {
+      "id": 29,
+      "question": "What is the function of a mass airflow sensor?",
+      "options": ["Measure air temperature", "Measure air flow", "Filter air", "Heat air"],
+      "correctAnswer": 1,
+      "explanation": "A mass airflow sensor measures the amount of air entering the engine."
+    },
+    {
+      "id": 30,
+      "question": "What does the acronym EGR stand for?",
+      "options": ["Exhaust Gas Recirculation", "Engine Gas Recirculation", "Exhaust Gas Reduction", "Engine Gas Reduction"],
+      "correctAnswer": 0,
+      "explanation": "EGR stands for Exhaust Gas Recirculation, which reduces emissions by recirculating exhaust gases."
+    },
+    {
+      "id": 31,
+      "question": "What is the purpose of a turbocharger?",
+      "options": ["Increase engine power", "Reduce emissions", "Improve fuel economy", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "A turbocharger can increase power, reduce emissions, and improve fuel economy."
+    },
+    {
+      "id": 32,
+      "question": "What type of transmission fluid is used in automatic transmissions?",
+      "options": ["Engine oil", "Brake fluid", "ATF", "Coolant"],
+      "correctAnswer": 2,
+      "explanation": "ATF (Automatic Transmission Fluid) is specifically designed for automatic transmissions."
+    },
+    {
+      "id": 33,
+      "question": "What is the function of a knock sensor?",
+      "options": ["Detect engine knock", "Prevent engine knock", "Measure engine knock", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "A knock sensor detects, prevents, and measures engine knock or detonation."
+    },
+    {
+      "id": 34,
+      "question": "What does the acronym SRS stand for?",
+      "options": ["Supplemental Restraint System", "Safety Restraint System", "Secondary Restraint System", "Standard Restraint System"],
+      "correctAnswer": 0,
+      "explanation": "SRS stands for Supplemental Restraint System, which includes airbags and seatbelt pretensioners."
+    },
+    {
+      "id": 35,
+      "question": "What is the purpose of a PCV valve?",
+      "options": ["Control pressure", "Vent crankcase gases", "Filter air", "Store gases"],
+      "correctAnswer": 1,
+      "explanation": "A PCV (Positive Crankcase Ventilation) valve vents crankcase gases back to the intake."
+    },
+    {
+      "id": 36,
+      "question": "What type of cooling system is most common in modern vehicles?",
+      "options": ["Air cooling", "Water cooling", "Oil cooling", "All of the above"],
+      "correctAnswer": 1,
+      "explanation": "Water cooling (liquid cooling) is the most common cooling system in modern vehicles."
+    },
+    {
+      "id": 37,
+      "question": "What is the function of a MAP sensor?",
+      "options": ["Measure air pressure", "Measure air flow", "Filter air", "Heat air"],
+      "correctAnswer": 0,
+      "explanation": "A MAP (Manifold Absolute Pressure) sensor measures intake manifold pressure."
+    },
+    {
+      "id": 38,
+      "question": "What does the acronym IAC stand for?",
+      "options": ["Idle Air Control", "Intake Air Control", "Idle Air Controller", "Intake Air Controller"],
+      "correctAnswer": 0,
+      "explanation": "IAC stands for Idle Air Control, which controls engine idle speed."
+    },
+    {
+      "id": 39,
+      "question": "What is the purpose of a fuel pressure regulator?",
+      "options": ["Increase fuel pressure", "Maintain fuel pressure", "Reduce fuel pressure", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "A fuel pressure regulator can increase, maintain, or reduce fuel pressure as needed."
+    },
+    {
+      "id": 40,
+      "question": "What type of ignition system is most common in modern vehicles?",
+      "options": ["Distributor", "Coil-on-plug", "Waste spark", "Both B and C"],
+      "correctAnswer": 3,
+      "explanation": "Both coil-on-plug and waste spark ignition systems are common in modern vehicles."
+    },
+    {
+      "id": 41,
+      "question": "What is the function of a throttle position sensor?",
+      "options": ["Measure throttle position", "Control throttle position", "Filter air", "Heat air"],
+      "correctAnswer": 0,
+      "explanation": "A throttle position sensor measures the position of the throttle valve."
+    },
+    {
+      "id": 42,
+      "question": "What does the acronym VVT stand for?",
+      "options": ["Variable Valve Timing", "Variable Valve Technology", "Variable Valve Transmission", "Variable Valve Temperature"],
+      "correctAnswer": 0,
+      "explanation": "VVT stands for Variable Valve Timing, which optimizes valve timing for different engine conditions."
+    },
+    {
+      "id": 43,
+      "question": "What is the purpose of a wheel alignment?",
+      "options": ["Improve handling", "Reduce tire wear", "Improve fuel economy", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Wheel alignment improves handling, reduces tire wear, and can improve fuel economy."
+    },
+    {
+      "id": 44,
+      "question": "What type of battery is most common in vehicles?",
+      "options": ["Lead-acid", "Lithium-ion", "Nickel-metal hydride", "All of the above"],
+      "correctAnswer": 0,
+      "explanation": "Lead-acid batteries are the most common type used in vehicles."
+    },
+    {
+      "id": 45,
+      "question": "What is the function of a wheel bearing?",
+      "options": ["Support the wheel", "Allow smooth rotation", "Reduce friction", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "A wheel bearing supports the wheel, allows smooth rotation, and reduces friction."
+    },
+    {
+      "id": 46,
+      "question": "What does the acronym ESC stand for?",
+      "options": ["Electronic Stability Control", "Electronic Stability Controller", "Electronic Stability Computer", "Electronic Stability Center"],
+      "correctAnswer": 0,
+      "explanation": "ESC stands for Electronic Stability Control, which helps prevent skidding and loss of control."
+    },
+    {
+      "id": 47,
+      "question": "What is the purpose of a wheel balance?",
+      "options": ["Improve ride quality", "Reduce vibration", "Prevent tire wear", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Wheel balancing improves ride quality, reduces vibration, and prevents uneven tire wear."
+    },
+    {
+      "id": 48,
+      "question": "What type of steering system is most common in modern vehicles?",
+      "options": ["Manual steering", "Power steering", "Electric power steering", "Both B and C"],
+      "correctAnswer": 3,
+      "explanation": "Both hydraulic power steering and electric power steering are common in modern vehicles."
+    },
+    {
+      "id": 49,
+      "question": "What is the function of a wheel speed sensor?",
+      "options": ["Measure wheel speed", "Control wheel speed", "Prevent wheel lock", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "A wheel speed sensor measures wheel speed, helps control it, and prevents wheel lock in ABS systems."
+    },
+    {
+      "id": 50,
+      "question": "What does the acronym TCS stand for?",
+      "options": ["Traction Control System", "Traction Control Sensor", "Traction Control Switch", "Traction Control Safety"],
+      "correctAnswer": 0,
+      "explanation": "TCS stands for Traction Control System, which helps prevent wheel spin during acceleration."
+    }
+  ]
+}

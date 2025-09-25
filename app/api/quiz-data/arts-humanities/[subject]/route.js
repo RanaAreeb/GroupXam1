@@ -22,7 +22,13 @@ export async function GET(request, { params }) {
             'creative-writing': 'creative-writing',
             'foreign-languages': 'foreign-languages',
             'religious-studies': 'religious-studies',
-            'cultural-studies': 'cultural-studies'
+            'cultural-studies': 'cultural-studies',
+            'government': 'government',
+            'arabic': 'arabic',
+            'islamic-studies': 'islamic-studies',
+            'christian-religious-knowledge': 'christian-religious-knowledge',
+            'visual-art': 'visual-art',
+            'literature-in-english': 'literature-in-english'
         };
 
         const folderName = subjectFolderMap[decodedSubject.toLowerCase()];

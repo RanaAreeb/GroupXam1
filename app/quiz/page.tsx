@@ -35,6 +35,10 @@ import {
   Building2,
   Scale,
   Stethoscope,
+  Leaf,
+  Settings,
+  Home,
+  FileText,
 } from "lucide-react";
 
 // Subject categories
@@ -94,6 +98,21 @@ const subjectCategories = [
         name: "Psychology",
         icon: Star,
         quizzes: ["psychology-quiz-1"],
+      },
+      {
+        name: "Agricultural Science",
+        icon: Leaf,
+        quizzes: ["agricultural-science-quiz-1"],
+      },
+      {
+        name: "Health Science",
+        icon: Stethoscope,
+        quizzes: ["health-science-quiz-1"],
+      },
+      {
+        name: "Engineering Science",
+        icon: Settings,
+        quizzes: ["engineering-science-quiz-1"],
       },
     ],
   },
@@ -172,6 +191,21 @@ const subjectCategories = [
         icon: Vote,
         quizzes: ["political-science-quiz-1"],
       },
+      {
+        name: "Commerce",
+        icon: DollarSign,
+        quizzes: ["commerce-quiz-1"],
+      },
+      {
+        name: "Principles of Cost Accounting",
+        icon: Calculator,
+        quizzes: ["principles-cost-accounting-quiz-1"],
+      },
+      {
+        name: "Financial Accounting",
+        icon: Calculator,
+        quizzes: ["financial-accounting-quiz-1"],
+      },
     ],
   },
   {
@@ -214,6 +248,11 @@ const subjectCategories = [
         name: "Pythagorean Theorem",
         icon: Calculator,
         quizzes: ["pythagorean-theorem-quiz-1"],
+      },
+      {
+        name: "Further Mathematics (Elective)",
+        icon: Calculator,
+        quizzes: ["further-mathematics-quiz-1"],
       },
     ],
   },
@@ -282,6 +321,36 @@ const subjectCategories = [
         name: "Cultural Studies",
         icon: Globe,
         quizzes: ["cultural-studies-quiz-1"],
+      },
+      {
+        name: "Government",
+        icon: Vote,
+        quizzes: ["government-quiz-1"],
+      },
+      {
+        name: "Arabic",
+        icon: Languages,
+        quizzes: ["arabic-quiz-1"],
+      },
+      {
+        name: "Islamic Studies",
+        icon: BookMarked,
+        quizzes: ["islamic-studies-quiz-1"],
+      },
+      {
+        name: "Christian Religious Knowledge",
+        icon: BookMarked,
+        quizzes: ["christian-religious-knowledge-quiz-1"],
+      },
+      {
+        name: "Visual Art",
+        icon: Palette,
+        quizzes: ["visual-art-quiz-1"],
+      },
+      {
+        name: "Physical Education",
+        icon: Users,
+        quizzes: ["physical-education-quiz-1"],
       },
     ],
   },
@@ -398,6 +467,41 @@ const subjectCategories = [
         name: "Business Ethics",
         icon: Building2,
         quizzes: ["business-ethics-quiz-1"],
+      },
+      {
+        name: "Auto Mechanics",
+        icon: Settings,
+        quizzes: ["auto-mechanics-quiz-1"],
+      },
+      {
+        name: "Home Management",
+        icon: Home,
+        quizzes: ["home-management-quiz-1"],
+      },
+      {
+        name: "Clothing and Textiles",
+        icon: Palette,
+        quizzes: ["clothing-textiles-quiz-1"],
+      },
+      {
+        name: "Metalwork",
+        icon: Settings,
+        quizzes: ["metalwork-quiz-1"],
+      },
+      {
+        name: "Technical Drawing",
+        icon: Palette,
+        quizzes: ["technical-drawing-quiz-1"],
+      },
+      {
+        name: "Typewriting",
+        icon: FileText,
+        quizzes: ["typewriting-quiz-1"],
+      },
+      {
+        name: "Foods and Nutrition",
+        icon: Heart,
+        quizzes: ["foods-nutrition-quiz-1"],
       },
     ],
   },
@@ -838,11 +942,24 @@ const getQuizzesForSubject = async (subjectName: string) => {
     subjectName.toLowerCase() === "biochemistry" ||
     subjectName.toLowerCase() === "pharmacology" ||
     subjectName.toLowerCase() === "ecology" ||
-    subjectName.toLowerCase() === "psychology"
+    subjectName.toLowerCase() === "psychology" ||
+    subjectName.toLowerCase() === "agricultural science" ||
+    subjectName.toLowerCase() === "health science" ||
+    subjectName.toLowerCase() === "engineering science"
   ) {
     try {
+      // Map subject names to folder names
+      let folderName = subjectName.toLowerCase();
+      if (subjectName.toLowerCase() === "agricultural science") {
+        folderName = "agricultural-science";
+      } else if (subjectName.toLowerCase() === "health science") {
+        folderName = "health-science";
+      } else if (subjectName.toLowerCase() === "engineering science") {
+        folderName = "engineering-science";
+      }
+      
       const response = await fetch(
-        `/api/quiz-data/science/${subjectName.toLowerCase()}`
+        `/api/quiz-data/science/${folderName}`
       );
       if (response.ok) {
         const quizFiles = await response.json();
@@ -888,7 +1005,10 @@ const getQuizzesForSubject = async (subjectName: string) => {
     subjectName.toLowerCase() === "macro economics" ||
     subjectName.toLowerCase() === "accounting" ||
     subjectName.toLowerCase() === "finance" ||
-    subjectName.toLowerCase() === "political science"
+    subjectName.toLowerCase() === "political science" ||
+    subjectName.toLowerCase() === "commerce" ||
+    subjectName.toLowerCase() === "principles of cost accounting" ||
+    subjectName.toLowerCase() === "financial accounting"
   ) {
     try {
       // Map subject names to folder names
@@ -899,6 +1019,10 @@ const getQuizzesForSubject = async (subjectName: string) => {
         folderName = "macro-economics";
       } else if (subjectName.toLowerCase() === "political science") {
         folderName = "political-science";
+      } else if (subjectName.toLowerCase() === "principles of cost accounting") {
+        folderName = "principles-of-cost-accounting";
+      } else if (subjectName.toLowerCase() === "financial accounting") {
+        folderName = "financial-accounting";
       }
 
       const response = await fetch(`/api/quiz-data/economics/${folderName}`);
@@ -919,13 +1043,16 @@ const getQuizzesForSubject = async (subjectName: string) => {
     subjectName.toLowerCase() === "arithmetic" ||
     subjectName.toLowerCase() === "geometry" ||
     subjectName.toLowerCase() === "trigonometry" ||
-    subjectName.toLowerCase() === "pythagorean theorem"
+    subjectName.toLowerCase() === "pythagorean theorem" ||
+    subjectName.toLowerCase() === "further mathematics (elective)"
   ) {
     try {
       // Map subject names to folder names
       let folderName = subjectName.toLowerCase();
       if (subjectName.toLowerCase() === "pythagorean theorem") {
         folderName = "pythagorean-theorem";
+      } else if (subjectName.toLowerCase() === "further mathematics (elective)") {
+        folderName = "further-mathematics";
       }
 
       const response = await fetch(`/api/quiz-data/mathematics/${folderName}`);
@@ -951,7 +1078,13 @@ const getQuizzesForSubject = async (subjectName: string) => {
     subjectName.toLowerCase() === "creative writing" ||
     subjectName.toLowerCase() === "foreign languages" ||
     subjectName.toLowerCase() === "religious studies" ||
-    subjectName.toLowerCase() === "cultural studies"
+    subjectName.toLowerCase() === "cultural studies" ||
+    subjectName.toLowerCase() === "government" ||
+    subjectName.toLowerCase() === "arabic" ||
+    subjectName.toLowerCase() === "islamic studies" ||
+    subjectName.toLowerCase() === "christian religious knowledge" ||
+    subjectName.toLowerCase() === "visual art" ||
+    subjectName.toLowerCase() === "literature-in-english"
   ) {
     try {
       // Map subject names to folder names
@@ -968,6 +1101,12 @@ const getQuizzesForSubject = async (subjectName: string) => {
         folderName = "religious-studies";
       } else if (subjectName.toLowerCase() === "cultural studies") {
         folderName = "cultural-studies";
+      } else if (subjectName.toLowerCase() === "christian religious knowledge") {
+        folderName = "christian-religious-knowledge";
+      } else if (subjectName.toLowerCase() === "visual art") {
+        folderName = "visual-art";
+      } else if (subjectName.toLowerCase() === "literature-in-english") {
+        folderName = "literature-in-english";
       }
 
       const response = await fetch(
@@ -1019,7 +1158,15 @@ const getQuizzesForSubject = async (subjectName: string) => {
     subjectName.toLowerCase() === "international business" ||
     subjectName.toLowerCase() === "supply chain management" ||
     subjectName.toLowerCase() === "project management" ||
-    subjectName.toLowerCase() === "business ethics"
+    subjectName.toLowerCase() === "business ethics" ||
+    subjectName.toLowerCase() === "auto mechanics" ||
+    subjectName.toLowerCase() === "home management" ||
+    subjectName.toLowerCase() === "clothing and textiles" ||
+    subjectName.toLowerCase() === "metalwork" ||
+    subjectName.toLowerCase() === "technical drawing" ||
+    subjectName.toLowerCase() === "typewriting" ||
+    subjectName.toLowerCase() === "foods and nutrition" ||
+    subjectName.toLowerCase() === "physical education"
   ) {
     try {
       // Map subject names to folder names
@@ -1040,6 +1187,18 @@ const getQuizzesForSubject = async (subjectName: string) => {
         folderName = "project-management";
       } else if (subjectName.toLowerCase() === "business ethics") {
         folderName = "business-ethics";
+      } else if (subjectName.toLowerCase() === "auto mechanics") {
+        folderName = "auto-mechanics";
+      } else if (subjectName.toLowerCase() === "home management") {
+        folderName = "home-management";
+      } else if (subjectName.toLowerCase() === "clothing and textiles") {
+        folderName = "clothing-and-textiles";
+      } else if (subjectName.toLowerCase() === "technical drawing") {
+        folderName = "technical-drawing";
+      } else if (subjectName.toLowerCase() === "foods and nutrition") {
+        folderName = "foods-and-nutrition";
+      } else if (subjectName.toLowerCase() === "physical education") {
+        folderName = "physical-education";
       }
 
       const response = await fetch(`/api/quiz-data/business/${folderName}`);
@@ -1223,6 +1382,28 @@ export default function QuizPage() {
       "international law": 1,
       "environmental law": 1,
       "human rights law": 1,
+      
+      // Additional Subjects
+      "agricultural science": 1,
+      "government": 1,
+      "arabic": 1,
+      "health science": 1,
+      "auto mechanics": 1,
+      "home management": 1,
+      "islamic studies": 1,
+      "clothing and textiles": 1,
+      "metalwork": 1,
+      "commerce": 1,
+      "physical education": 1,
+      "principles of cost accounting": 1,
+      "engineering science": 1,
+      "technical drawing": 1,
+      "financial accounting": 1,
+      "typewriting": 1,
+      "foods and nutrition": 1,
+      "visual art": 1,
+      "further mathematics (elective)": 1,
+      "christian religious knowledge": 1,
     };
     
     setSubjectQuizCounts(defaultCounts);

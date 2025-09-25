@@ -15,6 +15,8 @@ export async function GET(request, { params }) {
         // Handle special cases for subject names
         if (decodeURIComponent(subject).toLowerCase() === 'pythagorean theorem') {
             folderName = 'pythagorean-theorem';
+        } else if (decodeURIComponent(subject).toLowerCase() === 'further mathematics (elective)') {
+            folderName = 'further-mathematics';
         }
 
         const subjectPath = path.join(basePath, folderName);

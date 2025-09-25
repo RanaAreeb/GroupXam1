@@ -1,0 +1,360 @@
+{
+  "id": "agricultural-science-quiz-1",
+  "title": "Agricultural Science Quiz 1",
+  "subject": "Agricultural Science",
+  "difficulty": "Intermediate",
+  "questions": 50,
+  "timeLimit": 1800,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the primary purpose of crop rotation?",
+      "options": ["Increase soil fertility", "Reduce pest problems", "Both A and B", "None of the above"],
+      "correctAnswer": 2,
+      "explanation": "Crop rotation serves both purposes: it helps maintain soil fertility and reduces pest and disease problems."
+    },
+    {
+      "id": 2,
+      "question": "Which of the following is a leguminous crop?",
+      "options": ["Rice", "Wheat", "Soybean", "Corn"],
+      "correctAnswer": 2,
+      "explanation": "Soybean is a leguminous crop that can fix atmospheric nitrogen through symbiotic bacteria."
+    },
+    {
+      "id": 3,
+      "question": "What is the ideal pH range for most agricultural crops?",
+      "options": ["4.0-5.0", "5.5-7.0", "7.5-8.5", "8.5-9.0"],
+      "correctAnswer": 1,
+      "explanation": "Most agricultural crops grow best in slightly acidic to neutral soil with pH range of 5.5-7.0."
+    },
+    {
+      "id": 4,
+      "question": "Which nutrient is most commonly deficient in tropical soils?",
+      "options": ["Nitrogen", "Phosphorus", "Potassium", "Calcium"],
+      "correctAnswer": 1,
+      "explanation": "Phosphorus is commonly deficient in tropical soils due to high iron and aluminum content that binds phosphorus."
+    },
+    {
+      "id": 5,
+      "question": "What is the main function of organic matter in soil?",
+      "options": ["Improve water retention", "Enhance soil structure", "Provide nutrients", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Organic matter improves water retention, enhances soil structure, and provides essential nutrients for plant growth."
+    },
+    {
+      "id": 6,
+      "question": "Which farming system involves growing crops and raising livestock together?",
+      "options": ["Monoculture", "Mixed farming", "Agroforestry", "Hydroponics"],
+      "correctAnswer": 1,
+      "explanation": "Mixed farming involves the integration of crop production and livestock raising on the same farm."
+    },
+    {
+      "id": 7,
+      "question": "What is the primary cause of soil erosion?",
+      "options": ["Wind", "Water", "Human activities", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Soil erosion can be caused by wind, water, and human activities like deforestation and overgrazing."
+    },
+    {
+      "id": 8,
+      "question": "Which irrigation method is most water-efficient?",
+      "options": ["Flood irrigation", "Sprinkler irrigation", "Drip irrigation", "Furrow irrigation"],
+      "correctAnswer": 2,
+      "explanation": "Drip irrigation is the most water-efficient method as it delivers water directly to plant roots."
+    },
+    {
+      "id": 9,
+      "question": "What is the main advantage of using cover crops?",
+      "options": ["Prevent soil erosion", "Add organic matter", "Suppress weeds", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Cover crops provide multiple benefits including erosion prevention, organic matter addition, and weed suppression."
+    },
+    {
+      "id": 10,
+      "question": "Which type of soil has the smallest particle size?",
+      "options": ["Sand", "Silt", "Clay", "Loam"],
+      "correctAnswer": 2,
+      "explanation": "Clay has the smallest particle size among the three main soil types (sand, silt, clay)."
+    },
+    {
+      "id": 11,
+      "question": "What is the primary function of nitrogen in plants?",
+      "options": ["Root development", "Leaf growth", "Flower formation", "Fruit ripening"],
+      "correctAnswer": 1,
+      "explanation": "Nitrogen is essential for leaf growth and the development of green plant tissues."
+    },
+    {
+      "id": 12,
+      "question": "Which farming practice helps conserve soil moisture?",
+      "options": ["Deep plowing", "Mulching", "Overgrazing", "Monoculture"],
+      "correctAnswer": 1,
+      "explanation": "Mulching helps conserve soil moisture by reducing evaporation from the soil surface."
+    },
+    {
+      "id": 13,
+      "question": "What is the main purpose of green manure?",
+      "options": ["Control pests", "Improve soil fertility", "Provide shade", "Attract beneficial insects"],
+      "correctAnswer": 1,
+      "explanation": "Green manure crops are grown and plowed under to improve soil fertility and organic matter content."
+    },
+    {
+      "id": 14,
+      "question": "Which factor most affects seed germination?",
+      "options": ["Temperature", "Moisture", "Oxygen", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Seed germination requires optimal temperature, moisture, and oxygen levels."
+    },
+    {
+      "id": 15,
+      "question": "What is the primary benefit of crop diversification?",
+      "options": ["Reduced risk", "Better soil health", "Pest management", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Crop diversification reduces risk, improves soil health, and helps with pest management."
+    },
+    {
+      "id": 16,
+      "question": "Which type of farming is most sustainable for the environment?",
+      "options": ["Conventional farming", "Organic farming", "Intensive farming", "Monoculture farming"],
+      "correctAnswer": 1,
+      "explanation": "Organic farming is generally more sustainable as it avoids synthetic chemicals and promotes soil health."
+    },
+    {
+      "id": 17,
+      "question": "What is the main cause of soil compaction?",
+      "options": ["Heavy machinery", "Overgrazing", "Excessive tillage", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Soil compaction can be caused by heavy machinery, overgrazing, and excessive tillage."
+    },
+    {
+      "id": 18,
+      "question": "Which nutrient deficiency causes yellowing of older leaves?",
+      "options": ["Nitrogen", "Phosphorus", "Potassium", "Iron"],
+      "correctAnswer": 2,
+      "explanation": "Nitrogen deficiency typically causes yellowing of older leaves as nitrogen is mobile in plants."
+    },
+    {
+      "id": 19,
+      "question": "What is the primary purpose of terracing?",
+      "options": ["Increase soil fertility", "Prevent soil erosion", "Improve drainage", "Control weeds"],
+      "correctAnswer": 1,
+      "explanation": "Terracing is primarily used to prevent soil erosion on sloping land."
+    },
+    {
+      "id": 20,
+      "question": "Which farming system integrates trees with crops and livestock?",
+      "options": ["Monoculture", "Mixed farming", "Agroforestry", "Hydroponics"],
+      "correctAnswer": 2,
+      "explanation": "Agroforestry integrates trees with crops and/or livestock in a sustainable farming system."
+    },
+    {
+      "id": 21,
+      "question": "What is the main advantage of no-till farming?",
+      "options": ["Reduced soil erosion", "Lower fuel costs", "Better soil structure", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "No-till farming reduces soil erosion, lowers fuel costs, and helps maintain better soil structure."
+    },
+    {
+      "id": 22,
+      "question": "Which type of irrigation is best for row crops?",
+      "options": ["Flood irrigation", "Sprinkler irrigation", "Drip irrigation", "Furrow irrigation"],
+      "correctAnswer": 3,
+      "explanation": "Furrow irrigation is commonly used for row crops as it delivers water between crop rows."
+    },
+    {
+      "id": 23,
+      "question": "What is the primary function of phosphorus in plants?",
+      "options": ["Leaf growth", "Root development", "Flower formation", "Fruit ripening"],
+      "correctAnswer": 1,
+      "explanation": "Phosphorus is essential for root development and energy transfer in plants."
+    },
+    {
+      "id": 24,
+      "question": "Which soil type has the best water-holding capacity?",
+      "options": ["Sand", "Silt", "Clay", "Loam"],
+      "correctAnswer": 2,
+      "explanation": "Clay soil has the best water-holding capacity due to its small particle size and large surface area."
+    },
+    {
+      "id": 25,
+      "question": "What is the main purpose of crop rotation?",
+      "options": ["Increase yield", "Break pest cycles", "Reduce costs", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Crop rotation can increase yield, break pest and disease cycles, and reduce input costs."
+    },
+    {
+      "id": 26,
+      "question": "Which farming practice helps improve soil aeration?",
+      "options": ["Deep plowing", "Mulching", "Overgrazing", "Monoculture"],
+      "correctAnswer": 0,
+      "explanation": "Deep plowing helps improve soil aeration by breaking up compacted soil layers."
+    },
+    {
+      "id": 27,
+      "question": "What is the primary benefit of using compost?",
+      "options": ["Improve soil structure", "Add nutrients", "Increase water retention", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Compost improves soil structure, adds nutrients, and increases water retention capacity."
+    },
+    {
+      "id": 28,
+      "question": "Which factor is most important for plant growth?",
+      "options": ["Light", "Water", "Nutrients", "All are equally important"],
+      "correctAnswer": 3,
+      "explanation": "Light, water, and nutrients are all essential for plant growth and are equally important."
+    },
+    {
+      "id": 29,
+      "question": "What is the main cause of soil salinization?",
+      "options": ["Excessive irrigation", "Drought", "Overgrazing", "Deforestation"],
+      "correctAnswer": 0,
+      "explanation": "Excessive irrigation without proper drainage can lead to soil salinization."
+    },
+    {
+      "id": 30,
+      "question": "Which type of farming is most water-intensive?",
+      "options": ["Dryland farming", "Irrigated farming", "Rainfed farming", "Conservation farming"],
+      "correctAnswer": 1,
+      "explanation": "Irrigated farming is most water-intensive as it requires continuous water supply."
+    },
+    {
+      "id": 31,
+      "question": "What is the primary function of potassium in plants?",
+      "options": ["Leaf growth", "Root development", "Disease resistance", "Flower formation"],
+      "correctAnswer": 2,
+      "explanation": "Potassium helps improve disease resistance and overall plant health."
+    },
+    {
+      "id": 32,
+      "question": "Which farming practice helps reduce greenhouse gas emissions?",
+      "options": ["Burning crop residues", "Using synthetic fertilizers", "Conservation tillage", "Monoculture"],
+      "correctAnswer": 2,
+      "explanation": "Conservation tillage helps reduce greenhouse gas emissions by maintaining soil organic matter."
+    },
+    {
+      "id": 33,
+      "question": "What is the main advantage of intercropping?",
+      "options": ["Increased yield", "Better pest control", "Improved soil health", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Intercropping can increase yield, provide better pest control, and improve soil health."
+    },
+    {
+      "id": 34,
+      "question": "Which soil amendment is best for improving drainage?",
+      "options": ["Clay", "Sand", "Compost", "Lime"],
+      "correctAnswer": 1,
+      "explanation": "Sand is best for improving drainage in heavy clay soils."
+    },
+    {
+      "id": 35,
+      "question": "What is the primary purpose of windbreaks?",
+      "options": ["Increase yield", "Prevent soil erosion", "Provide shade", "Control weeds"],
+      "correctAnswer": 1,
+      "explanation": "Windbreaks are primarily used to prevent soil erosion caused by wind."
+    },
+    {
+      "id": 36,
+      "question": "Which farming system is most suitable for arid regions?",
+      "options": ["Flood irrigation", "Drip irrigation", "Rainfed farming", "Hydroponics"],
+      "correctAnswer": 1,
+      "explanation": "Drip irrigation is most suitable for arid regions as it conserves water."
+    },
+    {
+      "id": 37,
+      "question": "What is the main cause of soil acidification?",
+      "options": ["Excessive lime application", "Acid rain", "Overuse of nitrogen fertilizers", "Both B and C"],
+      "correctAnswer": 3,
+      "explanation": "Soil acidification can be caused by acid rain and overuse of nitrogen fertilizers."
+    },
+    {
+      "id": 38,
+      "question": "Which type of farming is most labor-intensive?",
+      "options": ["Mechanized farming", "Traditional farming", "Precision farming", "Organic farming"],
+      "correctAnswer": 1,
+      "explanation": "Traditional farming is most labor-intensive as it relies heavily on manual labor."
+    },
+    {
+      "id": 39,
+      "question": "What is the primary benefit of using biofertilizers?",
+      "options": ["Cost-effective", "Environmentally friendly", "Improve soil health", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Biofertilizers are cost-effective, environmentally friendly, and improve soil health."
+    },
+    {
+      "id": 40,
+      "question": "Which farming practice helps maintain soil biodiversity?",
+      "options": ["Monoculture", "Crop rotation", "Excessive tillage", "Chemical fertilizers"],
+      "correctAnswer": 1,
+      "explanation": "Crop rotation helps maintain soil biodiversity by varying the types of crops grown."
+    },
+    {
+      "id": 41,
+      "question": "What is the main advantage of precision farming?",
+      "options": ["Reduced input costs", "Increased yield", "Better resource management", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Precision farming reduces input costs, increases yield, and improves resource management."
+    },
+    {
+      "id": 42,
+      "question": "Which nutrient deficiency causes stunted growth?",
+      "options": ["Nitrogen", "Phosphorus", "Potassium", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Deficiency in nitrogen, phosphorus, or potassium can all cause stunted growth."
+    },
+    {
+      "id": 43,
+      "question": "What is the primary purpose of soil testing?",
+      "options": ["Determine soil type", "Assess nutrient levels", "Measure pH", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Soil testing determines soil type, assesses nutrient levels, and measures pH."
+    },
+    {
+      "id": 44,
+      "question": "Which farming practice helps reduce water pollution?",
+      "options": ["Excessive fertilizer use", "Buffer strips", "Monoculture", "Deep plowing"],
+      "correctAnswer": 1,
+      "explanation": "Buffer strips help reduce water pollution by filtering runoff from agricultural fields."
+    },
+    {
+      "id": 45,
+      "question": "What is the main advantage of using cover crops?",
+      "options": ["Prevent soil erosion", "Add organic matter", "Suppress weeds", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Cover crops prevent soil erosion, add organic matter, and suppress weeds."
+    },
+    {
+      "id": 46,
+      "question": "Which type of irrigation is most suitable for vegetables?",
+      "options": ["Flood irrigation", "Sprinkler irrigation", "Drip irrigation", "Furrow irrigation"],
+      "correctAnswer": 2,
+      "explanation": "Drip irrigation is most suitable for vegetables as it provides precise water delivery."
+    },
+    {
+      "id": 47,
+      "question": "What is the primary function of organic matter in soil?",
+      "options": ["Improve water retention", "Enhance soil structure", "Provide nutrients", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Organic matter improves water retention, enhances soil structure, and provides nutrients."
+    },
+    {
+      "id": 48,
+      "question": "Which farming system is most sustainable long-term?",
+      "options": ["Conventional farming", "Organic farming", "Intensive farming", "Monoculture farming"],
+      "correctAnswer": 1,
+      "explanation": "Organic farming is generally more sustainable long-term as it maintains soil health."
+    },
+    {
+      "id": 49,
+      "question": "What is the main cause of soil degradation?",
+      "options": ["Erosion", "Compaction", "Salinization", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Soil degradation can be caused by erosion, compaction, and salinization."
+    },
+    {
+      "id": 50,
+      "question": "Which farming practice helps improve soil fertility?",
+      "options": ["Crop rotation", "Green manure", "Compost application", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Crop rotation, green manure, and compost application all help improve soil fertility."
+    }
+  ]
+}

@@ -1,0 +1,360 @@
+{
+  "id": "engineering-science-quiz-1",
+  "title": "Engineering Science Quiz 1",
+  "subject": "Engineering Science",
+  "difficulty": "Intermediate",
+  "questions": 50,
+  "timeLimit": 1800,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the SI unit of force?",
+      "options": ["Joule", "Newton", "Watt", "Pascal"],
+      "correctAnswer": 1,
+      "explanation": "The SI unit of force is the Newton (N), named after Sir Isaac Newton."
+    },
+    {
+      "id": 2,
+      "question": "Which law states that force equals mass times acceleration?",
+      "options": ["Newton's First Law", "Newton's Second Law", "Newton's Third Law", "Hooke's Law"],
+      "correctAnswer": 1,
+      "explanation": "Newton's Second Law states that F = ma (force equals mass times acceleration)."
+    },
+    {
+      "id": 3,
+      "question": "What is the SI unit of energy?",
+      "options": ["Newton", "Joule", "Watt", "Pascal"],
+      "correctAnswer": 1,
+      "explanation": "The SI unit of energy is the Joule (J)."
+    },
+    {
+      "id": 4,
+      "question": "Which type of energy is stored in a compressed spring?",
+      "options": ["Kinetic energy", "Potential energy", "Thermal energy", "Electrical energy"],
+      "correctAnswer": 1,
+      "explanation": "A compressed spring stores elastic potential energy."
+    },
+    {
+      "id": 5,
+      "question": "What is the SI unit of power?",
+      "options": ["Joule", "Newton", "Watt", "Pascal"],
+      "correctAnswer": 2,
+      "explanation": "The SI unit of power is the Watt (W)."
+    },
+    {
+      "id": 6,
+      "question": "Which principle states that energy cannot be created or destroyed?",
+      "options": ["Newton's First Law", "Conservation of Energy", "Conservation of Momentum", "Hooke's Law"],
+      "correctAnswer": 1,
+      "explanation": "The Conservation of Energy principle states that energy cannot be created or destroyed, only transformed."
+    },
+    {
+      "id": 7,
+      "question": "What is the SI unit of pressure?",
+      "options": ["Newton", "Joule", "Watt", "Pascal"],
+      "correctAnswer": 3,
+      "explanation": "The SI unit of pressure is the Pascal (Pa)."
+    },
+    {
+      "id": 8,
+      "question": "Which type of force opposes motion between two surfaces in contact?",
+      "options": ["Gravitational force", "Frictional force", "Magnetic force", "Electrical force"],
+      "correctAnswer": 1,
+      "explanation": "Frictional force opposes motion between two surfaces in contact."
+    },
+    {
+      "id": 9,
+      "question": "What is the acceleration due to gravity on Earth?",
+      "options": ["9.8 m/s²", "10 m/s²", "8.9 m/s²", "12 m/s²"],
+      "correctAnswer": 0,
+      "explanation": "The acceleration due to gravity on Earth is approximately 9.8 m/s²."
+    },
+    {
+      "id": 10,
+      "question": "Which law states that for every action there is an equal and opposite reaction?",
+      "options": ["Newton's First Law", "Newton's Second Law", "Newton's Third Law", "Hooke's Law"],
+      "correctAnswer": 2,
+      "explanation": "Newton's Third Law states that for every action there is an equal and opposite reaction."
+    },
+    {
+      "id": 11,
+      "question": "What is the SI unit of electric current?",
+      "options": ["Volt", "Ampere", "Ohm", "Watt"],
+      "correctAnswer": 1,
+      "explanation": "The SI unit of electric current is the Ampere (A)."
+    },
+    {
+      "id": 12,
+      "question": "Which type of circuit has only one path for current flow?",
+      "options": ["Parallel circuit", "Series circuit", "Complex circuit", "Open circuit"],
+      "correctAnswer": 1,
+      "explanation": "A series circuit has only one path for current flow."
+    },
+    {
+      "id": 13,
+      "question": "What is the SI unit of electric potential difference?",
+      "options": ["Ampere", "Volt", "Ohm", "Watt"],
+      "correctAnswer": 1,
+      "explanation": "The SI unit of electric potential difference is the Volt (V)."
+    },
+    {
+      "id": 14,
+      "question": "Which law relates voltage, current, and resistance?",
+      "options": ["Newton's Law", "Ohm's Law", "Hooke's Law", "Conservation Law"],
+      "correctAnswer": 1,
+      "explanation": "Ohm's Law states that V = IR (voltage equals current times resistance)."
+    },
+    {
+      "id": 15,
+      "question": "What is the SI unit of electrical resistance?",
+      "options": ["Volt", "Ampere", "Ohm", "Watt"],
+      "correctAnswer": 2,
+      "explanation": "The SI unit of electrical resistance is the Ohm (Ω)."
+    },
+    {
+      "id": 16,
+      "question": "Which type of energy is associated with the motion of particles?",
+      "options": ["Potential energy", "Kinetic energy", "Thermal energy", "Both B and C"],
+      "correctAnswer": 3,
+      "explanation": "Both kinetic energy and thermal energy are associated with the motion of particles."
+    },
+    {
+      "id": 17,
+      "question": "What is the SI unit of frequency?",
+      "options": ["Hertz", "Watt", "Joule", "Newton"],
+      "correctAnswer": 0,
+      "explanation": "The SI unit of frequency is the Hertz (Hz)."
+    },
+    {
+      "id": 18,
+      "question": "Which type of wave requires a medium to travel?",
+      "options": ["Electromagnetic wave", "Mechanical wave", "Light wave", "Radio wave"],
+      "correctAnswer": 1,
+      "explanation": "Mechanical waves require a medium to travel through."
+    },
+    {
+      "id": 19,
+      "question": "What is the speed of light in vacuum?",
+      "options": ["3 × 10⁸ m/s", "3 × 10⁶ m/s", "3 × 10⁴ m/s", "3 × 10² m/s"],
+      "correctAnswer": 0,
+      "explanation": "The speed of light in vacuum is approximately 3 × 10⁸ m/s."
+    },
+    {
+      "id": 20,
+      "question": "Which law states that the angle of incidence equals the angle of reflection?",
+      "options": ["Snell's Law", "Law of Reflection", "Law of Refraction", "Hooke's Law"],
+      "correctAnswer": 1,
+      "explanation": "The Law of Reflection states that the angle of incidence equals the angle of reflection."
+    },
+    {
+      "id": 21,
+      "question": "What is the SI unit of magnetic field strength?",
+      "options": ["Tesla", "Weber", "Henry", "Farad"],
+      "correctAnswer": 0,
+      "explanation": "The SI unit of magnetic field strength is the Tesla (T)."
+    },
+    {
+      "id": 22,
+      "question": "Which type of material allows electric current to flow easily?",
+      "options": ["Insulator", "Conductor", "Semiconductor", "Superconductor"],
+      "correctAnswer": 1,
+      "explanation": "Conductors allow electric current to flow easily due to their low resistance."
+    },
+    {
+      "id": 23,
+      "question": "What is the SI unit of capacitance?",
+      "options": ["Farad", "Henry", "Weber", "Tesla"],
+      "correctAnswer": 0,
+      "explanation": "The SI unit of capacitance is the Farad (F)."
+    },
+    {
+      "id": 24,
+      "question": "Which type of circuit has multiple paths for current flow?",
+      "options": ["Series circuit", "Parallel circuit", "Complex circuit", "Open circuit"],
+      "correctAnswer": 1,
+      "explanation": "A parallel circuit has multiple paths for current flow."
+    },
+    {
+      "id": 25,
+      "question": "What is the SI unit of inductance?",
+      "options": ["Farad", "Henry", "Weber", "Tesla"],
+      "correctAnswer": 1,
+      "explanation": "The SI unit of inductance is the Henry (H)."
+    },
+    {
+      "id": 26,
+      "question": "Which law describes the relationship between force and displacement in springs?",
+      "options": ["Newton's Law", "Ohm's Law", "Hooke's Law", "Conservation Law"],
+      "correctAnswer": 2,
+      "explanation": "Hooke's Law describes the relationship between force and displacement in elastic materials."
+    },
+    {
+      "id": 27,
+      "question": "What is the SI unit of work?",
+      "options": ["Newton", "Joule", "Watt", "Pascal"],
+      "correctAnswer": 1,
+      "explanation": "The SI unit of work is the Joule (J)."
+    },
+    {
+      "id": 28,
+      "question": "Which type of energy is stored in a battery?",
+      "options": ["Kinetic energy", "Potential energy", "Chemical energy", "Both B and C"],
+      "correctAnswer": 3,
+      "explanation": "A battery stores chemical potential energy."
+    },
+    {
+      "id": 29,
+      "question": "What is the SI unit of electric charge?",
+      "options": ["Ampere", "Volt", "Coulomb", "Ohm"],
+      "correctAnswer": 2,
+      "explanation": "The SI unit of electric charge is the Coulomb (C)."
+    },
+    {
+      "id": 30,
+      "question": "Which principle states that the total momentum of a system remains constant?",
+      "options": ["Conservation of Energy", "Conservation of Momentum", "Newton's First Law", "Hooke's Law"],
+      "correctAnswer": 1,
+      "explanation": "The Conservation of Momentum principle states that total momentum remains constant in a closed system."
+    },
+    {
+      "id": 31,
+      "question": "What is the SI unit of magnetic flux?",
+      "options": ["Tesla", "Weber", "Henry", "Farad"],
+      "correctAnswer": 1,
+      "explanation": "The SI unit of magnetic flux is the Weber (Wb)."
+    },
+    {
+      "id": 32,
+      "question": "Which type of material opposes the flow of electric current?",
+      "options": ["Conductor", "Insulator", "Semiconductor", "Superconductor"],
+      "correctAnswer": 1,
+      "explanation": "Insulators oppose the flow of electric current due to their high resistance."
+    },
+    {
+      "id": 33,
+      "question": "What is the SI unit of temperature?",
+      "options": ["Celsius", "Fahrenheit", "Kelvin", "Rankine"],
+      "correctAnswer": 2,
+      "explanation": "The SI unit of temperature is the Kelvin (K)."
+    },
+    {
+      "id": 34,
+      "question": "Which law describes the relationship between pressure and volume in gases?",
+      "options": ["Boyle's Law", "Charles's Law", "Gay-Lussac's Law", "Ideal Gas Law"],
+      "correctAnswer": 0,
+      "explanation": "Boyle's Law describes the inverse relationship between pressure and volume in gases."
+    },
+    {
+      "id": 35,
+      "question": "What is the SI unit of luminous intensity?",
+      "options": ["Lumen", "Candela", "Lux", "Watt"],
+      "correctAnswer": 1,
+      "explanation": "The SI unit of luminous intensity is the Candela (cd)."
+    },
+    {
+      "id": 36,
+      "question": "Which type of wave does not require a medium to travel?",
+      "options": ["Sound wave", "Mechanical wave", "Electromagnetic wave", "Water wave"],
+      "correctAnswer": 2,
+      "explanation": "Electromagnetic waves do not require a medium to travel."
+    },
+    {
+      "id": 37,
+      "question": "What is the SI unit of amount of substance?",
+      "options": ["Gram", "Mole", "Kilogram", "Pound"],
+      "correctAnswer": 1,
+      "explanation": "The SI unit of amount of substance is the Mole (mol)."
+    },
+    {
+      "id": 38,
+      "question": "Which law describes the relationship between temperature and volume in gases?",
+      "options": ["Boyle's Law", "Charles's Law", "Gay-Lussac's Law", "Ideal Gas Law"],
+      "correctAnswer": 1,
+      "explanation": "Charles's Law describes the direct relationship between temperature and volume in gases."
+    },
+    {
+      "id": 39,
+      "question": "What is the SI unit of length?",
+      "options": ["Centimeter", "Meter", "Kilometer", "Inch"],
+      "correctAnswer": 1,
+      "explanation": "The SI unit of length is the Meter (m)."
+    },
+    {
+      "id": 40,
+      "question": "Which type of energy is associated with the position of an object?",
+      "options": ["Kinetic energy", "Potential energy", "Thermal energy", "Electrical energy"],
+      "correctAnswer": 1,
+      "explanation": "Potential energy is associated with the position of an object in a force field."
+    },
+    {
+      "id": 41,
+      "question": "What is the SI unit of mass?",
+      "options": ["Gram", "Kilogram", "Pound", "Ounce"],
+      "correctAnswer": 1,
+      "explanation": "The SI unit of mass is the Kilogram (kg)."
+    },
+    {
+      "id": 42,
+      "question": "Which law describes the relationship between pressure and temperature in gases?",
+      "options": ["Boyle's Law", "Charles's Law", "Gay-Lussac's Law", "Ideal Gas Law"],
+      "correctAnswer": 2,
+      "explanation": "Gay-Lussac's Law describes the direct relationship between pressure and temperature in gases."
+    },
+    {
+      "id": 43,
+      "question": "What is the SI unit of time?",
+      "options": ["Minute", "Hour", "Second", "Day"],
+      "correctAnswer": 2,
+      "explanation": "The SI unit of time is the Second (s)."
+    },
+    {
+      "id": 44,
+      "question": "Which type of circuit has no complete path for current flow?",
+      "options": ["Series circuit", "Parallel circuit", "Open circuit", "Closed circuit"],
+      "correctAnswer": 2,
+      "explanation": "An open circuit has no complete path for current flow."
+    },
+    {
+      "id": 45,
+      "question": "What is the SI unit of electric field strength?",
+      "options": ["Volt per meter", "Ampere per meter", "Ohm per meter", "Watt per meter"],
+      "correctAnswer": 0,
+      "explanation": "The SI unit of electric field strength is Volt per meter (V/m)."
+    },
+    {
+      "id": 46,
+      "question": "Which type of energy is associated with the motion of an object?",
+      "options": ["Potential energy", "Kinetic energy", "Thermal energy", "Chemical energy"],
+      "correctAnswer": 1,
+      "explanation": "Kinetic energy is associated with the motion of an object."
+    },
+    {
+      "id": 47,
+      "question": "What is the SI unit of magnetic flux density?",
+      "options": ["Weber", "Tesla", "Henry", "Farad"],
+      "correctAnswer": 1,
+      "explanation": "The SI unit of magnetic flux density is the Tesla (T)."
+    },
+    {
+      "id": 48,
+      "question": "Which law states that an object at rest stays at rest unless acted upon by an external force?",
+      "options": ["Newton's First Law", "Newton's Second Law", "Newton's Third Law", "Hooke's Law"],
+      "correctAnswer": 0,
+      "explanation": "Newton's First Law (Law of Inertia) states that an object at rest stays at rest unless acted upon by an external force."
+    },
+    {
+      "id": 49,
+      "question": "What is the SI unit of luminous flux?",
+      "options": ["Candela", "Lumen", "Lux", "Watt"],
+      "correctAnswer": 1,
+      "explanation": "The SI unit of luminous flux is the Lumen (lm)."
+    },
+    {
+      "id": 50,
+      "question": "Which type of energy is associated with the vibration of particles?",
+      "options": ["Kinetic energy", "Potential energy", "Thermal energy", "Sound energy"],
+      "correctAnswer": 3,
+      "explanation": "Sound energy is associated with the vibration of particles in a medium."
+    }
+  ]
+}

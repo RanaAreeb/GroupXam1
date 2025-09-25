@@ -1,0 +1,360 @@
+{
+  "id": "health-science-quiz-1",
+  "title": "Health Science Quiz 1",
+  "subject": "Health Science",
+  "difficulty": "Intermediate",
+  "questions": 50,
+  "timeLimit": 1800,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the primary function of the cardiovascular system?",
+      "options": ["Transport nutrients and oxygen", "Remove waste products", "Maintain body temperature", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "The cardiovascular system transports nutrients and oxygen, removes waste products, and helps maintain body temperature."
+    },
+    {
+      "id": 2,
+      "question": "Which organ is responsible for filtering blood and removing waste?",
+      "options": ["Liver", "Kidneys", "Lungs", "Heart"],
+      "correctAnswer": 1,
+      "explanation": "The kidneys are responsible for filtering blood and removing waste products from the body."
+    },
+    {
+      "id": 3,
+      "question": "What is the normal range for human body temperature?",
+      "options": ["36.1-37.2°C", "35.5-36.5°C", "37.5-38.5°C", "38.0-39.0°C"],
+      "correctAnswer": 0,
+      "explanation": "Normal human body temperature ranges from 36.1-37.2°C (97-99°F)."
+    },
+    {
+      "id": 4,
+      "question": "Which vitamin is essential for blood clotting?",
+      "options": ["Vitamin A", "Vitamin C", "Vitamin K", "Vitamin D"],
+      "correctAnswer": 2,
+      "explanation": "Vitamin K is essential for blood clotting and bone health."
+    },
+    {
+      "id": 5,
+      "question": "What is the primary function of white blood cells?",
+      "options": ["Transport oxygen", "Fight infections", "Clot blood", "Digest food"],
+      "correctAnswer": 1,
+      "explanation": "White blood cells are part of the immune system and fight infections and diseases."
+    },
+    {
+      "id": 6,
+      "question": "Which system is responsible for producing hormones?",
+      "options": ["Nervous system", "Endocrine system", "Digestive system", "Respiratory system"],
+      "correctAnswer": 1,
+      "explanation": "The endocrine system produces and secretes hormones that regulate various body functions."
+    },
+    {
+      "id": 7,
+      "question": "What is the largest organ in the human body?",
+      "options": ["Liver", "Brain", "Skin", "Lungs"],
+      "correctAnswer": 2,
+      "explanation": "The skin is the largest organ in the human body, covering the entire external surface."
+    },
+    {
+      "id": 8,
+      "question": "Which mineral is essential for bone health?",
+      "options": ["Iron", "Calcium", "Zinc", "Magnesium"],
+      "correctAnswer": 1,
+      "explanation": "Calcium is essential for bone health, muscle function, and nerve transmission."
+    },
+    {
+      "id": 9,
+      "question": "What is the primary function of the respiratory system?",
+      "options": ["Digest food", "Exchange gases", "Filter blood", "Produce hormones"],
+      "correctAnswer": 1,
+      "explanation": "The respiratory system exchanges oxygen and carbon dioxide between the body and environment."
+    },
+    {
+      "id": 10,
+      "question": "Which blood type is known as the universal donor?",
+      "options": ["A", "B", "AB", "O"],
+      "correctAnswer": 3,
+      "explanation": "Blood type O negative is known as the universal donor as it can be given to any blood type."
+    },
+    {
+      "id": 11,
+      "question": "What is the normal resting heart rate for adults?",
+      "options": ["40-60 bpm", "60-100 bpm", "100-120 bpm", "120-140 bpm"],
+      "correctAnswer": 1,
+      "explanation": "Normal resting heart rate for adults ranges from 60-100 beats per minute."
+    },
+    {
+      "id": 12,
+      "question": "Which organ produces insulin?",
+      "options": ["Liver", "Pancreas", "Kidneys", "Stomach"],
+      "correctAnswer": 1,
+      "explanation": "The pancreas produces insulin, which regulates blood sugar levels."
+    },
+    {
+      "id": 13,
+      "question": "What is the primary function of the nervous system?",
+      "options": ["Transport nutrients", "Control body functions", "Filter blood", "Produce hormones"],
+      "correctAnswer": 1,
+      "explanation": "The nervous system controls and coordinates body functions through electrical signals."
+    },
+    {
+      "id": 14,
+      "question": "Which vitamin deficiency causes scurvy?",
+      "options": ["Vitamin A", "Vitamin C", "Vitamin D", "Vitamin B12"],
+      "correctAnswer": 1,
+      "explanation": "Vitamin C deficiency causes scurvy, characterized by bleeding gums and poor wound healing."
+    },
+    {
+      "id": 15,
+      "question": "What is the primary function of the digestive system?",
+      "options": ["Exchange gases", "Break down food", "Filter blood", "Produce hormones"],
+      "correctAnswer": 1,
+      "explanation": "The digestive system breaks down food into nutrients that can be absorbed by the body."
+    },
+    {
+      "id": 16,
+      "question": "Which part of the brain controls balance and coordination?",
+      "options": ["Cerebrum", "Cerebellum", "Brainstem", "Hypothalamus"],
+      "correctAnswer": 1,
+      "explanation": "The cerebellum controls balance, coordination, and fine motor movements."
+    },
+    {
+      "id": 17,
+      "question": "What is the normal blood pressure range for adults?",
+      "options": ["90/60 - 120/80 mmHg", "100/70 - 130/90 mmHg", "110/80 - 140/100 mmHg", "120/80 - 160/100 mmHg"],
+      "correctAnswer": 0,
+      "explanation": "Normal blood pressure for adults is typically 90/60 - 120/80 mmHg."
+    },
+    {
+      "id": 18,
+      "question": "Which mineral is essential for oxygen transport in blood?",
+      "options": ["Calcium", "Iron", "Zinc", "Magnesium"],
+      "correctAnswer": 1,
+      "explanation": "Iron is essential for oxygen transport as it's a component of hemoglobin in red blood cells."
+    },
+    {
+      "id": 19,
+      "question": "What is the primary function of the immune system?",
+      "options": ["Digest food", "Protect against disease", "Filter blood", "Produce hormones"],
+      "correctAnswer": 1,
+      "explanation": "The immune system protects the body against diseases and foreign substances."
+    },
+    {
+      "id": 20,
+      "question": "Which organ is responsible for producing bile?",
+      "options": ["Pancreas", "Liver", "Stomach", "Small intestine"],
+      "correctAnswer": 1,
+      "explanation": "The liver produces bile, which helps digest fats in the small intestine."
+    },
+    {
+      "id": 21,
+      "question": "What is the primary function of red blood cells?",
+      "options": ["Fight infections", "Transport oxygen", "Clot blood", "Digest food"],
+      "correctAnswer": 1,
+      "explanation": "Red blood cells transport oxygen from the lungs to tissues throughout the body."
+    },
+    {
+      "id": 22,
+      "question": "Which vitamin is produced by the skin when exposed to sunlight?",
+      "options": ["Vitamin A", "Vitamin C", "Vitamin D", "Vitamin E"],
+      "correctAnswer": 2,
+      "explanation": "Vitamin D is produced by the skin when exposed to ultraviolet B (UVB) radiation from sunlight."
+    },
+    {
+      "id": 23,
+      "question": "What is the primary function of the lymphatic system?",
+      "options": ["Transport oxygen", "Filter lymph fluid", "Produce hormones", "Digest food"],
+      "correctAnswer": 1,
+      "explanation": "The lymphatic system filters lymph fluid and helps fight infections."
+    },
+    {
+      "id": 24,
+      "question": "Which part of the heart pumps blood to the lungs?",
+      "options": ["Left ventricle", "Right ventricle", "Left atrium", "Right atrium"],
+      "correctAnswer": 1,
+      "explanation": "The right ventricle pumps blood to the lungs for oxygenation."
+    },
+    {
+      "id": 25,
+      "question": "What is the primary function of the skeletal system?",
+      "options": ["Transport nutrients", "Provide structure and support", "Filter blood", "Produce hormones"],
+      "correctAnswer": 1,
+      "explanation": "The skeletal system provides structure, support, and protection for the body."
+    },
+    {
+      "id": 26,
+      "question": "Which organ is responsible for producing urine?",
+      "options": ["Liver", "Kidneys", "Bladder", "Urethra"],
+      "correctAnswer": 1,
+      "explanation": "The kidneys produce urine by filtering waste products from the blood."
+    },
+    {
+      "id": 27,
+      "question": "What is the primary function of the muscular system?",
+      "options": ["Transport nutrients", "Enable movement", "Filter blood", "Produce hormones"],
+      "correctAnswer": 1,
+      "explanation": "The muscular system enables movement, maintains posture, and generates heat."
+    },
+    {
+      "id": 28,
+      "question": "Which vitamin deficiency causes rickets?",
+      "options": ["Vitamin A", "Vitamin C", "Vitamin D", "Vitamin K"],
+      "correctAnswer": 2,
+      "explanation": "Vitamin D deficiency causes rickets, a condition that affects bone development in children."
+    },
+    {
+      "id": 29,
+      "question": "What is the primary function of the integumentary system?",
+      "options": ["Transport nutrients", "Protect the body", "Filter blood", "Produce hormones"],
+      "correctAnswer": 1,
+      "explanation": "The integumentary system (skin) protects the body from external threats and regulates temperature."
+    },
+    {
+      "id": 30,
+      "question": "Which part of the brain controls breathing and heart rate?",
+      "options": ["Cerebrum", "Cerebellum", "Brainstem", "Hypothalamus"],
+      "correctAnswer": 2,
+      "explanation": "The brainstem controls vital functions like breathing and heart rate."
+    },
+    {
+      "id": 31,
+      "question": "What is the primary function of platelets?",
+      "options": ["Transport oxygen", "Fight infections", "Clot blood", "Digest food"],
+      "correctAnswer": 2,
+      "explanation": "Platelets are essential for blood clotting and wound healing."
+    },
+    {
+      "id": 32,
+      "question": "Which organ is responsible for storing glucose as glycogen?",
+      "options": ["Pancreas", "Liver", "Kidneys", "Stomach"],
+      "correctAnswer": 1,
+      "explanation": "The liver stores glucose as glycogen and releases it when blood sugar levels drop."
+    },
+    {
+      "id": 33,
+      "question": "What is the primary function of the reproductive system?",
+      "options": ["Transport nutrients", "Produce offspring", "Filter blood", "Produce hormones"],
+      "correctAnswer": 1,
+      "explanation": "The reproductive system produces offspring and maintains the species."
+    },
+    {
+      "id": 34,
+      "question": "Which mineral is essential for muscle and nerve function?",
+      "options": ["Iron", "Calcium", "Potassium", "Zinc"],
+      "correctAnswer": 2,
+      "explanation": "Potassium is essential for muscle and nerve function, including heart rhythm."
+    },
+    {
+      "id": 35,
+      "question": "What is the primary function of the urinary system?",
+      "options": ["Transport nutrients", "Remove waste products", "Filter blood", "Produce hormones"],
+      "correctAnswer": 1,
+      "explanation": "The urinary system removes waste products and excess water from the body."
+    },
+    {
+      "id": 36,
+      "question": "Which part of the heart receives blood from the lungs?",
+      "options": ["Left ventricle", "Right ventricle", "Left atrium", "Right atrium"],
+      "correctAnswer": 2,
+      "explanation": "The left atrium receives oxygenated blood from the lungs."
+    },
+    {
+      "id": 37,
+      "question": "What is the primary function of the endocrine system?",
+      "options": ["Transport nutrients", "Regulate body functions", "Filter blood", "Digest food"],
+      "correctAnswer": 1,
+      "explanation": "The endocrine system regulates body functions through hormone production and secretion."
+    },
+    {
+      "id": 38,
+      "question": "Which vitamin is essential for vision?",
+      "options": ["Vitamin A", "Vitamin C", "Vitamin D", "Vitamin E"],
+      "correctAnswer": 0,
+      "explanation": "Vitamin A is essential for vision, particularly night vision and eye health."
+    },
+    {
+      "id": 39,
+      "question": "What is the primary function of the respiratory system?",
+      "options": ["Digest food", "Exchange gases", "Filter blood", "Produce hormones"],
+      "correctAnswer": 1,
+      "explanation": "The respiratory system exchanges oxygen and carbon dioxide between the body and environment."
+    },
+    {
+      "id": 40,
+      "question": "Which organ is responsible for producing antibodies?",
+      "options": ["Liver", "Kidneys", "Lymph nodes", "Stomach"],
+      "correctAnswer": 2,
+      "explanation": "Lymph nodes and other lymphoid tissues produce antibodies to fight infections."
+    },
+    {
+      "id": 41,
+      "question": "What is the primary function of the cardiovascular system?",
+      "options": ["Digest food", "Transport blood", "Filter lymph", "Produce hormones"],
+      "correctAnswer": 1,
+      "explanation": "The cardiovascular system transports blood, nutrients, and oxygen throughout the body."
+    },
+    {
+      "id": 42,
+      "question": "Which mineral is essential for bone formation?",
+      "options": ["Iron", "Calcium", "Zinc", "Magnesium"],
+      "correctAnswer": 1,
+      "explanation": "Calcium is essential for bone formation and maintenance."
+    },
+    {
+      "id": 43,
+      "question": "What is the primary function of the nervous system?",
+      "options": ["Transport nutrients", "Control and coordinate", "Filter blood", "Digest food"],
+      "correctAnswer": 1,
+      "explanation": "The nervous system controls and coordinates body functions through electrical signals."
+    },
+    {
+      "id": 44,
+      "question": "Which part of the brain controls emotions and memory?",
+      "options": ["Cerebrum", "Cerebellum", "Brainstem", "Hypothalamus"],
+      "correctAnswer": 0,
+      "explanation": "The cerebrum controls emotions, memory, and higher cognitive functions."
+    },
+    {
+      "id": 45,
+      "question": "What is the primary function of the digestive system?",
+      "options": ["Exchange gases", "Break down food", "Filter blood", "Produce hormones"],
+      "correctAnswer": 1,
+      "explanation": "The digestive system breaks down food into nutrients that can be absorbed by the body."
+    },
+    {
+      "id": 46,
+      "question": "Which vitamin is essential for collagen synthesis?",
+      "options": ["Vitamin A", "Vitamin C", "Vitamin D", "Vitamin E"],
+      "correctAnswer": 1,
+      "explanation": "Vitamin C is essential for collagen synthesis and wound healing."
+    },
+    {
+      "id": 47,
+      "question": "What is the primary function of the immune system?",
+      "options": ["Digest food", "Protect against disease", "Filter blood", "Produce hormones"],
+      "correctAnswer": 1,
+      "explanation": "The immune system protects the body against diseases and foreign substances."
+    },
+    {
+      "id": 48,
+      "question": "Which organ is responsible for producing insulin?",
+      "options": ["Liver", "Pancreas", "Kidneys", "Stomach"],
+      "correctAnswer": 1,
+      "explanation": "The pancreas produces insulin, which regulates blood sugar levels."
+    },
+    {
+      "id": 49,
+      "question": "What is the primary function of the skeletal system?",
+      "options": ["Transport nutrients", "Provide structure", "Filter blood", "Produce hormones"],
+      "correctAnswer": 1,
+      "explanation": "The skeletal system provides structure, support, and protection for the body."
+    },
+    {
+      "id": 50,
+      "question": "Which system is responsible for maintaining homeostasis?",
+      "options": ["Nervous system", "Endocrine system", "Both A and B", "None of the above"],
+      "correctAnswer": 2,
+      "explanation": "Both the nervous and endocrine systems work together to maintain homeostasis in the body."
+    }
+  ]
+}

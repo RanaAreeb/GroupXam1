@@ -1,0 +1,360 @@
+{
+  "id": "financial-accounting-quiz-1",
+  "title": "Financial Accounting Quiz 1",
+  "subject": "Financial Accounting",
+  "difficulty": "Intermediate",
+  "questions": 50,
+  "timeLimit": 1800,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the primary purpose of financial accounting?",
+      "options": ["Internal decision making", "External reporting", "Cost control", "Tax calculation"],
+      "correctAnswer": 1,
+      "explanation": "Financial accounting is primarily used for external reporting to stakeholders like investors and creditors."
+    },
+    {
+      "id": 2,
+      "question": "Which financial statement shows the company's financial position at a specific point in time?",
+      "options": ["Income statement", "Balance sheet", "Cash flow statement", "Statement of retained earnings"],
+      "correctAnswer": 1,
+      "explanation": "The balance sheet shows the company's financial position (assets, liabilities, equity) at a specific point in time."
+    },
+    {
+      "id": 3,
+      "question": "What is the fundamental accounting equation?",
+      "options": ["Assets = Liabilities + Equity", "Assets = Liabilities - Equity", "Assets + Liabilities = Equity", "Assets - Liabilities = Equity"],
+      "correctAnswer": 0,
+      "explanation": "The fundamental accounting equation is Assets = Liabilities + Equity."
+    },
+    {
+      "id": 4,
+      "question": "Which principle requires expenses to be recorded when incurred?",
+      "options": ["Revenue recognition", "Matching principle", "Historical cost", "Consistency"],
+      "correctAnswer": 1,
+      "explanation": "The matching principle requires expenses to be recorded when incurred, not when paid."
+    },
+    {
+      "id": 5,
+      "question": "What is the primary purpose of the income statement?",
+      "options": ["Show financial position", "Show profitability", "Show cash flows", "Show equity changes"],
+      "correctAnswer": 1,
+      "explanation": "The income statement shows the company's profitability over a period of time."
+    },
+    {
+      "id": 6,
+      "question": "Which account type increases with a debit?",
+      "options": ["Assets", "Liabilities", "Equity", "Revenue"],
+      "correctAnswer": 0,
+      "explanation": "Assets increase with a debit and decrease with a credit."
+    },
+    {
+      "id": 7,
+      "question": "What is the primary purpose of the cash flow statement?",
+      "options": ["Show profitability", "Show cash movements", "Show financial position", "Show equity changes"],
+      "correctAnswer": 1,
+      "explanation": "The cash flow statement shows the movement of cash in and out of the business."
+    },
+    {
+      "id": 8,
+      "question": "Which principle requires revenue to be recorded when earned?",
+      "options": ["Matching principle", "Revenue recognition", "Historical cost", "Consistency"],
+      "correctAnswer": 1,
+      "explanation": "The revenue recognition principle requires revenue to be recorded when earned, not when received."
+    },
+    {
+      "id": 9,
+      "question": "What is the primary purpose of adjusting entries?",
+      "options": ["Record transactions", "Correct errors", "Update accounts", "All of the above"],
+      "correctAnswer": 2,
+      "explanation": "Adjusting entries are used to update accounts to reflect the correct balances at the end of the period."
+    },
+    {
+      "id": 10,
+      "question": "Which account type increases with a credit?",
+      "options": ["Assets", "Liabilities", "Expenses", "Dividends"],
+      "correctAnswer": 1,
+      "explanation": "Liabilities increase with a credit and decrease with a debit."
+    },
+    {
+      "id": 11,
+      "question": "What is the primary purpose of the trial balance?",
+      "options": ["Show profitability", "Verify debits equal credits", "Show cash flows", "Show equity changes"],
+      "correctAnswer": 1,
+      "explanation": "The trial balance verifies that total debits equal total credits."
+    },
+    {
+      "id": 12,
+      "question": "Which principle requires assets to be recorded at their original cost?",
+      "options": ["Revenue recognition", "Matching principle", "Historical cost", "Consistency"],
+      "correctAnswer": 2,
+      "explanation": "The historical cost principle requires assets to be recorded at their original cost."
+    },
+    {
+      "id": 13,
+      "question": "What is the primary purpose of closing entries?",
+      "options": ["Record transactions", "Close temporary accounts", "Correct errors", "All of the above"],
+      "correctAnswer": 1,
+      "explanation": "Closing entries are used to close temporary accounts (revenue, expenses) to retained earnings."
+    },
+    {
+      "id": 14,
+      "question": "Which financial statement shows changes in equity?",
+      "options": ["Income statement", "Balance sheet", "Cash flow statement", "Statement of retained earnings"],
+      "correctAnswer": 3,
+      "explanation": "The statement of retained earnings shows changes in equity over a period of time."
+    },
+    {
+      "id": 15,
+      "question": "What is the primary purpose of depreciation?",
+      "options": ["Record asset purchases", "Allocate asset cost", "Record asset sales", "All of the above"],
+      "correctAnswer": 1,
+      "explanation": "Depreciation allocates the cost of long-term assets over their useful lives."
+    },
+    {
+      "id": 16,
+      "question": "Which account type decreases with a debit?",
+      "options": ["Assets", "Liabilities", "Expenses", "Dividends"],
+      "correctAnswer": 1,
+      "explanation": "Liabilities decrease with a debit and increase with a credit."
+    },
+    {
+      "id": 17,
+      "question": "What is the primary purpose of the general ledger?",
+      "options": ["Record transactions", "Store account balances", "Prepare financial statements", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "The general ledger records transactions, stores account balances, and is used to prepare financial statements."
+    },
+    {
+      "id": 18,
+      "question": "Which principle requires consistent accounting methods?",
+      "options": ["Revenue recognition", "Matching principle", "Historical cost", "Consistency"],
+      "correctAnswer": 3,
+      "explanation": "The consistency principle requires consistent accounting methods from period to period."
+    },
+    {
+      "id": 19,
+      "question": "What is the primary purpose of the journal?",
+      "options": ["Record transactions", "Store account balances", "Prepare financial statements", "All of the above"],
+      "correctAnswer": 0,
+      "explanation": "The journal is used to record transactions in chronological order."
+    },
+    {
+      "id": 20,
+      "question": "Which account type decreases with a credit?",
+      "options": ["Assets", "Liabilities", "Equity", "Revenue"],
+      "correctAnswer": 0,
+      "explanation": "Assets decrease with a credit and increase with a debit."
+    },
+    {
+      "id": 21,
+      "question": "What is the primary purpose of the chart of accounts?",
+      "options": ["Record transactions", "List all accounts", "Prepare financial statements", "All of the above"],
+      "correctAnswer": 1,
+      "explanation": "The chart of accounts lists all accounts used by the company."
+    },
+    {
+      "id": 22,
+      "question": "Which principle requires full disclosure of material information?",
+      "options": ["Revenue recognition", "Matching principle", "Historical cost", "Full disclosure"],
+      "correctAnswer": 3,
+      "explanation": "The full disclosure principle requires disclosure of all material information in financial statements."
+    },
+    {
+      "id": 23,
+      "question": "What is the primary purpose of the post-closing trial balance?",
+      "options": ["Show profitability", "Verify debits equal credits", "Show cash flows", "Show equity changes"],
+      "correctAnswer": 1,
+      "explanation": "The post-closing trial balance verifies that debits equal credits after closing entries."
+    },
+    {
+      "id": 24,
+      "question": "Which account type increases with a debit?",
+      "options": ["Assets", "Liabilities", "Equity", "Revenue"],
+      "correctAnswer": 0,
+      "explanation": "Assets increase with a debit and decrease with a credit."
+    },
+    {
+      "id": 25,
+      "question": "What is the primary purpose of the worksheet?",
+      "options": ["Record transactions", "Prepare financial statements", "Correct errors", "All of the above"],
+      "correctAnswer": 1,
+      "explanation": "The worksheet is used to prepare financial statements and adjusting entries."
+    },
+    {
+      "id": 26,
+      "question": "Which principle requires conservative estimates?",
+      "options": ["Revenue recognition", "Matching principle", "Historical cost", "Conservatism"],
+      "correctAnswer": 3,
+      "explanation": "The conservatism principle requires conservative estimates when uncertainty exists."
+    },
+    {
+      "id": 27,
+      "question": "What is the primary purpose of the subsidiary ledger?",
+      "options": ["Record transactions", "Store detailed information", "Prepare financial statements", "All of the above"],
+      "correctAnswer": 1,
+      "explanation": "The subsidiary ledger stores detailed information for specific accounts."
+    },
+    {
+      "id": 28,
+      "question": "Which account type increases with a credit?",
+      "options": ["Assets", "Liabilities", "Expenses", "Dividends"],
+      "correctAnswer": 1,
+      "explanation": "Liabilities increase with a credit and decrease with a debit."
+    },
+    {
+      "id": 29,
+      "question": "What is the primary purpose of the reversing entries?",
+      "options": ["Record transactions", "Reverse adjusting entries", "Correct errors", "All of the above"],
+      "correctAnswer": 1,
+      "explanation": "Reversing entries reverse certain adjusting entries at the beginning of the next period."
+    },
+    {
+      "id": 30,
+      "question": "Which principle requires materiality consideration?",
+      "options": ["Revenue recognition", "Matching principle", "Historical cost", "Materiality"],
+      "correctAnswer": 3,
+      "explanation": "The materiality principle requires consideration of materiality in financial reporting."
+    },
+    {
+      "id": 31,
+      "question": "What is the primary purpose of the financial statements?",
+      "options": ["Record transactions", "Report financial information", "Correct errors", "All of the above"],
+      "correctAnswer": 1,
+      "explanation": "Financial statements report financial information to stakeholders."
+    },
+    {
+      "id": 32,
+      "question": "Which account type decreases with a debit?",
+      "options": ["Assets", "Liabilities", "Expenses", "Dividends"],
+      "correctAnswer": 1,
+      "explanation": "Liabilities decrease with a debit and increase with a credit."
+    },
+    {
+      "id": 33,
+      "question": "What is the primary purpose of the accounting cycle?",
+      "options": ["Record transactions", "Prepare financial statements", "Close accounts", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "The accounting cycle includes recording transactions, preparing financial statements, and closing accounts."
+    },
+    {
+      "id": 34,
+      "question": "Which principle requires going concern assumption?",
+      "options": ["Revenue recognition", "Matching principle", "Historical cost", "Going concern"],
+      "correctAnswer": 3,
+      "explanation": "The going concern principle assumes the business will continue operating indefinitely."
+    },
+    {
+      "id": 35,
+      "question": "What is the primary purpose of the accounting equation?",
+      "options": ["Record transactions", "Balance accounts", "Prepare financial statements", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "The accounting equation is used to record transactions, balance accounts, and prepare financial statements."
+    },
+    {
+      "id": 36,
+      "question": "Which account type increases with a debit?",
+      "options": ["Assets", "Liabilities", "Equity", "Revenue"],
+      "correctAnswer": 0,
+      "explanation": "Assets increase with a debit and decrease with a credit."
+    },
+    {
+      "id": 37,
+      "question": "What is the primary purpose of the double-entry system?",
+      "options": ["Record transactions", "Balance accounts", "Prepare financial statements", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "The double-entry system is used to record transactions, balance accounts, and prepare financial statements."
+    },
+    {
+      "id": 38,
+      "question": "Which principle requires periodicity assumption?",
+      "options": ["Revenue recognition", "Matching principle", "Historical cost", "Periodicity"],
+      "correctAnswer": 3,
+      "explanation": "The periodicity principle assumes business activities can be divided into time periods."
+    },
+    {
+      "id": 39,
+      "question": "What is the primary purpose of the accounting standards?",
+      "options": ["Record transactions", "Standardize reporting", "Prepare financial statements", "All of the above"],
+      "correctAnswer": 1,
+      "explanation": "Accounting standards standardize financial reporting across companies."
+    },
+    {
+      "id": 40,
+      "question": "Which account type increases with a credit?",
+      "options": ["Assets", "Liabilities", "Expenses", "Dividends"],
+      "correctAnswer": 1,
+      "explanation": "Liabilities increase with a credit and decrease with a debit."
+    },
+    {
+      "id": 41,
+      "question": "What is the primary purpose of the audit?",
+      "options": ["Record transactions", "Verify financial statements", "Prepare financial statements", "All of the above"],
+      "correctAnswer": 1,
+      "explanation": "An audit verifies the accuracy and fairness of financial statements."
+    },
+    {
+      "id": 42,
+      "question": "Which principle requires monetary unit assumption?",
+      "options": ["Revenue recognition", "Matching principle", "Historical cost", "Monetary unit"],
+      "correctAnswer": 3,
+      "explanation": "The monetary unit principle assumes transactions are measured in monetary units."
+    },
+    {
+      "id": 43,
+      "question": "What is the primary purpose of the internal controls?",
+      "options": ["Record transactions", "Protect assets", "Prepare financial statements", "All of the above"],
+      "correctAnswer": 1,
+      "explanation": "Internal controls protect assets and ensure accurate financial reporting."
+    },
+    {
+      "id": 44,
+      "question": "Which account type decreases with a credit?",
+      "options": ["Assets", "Liabilities", "Equity", "Revenue"],
+      "correctAnswer": 0,
+      "explanation": "Assets decrease with a credit and increase with a debit."
+    },
+    {
+      "id": 45,
+      "question": "What is the primary purpose of the accounting information system?",
+      "options": ["Record transactions", "Process information", "Prepare financial statements", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "An accounting information system records transactions, processes information, and prepares financial statements."
+    },
+    {
+      "id": 46,
+      "question": "Which principle requires entity assumption?",
+      "options": ["Revenue recognition", "Matching principle", "Historical cost", "Entity"],
+      "correctAnswer": 3,
+      "explanation": "The entity principle assumes the business is separate from its owners."
+    },
+    {
+      "id": 47,
+      "question": "What is the primary purpose of the financial analysis?",
+      "options": ["Record transactions", "Analyze performance", "Prepare financial statements", "All of the above"],
+      "correctAnswer": 1,
+      "explanation": "Financial analysis analyzes the company's financial performance and position."
+    },
+    {
+      "id": 48,
+      "question": "Which account type increases with a debit?",
+      "options": ["Assets", "Liabilities", "Equity", "Revenue"],
+      "correctAnswer": 0,
+      "explanation": "Assets increase with a debit and decrease with a credit."
+    },
+    {
+      "id": 49,
+      "question": "What is the primary purpose of the accounting principles?",
+      "options": ["Record transactions", "Guide accounting practice", "Prepare financial statements", "All of the above"],
+      "correctAnswer": 1,
+      "explanation": "Accounting principles guide accounting practice and ensure consistency."
+    },
+    {
+      "id": 50,
+      "question": "Which principle requires objectivity?",
+      "options": ["Revenue recognition", "Matching principle", "Historical cost", "Objectivity"],
+      "correctAnswer": 3,
+      "explanation": "The objectivity principle requires accounting information to be objective and verifiable."
+    }
+  ]
+}

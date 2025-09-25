@@ -1,0 +1,360 @@
+{
+  "id": "home-management-quiz-1",
+  "title": "Home Management Quiz 1",
+  "subject": "Home Management",
+  "difficulty": "Intermediate",
+  "questions": 50,
+  "timeLimit": 1800,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the primary goal of home management?",
+      "options": ["Maximize profit", "Create a comfortable living environment", "Minimize costs", "Increase property value"],
+      "correctAnswer": 1,
+      "explanation": "The primary goal of home management is to create a comfortable, safe, and efficient living environment."
+    },
+    {
+      "id": 2,
+      "question": "What is the first step in effective home management?",
+      "options": ["Cleaning", "Planning", "Organizing", "Decorating"],
+      "correctAnswer": 1,
+      "explanation": "Planning is the first step in effective home management, as it provides direction and structure."
+    },
+    {
+      "id": 3,
+      "question": "What is the purpose of a household budget?",
+      "options": ["Track income", "Control expenses", "Plan for the future", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "A household budget helps track income, control expenses, and plan for the future."
+    },
+    {
+      "id": 4,
+      "question": "What is the 50/30/20 rule in budgeting?",
+      "options": ["50% needs, 30% wants, 20% savings", "50% savings, 30% needs, 20% wants", "50% wants, 30% needs, 20% savings", "50% needs, 30% savings, 20% wants"],
+      "correctAnswer": 0,
+      "explanation": "The 50/30/20 rule allocates 50% for needs, 30% for wants, and 20% for savings."
+    },
+    {
+      "id": 5,
+      "question": "What is the purpose of meal planning?",
+      "options": ["Save money", "Save time", "Eat healthier", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Meal planning helps save money, save time, and eat healthier by reducing food waste and impulse purchases."
+    },
+    {
+      "id": 6,
+      "question": "What is the purpose of a cleaning schedule?",
+      "options": ["Maintain cleanliness", "Organize tasks", "Save time", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "A cleaning schedule helps maintain cleanliness, organize tasks, and save time."
+    },
+    {
+      "id": 7,
+      "question": "What is the purpose of home organization?",
+      "options": ["Reduce clutter", "Improve efficiency", "Create space", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Home organization reduces clutter, improves efficiency, and creates more usable space."
+    },
+    {
+      "id": 8,
+      "question": "What is the purpose of home maintenance?",
+      "options": ["Prevent problems", "Extend life of items", "Maintain value", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Home maintenance prevents problems, extends the life of items, and maintains property value."
+    },
+    {
+      "id": 9,
+      "question": "What is the purpose of home security?",
+      "options": ["Protect property", "Protect family", "Prevent theft", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Home security protects property, family, and prevents theft and other crimes."
+    },
+    {
+      "id": 10,
+      "question": "What is the purpose of home insurance?",
+      "options": ["Protect against loss", "Cover damages", "Provide peace of mind", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Home insurance protects against loss, covers damages, and provides peace of mind."
+    },
+    {
+      "id": 11,
+      "question": "What is the purpose of home energy efficiency?",
+      "options": ["Reduce costs", "Conserve resources", "Protect environment", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Home energy efficiency reduces costs, conserves resources, and protects the environment."
+    },
+    {
+      "id": 12,
+      "question": "What is the purpose of home safety?",
+      "options": ["Prevent accidents", "Protect family", "Maintain health", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Home safety prevents accidents, protects family, and maintains health and well-being."
+    },
+    {
+      "id": 13,
+      "question": "What is the purpose of home storage?",
+      "options": ["Organize items", "Save space", "Protect belongings", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Home storage organizes items, saves space, and protects belongings."
+    },
+    {
+      "id": 14,
+      "question": "What is the purpose of home decoration?",
+      "options": ["Improve appearance", "Create atmosphere", "Reflect personality", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Home decoration improves appearance, creates atmosphere, and reflects personal style."
+    },
+    {
+      "id": 15,
+      "question": "What is the purpose of home lighting?",
+      "options": ["Provide visibility", "Create ambiance", "Enhance safety", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Home lighting provides visibility, creates ambiance, and enhances safety."
+    },
+    {
+      "id": 16,
+      "question": "What is the purpose of home ventilation?",
+      "options": ["Improve air quality", "Control temperature", "Prevent moisture", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Home ventilation improves air quality, controls temperature, and prevents moisture problems."
+    },
+    {
+      "id": 17,
+      "question": "What is the purpose of home insulation?",
+      "options": ["Reduce energy costs", "Maintain temperature", "Improve comfort", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Home insulation reduces energy costs, maintains temperature, and improves comfort."
+    },
+    {
+      "id": 18,
+      "question": "What is the purpose of home plumbing?",
+      "options": ["Provide water", "Remove waste", "Maintain hygiene", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Home plumbing provides water, removes waste, and maintains hygiene."
+    },
+    {
+      "id": 19,
+      "question": "What is the purpose of home electrical systems?",
+      "options": ["Provide power", "Enable lighting", "Support appliances", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Home electrical systems provide power, enable lighting, and support appliances."
+    },
+    {
+      "id": 20,
+      "question": "What is the purpose of home heating?",
+      "options": ["Maintain comfort", "Prevent freezing", "Control temperature", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Home heating maintains comfort, prevents freezing, and controls temperature."
+    },
+    {
+      "id": 21,
+      "question": "What is the purpose of home cooling?",
+      "options": ["Maintain comfort", "Control temperature", "Prevent overheating", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Home cooling maintains comfort, controls temperature, and prevents overheating."
+    },
+    {
+      "id": 22,
+      "question": "What is the purpose of home pest control?",
+      "options": ["Prevent damage", "Maintain health", "Protect property", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Home pest control prevents damage, maintains health, and protects property."
+    },
+    {
+      "id": 23,
+      "question": "What is the purpose of home waste management?",
+      "options": ["Maintain cleanliness", "Protect environment", "Prevent health issues", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Home waste management maintains cleanliness, protects the environment, and prevents health issues."
+    },
+    {
+      "id": 24,
+      "question": "What is the purpose of home recycling?",
+      "options": ["Conserve resources", "Reduce waste", "Protect environment", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Home recycling conserves resources, reduces waste, and protects the environment."
+    },
+    {
+      "id": 25,
+      "question": "What is the purpose of home composting?",
+      "options": ["Create fertilizer", "Reduce waste", "Improve soil", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Home composting creates fertilizer, reduces waste, and improves soil quality."
+    },
+    {
+      "id": 26,
+      "question": "What is the purpose of home gardening?",
+      "options": ["Grow food", "Improve appearance", "Reduce costs", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Home gardening grows food, improves appearance, and reduces grocery costs."
+    },
+    {
+      "id": 27,
+      "question": "What is the purpose of home landscaping?",
+      "options": ["Improve appearance", "Increase value", "Create privacy", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Home landscaping improves appearance, increases property value, and creates privacy."
+    },
+    {
+      "id": 28,
+      "question": "What is the purpose of home automation?",
+      "options": ["Improve convenience", "Save energy", "Enhance security", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Home automation improves convenience, saves energy, and enhances security."
+    },
+    {
+      "id": 29,
+      "question": "What is the purpose of home technology?",
+      "options": ["Improve efficiency", "Enhance comfort", "Provide entertainment", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Home technology improves efficiency, enhances comfort, and provides entertainment."
+    },
+    {
+      "id": 30,
+      "question": "What is the purpose of home networking?",
+      "options": ["Connect devices", "Share resources", "Enable communication", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Home networking connects devices, shares resources, and enables communication."
+    },
+    {
+      "id": 31,
+      "question": "What is the purpose of home entertainment?",
+      "options": ["Provide relaxation", "Create enjoyment", "Bring family together", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Home entertainment provides relaxation, creates enjoyment, and brings family together."
+    },
+    {
+      "id": 32,
+      "question": "What is the purpose of home fitness?",
+      "options": ["Maintain health", "Improve fitness", "Save money", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Home fitness maintains health, improves fitness, and saves money on gym memberships."
+    },
+    {
+      "id": 33,
+      "question": "What is the purpose of home office?",
+      "options": ["Enable work", "Improve productivity", "Save time", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "A home office enables work, improves productivity, and saves commuting time."
+    },
+    {
+      "id": 34,
+      "question": "What is the purpose of home study area?",
+      "options": ["Enable learning", "Improve focus", "Create quiet space", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "A home study area enables learning, improves focus, and creates a quiet space."
+    },
+    {
+      "id": 35,
+      "question": "What is the purpose of home storage solutions?",
+      "options": ["Organize items", "Save space", "Protect belongings", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Home storage solutions organize items, save space, and protect belongings."
+    },
+    {
+      "id": 36,
+      "question": "What is the purpose of home cleaning products?",
+      "options": ["Maintain cleanliness", "Prevent illness", "Protect surfaces", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Home cleaning products maintain cleanliness, prevent illness, and protect surfaces."
+    },
+    {
+      "id": 37,
+      "question": "What is the purpose of home maintenance tools?",
+      "options": ["Perform repairs", "Prevent problems", "Save money", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Home maintenance tools perform repairs, prevent problems, and save money on professional services."
+    },
+    {
+      "id": 38,
+      "question": "What is the purpose of home safety equipment?",
+      "options": ["Prevent accidents", "Protect family", "Meet requirements", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Home safety equipment prevents accidents, protects family, and meets safety requirements."
+    },
+    {
+      "id": 39,
+      "question": "What is the purpose of home emergency preparedness?",
+      "options": ["Handle emergencies", "Protect family", "Minimize damage", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Home emergency preparedness helps handle emergencies, protect family, and minimize damage."
+    },
+    {
+      "id": 40,
+      "question": "What is the purpose of home inventory?",
+      "options": ["Track belongings", "Insurance purposes", "Organization", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Home inventory tracks belongings, serves insurance purposes, and aids in organization."
+    },
+    {
+      "id": 41,
+      "question": "What is the purpose of home documentation?",
+      "options": ["Record information", "Track maintenance", "Legal purposes", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Home documentation records information, tracks maintenance, and serves legal purposes."
+    },
+    {
+      "id": 42,
+      "question": "What is the purpose of home planning?",
+      "options": ["Set goals", "Organize tasks", "Allocate resources", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Home planning sets goals, organizes tasks, and allocates resources effectively."
+    },
+    {
+      "id": 43,
+      "question": "What is the purpose of home evaluation?",
+      "options": ["Assess condition", "Identify needs", "Plan improvements", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Home evaluation assesses condition, identifies needs, and plans improvements."
+    },
+    {
+      "id": 44,
+      "question": "What is the purpose of home improvement?",
+      "options": ["Increase value", "Improve function", "Enhance appearance", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Home improvement increases value, improves function, and enhances appearance."
+    },
+    {
+      "id": 45,
+      "question": "What is the purpose of home renovation?",
+      "options": ["Update systems", "Improve layout", "Increase value", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Home renovation updates systems, improves layout, and increases property value."
+    },
+    {
+      "id": 46,
+      "question": "What is the purpose of home remodeling?",
+      "options": ["Change structure", "Improve function", "Update appearance", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Home remodeling changes structure, improves function, and updates appearance."
+    },
+    {
+      "id": 47,
+      "question": "What is the purpose of home maintenance schedule?",
+      "options": ["Prevent problems", "Extend life", "Maintain value", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "A home maintenance schedule prevents problems, extends life of systems, and maintains property value."
+    },
+    {
+      "id": 48,
+      "question": "What is the purpose of home energy audit?",
+      "options": ["Identify waste", "Improve efficiency", "Reduce costs", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "A home energy audit identifies waste, improves efficiency, and reduces energy costs."
+    },
+    {
+      "id": 49,
+      "question": "What is the purpose of home safety inspection?",
+      "options": ["Identify hazards", "Prevent accidents", "Ensure compliance", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "A home safety inspection identifies hazards, prevents accidents, and ensures compliance with safety standards."
+    },
+    {
+      "id": 50,
+      "question": "What is the purpose of home management system?",
+      "options": ["Organize tasks", "Track progress", "Improve efficiency", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "A home management system organizes tasks, tracks progress, and improves overall efficiency."
+    }
+  ]
+}

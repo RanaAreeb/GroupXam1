@@ -1,0 +1,360 @@
+{
+  "id": "arabic-quiz-1",
+  "title": "Arabic Quiz 1",
+  "subject": "Arabic",
+  "difficulty": "Intermediate",
+  "questions": 50,
+  "timeLimit": 1800,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the Arabic word for 'book'?",
+      "options": ["كتاب", "قلم", "ورقة", "مدرسة"],
+      "correctAnswer": 0,
+      "explanation": "كتاب (kitab) means 'book' in Arabic."
+    },
+    {
+      "id": 2,
+      "question": "How do you say 'hello' in Arabic?",
+      "options": ["مرحبا", "وداعا", "شكرا", "آسف"],
+      "correctAnswer": 0,
+      "explanation": "مرحبا (marhaba) is a common way to say 'hello' in Arabic."
+    },
+    {
+      "id": 3,
+      "question": "What is the Arabic word for 'water'?",
+      "options": ["نار", "ماء", "هواء", "تراب"],
+      "correctAnswer": 1,
+      "explanation": "ماء (maa) means 'water' in Arabic."
+    },
+    {
+      "id": 4,
+      "question": "How do you say 'thank you' in Arabic?",
+      "options": ["مرحبا", "وداعا", "شكرا", "آسف"],
+      "correctAnswer": 2,
+      "explanation": "شكرا (shukran) means 'thank you' in Arabic."
+    },
+    {
+      "id": 5,
+      "question": "What is the Arabic word for 'house'?",
+      "options": ["مدرسة", "بيت", "شارع", "مدينة"],
+      "correctAnswer": 1,
+      "explanation": "بيت (bayt) means 'house' in Arabic."
+    },
+    {
+      "id": 6,
+      "question": "How do you say 'goodbye' in Arabic?",
+      "options": ["مرحبا", "وداعا", "شكرا", "آسف"],
+      "correctAnswer": 1,
+      "explanation": "وداعا (wada'an) means 'goodbye' in Arabic."
+    },
+    {
+      "id": 7,
+      "question": "What is the Arabic word for 'sun'?",
+      "options": ["قمر", "نجمة", "شمس", "سماء"],
+      "correctAnswer": 2,
+      "explanation": "شمس (shams) means 'sun' in Arabic."
+    },
+    {
+      "id": 8,
+      "question": "How do you say 'yes' in Arabic?",
+      "options": ["لا", "نعم", "ربما", "أبدا"],
+      "correctAnswer": 1,
+      "explanation": "نعم (na'am) means 'yes' in Arabic."
+    },
+    {
+      "id": 9,
+      "question": "What is the Arabic word for 'moon'?",
+      "options": ["شمس", "نجمة", "قمر", "سماء"],
+      "correctAnswer": 2,
+      "explanation": "قمر (qamar) means 'moon' in Arabic."
+    },
+    {
+      "id": 10,
+      "question": "How do you say 'no' in Arabic?",
+      "options": ["نعم", "لا", "ربما", "أبدا"],
+      "correctAnswer": 1,
+      "explanation": "لا (la) means 'no' in Arabic."
+    },
+    {
+      "id": 11,
+      "question": "What is the Arabic word for 'tree'?",
+      "options": ["زهرة", "ورقة", "شجرة", "ثمرة"],
+      "correctAnswer": 2,
+      "explanation": "شجرة (shajara) means 'tree' in Arabic."
+    },
+    {
+      "id": 12,
+      "question": "How do you say 'please' in Arabic?",
+      "options": ["مرحبا", "من فضلك", "شكرا", "آسف"],
+      "correctAnswer": 1,
+      "explanation": "من فضلك (min fadlik) means 'please' in Arabic."
+    },
+    {
+      "id": 13,
+      "question": "What is the Arabic word for 'car'?",
+      "options": ["طائرة", "قطار", "سيارة", "دراجة"],
+      "correctAnswer": 2,
+      "explanation": "سيارة (sayyara) means 'car' in Arabic."
+    },
+    {
+      "id": 14,
+      "question": "How do you say 'sorry' in Arabic?",
+      "options": ["مرحبا", "وداعا", "شكرا", "آسف"],
+      "correctAnswer": 3,
+      "explanation": "آسف (aasif) means 'sorry' in Arabic."
+    },
+    {
+      "id": 15,
+      "question": "What is the Arabic word for 'food'?",
+      "options": ["ماء", "طعام", "شراب", "حلوى"],
+      "correctAnswer": 1,
+      "explanation": "طعام (ta'aam) means 'food' in Arabic."
+    },
+    {
+      "id": 16,
+      "question": "How do you say 'good morning' in Arabic?",
+      "options": ["صباح الخير", "مساء الخير", "ليلة سعيدة", "أهلا وسهلا"],
+      "correctAnswer": 0,
+      "explanation": "صباح الخير (sabah al-khayr) means 'good morning' in Arabic."
+    },
+    {
+      "id": 17,
+      "question": "What is the Arabic word for 'friend'?",
+      "options": ["عدو", "صديق", "جار", "زميل"],
+      "correctAnswer": 1,
+      "explanation": "صديق (sadeeq) means 'friend' in Arabic."
+    },
+    {
+      "id": 18,
+      "question": "How do you say 'good evening' in Arabic?",
+      "options": ["صباح الخير", "مساء الخير", "ليلة سعيدة", "أهلا وسهلا"],
+      "correctAnswer": 1,
+      "explanation": "مساء الخير (masa' al-khayr) means 'good evening' in Arabic."
+    },
+    {
+      "id": 19,
+      "question": "What is the Arabic word for 'school'?",
+      "options": ["جامعة", "مدرسة", "مكتبة", "مستشفى"],
+      "correctAnswer": 1,
+      "explanation": "مدرسة (madrasa) means 'school' in Arabic."
+    },
+    {
+      "id": 20,
+      "question": "How do you say 'welcome' in Arabic?",
+      "options": ["مرحبا", "أهلا وسهلا", "شكرا", "وداعا"],
+      "correctAnswer": 1,
+      "explanation": "أهلا وسهلا (ahlan wa sahlan) means 'welcome' in Arabic."
+    },
+    {
+      "id": 21,
+      "question": "What is the Arabic word for 'mother'?",
+      "options": ["أب", "أم", "أخ", "أخت"],
+      "correctAnswer": 1,
+      "explanation": "أم (umm) means 'mother' in Arabic."
+    },
+    {
+      "id": 22,
+      "question": "How do you say 'father' in Arabic?",
+      "options": ["أم", "أب", "أخ", "أخت"],
+      "correctAnswer": 1,
+      "explanation": "أب (ab) means 'father' in Arabic."
+    },
+    {
+      "id": 23,
+      "question": "What is the Arabic word for 'brother'?",
+      "options": ["أخت", "أخ", "أم", "أب"],
+      "correctAnswer": 1,
+      "explanation": "أخ (akh) means 'brother' in Arabic."
+    },
+    {
+      "id": 24,
+      "question": "How do you say 'sister' in Arabic?",
+      "options": ["أخ", "أخت", "أم", "أب"],
+      "correctAnswer": 1,
+      "explanation": "أخت (ukht) means 'sister' in Arabic."
+    },
+    {
+      "id": 25,
+      "question": "What is the Arabic word for 'cat'?",
+      "options": ["كلب", "قطة", "حصان", "بقرة"],
+      "correctAnswer": 1,
+      "explanation": "قطة (qitta) means 'cat' in Arabic."
+    },
+    {
+      "id": 26,
+      "question": "How do you say 'dog' in Arabic?",
+      "options": ["قطة", "كلب", "حصان", "بقرة"],
+      "correctAnswer": 1,
+      "explanation": "كلب (kalb) means 'dog' in Arabic."
+    },
+    {
+      "id": 27,
+      "question": "What is the Arabic word for 'red'?",
+      "options": ["أزرق", "أخضر", "أحمر", "أصفر"],
+      "correctAnswer": 2,
+      "explanation": "أحمر (ahmar) means 'red' in Arabic."
+    },
+    {
+      "id": 28,
+      "question": "How do you say 'blue' in Arabic?",
+      "options": ["أحمر", "أزرق", "أخضر", "أصفر"],
+      "correctAnswer": 1,
+      "explanation": "أزرق (azraq) means 'blue' in Arabic."
+    },
+    {
+      "id": 29,
+      "question": "What is the Arabic word for 'green'?",
+      "options": ["أحمر", "أزرق", "أخضر", "أصفر"],
+      "correctAnswer": 2,
+      "explanation": "أخضر (akhdar) means 'green' in Arabic."
+    },
+    {
+      "id": 30,
+      "question": "How do you say 'yellow' in Arabic?",
+      "options": ["أحمر", "أزرق", "أخضر", "أصفر"],
+      "correctAnswer": 3,
+      "explanation": "أصفر (asfar) means 'yellow' in Arabic."
+    },
+    {
+      "id": 31,
+      "question": "What is the Arabic word for 'big'?",
+      "options": ["صغير", "كبير", "طويل", "قصير"],
+      "correctAnswer": 1,
+      "explanation": "كبير (kabeer) means 'big' in Arabic."
+    },
+    {
+      "id": 32,
+      "question": "How do you say 'small' in Arabic?",
+      "options": ["كبير", "صغير", "طويل", "قصير"],
+      "correctAnswer": 1,
+      "explanation": "صغير (sagheer) means 'small' in Arabic."
+    },
+    {
+      "id": 33,
+      "question": "What is the Arabic word for 'tall'?",
+      "options": ["قصير", "طويل", "كبير", "صغير"],
+      "correctAnswer": 1,
+      "explanation": "طويل (taweel) means 'tall' in Arabic."
+    },
+    {
+      "id": 34,
+      "question": "How do you say 'short' in Arabic?",
+      "options": ["طويل", "قصير", "كبير", "صغير"],
+      "correctAnswer": 1,
+      "explanation": "قصير (qaseer) means 'short' in Arabic."
+    },
+    {
+      "id": 35,
+      "question": "What is the Arabic word for 'beautiful'?",
+      "options": ["قبيح", "جميل", "حلو", "لطيف"],
+      "correctAnswer": 1,
+      "explanation": "جميل (jameel) means 'beautiful' in Arabic."
+    },
+    {
+      "id": 36,
+      "question": "How do you say 'ugly' in Arabic?",
+      "options": ["جميل", "قبيح", "حلو", "لطيف"],
+      "correctAnswer": 1,
+      "explanation": "قبيح (qabeeh) means 'ugly' in Arabic."
+    },
+    {
+      "id": 37,
+      "question": "What is the Arabic word for 'sweet'?",
+      "options": ["مر", "حلو", "مالح", "حار"],
+      "correctAnswer": 1,
+      "explanation": "حلو (hulw) means 'sweet' in Arabic."
+    },
+    {
+      "id": 38,
+      "question": "How do you say 'bitter' in Arabic?",
+      "options": ["حلو", "مر", "مالح", "حار"],
+      "correctAnswer": 1,
+      "explanation": "مر (murr) means 'bitter' in Arabic."
+    },
+    {
+      "id": 39,
+      "question": "What is the Arabic word for 'hot'?",
+      "options": ["بارد", "حار", "دافئ", "مثلج"],
+      "correctAnswer": 1,
+      "explanation": "حار (haar) means 'hot' in Arabic."
+    },
+    {
+      "id": 40,
+      "question": "How do you say 'cold' in Arabic?",
+      "options": ["حار", "بارد", "دافئ", "مثلج"],
+      "correctAnswer": 1,
+      "explanation": "بارد (baarid) means 'cold' in Arabic."
+    },
+    {
+      "id": 41,
+      "question": "What is the Arabic word for 'fast'?",
+      "options": ["بطيء", "سريع", "متوسط", "عادي"],
+      "correctAnswer": 1,
+      "explanation": "سريع (saree') means 'fast' in Arabic."
+    },
+    {
+      "id": 42,
+      "question": "How do you say 'slow' in Arabic?",
+      "options": ["سريع", "بطيء", "متوسط", "عادي"],
+      "correctAnswer": 1,
+      "explanation": "بطيء (batee') means 'slow' in Arabic."
+    },
+    {
+      "id": 43,
+      "question": "What is the Arabic word for 'new'?",
+      "options": ["قديم", "جديد", "عتيق", "مستعمل"],
+      "correctAnswer": 1,
+      "explanation": "جديد (jadeed) means 'new' in Arabic."
+    },
+    {
+      "id": 44,
+      "question": "How do you say 'old' in Arabic?",
+      "options": ["جديد", "قديم", "عتيق", "مستعمل"],
+      "correctAnswer": 1,
+      "explanation": "قديم (qadeem) means 'old' in Arabic."
+    },
+    {
+      "id": 45,
+      "question": "What is the Arabic word for 'good'?",
+      "options": ["سيء", "جيد", "ممتاز", "عادي"],
+      "correctAnswer": 1,
+      "explanation": "جيد (jayyid) means 'good' in Arabic."
+    },
+    {
+      "id": 46,
+      "question": "How do you say 'bad' in Arabic?",
+      "options": ["جيد", "سيء", "ممتاز", "عادي"],
+      "correctAnswer": 1,
+      "explanation": "سيء (sayyi') means 'bad' in Arabic."
+    },
+    {
+      "id": 47,
+      "question": "What is the Arabic word for 'one'?",
+      "options": ["اثنان", "واحد", "ثلاثة", "أربعة"],
+      "correctAnswer": 1,
+      "explanation": "واحد (waahid) means 'one' in Arabic."
+    },
+    {
+      "id": 48,
+      "question": "How do you say 'two' in Arabic?",
+      "options": ["واحد", "اثنان", "ثلاثة", "أربعة"],
+      "correctAnswer": 1,
+      "explanation": "اثنان (ithnaan) means 'two' in Arabic."
+    },
+    {
+      "id": 49,
+      "question": "What is the Arabic word for 'three'?",
+      "options": ["واحد", "اثنان", "ثلاثة", "أربعة"],
+      "correctAnswer": 2,
+      "explanation": "ثلاثة (thalaatha) means 'three' in Arabic."
+    },
+    {
+      "id": 50,
+      "question": "How do you say 'four' in Arabic?",
+      "options": ["واحد", "اثنان", "ثلاثة", "أربعة"],
+      "correctAnswer": 3,
+      "explanation": "أربعة (arba'a) means 'four' in Arabic."
+    }
+  ]
+}

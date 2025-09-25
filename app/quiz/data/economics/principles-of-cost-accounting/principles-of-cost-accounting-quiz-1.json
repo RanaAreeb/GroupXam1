@@ -1,0 +1,360 @@
+{
+  "id": "principles-of-cost-accounting-quiz-1",
+  "title": "Principles of Cost Accounting Quiz 1",
+  "subject": "Principles of Cost Accounting",
+  "difficulty": "Intermediate",
+  "questions": 50,
+  "timeLimit": 1800,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the primary purpose of cost accounting?",
+      "options": ["Financial reporting", "Cost control", "Tax calculation", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Cost accounting serves multiple purposes including financial reporting, cost control, and tax calculation."
+    },
+    {
+      "id": 2,
+      "question": "Which type of cost varies directly with production volume?",
+      "options": ["Fixed cost", "Variable cost", "Semi-variable cost", "Step cost"],
+      "correctAnswer": 1,
+      "explanation": "Variable costs vary directly with production volume, such as direct materials and direct labor."
+    },
+    {
+      "id": 3,
+      "question": "What is the formula for calculating total cost?",
+      "options": ["Fixed cost + Variable cost", "Variable cost - Fixed cost", "Fixed cost × Variable cost", "Fixed cost ÷ Variable cost"],
+      "correctAnswer": 0,
+      "explanation": "Total cost is calculated as Fixed cost + Variable cost."
+    },
+    {
+      "id": 4,
+      "question": "Which cost is not included in product cost?",
+      "options": ["Direct materials", "Direct labor", "Manufacturing overhead", "Selling expenses"],
+      "correctAnswer": 3,
+      "explanation": "Selling expenses are period costs, not product costs, and are not included in inventory valuation."
+    },
+    {
+      "id": 5,
+      "question": "What is the primary purpose of a cost center?",
+      "options": ["Generate revenue", "Control costs", "Calculate profit", "All of the above"],
+      "correctAnswer": 1,
+      "explanation": "A cost center is primarily used to control and monitor costs for a specific department or activity."
+    },
+    {
+      "id": 6,
+      "question": "Which method allocates overhead based on direct labor hours?",
+      "options": ["Direct labor cost method", "Direct labor hours method", "Machine hours method", "Units of production method"],
+      "correctAnswer": 1,
+      "explanation": "The direct labor hours method allocates overhead based on the number of direct labor hours worked."
+    },
+    {
+      "id": 7,
+      "question": "What is the break-even point?",
+      "options": ["Point of maximum profit", "Point of zero profit", "Point of maximum loss", "Point of minimum cost"],
+      "correctAnswer": 1,
+      "explanation": "The break-even point is where total revenue equals total costs, resulting in zero profit."
+    },
+    {
+      "id": 8,
+      "question": "Which type of costing is used for custom products?",
+      "options": ["Process costing", "Job costing", "Standard costing", "Activity-based costing"],
+      "correctAnswer": 1,
+      "explanation": "Job costing is used for custom products or services that are unique and identifiable."
+    },
+    {
+      "id": 9,
+      "question": "What is the primary purpose of standard costing?",
+      "options": ["Calculate actual costs", "Set target costs", "Control costs", "Both B and C"],
+      "correctAnswer": 3,
+      "explanation": "Standard costing is used to set target costs and control actual costs through variance analysis."
+    },
+    {
+      "id": 10,
+      "question": "Which cost is considered a period cost?",
+      "options": ["Direct materials", "Direct labor", "Manufacturing overhead", "Administrative expenses"],
+      "correctAnswer": 3,
+      "explanation": "Administrative expenses are period costs that are expensed in the period incurred."
+    },
+    {
+      "id": 11,
+      "question": "What is the formula for calculating contribution margin?",
+      "options": ["Sales - Variable costs", "Sales - Fixed costs", "Sales - Total costs", "Fixed costs - Variable costs"],
+      "correctAnswer": 0,
+      "explanation": "Contribution margin is calculated as Sales - Variable costs."
+    },
+    {
+      "id": 12,
+      "question": "Which method is used to allocate joint costs?",
+      "options": ["Physical units method", "Sales value method", "Net realizable value method", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Joint costs can be allocated using physical units, sales value, or net realizable value methods."
+    },
+    {
+      "id": 13,
+      "question": "What is the primary purpose of activity-based costing?",
+      "options": ["Simplify costing", "Improve cost accuracy", "Reduce costs", "All of the above"],
+      "correctAnswer": 1,
+      "explanation": "Activity-based costing improves cost accuracy by allocating costs based on activities that drive costs."
+    },
+    {
+      "id": 14,
+      "question": "Which type of cost remains constant regardless of production volume?",
+      "options": ["Variable cost", "Fixed cost", "Semi-variable cost", "Step cost"],
+      "correctAnswer": 1,
+      "explanation": "Fixed costs remain constant regardless of production volume within the relevant range."
+    },
+    {
+      "id": 15,
+      "question": "What is the primary purpose of a cost driver?",
+      "options": ["Calculate costs", "Allocate costs", "Control costs", "All of the above"],
+      "correctAnswer": 1,
+      "explanation": "A cost driver is used to allocate costs to cost objects based on the activity that causes the cost."
+    },
+    {
+      "id": 16,
+      "question": "Which costing method is used for continuous production?",
+      "options": ["Job costing", "Process costing", "Standard costing", "Activity-based costing"],
+      "correctAnswer": 1,
+      "explanation": "Process costing is used for continuous production where products are indistinguishable."
+    },
+    {
+      "id": 17,
+      "question": "What is the primary purpose of variance analysis?",
+      "options": ["Calculate actual costs", "Identify cost differences", "Set standards", "All of the above"],
+      "correctAnswer": 1,
+      "explanation": "Variance analysis identifies differences between actual and standard costs to help control costs."
+    },
+    {
+      "id": 18,
+      "question": "Which cost is included in manufacturing overhead?",
+      "options": ["Direct materials", "Direct labor", "Factory rent", "Selling expenses"],
+      "correctAnswer": 2,
+      "explanation": "Factory rent is included in manufacturing overhead as it's an indirect manufacturing cost."
+    },
+    {
+      "id": 19,
+      "question": "What is the primary purpose of a cost object?",
+      "options": ["Calculate costs", "Allocate costs", "Control costs", "All of the above"],
+      "correctAnswer": 1,
+      "explanation": "A cost object is used to allocate and calculate costs for specific products, services, or activities."
+    },
+    {
+      "id": 20,
+      "question": "Which method allocates overhead based on machine hours?",
+      "options": ["Direct labor cost method", "Direct labor hours method", "Machine hours method", "Units of production method"],
+      "correctAnswer": 2,
+      "explanation": "The machine hours method allocates overhead based on the number of machine hours used."
+    },
+    {
+      "id": 21,
+      "question": "What is the primary purpose of cost-volume-profit analysis?",
+      "options": ["Calculate costs", "Analyze profitability", "Set prices", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "CVP analysis is used to calculate costs, analyze profitability, and set prices."
+    },
+    {
+      "id": 22,
+      "question": "Which type of cost has both fixed and variable components?",
+      "options": ["Fixed cost", "Variable cost", "Semi-variable cost", "Step cost"],
+      "correctAnswer": 2,
+      "explanation": "Semi-variable costs have both fixed and variable components, such as utilities."
+    },
+    {
+      "id": 23,
+      "question": "What is the primary purpose of a cost pool?",
+      "options": ["Group similar costs", "Allocate costs", "Control costs", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "A cost pool groups similar costs together for allocation and control purposes."
+    },
+    {
+      "id": 24,
+      "question": "Which costing method is used for service industries?",
+      "options": ["Process costing", "Job costing", "Standard costing", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Service industries can use process costing, job costing, or standard costing depending on the nature of services."
+    },
+    {
+      "id": 25,
+      "question": "What is the primary purpose of a cost center report?",
+      "options": ["Calculate profit", "Control costs", "Allocate costs", "All of the above"],
+      "correctAnswer": 1,
+      "explanation": "A cost center report is primarily used to control and monitor costs for a specific department."
+    },
+    {
+      "id": 26,
+      "question": "Which cost is considered a direct cost?",
+      "options": ["Factory rent", "Direct materials", "Administrative salaries", "Selling expenses"],
+      "correctAnswer": 1,
+      "explanation": "Direct materials are direct costs that can be traced directly to a specific product."
+    },
+    {
+      "id": 27,
+      "question": "What is the primary purpose of a cost allocation base?",
+      "options": ["Calculate costs", "Allocate costs", "Control costs", "All of the above"],
+      "correctAnswer": 1,
+      "explanation": "A cost allocation base is used to allocate costs from cost pools to cost objects."
+    },
+    {
+      "id": 28,
+      "question": "Which method is used to calculate equivalent units?",
+      "options": ["FIFO method", "Weighted average method", "Both A and B", "None of the above"],
+      "correctAnswer": 2,
+      "explanation": "Equivalent units can be calculated using either FIFO or weighted average methods."
+    },
+    {
+      "id": 29,
+      "question": "What is the primary purpose of a cost sheet?",
+      "options": ["Calculate total cost", "Control costs", "Allocate costs", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "A cost sheet is used to calculate total cost, control costs, and allocate costs."
+    },
+    {
+      "id": 30,
+      "question": "Which type of cost increases in steps as production increases?",
+      "options": ["Fixed cost", "Variable cost", "Semi-variable cost", "Step cost"],
+      "correctAnswer": 3,
+      "explanation": "Step costs increase in steps as production increases, such as supervisor salaries."
+    },
+    {
+      "id": 31,
+      "question": "What is the primary purpose of a cost budget?",
+      "options": ["Calculate actual costs", "Plan costs", "Control costs", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "A cost budget is used to plan, calculate, and control costs."
+    },
+    {
+      "id": 32,
+      "question": "Which cost is considered an indirect cost?",
+      "options": ["Direct materials", "Direct labor", "Manufacturing overhead", "Both A and B"],
+      "correctAnswer": 2,
+      "explanation": "Manufacturing overhead is an indirect cost that cannot be traced directly to a specific product."
+    },
+    {
+      "id": 33,
+      "question": "What is the primary purpose of a cost variance?",
+      "options": ["Calculate costs", "Identify differences", "Control costs", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Cost variances are used to calculate costs, identify differences, and control costs."
+    },
+    {
+      "id": 34,
+      "question": "Which method is used to allocate service department costs?",
+      "options": ["Direct method", "Step method", "Reciprocal method", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Service department costs can be allocated using direct, step, or reciprocal methods."
+    },
+    {
+      "id": 35,
+      "question": "What is the primary purpose of a cost control system?",
+      "options": ["Calculate costs", "Monitor costs", "Reduce costs", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "A cost control system is used to calculate, monitor, and reduce costs."
+    },
+    {
+      "id": 36,
+      "question": "Which type of cost is relevant for decision making?",
+      "options": ["Sunk cost", "Opportunity cost", "Historical cost", "All of the above"],
+      "correctAnswer": 1,
+      "explanation": "Opportunity cost is relevant for decision making as it represents the cost of the next best alternative."
+    },
+    {
+      "id": 37,
+      "question": "What is the primary purpose of a cost report?",
+      "options": ["Calculate costs", "Communicate costs", "Control costs", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "A cost report is used to calculate, communicate, and control costs."
+    },
+    {
+      "id": 38,
+      "question": "Which method is used to calculate product costs?",
+      "options": ["Absorption costing", "Variable costing", "Both A and B", "None of the above"],
+      "correctAnswer": 2,
+      "explanation": "Product costs can be calculated using absorption costing or variable costing methods."
+    },
+    {
+      "id": 39,
+      "question": "What is the primary purpose of a cost center?",
+      "options": ["Generate revenue", "Control costs", "Calculate profit", "All of the above"],
+      "correctAnswer": 1,
+      "explanation": "A cost center is primarily used to control and monitor costs for a specific department."
+    },
+    {
+      "id": 40,
+      "question": "Which cost is considered a period cost?",
+      "options": ["Direct materials", "Direct labor", "Manufacturing overhead", "Selling expenses"],
+      "correctAnswer": 3,
+      "explanation": "Selling expenses are period costs that are expensed in the period incurred."
+    },
+    {
+      "id": 41,
+      "question": "What is the primary purpose of a cost allocation?",
+      "options": ["Calculate costs", "Distribute costs", "Control costs", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Cost allocation is used to calculate, distribute, and control costs."
+    },
+    {
+      "id": 42,
+      "question": "Which type of cost is not relevant for decision making?",
+      "options": ["Sunk cost", "Opportunity cost", "Incremental cost", "All of the above"],
+      "correctAnswer": 0,
+      "explanation": "Sunk costs are not relevant for decision making as they have already been incurred."
+    },
+    {
+      "id": 43,
+      "question": "What is the primary purpose of a cost analysis?",
+      "options": ["Calculate costs", "Analyze costs", "Control costs", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Cost analysis is used to calculate, analyze, and control costs."
+    },
+    {
+      "id": 44,
+      "question": "Which method is used to allocate overhead costs?",
+      "options": ["Direct labor cost method", "Direct labor hours method", "Machine hours method", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Overhead costs can be allocated using direct labor cost, direct labor hours, or machine hours methods."
+    },
+    {
+      "id": 45,
+      "question": "What is the primary purpose of a cost system?",
+      "options": ["Calculate costs", "Control costs", "Allocate costs", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "A cost system is used to calculate, control, and allocate costs."
+    },
+    {
+      "id": 46,
+      "question": "Which type of cost is relevant for pricing decisions?",
+      "options": ["Sunk cost", "Opportunity cost", "Incremental cost", "All of the above"],
+      "correctAnswer": 2,
+      "explanation": "Incremental costs are relevant for pricing decisions as they represent additional costs."
+    },
+    {
+      "id": 47,
+      "question": "What is the primary purpose of a cost control?",
+      "options": ["Calculate costs", "Monitor costs", "Reduce costs", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Cost control is used to calculate, monitor, and reduce costs."
+    },
+    {
+      "id": 48,
+      "question": "Which method is used to calculate equivalent units in process costing?",
+      "options": ["FIFO method", "Weighted average method", "Both A and B", "None of the above"],
+      "correctAnswer": 2,
+      "explanation": "Equivalent units in process costing can be calculated using FIFO or weighted average methods."
+    },
+    {
+      "id": 49,
+      "question": "What is the primary purpose of a cost management?",
+      "options": ["Calculate costs", "Control costs", "Reduce costs", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Cost management is used to calculate, control, and reduce costs."
+    },
+    {
+      "id": 50,
+      "question": "Which type of cost is relevant for make-or-buy decisions?",
+      "options": ["Sunk cost", "Opportunity cost", "Incremental cost", "All of the above"],
+      "correctAnswer": 2,
+      "explanation": "Incremental costs are relevant for make-or-buy decisions as they represent additional costs."
+    }
+  ]
+}

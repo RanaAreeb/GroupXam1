@@ -1,0 +1,360 @@
+{
+  "id": "literature-in-english-quiz-1",
+  "title": "Literature in English Quiz 1",
+  "subject": "Literature in English",
+  "difficulty": "Intermediate",
+  "questions": 50,
+  "timeLimit": 1800,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the definition of a metaphor?",
+      "options": ["A comparison using 'like' or 'as'", "A direct comparison without 'like' or 'as'", "An exaggeration", "A contradiction"],
+      "correctAnswer": 1,
+      "explanation": "A metaphor is a direct comparison between two unlike things without using 'like' or 'as'."
+    },
+    {
+      "id": 2,
+      "question": "What is the definition of a simile?",
+      "options": ["A comparison using 'like' or 'as'", "A direct comparison without 'like' or 'as'", "An exaggeration", "A contradiction"],
+      "correctAnswer": 0,
+      "explanation": "A simile is a comparison between two unlike things using 'like' or 'as'."
+    },
+    {
+      "id": 3,
+      "question": "What is the definition of personification?",
+      "options": ["Giving human qualities to non-human things", "Comparing two things", "Exaggerating for effect", "Using contradictory terms"],
+      "correctAnswer": 0,
+      "explanation": "Personification is giving human qualities, characteristics, or emotions to non-human things."
+    },
+    {
+      "id": 4,
+      "question": "What is the definition of alliteration?",
+      "options": ["Repetition of vowel sounds", "Repetition of consonant sounds", "Repetition of words", "Repetition of phrases"],
+      "correctAnswer": 1,
+      "explanation": "Alliteration is the repetition of consonant sounds at the beginning of words."
+    },
+    {
+      "id": 5,
+      "question": "What is the definition of assonance?",
+      "options": ["Repetition of vowel sounds", "Repetition of consonant sounds", "Repetition of words", "Repetition of phrases"],
+      "correctAnswer": 0,
+      "explanation": "Assonance is the repetition of vowel sounds within words."
+    },
+    {
+      "id": 6,
+      "question": "What is the definition of hyperbole?",
+      "options": ["A comparison", "An exaggeration", "A contradiction", "A repetition"],
+      "correctAnswer": 1,
+      "explanation": "Hyperbole is an extreme exaggeration used for emphasis or effect."
+    },
+    {
+      "id": 7,
+      "question": "What is the definition of irony?",
+      "options": ["A comparison", "An exaggeration", "A contradiction between expectation and reality", "A repetition"],
+      "correctAnswer": 2,
+      "explanation": "Irony is a contradiction between what is expected and what actually happens."
+    },
+    {
+      "id": 8,
+      "question": "What is the definition of symbolism?",
+      "options": ["Using symbols to represent ideas", "Comparing two things", "Exaggerating for effect", "Using contradictory terms"],
+      "correctAnswer": 0,
+      "explanation": "Symbolism is using symbols to represent ideas, concepts, or qualities."
+    },
+    {
+      "id": 9,
+      "question": "What is the definition of imagery?",
+      "options": ["Using symbols", "Using descriptive language to create mental pictures", "Using comparisons", "Using exaggerations"],
+      "correctAnswer": 1,
+      "explanation": "Imagery is using descriptive language to create mental pictures and appeal to the senses."
+    },
+    {
+      "id": 10,
+      "question": "What is the definition of tone?",
+      "options": ["The author's attitude", "The mood of the story", "The setting", "The plot"],
+      "correctAnswer": 0,
+      "explanation": "Tone is the author's attitude toward the subject or audience."
+    },
+    {
+      "id": 11,
+      "question": "What is the definition of mood?",
+      "options": ["The author's attitude", "The emotional atmosphere", "The setting", "The plot"],
+      "correctAnswer": 1,
+      "explanation": "Mood is the emotional atmosphere or feeling created by a literary work."
+    },
+    {
+      "id": 12,
+      "question": "What is the definition of theme?",
+      "options": ["The main idea", "The plot", "The setting", "The characters"],
+      "correctAnswer": 0,
+      "explanation": "Theme is the main idea or underlying meaning of a literary work."
+    },
+    {
+      "id": 13,
+      "question": "What is the definition of plot?",
+      "options": ["The main idea", "The sequence of events", "The setting", "The characters"],
+      "correctAnswer": 1,
+      "explanation": "Plot is the sequence of events that make up a story."
+    },
+    {
+      "id": 14,
+      "question": "What is the definition of setting?",
+      "options": ["The main idea", "The sequence of events", "The time and place", "The characters"],
+      "correctAnswer": 2,
+      "explanation": "Setting is the time and place where a story takes place."
+    },
+    {
+      "id": 15,
+      "question": "What is the definition of character?",
+      "options": ["The main idea", "The sequence of events", "The setting", "A person in a story"],
+      "correctAnswer": 3,
+      "explanation": "A character is a person, animal, or being in a story."
+    },
+    {
+      "id": 16,
+      "question": "What is the definition of protagonist?",
+      "options": ["The main character", "The antagonist", "The setting", "The plot"],
+      "correctAnswer": 0,
+      "explanation": "The protagonist is the main character or hero of a story."
+    },
+    {
+      "id": 17,
+      "question": "What is the definition of antagonist?",
+      "options": ["The main character", "The opposing force", "The setting", "The plot"],
+      "correctAnswer": 1,
+      "explanation": "The antagonist is the opposing force or character that conflicts with the protagonist."
+    },
+    {
+      "id": 18,
+      "question": "What is the definition of conflict?",
+      "options": ["The main idea", "The struggle between opposing forces", "The setting", "The characters"],
+      "correctAnswer": 1,
+      "explanation": "Conflict is the struggle between opposing forces in a story."
+    },
+    {
+      "id": 19,
+      "question": "What is the definition of climax?",
+      "options": ["The beginning", "The turning point", "The end", "The middle"],
+      "correctAnswer": 1,
+      "explanation": "The climax is the turning point or highest point of tension in a story."
+    },
+    {
+      "id": 20,
+      "question": "What is the definition of resolution?",
+      "options": ["The beginning", "The turning point", "The end", "The middle"],
+      "correctAnswer": 2,
+      "explanation": "The resolution is the end of the story where conflicts are resolved."
+    },
+    {
+      "id": 21,
+      "question": "What is the definition of foreshadowing?",
+      "options": ["Looking back", "Hints about future events", "The setting", "The characters"],
+      "correctAnswer": 1,
+      "explanation": "Foreshadowing is hints or clues about future events in a story."
+    },
+    {
+      "id": 22,
+      "question": "What is the definition of flashback?",
+      "options": ["Looking back", "Hints about future events", "The setting", "The characters"],
+      "correctAnswer": 0,
+      "explanation": "A flashback is a scene that takes place before the current time in a story."
+    },
+    {
+      "id": 23,
+      "question": "What is the definition of point of view?",
+      "options": ["The main idea", "The perspective from which a story is told", "The setting", "The characters"],
+      "correctAnswer": 1,
+      "explanation": "Point of view is the perspective from which a story is told."
+    },
+    {
+      "id": 24,
+      "question": "What is the definition of first person point of view?",
+      "options": ["The narrator is outside the story", "The narrator is a character in the story", "The narrator knows everything", "The narrator is limited"],
+      "correctAnswer": 1,
+      "explanation": "First person point of view is when the narrator is a character in the story."
+    },
+    {
+      "id": 25,
+      "question": "What is the definition of third person point of view?",
+      "options": ["The narrator is outside the story", "The narrator is a character in the story", "The narrator knows everything", "The narrator is limited"],
+      "correctAnswer": 0,
+      "explanation": "Third person point of view is when the narrator is outside the story."
+    },
+    {
+      "id": 26,
+      "question": "What is the definition of omniscient point of view?",
+      "options": ["The narrator is outside the story", "The narrator is a character in the story", "The narrator knows everything", "The narrator is limited"],
+      "correctAnswer": 2,
+      "explanation": "Omniscient point of view is when the narrator knows everything about all characters."
+    },
+    {
+      "id": 27,
+      "question": "What is the definition of limited point of view?",
+      "options": ["The narrator is outside the story", "The narrator is a character in the story", "The narrator knows everything", "The narrator is limited"],
+      "correctAnswer": 3,
+      "explanation": "Limited point of view is when the narrator's knowledge is restricted to one character."
+    },
+    {
+      "id": 28,
+      "question": "What is the definition of dialogue?",
+      "options": ["The main idea", "Conversation between characters", "The setting", "The plot"],
+      "correctAnswer": 1,
+      "explanation": "Dialogue is conversation between characters in a story."
+    },
+    {
+      "id": 29,
+      "question": "What is the definition of monologue?",
+      "options": ["The main idea", "Conversation between characters", "A long speech by one character", "The plot"],
+      "correctAnswer": 2,
+      "explanation": "A monologue is a long speech by one character, often to themselves or the audience."
+    },
+    {
+      "id": 30,
+      "question": "What is the definition of soliloquy?",
+      "options": ["The main idea", "Conversation between characters", "A long speech by one character", "The plot"],
+      "correctAnswer": 2,
+      "explanation": "A soliloquy is a long speech by one character, often revealing their thoughts."
+    },
+    {
+      "id": 31,
+      "question": "What is the definition of aside?",
+      "options": ["The main idea", "Conversation between characters", "A remark to the audience", "The plot"],
+      "correctAnswer": 2,
+      "explanation": "An aside is a remark made by a character to the audience, not heard by other characters."
+    },
+    {
+      "id": 32,
+      "question": "What is the definition of stage directions?",
+      "options": ["The main idea", "Conversation between characters", "Instructions for actors", "The plot"],
+      "correctAnswer": 2,
+      "explanation": "Stage directions are instructions for actors about how to perform or move on stage."
+    },
+    {
+      "id": 33,
+      "question": "What is the definition of act?",
+      "options": ["The main idea", "A major division of a play", "The setting", "The characters"],
+      "correctAnswer": 1,
+      "explanation": "An act is a major division of a play, similar to a chapter in a book."
+    },
+    {
+      "id": 34,
+      "question": "What is the definition of scene?",
+      "options": ["The main idea", "A major division of a play", "A smaller division within an act", "The characters"],
+      "correctAnswer": 2,
+      "explanation": "A scene is a smaller division within an act, often marked by a change in setting or time."
+    },
+    {
+      "id": 35,
+      "question": "What is the definition of prologue?",
+      "options": ["The beginning", "An introduction to a play", "The end", "The middle"],
+      "correctAnswer": 1,
+      "explanation": "A prologue is an introduction to a play that provides background information."
+    },
+    {
+      "id": 36,
+      "question": "What is the definition of epilogue?",
+      "options": ["The beginning", "An introduction to a play", "The end", "The middle"],
+      "correctAnswer": 2,
+      "explanation": "An epilogue is a conclusion to a play that provides closure or additional information."
+    },
+    {
+      "id": 37,
+      "question": "What is the definition of chorus?",
+      "options": ["The main idea", "A group of characters", "The setting", "The plot"],
+      "correctAnswer": 1,
+      "explanation": "A chorus is a group of characters who comment on the action of a play."
+    },
+    {
+      "id": 38,
+      "question": "What is the definition of narrator?",
+      "options": ["The main idea", "The person telling the story", "The setting", "The plot"],
+      "correctAnswer": 1,
+      "explanation": "The narrator is the person telling the story or providing commentary."
+    },
+    {
+      "id": 39,
+      "question": "What is the definition of unreliable narrator?",
+      "options": ["The main idea", "A narrator who cannot be trusted", "The setting", "The plot"],
+      "correctAnswer": 1,
+      "explanation": "An unreliable narrator is a narrator whose credibility is compromised."
+    },
+    {
+      "id": 40,
+      "question": "What is the definition of reliable narrator?",
+      "options": ["The main idea", "A narrator who can be trusted", "The setting", "The plot"],
+      "correctAnswer": 1,
+      "explanation": "A reliable narrator is a narrator whose credibility is not compromised."
+    },
+    {
+      "id": 41,
+      "question": "What is the definition of stream of consciousness?",
+      "options": ["The main idea", "A narrative technique", "The setting", "The plot"],
+      "correctAnswer": 1,
+      "explanation": "Stream of consciousness is a narrative technique that presents thoughts as they occur."
+    },
+    {
+      "id": 42,
+      "question": "What is the definition of interior monologue?",
+      "options": ["The main idea", "A narrative technique", "The setting", "The plot"],
+      "correctAnswer": 1,
+      "explanation": "Interior monologue is a narrative technique that presents a character's inner thoughts."
+    },
+    {
+      "id": 43,
+      "question": "What is the definition of dramatic irony?",
+      "options": ["The main idea", "When the audience knows more than the characters", "The setting", "The plot"],
+      "correctAnswer": 1,
+      "explanation": "Dramatic irony occurs when the audience knows more than the characters do."
+    },
+    {
+      "id": 44,
+      "question": "What is the definition of situational irony?",
+      "options": ["The main idea", "When the audience knows more than the characters", "When the outcome is opposite to what is expected", "The plot"],
+      "correctAnswer": 2,
+      "explanation": "Situational irony occurs when the outcome is opposite to what is expected."
+    },
+    {
+      "id": 45,
+      "question": "What is the definition of verbal irony?",
+      "options": ["The main idea", "When the audience knows more than the characters", "When the outcome is opposite to what is expected", "When words mean the opposite of what is said"],
+      "correctAnswer": 3,
+      "explanation": "Verbal irony occurs when words mean the opposite of what is said."
+    },
+    {
+      "id": 46,
+      "question": "What is the definition of satire?",
+      "options": ["The main idea", "A narrative technique", "The use of humor to criticize", "The plot"],
+      "correctAnswer": 2,
+      "explanation": "Satire is the use of humor, irony, or exaggeration to criticize or mock."
+    },
+    {
+      "id": 47,
+      "question": "What is the definition of parody?",
+      "options": ["The main idea", "A narrative technique", "The use of humor to criticize", "An imitation that mocks"],
+      "correctAnswer": 3,
+      "explanation": "A parody is an imitation of a work that mocks or makes fun of the original."
+    },
+    {
+      "id": 48,
+      "question": "What is the definition of allegory?",
+      "options": ["The main idea", "A narrative technique", "The use of humor to criticize", "A story with a hidden meaning"],
+      "correctAnswer": 3,
+      "explanation": "An allegory is a story with a hidden meaning, often moral or political."
+    },
+    {
+      "id": 49,
+      "question": "What is the definition of fable?",
+      "options": ["The main idea", "A narrative technique", "The use of humor to criticize", "A short story with a moral"],
+      "correctAnswer": 3,
+      "explanation": "A fable is a short story, often with animals as characters, that teaches a moral lesson."
+    },
+    {
+      "id": 50,
+      "question": "What is the definition of parable?",
+      "options": ["The main idea", "A narrative technique", "The use of humor to criticize", "A short story that teaches a lesson"],
+      "correctAnswer": 3,
+      "explanation": "A parable is a short story that teaches a lesson, often religious or moral."
+    }
+  ]
+}

@@ -36,6 +36,9 @@ export default function QuizPage({
     async function loadQuiz() {
       try {
         setLoading(true);
+        
+        // Decode the subject parameter from URL
+        const decodedSubject = decodeURIComponent(subject);
 
         // Determine if this is a science or coding subject
         const scienceSubjects = [
@@ -49,6 +52,9 @@ export default function QuizPage({
           "pharmacology",
           "ecology",
           "psychology",
+          "agricultural science",
+          "health science",
+          "engineering science",
         ];
 
         const codingSubjects = [
@@ -67,6 +73,9 @@ export default function QuizPage({
           "accounting",
           "finance",
           "political science",
+          "commerce",
+          "principles of cost accounting",
+          "financial accounting",
         ];
 
         const mathematicsSubjects = [
@@ -77,6 +86,7 @@ export default function QuizPage({
           "geometry",
           "trigonometry",
           "pythagorean theorem",
+          "further mathematics (elective)",
         ];
 
         const artsHumanitiesSubjects = [
@@ -92,80 +102,140 @@ export default function QuizPage({
           "foreign languages",
           "religious studies",
           "cultural studies",
+          "government",
+          "arabic",
+          "islamic studies",
+          "christian religious knowledge",
+          "visual art",
+          "literature-in-english",
+        ];
+
+        const businessSubjects = [
+          "business management",
+          "marketing",
+          "human resources",
+          "operations management",
+          "strategic management",
+          "entrepreneurship",
+          "international business",
+          "supply chain management",
+          "project management",
+          "business ethics",
+          "auto mechanics",
+          "home management",
+          "clothing and textiles",
+          "metalwork",
+          "technical drawing",
+          "typewriting",
+          "foods and nutrition",
+          "physical education",
         ];
 
         let apiUrl = "";
-        if (scienceSubjects.includes(subject.toLowerCase())) {
-          apiUrl = `/api/quiz-data/science/${subject.toLowerCase()}`;
-        } else if (codingSubjects.includes(subject.toLowerCase())) {
+        if (scienceSubjects.includes(decodedSubject.toLowerCase())) {
           // Map subject names to folder names
-          let folderName = subject.toLowerCase();
-          if (subject.toLowerCase() === "html/css") {
+          let folderName = decodedSubject.toLowerCase();
+          if (decodedSubject.toLowerCase() === "agricultural science") {
+            folderName = "agricultural-science";
+          } else if (decodedSubject.toLowerCase() === "health science") {
+            folderName = "health-science";
+          } else if (decodedSubject.toLowerCase() === "engineering science") {
+            folderName = "engineering-science";
+          }
+          apiUrl = `/api/quiz-data/science/${folderName}`;
+        } else if (codingSubjects.includes(decodedSubject.toLowerCase())) {
+          // Map subject names to folder names
+          let folderName = decodedSubject.toLowerCase();
+          if (decodedSubject.toLowerCase() === "html/css") {
             folderName = "html-css";
-          } else if (subject.toLowerCase() === "node.js") {
+          } else if (decodedSubject.toLowerCase() === "node.js") {
             folderName = "nodejs";
           }
           apiUrl = `/api/quiz-data/coding/${folderName}`;
-        } else if (economicsSubjects.includes(subject.toLowerCase())) {
+        } else if (economicsSubjects.includes(decodedSubject.toLowerCase())) {
           // Map subject names to folder names
-          let folderName = subject.toLowerCase();
-          if (subject.toLowerCase() === "micro economics") {
+          let folderName = decodedSubject.toLowerCase();
+          if (decodedSubject.toLowerCase() === "micro economics") {
             folderName = "micro-economics";
-          } else if (subject.toLowerCase() === "macro economics") {
+          } else if (decodedSubject.toLowerCase() === "macro economics") {
             folderName = "macro-economics";
-          } else if (subject.toLowerCase() === "political science") {
+          } else if (decodedSubject.toLowerCase() === "political science") {
             folderName = "political-science";
+          } else if (decodedSubject.toLowerCase() === "principles of cost accounting") {
+            folderName = "principles-of-cost-accounting";
+          } else if (decodedSubject.toLowerCase() === "financial accounting") {
+            folderName = "financial-accounting";
           }
           apiUrl = `/api/quiz-data/economics/${folderName}`;
         } else if (
           mathematicsSubjects.includes(
-            decodeURIComponent(subject).toLowerCase()
+            decodedSubject.toLowerCase()
           )
         ) {
           // Map subject names to folder names
-          let folderName = decodeURIComponent(subject).toLowerCase();
+          let folderName = decodedSubject.toLowerCase();
           if (
-            decodeURIComponent(subject).toLowerCase() ===
+            decodedSubject.toLowerCase() ===
             "pythagorean theorem"
           ) {
             folderName = "pythagorean-theorem";
+          } else if (
+            decodedSubject.toLowerCase() ===
+            "further mathematics (elective)"
+          ) {
+            folderName = "further-mathematics";
           }
           apiUrl = `/api/quiz-data/mathematics/${folderName}`;
         } else if (
           artsHumanitiesSubjects.includes(
-            decodeURIComponent(subject).toLowerCase()
+            decodedSubject.toLowerCase()
           )
         ) {
           // Map subject names to folder names
-          let folderName = decodeURIComponent(subject).toLowerCase();
+          let folderName = decodedSubject.toLowerCase();
           if (
-            decodeURIComponent(subject).toLowerCase() === "art history"
+            decodedSubject.toLowerCase() === "art history"
           ) {
             folderName = "art-history";
           } else if (
-            decodeURIComponent(subject).toLowerCase() === "music theory"
+            decodedSubject.toLowerCase() === "music theory"
           ) {
             folderName = "music-theory";
           } else if (
-            decodeURIComponent(subject).toLowerCase() ===
+            decodedSubject.toLowerCase() ===
             "creative writing"
           ) {
             folderName = "creative-writing";
           } else if (
-            decodeURIComponent(subject).toLowerCase() ===
+            decodedSubject.toLowerCase() ===
             "foreign languages"
           ) {
             folderName = "foreign-languages";
           } else if (
-            decodeURIComponent(subject).toLowerCase() ===
+            decodedSubject.toLowerCase() ===
             "religious studies"
           ) {
             folderName = "religious-studies";
           } else if (
-            decodeURIComponent(subject).toLowerCase() ===
+            decodedSubject.toLowerCase() ===
             "cultural studies"
           ) {
             folderName = "cultural-studies";
+          } else if (
+            decodedSubject.toLowerCase() ===
+            "christian religious knowledge"
+          ) {
+            folderName = "christian-religious-knowledge";
+          } else if (
+            decodedSubject.toLowerCase() ===
+            "visual art"
+          ) {
+            folderName = "visual-art";
+          } else if (
+            decodedSubject.toLowerCase() ===
+            "literature-in-english"
+          ) {
+            folderName = "literature-in-english";
           }
           apiUrl = `/api/quiz-data/arts-humanities/${folderName}`;
 
@@ -190,6 +260,39 @@ export default function QuizPage({
               "Could not load specific quiz, trying general endpoint"
             );
           }
+        } else if (businessSubjects.includes(decodedSubject.toLowerCase())) {
+          // Map subject names to folder names
+          let folderName = decodedSubject.toLowerCase();
+          if (decodedSubject.toLowerCase() === "business management") {
+            folderName = "business-management";
+          } else if (decodedSubject.toLowerCase() === "human resources") {
+            folderName = "human-resources";
+          } else if (decodedSubject.toLowerCase() === "operations management") {
+            folderName = "operations-management";
+          } else if (decodedSubject.toLowerCase() === "strategic management") {
+            folderName = "strategic-management";
+          } else if (decodedSubject.toLowerCase() === "international business") {
+            folderName = "international-business";
+          } else if (decodedSubject.toLowerCase() === "supply chain management") {
+            folderName = "supply-chain-management";
+          } else if (decodedSubject.toLowerCase() === "project management") {
+            folderName = "project-management";
+          } else if (decodedSubject.toLowerCase() === "business ethics") {
+            folderName = "business-ethics";
+          } else if (decodedSubject.toLowerCase() === "auto mechanics") {
+            folderName = "auto-mechanics";
+          } else if (decodedSubject.toLowerCase() === "home management") {
+            folderName = "home-management";
+          } else if (decodedSubject.toLowerCase() === "clothing and textiles") {
+            folderName = "clothing-and-textiles";
+          } else if (decodedSubject.toLowerCase() === "technical drawing") {
+            folderName = "technical-drawing";
+          } else if (decodedSubject.toLowerCase() === "foods and nutrition") {
+            folderName = "foods-and-nutrition";
+          } else if (decodedSubject.toLowerCase() === "physical education") {
+            folderName = "physical-education";
+          }
+          apiUrl = `/api/quiz-data/business/${folderName}`;
         }
 
         if (apiUrl) {

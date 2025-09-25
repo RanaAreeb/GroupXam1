@@ -1,0 +1,360 @@
+{
+  "id": "typewriting-quiz-1",
+  "title": "Typewriting Quiz 1",
+  "subject": "Typewriting",
+  "difficulty": "Intermediate",
+  "questions": 50,
+  "timeLimit": 1800,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the primary purpose of typewriting?",
+      "options": ["Create documents", "Improve speed", "Ensure accuracy", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typewriting serves to create documents, improve speed, and ensure accuracy."
+    },
+    {
+      "id": 2,
+      "question": "What is the standard typing position?",
+      "options": ["Fingers on home row", "Eyes on screen", "Feet flat on floor", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "The standard typing position includes fingers on home row, eyes on screen, and feet flat on floor."
+    },
+    {
+      "id": 3,
+      "question": "What is the home row on a QWERTY keyboard?",
+      "options": ["ASDF JKL;", "QWER TYUI", "ZXCV BNM,", "None of the above"],
+      "correctAnswer": 0,
+      "explanation": "The home row on a QWERTY keyboard is ASDF for the left hand and JKL; for the right hand."
+    },
+    {
+      "id": 4,
+      "question": "What is the purpose of touch typing?",
+      "options": ["Type without looking", "Improve speed", "Ensure accuracy", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Touch typing allows typing without looking, improves speed, and ensures accuracy."
+    },
+    {
+      "id": 5,
+      "question": "What is the purpose of typing speed?",
+      "options": ["Measure efficiency", "Improve productivity", "Save time", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing speed measures efficiency, improves productivity, and saves time."
+    },
+    {
+      "id": 6,
+      "question": "What is the purpose of typing accuracy?",
+      "options": ["Prevent errors", "Ensure quality", "Maintain standards", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing accuracy prevents errors, ensures quality, and maintains standards."
+    },
+    {
+      "id": 7,
+      "question": "What is the purpose of typing rhythm?",
+      "options": ["Maintain consistency", "Improve speed", "Ensure accuracy", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing rhythm maintains consistency, improves speed, and ensures accuracy."
+    },
+    {
+      "id": 8,
+      "question": "What is the purpose of typing posture?",
+      "options": ["Prevent injury", "Improve comfort", "Maintain health", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Proper typing posture prevents injury, improves comfort, and maintains health."
+    },
+    {
+      "id": 9,
+      "question": "What is the purpose of typing technique?",
+      "options": ["Improve efficiency", "Ensure accuracy", "Maintain quality", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Proper typing technique improves efficiency, ensures accuracy, and maintains quality."
+    },
+    {
+      "id": 10,
+      "question": "What is the purpose of typing practice?",
+      "options": ["Develop skills", "Improve speed", "Ensure accuracy", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing practice develops skills, improves speed, and ensures accuracy."
+    },
+    {
+      "id": 11,
+      "question": "What is the purpose of typing exercises?",
+      "options": ["Develop skills", "Improve speed", "Ensure accuracy", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing exercises develop skills, improve speed, and ensure accuracy."
+    },
+    {
+      "id": 12,
+      "question": "What is the purpose of typing drills?",
+      "options": ["Develop skills", "Improve speed", "Ensure accuracy", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing drills develop skills, improve speed, and ensure accuracy."
+    },
+    {
+      "id": 13,
+      "question": "What is the purpose of typing tests?",
+      "options": ["Measure performance", "Assess skills", "Track progress", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing tests measure performance, assess skills, and track progress."
+    },
+    {
+      "id": 14,
+      "question": "What is the purpose of typing lessons?",
+      "options": ["Teach skills", "Improve knowledge", "Develop competence", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing lessons teach skills, improve knowledge, and develop competence."
+    },
+    {
+      "id": 15,
+      "question": "What is the purpose of typing instruction?",
+      "options": ["Teach skills", "Improve knowledge", "Develop competence", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing instruction teaches skills, improves knowledge, and develops competence."
+    },
+    {
+      "id": 16,
+      "question": "What is the purpose of typing training?",
+      "options": ["Develop skills", "Improve knowledge", "Ensure competence", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing training develops skills, improves knowledge, and ensures competence."
+    },
+    {
+      "id": 17,
+      "question": "What is the purpose of typing education?",
+      "options": ["Increase awareness", "Improve understanding", "Develop expertise", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing education increases awareness, improves understanding, and develops expertise."
+    },
+    {
+      "id": 18,
+      "question": "What is the purpose of typing certification?",
+      "options": ["Verify skills", "Ensure standards", "Provide assurance", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing certification verifies skills, ensures standards, and provides assurance."
+    },
+    {
+      "id": 19,
+      "question": "What is the purpose of typing standards?",
+      "options": ["Ensure consistency", "Maintain quality", "Enable comparison", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing standards ensure consistency, maintain quality, and enable comparison."
+    },
+    {
+      "id": 20,
+      "question": "What is the purpose of typing requirements?",
+      "options": ["Set expectations", "Ensure quality", "Maintain standards", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing requirements set expectations, ensure quality, and maintain standards."
+    },
+    {
+      "id": 21,
+      "question": "What is the purpose of typing goals?",
+      "options": ["Set targets", "Measure progress", "Motivate improvement", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing goals set targets, measure progress, and motivate improvement."
+    },
+    {
+      "id": 22,
+      "question": "What is the purpose of typing objectives?",
+      "options": ["Set targets", "Measure progress", "Motivate improvement", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing objectives set targets, measure progress, and motivate improvement."
+    },
+    {
+      "id": 23,
+      "question": "What is the purpose of typing milestones?",
+      "options": ["Track progress", "Measure achievement", "Motivate improvement", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing milestones track progress, measure achievement, and motivate improvement."
+    },
+    {
+      "id": 24,
+      "question": "What is the purpose of typing benchmarks?",
+      "options": ["Set standards", "Measure performance", "Enable comparison", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing benchmarks set standards, measure performance, and enable comparison."
+    },
+    {
+      "id": 25,
+      "question": "What is the purpose of typing metrics?",
+      "options": ["Measure performance", "Track progress", "Assess quality", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing metrics measure performance, track progress, and assess quality."
+    },
+    {
+      "id": 26,
+      "question": "What is the purpose of typing statistics?",
+      "options": ["Analyze performance", "Track progress", "Assess quality", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing statistics analyze performance, track progress, and assess quality."
+    },
+    {
+      "id": 27,
+      "question": "What is the purpose of typing analysis?",
+      "options": ["Evaluate performance", "Identify problems", "Improve skills", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing analysis evaluates performance, identifies problems, and improves skills."
+    },
+    {
+      "id": 28,
+      "question": "What is the purpose of typing evaluation?",
+      "options": ["Assess performance", "Identify problems", "Improve skills", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing evaluation assesses performance, identifies problems, and improves skills."
+    },
+    {
+      "id": 29,
+      "question": "What is the purpose of typing assessment?",
+      "options": ["Evaluate performance", "Identify problems", "Improve skills", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing assessment evaluates performance, identifies problems, and improves skills."
+    },
+    {
+      "id": 30,
+      "question": "What is the purpose of typing feedback?",
+      "options": ["Provide information", "Improve performance", "Guide improvement", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing feedback provides information, improves performance, and guides improvement."
+    },
+    {
+      "id": 31,
+      "question": "What is the purpose of typing correction?",
+      "options": ["Fix errors", "Improve accuracy", "Maintain quality", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing correction fixes errors, improves accuracy, and maintains quality."
+    },
+    {
+      "id": 32,
+      "question": "What is the purpose of typing improvement?",
+      "options": ["Enhance skills", "Increase speed", "Ensure accuracy", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing improvement enhances skills, increases speed, and ensures accuracy."
+    },
+    {
+      "id": 33,
+      "question": "What is the purpose of typing development?",
+      "options": ["Build skills", "Improve performance", "Ensure competence", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing development builds skills, improves performance, and ensures competence."
+    },
+    {
+      "id": 34,
+      "question": "What is the purpose of typing enhancement?",
+      "options": ["Improve skills", "Increase performance", "Ensure quality", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing enhancement improves skills, increases performance, and ensures quality."
+    },
+    {
+      "id": 35,
+      "question": "What is the purpose of typing optimization?",
+      "options": ["Improve efficiency", "Enhance performance", "Ensure quality", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing optimization improves efficiency, enhances performance, and ensures quality."
+    },
+    {
+      "id": 36,
+      "question": "What is the purpose of typing refinement?",
+      "options": ["Improve skills", "Enhance performance", "Ensure quality", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing refinement improves skills, enhances performance, and ensures quality."
+    },
+    {
+      "id": 37,
+      "question": "What is the purpose of typing mastery?",
+      "options": ["Achieve excellence", "Ensure competence", "Maintain quality", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing mastery achieves excellence, ensures competence, and maintains quality."
+    },
+    {
+      "id": 38,
+      "question": "What is the purpose of typing proficiency?",
+      "options": ["Demonstrate skill", "Ensure competence", "Maintain quality", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing proficiency demonstrates skill, ensures competence, and maintains quality."
+    },
+    {
+      "id": 39,
+      "question": "What is the purpose of typing competence?",
+      "options": ["Ensure ability", "Maintain quality", "Demonstrate skill", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing competence ensures ability, maintains quality, and demonstrates skill."
+    },
+    {
+      "id": 40,
+      "question": "What is the purpose of typing expertise?",
+      "options": ["Demonstrate knowledge", "Ensure competence", "Maintain quality", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing expertise demonstrates knowledge, ensures competence, and maintains quality."
+    },
+    {
+      "id": 41,
+      "question": "What is the purpose of typing knowledge?",
+      "options": ["Understand concepts", "Apply skills", "Ensure competence", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing knowledge understands concepts, applies skills, and ensures competence."
+    },
+    {
+      "id": 42,
+      "question": "What is the purpose of typing understanding?",
+      "options": ["Comprehend concepts", "Apply skills", "Ensure competence", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing understanding comprehends concepts, applies skills, and ensures competence."
+    },
+    {
+      "id": 43,
+      "question": "What is the purpose of typing awareness?",
+      "options": ["Recognize importance", "Understand concepts", "Apply skills", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing awareness recognizes importance, understands concepts, and applies skills."
+    },
+    {
+      "id": 44,
+      "question": "What is the purpose of typing appreciation?",
+      "options": ["Recognize value", "Understand importance", "Develop respect", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing appreciation recognizes value, understands importance, and develops respect."
+    },
+    {
+      "id": 45,
+      "question": "What is the purpose of typing recognition?",
+      "options": ["Acknowledge achievement", "Validate skills", "Provide motivation", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing recognition acknowledges achievement, validates skills, and provides motivation."
+    },
+    {
+      "id": 46,
+      "question": "What is the purpose of typing validation?",
+      "options": ["Confirm skills", "Ensure competence", "Provide assurance", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing validation confirms skills, ensures competence, and provides assurance."
+    },
+    {
+      "id": 47,
+      "question": "What is the purpose of typing verification?",
+      "options": ["Confirm accuracy", "Ensure quality", "Provide assurance", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing verification confirms accuracy, ensures quality, and provides assurance."
+    },
+    {
+      "id": 48,
+      "question": "What is the purpose of typing confirmation?",
+      "options": ["Verify accuracy", "Ensure quality", "Provide assurance", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing confirmation verifies accuracy, ensures quality, and provides assurance."
+    },
+    {
+      "id": 49,
+      "question": "What is the purpose of typing assurance?",
+      "options": ["Provide confidence", "Ensure quality", "Maintain standards", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing assurance provides confidence, ensures quality, and maintains standards."
+    },
+    {
+      "id": 50,
+      "question": "What is the purpose of typing confidence?",
+      "options": ["Build self-esteem", "Improve performance", "Ensure competence", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Typing confidence builds self-esteem, improves performance, and ensures competence."
+    }
+  ]
+}

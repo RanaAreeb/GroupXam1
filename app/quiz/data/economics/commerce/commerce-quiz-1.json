@@ -1,0 +1,360 @@
+{
+  "id": "commerce-quiz-1",
+  "title": "Commerce Quiz 1",
+  "subject": "Commerce",
+  "difficulty": "Intermediate",
+  "questions": 50,
+  "timeLimit": 1800,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the primary purpose of commerce?",
+      "options": ["Production of goods", "Exchange of goods and services", "Consumption of goods", "Distribution of wealth"],
+      "correctAnswer": 1,
+      "explanation": "Commerce is primarily concerned with the exchange of goods and services between parties."
+    },
+    {
+      "id": 2,
+      "question": "Which of the following is a characteristic of a good market?",
+      "options": ["High barriers to entry", "Perfect competition", "Monopoly", "Oligopoly"],
+      "correctAnswer": 1,
+      "explanation": "A good market is characterized by perfect competition with many buyers and sellers."
+    },
+    {
+      "id": 3,
+      "question": "What is the law of demand?",
+      "options": ["Price increases with demand", "Price decreases with demand", "Demand increases with price", "Demand decreases with price"],
+      "correctAnswer": 3,
+      "explanation": "The law of demand states that as price increases, demand decreases, and vice versa."
+    },
+    {
+      "id": 4,
+      "question": "Which type of business organization has unlimited liability?",
+      "options": ["Corporation", "Partnership", "Sole proprietorship", "Both B and C"],
+      "correctAnswer": 3,
+      "explanation": "Both sole proprietorship and partnership have unlimited liability for business debts."
+    },
+    {
+      "id": 5,
+      "question": "What is the primary function of money?",
+      "options": ["Store of value", "Medium of exchange", "Unit of account", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Money serves as a store of value, medium of exchange, and unit of account."
+    },
+    {
+      "id": 6,
+      "question": "Which economic system is based on private ownership?",
+      "options": ["Socialism", "Capitalism", "Communism", "Mixed economy"],
+      "correctAnswer": 1,
+      "explanation": "Capitalism is based on private ownership of resources and means of production."
+    },
+    {
+      "id": 7,
+      "question": "What is inflation?",
+      "options": ["Decrease in prices", "Increase in prices", "Stable prices", "Fluctuating prices"],
+      "correctAnswer": 1,
+      "explanation": "Inflation is the general increase in prices of goods and services over time."
+    },
+    {
+      "id": 8,
+      "question": "Which type of market has only one seller?",
+      "options": ["Perfect competition", "Monopolistic competition", "Oligopoly", "Monopoly"],
+      "correctAnswer": 3,
+      "explanation": "A monopoly is a market structure with only one seller of a particular product."
+    },
+    {
+      "id": 9,
+      "question": "What is the primary goal of a business?",
+      "options": ["Maximize profit", "Maximize sales", "Maximize market share", "Maximize employment"],
+      "correctAnswer": 0,
+      "explanation": "The primary goal of a business is to maximize profit for its owners."
+    },
+    {
+      "id": 10,
+      "question": "Which factor affects demand for a product?",
+      "options": ["Price", "Income", "Tastes and preferences", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Demand is affected by price, income, tastes and preferences, and other factors."
+    },
+    {
+      "id": 11,
+      "question": "What is the difference between goods and services?",
+      "options": ["Goods are tangible, services are intangible", "Services are tangible, goods are intangible", "Both are tangible", "Both are intangible"],
+      "correctAnswer": 0,
+      "explanation": "Goods are tangible products that can be touched, while services are intangible activities."
+    },
+    {
+      "id": 12,
+      "question": "Which type of business has the most complex structure?",
+      "options": ["Sole proprietorship", "Partnership", "Corporation", "Cooperative"],
+      "correctAnswer": 2,
+      "explanation": "Corporations have the most complex structure with shareholders, board of directors, and management."
+    },
+    {
+      "id": 13,
+      "question": "What is the law of supply?",
+      "options": ["Price increases with supply", "Price decreases with supply", "Supply increases with price", "Supply decreases with price"],
+      "correctAnswer": 2,
+      "explanation": "The law of supply states that as price increases, supply increases, and vice versa."
+    },
+    {
+      "id": 14,
+      "question": "Which economic indicator measures the total value of goods and services produced?",
+      "options": ["CPI", "GDP", "GNP", "Both B and C"],
+      "correctAnswer": 3,
+      "explanation": "Both GDP (Gross Domestic Product) and GNP (Gross National Product) measure total economic output."
+    },
+    {
+      "id": 15,
+      "question": "What is the primary function of a bank?",
+      "options": ["Store money", "Lend money", "Facilitate transactions", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Banks store money, lend money, and facilitate financial transactions."
+    },
+    {
+      "id": 16,
+      "question": "Which type of competition has many sellers with differentiated products?",
+      "options": ["Perfect competition", "Monopolistic competition", "Oligopoly", "Monopoly"],
+      "correctAnswer": 1,
+      "explanation": "Monopolistic competition has many sellers offering differentiated products."
+    },
+    {
+      "id": 17,
+      "question": "What is the primary purpose of advertising?",
+      "options": ["Inform consumers", "Persuade consumers", "Remind consumers", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Advertising serves to inform, persuade, and remind consumers about products."
+    },
+    {
+      "id": 18,
+      "question": "Which factor affects the supply of a product?",
+      "options": ["Price", "Cost of production", "Technology", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Supply is affected by price, cost of production, technology, and other factors."
+    },
+    {
+      "id": 19,
+      "question": "What is the primary function of insurance?",
+      "options": ["Investment", "Risk management", "Savings", "Credit"],
+      "correctAnswer": 1,
+      "explanation": "Insurance is primarily a risk management tool that provides financial protection."
+    },
+    {
+      "id": 20,
+      "question": "Which type of business organization has limited liability?",
+      "options": ["Sole proprietorship", "Partnership", "Corporation", "None of the above"],
+      "correctAnswer": 2,
+      "explanation": "Corporations have limited liability, meaning shareholders are not personally liable for business debts."
+    },
+    {
+      "id": 21,
+      "question": "What is the primary purpose of marketing?",
+      "options": ["Create products", "Sell products", "Satisfy customer needs", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Marketing involves creating, selling, and satisfying customer needs through products and services."
+    },
+    {
+      "id": 22,
+      "question": "Which economic system combines private and public ownership?",
+      "options": ["Capitalism", "Socialism", "Mixed economy", "Communism"],
+      "correctAnswer": 2,
+      "explanation": "A mixed economy combines elements of both private and public ownership."
+    },
+    {
+      "id": 23,
+      "question": "What is the primary function of a stock exchange?",
+      "options": ["Issue stocks", "Trade stocks", "Regulate companies", "All of the above"],
+      "correctAnswer": 1,
+      "explanation": "Stock exchanges facilitate the trading of stocks and other securities."
+    },
+    {
+      "id": 24,
+      "question": "Which type of market has few sellers?",
+      "options": ["Perfect competition", "Monopolistic competition", "Oligopoly", "Monopoly"],
+      "correctAnswer": 2,
+      "explanation": "An oligopoly is a market structure with few sellers dominating the market."
+    },
+    {
+      "id": 25,
+      "question": "What is the primary purpose of a business plan?",
+      "options": ["Secure funding", "Guide operations", "Attract investors", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "A business plan serves to secure funding, guide operations, and attract investors."
+    },
+    {
+      "id": 26,
+      "question": "Which factor affects the price elasticity of demand?",
+      "options": ["Availability of substitutes", "Necessity of the good", "Time period", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Price elasticity of demand is affected by substitutes, necessity, time period, and other factors."
+    },
+    {
+      "id": 27,
+      "question": "What is the primary function of a wholesaler?",
+      "options": ["Sell to consumers", "Sell to retailers", "Manufacture products", "All of the above"],
+      "correctAnswer": 1,
+      "explanation": "Wholesalers primarily sell products to retailers in large quantities."
+    },
+    {
+      "id": 28,
+      "question": "Which type of business risk is insurable?",
+      "options": ["Market risk", "Credit risk", "Pure risk", "Speculative risk"],
+      "correctAnswer": 2,
+      "explanation": "Pure risks (like fire, theft) are typically insurable, while speculative risks are not."
+    },
+    {
+      "id": 29,
+      "question": "What is the primary purpose of a franchise?",
+      "options": ["Reduce competition", "Expand business", "Reduce costs", "All of the above"],
+      "correctAnswer": 1,
+      "explanation": "Franchising is primarily used to expand business operations through licensing agreements."
+    },
+    {
+      "id": 30,
+      "question": "Which economic indicator measures price changes?",
+      "options": ["GDP", "CPI", "GNP", "Unemployment rate"],
+      "correctAnswer": 1,
+      "explanation": "CPI (Consumer Price Index) measures changes in the price level of consumer goods."
+    },
+    {
+      "id": 31,
+      "question": "What is the primary function of a retailer?",
+      "options": ["Sell to wholesalers", "Sell to consumers", "Manufacture products", "All of the above"],
+      "correctAnswer": 1,
+      "explanation": "Retailers primarily sell products directly to consumers."
+    },
+    {
+      "id": 32,
+      "question": "Which type of business organization is easiest to form?",
+      "options": ["Corporation", "Partnership", "Sole proprietorship", "Cooperative"],
+      "correctAnswer": 2,
+      "explanation": "Sole proprietorship is the easiest business form to establish and operate."
+    },
+    {
+      "id": 33,
+      "question": "What is the primary purpose of a trade union?",
+      "options": ["Represent employers", "Represent workers", "Regulate trade", "All of the above"],
+      "correctAnswer": 1,
+      "explanation": "Trade unions primarily represent and protect the interests of workers."
+    },
+    {
+      "id": 34,
+      "question": "Which factor affects the success of a business?",
+      "options": ["Management", "Market conditions", "Competition", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Business success is affected by management, market conditions, competition, and other factors."
+    },
+    {
+      "id": 35,
+      "question": "What is the primary function of a credit union?",
+      "options": ["Provide loans", "Accept deposits", "Serve members", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Credit unions provide loans, accept deposits, and serve their members' financial needs."
+    },
+    {
+      "id": 36,
+      "question": "Which type of market structure has the most competition?",
+      "options": ["Monopoly", "Oligopoly", "Monopolistic competition", "Perfect competition"],
+      "correctAnswer": 3,
+      "explanation": "Perfect competition has the most competition with many buyers and sellers."
+    },
+    {
+      "id": 37,
+      "question": "What is the primary purpose of a business merger?",
+      "options": ["Reduce competition", "Increase market share", "Reduce costs", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Mergers can reduce competition, increase market share, and reduce costs through economies of scale."
+    },
+    {
+      "id": 38,
+      "question": "Which economic principle states that resources are limited?",
+      "options": ["Law of demand", "Law of supply", "Scarcity", "Opportunity cost"],
+      "correctAnswer": 2,
+      "explanation": "Scarcity is the economic principle that resources are limited relative to wants."
+    },
+    {
+      "id": 39,
+      "question": "What is the primary function of a business consultant?",
+      "options": ["Provide advice", "Manage operations", "Invest capital", "All of the above"],
+      "correctAnswer": 0,
+      "explanation": "Business consultants primarily provide expert advice to help businesses improve performance."
+    },
+    {
+      "id": 40,
+      "question": "Which type of business risk cannot be insured?",
+      "options": ["Fire risk", "Theft risk", "Market risk", "Natural disaster risk"],
+      "correctAnswer": 2,
+      "explanation": "Market risks (like changes in demand) are typically not insurable as they are speculative."
+    },
+    {
+      "id": 41,
+      "question": "What is the primary purpose of a business partnership?",
+      "options": ["Share profits", "Share risks", "Combine resources", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Partnerships allow partners to share profits, risks, and combine resources."
+    },
+    {
+      "id": 42,
+      "question": "Which factor affects the location of a business?",
+      "options": ["Access to customers", "Access to suppliers", "Transportation costs", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Business location is affected by access to customers, suppliers, and transportation costs."
+    },
+    {
+      "id": 43,
+      "question": "What is the primary function of a business broker?",
+      "options": ["Buy businesses", "Sell businesses", "Facilitate business sales", "All of the above"],
+      "correctAnswer": 2,
+      "explanation": "Business brokers facilitate the buying and selling of businesses."
+    },
+    {
+      "id": 44,
+      "question": "Which type of business organization has the most government regulation?",
+      "options": ["Sole proprietorship", "Partnership", "Corporation", "All are equal"],
+      "correctAnswer": 2,
+      "explanation": "Corporations face the most government regulation due to their complex structure."
+    },
+    {
+      "id": 45,
+      "question": "What is the primary purpose of a business license?",
+      "options": ["Generate revenue", "Regulate business", "Protect consumers", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Business licenses generate revenue, regulate business, and protect consumers."
+    },
+    {
+      "id": 46,
+      "question": "Which economic concept refers to the next best alternative?",
+      "options": ["Scarcity", "Opportunity cost", "Marginal cost", "Total cost"],
+      "correctAnswer": 1,
+      "explanation": "Opportunity cost refers to the value of the next best alternative that is foregone."
+    },
+    {
+      "id": 47,
+      "question": "What is the primary function of a business incubator?",
+      "options": ["Provide funding", "Provide support", "Help startups", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Business incubators provide funding, support, and help startups grow."
+    },
+    {
+      "id": 48,
+      "question": "Which type of business organization has the most flexibility?",
+      "options": ["Corporation", "Partnership", "Sole proprietorship", "Cooperative"],
+      "correctAnswer": 2,
+      "explanation": "Sole proprietorship has the most flexibility as the owner makes all decisions."
+    },
+    {
+      "id": 49,
+      "question": "What is the primary purpose of a business association?",
+      "options": ["Represent members", "Promote industry", "Set standards", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Business associations represent members, promote industry, and set standards."
+    },
+    {
+      "id": 50,
+      "question": "Which factor affects the profitability of a business?",
+      "options": ["Revenue", "Costs", "Market conditions", "All of the above"],
+      "correctAnswer": 3,
+      "explanation": "Business profitability is affected by revenue, costs, market conditions, and other factors."
+    }
+  ]
+}
