@@ -25,10 +25,12 @@ import {
 import Header from "@/components/ui/header";
 import Image from "next/image";
 import { useAuth } from "@/hooks/use-auth";
+import { useDiscussionNotification } from "@/hooks/use-discussion-notification";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { MdGroups } from "react-icons/md";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
+import DiscussionNotification from "@/components/DiscussionNotification";
 
 // Add type for Exam
 interface Exam {
@@ -54,6 +56,7 @@ interface Review {
 
 export default function HomePage() {
   const { isLoggedIn, loading, logout, user } = useAuth();
+  const { showNotification, latestDiscussion, handleCloseNotification } = useDiscussionNotification();
 
   // Animated counters
   const [questionsCount, setQuestionsCount] = useState<number | null>(null);
@@ -1574,6 +1577,15 @@ export default function HomePage() {
           </div>
         </footer>
       </div>
+
+      {/* Discussion Notification Popup */}
+      {showNotification && (
+        <DiscussionNotification
+          onClose={handleCloseNotification}
+          discussionTitle={latestDiscussion?.title}
+          authorName={latestDiscussion?.author}
+        />
+      )}
     </PageTransition>
   );
 }

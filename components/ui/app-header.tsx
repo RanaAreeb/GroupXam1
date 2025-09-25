@@ -25,6 +25,7 @@ export default function AppHeader({
     { href: "/flashcards", label: "Flashcards" },
     { href: "/discussions", label: "Study Groups" },
     { href: "/whiteboard", label: "Whiteboard" },
+    { href: "/services", label: "ProctorIT" },
   ];
 
   return (

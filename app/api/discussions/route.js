@@ -31,6 +31,7 @@ export async function GET(request) {
         const { searchParams } = new URL(request.url);
         const subject = searchParams.get("subject");
         const search = searchParams.get("search") || "";
+        const limit = parseInt(searchParams.get("limit")) || 0;
         const db = await getDatabase();
         const discussions = db.collection("discussions");
 
@@ -44,10 +45,13 @@ export async function GET(request) {
                 { content: { $regex: search, $options: "i" } },
             ];
         }
-        const result = await discussions
-            .find(query)
-            .sort({ createdAt: -1 })
-            .toArray();
+
+        let cursor = discussions.find(query).sort({ createdAt: -1 });
+        if (limit > 0) {
+            cursor = cursor.limit(limit);
+        }
+
+        const result = await cursor.toArray();
         return NextResponse.json(result);
     } catch (error) {
         console.error("Discussions fetch error:", error);
