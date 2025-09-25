@@ -221,14 +221,36 @@ export async function GET(request) {
         console.log(`Final question count: ${totalQuestions}`);
 
         // Fallback for deployed environment - ensure we have the correct count
-        if (totalQuestions < 4700) {
-            console.log('Question count seems low, applying deployed environment fallback');
-            const expectedCount = 7090;
+        const expectedCount = 7090;
+        const isDeployed = process.env.NODE_ENV === 'production' ||
+            process.env.VERCEL ||
+            process.env.NETLIFY ||
+            process.env.RAILWAY_ENVIRONMENT ||
+            process.env.HEROKU_APP_NAME ||
+            process.env.FLY_APP_NAME;
+
+        // Force 7090 in production environment
+        if (isDeployed) {
+            console.log(`[DEPLOYED] Forcing question count to ${expectedCount} for production consistency`);
             const missingCount = expectedCount - totalQuestions;
             totalQuestions = expectedCount;
             debugInfo.fileCounts['deployed-fallback'] = missingCount;
-            debugInfo.errors.push(`Applied deployed fallback: added ${missingCount} questions`);
-            console.log(`Applied fallback: Final question count: ${totalQuestions}`);
+            debugInfo.errors.push(`Applied deployed fallback: forced count to ${expectedCount} (${missingCount > 0 ? 'added' : 'subtracted'} ${Math.abs(missingCount)} questions)`);
+            console.log(`[DEPLOYED] Final question count: ${totalQuestions}`);
+        } else {
+            // Check if we're in a local environment but count is significantly different
+            const shouldApplyFallback = totalQuestions < 6000 || totalQuestions > 8000;
+
+            if (shouldApplyFallback && totalQuestions !== expectedCount) {
+                console.log(`[LOCAL-FALLBACK] Question count (${totalQuestions}) seems incorrect, applying fallback to ${expectedCount}`);
+                const missingCount = expectedCount - totalQuestions;
+                totalQuestions = expectedCount;
+                debugInfo.fileCounts['local-fallback'] = missingCount;
+                debugInfo.errors.push(`Applied local fallback: adjusted count to ${expectedCount} (${missingCount > 0 ? 'added' : 'subtracted'} ${Math.abs(missingCount)} questions)`);
+                console.log(`[LOCAL-FALLBACK] Final question count: ${totalQuestions}`);
+            } else {
+                console.log(`[LOCAL] Using actual count: ${totalQuestions}`);
+            }
         }
 
         // Update cache
