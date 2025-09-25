@@ -99,6 +99,17 @@ export default function Header({
                     <User className="w-4 h-4 mr-3" />
                     My Profile
                   </Link>
+                  {/* Admin Dashboard - Only visible to admin users */}
+                  {(user?.email === "ranaareeb1029@gmail.com" || user?.email === "cliftonmanneh6@gmail.com") && (
+                    <Link
+                      href="/admin/dashboard"
+                      className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors"
+                      onClick={() => setShowUserMenu(false)}
+                    >
+                      <Settings className="w-4 h-4 mr-3" />
+                      Admin Dashboard
+                    </Link>
+                  )}
                   {/* Dashboard - Only visible to university users */}
                   {user?.role === "university" && (
                     <Link
@@ -180,6 +191,17 @@ export default function Header({
                     <User className="w-4 h-4 mr-3" />
                     My Profile
                   </Link>
+                  {/* Admin Dashboard - Only visible to admin users */}
+                  {(user?.email === "ranaareeb1029@gmail.com" || user?.email === "cliftonmanneh6@gmail.com") && (
+                    <Link
+                      href="/admin/dashboard"
+                      className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors"
+                      onClick={() => setShowUserMenu(false)}
+                    >
+                      <Settings className="w-4 h-4 mr-3" />
+                      Admin Dashboard
+                    </Link>
+                  )}
                   {/* Dashboard - Only visible to university users */}
                   {user?.role === "university" && (
                     <Link
