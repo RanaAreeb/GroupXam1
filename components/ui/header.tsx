@@ -151,13 +151,8 @@ export default function Header({
         </nav>
         {/* Mobile Nav - Simplified */}
         <nav className="md:hidden flex items-center space-x-3">
-          {/* Home Button */}
-          <Link
-            href="/"
-            className="text-gray-600 hover:text-emerald-600 transition-colors font-medium text-sm px-3 py-2 rounded-lg hover:bg-gray-50"
-          >
-            Home
-          </Link>
+          {/* Mobile Navigation Links */}
+          {navLinks}
           
           {/* Mobile User Account Section */}
           {userIsLoggedIn ? (

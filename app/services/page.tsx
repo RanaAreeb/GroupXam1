@@ -47,15 +47,8 @@ export default function ServicesPage() {
   // Navigation links for header
   const navLinks = (
     <>
-      <Link href="/" className="text-gray-600 hover:text-emerald-600 transition-colors font-medium">
+      <Link href="/" className="text-gray-600 hover:text-emerald-600 transition-colors font-medium text-sm px-3 py-2 rounded-lg hover:bg-gray-50">
         Home
-      </Link>
-      <Link href="/services" className="text-emerald-600 font-medium">
-        Services
-      </Link>
-      
-      <Link href="/contact" className="text-gray-600 hover:text-emerald-600 transition-colors font-medium">
-        Contact
       </Link>
     </>
   );
