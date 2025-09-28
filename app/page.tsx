@@ -5,6 +5,7 @@ import PageTransition from "@/components/PageTransition";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { formatTestimonialName } from "@/lib/utils";
 import {
   Target,
   Clock,
@@ -1293,7 +1294,7 @@ export default function HomePage() {
                             </div>
                             <div className="text-left">
                               <div className="font-semibold text-gray-800 text-base sm:text-lg">
-                                {review.name}
+                                {formatTestimonialName(review.name)}
                               </div>
                               <div className="text-xs sm:text-sm text-gray-500">
                                 {review.details}

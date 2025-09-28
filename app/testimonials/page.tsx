@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Star, ArrowLeft } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { formatTestimonialName } from "@/lib/utils";
 
 interface Review {
   _id?: string;
@@ -129,7 +130,7 @@ export default function TestimonialsPage() {
                     </div>
                     <div className="text-left">
                       <div className="font-semibold text-base">
-                        {reviews[carouselIdx].name}
+                        {formatTestimonialName(reviews[carouselIdx].name)}
                       </div>
                       <div className="text-xs text-gray-500">
                         {reviews[carouselIdx].details}
