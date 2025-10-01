@@ -61,8 +61,8 @@ export default function HomePage() {
 
   // Animated counters
   const [questionsCount, setQuestionsCount] = useState<number | null>(null);
-  const [successRate, setSuccessRate] = useState<number | null>(null);
-  const [supportHours, setSupportHours] = useState(0);
+  const [totalQuizzesCompleted, setTotalQuizzesCompleted] = useState<number | null>(null);
+  const [studentRetention, setStudentRetention] = useState<number | null>(null);
   const [totalUsers, setTotalUsers] = useState(0);
 
   // Live activity feed
@@ -186,18 +186,33 @@ export default function HomePage() {
     }
   }, []);
 
-  // Fetch real-time success rate
-  const fetchSuccessRate = useCallback(async () => {
+  // Fetch total quizzes and tests completed
+  const fetchTotalQuizzesCompleted = useCallback(async () => {
     try {
-      const response = await fetch('/api/stats/success-rate');
+      const response = await fetch('/api/stats/quizzes-completed');
       const data = await response.json();
       
       if (data.success) {
-        setSuccessRate(data.successRate);
-        console.log('Updated success rate:', data.successRate);
+        setTotalQuizzesCompleted(data.totalQuizzesCompleted);
+        console.log('Updated total quizzes completed:', data.totalQuizzesCompleted);
       }
     } catch (error) {
-      console.error('Failed to fetch success rate:', error);
+      console.error('Failed to fetch total quizzes completed:', error);
+    }
+  }, []);
+
+  // Fetch student retention rate
+  const fetchStudentRetention = useCallback(async () => {
+    try {
+      const response = await fetch('/api/stats/student-retention');
+      const data = await response.json();
+      
+      if (data.success) {
+        setStudentRetention(data.studentRetention);
+        console.log('Updated student retention:', data.studentRetention);
+      }
+    } catch (error) {
+      console.error('Failed to fetch student retention:', error);
     }
   }, []);
 
@@ -205,26 +220,19 @@ export default function HomePage() {
   useEffect(() => {
     fetchUserCount();
     fetchQuestionCount();
-    fetchSuccessRate();
+    fetchTotalQuizzesCompleted();
+    fetchStudentRetention();
     
     const interval = setInterval(() => {
       fetchUserCount();
       fetchQuestionCount();
-      fetchSuccessRate();
+      fetchTotalQuizzesCompleted();
+      fetchStudentRetention();
     }, 120000); // 2 minutes instead of 30 seconds
     
     return () => clearInterval(interval);
-  }, [fetchUserCount, fetchQuestionCount, fetchSuccessRate]);
+  }, [fetchUserCount, fetchQuestionCount, fetchTotalQuizzesCompleted, fetchStudentRetention]);
 
-  // Animated counters effect (only for support hours now)
-  useEffect(() => {
-    let h = 0;
-    const interval = setInterval(() => {
-      if (h < 24) setSupportHours((prev) => Math.min(prev + 1, 24));
-      h += 1;
-    }, 30);
-    return () => clearInterval(interval);
-  }, []);
 
   // Subject tiles with category mapping
   const subjects = [
@@ -686,9 +694,18 @@ export default function HomePage() {
               <br />
               <span className="text-gray-800">with Confidence</span>
             </h1>
-            <p className="text-base sm:text-xl text-gray-600 mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed px-4">
-            With 24/7 access to educational tools
-            </p>
+            {/* Progress Bar Design */}
+            <div className="mb-8 sm:mb-10 max-w-3xl mx-auto px-4">
+              <div className="relative flex items-center justify-center space-x-4 text-lg sm:text-xl font-bold text-gray-800">
+                <span className="text-blue-600">Smarter</span>
+                <div className="w-0 h-0 border-l-[6px] border-l-green-500 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent"></div>
+                <span className="text-blue-600">Prep</span>
+                <div className="w-0 h-0 border-l-[6px] border-l-green-500 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent"></div>
+                <span className="text-blue-600">Stronger</span>
+                <div className="w-0 h-0 border-l-[6px] border-l-green-500 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent"></div>
+                <span className="text-blue-600">Results</span>
+              </div>
+            </div>
 
             {/* Quick Start Widget */}
             <div className="grid grid-cols-2 gap-3 sm:flex sm:flex-row sm:gap-4 justify-center mb-8 sm:mb-12 px-4 max-w-sm sm:max-w-none mx-auto">
@@ -742,8 +759,8 @@ export default function HomePage() {
               </div>
               <div className="text-center">
                 <div className="text-2xl sm:text-3xl font-bold text-blue-600 mb-1 sm:mb-2 animate-bounce">
-                  {successRate !== null ? (
-                    successRate + '%'
+                  {totalQuizzesCompleted !== null ? (
+                    totalQuizzesCompleted.toLocaleString() + '+'
                   ) : (
                     <div className="flex items-center justify-center space-x-1">
                       <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
@@ -753,15 +770,23 @@ export default function HomePage() {
                   )}
                 </div>
                 <div className="text-xs sm:text-sm text-gray-600">
-                  Success Rate
+                  Total Quizzes and Tests Completed
                 </div>
               </div>
               <div className="text-center">
                 <div className="text-2xl sm:text-3xl font-bold text-purple-600 mb-1 sm:mb-2 animate-bounce">
-                  {supportHours}/7
+                  {studentRetention !== null ? (
+                    studentRetention + '%'
+                  ) : (
+                    <div className="flex items-center justify-center space-x-1">
+                      <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></div>
+                      <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
+                      <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
+                    </div>
+                  )}
                 </div>
                 <div className="text-xs sm:text-sm text-gray-600">
-                  Study Support
+                  Total Student Retention
                 </div>
               </div>
             </div>
