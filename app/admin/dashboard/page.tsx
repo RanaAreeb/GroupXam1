@@ -1252,46 +1252,89 @@ export default function AdminDashboard() {
                         
                         {/* Filter Section */}
                         <div className="mb-4 p-4 bg-gray-50 rounded-lg">
-                          <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
-                            <div className="flex-1">
-                              <label className="text-sm font-medium text-gray-700 mb-2 block">Filter by Role</label>
+                          <div className="flex flex-col gap-4">
+                            {/* Search Bar */}
+                            <div>
+                              <label className="text-sm font-medium text-gray-700 mb-2 block">Search Users</label>
                               <div className="flex gap-2">
-                                <Select value={userRoleFilter} onValueChange={setUserRoleFilter}>
-                                  <SelectTrigger className="w-full sm:w-48">
-                                    <SelectValue placeholder="Select role" />
-                                  </SelectTrigger>
-                                  <SelectContent>
-                                    <SelectItem value="all">All Users</SelectItem>
-                                    <SelectItem value="student">Students</SelectItem>
-                                    <SelectItem value="university">Universities</SelectItem>
-                                  </SelectContent>
-                                </Select>
-                                {userRoleFilter !== 'all' && (
+                                <Input
+                                  type="text"
+                                  placeholder="Search by name or email..."
+                                  value={userSearchQuery}
+                                  onChange={(e) => setUserSearchQuery(e.target.value)}
+                                  className="flex-1"
+                                />
+                                {userSearchQuery && (
                                   <Button
                                     variant="outline"
                                     size="sm"
-                                    onClick={() => setUserRoleFilter('all')}
-                                    className="text-xs"
+                                    onClick={() => setUserSearchQuery('')}
+                                    className="text-gray-500 hover:text-gray-700"
                                   >
-                                    Reset
+                                    Clear
                                   </Button>
                                 )}
                               </div>
                             </div>
-                            <div className="text-sm text-gray-600">
-                              {userRoleFilter === 'all' 
-                                ? `Showing ${stats.users?.length || 0} users`
-                                : `Showing ${stats.users?.filter(user => user.role === userRoleFilter).length || 0} ${userRoleFilter} users`
-                              }
+                            
+                            {/* Role Filter */}
+                            <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+                              <div className="flex-1">
+                                <label className="text-sm font-medium text-gray-700 mb-2 block">Filter by Role</label>
+                                <div className="flex gap-2">
+                                  <Select value={userRoleFilter} onValueChange={setUserRoleFilter}>
+                                    <SelectTrigger className="w-full sm:w-48">
+                                      <SelectValue placeholder="Select role" />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                      <SelectItem value="all">All Users</SelectItem>
+                                      <SelectItem value="student">Students</SelectItem>
+                                      <SelectItem value="university">Universities</SelectItem>
+                                    </SelectContent>
+                                  </Select>
+                                  {userRoleFilter !== 'all' && (
+                                    <Button
+                                      variant="outline"
+                                      size="sm"
+                                      onClick={() => setUserRoleFilter('all')}
+                                      className="text-xs"
+                                    >
+                                      Reset
+                                    </Button>
+                                  )}
+                                </div>
+                              </div>
+                              <div className="text-sm text-gray-600">
+                                {(() => {
+                                  const filteredUsers = stats.users?.filter(user => {
+                                    const matchesSearch = userSearchQuery === '' || 
+                                      user.name?.toLowerCase().includes(userSearchQuery.toLowerCase()) ||
+                                      user.email?.toLowerCase().includes(userSearchQuery.toLowerCase());
+                                    const matchesRole = userRoleFilter === 'all' || user.role === userRoleFilter;
+                                    return matchesSearch && matchesRole;
+                                  }) || [];
+                                  
+                                  return userRoleFilter === 'all' 
+                                    ? `Showing ${filteredUsers.length} of ${stats.users?.length || 0} users`
+                                    : `Showing ${filteredUsers.length} ${userRoleFilter} users`;
+                                })()}
+                              </div>
                             </div>
                           </div>
                         </div>
                         
                         <div className="space-y-4">
-                           {stats.users && stats.users.length > 0 && stats.users.filter(user => userRoleFilter === 'all' || user.role === userRoleFilter).length > 0 ? (
-                             stats.users
-                               .filter(user => userRoleFilter === 'all' || user.role === userRoleFilter)
-                               .map((user) => (
+                           {(() => {
+                             const filteredUsers = stats.users?.filter(user => {
+                               const matchesSearch = userSearchQuery === '' || 
+                                 user.name?.toLowerCase().includes(userSearchQuery.toLowerCase()) ||
+                                 user.email?.toLowerCase().includes(userSearchQuery.toLowerCase());
+                               const matchesRole = userRoleFilter === 'all' || user.role === userRoleFilter;
+                               return matchesSearch && matchesRole;
+                             }) || [];
+                             
+                             return filteredUsers.length > 0 ? (
+                               filteredUsers.map((user) => (
                             <div key={user._id} className="p-4 border rounded-lg bg-gray-50">
                               <div className="flex items-center justify-between">
                                 <div>
@@ -1355,13 +1398,16 @@ export default function AdminDashboard() {
                           ) : (
                             <div className="text-center py-8">
                               <p className="text-gray-500">
-                                {userRoleFilter === 'all' 
-                                  ? 'No users found' 
-                                  : `No ${userRoleFilter} users found`
+                                {userSearchQuery 
+                                  ? 'No users found matching your search' 
+                                  : userRoleFilter === 'all' 
+                                    ? 'No users found' 
+                                    : `No ${userRoleFilter} users found`
                                 }
                               </p>
                             </div>
-                          )}
+                          );
+                           })()}
                         </div>
                       </DialogContent>
                     </Dialog>
