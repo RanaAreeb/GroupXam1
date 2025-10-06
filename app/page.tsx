@@ -687,7 +687,7 @@ export default function HomePage() {
                 universities!
               </span>
             </div>
-            <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6 leading-tight px-2">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6 leading-tight px-2">
               <span className="bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient-x">
                 Ace Your Exams
               </span>
@@ -696,13 +696,13 @@ export default function HomePage() {
             </h1>
             {/* Progress Bar Design */}
             <div className="mb-8 sm:mb-10 max-w-3xl mx-auto px-4">
-              <div className="relative flex items-center justify-center space-x-4 text-lg sm:text-xl font-bold text-gray-800">
+              <div className="relative flex items-center justify-center space-x-2 sm:space-x-4 text-base sm:text-xl md:text-2xl font-bold text-gray-800">
                 <span className="text-blue-600">Smarter</span>
-                <div className="w-0 h-0 border-l-[6px] border-l-green-500 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent"></div>
+                <div className="w-0 h-0 border-l-[4px] sm:border-l-[6px] border-l-green-500 border-t-[3px] sm:border-t-[4px] border-t-transparent border-b-[3px] sm:border-b-[4px] border-b-transparent"></div>
                 <span className="text-blue-600">Prep</span>
-                <div className="w-0 h-0 border-l-[6px] border-l-green-500 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent"></div>
+                <div className="w-0 h-0 border-l-[4px] sm:border-l-[6px] border-l-green-500 border-t-[3px] sm:border-t-[4px] border-t-transparent border-b-[3px] sm:border-b-[4px] border-b-transparent"></div>
                 <span className="text-blue-600">Stronger</span>
-                <div className="w-0 h-0 border-l-[6px] border-l-green-500 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent"></div>
+                <div className="w-0 h-0 border-l-[4px] sm:border-l-[6px] border-l-green-500 border-t-[3px] sm:border-t-[4px] border-t-transparent border-b-[3px] sm:border-b-[4px] border-b-transparent"></div>
                 <span className="text-blue-600">Results</span>
               </div>
             </div>
@@ -712,28 +712,28 @@ export default function HomePage() {
               <Button
                 asChild
                 size="lg"
-                className="bg-indigo-600 hover:bg-indigo-700 text-white text-sm sm:text-lg px-4 sm:px-8 py-3 sm:py-4 shadow-lg"
+                className="bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white text-xs sm:text-lg px-4 sm:px-8 py-3 sm:py-4 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 rounded-xl font-semibold border-0"
               >
                 <Link href={isLoggedIn ? "/exams/ielts" : "/login"}>IELTS</Link>
               </Button>
               <Button
                 asChild
                 size="lg"
-                className="bg-emerald-600 hover:bg-emerald-700 text-white text-sm sm:text-lg px-4 sm:px-8 py-3 sm:py-4 shadow-lg"
+                className="bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white text-xs sm:text-lg px-4 sm:px-8 py-3 sm:py-4 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 rounded-xl font-semibold border-0"
               >
                 <Link href={isLoggedIn ? "/exams/waec" : "/login"}>WAEC</Link>
               </Button>
               <Button
                 asChild
                 size="lg"
-                className="bg-blue-600 hover:bg-blue-700 text-white text-sm sm:text-lg px-4 sm:px-8 py-3 sm:py-4 shadow-lg"
+                className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white text-xs sm:text-lg px-4 sm:px-8 py-3 sm:py-4 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 rounded-xl font-semibold border-0"
               >
                 <Link href={isLoggedIn ? "/exams/wassce" : "/login"}>WASSCE</Link>
               </Button>
               <Button
                 asChild
                 size="lg"
-                className="bg-purple-600 hover:bg-purple-700 text-white text-sm sm:text-lg px-4 sm:px-8 py-3 sm:py-4 shadow-lg"
+                className="bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white text-xs sm:text-lg px-4 sm:px-8 py-3 sm:py-4 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 rounded-xl font-semibold border-0"
               >
                 <Link href={isLoggedIn ? "/exams/jamb" : "/login"}>JAMB</Link>
               </Button>
