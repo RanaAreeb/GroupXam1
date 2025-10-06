@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { getDatabase } from "@/lib/db";
 
 export async function GET(request) {
@@ -8,7 +8,7 @@ export async function GET(request) {
         const token = request.cookies.get("token")?.value;
 
         if (!token) {
-            return Response.json({ loggedIn: false, user: null });
+            return NextResponse.json({ loggedIn: false, user: null });
         }
 
         // Verify token
@@ -24,10 +24,10 @@ export async function GET(request) {
         );
 
         if (!user) {
-            return Response.json({ loggedIn: false, user: null });
+            return NextResponse.json({ loggedIn: false, user: null });
         }
 
-        return Response.json({
+        return NextResponse.json({
             loggedIn: true,
             user: {
                 name: user.name,
@@ -52,7 +52,21 @@ export async function GET(request) {
         });
 
     } catch (error) {
+        // Handle JWT expiration and other token errors gracefully
+        if (error.name === 'TokenExpiredError' || error.name === 'JsonWebTokenError') {
+            // Clear the expired/invalid token cookie
+            const response = NextResponse.json({ loggedIn: false, user: null });
+            response.cookies.set('token', '', {
+                httpOnly: true,
+                secure: process.env.NODE_ENV === 'production',
+                sameSite: 'lax',
+                maxAge: 0,
+                path: '/'
+            });
+            return response;
+        }
+
         console.error("Auth check error:", error);
-        return Response.json({ loggedIn: false, user: null });
+        return NextResponse.json({ loggedIn: false, user: null });
     }
 }

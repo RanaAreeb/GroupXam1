@@ -3,6 +3,7 @@ import "./globals.css";
 import CookieConsent from "@/components/CookieConsent";
 import SessionTracker from "@/components/SessionTracker";
 import AlertProvider from "@/components/AlertProvider";
+import ErrorBoundary from "@/components/ErrorBoundary";
 
 export const metadata: Metadata = {
   title:
@@ -280,12 +281,14 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <CookieConsent />
-        <SessionTracker>
-          <AlertProvider>
-            {children}
-          </AlertProvider>
-        </SessionTracker>
+        <ErrorBoundary>
+          <CookieConsent />
+          <SessionTracker>
+            <AlertProvider>
+              {children}
+            </AlertProvider>
+          </SessionTracker>
+        </ErrorBoundary>
       </body>
     </html>
   );

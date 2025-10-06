@@ -356,16 +356,38 @@ export default function HomePage() {
   const [isLoadingReviews, setIsLoadingReviews] = useState(true);
   
   useEffect(() => {
-    fetch("/api/reviews")
-      .then((res) => (res.ok ? res.json() : []))
-      .then((data) => setReviews(Array.isArray(data) ? data : []))
-      .catch((error) => {
+    const fetchReviews = async (retryCount = 0) => {
+      try {
+        const response = await fetch("/api/reviews", {
+          headers: {
+            'Cache-Control': 'no-cache',
+          }
+        });
+        
+        if (response.ok) {
+          const data = await response.json();
+          setReviews(Array.isArray(data) ? data : []);
+          setIsLoadingReviews(false);
+        } else if (retryCount < 3) {
+          // Retry on failure
+          setTimeout(() => fetchReviews(retryCount + 1), 1000 * (retryCount + 1));
+        } else {
+          setReviews([]);
+          setIsLoadingReviews(false);
+        }
+      } catch (error) {
         console.error('Failed to fetch reviews:', error);
-        setReviews([]);
-      })
-      .finally(() => {
-        setIsLoadingReviews(false);
-      });
+        if (retryCount < 3) {
+          // Retry on error
+          setTimeout(() => fetchReviews(retryCount + 1), 1000 * (retryCount + 1));
+        } else {
+          setReviews([]);
+          setIsLoadingReviews(false);
+        }
+      }
+    };
+
+    fetchReviews();
   }, []);
 
   // Scroll functionality for feature carousel
@@ -411,6 +433,12 @@ export default function HomePage() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [isTestimonialAutoPlaying, setIsTestimonialAutoPlaying] = useState(true);
   const testimonialIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const testimonialContainerRef = useRef<HTMLDivElement>(null);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragOffset, setDragOffset] = useState(0);
+  const [isUserInteracting, setIsUserInteracting] = useState(false);
 
   const galleryImages = [
     {
@@ -493,6 +521,122 @@ export default function HomePage() {
 
   const goToTestimonial = (index: number) => {
     setCurrentTestimonial(index);
+  };
+
+  // Enhanced touch handling for testimonials carousel
+  const minSwipeDistance = 50;
+  const maxDragOffset = 100;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+    setIsDragging(true);
+    setIsUserInteracting(true);
+    setDragOffset(0);
+    
+    // Pause auto-play when user starts interacting
+    if (isTestimonialAutoPlaying) {
+      setIsTestimonialAutoPlaying(false);
+    }
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    if (!touchStart) return;
+    
+    setTouchEnd(e.targetTouches[0].clientX);
+    const currentTouch = e.targetTouches[0].clientX;
+    const diff = touchStart - currentTouch;
+    
+    // Limit drag offset for visual feedback
+    const limitedDiff = Math.max(-maxDragOffset, Math.min(maxDragOffset, diff));
+    setDragOffset(limitedDiff);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) {
+      setIsDragging(false);
+      setDragOffset(0);
+      return;
+    }
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe && reviews.length > 0) {
+      nextTestimonial();
+    } else if (isRightSwipe && reviews.length > 0) {
+      prevTestimonial();
+    }
+    
+    // Reset states
+    setIsDragging(false);
+    setDragOffset(0);
+    setTouchStart(null);
+    setTouchEnd(null);
+    
+    // Resume auto-play after a delay
+    setTimeout(() => {
+      setIsUserInteracting(false);
+      if (reviews.length > 0) {
+        setIsTestimonialAutoPlaying(true);
+      }
+    }, 3000);
+  };
+
+  // Mouse drag support for desktop
+  const onMouseDown = (e: React.MouseEvent) => {
+    setTouchStart(e.clientX);
+    setIsDragging(true);
+    setIsUserInteracting(true);
+    setDragOffset(0);
+    
+    if (isTestimonialAutoPlaying) {
+      setIsTestimonialAutoPlaying(false);
+    }
+  };
+
+  const onMouseMove = (e: React.MouseEvent) => {
+    if (!touchStart || !isDragging) return;
+    
+    const diff = touchStart - e.clientX;
+    const limitedDiff = Math.max(-maxDragOffset, Math.min(maxDragOffset, diff));
+    setDragOffset(limitedDiff);
+  };
+
+  const onMouseUp = () => {
+    if (!touchStart || !isDragging) return;
+    
+    const distance = touchStart - (touchEnd || 0);
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe && reviews.length > 0) {
+      nextTestimonial();
+    } else if (isRightSwipe && reviews.length > 0) {
+      prevTestimonial();
+    }
+    
+    setIsDragging(false);
+    setDragOffset(0);
+    setTouchStart(null);
+    setTouchEnd(null);
+    
+    setTimeout(() => {
+      setIsUserInteracting(false);
+      if (reviews.length > 0) {
+        setIsTestimonialAutoPlaying(true);
+      }
+    }, 3000);
+  };
+
+  const onMouseLeave = () => {
+    if (isDragging) {
+      setIsDragging(false);
+      setDragOffset(0);
+      setTouchStart(null);
+      setTouchEnd(null);
+    }
   };
 
   // Reveal-on-scroll animations
@@ -1279,10 +1423,23 @@ export default function HomePage() {
             ) : reviews.length > 0 ? (
               <div className="relative max-w-3xl mx-auto">
                 {/* Main Carousel */}
-                <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-white shadow-xl sm:shadow-2xl">
+                <div 
+                  ref={testimonialContainerRef}
+                  className={`relative overflow-hidden rounded-2xl sm:rounded-3xl bg-white shadow-xl sm:shadow-2xl cursor-grab select-none ${isDragging ? 'cursor-grabbing' : ''}`}
+                  onTouchStart={onTouchStart}
+                  onTouchMove={onTouchMove}
+                  onTouchEnd={onTouchEnd}
+                  onMouseDown={onMouseDown}
+                  onMouseMove={onMouseMove}
+                  onMouseUp={onMouseUp}
+                  onMouseLeave={onMouseLeave}
+                >
                   <div 
-                    className="flex transition-transform duration-700 ease-in-out"
-                    style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}
+                    className={`flex transition-transform duration-700 ease-in-out ${isDragging ? 'transition-none' : ''}`}
+                    style={{ 
+                      transform: `translateX(calc(-${currentTestimonial * 100}% + ${dragOffset}px))`,
+                      filter: isDragging ? 'brightness(0.95)' : 'brightness(1)'
+                    }}
                   >
                     {reviews.map((review, index) => (
                       <div key={review._id || index} className="w-full flex-shrink-0">
@@ -1339,18 +1496,27 @@ export default function HomePage() {
                   {/* Navigation Arrows */}
                   <button
                     onClick={prevTestimonial}
-                    className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 z-10"
+                    className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 z-10 group"
                     aria-label="Previous testimonial"
                   >
-                    <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-gray-700" />
+                    <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-gray-700 group-hover:text-emerald-600 transition-colors" />
                   </button>
                   <button
                     onClick={nextTestimonial}
-                    className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 z-10"
+                    className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 z-10 group"
                     aria-label="Next testimonial"
                   >
-                    <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-gray-700" />
+                    <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-gray-700 group-hover:text-emerald-600 transition-colors" />
                   </button>
+
+                  {/* Swipe Indicators */}
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-black/20 backdrop-blur-sm rounded-full px-3 py-1 sm:hidden">
+                    <div className="flex items-center gap-1 text-white text-xs">
+                      <ChevronLeft className="w-3 h-3" />
+                      <span>Swipe</span>
+                      <ChevronRight className="w-3 h-3" />
+                    </div>
+                  </div>
                 </div>
 
                 {/* Carousel Indicators */}
@@ -1358,16 +1524,30 @@ export default function HomePage() {
                   {reviews.map((_, index) => (
                     <button
                       key={index}
-                      onClick={() => goToTestimonial(index)}
+                      onClick={() => {
+                        goToTestimonial(index);
+                        setIsUserInteracting(true);
+                        setTimeout(() => setIsUserInteracting(false), 3000);
+                      }}
                       className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
                         index === currentTestimonial
                           ? "bg-emerald-500 scale-125 shadow-lg pulse-indicator"
-                          : "bg-gray-300 hover:bg-gray-400 hover:scale-110"
+                          : "bg-gray-300 hover:bg-emerald-400 hover:scale-110"
                       }`}
                       aria-label={`Go to testimonial ${index + 1}`}
                     />
                   ))}
                 </div>
+
+                {/* Auto-play Status Indicator */}
+                {!isUserInteracting && reviews.length > 1 && (
+                  <div className="flex justify-center mt-4">
+                    <div className="flex items-center gap-2 text-xs text-gray-500">
+                      <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+                      <span>Auto-playing</span>
+                    </div>
+                  </div>
+                )}
               </div>
             ) : (
               <div className="text-center py-12">
