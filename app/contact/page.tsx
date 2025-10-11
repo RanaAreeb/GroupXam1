@@ -29,7 +29,7 @@ function ContactForm() {
 
   // Update form when package parameter changes
   useEffect(() => {
-    if (packageParam) {
+    if (packageParam && packageParam.trim() !== '') {
       let inquiryType = "general";
       let subject = "";
       let message = "";
@@ -38,9 +38,19 @@ function ContactForm() {
         inquiryType = "subscription";
         const duration = packageParam.includes('3month') ? '3 months' : 
                         packageParam.includes('6month') ? '6 months' : 
-                        packageParam.includes('12month') ? '12 months' : 'subscription';
+                        packageParam.includes('12month') ? '12 months' : '6 months';
+        const specificPackage = packageParam === 'subscription' ? 'subscription-6month' : packageParam;
         subject = `Premium Subscription (${duration}) Inquiry`;
         message = `Hi! I'm interested in the Premium Subscription ${duration} plan. Could you please provide more information about pricing, features, and payment options?`;
+        
+        setForm(prev => ({
+          ...prev,
+          inquiryType,
+          packageType: specificPackage,
+          subject,
+          message
+        }));
+        return; // Exit early to avoid the general setForm below
       } else if (packageParam.includes('ielts')) {
         inquiryType = "package";
         subject = `IELTS ${packageParam.charAt(0).toUpperCase() + packageParam.slice(1)} Package Inquiry`;
@@ -57,6 +67,12 @@ function ContactForm() {
         packageType: packageParam,
         subject,
         message
+      }));
+    } else {
+      // Ensure inquiryType is set to general if no packageParam
+      setForm(prev => ({
+        ...prev,
+        inquiryType: "general"
       }));
     }
   }, [packageParam]);
@@ -168,9 +184,10 @@ function ContactForm() {
                   {packageParam === 'ielts-monthly' && '$1.99/month'}
                   {packageParam === 'ielts-6months' && '$14.99 (6 months)'}
                   {packageParam === 'ielts-yearly' && '$29.99/year'}
-                  {packageParam === 'subscription-3month' && '$6 (3 months) - $2/month'}
-                  {packageParam === 'subscription-6month' && '$12 (6 months) - $2/month'}
-                  {packageParam === 'subscription-12month' && '$36 (12 months) - $3/month - Save 5%!'}
+                  {packageParam === 'subscription-3month' && 'Quick Start - $2/month for 3 months'}
+                  {packageParam === 'subscription-6month' && 'Most Popular - $2/month for 6 months'}
+                  {packageParam === 'subscription-12month' && 'Best Deal - $3/month for 12 months (Save 5%!)'}
+                  {packageParam === 'subscription' && 'Starting at $2/month - Best Value Plan Available'}
                 </span>
               </div>
               <div className="flex items-center gap-2">
@@ -192,6 +209,7 @@ function ContactForm() {
             <label className="block text-sm font-medium text-gray-700 mb-2">Inquiry Type</label>
             <Select 
               value={form.inquiryType} 
+              defaultValue="general"
               onValueChange={(value) => setForm({ ...form, inquiryType: value })}
             >
               <SelectTrigger className="bg-white/90">

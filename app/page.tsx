@@ -1915,7 +1915,7 @@ export default function HomePage() {
                 </div>
                 
                 <p className="text-gray-600 mb-8 mt-6">
-                  All plans include access to all 8 premium features
+                  All plans include access to all premium features
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
