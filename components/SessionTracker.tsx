@@ -256,12 +256,14 @@ export default function SessionTracker({ children }: SessionTrackerProps) {
     console.log('Sending session data:', sessionData);
 
     try {
+      // Use keepalive to ensure request completes even if page is closing
       const response = await fetch('/api/activity/session', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(sessionData),
+        keepalive: true, // Ensures request completes even during page unload
       });
 
       if (!response.ok) {
@@ -271,8 +273,12 @@ export default function SessionTracker({ children }: SessionTrackerProps) {
           return;
         }
         console.error('Session API error:', response.status, response.statusText);
-        const errorText = await response.text();
-        console.error('Error response:', errorText);
+        try {
+          const errorText = await response.text();
+          console.error('Error response:', errorText);
+        } catch (e) {
+          console.error('Could not read error response');
+        }
         isTracking.current = false;
       } else {
         console.log('Session data sent successfully');

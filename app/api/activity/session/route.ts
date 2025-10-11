@@ -14,11 +14,24 @@ export async function POST(request: NextRequest) {
             return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
         }
 
-        const decoded = jwt.verify(token, JWT_SECRET) as any;
-        console.log('Token decoded:', { userId: decoded.userId, email: decoded.email });
+        let decoded;
+        try {
+            decoded = jwt.verify(token, JWT_SECRET) as any;
+            console.log('Token decoded:', { userId: decoded.userId, email: decoded.email });
+        } catch (jwtError) {
+            console.error('JWT verification failed:', jwtError);
+            return NextResponse.json({ error: "Invalid token" }, { status: 401 });
+        }
         
-        // Check if request body is empty
-        const requestBody = await request.text();
+        // Check if request body is empty or null
+        let requestBody;
+        try {
+            requestBody = await request.text();
+        } catch (readError) {
+            console.error('Error reading request body:', readError);
+            return NextResponse.json({ error: "Failed to read request body" }, { status: 400 });
+        }
+        
         if (!requestBody || requestBody.trim() === '') {
             console.log('Empty request body received');
             return NextResponse.json({ error: "Empty request body" }, { status: 400 });
@@ -29,6 +42,7 @@ export async function POST(request: NextRequest) {
             sessionData = JSON.parse(requestBody);
         } catch (error) {
             console.error('Invalid JSON in request body:', error);
+            console.error('Request body was:', requestBody.substring(0, 100)); // Log first 100 chars
             return NextResponse.json({ error: "Invalid JSON in request body" }, { status: 400 });
         }
         
