@@ -22,6 +22,7 @@ import {
   GraduationCap,
   Award,
   Users2,
+  Sparkles,
 } from "lucide-react";
 import Header from "@/components/ui/header";
 import Image from "next/image";
@@ -1117,7 +1118,7 @@ export default function HomePage() {
                 Unlock <span className="text-emerald-600">All Premium Features</span>
               </h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-6">
-                Get unlimited access to IELTS prep, flashcards, study groups, AI tutor, whiteboard, math help, proofreading, and more
+                Get unlimited access to IELTS prep, AI tutor, whiteboard, Math Help, proofreading, and Homework Help
               </p>
               
             {/* Country Selector */}
@@ -1182,7 +1183,7 @@ export default function HomePage() {
                     <div className="absolute top-4 left-3 w-0.5 h-0.5 bg-green-400 rounded-full opacity-40 animate-ping"></div>
                     
                     <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-emerald-500 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg">
-                      <Brain className="w-5 h-5 sm:w-6 sm:h-6 text-white drop-shadow-sm" />
+                      <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-white drop-shadow-sm" />
                       {/* Glow Effect */}
                       <div className="absolute inset-0 bg-emerald-400/30 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
@@ -1249,7 +1250,7 @@ export default function HomePage() {
                       <BookOpen className="w-5 h-5 sm:w-6 sm:h-6 text-white drop-shadow-sm" />
                       <div className="absolute inset-0 bg-yellow-400/30 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
-                    <h3 className="font-bold text-gray-800 text-xs sm:text-sm group-hover:text-yellow-700 transition-colors duration-300">Research Help</h3>
+                    <h3 className="font-bold text-gray-800 text-xs sm:text-sm group-hover:text-yellow-700 transition-colors duration-300">Homework Help</h3>
                   </div>
                 </div>
               </div>

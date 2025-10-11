@@ -520,7 +520,7 @@ export default function SubscriptionPage() {
                           <div className="font-bold text-emerald-600">groupXam</div>
                         </th>
                         <th className="text-center py-4 px-4">
-                          <div className="font-semibold text-gray-600">uLearn</div>
+                          <div className="font-semibold text-gray-600">uLesson</div>
                         </th>
                         <th className="text-center py-4 px-4">
                           <div className="font-semibold text-gray-600">Examity</div>
@@ -557,7 +557,7 @@ export default function SubscriptionPage() {
                       <tr className="border-b border-gray-100">
                         <td className="py-4 px-4">Multi-Currency Support</td>
                         <td className="text-center py-4 px-4"><CheckCircle className="w-5 h-5 text-green-500 mx-auto" /></td>
-                        <td className="text-center py-4 px-4"><span className="text-red-500">✗</span></td>
+                        <td className="text-center py-4 px-4"><CheckCircle className="w-5 h-5 text-green-500 mx-auto" /></td>
                         <td className="text-center py-4 px-4"><span className="text-gray-400">Limited</span></td>
                       </tr>
                     </tbody>
