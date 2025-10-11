@@ -30,8 +30,15 @@ import { useDiscussionNotification } from "@/hooks/use-discussion-notification";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { MdGroups } from "react-icons/md";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
-import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
+import { ChevronLeft, ChevronRight, Play, Pause, Globe } from "lucide-react";
 import DiscussionNotification from "@/components/DiscussionNotification";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 // Add type for Exam
 interface Exam {
@@ -54,6 +61,90 @@ interface Review {
   rating: number;
   createdAt?: string;
 }
+
+// Country currency data with competitive pricing
+const countryPricing = {
+  US: {
+    name: "🇺🇸 United States",
+    currency: "USD",
+    symbol: "$",
+    rates: {
+      "3month": { monthly: 2, total: 6 },
+      "6month": { monthly: 2, total: 12 },
+      "12month": { monthly: 3, total: 36, discount: 5 },
+    },
+  },
+  NG: {
+    name: "🇳🇬 Nigeria",
+    currency: "NGN",
+    symbol: "₦",
+    rates: {
+      "3month": { monthly: 3000, total: 9000 },
+      "6month": { monthly: 3000, total: 18000 },
+      "12month": { monthly: 4500, total: 54000, discount: 5 },
+    },
+  },
+  GB: {
+    name: "🇬🇧 United Kingdom",
+    currency: "GBP",
+    symbol: "£",
+    rates: {
+      "3month": { monthly: 1.5, total: 4.5 },
+      "6month": { monthly: 1.5, total: 9 },
+      "12month": { monthly: 2.3, total: 27.6, discount: 5 },
+    },
+  },
+  CA: {
+    name: "🇨🇦 Canada",
+    currency: "CAD",
+    symbol: "C$",
+    rates: {
+      "3month": { monthly: 2.5, total: 7.5 },
+      "6month": { monthly: 2.5, total: 15 },
+      "12month": { monthly: 3.8, total: 45.6, discount: 5 },
+    },
+  },
+  GH: {
+    name: "🇬🇭 Ghana",
+    currency: "GHS",
+    symbol: "GH₵",
+    rates: {
+      "3month": { monthly: 25, total: 75 },
+      "6month": { monthly: 25, total: 150 },
+      "12month": { monthly: 38, total: 456, discount: 5 },
+    },
+  },
+  SL: {
+    name: "🇸🇱 Sierra Leone",
+    currency: "SLL",
+    symbol: "Le",
+    rates: {
+      "3month": { monthly: 40000, total: 120000 },
+      "6month": { monthly: 40000, total: 240000 },
+      "12month": { monthly: 60000, total: 720000, discount: 5 },
+    },
+  },
+  PK: {
+    name: "🇵🇰 Pakistan",
+    currency: "PKR",
+    symbol: "₨",
+    rates: {
+      "3month": { monthly: 500, total: 1500 },
+      "6month": { monthly: 500, total: 3000 },
+      "12month": { monthly: 750, total: 9000, discount: 5 },
+    },
+  },
+  IN: {
+    name: "🇮🇳 India",
+    currency: "INR",
+    symbol: "₹",
+    rates: {
+      "3month": { monthly: 150, total: 450 },
+      "6month": { monthly: 150, total: 900 },
+      "12month": { monthly: 225, total: 2700, discount: 5 },
+    },
+  },
+};
 
 export default function HomePage() {
   const { isLoggedIn, loading, logout, user } = useAuth();
@@ -355,6 +446,10 @@ export default function HomePage() {
   const [reviews, setReviews] = useState<Review[]>([]);
   const [isLoadingReviews, setIsLoadingReviews] = useState(true);
   
+  // Subscription country selection
+  const [selectedCountry, setSelectedCountry] = useState<keyof typeof countryPricing>("US");
+  const [detectedCountry, setDetectedCountry] = useState<string | null>(null);
+  
   useEffect(() => {
     const fetchReviews = async (retryCount = 0) => {
       try {
@@ -389,6 +484,17 @@ export default function HomePage() {
 
     fetchReviews();
   }, []);
+
+  // Detect user's country for pricing
+  useEffect(() => {
+    if (user?.country && countryPricing[user.country as keyof typeof countryPricing]) {
+      setSelectedCountry(user.country as keyof typeof countryPricing);
+      setDetectedCountry(user.country);
+    } else {
+      // Default to US if no country or unsupported country
+      setSelectedCountry("US");
+    }
+  }, [user]);
 
   // Scroll functionality for feature carousel
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -1569,6 +1675,177 @@ export default function HomePage() {
                   Share Testimonials
                 </Link>
               </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Subscription Plans Section */}
+        <section className="py-12 sm:py-20 px-4 bg-white reveal-on-scroll">
+          <div className="container mx-auto">
+            <div className="text-center mb-12">
+              <Badge className="mb-4 bg-emerald-100 text-emerald-700 hover:bg-emerald-200 px-4 py-2 text-sm font-medium">
+                🎓 Premium Subscription
+              </Badge>
+              <h2 className="text-3xl sm:text-5xl font-bold text-gray-800 mb-4">
+                Unlock <span className="text-emerald-600">All Premium Features</span>
+              </h2>
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-6">
+                Get unlimited access to IELTS prep, flashcards, study groups, AI tutor, whiteboard, math help, proofreading, and more
+              </p>
+              
+              {/* Country Selector */}
+              <div className="flex items-center justify-center gap-3 mb-8">
+                <Globe className="w-5 h-5 text-gray-600" />
+                <span className="text-sm text-gray-600">Select your country:</span>
+                <Select value={selectedCountry} onValueChange={(value) => setSelectedCountry(value as keyof typeof countryPricing)}>
+                  <SelectTrigger className="w-64">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {Object.entries(countryPricing).map(([code, data]) => (
+                      <SelectItem key={code} value={code}>
+                        {data.name}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+              {detectedCountry && (
+                <p className="text-sm text-emerald-600 mb-6">
+                  ✓ Detected your location: {countryPricing[selectedCountry].name}
+                </p>
+              )}
+            </div>
+
+            {/* Feature Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6 mb-12">
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl p-6 text-center group hover:shadow-xl transition-all duration-300">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
+                  <BookOpen className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="font-bold text-gray-800 text-sm">IELTS Prep</h3>
+              </div>
+              
+              <div className="bg-gradient-to-br from-purple-50 to-fuchsia-100 rounded-2xl p-6 text-center group hover:shadow-xl transition-all duration-300">
+                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-fuchsia-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
+                  <Target className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="font-bold text-gray-800 text-sm">Flashcards</h3>
+              </div>
+              
+              <div className="bg-gradient-to-br from-cyan-50 to-teal-100 rounded-2xl p-6 text-center group hover:shadow-xl transition-all duration-300">
+                <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-teal-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
+                  <Users2 className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="font-bold text-gray-800 text-sm">Study Groups</h3>
+              </div>
+              
+              <div className="bg-gradient-to-br from-emerald-50 to-green-100 rounded-2xl p-6 text-center group hover:shadow-xl transition-all duration-300">
+                <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
+                  <Brain className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="font-bold text-gray-800 text-sm">AI Tutor</h3>
+              </div>
+              
+              <div className="bg-gradient-to-br from-orange-50 to-amber-100 rounded-2xl p-6 text-center group hover:shadow-xl transition-all duration-300">
+                <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-amber-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
+                  <FileText className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="font-bold text-gray-800 text-sm">Whiteboard</h3>
+              </div>
+              
+              <div className="bg-gradient-to-br from-pink-50 to-rose-100 rounded-2xl p-6 text-center group hover:shadow-xl transition-all duration-300">
+                <div className="w-12 h-12 bg-gradient-to-br from-pink-500 to-rose-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <h3 className="font-bold text-gray-800 text-sm">Math Help</h3>
+              </div>
+              
+              <div className="bg-gradient-to-br from-violet-50 to-purple-100 rounded-2xl p-6 text-center group hover:shadow-xl transition-all duration-300">
+                <div className="w-12 h-12 bg-gradient-to-br from-violet-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                </div>
+                <h3 className="font-bold text-gray-800 text-sm">Proofreading</h3>
+              </div>
+              
+              <div className="bg-gradient-to-br from-yellow-50 to-orange-100 rounded-2xl p-6 text-center group hover:shadow-xl transition-all duration-300">
+                <div className="w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                  </svg>
+                </div>
+                <h3 className="font-bold text-gray-800 text-sm">Research Help</h3>
+              </div>
+            </div>
+
+            {/* Subscription CTA */}
+            <div className="text-center bg-gradient-to-br from-emerald-50 to-blue-50 rounded-3xl p-8 sm:p-12">
+              <h3 className="text-2xl sm:text-4xl font-bold text-gray-800 mb-4">
+                Starting at just <span className="text-emerald-600">
+                  {countryPricing[selectedCountry].symbol}{countryPricing[selectedCountry].rates["6month"].monthly.toLocaleString()}/month
+                </span>
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 max-w-4xl mx-auto">
+                {/* 3 Month Plan */}
+                <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all">
+                  <div className="text-sm text-gray-600 mb-2">3 Months</div>
+                  <div className="text-2xl font-bold text-blue-600 mb-1">
+                    {countryPricing[selectedCountry].symbol}{countryPricing[selectedCountry].rates["3month"].total.toLocaleString()}
+                  </div>
+                  <div className="text-sm text-gray-500">
+                    {countryPricing[selectedCountry].symbol}{countryPricing[selectedCountry].rates["3month"].monthly.toLocaleString()}/month
+                  </div>
+                </div>
+                
+                {/* 6 Month Plan - Most Popular */}
+                <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all border-2 border-emerald-500 relative">
+                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-emerald-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                    Most Popular
+                  </div>
+                  <div className="text-sm text-gray-600 mb-2">6 Months</div>
+                  <div className="text-2xl font-bold text-emerald-600 mb-1">
+                    {countryPricing[selectedCountry].symbol}{countryPricing[selectedCountry].rates["6month"].total.toLocaleString()}
+                  </div>
+                  <div className="text-sm text-gray-500">
+                    {countryPricing[selectedCountry].symbol}{countryPricing[selectedCountry].rates["6month"].monthly.toLocaleString()}/month
+                  </div>
+                </div>
+                
+                {/* 12 Month Plan */}
+                <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all relative">
+                  <div className="absolute -top-3 right-4 bg-gradient-to-r from-purple-500 to-fuchsia-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg z-20">
+                    5% OFF
+                  </div>
+                  <div className="text-sm text-gray-600 mb-2">12 Months</div>
+                  <div className="text-2xl font-bold text-purple-600 mb-1">
+                    {countryPricing[selectedCountry].symbol}{countryPricing[selectedCountry].rates["12month"].total.toLocaleString()}
+                  </div>
+                  <div className="text-sm text-gray-500">
+                    {countryPricing[selectedCountry].symbol}{countryPricing[selectedCountry].rates["12month"].monthly.toLocaleString()}/month
+                  </div>
+                </div>
+              </div>
+              
+              <p className="text-gray-600 mb-8">
+                All plans include access to all 8 premium features
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link href="/subscription">
+                  <Button size="lg" className="bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white px-8 py-3 rounded-full shadow-lg">
+                    View All Plans
+                  </Button>
+                </Link>
+                <Link href="/contact?package=subscription">
+                  <Button size="lg" variant="outline" className="border-2 border-emerald-500 text-emerald-600 hover:bg-emerald-50 px-8 py-3 rounded-full">
+                    Contact Us
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         </section>

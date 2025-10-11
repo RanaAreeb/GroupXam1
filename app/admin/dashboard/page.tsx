@@ -89,6 +89,21 @@ function AddManualPaymentForm({
       // Auto-set amount and duration based on package selection
       if (field === 'package') {
         switch (value) {
+          case 'subscription-3month':
+            newData.amount = '6.00';
+            newData.duration = '90';
+            newData.serviceType = 'premium';
+            break;
+          case 'subscription-6month':
+            newData.amount = '12.00';
+            newData.duration = '180';
+            newData.serviceType = 'premium';
+            break;
+          case 'subscription-12month':
+            newData.amount = '36.00';
+            newData.duration = '365';
+            newData.serviceType = 'premium';
+            break;
           case 'monthly':
             newData.amount = '1.99';
             newData.duration = '30';
@@ -179,6 +194,9 @@ function AddManualPaymentForm({
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
+              <SelectItem value="subscription-3month">Premium 3 Months ($6.00)</SelectItem>
+              <SelectItem value="subscription-6month">Premium 6 Months ($12.00)</SelectItem>
+              <SelectItem value="subscription-12month">Premium 12 Months ($36.00) - 5% OFF</SelectItem>
               <SelectItem value="monthly">IELTS Monthly ($1.99)</SelectItem>
               <SelectItem value="6months">IELTS 6 Months ($14.99)</SelectItem>
               <SelectItem value="yearly">IELTS Yearly ($29.99)</SelectItem>
@@ -391,14 +409,14 @@ export default function AdminDashboard() {
     userEmail: '',
     userName: '',
     amount: '',
-    package: 'monthly',
-    duration: '30',
+    package: 'subscription-6month',
+    duration: '180',
     paymentMethod: 'bank_transfer',
     transactionId: '',
     paymentDate: new Date().toISOString().split('T')[0],
     notes: '',
     status: 'approved',
-    serviceType: 'ielts'
+    serviceType: 'premium'
   });
 
   // Alert management state
@@ -708,15 +726,15 @@ export default function AdminDashboard() {
     setFormData({
       userEmail: selectedUser.email,
       userName: selectedUser.name || selectedUser.email,
-      amount: '1.99',
-      package: 'monthly',
-      duration: '30',
+      amount: '12.00',
+      package: 'subscription-6month',
+      duration: '180',
       paymentMethod: 'bank_transfer',
       transactionId: '',
       paymentDate: new Date().toISOString().split('T')[0],
       notes: '',
       status: 'approved',
-      serviceType: 'ielts'
+      serviceType: 'premium'
     });
     setShowUserSelectionModal(false);
     setShowPaymentModal(true);
@@ -755,6 +773,24 @@ export default function AdminDashboard() {
           // Determine access based on package type
           let access = {};
           switch (latestPayment.package) {
+            case 'subscription-3month':
+            case 'subscription-6month':
+            case 'subscription-12month':
+              // Premium subscription grants access to ALL features
+              access = {
+                ielts: true,
+                flashcards: true,
+                studyGroups: true,
+                aiTutor: true,
+                whiteboard: true,
+                mathHelp: true,
+                proofreading: true,
+                researchHelp: true,
+                proctor: true,
+                university: true,
+                premium: true
+              };
+              break;
             case 'monthly':
             case '6months':
             case 'yearly':
@@ -2446,17 +2482,26 @@ export default function AdminDashboard() {
                                        {user.name || 'No Name'}
                                      </h4>
                                      <p className="text-sm text-gray-600 truncate">{user.email}</p>
-                                     <div className="flex items-center gap-2 mt-1">
-                                       <Badge variant="outline" className="text-xs">
-                                         {user.access?.ielts ? 'IELTS' : 'No Access'}
-                                       </Badge>
-                                       <Badge variant="outline" className="text-xs">
-                                         {user.access?.proctor ? 'Proctor' : 'No Proctor'}
-                                       </Badge>
-                                       <Badge variant="outline" className="text-xs">
-                                         {user.access?.university ? 'University' : 'No University'}
-                                       </Badge>
-                                     </div>
+                                    <div className="flex items-center gap-2 mt-1 flex-wrap">
+                                      {user.access?.premium && (
+                                        <Badge className="text-xs bg-gradient-to-r from-emerald-500 to-blue-500 text-white">
+                                          ⭐ Premium
+                                        </Badge>
+                                      )}
+                                      <Badge variant="outline" className="text-xs">
+                                        {user.access?.ielts ? 'IELTS' : 'No IELTS'}
+                                      </Badge>
+                                      {user.access?.flashcards && (
+                                        <Badge variant="outline" className="text-xs text-purple-600">
+                                          Flashcards
+                                        </Badge>
+                                      )}
+                                      {user.access?.aiTutor && (
+                                        <Badge variant="outline" className="text-xs text-green-600">
+                                          AI Tutor
+                                        </Badge>
+                                      )}
+                                    </div>
                                    </div>
                                  </div>
                                </div>
@@ -3037,16 +3082,25 @@ export default function AdminDashboard() {
                             {user.name || 'No Name'}
                           </h4>
                           <p className="text-sm text-gray-600 truncate">{user.email}</p>
-                          <div className="flex items-center gap-2 mt-2">
+                          <div className="flex items-center gap-2 mt-2 flex-wrap">
+                            {user.access?.premium && (
+                              <Badge className="text-xs bg-gradient-to-r from-emerald-500 to-blue-500 text-white">
+                                ⭐ Premium
+                              </Badge>
+                            )}
                             <Badge variant="outline" className="text-xs">
-                              {user.access?.ielts ? 'IELTS' : 'No Access'}
+                              {user.access?.ielts ? 'IELTS' : 'No IELTS'}
                             </Badge>
-                            <Badge variant="outline" className="text-xs">
-                              {user.access?.proctor ? 'Proctor' : 'No Proctor'}
-                            </Badge>
-                            <Badge variant="outline" className="text-xs">
-                              {user.access?.university ? 'University' : 'No University'}
-                            </Badge>
+                            {user.access?.flashcards && (
+                              <Badge variant="outline" className="text-xs text-purple-600">
+                                Flashcards
+                              </Badge>
+                            )}
+                            {user.access?.aiTutor && (
+                              <Badge variant="outline" className="text-xs text-green-600">
+                                AI Tutor
+                              </Badge>
+                            )}
                           </div>
                         </div>
                       </div>
