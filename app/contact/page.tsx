@@ -30,12 +30,33 @@ function ContactForm() {
   // Update form when package parameter changes
   useEffect(() => {
     if (packageParam) {
+      let inquiryType = "general";
+      let subject = "";
+      let message = "";
+      
+      if (packageParam.includes('subscription')) {
+        inquiryType = "subscription";
+        const duration = packageParam.includes('3month') ? '3 months' : 
+                        packageParam.includes('6month') ? '6 months' : 
+                        packageParam.includes('12month') ? '12 months' : 'subscription';
+        subject = `Premium Subscription (${duration}) Inquiry`;
+        message = `Hi! I'm interested in the Premium Subscription ${duration} plan. Could you please provide more information about pricing, features, and payment options?`;
+      } else if (packageParam.includes('ielts')) {
+        inquiryType = "package";
+        subject = `IELTS ${packageParam.charAt(0).toUpperCase() + packageParam.slice(1)} Package Inquiry`;
+        message = `Hi! I'm interested in learning more about the IELTS ${packageParam} package. Could you please provide more information about pricing, features, and payment options?`;
+      } else {
+        inquiryType = "proctorit";
+        subject = `ProctorIT ${packageParam.charAt(0).toUpperCase() + packageParam.slice(1)} Package Inquiry`;
+        message = `Hi! I'm interested in learning more about the ProctorIT ${packageParam} package. Could you please provide more information about pricing, features, and payment options?`;
+      }
+      
       setForm(prev => ({
         ...prev,
-        inquiryType: packageParam.includes('ielts') ? "package" : "proctorit",
+        inquiryType,
         packageType: packageParam,
-        subject: `${packageParam.includes('ielts') ? 'IELTS' : 'ProctorIT'} ${packageParam.charAt(0).toUpperCase() + packageParam.slice(1)} Package Inquiry`,
-        message: `Hi! I'm interested in learning more about the ${packageParam.includes('ielts') ? 'IELTS' : 'ProctorIT'} ${packageParam} package. Could you please provide more information about pricing, features, and payment options?`
+        subject,
+        message
       }));
     }
   }, [packageParam]);
@@ -121,7 +142,7 @@ function ContactForm() {
         </h1>
         <p className="text-lg text-gray-700 mb-8">
           {packageParam 
-            ? `Interested in ${packageParam.includes('ielts') ? 'IELTS' : 'ProctorIT'} ${packageParam} package? Get in touch for detailed pricing and payment information.`
+            ? `Interested in ${packageParam.includes('subscription') ? 'Premium Subscription' : packageParam.includes('ielts') ? 'IELTS' : 'ProctorIT'} ${packageParam} package? Get in touch for detailed pricing and payment information.`
             : 'Have a question, suggestion, or need help? Fill out the form below and our team will get back to you soon.'
           }
         </p>
@@ -132,7 +153,9 @@ function ContactForm() {
             <div className="flex items-center gap-3 mb-3">
               <Package className="w-5 h-5 text-emerald-600" />
               <h3 className="font-semibold text-emerald-800">
-                {packageParam.includes('ielts') ? 'IELTS' : 'ProctorIT'} {packageParam.charAt(0).toUpperCase() + packageParam.slice(1)} Package
+                {packageParam.includes('subscription') ? 'Premium Subscription' : packageParam.includes('ielts') ? 'IELTS' : 'ProctorIT'} {packageParam.includes('subscription') ? 
+                  (packageParam.includes('3month') ? '3 Months' : packageParam.includes('6month') ? '6 Months' : packageParam.includes('12month') ? '12 Months' : 'Subscription') 
+                  : packageParam.charAt(0).toUpperCase() + packageParam.slice(1)} Package
               </h3>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
@@ -145,12 +168,15 @@ function ContactForm() {
                   {packageParam === 'ielts-monthly' && '$1.99/month'}
                   {packageParam === 'ielts-6months' && '$14.99 (6 months)'}
                   {packageParam === 'ielts-yearly' && '$29.99/year'}
+                  {packageParam === 'subscription-3month' && '$6 (3 months) - $2/month'}
+                  {packageParam === 'subscription-6month' && '$12 (6 months) - $2/month'}
+                  {packageParam === 'subscription-12month' && '$36 (12 months) - $3/month - Save 5%!'}
                 </span>
               </div>
               <div className="flex items-center gap-2">
                 <Shield className="w-4 h-4 text-emerald-600" />
                 <span className="text-gray-700">
-                  {packageParam.includes('ielts') ? 'Comprehensive IELTS preparation' : 'Secure proctoring technology'}
+                  {packageParam.includes('subscription') ? 'All 8 premium features included' : packageParam.includes('ielts') ? 'Comprehensive IELTS preparation' : 'Secure proctoring technology'}
                 </span>
               </div>
               <div className="flex items-center gap-2">
@@ -173,6 +199,7 @@ function ContactForm() {
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="general">General Inquiry</SelectItem>
+                <SelectItem value="subscription">Premium Subscription Inquiry</SelectItem>
                 <SelectItem value="package">IELTS Package Inquiry</SelectItem>
                 <SelectItem value="proctorit">ProctorIT Package Inquiry</SelectItem>
                 <SelectItem value="support">Technical Support</SelectItem>
@@ -180,6 +207,26 @@ function ContactForm() {
               </SelectContent>
             </Select>
           </div>
+
+          {/* Subscription Package Type Selection */}
+          {form.inquiryType === 'subscription' && (
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Premium Subscription Package</label>
+              <Select 
+                value={form.packageType} 
+                onValueChange={(value) => setForm({ ...form, packageType: value })}
+              >
+                <SelectTrigger className="bg-white/90">
+                  <SelectValue placeholder="Select subscription package" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="subscription-3month">3 Months Plan ($6 - $2/month)</SelectItem>
+                  <SelectItem value="subscription-6month">6 Months Plan ($12 - $2/month)</SelectItem>
+                  <SelectItem value="subscription-12month">12 Months Plan ($36 - $3/month - Save 5%)</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          )}
 
           {/* Package Type Selection (only show if package inquiry) */}
           {form.inquiryType === 'package' && (
@@ -273,7 +320,7 @@ function ContactForm() {
         )}
 
         {/* Payment Information for Package Inquiries */}
-        {(form.inquiryType === 'package' || form.inquiryType === 'proctorit') && (
+        {(form.inquiryType === 'subscription' || form.inquiryType === 'package' || form.inquiryType === 'proctorit') && (
           <div className="mt-8 p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl border border-blue-200">
             <h3 className="text-lg font-bold text-blue-800 mb-4 flex items-center gap-2">
               <CreditCard className="w-5 h-5" />

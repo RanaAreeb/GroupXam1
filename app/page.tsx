@@ -1421,7 +1421,7 @@ export default function HomePage() {
               {/* Mobile navigation dots - Only visible on mobile */}
               <div className="flex justify-center mt-6 sm:hidden">
                 <div className="flex space-x-2">
-                  {[0, 1, 2, 3, 4, 5, 6].map((index) => (
+                  {[0, 1, 2, 3, 4, 5].map((index) => (
                     <div
                       key={index}
                       className={`w-2 h-2 rounded-full transition-colors duration-300 ${
@@ -1645,15 +1645,6 @@ export default function HomePage() {
                   ))}
                 </div>
 
-                {/* Auto-play Status Indicator */}
-                {!isUserInteracting && reviews.length > 1 && (
-                  <div className="flex justify-center mt-4">
-                    <div className="flex items-center gap-2 text-xs text-gray-500">
-                      <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
-                      <span>Auto-playing</span>
-                    </div>
-                  </div>
-                )}
               </div>
             ) : (
               <div className="text-center py-12">
