@@ -1188,6 +1188,11 @@ export default function HomePage() {
                       <div className="absolute inset-0 bg-emerald-400/30 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
                     <h3 className="font-bold text-gray-800 text-xs sm:text-sm group-hover:text-emerald-700 transition-colors duration-300">AI Tutor</h3>
+                    
+                    {/* Hover Description */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-emerald-600 text-white text-xs p-2 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-full group-hover:translate-y-0">
+                      Get instant help with any subject, 24/7
+                    </div>
                   </div>
                 </div>
                 
@@ -1203,6 +1208,11 @@ export default function HomePage() {
                       <div className="absolute inset-0 bg-orange-400/30 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
                     <h3 className="font-bold text-gray-800 text-xs sm:text-sm group-hover:text-orange-700 transition-colors duration-300">Whiteboard</h3>
+                    
+                    {/* Hover Description */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-orange-600 text-white text-xs p-2 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-full group-hover:translate-y-0">
+                      Draw and solve problems.
+                    </div>
                   </div>
                 </div>
                 
@@ -1220,6 +1230,11 @@ export default function HomePage() {
                       <div className="absolute inset-0 bg-pink-400/30 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
                     <h3 className="font-bold text-gray-800 text-xs sm:text-sm group-hover:text-pink-700 transition-colors duration-300">Math Help</h3>
+                    
+                    {/* Hover Description */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-pink-600 text-white text-xs p-2 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-full group-hover:translate-y-0">
+                      Step-by-step solutions for all math problems
+                    </div>
                   </div>
                 </div>
                 
@@ -1235,6 +1250,11 @@ export default function HomePage() {
                       <div className="absolute inset-0 bg-violet-400/30 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
                     <h3 className="font-bold text-gray-800 text-xs sm:text-sm group-hover:text-violet-700 transition-colors duration-300">Proofreading</h3>
+                    
+                    {/* Hover Description */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-violet-600 text-white text-xs p-2 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-full group-hover:translate-y-0">
+                      Grammar, spelling, and style improvements
+                    </div>
                   </div>
                 </div>
                 
@@ -1251,6 +1271,11 @@ export default function HomePage() {
                       <div className="absolute inset-0 bg-yellow-400/30 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
                     <h3 className="font-bold text-gray-800 text-xs sm:text-sm group-hover:text-yellow-700 transition-colors duration-300">Homework Help</h3>
+                    
+                    {/* Hover Description */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-yellow-600 text-white text-xs p-2 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-full group-hover:translate-y-0">
+                      Research assistance and academic support
+                    </div>
                   </div>
                 </div>
               </div>
