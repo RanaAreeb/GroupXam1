@@ -1552,133 +1552,235 @@ export default function HomePage() {
                 <ChevronRight className="w-5 h-5 text-gray-600" />
               </button>
 
-              {/* Cards container - Responsive padding */}
+              {/* Cards container - Enhanced padding for proper visibility */}
               <div
                 ref={scrollContainerRef}
-                className="flex gap-4 overflow-x-auto pb-4 px-4 sm:px-16"
-                style={{ scrollbarWidth: "none" }}
+                className="flex gap-4 overflow-x-auto pb-4 px-4 sm:px-16 pr-4 sm:pr-20"
+                style={{ 
+                  scrollbarWidth: "none",
+                  scrollSnapType: "x mandatory",
+                  scrollPaddingLeft: "1rem",
+                  scrollPaddingRight: "1rem"
+                }}
               >
                 {/* Quizzes Card */}
                 <Link
                   href={isLoggedIn ? "/quiz" : "/login"}
-                  className="flex-shrink-0 w-72 sm:w-80 bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow cursor-pointer relative"
+                  className="flex-shrink-0 w-72 sm:w-80 bg-gradient-to-br from-emerald-500 to-green-600 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer relative overflow-hidden snap-start"
                 >
-                  <div className="bg-gradient-to-r from-green-400 to-emerald-500 px-4 sm:px-6 py-4">
-                    <h3 className="text-lg sm:text-xl font-bold text-white">
+                  {/* Title */}
+                  <div className="px-6 pt-6 pb-2">
+                    <h3 className="text-xl sm:text-2xl font-bold text-white">
                       Quizzes
                     </h3>
                   </div>
-                  <div className="p-4 sm:p-6 bg-white h-40 sm:h-48 flex flex-col items-center justify-center">
-                    <div className="w-12 h-12 sm:w-16 sm:h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-3 sm:mb-4">
-                      <Target className="w-6 h-6 sm:w-8 sm:h-8 text-green-600" />
+                  
+                  {/* Content Card */}
+                  <div className="m-4 bg-white rounded-2xl p-6 shadow-sm border border-green-100">
+                    <div className="flex flex-col items-center justify-center">
+                      {/* Target Icon - Multi-layered */}
+                      <div className="relative w-16 h-16 mb-4">
+                        {/* Outer circle */}
+                        <div className="absolute inset-0 w-16 h-16 bg-green-100 rounded-full"></div>
+                        {/* Middle circle */}
+                        <div className="absolute inset-2 w-12 h-12 bg-green-200 rounded-full"></div>
+                        {/* Inner dot */}
+                        <div className="absolute inset-6 w-4 h-4 bg-green-600 rounded-full"></div>
+                      </div>
+                      
+                      <p className="text-sm text-gray-700 text-center leading-relaxed">
+                        Test knowledge with interactive quizzes
+                      </p>
                     </div>
-                    <p className="text-xs sm:text-sm text-gray-600 text-center leading-relaxed">
-                      Test knowledge with interactive quizzes
-                    </p>
                   </div>
                 </Link>
 
                 {/* Exam Prep Card */}
                 <Link
                   href={isLoggedIn ? "/exams" : "/login"}
-                  className="flex-shrink-0 w-72 sm:w-80 bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow cursor-pointer relative"
+                  className="flex-shrink-0 w-72 sm:w-80 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer relative overflow-hidden snap-start"
                 >
-                  <div className="bg-gradient-to-r from-blue-400 to-indigo-500 px-4 sm:px-6 py-4">
-                    <h3 className="text-lg sm:text-xl font-bold text-white">
+                  {/* Title */}
+                  <div className="px-6 pt-6 pb-2">
+                    <h3 className="text-xl sm:text-2xl font-bold text-white">
                       Exam Prep
                     </h3>
                   </div>
-                  <div className="p-4 sm:p-6 bg-white h-40 sm:h-48 flex flex-col items-center justify-center">
-                    <div className="w-12 h-12 sm:w-16 sm:h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-3 sm:mb-4">
-                      <Clock className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
+                  
+                  {/* Content Card */}
+                  <div className="m-4 bg-white rounded-2xl p-6 shadow-sm border border-blue-100">
+                    <div className="flex flex-col items-center justify-center">
+                      {/* Clock Icon - Multi-layered */}
+                      <div className="relative w-16 h-16 mb-4">
+                        {/* Outer circle */}
+                        <div className="absolute inset-0 w-16 h-16 bg-blue-100 rounded-full"></div>
+                        {/* Clock face */}
+                        <div className="absolute inset-2 w-12 h-12 bg-blue-200 rounded-full flex items-center justify-center">
+                          {/* Clock hands */}
+                          <div className="relative w-6 h-6">
+                            {/* Hour hand */}
+                            <div className="absolute top-1 left-1/2 w-0.5 h-3 bg-blue-600 transform -translate-x-1/2 origin-bottom"></div>
+                            {/* Minute hand */}
+                            <div className="absolute top-0.5 left-1/2 w-0.5 h-4 bg-blue-700 transform -translate-x-1/2 origin-bottom rotate-45"></div>
+                            {/* Center dot */}
+                            <div className="absolute top-1/2 left-1/2 w-1 h-1 bg-blue-800 rounded-full transform -translate-x-1/2 -translate-y-1/2"></div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <p className="text-sm text-gray-700 text-center leading-relaxed">
+                        Practice with timed mock exams
+                      </p>
                     </div>
-                    <p className="text-xs sm:text-sm text-gray-600 text-center leading-relaxed">
-                      Practice with timed mock exams
-                    </p>
                   </div>
                 </Link>
 
                 {/* Whiteboard Card */}
                 <Link
                   href={isLoggedIn ? "/whiteboard" : "/login"}
-                  className="flex-shrink-0 w-72 sm:w-80 bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow cursor-pointer relative"
+                  className="flex-shrink-0 w-72 sm:w-80 bg-gradient-to-br from-orange-500 to-amber-600 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer relative overflow-hidden snap-start"
                 >
-                  <div className="bg-gradient-to-r from-orange-400 to-amber-500 px-4 sm:px-6 py-4">
-                    <h3 className="text-lg sm:text-xl font-bold text-white">
+                  {/* Title */}
+                  <div className="px-6 pt-6 pb-2">
+                    <h3 className="text-xl sm:text-2xl font-bold text-white">
                       Whiteboard
                     </h3>
                   </div>
-                  <div className="p-4 sm:p-6 bg-white h-40 sm:h-48 flex flex-col items-center justify-center">
-                    <div className="w-12 h-12 sm:w-16 sm:h-16 bg-orange-100 rounded-2xl flex items-center justify-center mb-3 sm:mb-4">
-                      <FileText className="w-6 h-6 sm:w-8 sm:h-8 text-orange-600" />
+                  
+                  {/* Content Card */}
+                  <div className="m-4 bg-white rounded-2xl p-6 shadow-sm border border-orange-100">
+                    <div className="flex flex-col items-center justify-center">
+                      {/* Document Icon - Multi-layered */}
+                      <div className="relative w-16 h-16 mb-4">
+                        {/* Document background */}
+                        <div className="absolute inset-0 w-12 h-16 bg-orange-100 rounded-sm"></div>
+                        {/* Document lines */}
+                        <div className="absolute top-3 left-2 w-8 h-0.5 bg-orange-200 rounded"></div>
+                        <div className="absolute top-4 left-2 w-6 h-0.5 bg-orange-200 rounded"></div>
+                        <div className="absolute top-5 left-2 w-7 h-0.5 bg-orange-200 rounded"></div>
+                        {/* Corner fold */}
+                        <div className="absolute top-0 right-0 w-3 h-3 bg-orange-200 transform rotate-45 origin-top-right"></div>
+                        {/* Icon overlay */}
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <FileText className="w-8 h-8 text-orange-600" />
+                        </div>
+                      </div>
+                      
+                      <p className="text-sm text-gray-700 text-center leading-relaxed">
+                        Draw and solve problems digitally
+                      </p>
                     </div>
-                    <p className="text-xs sm:text-sm text-gray-600 text-center leading-relaxed">
-                      Draw and solve problems digitally
-                    </p>
                   </div>
                 </Link>
 
                 {/* Flashcards Card */}
                 <Link
                   href={isLoggedIn ? "/flashcards" : "/login"}
-                  className="flex-shrink-0 w-72 sm:w-80 bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow cursor-pointer relative"
+                  className="flex-shrink-0 w-72 sm:w-80 bg-gradient-to-br from-purple-500 to-fuchsia-600 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer relative overflow-hidden snap-start"
                 >
-                  <div className="bg-gradient-to-r from-purple-400 to-fuchsia-500 px-4 sm:px-6 py-4">
-                    <h3 className="text-lg sm:text-xl font-bold text-white">
+                  {/* Title */}
+                  <div className="px-6 pt-6 pb-2">
+                    <h3 className="text-xl sm:text-2xl font-bold text-white">
                       Flashcards
                     </h3>
                   </div>
-                  <div className="p-4 sm:p-6 bg-white h-40 sm:h-48 flex flex-col items-center justify-center">
-                    <div className="w-12 h-12 sm:w-16 sm:h-16 bg-purple-100 rounded-2xl flex items-center justify-center mb-3 sm:mb-4">
-                      <Brain className="w-6 h-6 sm:w-8 sm:h-8 text-purple-600" />
+                  
+                  {/* Content Card */}
+                  <div className="m-4 bg-white rounded-2xl p-6 shadow-sm border border-purple-100">
+                    <div className="flex flex-col items-center justify-center">
+                      {/* Brain Icon - Multi-layered */}
+                      <div className="relative w-16 h-16 mb-4">
+                        {/* Brain outline */}
+                        <div className="absolute inset-0 w-16 h-16 bg-purple-100 rounded-full"></div>
+                        {/* Brain center */}
+                        <div className="absolute inset-2 w-12 h-12 bg-purple-200 rounded-full flex items-center justify-center">
+                          <Brain className="w-8 h-8 text-purple-600" />
+                        </div>
+                      </div>
+                      
+                      <p className="text-sm text-gray-700 text-center leading-relaxed">
+                        Memorize concepts with smart cards
+                      </p>
                     </div>
-                    <p className="text-xs sm:text-sm text-gray-600 text-center leading-relaxed">
-                      Memorize concepts with smart cards
-                    </p>
                   </div>
                 </Link>
 
                 {/* Study Groups Card */}
                 <Link
                   href={isLoggedIn ? "/discussions" : "/login"}
-                  className="flex-shrink-0 w-72 sm:w-80 bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow cursor-pointer relative"
+                  className="flex-shrink-0 w-72 sm:w-80 bg-gradient-to-br from-cyan-500 to-teal-600 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer relative overflow-hidden snap-start"
                 >
-                  <div className="bg-gradient-to-r from-cyan-400 to-teal-500 px-4 sm:px-6 py-4">
-                    <h3 className="text-lg sm:text-xl font-bold text-white">
+                  {/* Title */}
+                  <div className="px-6 pt-6 pb-2">
+                    <h3 className="text-xl sm:text-2xl font-bold text-white">
                       Study Groups
                     </h3>
                   </div>
-                  <div className="p-4 sm:p-6 bg-white h-40 sm:h-48 flex flex-col items-center justify-center">
-                    <div className="w-12 h-12 sm:w-16 sm:h-16 bg-cyan-100 rounded-2xl flex items-center justify-center mb-3 sm:mb-4">
-                      <MessageSquare className="w-6 h-6 sm:w-8 sm:h-8 text-cyan-600" />
+                  
+                  {/* Content Card */}
+                  <div className="m-4 bg-white rounded-2xl p-6 shadow-sm border border-cyan-100">
+                    <div className="flex flex-col items-center justify-center">
+                      {/* Chat Icon - Multi-layered */}
+                      <div className="relative w-16 h-16 mb-4">
+                        {/* Chat bubble outline */}
+                        <div className="absolute inset-0 w-16 h-12 bg-cyan-100 rounded-2xl"></div>
+                        {/* Chat bubble center */}
+                        <div className="absolute inset-1 w-14 h-10 bg-cyan-200 rounded-xl flex items-center justify-center">
+                          <MessageSquare className="w-6 h-6 text-cyan-600" />
+                        </div>
+                        {/* Chat tail */}
+                        <div className="absolute -bottom-1 left-4 w-3 h-3 bg-cyan-100 transform rotate-45"></div>
+                      </div>
+                      
+                      <p className="text-sm text-gray-700 text-center leading-relaxed">
+                        Connect with peers for help
+                      </p>
                     </div>
-                    <p className="text-xs sm:text-sm text-gray-600 text-center leading-relaxed">
-                      Connect with peers for help
-                    </p>
                   </div>
                 </Link>
 
                 {/* ProctorIT Card */}
                 <Link
                   href={isLoggedIn ? "/services" : "/login"}
-                  className="flex-shrink-0 w-72 sm:w-80 bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow cursor-pointer relative"
+                  className="flex-shrink-0 w-72 sm:w-80 bg-gradient-to-br from-red-500 to-pink-600 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer relative overflow-hidden snap-start"
                 >
-                  <div className="bg-gradient-to-r from-red-400 to-pink-500 px-4 sm:px-6 py-4">
-                    <h3 className="text-lg sm:text-xl font-bold text-white">
+                  {/* Title */}
+                  <div className="px-6 pt-6 pb-2">
+                    <h3 className="text-xl sm:text-2xl font-bold text-white">
                       ProctorIT
                     </h3>
                   </div>
-                  <div className="p-4 sm:p-6 bg-white h-40 sm:h-48 flex flex-col items-center justify-center">
-                    <div className="w-12 h-12 sm:w-16 sm:h-16 bg-red-100 rounded-2xl flex items-center justify-center mb-3 sm:mb-4">
-                      <Users className="w-6 h-6 sm:w-8 sm:h-8 text-red-600" />
+                  
+                  {/* Content Card */}
+                  <div className="m-4 bg-white rounded-2xl p-6 shadow-sm border border-red-100">
+                    <div className="flex flex-col items-center justify-center">
+                      {/* Users Icon - Multi-layered */}
+                      <div className="relative w-16 h-16 mb-4">
+                        {/* Users background */}
+                        <div className="absolute inset-0 w-16 h-16 bg-red-100 rounded-full"></div>
+                        {/* User 1 */}
+                        <div className="absolute top-1 left-1 w-6 h-6 bg-red-200 rounded-full flex items-center justify-center">
+                          <Users className="w-3 h-3 text-red-600" />
+                        </div>
+                        {/* User 2 */}
+                        <div className="absolute top-1 right-1 w-6 h-6 bg-red-200 rounded-full flex items-center justify-center">
+                          <Users className="w-3 h-3 text-red-600" />
+                        </div>
+                        {/* Center icon */}
+                        <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-red-300 rounded-full flex items-center justify-center">
+                          <Users className="w-4 h-4 text-red-700" />
+                        </div>
+                      </div>
+                      
+                      <p className="text-sm text-gray-700 text-center leading-relaxed">
+                        Professional exam proctoring services
+                      </p>
                     </div>
-                    <p className="text-xs sm:text-sm text-gray-600 text-center leading-relaxed">
-                      Professional exam proctoring services
-                    </p>
                   </div>
                 </Link>
 
-                
+                {/* Spacer to ensure last card is fully visible */}
+                <div className="flex-shrink-0 w-4 sm:w-8"></div>
               </div>
 
               {/* Mobile navigation dots - Only visible on mobile */}

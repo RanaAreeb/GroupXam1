@@ -648,6 +648,12 @@ section {
     transition-duration: 150ms !important;
   }
   
+  /* Optimize card hover effects for mobile */
+  .hover\\:shadow-xl:hover,
+  .hover\\:shadow-lg:hover {
+    transition-duration: 150ms !important;
+  }
+  
   /* Disable blur effects on mobile (very expensive) */
   .backdrop-blur-sm,
   .backdrop-blur,
@@ -677,6 +683,11 @@ section {
   .animate-spin-slower {
     animation: none !important;
   }
+  
+  /* Optimize card gradients for mobile - reduce complexity */
+  .bg-gradient-to-br {
+    background: linear-gradient(135deg, var(--tw-gradient-from), var(--tw-gradient-to)) !important;
+  }
 }
 
 /* GPU acceleration hints for smooth animations on desktop */
@@ -702,6 +713,18 @@ section {
 * {
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
+}
+
+/* Carousel scroll snap optimization */
+.carousel-container {
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 1rem;
+  scroll-padding-right: 1rem;
+}
+
+.carousel-item {
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
 }
 
 /* Reduce motion for accessibility */
