@@ -483,8 +483,25 @@ export default function SignupPage() {
       setEmailError("Please enter a valid email address");
       return;
     }
-    
+
+    // Validate required fields on step 1
     if (step === 1) {
+      if (!formData.name || formData.name.trim().length < 2) {
+        setError("Please enter a valid name (at least 2 characters)");
+        return;
+      }
+      
+      if (!formData.password || formData.password.length < 6) {
+        setError("Password must be at least 6 characters long");
+        return;
+      }
+
+      if (!formData.country || formData.country.trim() === "") {
+        setError("Please select your country");
+        return;
+      }
+      
+      setError(""); // Clear any previous errors
       setStep(2);
     } else {
       setIsLoading(true);

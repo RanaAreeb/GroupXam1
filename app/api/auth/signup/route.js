@@ -97,6 +97,52 @@ export async function POST(request) {
       }, { status: 400 })
     }
 
+    // Validate required fields
+    if (!requestData.name || requestData.name.trim().length < 2) {
+      return NextResponse.json({
+        error: "Please enter a valid name (at least 2 characters)"
+      }, { status: 400 })
+    }
+
+    if (!requestData.password || requestData.password.length < 6) {
+      return NextResponse.json({
+        error: "Password must be at least 6 characters long"
+      }, { status: 400 })
+    }
+
+    if (!requestData.country || requestData.country.trim() === "") {
+      return NextResponse.json({
+        error: "Please select your country"
+      }, { status: 400 })
+    }
+
+    // Additional validation for institution signups
+    if (requestData.role === "university") {
+      if (!requestData.institutionName || requestData.institutionName.trim().length < 2) {
+        return NextResponse.json({
+          error: "Please enter a valid institution name (at least 2 characters)"
+        }, { status: 400 })
+      }
+
+      if (!requestData.institutionType) {
+        return NextResponse.json({
+          error: "Please select your institution type"
+        }, { status: 400 })
+      }
+
+      if (!requestData.subcategory) {
+        return NextResponse.json({
+          error: "Please select your institution subcategory"
+        }, { status: 400 })
+      }
+
+      if (!requestData.adminName || requestData.adminName.trim().length < 2) {
+        return NextResponse.json({
+          error: "Please enter a valid admin name (at least 2 characters)"
+        }, { status: 400 })
+      }
+    }
+
     // Connect to MongoDB
     const db = await getDatabase()
     const users = db.collection("users")
@@ -128,7 +174,7 @@ export async function POST(request) {
         name: requestData.adminName, // Use adminName as the display name
         email, // always lowercase
         password: hashedPassword,
-        country: requestData.country || "",
+        country: requestData.country,
 
         // Contact information
         phone: requestData.phone || "",
@@ -174,7 +220,7 @@ export async function POST(request) {
         email, // always lowercase
         password: hashedPassword,
         selectedSubjects: requestData.selectedSubjects || [],
-        country: requestData.country || "",
+        country: requestData.country,
 
         // Metadata
         createdAt: new Date(),
