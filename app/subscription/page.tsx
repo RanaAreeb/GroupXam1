@@ -34,6 +34,26 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
+// Hook to detect if user prefers reduced motion or is on mobile
+const useReducedMotion = () => {
+  const [shouldReduceMotion, setShouldReduceMotion] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const isMobile = window.innerWidth < 768;
+    setShouldReduceMotion(mediaQuery.matches || isMobile);
+
+    const handleResize = () => {
+      setShouldReduceMotion(window.innerWidth < 768 || mediaQuery.matches);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return shouldReduceMotion;
+};
+
 // Country currency data with competitive pricing
 const countryPricing = {
   US: {
@@ -132,6 +152,7 @@ export default function SubscriptionPage() {
   const { user } = useAuth();
   const [selectedCountry, setSelectedCountry] = useState<keyof typeof countryPricing>("US");
   const [detectedCountry, setDetectedCountry] = useState<string | null>(null);
+  const reduceMotion = useReducedMotion();
 
   // Detect user's country
   useEffect(() => {
@@ -221,33 +242,32 @@ export default function SubscriptionPage() {
             </Link>
           </div>
 
-          {/* Hero Section - Futuristic Design */}
+          {/* Hero Section - Optimized */}
           <div className="text-center mb-12 relative">
-            {/* Holographic Background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/10 via-blue-400/10 to-purple-400/10 rounded-3xl blur-3xl scale-110 -z-10"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-pulse"></div>
+            {/* Background - Simplified for mobile */}
+            {!reduceMotion && (
+              <>
+                <div className="hidden md:block absolute inset-0 bg-gradient-to-br from-emerald-400/10 via-blue-400/10 to-purple-400/10 rounded-3xl blur-3xl scale-110 -z-10"></div>
+                <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-pulse"></div>
+              </>
+            )}
             
             <div className="relative">
-              <Badge className="mb-6 bg-emerald-100/80 backdrop-blur-sm text-emerald-700 hover:bg-emerald-200/80 px-6 py-3 text-sm font-medium border border-emerald-200/50 shadow-lg animate-float">
+              <Badge className={`mb-6 bg-emerald-100 text-emerald-700 hover:bg-emerald-200 px-6 py-3 text-sm font-medium border border-emerald-200 shadow-lg ${!reduceMotion ? 'md:animate-float' : ''}`}>
                 🎓 Premium Subscription
               </Badge>
-              <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight relative">
-                <span className="bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 bg-clip-text text-transparent relative">
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                <span className="bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">
                   Unlock Your Full Potential
-                  <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/20 via-blue-400/20 to-purple-400/20 rounded-lg blur-xl scale-110 -z-10"></div>
                 </span>
                 <br />
-                <span className="text-gray-800 relative">
+                <span className="text-gray-800">
                   with groupXam Premium
-                  <div className="absolute inset-0 bg-gradient-to-r from-gray-400/10 to-gray-600/10 rounded-lg blur-lg scale-105 -z-10"></div>
                 </span>
               </h1>
-              <div className="relative">
-                <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
-                  Get access to all premium features and tools designed to accelerate your academic success
-                </p>
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-pulse -z-10"></div>
-              </div>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
+                Get access to all premium features and tools designed to accelerate your academic success
+              </p>
             </div>
 
             {/* Country Selector */}
@@ -276,166 +296,151 @@ export default function SubscriptionPage() {
             )}
           </div>
 
-          {/* Premium Features Grid - Futuristic Design */}
+          {/* Premium Features Grid - Optimized */}
           <div className="mb-16 relative">
-            <h2 className="text-3xl font-bold text-center text-gray-800 mb-8 relative">
+            <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">
               Premium Features Included
-              <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/10 via-blue-400/10 to-purple-400/10 rounded-lg blur-xl scale-110 -z-10"></div>
             </h2>
             
             <div className="relative">
-              {/* Animated Background Grid */}
-              <div className="absolute inset-0 opacity-20">
-                <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/10 via-blue-400/10 to-purple-400/10 rounded-3xl blur-3xl scale-110"></div>
-                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent animate-pulse"></div>
-              </div>
+              {/* Background - Desktop only */}
+              {!reduceMotion && (
+                <div className="hidden md:block absolute inset-0 opacity-20">
+                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/10 via-blue-400/10 to-purple-400/10 rounded-3xl blur-3xl scale-110"></div>
+                </div>
+              )}
               
               <div className="relative grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 px-4">
                 {/* AI Tutor Card */}
                 <div className="relative group">
-                  {/* Holographic Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/20 to-green-400/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 scale-110"></div>
-                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-green-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  {/* Hover effect - Desktop only */}
+                  {!reduceMotion && (
+                    <div className="hidden md:block absolute inset-0 bg-gradient-to-br from-emerald-400/20 to-green-400/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 scale-110"></div>
+                  )}
                   
-                  <div className="relative bg-gradient-to-br from-emerald-50 to-green-100 rounded-2xl p-4 sm:p-6 text-center border border-white/20 backdrop-blur-sm hover:shadow-2xl hover:shadow-emerald-200/50 transition-all duration-500 transform group-hover:-translate-y-2">
-                    {/* Floating Particles */}
-                    <div className="absolute top-2 right-2 w-1 h-1 bg-emerald-400 rounded-full opacity-60 animate-bounce"></div>
-                    <div className="absolute top-4 left-3 w-0.5 h-0.5 bg-green-400 rounded-full opacity-40 animate-ping"></div>
-                    
-                    <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-emerald-500 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg">
-                      <Brain className="w-5 h-5 sm:w-6 sm:h-6 text-white drop-shadow-sm" />
-                      {/* Glow Effect */}
-                      <div className="absolute inset-0 bg-emerald-400/30 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className={`relative bg-gradient-to-br from-emerald-50 to-green-100 rounded-2xl p-4 sm:p-6 text-center border border-emerald-200 shadow-md hover:shadow-lg transition-shadow duration-300 ${!reduceMotion ? 'md:group-hover:-translate-y-2 md:transition-transform' : ''}`}>
+                    <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-emerald-500 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-3 shadow-lg">
+                      <Brain className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                     </div>
-                    <h3 className="font-bold text-gray-800 text-xs sm:text-sm group-hover:text-emerald-700 transition-colors duration-300">AI Tutor</h3>
+                    <h3 className="font-bold text-gray-800 text-xs sm:text-sm">AI Tutor</h3>
                   </div>
                 </div>
                 
                 {/* Whiteboard Card */}
                 <div className="relative group">
-                  <div className="absolute inset-0 bg-gradient-to-br from-orange-400/20 to-amber-400/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 scale-110"></div>
+                  {!reduceMotion && (
+                    <div className="hidden md:block absolute inset-0 bg-gradient-to-br from-orange-400/20 to-amber-400/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 scale-110"></div>
+                  )}
                   
-                  <div className="relative bg-gradient-to-br from-orange-50 to-amber-100 rounded-2xl p-4 sm:p-6 text-center border border-white/20 backdrop-blur-sm hover:shadow-2xl hover:shadow-orange-200/50 transition-all duration-500 transform group-hover:-translate-y-2">
-                    <div className="absolute top-1 right-1 w-1 h-1 bg-orange-400 rounded-full opacity-50 animate-pulse"></div>
-                    
-                    <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-orange-500 to-amber-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 group-hover:-rotate-6 transition-all duration-500 shadow-lg">
-                      <FileText className="w-5 h-5 sm:w-6 sm:h-6 text-white drop-shadow-sm" />
-                      <div className="absolute inset-0 bg-orange-400/30 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className={`relative bg-gradient-to-br from-orange-50 to-amber-100 rounded-2xl p-4 sm:p-6 text-center border border-orange-200 shadow-md hover:shadow-lg transition-shadow duration-300 ${!reduceMotion ? 'md:group-hover:-translate-y-2 md:transition-transform' : ''}`}>
+                    <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-orange-500 to-amber-600 rounded-xl flex items-center justify-center mx-auto mb-3 shadow-lg">
+                      <FileText className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                     </div>
-                    <h3 className="font-bold text-gray-800 text-xs sm:text-sm group-hover:text-orange-700 transition-colors duration-300">Whiteboard</h3>
+                    <h3 className="font-bold text-gray-800 text-xs sm:text-sm">Whiteboard</h3>
                   </div>
                 </div>
                 
                 {/* Math Help Card */}
                 <div className="relative group">
-                  <div className="absolute inset-0 bg-gradient-to-br from-pink-400/20 to-rose-400/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 scale-110"></div>
+                  {!reduceMotion && (
+                    <div className="hidden md:block absolute inset-0 bg-gradient-to-br from-pink-400/20 to-rose-400/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 scale-110"></div>
+                  )}
                   
-                  <div className="relative bg-gradient-to-br from-pink-50 to-rose-100 rounded-2xl p-4 sm:p-6 text-center border border-white/20 backdrop-blur-sm hover:shadow-2xl hover:shadow-pink-200/50 transition-all duration-500 transform group-hover:-translate-y-2">
-                    <div className="absolute bottom-2 left-2 w-0.5 h-0.5 bg-pink-400 rounded-full opacity-60 animate-bounce"></div>
-                    
-                    <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-pink-500 to-rose-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-lg">
-                      <Calculator className="w-5 h-5 sm:w-6 sm:h-6 text-white drop-shadow-sm" />
-                      <div className="absolute inset-0 bg-pink-400/30 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className={`relative bg-gradient-to-br from-pink-50 to-rose-100 rounded-2xl p-4 sm:p-6 text-center border border-pink-200 shadow-md hover:shadow-lg transition-shadow duration-300 ${!reduceMotion ? 'md:group-hover:-translate-y-2 md:transition-transform' : ''}`}>
+                    <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-pink-500 to-rose-600 rounded-xl flex items-center justify-center mx-auto mb-3 shadow-lg">
+                      <Calculator className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                     </div>
-                    <h3 className="font-bold text-gray-800 text-xs sm:text-sm group-hover:text-pink-700 transition-colors duration-300">Math Help</h3>
+                    <h3 className="font-bold text-gray-800 text-xs sm:text-sm">Math Help</h3>
                   </div>
                 </div>
                 
                 {/* Proofreading Card */}
                 <div className="relative group">
-                  <div className="absolute inset-0 bg-gradient-to-br from-violet-400/20 to-purple-400/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 scale-110"></div>
+                  {!reduceMotion && (
+                    <div className="hidden md:block absolute inset-0 bg-gradient-to-br from-violet-400/20 to-purple-400/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 scale-110"></div>
+                  )}
                   
-                  <div className="relative bg-gradient-to-br from-violet-50 to-purple-100 rounded-2xl p-4 sm:p-6 text-center border border-white/20 backdrop-blur-sm hover:shadow-2xl hover:shadow-violet-200/50 transition-all duration-500 transform group-hover:-translate-y-2">
-                    <div className="absolute top-3 right-2 w-0.5 h-0.5 bg-violet-400 rounded-full opacity-40 animate-ping"></div>
-                    
-                    <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-violet-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 group-hover:-rotate-12 transition-all duration-500 shadow-lg">
-                      <FileText className="w-5 h-5 sm:w-6 sm:h-6 text-white drop-shadow-sm" />
-                      <div className="absolute inset-0 bg-violet-400/30 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className={`relative bg-gradient-to-br from-violet-50 to-purple-100 rounded-2xl p-4 sm:p-6 text-center border border-violet-200 shadow-md hover:shadow-lg transition-shadow duration-300 ${!reduceMotion ? 'md:group-hover:-translate-y-2 md:transition-transform' : ''}`}>
+                    <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-violet-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-3 shadow-lg">
+                      <FileText className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                     </div>
-                    <h3 className="font-bold text-gray-800 text-xs sm:text-sm group-hover:text-violet-700 transition-colors duration-300">Proofreading</h3>
+                    <h3 className="font-bold text-gray-800 text-xs sm:text-sm">Proofreading</h3>
                   </div>
                 </div>
                 
                 {/* Research Help Card */}
                 <div className="relative group col-span-2 sm:col-span-1">
-                  <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/20 to-orange-400/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 scale-110"></div>
+                  {!reduceMotion && (
+                    <div className="hidden md:block absolute inset-0 bg-gradient-to-br from-yellow-400/20 to-orange-400/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 scale-110"></div>
+                  )}
                   
-                  <div className="relative bg-gradient-to-br from-yellow-50 to-orange-100 rounded-2xl p-4 sm:p-6 text-center border border-white/20 backdrop-blur-sm hover:shadow-2xl hover:shadow-yellow-200/50 transition-all duration-500 transform group-hover:-translate-y-2">
-                    <div className="absolute bottom-1 right-1 w-1 h-1 bg-yellow-400 rounded-full opacity-70 animate-bounce"></div>
-                    <div className="absolute top-2 left-2 w-0.5 h-0.5 bg-orange-400 rounded-full opacity-50 animate-pulse"></div>
-                    
-                    <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg">
-                      <BookOpen className="w-5 h-5 sm:w-6 sm:h-6 text-white drop-shadow-sm" />
-                      <div className="absolute inset-0 bg-yellow-400/30 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className={`relative bg-gradient-to-br from-yellow-50 to-orange-100 rounded-2xl p-4 sm:p-6 text-center border border-yellow-200 shadow-md hover:shadow-lg transition-shadow duration-300 ${!reduceMotion ? 'md:group-hover:-translate-y-2 md:transition-transform' : ''}`}>
+                    <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-xl flex items-center justify-center mx-auto mb-3 shadow-lg">
+                      <BookOpen className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                     </div>
-                    <h3 className="font-bold text-gray-800 text-xs sm:text-sm group-hover:text-yellow-700 transition-colors duration-300">Research Help</h3>
+                    <h3 className="font-bold text-gray-800 text-xs sm:text-sm">Research Help</h3>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Pricing Plans - Futuristic Design */}
+          {/* Pricing Plans - Optimized */}
           <div className="mb-16 relative">
-            <h2 className="text-3xl font-bold text-center text-gray-800 mb-4 relative">
+            <h2 className="text-3xl font-bold text-center text-gray-800 mb-4">
               Choose Your Plan
-              <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/10 via-blue-400/10 to-purple-400/10 rounded-lg blur-xl scale-110 -z-10"></div>
             </h2>
             <p className="text-center text-gray-600 mb-8">
               Select the subscription duration that works best for you
             </p>
 
             <div className="relative">
-              {/* Holographic Background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/5 via-blue-400/5 to-purple-400/5 rounded-3xl blur-2xl scale-110"></div>
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-pulse"></div>
+              {/* Background - Desktop only */}
+              {!reduceMotion && (
+                <div className="hidden md:block absolute inset-0 bg-gradient-to-br from-emerald-400/5 via-blue-400/5 to-purple-400/5 rounded-3xl blur-2xl scale-110"></div>
+              )}
               
               <div className="relative grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto px-4 pt-6">
                 {subscriptionPlans.map((plan) => {
                   const planPricing = pricing.rates[plan.period as keyof typeof pricing.rates];
                   return (
                     <div key={plan.period} className="relative group mt-6">
-                      {/* Holographic Aura */}
-                      <div className={`absolute inset-0 bg-gradient-to-br ${plan.color.includes('emerald') ? 'from-emerald-400/20 to-green-400/20' : plan.color.includes('blue') ? 'from-blue-400/20 to-indigo-400/20' : 'from-purple-400/20 to-fuchsia-400/20'} rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 scale-110`}></div>
+                      {/* Hover effect - Desktop only */}
+                      {!reduceMotion && (
+                        <div className={`hidden md:block absolute inset-0 bg-gradient-to-br ${plan.color.includes('emerald') ? 'from-emerald-400/20 to-green-400/20' : plan.color.includes('blue') ? 'from-blue-400/20 to-indigo-400/20' : 'from-purple-400/20 to-fuchsia-400/20'} rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 scale-110`}></div>
+                      )}
                       
                       <Card 
-                        className={`relative overflow-visible rounded-2xl bg-white/90 backdrop-blur-sm hover:shadow-2xl transition-all duration-500 transform group-hover:-translate-y-3 border border-white/20 min-h-[500px] ${
-                          plan.popular ? 'shadow-2xl scale-105' : 'shadow-lg'
-                        }`}
+                        className={`relative overflow-visible rounded-2xl bg-white transition-all duration-300 border min-h-[500px] ${
+                          plan.popular ? 'shadow-2xl md:scale-105 border-emerald-200' : 'shadow-lg border-gray-200'
+                        } ${!reduceMotion ? 'md:hover:shadow-2xl md:group-hover:-translate-y-3' : ''}`}
                       >
                         {plan.popular && (
-                          <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-emerald-500 to-green-500 text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg z-30 animate-pulse-glow">
+                          <div className={`absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-emerald-500 to-green-500 text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg z-30 ${!reduceMotion ? 'md:animate-pulse-glow' : ''}`}>
                             Most Popular
                           </div>
                         )}
                         {plan.badge && (
-                          <div className="absolute -top-4 right-2 bg-gradient-to-r from-purple-500 to-fuchsia-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-xl z-30 animate-float">
+                          <div className={`absolute -top-4 right-2 bg-gradient-to-r from-purple-500 to-fuchsia-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-xl z-30 ${!reduceMotion ? 'md:animate-float' : ''}`}>
                             {plan.badge}
                           </div>
                         )}
                         
-                        {/* Floating Particles */}
-                        <div className={`absolute top-2 right-2 w-1 h-1 ${plan.color.includes('emerald') ? 'bg-emerald-400' : plan.color.includes('blue') ? 'bg-blue-400' : 'bg-purple-400'} rounded-full opacity-60 animate-bounce`}></div>
-                        <div className={`absolute bottom-3 left-3 w-0.5 h-0.5 ${plan.color.includes('emerald') ? 'bg-green-400' : plan.color.includes('blue') ? 'bg-cyan-400' : 'bg-violet-400'} rounded-full opacity-40 animate-ping`}></div>
-                        
                         <CardContent className="p-8 h-full flex flex-col justify-between">
                           <div>
                             <div className="text-center mb-6">
-                              <div className={`relative w-16 h-16 bg-gradient-to-br ${plan.color} rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}>
-                                <Clock className="w-8 h-8 text-white drop-shadow-sm" />
-                                {/* Icon Glow Effect */}
-                                <div className={`absolute inset-0 ${plan.color.includes('emerald') ? 'bg-emerald-400' : plan.color.includes('blue') ? 'bg-blue-400' : 'bg-purple-400'}/30 rounded-2xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+                              <div className={`relative w-16 h-16 bg-gradient-to-br ${plan.color} rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg ${!reduceMotion ? 'md:group-hover:scale-110 md:group-hover:rotate-6 md:transition-all md:duration-500' : ''}`}>
+                                <Clock className="w-8 h-8 text-white" />
                               </div>
-                              <h3 className="text-2xl font-bold text-gray-800 mb-2 group-hover:text-emerald-700 transition-colors duration-300">{plan.name}</h3>
-                              <div className="relative text-4xl font-bold bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent mb-2">
+                              <h3 className="text-2xl font-bold text-gray-800 mb-2">{plan.name}</h3>
+                              <div className="text-4xl font-bold bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent mb-2">
                                 {pricing.symbol}{planPricing.total.toLocaleString()}
-                                <div className="absolute inset-0 bg-emerald-400/10 rounded-lg blur-sm -z-10"></div>
                               </div>
                               <p className="text-gray-600">
                                 {pricing.symbol}{planPricing.monthly.toLocaleString()}/month
                               </p>
                               {'discount' in planPricing && planPricing.discount && (
-                                <p className="text-sm text-green-600 font-semibold mt-1 animate-pulse">
+                                <p className={`text-sm text-green-600 font-semibold mt-1 ${!reduceMotion ? 'md:animate-pulse' : ''}`}>
                                   Save {planPricing.discount}%!
                                 </p>
                               )}
@@ -444,7 +449,7 @@ export default function SubscriptionPage() {
                             <ul className="space-y-3 mb-6">
                             <li className="flex items-center gap-3">
                               <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                              <span className="text-gray-700">All 8 premium features</span>
+                              <span className="text-gray-700">All 5 premium features</span>
                             </li>
                             <li className="flex items-center gap-3">
                               <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
@@ -458,10 +463,7 @@ export default function SubscriptionPage() {
                               <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
                               <span className="text-gray-700">Priority support</span>
                             </li>
-                            <li className="flex items-center gap-3">
-                              <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                              <span className="text-gray-700">Mobile app access</span>
-                            </li>
+                           
                             <li className="flex items-center gap-3">
                               <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
                               <span className="text-gray-700">Progress tracking</span>
@@ -485,8 +487,8 @@ export default function SubscriptionPage() {
                           <div>
                             <Link href={`/contact?package=subscription-${plan.period}&currency=${pricing.currency}`}>
                             <Button 
-                              className={`w-full bg-gradient-to-r ${plan.color} hover:opacity-90 text-white font-semibold py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 ${
-                                plan.popular ? 'animate-pulse-glow' : ''
+                              className={`w-full bg-gradient-to-r ${plan.color} hover:opacity-90 text-white font-semibold py-3 rounded-xl shadow-lg transition-all duration-300 ${
+                                !reduceMotion ? 'md:hover:shadow-xl md:hover:scale-105' : ''
                               }`}
                             >
                               Get {plan.name} Plan

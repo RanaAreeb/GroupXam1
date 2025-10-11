@@ -624,3 +624,94 @@ section {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+/* ====================================
+   MOBILE PERFORMANCE OPTIMIZATIONS
+   ==================================== */
+
+/* Disable expensive animations on mobile and for users who prefer reduced motion */
+@media (max-width: 768px), (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    /* Disable heavy animations on mobile */
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  /* Keep essential transitions but make them faster */
+  button,
+  a,
+  .card-hover,
+  .hover-lift {
+    transition-duration: 150ms !important;
+  }
+  
+  /* Disable blur effects on mobile (very expensive) */
+  .backdrop-blur-sm,
+  .backdrop-blur,
+  .backdrop-blur-md,
+  .backdrop-blur-lg {
+    backdrop-filter: none !important;
+  }
+  
+  /* Disable complex transforms on mobile */
+  .animate-float,
+  .animate-pulse-glow,
+  .animate-spin-slow,
+  .animate-holographic-shimmer,
+  .animate-matrix-rain,
+  .animate-particle-drift,
+  .animate-blob,
+  .animate-mesh-1,
+  .animate-mesh-2,
+  .animate-mesh-3,
+  .animate-float-slow,
+  .animate-float-medium,
+  .animate-float-fast,
+  .animate-pulse-ring,
+  .animate-rotate-slow,
+  .animate-orbit,
+  .animate-particle,
+  .animate-spin-slower {
+    animation: none !important;
+  }
+}
+
+/* GPU acceleration hints for smooth animations on desktop */
+@media (min-width: 769px) {
+  .animate-float,
+  .animate-pulse-glow,
+  .card-hover,
+  .hover-lift,
+  [class*="animate-"] {
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+  
+  /* Contain paint for better performance */
+  .card-hover,
+  .hover-lift {
+    contain: layout style paint;
+  }
+}
+
+/* Optimize scroll performance */
+* {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
