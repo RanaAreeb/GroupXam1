@@ -144,6 +144,16 @@ const countryPricing = {
       "12month": { monthly: 225, total: 2700, discount: 5 },
     },
   },
+  LR: {
+    name: "🇱🇷 Liberia",
+    currency: "LRD",
+    symbol: "L$",
+    rates: {
+      "3month": { monthly: 350, total: 1050 },
+      "6month": { monthly: 350, total: 2100 },
+      "12month": { monthly: 525, total: 6300, discount: 5 },
+    },
+  },
 };
 
 export default function HomePage() {
@@ -1684,23 +1694,40 @@ export default function HomePage() {
                 Get unlimited access to IELTS prep, flashcards, study groups, AI tutor, whiteboard, math help, proofreading, and more
               </p>
               
-              {/* Country Selector */}
-              <div className="flex items-center justify-center gap-3 mb-8">
-                <Globe className="w-5 h-5 text-gray-600" />
-                <span className="text-sm text-gray-600">Select your country:</span>
-                <Select value={selectedCountry} onValueChange={(value) => setSelectedCountry(value as keyof typeof countryPricing)}>
-                  <SelectTrigger className="w-64">
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {Object.entries(countryPricing).map(([code, data]) => (
-                      <SelectItem key={code} value={code}>
-                        {data.name}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+            {/* Country Selector */}
+            <div className="relative">
+              {/* Futuristic Background Effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/10 via-blue-400/10 to-purple-400/10 rounded-2xl blur-xl scale-110 opacity-50"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/5 via-blue-400/5 to-purple-400/5 rounded-2xl scale-105"></div>
+              
+              <div className="relative flex flex-col sm:flex-row items-center justify-center gap-3 mb-8 px-4 py-6 bg-white/80 backdrop-blur-sm rounded-2xl border border-white/20 shadow-lg">
+                {/* Animated Globe Icon */}
+                <div className="flex items-center gap-2 mb-2 sm:mb-0 relative">
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-blue-400 rounded-full blur-sm opacity-60 animate-pulse"></div>
+                    <Globe className="relative w-4 h-4 sm:w-5 sm:h-5 text-gray-600 animate-spin-slow" />
+                  </div>
+                  <span className="text-xs sm:text-sm text-gray-600 font-medium">Select your country:</span>
+                </div>
+                
+                {/* Futuristic Select with Glow Effect */}
+                <div className="relative">
+                  <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/20 to-blue-400/20 rounded-lg blur-sm scale-105 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <Select value={selectedCountry} onValueChange={(value) => setSelectedCountry(value as keyof typeof countryPricing)}>
+                    <SelectTrigger className="w-full sm:w-64 bg-white/90 backdrop-blur-sm border-2 border-gray-200/50 hover:border-emerald-400/50 transition-all duration-300 shadow-lg hover:shadow-emerald-200/50">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent className="backdrop-blur-md bg-white/95 border border-white/20 shadow-2xl">
+                      {Object.entries(countryPricing).map(([code, data]) => (
+                        <SelectItem key={code} value={code} className="hover:bg-emerald-50/50 transition-colors duration-200">
+                          {data.name}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
               </div>
+            </div>
               {detectedCountry && (
                 <p className="text-sm text-emerald-600 mb-6">
                   ✓ Detected your location: {countryPricing[selectedCountry].name}
@@ -1708,137 +1735,203 @@ export default function HomePage() {
               )}
             </div>
 
-            {/* Feature Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6 mb-12">
-              <div className="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl p-6 text-center group hover:shadow-xl transition-all duration-300">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
-                  <BookOpen className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="font-bold text-gray-800 text-sm">IELTS Prep</h3>
+            {/* Feature Grid - Futuristic Mobile Design */}
+            <div className="relative">
+              {/* Animated Background Grid */}
+              <div className="absolute inset-0 opacity-20">
+                <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/10 via-blue-400/10 to-purple-400/10 rounded-3xl blur-3xl scale-110"></div>
+                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent animate-pulse"></div>
               </div>
               
-              <div className="bg-gradient-to-br from-purple-50 to-fuchsia-100 rounded-2xl p-6 text-center group hover:shadow-xl transition-all duration-300">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-fuchsia-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
-                  <Target className="w-6 h-6 text-white" />
+              <div className="relative grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 mb-12 px-4">
+                {/* AI Tutor Card */}
+                <div className="relative group">
+                  {/* Holographic Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/20 to-green-400/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 scale-110"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-green-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  
+                  <div className="relative bg-gradient-to-br from-emerald-50 to-green-100 rounded-2xl p-4 sm:p-6 text-center border border-white/20 backdrop-blur-sm hover:shadow-2xl hover:shadow-emerald-200/50 transition-all duration-500 transform group-hover:-translate-y-2">
+                    {/* Floating Particles */}
+                    <div className="absolute top-2 right-2 w-1 h-1 bg-emerald-400 rounded-full opacity-60 animate-bounce"></div>
+                    <div className="absolute top-4 left-3 w-0.5 h-0.5 bg-green-400 rounded-full opacity-40 animate-ping"></div>
+                    
+                    <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-emerald-500 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg">
+                      <Brain className="w-5 h-5 sm:w-6 sm:h-6 text-white drop-shadow-sm" />
+                      {/* Glow Effect */}
+                      <div className="absolute inset-0 bg-emerald-400/30 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <h3 className="font-bold text-gray-800 text-xs sm:text-sm group-hover:text-emerald-700 transition-colors duration-300">AI Tutor</h3>
+                  </div>
                 </div>
-                <h3 className="font-bold text-gray-800 text-sm">Flashcards</h3>
-              </div>
-              
-              <div className="bg-gradient-to-br from-cyan-50 to-teal-100 rounded-2xl p-6 text-center group hover:shadow-xl transition-all duration-300">
-                <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-teal-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
-                  <Users2 className="w-6 h-6 text-white" />
+                
+                {/* Whiteboard Card */}
+                <div className="relative group">
+                  <div className="absolute inset-0 bg-gradient-to-br from-orange-400/20 to-amber-400/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 scale-110"></div>
+                  
+                  <div className="relative bg-gradient-to-br from-orange-50 to-amber-100 rounded-2xl p-4 sm:p-6 text-center border border-white/20 backdrop-blur-sm hover:shadow-2xl hover:shadow-orange-200/50 transition-all duration-500 transform group-hover:-translate-y-2">
+                    <div className="absolute top-1 right-1 w-1 h-1 bg-orange-400 rounded-full opacity-50 animate-pulse"></div>
+                    
+                    <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-orange-500 to-amber-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 group-hover:-rotate-6 transition-all duration-500 shadow-lg">
+                      <FileText className="w-5 h-5 sm:w-6 sm:h-6 text-white drop-shadow-sm" />
+                      <div className="absolute inset-0 bg-orange-400/30 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <h3 className="font-bold text-gray-800 text-xs sm:text-sm group-hover:text-orange-700 transition-colors duration-300">Whiteboard</h3>
+                  </div>
                 </div>
-                <h3 className="font-bold text-gray-800 text-sm">Study Groups</h3>
-              </div>
-              
-              <div className="bg-gradient-to-br from-emerald-50 to-green-100 rounded-2xl p-6 text-center group hover:shadow-xl transition-all duration-300">
-                <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
-                  <Brain className="w-6 h-6 text-white" />
+                
+                {/* Math Help Card */}
+                <div className="relative group">
+                  <div className="absolute inset-0 bg-gradient-to-br from-pink-400/20 to-rose-400/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 scale-110"></div>
+                  
+                  <div className="relative bg-gradient-to-br from-pink-50 to-rose-100 rounded-2xl p-4 sm:p-6 text-center border border-white/20 backdrop-blur-sm hover:shadow-2xl hover:shadow-pink-200/50 transition-all duration-500 transform group-hover:-translate-y-2">
+                    <div className="absolute bottom-2 left-2 w-0.5 h-0.5 bg-pink-400 rounded-full opacity-60 animate-bounce"></div>
+                    
+                    <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-pink-500 to-rose-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-lg">
+                      <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white drop-shadow-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                      </svg>
+                      <div className="absolute inset-0 bg-pink-400/30 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <h3 className="font-bold text-gray-800 text-xs sm:text-sm group-hover:text-pink-700 transition-colors duration-300">Math Help</h3>
+                  </div>
                 </div>
-                <h3 className="font-bold text-gray-800 text-sm">AI Tutor</h3>
-              </div>
-              
-              <div className="bg-gradient-to-br from-orange-50 to-amber-100 rounded-2xl p-6 text-center group hover:shadow-xl transition-all duration-300">
-                <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-amber-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
-                  <FileText className="w-6 h-6 text-white" />
+                
+                {/* Proofreading Card */}
+                <div className="relative group">
+                  <div className="absolute inset-0 bg-gradient-to-br from-violet-400/20 to-purple-400/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 scale-110"></div>
+                  
+                  <div className="relative bg-gradient-to-br from-violet-50 to-purple-100 rounded-2xl p-4 sm:p-6 text-center border border-white/20 backdrop-blur-sm hover:shadow-2xl hover:shadow-violet-200/50 transition-all duration-500 transform group-hover:-translate-y-2">
+                    <div className="absolute top-3 left-1 w-0.5 h-0.5 bg-violet-400 rounded-full opacity-40 animate-ping"></div>
+                    
+                    <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-violet-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 group-hover:-rotate-12 transition-all duration-500 shadow-lg">
+                      <FileText className="w-5 h-5 sm:w-6 sm:h-6 text-white drop-shadow-sm" />
+                      <div className="absolute inset-0 bg-violet-400/30 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <h3 className="font-bold text-gray-800 text-xs sm:text-sm group-hover:text-violet-700 transition-colors duration-300">Proofreading</h3>
+                  </div>
                 </div>
-                <h3 className="font-bold text-gray-800 text-sm">Whiteboard</h3>
-              </div>
-              
-              <div className="bg-gradient-to-br from-pink-50 to-rose-100 rounded-2xl p-6 text-center group hover:shadow-xl transition-all duration-300">
-                <div className="w-12 h-12 bg-gradient-to-br from-pink-500 to-rose-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                  </svg>
+                
+                {/* Research Help Card */}
+                <div className="relative group col-span-2 sm:col-span-1">
+                  <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/20 to-orange-400/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 scale-110"></div>
+                  
+                  <div className="relative bg-gradient-to-br from-yellow-50 to-orange-100 rounded-2xl p-4 sm:p-6 text-center border border-white/20 backdrop-blur-sm hover:shadow-2xl hover:shadow-yellow-200/50 transition-all duration-500 transform group-hover:-translate-y-2">
+                    <div className="absolute bottom-1 right-3 w-1 h-1 bg-yellow-400 rounded-full opacity-50 animate-bounce"></div>
+                    <div className="absolute top-1 left-1 w-0.5 h-0.5 bg-orange-400 rounded-full opacity-60 animate-pulse"></div>
+                    
+                    <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg">
+                      <BookOpen className="w-5 h-5 sm:w-6 sm:h-6 text-white drop-shadow-sm" />
+                      <div className="absolute inset-0 bg-yellow-400/30 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <h3 className="font-bold text-gray-800 text-xs sm:text-sm group-hover:text-yellow-700 transition-colors duration-300">Research Help</h3>
+                  </div>
                 </div>
-                <h3 className="font-bold text-gray-800 text-sm">Math Help</h3>
-              </div>
-              
-              <div className="bg-gradient-to-br from-violet-50 to-purple-100 rounded-2xl p-6 text-center group hover:shadow-xl transition-all duration-300">
-                <div className="w-12 h-12 bg-gradient-to-br from-violet-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
-                </div>
-                <h3 className="font-bold text-gray-800 text-sm">Proofreading</h3>
-              </div>
-              
-              <div className="bg-gradient-to-br from-yellow-50 to-orange-100 rounded-2xl p-6 text-center group hover:shadow-xl transition-all duration-300">
-                <div className="w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                  </svg>
-                </div>
-                <h3 className="font-bold text-gray-800 text-sm">Research Help</h3>
               </div>
             </div>
 
-            {/* Subscription CTA */}
-            <div className="text-center bg-gradient-to-br from-emerald-50 to-blue-50 rounded-3xl p-8 sm:p-12">
-              <h3 className="text-2xl sm:text-4xl font-bold text-gray-800 mb-4">
-                Starting at just <span className="text-emerald-600">
-                  {countryPricing[selectedCountry].symbol}{countryPricing[selectedCountry].rates["6month"].monthly.toLocaleString()}/month
-                </span>
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 max-w-4xl mx-auto">
-                {/* 3 Month Plan */}
-                <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all">
-                  <div className="text-sm text-gray-600 mb-2">3 Months</div>
-                  <div className="text-2xl font-bold text-blue-600 mb-1">
-                    {countryPricing[selectedCountry].symbol}{countryPricing[selectedCountry].rates["3month"].total.toLocaleString()}
-                  </div>
-                  <div className="text-sm text-gray-500">
-                    {countryPricing[selectedCountry].symbol}{countryPricing[selectedCountry].rates["3month"].monthly.toLocaleString()}/month
-                  </div>
-                </div>
-                
-                {/* 6 Month Plan - Most Popular */}
-                <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all border-2 border-emerald-500 relative">
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-emerald-500 text-white px-3 py-1 rounded-full text-xs font-bold">
-                    Most Popular
-                  </div>
-                  <div className="text-sm text-gray-600 mb-2">6 Months</div>
-                  <div className="text-2xl font-bold text-emerald-600 mb-1">
-                    {countryPricing[selectedCountry].symbol}{countryPricing[selectedCountry].rates["6month"].total.toLocaleString()}
-                  </div>
-                  <div className="text-sm text-gray-500">
+            {/* Subscription CTA - Futuristic Design */}
+            <div className="relative text-center">
+              {/* Holographic Background */}
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/10 via-blue-400/10 to-purple-400/10 rounded-3xl blur-2xl scale-105"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-pulse"></div>
+              
+              <div className="relative bg-gradient-to-br from-emerald-50/80 to-blue-50/80 backdrop-blur-sm rounded-3xl p-8 sm:p-12 border border-white/20">
+                <h3 className="text-2xl sm:text-4xl font-bold text-gray-800 mb-6 relative">
+                  Starting at just <span className="relative text-emerald-600">
                     {countryPricing[selectedCountry].symbol}{countryPricing[selectedCountry].rates["6month"].monthly.toLocaleString()}/month
+                    <div className="absolute inset-0 bg-emerald-400/20 rounded-lg blur-sm -z-10"></div>
+                  </span>
+                </h3>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 max-w-5xl mx-auto">
+                  {/* 3 Month Plan */}
+                  <div className="relative group">
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-cyan-400/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 scale-110"></div>
+                    
+                    <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-white/30 hover:shadow-2xl hover:shadow-blue-200/50 transition-all duration-500 transform group-hover:-translate-y-2">
+                      {/* Floating Particles */}
+                      <div className="absolute top-2 right-2 w-1 h-1 bg-blue-400 rounded-full opacity-60 animate-bounce"></div>
+                      
+                      <div className="text-sm text-gray-600 mb-2 font-medium">3 Months</div>
+                      <div className="text-2xl font-bold text-blue-600 mb-1 relative">
+                        {countryPricing[selectedCountry].symbol}{countryPricing[selectedCountry].rates["3month"].total.toLocaleString()}
+                        <div className="absolute inset-0 bg-blue-400/10 rounded blur-sm -z-10"></div>
+                      </div>
+                      <div className="text-sm text-gray-500">
+                        {countryPricing[selectedCountry].symbol}{countryPricing[selectedCountry].rates["3month"].monthly.toLocaleString()}/month
+                      </div>
+                    </div>
                   </div>
+                  
+                  {/* 6 Month Plan - Most Popular */}
+                  <div className="relative group">
+                    <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/30 to-green-400/30 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 scale-110"></div>
+                    
+                    <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl p-6 border-2 border-emerald-500/50 hover:shadow-2xl hover:shadow-emerald-200/50 transition-all duration-500 transform group-hover:-translate-y-3">
+                      <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-emerald-500 to-green-500 text-white px-4 py-1.5 rounded-full text-xs font-bold shadow-lg animate-pulse-glow">
+                        Most Popular
+                      </div>
+                      
+                      {/* Enhanced Particles */}
+                      <div className="absolute top-2 right-2 w-1 h-1 bg-emerald-400 rounded-full opacity-70 animate-bounce"></div>
+                      <div className="absolute bottom-3 left-3 w-0.5 h-0.5 bg-green-400 rounded-full opacity-50 animate-ping"></div>
+                      
+                      <div className="text-sm text-gray-600 mb-2 font-medium">6 Months</div>
+                      <div className="text-2xl font-bold text-emerald-600 mb-1 relative">
+                        {countryPricing[selectedCountry].symbol}{countryPricing[selectedCountry].rates["6month"].total.toLocaleString()}
+                        <div className="absolute inset-0 bg-emerald-400/20 rounded blur-sm -z-10"></div>
+                      </div>
+                      <div className="text-sm text-gray-500">
+                        {countryPricing[selectedCountry].symbol}{countryPricing[selectedCountry].rates["6month"].monthly.toLocaleString()}/month
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* 12 Month Plan */}
+                  <div className="relative group">
+                    <div className="absolute inset-0 bg-gradient-to-br from-purple-400/20 to-fuchsia-400/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 scale-110"></div>
+                    
+                    <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-white/30 hover:shadow-2xl hover:shadow-purple-200/50 transition-all duration-500 transform group-hover:-translate-y-2">
+                      <div className="absolute -top-3 right-4 bg-gradient-to-r from-purple-500 to-fuchsia-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg z-20 animate-float">
+                        5% OFF
+                      </div>
+                      
+                      {/* Premium Particles */}
+                      <div className="absolute top-2 right-2 w-1 h-1 bg-purple-400 rounded-full opacity-60 animate-bounce"></div>
+                      <div className="absolute top-4 left-2 w-0.5 h-0.5 bg-fuchsia-400 rounded-full opacity-40 animate-ping"></div>
+                      <div className="absolute bottom-2 right-4 w-0.5 h-0.5 bg-purple-400 rounded-full opacity-50 animate-pulse"></div>
+                      
+                      <div className="text-sm text-gray-600 mb-2 font-medium">12 Months</div>
+                      <div className="text-2xl font-bold text-purple-600 mb-1 relative">
+                        {countryPricing[selectedCountry].symbol}{countryPricing[selectedCountry].rates["12month"].total.toLocaleString()}
+                        <div className="absolute inset-0 bg-purple-400/15 rounded blur-sm -z-10"></div>
+                      </div>
+                      <div className="text-sm text-gray-500">
+                        {countryPricing[selectedCountry].symbol}{countryPricing[selectedCountry].rates["12month"].monthly.toLocaleString()}/month
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 </div>
                 
-                {/* 12 Month Plan */}
-                <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all relative">
-                  <div className="absolute -top-3 right-4 bg-gradient-to-r from-purple-500 to-fuchsia-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg z-20">
-                    5% OFF
-                  </div>
-                  <div className="text-sm text-gray-600 mb-2">12 Months</div>
-                  <div className="text-2xl font-bold text-purple-600 mb-1">
-                    {countryPricing[selectedCountry].symbol}{countryPricing[selectedCountry].rates["12month"].total.toLocaleString()}
-                  </div>
-                  <div className="text-sm text-gray-500">
-                    {countryPricing[selectedCountry].symbol}{countryPricing[selectedCountry].rates["12month"].monthly.toLocaleString()}/month
-                  </div>
+                <p className="text-gray-600 mb-8 mt-6">
+                  All plans include access to all 8 premium features
+                </p>
+                
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Link href="/subscription">
+                    <Button size="lg" className="bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                      View All Plans
+                    </Button>
+                  </Link>
+                  <Link href="/contact?package=subscription">
+                    <Button size="lg" variant="outline" className="border-2 border-emerald-500 text-emerald-600 hover:bg-emerald-50 px-8 py-3 rounded-full hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                      Contact Us
+                    </Button>
+                  </Link>
                 </div>
-              </div>
-              
-              <p className="text-gray-600 mb-8">
-                All plans include access to all 8 premium features
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="/subscription">
-                  <Button size="lg" className="bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white px-8 py-3 rounded-full shadow-lg">
-                    View All Plans
-                  </Button>
-                </Link>
-                <Link href="/contact?package=subscription">
-                  <Button size="lg" variant="outline" className="border-2 border-emerald-500 text-emerald-600 hover:bg-emerald-50 px-8 py-3 rounded-full">
-                    Contact Us
-                  </Button>
-                </Link>
               </div>
             </div>
-          </div>
         </section>
 
         {/* CTA Section */}

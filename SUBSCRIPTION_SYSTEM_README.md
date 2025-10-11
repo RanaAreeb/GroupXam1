@@ -62,7 +62,7 @@ This document outlines the comprehensive subscription system implemented for gro
 
 #### Multi-Currency Support on Homepage:
 - **Automatic country detection** from user profile
-- **8 supported currencies**:
+- **9 supported currencies**:
   - USD (United States) - $2/month for 6 months
   - NGN (Nigeria) - ₦3,000/month for 6 months
   - GBP (United Kingdom) - £1.5/month for 6 months
@@ -71,6 +71,7 @@ This document outlines the comprehensive subscription system implemented for gro
   - SLL (Sierra Leone) - Le40,000/month for 6 months
   - PKR (Pakistan) - ₨500/month for 6 months
   - INR (India) - ₹150/month for 6 months
+  - LRD (Liberia) - L$350/month for 6 months
 - Users can manually change country if needed
 - Pricing updates instantly when country is changed
 - "Most Popular" badge on 6-month plan

@@ -36,6 +36,7 @@ import {
 // Country currency data with competitive pricing
 const countryPricing = {
   US: {
+    name: "🇺🇸 United States",
     currency: "USD",
     symbol: "$",
     rates: {
@@ -45,6 +46,7 @@ const countryPricing = {
     },
   },
   NG: {
+    name: "🇳🇬 Nigeria",
     currency: "NGN",
     symbol: "₦",
     rates: {
@@ -54,6 +56,7 @@ const countryPricing = {
     },
   },
   GB: {
+    name: "🇬🇧 United Kingdom",
     currency: "GBP",
     symbol: "£",
     rates: {
@@ -63,6 +66,7 @@ const countryPricing = {
     },
   },
   CA: {
+    name: "🇨🇦 Canada",
     currency: "CAD",
     symbol: "C$",
     rates: {
@@ -72,6 +76,7 @@ const countryPricing = {
     },
   },
   GH: {
+    name: "🇬🇭 Ghana",
     currency: "GHS",
     symbol: "GH₵",
     rates: {
@@ -81,6 +86,7 @@ const countryPricing = {
     },
   },
   SL: {
+    name: "🇸🇱 Sierra Leone",
     currency: "SLL",
     symbol: "Le",
     rates: {
@@ -90,6 +96,7 @@ const countryPricing = {
     },
   },
   PK: {
+    name: "🇵🇰 Pakistan",
     currency: "PKR",
     symbol: "₨",
     rates: {
@@ -99,12 +106,23 @@ const countryPricing = {
     },
   },
   IN: {
+    name: "🇮🇳 India",
     currency: "INR",
     symbol: "₹",
     rates: {
       "3month": { monthly: 150, total: 450 },
       "6month": { monthly: 150, total: 900 },
       "12month": { monthly: 225, total: 2700, discount: 5 },
+    },
+  },
+  LR: {
+    name: "🇱🇷 Liberia",
+    currency: "LRD",
+    symbol: "L$",
+    rates: {
+      "3month": { monthly: 350, total: 1050 },
+      "6month": { monthly: 350, total: 2100 },
+      "12month": { monthly: 525, total: 6300, discount: 5 },
     },
   },
 };
@@ -129,24 +147,6 @@ export default function SubscriptionPage() {
   const pricing = countryPricing[selectedCountry];
 
   const features = [
-    {
-      name: "IELTS Preparation",
-      icon: <BookOpen className="w-5 h-5" />,
-      description: "Complete IELTS test prep with practice tests and mock exams",
-      gradient: "from-blue-500 to-indigo-500",
-    },
-    {
-      name: "Flashcards",
-      icon: <Target className="w-5 h-5" />,
-      description: "Interactive flashcards for quick learning and memorization",
-      gradient: "from-purple-500 to-fuchsia-500",
-    },
-    {
-      name: "Study Groups",
-      icon: <Users className="w-5 h-5" />,
-      description: "Collaborate with peers in dedicated study groups",
-      gradient: "from-cyan-500 to-teal-500",
-    },
     {
       name: "AI Tutor & Homework Help",
       icon: <Brain className="w-5 h-5" />,
@@ -237,21 +237,21 @@ export default function SubscriptionPage() {
             </p>
 
             {/* Country Selector */}
-            <div className="flex items-center justify-center gap-4 mb-8">
-              <Globe className="w-5 h-5 text-gray-600" />
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8 px-4">
+              <div className="flex items-center gap-2 mb-2 sm:mb-0">
+                <Globe className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" />
+                <span className="text-xs sm:text-sm text-gray-600">Select your country:</span>
+              </div>
               <Select value={selectedCountry} onValueChange={(value) => setSelectedCountry(value as keyof typeof countryPricing)}>
-                <SelectTrigger className="w-64">
+                <SelectTrigger className="w-full sm:w-64">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="US">🇺🇸 United States (USD)</SelectItem>
-                  <SelectItem value="NG">🇳🇬 Nigeria (NGN)</SelectItem>
-                  <SelectItem value="GB">🇬🇧 United Kingdom (GBP)</SelectItem>
-                  <SelectItem value="CA">🇨🇦 Canada (CAD)</SelectItem>
-                  <SelectItem value="GH">🇬🇭 Ghana (GHS)</SelectItem>
-                  <SelectItem value="SL">🇸🇱 Sierra Leone (SLL)</SelectItem>
-                  <SelectItem value="PK">🇵🇰 Pakistan (PKR)</SelectItem>
-                  <SelectItem value="IN">🇮🇳 India (INR)</SelectItem>
+                  {Object.entries(countryPricing).map(([code, data]) => (
+                    <SelectItem key={code} value={code}>
+                      {data.name} ({data.currency})
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </div>
@@ -267,15 +267,15 @@ export default function SubscriptionPage() {
             <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">
               Premium Features Included
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 px-4">
               {features.map((feature, index) => (
                 <Card key={index} className="border-0 shadow-lg bg-white hover:shadow-xl transition-all duration-300 group">
-                  <CardContent className="p-6">
-                    <div className={`w-12 h-12 bg-gradient-to-br ${feature.gradient} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                  <CardContent className="p-4 sm:p-6">
+                    <div className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br ${feature.gradient} rounded-xl flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform`}>
                       <span className="text-white">{feature.icon}</span>
                     </div>
-                    <h3 className="font-bold text-lg text-gray-800 mb-2">{feature.name}</h3>
-                    <p className="text-sm text-gray-600">{feature.description}</p>
+                    <h3 className="font-bold text-base sm:text-lg text-gray-800 mb-2">{feature.name}</h3>
+                    <p className="text-xs sm:text-sm text-gray-600">{feature.description}</p>
                   </CardContent>
                 </Card>
               ))}
@@ -321,7 +321,7 @@ export default function SubscriptionPage() {
                         <p className="text-gray-600">
                           {pricing.symbol}{planPricing.monthly.toLocaleString()}/month
                         </p>
-                        {planPricing.discount && (
+                        {'discount' in planPricing && planPricing.discount && (
                           <p className="text-sm text-green-600 font-semibold mt-1">
                             Save {planPricing.discount}%!
                           </p>
