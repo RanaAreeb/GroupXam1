@@ -72,7 +72,7 @@ const countryPricing = {
     rates: {
       "3month": { monthly: 2, total: 6 },
       "6month": { monthly: 2, total: 12 },
-      "12month": { monthly: 3, total: 36, discount: 5 },
+      "12month": { monthly: 2, total: 36, discount: 5 },
     },
   },
   NG: {
@@ -82,7 +82,7 @@ const countryPricing = {
     rates: {
       "3month": { monthly: 3000, total: 9000 },
       "6month": { monthly: 3000, total: 18000 },
-      "12month": { monthly: 4500, total: 54000, discount: 5 },
+      "12month": { monthly: 4000, total: 54000, discount: 5 },
     },
   },
   GB: {
