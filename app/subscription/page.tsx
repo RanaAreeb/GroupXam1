@@ -222,7 +222,7 @@ export default function SubscriptionPage() {
       duration: "12 months",
       popular: false,
       color: "from-purple-500 to-fuchsia-500",
-      badge: "5% OFF",
+      badge: "36% OFF",
     },
   ];
 
@@ -472,7 +472,7 @@ export default function SubscriptionPage() {
                               {plan.period === "12month" ? (
                                 <>
                                   <Star className="w-5 h-5 text-yellow-500 flex-shrink-0 animate-pulse" />
-                                  <span className="text-gray-700 font-semibold">Exclusive 5% discount</span>
+                                  <span className="text-gray-700 font-semibold">Exclusive 36% discount</span>
                                 </>
                               ) : (
                                 <>
