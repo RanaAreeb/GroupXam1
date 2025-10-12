@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "optimize-connections": "node scripts/connection-optimizer.js",
+    "health-check": "node -e \"fetch('http://localhost:3000/api/health/db').then(r=>r.json()).then(console.log).catch(console.error)\"",
+    "db-stats": "node -e \"const {getDatabase} = require('./lib/db.js'); getDatabase().then(db => db.admin().serverStatus()).then(s => console.log('Connections:', s.connections)).catch(console.error)\""
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.879.0",

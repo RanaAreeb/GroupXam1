@@ -1,19 +1,9 @@
-import { MongoClient, ObjectId } from 'mongodb';
+import { ObjectId } from 'mongodb';
 import { NextResponse } from 'next/server';
-
-const uri = process.env.MONGODB_URI;
-const dbName = process.env.DB_NAME || 'groupxam';
-
-let client;
-let db;
+import { getDatabase } from '../../../../lib/db.js';
 
 async function connectDB() {
-    if (!client) {
-        client = new MongoClient(uri);
-        await client.connect();
-        db = client.db(dbName);
-    }
-    return db;
+    return await getDatabase();
 }
 
 // GET - Fetch all alerts

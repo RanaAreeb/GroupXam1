@@ -1,0 +1,17 @@
+{
+  "enabled": true,
+  "intervals": {
+    "healthCheck": 30000,
+    "statsLogging": 300000,
+    "connectionCheck": 10000
+  },
+  "thresholds": {
+    "maxConnections": 50,
+    "slowQueryMs": 1000,
+    "memoryWarningMB": 100
+  },
+  "alerts": {
+    "email": null,
+    "webhook": null
+  }
+}

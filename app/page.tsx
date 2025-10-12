@@ -1581,7 +1581,7 @@ export default function HomePage() {
         </section>
 
         {/* Interactive Subject Tiles */}
-        <section className="py-10 sm:py-16 px-4 bg-white reveal-on-scroll">
+        <section className="py-10 sm:py-16 px-4 sm:px-6 bg-white reveal-on-scroll">
           <div className="container mx-auto">
             <div className="text-center mb-8">
               <h2 className="text-2xl sm:text-4xl font-bold text-gray-800 mb-2">
@@ -1592,7 +1592,7 @@ export default function HomePage() {
                 subjects
               </p>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-5 md:gap-6 max-w-6xl mx-auto">
               {subjects.map((subject) => (
                 <Link
                   key={subject.name}
@@ -1635,12 +1635,12 @@ export default function HomePage() {
                           </div>
                         </div>
                         
-                        <p className="text-gray-600 text-xs leading-relaxed mb-3">
+                        <p className="text-gray-600 text-xs leading-relaxed mb-2 sm:mb-3">
                           Practice questions and improve your skills
                         </p>
                         
                         {/* Stats/Features */}
-                        <div className="flex items-center gap-3 text-xs text-gray-500">
+                        <div className="flex items-center gap-2 sm:gap-3 text-xs text-gray-500">
                           <div className="flex items-center gap-1">
                             <div className="w-1.5 h-1.5 bg-indigo-500 rounded-full"></div>
                             <span>Quick Practice</span>
@@ -1689,12 +1689,12 @@ export default function HomePage() {
                           </div>
                         </div>
                         
-                        <p className="text-gray-600 text-xs leading-relaxed mb-3">
+                        <p className="text-gray-600 text-xs leading-relaxed mb-2 sm:mb-3">
                           Start practicing with interactive questions and track your progress
                         </p>
                         
                         {/* Stats/Features */}
-                        <div className="flex items-center gap-3 text-xs text-gray-500">
+                        <div className="flex items-center gap-2 sm:gap-3 text-xs text-gray-500">
                           <div className="flex items-center gap-1">
                             <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div>
                             <span>Quick Practice</span>
@@ -1744,12 +1744,12 @@ export default function HomePage() {
                           </div>
                         </div>
                         
-                        <p className="text-gray-600 text-xs leading-relaxed mb-3">
+                        <p className="text-gray-600 text-xs leading-relaxed mb-2 sm:mb-3">
                           Start practicing with interactive questions and track your progress
                         </p>
                         
                         {/* Stats/Features */}
-                        <div className="flex items-center gap-3 text-xs text-gray-500">
+                        <div className="flex items-center gap-2 sm:gap-3 text-xs text-gray-500">
                           <div className="flex items-center gap-1">
                             <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div>
                             <span>Quick Practice</span>
@@ -1786,18 +1786,18 @@ export default function HomePage() {
               {/* Cards container - Enhanced padding for proper visibility */}
               <div
                 ref={scrollContainerRef}
-                className="flex gap-6 overflow-x-auto pb-4 px-4"
+                className="flex gap-4 sm:gap-6 overflow-x-auto pb-4 px-2 sm:px-4"
                 style={{ 
                   scrollbarWidth: "none",
                   scrollSnapType: "x mandatory",
-                  scrollPaddingLeft: "1rem",
-                  scrollPaddingRight: "1rem"
+                  scrollPaddingLeft: "0.5rem",
+                  scrollPaddingRight: "0.5rem"
                 }}
               >
                 {/* Quizzes Card - WITH IMAGE */}
                 <Link
                   href={isLoggedIn ? "/quiz" : "/login"}
-                  className="group flex-shrink-0 w-80 sm:w-96 bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer relative overflow-hidden snap-start border border-gray-100 hover:border-emerald-200 hover:-translate-y-2"
+                  className="group flex-shrink-0 w-72 sm:w-80 md:w-96 bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer relative overflow-hidden snap-start border border-gray-100 hover:border-emerald-200 hover:-translate-y-2"
                 >
                   {/* Image Container - Featured at Top */}
                   <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-emerald-50 to-green-50">
@@ -1856,7 +1856,7 @@ export default function HomePage() {
                 {/* Exam Prep Card */}
                 <Link
                   href={isLoggedIn ? "/exams" : "/login"}
-                  className="group flex-shrink-0 w-80 sm:w-96 bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer relative overflow-hidden snap-start border border-gray-100 hover:border-blue-200 hover:-translate-y-2"
+                  className="group flex-shrink-0 w-72 sm:w-80 md:w-96 bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer relative overflow-hidden snap-start border border-gray-100 hover:border-blue-200 hover:-translate-y-2"
                 >
                   {/* Image Container - Featured at Top */}
                   <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-blue-50 to-indigo-50">
@@ -1906,7 +1906,7 @@ export default function HomePage() {
                 {/* Whiteboard Card */}
                 <Link
                   href={isLoggedIn ? "/whiteboard" : "/login"}
-                  className="group flex-shrink-0 w-80 sm:w-96 bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer relative overflow-hidden snap-start border border-gray-100 hover:border-orange-200 hover:-translate-y-2"
+                  className="group flex-shrink-0 w-72 sm:w-80 md:w-96 bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer relative overflow-hidden snap-start border border-gray-100 hover:border-orange-200 hover:-translate-y-2"
                 >
                   {/* Image Container - Featured at Top */}
                       <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-orange-50 to-amber-50">
@@ -1995,7 +1995,7 @@ export default function HomePage() {
                 {/* Flashcards Card */}
                 <Link
                   href={isLoggedIn ? "/flashcards" : "/login"}
-                  className="group flex-shrink-0 w-80 sm:w-96 bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer relative overflow-hidden snap-start border border-gray-100 hover:border-purple-200 hover:-translate-y-2"
+                  className="group flex-shrink-0 w-72 sm:w-80 md:w-96 bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer relative overflow-hidden snap-start border border-gray-100 hover:border-purple-200 hover:-translate-y-2"
                 >
                   {/* Image Container - Featured at Top */}
                   <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-purple-50 to-fuchsia-50">
@@ -2054,7 +2054,7 @@ export default function HomePage() {
                 {/* Study Groups Card */}
                 <Link
                   href={isLoggedIn ? "/discussions" : "/login"}
-                  className="group flex-shrink-0 w-80 sm:w-96 bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer relative overflow-hidden snap-start border border-gray-100 hover:border-cyan-200 hover:-translate-y-2"
+                  className="group flex-shrink-0 w-72 sm:w-80 md:w-96 bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer relative overflow-hidden snap-start border border-gray-100 hover:border-cyan-200 hover:-translate-y-2"
                 >
                   {/* Image Container - Featured at Top */}
                   <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-cyan-50 to-teal-50">
@@ -2106,7 +2106,7 @@ export default function HomePage() {
                 {/* ProctorIT Card */}
                 <Link
                   href={isLoggedIn ? "/services" : "/login"}
-                  className="group flex-shrink-0 w-80 sm:w-96 bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer relative overflow-hidden snap-start border border-gray-100 hover:border-red-200 hover:-translate-y-2"
+                  className="group flex-shrink-0 w-72 sm:w-80 md:w-96 bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer relative overflow-hidden snap-start border border-gray-100 hover:border-red-200 hover:-translate-y-2"
                 >
                   {/* Image Container - Featured at Top */}
                   <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-red-50 to-pink-50">
