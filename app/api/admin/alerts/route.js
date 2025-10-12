@@ -9,7 +9,7 @@ async function connectDB() {
 // GET - Fetch all alerts
 export async function GET(request) {
     try {
-        await connectDB();
+        const db = await connectDB();
 
         const alerts = await db.collection('alerts').find({}).sort({ createdAt: -1 }).toArray();
 
@@ -40,7 +40,7 @@ export async function POST(request) {
             );
         }
 
-        await connectDB();
+        const db = await connectDB();
 
         const alert = {
             type,
@@ -84,7 +84,7 @@ export async function PATCH(request) {
             );
         }
 
-        await connectDB();
+        const db = await connectDB();
 
         const result = await db.collection('alerts').updateOne(
             { _id: new ObjectId(alertId) },
@@ -124,7 +124,7 @@ export async function DELETE(request) {
             );
         }
 
-        await connectDB();
+        const db = await connectDB();
 
         const result = await db.collection('alerts').deleteOne({ _id: new ObjectId(alertId) });
 

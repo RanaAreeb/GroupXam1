@@ -631,9 +631,9 @@ section {
 
 /* Disable expensive animations on mobile and for users who prefer reduced motion */
 @media (max-width: 768px), (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *:not(.animate-spin):not([class*="spin"]):not(.loading),
+  *:not(.animate-spin):not([class*="spin"]):not(.loading)::before,
+  *:not(.animate-spin):not([class*="spin"]):not(.loading)::after {
     /* Disable heavy animations on mobile */
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
@@ -696,7 +696,7 @@ section {
   .animate-pulse-glow,
   .card-hover,
   .hover-lift,
-  [class*="animate-"] {
+  [class*="animate-"]:not([data-state]):not([role="dialog"]):not([data-radix-popper-content-wrapper]):not(.animate-spin):not([class*="spin"]) {
     will-change: transform;
     transform: translateZ(0);
     backface-visibility: hidden;
@@ -722,6 +722,32 @@ section {
   scroll-padding-right: 1rem;
 }
 
+/* Fix Dialog positioning - ensure modals are centered */
+[data-state="open"][role="dialog"] {
+  position: fixed !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  z-index: 50 !important;
+}
+
+/* Ensure spinner animations work properly */
+.animate-spin,
+[class*="spin"] {
+  animation: spin 1s linear infinite !important;
+  animation-duration: 1s !important;
+  animation-iteration-count: infinite !important;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .carousel-item {
   scroll-snap-align: start;
   scroll-snap-stop: normal;
@@ -729,9 +755,9 @@ section {
 
 /* Reduce motion for accessibility */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *:not(.animate-spin):not([class*="spin"]):not(.loading),
+  *:not(.animate-spin):not([class*="spin"]):not(.loading)::before,
+  *:not(.animate-spin):not([class*="spin"]):not(.loading)::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;

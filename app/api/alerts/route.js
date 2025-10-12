@@ -19,7 +19,7 @@ export async function GET(request) {
             );
         }
 
-        await connectDB();
+        const db = await connectDB();
 
         // Get active alerts for all users
         const alerts = await db.collection('alerts').find({
@@ -68,7 +68,7 @@ export async function POST(request) {
             );
         }
 
-        await connectDB();
+        const db = await connectDB();
 
         // Record that this alert was shown to this user
         const alertHistory = {
