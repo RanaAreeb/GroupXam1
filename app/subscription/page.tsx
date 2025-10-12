@@ -24,7 +24,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import PageTransition from "@/components/PageTransition";
-import AppHeader from "@/components/ui/app-header";
+import Header from "@/components/ui/header";
 import { useAuth } from "@/hooks/use-auth";
 import {
   Select,
@@ -63,7 +63,7 @@ const countryPricing = {
     rates: {
       "3month": { monthly: 2, total: 6 },
       "6month": { monthly: 2, total: 12 },
-      "12month": { monthly: 3, total: 36, discount: 5 },
+      "12month": { monthly: 2, total: 15.36, discount: 36 },
     },
   },
   NG: {
@@ -73,7 +73,7 @@ const countryPricing = {
     rates: {
       "3month": { monthly: 3000, total: 9000 },
       "6month": { monthly: 3000, total: 18000 },
-      "12month": { monthly: 4500, total: 54000, discount: 5 },
+      "12month": { monthly: 3000, total: 23000, discount: 36 },
     },
   },
   GB: {
@@ -83,7 +83,7 @@ const countryPricing = {
     rates: {
       "3month": { monthly: 1.5, total: 4.5 },
       "6month": { monthly: 1.5, total: 9 },
-      "12month": { monthly: 2.3, total: 27.6, discount: 5 },
+      "12month": { monthly: 1.5, total: 11.52, discount: 36 },
     },
   },
   CA: {
@@ -93,7 +93,7 @@ const countryPricing = {
     rates: {
       "3month": { monthly: 2.5, total: 7.5 },
       "6month": { monthly: 2.5, total: 15 },
-      "12month": { monthly: 3.8, total: 45.6, discount: 5 },
+      "12month": { monthly: 2.5, total: 19.2, discount: 36 },
     },
   },
   GH: {
@@ -103,7 +103,7 @@ const countryPricing = {
     rates: {
       "3month": { monthly: 25, total: 75 },
       "6month": { monthly: 25, total: 150 },
-      "12month": { monthly: 38, total: 456, discount: 5 },
+      "12month": { monthly: 25, total: 192, discount: 36 },
     },
   },
   SL: {
@@ -113,7 +113,7 @@ const countryPricing = {
     rates: {
       "3month": { monthly: 40000, total: 120000 },
       "6month": { monthly: 40000, total: 240000 },
-      "12month": { monthly: 60000, total: 720000, discount: 5 },
+      "12month": { monthly: 40000, total: 307200, discount: 36 },
     },
   },
   PK: {
@@ -123,7 +123,7 @@ const countryPricing = {
     rates: {
       "3month": { monthly: 500, total: 1500 },
       "6month": { monthly: 500, total: 3000 },
-      "12month": { monthly: 750, total: 9000, discount: 5 },
+      "12month": { monthly: 500, total: 3840, discount: 36 },
     },
   },
   IN: {
@@ -133,7 +133,7 @@ const countryPricing = {
     rates: {
       "3month": { monthly: 150, total: 450 },
       "6month": { monthly: 150, total: 900 },
-      "12month": { monthly: 225, total: 2700, discount: 5 },
+      "12month": { monthly: 150, total: 1152, discount: 36 },
     },
   },
   LR: {
@@ -143,7 +143,7 @@ const countryPricing = {
     rates: {
       "3month": { monthly: 350, total: 1050 },
       "6month": { monthly: 350, total: 2100 },
-      "12month": { monthly: 525, total: 6300, discount: 5 },
+      "12month": { monthly: 350, total: 2688, discount: 36 },
     },
   },
 };
@@ -229,7 +229,7 @@ export default function SubscriptionPage() {
   return (
     <PageTransition>
       <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50">
-        <AppHeader active="Subscription" />
+        <Header />
         
         <div className="container mx-auto py-12 px-4">
           {/* Back Button */}

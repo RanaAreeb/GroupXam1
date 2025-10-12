@@ -72,7 +72,7 @@ const countryPricing = {
     rates: {
       "3month": { monthly: 2, total: 6 },
       "6month": { monthly: 2, total: 12 },
-      "12month": { monthly: 3, total: 36, discount: 5 },
+      "12month": { monthly: 2, total: 15.36, discount: 36 },
     },
   },
   NG: {
@@ -82,7 +82,7 @@ const countryPricing = {
     rates: {
       "3month": { monthly: 3000, total: 9000 },
       "6month": { monthly: 3000, total: 18000 },
-      "12month": { monthly: 4500, total: 54000, discount: 5 },
+      "12month": { monthly: 3000, total: 23000, discount: 36 },
     },
   },
   GB: {
@@ -92,7 +92,7 @@ const countryPricing = {
     rates: {
       "3month": { monthly: 1.5, total: 4.5 },
       "6month": { monthly: 1.5, total: 9 },
-      "12month": { monthly: 2.3, total: 27.6, discount: 5 },
+      "12month": { monthly: 1.5, total: 11.52, discount: 36 },
     },
   },
   CA: {
@@ -102,7 +102,7 @@ const countryPricing = {
     rates: {
       "3month": { monthly: 2.5, total: 7.5 },
       "6month": { monthly: 2.5, total: 15 },
-      "12month": { monthly: 3.8, total: 45.6, discount: 5 },
+      "12month": { monthly: 2.5, total: 19.2, discount: 36 },
     },
   },
   GH: {
@@ -112,7 +112,7 @@ const countryPricing = {
     rates: {
       "3month": { monthly: 25, total: 75 },
       "6month": { monthly: 25, total: 150 },
-      "12month": { monthly: 38, total: 456, discount: 5 },
+      "12month": { monthly: 25, total: 192, discount: 36 },
     },
   },
   SL: {
@@ -122,7 +122,7 @@ const countryPricing = {
     rates: {
       "3month": { monthly: 40000, total: 120000 },
       "6month": { monthly: 40000, total: 240000 },
-      "12month": { monthly: 60000, total: 720000, discount: 5 },
+      "12month": { monthly: 40000, total: 307200, discount: 36 },
     },
   },
   PK: {
@@ -132,7 +132,7 @@ const countryPricing = {
     rates: {
       "3month": { monthly: 500, total: 1500 },
       "6month": { monthly: 500, total: 3000 },
-      "12month": { monthly: 750, total: 9000, discount: 5 },
+      "12month": { monthly: 500, total: 3840, discount: 36 },
     },
   },
   IN: {
@@ -142,7 +142,7 @@ const countryPricing = {
     rates: {
       "3month": { monthly: 150, total: 450 },
       "6month": { monthly: 150, total: 900 },
-      "12month": { monthly: 225, total: 2700, discount: 5 },
+      "12month": { monthly: 150, total: 1152, discount: 36 },
     },
   },
   LR: {
@@ -152,7 +152,7 @@ const countryPricing = {
     rates: {
       "3month": { monthly: 350, total: 1050 },
       "6month": { monthly: 350, total: 2100 },
-      "12month": { monthly: 525, total: 6300, discount: 5 },
+      "12month": { monthly: 350, total: 2688, discount: 36 },
     },
   },
 };
@@ -343,48 +343,64 @@ export default function HomePage() {
       icon: <Code className="w-6 h-6" />,
       gradient: "from-indigo-500 to-blue-500",
       category: "coding",
+      hasSvg: true,
+      svgPath: "/Subjects/coding.svg",
     },
     {
       name: "Biology",
       icon: <Brain className="w-6 h-6" />,
       gradient: "from-green-400 to-emerald-600",
       category: "sciences",
+      hasSvg: true,
+      svgPath: "/Subjects/Biology.svg",
     },
     {
       name: "Chemistry",
       icon: <BookOpen className="w-6 h-6" />,
       gradient: "from-blue-400 to-cyan-500",
       category: "sciences",
+      hasImage: true,
+      imagePath: "/Subjects/chemistry.jpg",
     },
     {
       name: "Physics",
       icon: <Clock className="w-6 h-6" />,
       gradient: "from-purple-500 to-indigo-500",
       category: "sciences",
+      hasImage: true,
+      imagePath: "/Subjects/Physics.jpg",
     },
     {
       name: "English",
       icon: <MessageSquare className="w-6 h-6" />,
       gradient: "from-orange-400 to-pink-500",
       category: "arts-humanities",
+      hasImage: true,
+      imagePath: "/Subjects/English.jpg",
     },
     {
       name: "Economics",
       icon: <Star className="w-6 h-6" />,
       gradient: "from-yellow-400 to-amber-500",
       category: "economics",
+      hasSvg: true,
+      svgPath: "/Subjects/economics.svg",
     },
     {
       name: "Geography",
       icon: <ArrowRight className="w-6 h-6" />,
       gradient: "from-teal-400 to-blue-500",
       category: "arts-humanities",
+      hasImage: true,
+      imagePath: "/Subjects/geography.jpg",
     },
     {
       name: "Civic",
       icon: <Play className="w-6 h-6" />,
       gradient: "from-red-400 to-pink-600",
       category: "arts-humanities",
+      hasImage: true,
+      imagePath: "/Subjects/civic.jpg",
     },
   ];
 
@@ -1345,7 +1361,7 @@ export default function HomePage() {
                     
                     <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-white/30 hover:shadow-2xl hover:shadow-purple-200/50 transition-all duration-500 transform group-hover:-translate-y-2">
                       <div className="absolute -top-3 right-4 bg-gradient-to-r from-purple-500 to-fuchsia-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg z-20 animate-float">
-                        5% OFF
+                        36% OFF
                       </div>
                       
                       {/* Premium Particles */}
@@ -1523,26 +1539,171 @@ export default function HomePage() {
                 <Link
                   key={subject.name}
                   href={isLoggedIn ? `/quiz?category=${subject.category}` : "/login"}
-                  className="group block rounded-2xl bg-white hover:shadow-xl shadow-md p-6 text-center transition-all duration-300 border border-gray-100 hover:border-transparent relative overflow-hidden"
-                  style={{ position: "relative" }}
+                  className="group flex-shrink-0 w-full bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer relative overflow-hidden border border-gray-100 hover:border-emerald-200 hover:-translate-y-2"
                 >
-                  <div className={`flex justify-center mb-3`}>
-                    <span
-                      className={`inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br ${subject.gradient} text-white text-2xl shadow-lg group-hover:scale-110 transition-transform border-4 border-white`}
-                    >
-                      {subject.icon}
-                    </span>
-                  </div>
-                  <div className="font-semibold text-lg text-gray-800 group-hover:text-emerald-700">
-                    {subject.name}
-                  </div>
-                  <div className="text-xs text-gray-500 mt-1">
-                    Start Practicing
-                  </div>
-                  {/* Decorative blob */}
-                  <span
-                    className={`absolute -top-6 -right-6 w-20 h-20 rounded-full opacity-10 blur-2xl bg-gradient-to-br ${subject.gradient}`}
-                  ></span>
+                  {subject.hasSvg ? (
+                    <>
+                      {/* SVG Image Container - Featured at Top */}
+                      <div className="relative h-40 w-full overflow-hidden bg-gradient-to-br from-indigo-50 to-blue-50">
+                        <div className="absolute inset-0 bg-gradient-to-t from-indigo-500/20 to-transparent z-10"></div>
+                        <img 
+                          src={subject.svgPath} 
+                          alt={subject.name}
+                          className="w-full h-full object-contain object-center transform group-hover:scale-105 transition-transform duration-700"
+                          style={{ 
+                            imageRendering: 'crisp-edges',
+                            backfaceVisibility: 'hidden',
+                            transform: 'translateZ(0)'
+                          }}
+                          width="320"
+                          height="160"
+                        />
+                        {/* Floating Badge */}
+                        <div className="absolute top-2 right-2 bg-indigo-500 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg z-20">
+                          New
+                        </div>
+                      </div>
+                      
+                      {/* Content Section */}
+                      <div className="p-4">
+                        <div className="flex items-center justify-between mb-2">
+                          <h3 className="text-lg font-bold text-gray-800 group-hover:text-indigo-600 transition-colors">
+                            {subject.name}
+                          </h3>
+                          <div className="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center group-hover:bg-indigo-500 transition-colors">
+                            <svg className="w-4 h-4 text-indigo-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                          </div>
+                        </div>
+                        
+                        <p className="text-gray-600 text-xs leading-relaxed mb-3">
+                          Practice questions and improve your skills
+                        </p>
+                        
+                        {/* Stats/Features */}
+                        <div className="flex items-center gap-3 text-xs text-gray-500">
+                          <div className="flex items-center gap-1">
+                            <div className="w-1.5 h-1.5 bg-indigo-500 rounded-full"></div>
+                            <span>Quick Practice</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <div className="w-1.5 h-1.5 bg-indigo-500 rounded-full"></div>
+                            <span>Progress Track</span>
+                          </div>
+                        </div>
+                      </div>
+                    </>
+                  ) : subject.hasImage ? (
+                    <>
+                      {/* Image Container - Featured at Top */}
+                      <div className="relative h-40 w-full overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
+                        <div className="absolute inset-0 bg-gradient-to-t from-gray-500/10 to-transparent z-10"></div>
+                        <img 
+                          src={subject.imagePath} 
+                          alt={subject.name}
+                          className={`w-full h-full ${subject.name === 'Civic' ? 'object-contain' : 'object-cover'} object-center transform group-hover:scale-110 transition-transform duration-700`}
+                          style={{ 
+                            imageRendering: 'auto',
+                            backfaceVisibility: 'hidden',
+                            transform: 'translateZ(0)',
+                            willChange: 'transform'
+                          }}
+                          width="320"
+                          height="160"
+                        />
+                        {/* Floating Badge */}
+                        <div className="absolute top-2 right-2 bg-gray-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg z-20">
+                          Practice
+                        </div>
+                      </div>
+                      
+                      {/* Content Section */}
+                      <div className="p-4">
+                        <div className="flex items-center justify-between mb-2">
+                          <h3 className="text-lg font-bold text-gray-800 group-hover:text-emerald-600 transition-colors">
+                            {subject.name}
+                          </h3>
+                          <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center group-hover:bg-emerald-500 transition-colors">
+                            <svg className="w-4 h-4 text-emerald-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                          </div>
+                        </div>
+                        
+                        <p className="text-gray-600 text-xs leading-relaxed mb-3">
+                          Start practicing with interactive questions and track your progress
+                        </p>
+                        
+                        {/* Stats/Features */}
+                        <div className="flex items-center gap-3 text-xs text-gray-500">
+                          <div className="flex items-center gap-1">
+                            <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div>
+                            <span>Quick Practice</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div>
+                            <span>Progress Track</span>
+                          </div>
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      {/* Gradient Visual - Featured at Top */}
+                      <div className={`relative h-32 w-full overflow-hidden bg-gradient-to-br ${subject.gradient}`}>
+                        {/* Animated Background Pattern */}
+                        <div className="absolute inset-0 opacity-20">
+                          <div className="absolute top-4 left-4 w-16 h-16 bg-white rounded-full blur-2xl"></div>
+                          <div className="absolute bottom-4 right-4 w-20 h-20 bg-white rounded-full blur-2xl"></div>
+                        </div>
+                        
+                        {/* Icon Illustration */}
+                        <div className="absolute inset-0 flex items-center justify-center z-10">
+                          <div className="w-16 h-16 bg-white/90 backdrop-blur-sm rounded-full shadow-2xl flex items-center justify-center border-4 border-white/50">
+                            <div className="text-2xl">
+                              {subject.icon}
+                            </div>
+                          </div>
+                        </div>
+                        
+                        {/* Floating Badge */}
+                        <div className="absolute top-2 right-2 bg-white/90 backdrop-blur-sm text-gray-600 px-3 py-1 rounded-full text-xs font-semibold shadow-lg z-20">
+                          Practice
+                        </div>
+                      </div>
+                      
+                      {/* Content Section */}
+                      <div className="p-4">
+                        <div className="flex items-center justify-between mb-2">
+                          <h3 className="text-lg font-bold text-gray-800 group-hover:text-emerald-600 transition-colors">
+                            {subject.name}
+                          </h3>
+                          <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center group-hover:bg-emerald-500 transition-colors">
+                            <svg className="w-4 h-4 text-emerald-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                          </div>
+                        </div>
+                        
+                        <p className="text-gray-600 text-xs leading-relaxed mb-3">
+                          Start practicing with interactive questions and track your progress
+                        </p>
+                        
+                        {/* Stats/Features */}
+                        <div className="flex items-center gap-3 text-xs text-gray-500">
+                          <div className="flex items-center gap-1">
+                            <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div>
+                            <span>Quick Practice</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div>
+                            <span>Progress Track</span>
+                          </div>
+                        </div>
+                      </div>
+                    </>
+                  )}
                 </Link>
               ))}
             </div>
@@ -1564,24 +1725,10 @@ export default function HomePage() {
             </div>
 
             <div className="relative">
-              {/* Navigation arrows - Hidden on mobile, visible on larger screens */}
-              <button
-                onClick={scrollLeft}
-                className="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white rounded-full shadow-md items-center justify-center hover:shadow-lg transition-shadow"
-              >
-                <ChevronLeft className="w-5 h-5 text-gray-600" />
-              </button>
-              <button
-                onClick={scrollRight}
-                className="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white rounded-full shadow-md items-center justify-center hover:shadow-lg transition-shadow"
-              >
-                <ChevronRight className="w-5 h-5 text-gray-600" />
-              </button>
-
               {/* Cards container - Enhanced padding for proper visibility */}
               <div
                 ref={scrollContainerRef}
-                className="flex gap-4 overflow-x-auto pb-4 px-4 sm:px-16 pr-4 sm:pr-20"
+                className="flex gap-6 overflow-x-auto pb-4 px-4"
                 style={{ 
                   scrollbarWidth: "none",
                   scrollSnapType: "x mandatory",
@@ -1589,34 +1736,61 @@ export default function HomePage() {
                   scrollPaddingRight: "1rem"
                 }}
               >
-                {/* Quizzes Card */}
+                {/* Quizzes Card - WITH IMAGE */}
                 <Link
                   href={isLoggedIn ? "/quiz" : "/login"}
-                  className="flex-shrink-0 w-72 sm:w-80 bg-gradient-to-br from-emerald-500 to-green-600 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer relative overflow-hidden snap-start"
+                  className="group flex-shrink-0 w-80 sm:w-96 bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer relative overflow-hidden snap-start border border-gray-100 hover:border-emerald-200 hover:-translate-y-2"
                 >
-                  {/* Title */}
-                  <div className="px-6 pt-6 pb-2">
-                    <h3 className="text-xl sm:text-2xl font-bold text-white">
-                      Quizzes
-                    </h3>
+                  {/* Image Container - Featured at Top */}
+                  <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-emerald-50 to-green-50">
+                    <div className="absolute inset-0 bg-gradient-to-t from-emerald-500/20 to-transparent z-10"></div>
+                    <img 
+                      src="/features/quiz.webp" 
+                      alt="Interactive Quizzes"
+                      className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700"
+                      style={{ 
+                        imageRendering: 'crisp-edges',
+                        backfaceVisibility: 'hidden',
+                        transform: 'translateZ(0)',
+                        maxWidth: '100%',
+                        height: 'auto'
+                      }}
+                      width="384"
+                      height="256"
+                    />
+                    {/* Floating Badge */}
+                    <div className="absolute top-4 right-4 bg-emerald-500 text-white px-4 py-1.5 rounded-full text-xs font-semibold shadow-lg z-20">
+                      Popular
+                    </div>
                   </div>
                   
-                  {/* Content Card */}
-                  <div className="m-4 bg-white rounded-2xl p-6 shadow-sm border border-green-100">
-                    <div className="flex flex-col items-center justify-center">
-                      {/* Target Icon - Multi-layered */}
-                      <div className="relative w-16 h-16 mb-4">
-                        {/* Outer circle */}
-                        <div className="absolute inset-0 w-16 h-16 bg-green-100 rounded-full"></div>
-                        {/* Middle circle */}
-                        <div className="absolute inset-2 w-12 h-12 bg-green-200 rounded-full"></div>
-                        {/* Inner dot */}
-                        <div className="absolute inset-6 w-4 h-4 bg-green-600 rounded-full"></div>
+                  {/* Content Section */}
+                  <div className="p-6">
+                    <div className="flex items-center justify-between mb-3">
+                      <h3 className="text-2xl font-bold text-gray-800 group-hover:text-emerald-600 transition-colors">
+                      Quizzes
+                    </h3>
+                      <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center group-hover:bg-emerald-500 transition-colors">
+                        <svg className="w-5 h-5 text-emerald-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                  </div>
                       </div>
                       
-                      <p className="text-sm text-gray-700 text-center leading-relaxed">
-                        Test knowledge with interactive quizzes
-                      </p>
+                    <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                      Test your knowledge with interactive quizzes across all subjects. Track your progress and master every topic.
+                    </p>
+                    
+                    {/* Stats/Features */}
+                    <div className="flex items-center gap-4 text-xs text-gray-500">
+                      <div className="flex items-center gap-1">
+                        <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
+                        <span>1000+ Questions</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
+                        <span>Instant Results</span>
+                      </div>
                     </div>
                   </div>
                 </Link>
@@ -1624,39 +1798,49 @@ export default function HomePage() {
                 {/* Exam Prep Card */}
                 <Link
                   href={isLoggedIn ? "/exams" : "/login"}
-                  className="flex-shrink-0 w-72 sm:w-80 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer relative overflow-hidden snap-start"
+                  className="group flex-shrink-0 w-80 sm:w-96 bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer relative overflow-hidden snap-start border border-gray-100 hover:border-blue-200 hover:-translate-y-2"
                 >
-                  {/* Title */}
-                  <div className="px-6 pt-6 pb-2">
-                    <h3 className="text-xl sm:text-2xl font-bold text-white">
-                      Exam Prep
-                    </h3>
+                  {/* Image Container - Featured at Top */}
+                  <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-blue-50 to-indigo-50">
+                    <div className="absolute inset-0 bg-gradient-to-t from-blue-500/20 to-transparent z-10"></div>
+                    <img 
+                      src="/features/exam.webp" 
+                      alt="Exam Preparation"
+                      className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                    />
+                    {/* Floating Badge */}
+                    <div className="absolute top-4 right-4 bg-blue-500 text-white px-4 py-1.5 rounded-full text-xs font-semibold shadow-lg z-20">
+                      Timed
+                    </div>
                   </div>
                   
-                  {/* Content Card */}
-                  <div className="m-4 bg-white rounded-2xl p-6 shadow-sm border border-blue-100">
-                    <div className="flex flex-col items-center justify-center">
-                      {/* Clock Icon - Multi-layered */}
-                      <div className="relative w-16 h-16 mb-4">
-                        {/* Outer circle */}
-                        <div className="absolute inset-0 w-16 h-16 bg-blue-100 rounded-full"></div>
-                        {/* Clock face */}
-                        <div className="absolute inset-2 w-12 h-12 bg-blue-200 rounded-full flex items-center justify-center">
-                          {/* Clock hands */}
-                          <div className="relative w-6 h-6">
-                            {/* Hour hand */}
-                            <div className="absolute top-1 left-1/2 w-0.5 h-3 bg-blue-600 transform -translate-x-1/2 origin-bottom"></div>
-                            {/* Minute hand */}
-                            <div className="absolute top-0.5 left-1/2 w-0.5 h-4 bg-blue-700 transform -translate-x-1/2 origin-bottom rotate-45"></div>
-                            {/* Center dot */}
-                            <div className="absolute top-1/2 left-1/2 w-1 h-1 bg-blue-800 rounded-full transform -translate-x-1/2 -translate-y-1/2"></div>
-                          </div>
-                        </div>
+                  {/* Content Section */}
+                  <div className="p-6">
+                    <div className="flex items-center justify-between mb-3">
+                      <h3 className="text-2xl font-bold text-gray-800 group-hover:text-blue-600 transition-colors">
+                        Exam Prep
+                      </h3>
+                      <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center group-hover:bg-blue-500 transition-colors">
+                        <svg className="w-5 h-5 text-blue-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
                       </div>
-                      
-                      <p className="text-sm text-gray-700 text-center leading-relaxed">
-                        Practice with timed mock exams
-                      </p>
+                    </div>
+                    
+                    <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                      Practice with timed mock exams that simulate real test conditions. Get exam-ready with confidence.
+                    </p>
+                    
+                    {/* Stats/Features */}
+                    <div className="flex items-center gap-4 text-xs text-gray-500">
+                      <div className="flex items-center gap-1">
+                        <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                        <span>Real Exam Format</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                        <span>Detailed Reports</span>
+                      </div>
                     </div>
                   </div>
                 </Link>
@@ -1664,37 +1848,88 @@ export default function HomePage() {
                 {/* Whiteboard Card */}
                 <Link
                   href={isLoggedIn ? "/whiteboard" : "/login"}
-                  className="flex-shrink-0 w-72 sm:w-80 bg-gradient-to-br from-orange-500 to-amber-600 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer relative overflow-hidden snap-start"
+                  className="group flex-shrink-0 w-80 sm:w-96 bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer relative overflow-hidden snap-start border border-gray-100 hover:border-orange-200 hover:-translate-y-2"
                 >
-                  {/* Title */}
-                  <div className="px-6 pt-6 pb-2">
-                    <h3 className="text-xl sm:text-2xl font-bold text-white">
+                  {/* Image Container - Featured at Top */}
+                      <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-orange-50 to-amber-50">
+                        <div className="absolute inset-0 bg-gradient-to-t from-orange-500/20 to-transparent z-10"></div>
+                        <img 
+                          src="/features/whiteboard.webp" 
+                          alt="Interactive Whiteboard"
+                          className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700"
+                          style={{ 
+                            imageRendering: 'crisp-edges',
+                            backfaceVisibility: 'hidden',
+                            transform: 'translateZ(0)',
+                            willChange: 'transform',
+                            maxWidth: '100%',
+                            height: 'auto'
+                          }}
+                          width="384"
+                          height="256"
+                        />
+                        {/* Floating Badge - Optimized for sharpness */}
+                        <div className="absolute top-4 right-4 bg-orange-500 text-white px-4 py-1.5 rounded-full text-xs font-semibold shadow-lg z-20"
+                             style={{
+                               textRendering: 'optimizeLegibility',
+                               WebkitFontSmoothing: 'antialiased',
+                               MozOsxFontSmoothing: 'grayscale',
+                               backfaceVisibility: 'hidden',
+                               transform: 'translateZ(0)'
+                             }}>
+                          Interactive
+                        </div>
+                      </div>
+                  
+                  {/* Content Section - Optimized for sharpness */}
+                  <div className="p-6" style={{
+                    textRendering: 'optimizeLegibility',
+                    WebkitFontSmoothing: 'antialiased',
+                    MozOsxFontSmoothing: 'grayscale'
+                  }}>
+                    <div className="flex items-center justify-between mb-3">
+                      <h3 className="text-2xl font-bold text-gray-800 group-hover:text-orange-600 transition-colors"
+                          style={{
+                            textRendering: 'optimizeLegibility',
+                            WebkitFontSmoothing: 'antialiased',
+                            MozOsxFontSmoothing: 'grayscale'
+                          }}>
                       Whiteboard
                     </h3>
-                  </div>
-                  
-                  {/* Content Card */}
-                  <div className="m-4 bg-white rounded-2xl p-6 shadow-sm border border-orange-100">
-                    <div className="flex flex-col items-center justify-center">
-                      {/* Document Icon - Multi-layered */}
-                      <div className="relative w-16 h-16 mb-4">
-                        {/* Document background */}
-                        <div className="absolute inset-0 w-12 h-16 bg-orange-100 rounded-sm"></div>
-                        {/* Document lines */}
-                        <div className="absolute top-3 left-2 w-8 h-0.5 bg-orange-200 rounded"></div>
-                        <div className="absolute top-4 left-2 w-6 h-0.5 bg-orange-200 rounded"></div>
-                        <div className="absolute top-5 left-2 w-7 h-0.5 bg-orange-200 rounded"></div>
-                        {/* Corner fold */}
-                        <div className="absolute top-0 right-0 w-3 h-3 bg-orange-200 transform rotate-45 origin-top-right"></div>
-                        {/* Icon overlay */}
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <FileText className="w-8 h-8 text-orange-600" />
+                      <div className="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center group-hover:bg-orange-500 transition-colors">
+                        <svg className="w-5 h-5 text-orange-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
                         </div>
                       </div>
                       
-                      <p className="text-sm text-gray-700 text-center leading-relaxed">
-                        Draw and solve problems digitally
-                      </p>
+                    <p className="text-gray-600 text-sm leading-relaxed mb-4"
+                       style={{
+                         textRendering: 'optimizeLegibility',
+                         WebkitFontSmoothing: 'antialiased',
+                         MozOsxFontSmoothing: 'grayscale'
+                       }}>
+                      Draw and solve problems digitally with our intuitive whiteboard. Perfect for visual learners.
+                    </p>
+                    
+                    {/* Stats/Features */}
+                    <div className="flex items-center gap-4 text-xs text-gray-500">
+                      <div className="flex items-center gap-1">
+                        <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+                        <span style={{
+                          textRendering: 'optimizeLegibility',
+                          WebkitFontSmoothing: 'antialiased',
+                          MozOsxFontSmoothing: 'grayscale'
+                        }}>Free Drawing</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+                        <span style={{
+                          textRendering: 'optimizeLegibility',
+                          WebkitFontSmoothing: 'antialiased',
+                          MozOsxFontSmoothing: 'grayscale'
+                        }}>Save & Share</span>
+                      </div>
                     </div>
                   </div>
                 </Link>
@@ -1702,31 +1937,58 @@ export default function HomePage() {
                 {/* Flashcards Card */}
                 <Link
                   href={isLoggedIn ? "/flashcards" : "/login"}
-                  className="flex-shrink-0 w-72 sm:w-80 bg-gradient-to-br from-purple-500 to-fuchsia-600 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer relative overflow-hidden snap-start"
+                  className="group flex-shrink-0 w-80 sm:w-96 bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer relative overflow-hidden snap-start border border-gray-100 hover:border-purple-200 hover:-translate-y-2"
                 >
-                  {/* Title */}
-                  <div className="px-6 pt-6 pb-2">
-                    <h3 className="text-xl sm:text-2xl font-bold text-white">
-                      Flashcards
-                    </h3>
+                  {/* Image Container - Featured at Top */}
+                  <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-purple-50 to-fuchsia-50">
+                    <div className="absolute inset-0 bg-gradient-to-t from-purple-500/20 to-transparent z-10"></div>
+                    <img 
+                      src="/features/flashcard.webp" 
+                      alt="Smart Flashcards"
+                      className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700"
+                      style={{ 
+                        imageRendering: 'crisp-edges',
+                        backfaceVisibility: 'hidden',
+                        transform: 'translateZ(0)',
+                        maxWidth: '100%',
+                        height: 'auto'
+                      }}
+                      width="384"
+                      height="256"
+                    />
+                    {/* Floating Badge */}
+                    <div className="absolute top-4 right-4 bg-purple-500 text-white px-4 py-1.5 rounded-full text-xs font-semibold shadow-lg z-20">
+                      Smart Learning
+                    </div>
                   </div>
                   
-                  {/* Content Card */}
-                  <div className="m-4 bg-white rounded-2xl p-6 shadow-sm border border-purple-100">
-                    <div className="flex flex-col items-center justify-center">
-                      {/* Brain Icon - Multi-layered */}
-                      <div className="relative w-16 h-16 mb-4">
-                        {/* Brain outline */}
-                        <div className="absolute inset-0 w-16 h-16 bg-purple-100 rounded-full"></div>
-                        {/* Brain center */}
-                        <div className="absolute inset-2 w-12 h-12 bg-purple-200 rounded-full flex items-center justify-center">
-                          <Brain className="w-8 h-8 text-purple-600" />
+                  {/* Content Section */}
+                  <div className="p-6">
+                    <div className="flex items-center justify-between mb-3">
+                      <h3 className="text-2xl font-bold text-gray-800 group-hover:text-purple-600 transition-colors">
+                      Flashcards
+                    </h3>
+                      <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center group-hover:bg-purple-500 transition-colors">
+                        <svg className="w-5 h-5 text-purple-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
                         </div>
                       </div>
                       
-                      <p className="text-sm text-gray-700 text-center leading-relaxed">
-                        Memorize concepts with smart cards
-                      </p>
+                    <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                      Memorize concepts with smart flashcards. Master any subject using spaced repetition techniques.
+                    </p>
+                    
+                    {/* Stats/Features */}
+                    <div className="flex items-center gap-4 text-xs text-gray-500">
+                      <div className="flex items-center gap-1">
+                        <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                        <span>Flip & Learn</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                        <span>Track Progress</span>
+                      </div>
                     </div>
                   </div>
                 </Link>
@@ -1734,33 +1996,51 @@ export default function HomePage() {
                 {/* Study Groups Card */}
                 <Link
                   href={isLoggedIn ? "/discussions" : "/login"}
-                  className="flex-shrink-0 w-72 sm:w-80 bg-gradient-to-br from-cyan-500 to-teal-600 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer relative overflow-hidden snap-start"
+                  className="group flex-shrink-0 w-80 sm:w-96 bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer relative overflow-hidden snap-start border border-gray-100 hover:border-cyan-200 hover:-translate-y-2"
                 >
-                  {/* Title */}
-                  <div className="px-6 pt-6 pb-2">
-                    <h3 className="text-xl sm:text-2xl font-bold text-white">
-                      Study Groups
-                    </h3>
+                  {/* Image Container - Featured at Top */}
+                  <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-cyan-50 to-teal-50">
+                    <div className="absolute inset-0 bg-gradient-to-t from-cyan-500/20 to-transparent z-10"></div>
+                    <img 
+                      src="/features/study.webp" 
+                      alt="Study Groups"
+                      className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                      width="384"
+                      height="219"
+                    />
+                    {/* Floating Badge */}
+                    <div className="absolute top-4 right-4 bg-cyan-500 text-white px-4 py-1.5 rounded-full text-xs font-semibold shadow-lg z-20">
+                      Collaborative
+                    </div>
                   </div>
                   
-                  {/* Content Card */}
-                  <div className="m-4 bg-white rounded-2xl p-6 shadow-sm border border-cyan-100">
-                    <div className="flex flex-col items-center justify-center">
-                      {/* Chat Icon - Multi-layered */}
-                      <div className="relative w-16 h-16 mb-4">
-                        {/* Chat bubble outline */}
-                        <div className="absolute inset-0 w-16 h-12 bg-cyan-100 rounded-2xl"></div>
-                        {/* Chat bubble center */}
-                        <div className="absolute inset-1 w-14 h-10 bg-cyan-200 rounded-xl flex items-center justify-center">
-                          <MessageSquare className="w-6 h-6 text-cyan-600" />
-                        </div>
-                        {/* Chat tail */}
-                        <div className="absolute -bottom-1 left-4 w-3 h-3 bg-cyan-100 transform rotate-45"></div>
+                  {/* Content Section */}
+                  <div className="p-6">
+                    <div className="flex items-center justify-between mb-3">
+                      <h3 className="text-2xl font-bold text-gray-800 group-hover:text-cyan-600 transition-colors">
+                        Study Groups
+                      </h3>
+                      <div className="w-10 h-10 bg-cyan-100 rounded-full flex items-center justify-center group-hover:bg-cyan-500 transition-colors">
+                        <svg className="w-5 h-5 text-cyan-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
                       </div>
-                      
-                      <p className="text-sm text-gray-700 text-center leading-relaxed">
-                        Connect with peers for help
-                      </p>
+                    </div>
+                    
+                    <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                      Connect with peers for collaborative learning. Share knowledge and get help when you need it.
+                    </p>
+                    
+                    {/* Stats/Features */}
+                    <div className="flex items-center gap-4 text-xs text-gray-500">
+                      <div className="flex items-center gap-1">
+                        <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
+                        <span>Ask Questions</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
+                        <span>Share Tips</span>
+                      </div>
                     </div>
                   </div>
                 </Link>
@@ -1768,45 +2048,74 @@ export default function HomePage() {
                 {/* ProctorIT Card */}
                 <Link
                   href={isLoggedIn ? "/services" : "/login"}
-                  className="flex-shrink-0 w-72 sm:w-80 bg-gradient-to-br from-red-500 to-pink-600 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer relative overflow-hidden snap-start"
+                  className="group flex-shrink-0 w-80 sm:w-96 bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer relative overflow-hidden snap-start border border-gray-100 hover:border-red-200 hover:-translate-y-2"
                 >
-                  {/* Title */}
-                  <div className="px-6 pt-6 pb-2">
-                    <h3 className="text-xl sm:text-2xl font-bold text-white">
-                      ProctorIT
-                    </h3>
+                  {/* Image Container - Featured at Top */}
+                  <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-red-50 to-pink-50">
+                    <div className="absolute inset-0 bg-gradient-to-t from-red-500/20 to-transparent z-10"></div>
+                    <img 
+                      src="/features/image.png
+                      " 
+                      alt="Professional Proctoring"
+                      className="w-full h-full object-cover transform scale-105 group-hover:scale-110 transition-transform duration-700"
+                      width="384"
+                      height="256"
+                    />
+                    {/* Floating Badge */}
+                    <div className="absolute top-4 right-4 bg-red-500 text-white px-4 py-1.5 rounded-full text-xs font-semibold shadow-lg z-20">
+                      Professional
+                    </div>
                   </div>
                   
-                  {/* Content Card */}
-                  <div className="m-4 bg-white rounded-2xl p-6 shadow-sm border border-red-100">
-                    <div className="flex flex-col items-center justify-center">
-                      {/* Users Icon - Multi-layered */}
-                      <div className="relative w-16 h-16 mb-4">
-                        {/* Users background */}
-                        <div className="absolute inset-0 w-16 h-16 bg-red-100 rounded-full"></div>
-                        {/* User 1 */}
-                        <div className="absolute top-1 left-1 w-6 h-6 bg-red-200 rounded-full flex items-center justify-center">
-                          <Users className="w-3 h-3 text-red-600" />
-                        </div>
-                        {/* User 2 */}
-                        <div className="absolute top-1 right-1 w-6 h-6 bg-red-200 rounded-full flex items-center justify-center">
-                          <Users className="w-3 h-3 text-red-600" />
-                        </div>
-                        {/* Center icon */}
-                        <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-red-300 rounded-full flex items-center justify-center">
-                          <Users className="w-4 h-4 text-red-700" />
-                        </div>
+                  {/* Content Section */}
+                  <div className="p-6">
+                    <div className="flex items-center justify-between mb-3">
+                      <h3 className="text-2xl font-bold text-gray-800 group-hover:text-red-600 transition-colors">
+                        ProctorIT
+                      </h3>
+                      <div className="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center group-hover:bg-red-500 transition-colors">
+                        <svg className="w-5 h-5 text-red-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
                       </div>
-                      
-                      <p className="text-sm text-gray-700 text-center leading-relaxed">
-                        Professional exam proctoring services
-                      </p>
+                    </div>
+                    
+                    <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                      Professional exam proctoring services for secure and reliable test administration.
+                    </p>
+                    
+                    {/* Stats/Features */}
+                    <div className="flex items-center gap-4 text-xs text-gray-500">
+                      <div className="flex items-center gap-1">
+                        <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                        <span>Secure Testing</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                        <span>24/7 Support</span>
+                      </div>
                     </div>
                   </div>
                 </Link>
 
                 {/* Spacer to ensure last card is fully visible */}
                 <div className="flex-shrink-0 w-4 sm:w-8"></div>
+              </div>
+
+              {/* Navigation arrows - Below cards for desktop */}
+              <div className="hidden sm:flex justify-center gap-4 mt-6">
+                <button
+                  onClick={scrollLeft}
+                  className="w-12 h-12 bg-emerald-500 hover:bg-emerald-600 rounded-full shadow-lg hover:shadow-xl items-center justify-center transition-all duration-300 flex group"
+                >
+                  <ChevronLeft className="w-5 h-5 text-white group-hover:scale-110 transition-transform" />
+                </button>
+                <button
+                  onClick={scrollRight}
+                  className="w-12 h-12 bg-emerald-500 hover:bg-emerald-600 rounded-full shadow-lg hover:shadow-xl items-center justify-center transition-all duration-300 flex group"
+                >
+                  <ChevronRight className="w-5 h-5 text-white group-hover:scale-110 transition-transform" />
+                </button>
               </div>
 
               {/* Mobile navigation dots - Only visible on mobile */}
