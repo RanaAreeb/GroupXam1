@@ -7,6 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "seed": "node scripts/seed-database.js",
+    "test-connection": "node scripts/test-connection.js",
+    "restart-clean": "node scripts/restart-clean.js",
     "optimize-connections": "node scripts/connection-optimizer.js",
     "health-check": "node -e \"fetch('http://localhost:3000/api/health/db').then(r=>r.json()).then(console.log).catch(console.error)\"",
     "db-stats": "node -e \"const {getDatabase} = require('./lib/db.js'); getDatabase().then(db => db.admin().serverStatus()).then(s => console.log('Connections:', s.connections)).catch(console.error)\""
