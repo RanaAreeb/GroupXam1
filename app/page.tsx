@@ -527,6 +527,8 @@ export default function HomePage() {
   // Scroll functionality for feature carousel
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
+  const subjectScrollRef = useRef<HTMLDivElement>(null);
+  const [currentSubjectIndex, setCurrentSubjectIndex] = useState(0);
 
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
@@ -537,6 +539,39 @@ export default function HomePage() {
   const scrollRight = () => {
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollBy({ left: 320, behavior: "smooth" });
+    }
+  };
+
+  // Subject carousel scroll functions
+  const scrollToCard = (direction: 'prev' | 'next' | number) => {
+    if (!subjectScrollRef.current) return;
+    
+    const container = subjectScrollRef.current;
+    const cardWidth = 320; // w-80 = 320px
+    const gap = 24; // gap-6 = 24px
+    const totalCardWidth = cardWidth + gap;
+    
+    if (direction === 'prev') {
+      const newIndex = Math.max(0, currentSubjectIndex - 1);
+      setCurrentSubjectIndex(newIndex);
+      container.scrollTo({
+        left: newIndex * totalCardWidth,
+        behavior: 'smooth'
+      });
+    } else if (direction === 'next') {
+      const maxIndex = subjects.length - 1;
+      const newIndex = Math.min(maxIndex, currentSubjectIndex + 1);
+      setCurrentSubjectIndex(newIndex);
+      container.scrollTo({
+        left: newIndex * totalCardWidth,
+        behavior: 'smooth'
+      });
+    } else if (typeof direction === 'number') {
+      setCurrentSubjectIndex(direction);
+      container.scrollTo({
+        left: direction * totalCardWidth,
+        behavior: 'smooth'
+      });
     }
   };
 
@@ -557,6 +592,26 @@ export default function HomePage() {
       return () => scrollContainer.removeEventListener("scroll", handleScroll);
     }
   }, []);
+
+  // Track scroll position for subject carousel
+  useEffect(() => {
+    const handleSubjectScroll = () => {
+      if (subjectScrollRef.current) {
+        const scrollLeft = subjectScrollRef.current.scrollLeft;
+        const cardWidth = 320;
+        const gap = 24;
+        const totalCardWidth = cardWidth + gap;
+        const newIndex = Math.round(scrollLeft / totalCardWidth);
+        setCurrentSubjectIndex(Math.max(0, Math.min(newIndex, subjects.length - 1)));
+      }
+    };
+
+    const subjectContainer = subjectScrollRef.current;
+    if (subjectContainer) {
+      subjectContainer.addEventListener("scroll", handleSubjectScroll);
+      return () => subjectContainer.removeEventListener("scroll", handleSubjectScroll);
+    }
+  }, [subjects.length]);
 
   // Gallery Slideshow state
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -1592,7 +1647,211 @@ export default function HomePage() {
                 subjects
               </p>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-5 md:gap-6 max-w-6xl mx-auto">
+            {/* Mobile: Carousel Layout */}
+            <div className="md:hidden">
+              <div
+                ref={subjectScrollRef}
+                className="flex gap-4 sm:gap-6 overflow-x-auto pb-4 px-2 sm:px-4"
+                style={{
+                  scrollbarWidth: "none",
+                  scrollSnapType: "x mandatory",
+                  scrollPaddingLeft: "0.5rem",
+                  scrollPaddingRight: "0.5rem"
+                }}
+              >
+                {subjects.map((subject) => (
+                  <Link
+                    key={`mobile-${subject.name}`}
+                    href={isLoggedIn ? `/quiz?category=${subject.category}` : "/login"}
+                    className="group flex-shrink-0 w-72 sm:w-80 bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer relative overflow-hidden border border-gray-100 hover:border-emerald-200 hover:-translate-y-2 snap-start"
+                  >
+                  {subject.hasSvg ? (
+                    <>
+                      {/* SVG Image Container - Featured at Top */}
+                      <div className="relative h-32 sm:h-36 w-full overflow-hidden bg-gradient-to-br from-indigo-50 to-blue-50">
+                        <div className="absolute inset-0 bg-gradient-to-t from-indigo-500/20 to-transparent z-10"></div>
+                        <img
+                          src={subject.svgPath}
+                          alt={subject.name}
+                          className="w-full h-full object-contain object-center transform group-hover:scale-105 transition-transform duration-700"
+                          style={{
+                            imageRendering: 'crisp-edges',
+                            backfaceVisibility: 'hidden',
+                            transform: 'translateZ(0)'
+                          }}
+                          width="320"
+                          height="160"
+                        />
+                        {/* Floating Badge */}
+                        <div className="absolute top-2 right-2 bg-indigo-500 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg z-20">
+                          New
+                        </div>
+                      </div>
+                      
+                      {/* Content Section */}
+                      <div className="p-3 sm:p-4">
+                        <div className="flex items-center justify-between mb-2">
+                          <h3 className="text-sm sm:text-base font-bold text-gray-800 group-hover:text-indigo-600 transition-colors">
+                            {subject.name}
+                          </h3>
+                          <div className="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center group-hover:bg-indigo-500 transition-colors">
+                            <svg className="w-4 h-4 text-indigo-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                          </div>
+                        </div>
+                        
+                        <p className="text-gray-600 text-xs leading-relaxed mb-2 sm:mb-3">
+                          Practice questions and improve your skills
+                        </p>
+                        
+                        {/* Stats/Features */}
+                        <div className="flex items-center gap-2 sm:gap-3 text-xs text-gray-500">
+                          <div className="flex items-center gap-1">
+                            <div className="w-1.5 h-1.5 bg-indigo-500 rounded-full"></div>
+                            <span>Quick Practice</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <div className="w-1.5 h-1.5 bg-indigo-500 rounded-full"></div>
+                            <span>Progress Track</span>
+                          </div>
+                        </div>
+                      </div>
+                    </>
+                  ) : subject.hasImage ? (
+                    <>
+                      {/* Image Container - Featured at Top */}
+                      <div className="relative h-32 sm:h-36 w-full overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
+                        <div className="absolute inset-0 bg-gradient-to-t from-gray-500/10 to-transparent z-10"></div>
+                        <img
+                          src={subject.imagePath}
+                          alt={subject.name}
+                          className={`w-full h-full ${subject.name === 'Civic' ? 'object-contain' : 'object-cover'} object-center transform group-hover:scale-110 transition-transform duration-700`}
+                          style={{
+                            imageRendering: 'auto',
+                            backfaceVisibility: 'hidden',
+                            transform: 'translateZ(0)',
+                            willChange: 'transform'
+                          }}
+                          width="320"
+                          height="160"
+                        />
+                        {/* Floating Badge */}
+                        <div className="absolute top-2 right-2 bg-gray-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg z-20">
+                          Practice
+                        </div>
+                      </div>
+                      
+                      {/* Content Section */}
+                      <div className="p-3 sm:p-4">
+                        <div className="flex items-center justify-between mb-2">
+                          <h3 className="text-sm sm:text-base font-bold text-gray-800 group-hover:text-emerald-600 transition-colors">
+                            {subject.name}
+                          </h3>
+                          <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center group-hover:bg-emerald-500 transition-colors">
+                            <svg className="w-4 h-4 text-emerald-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                          </div>
+                        </div>
+                        
+                        <p className="text-gray-600 text-xs leading-relaxed mb-2 sm:mb-3">
+                          Start practicing with interactive questions and track your progress
+                        </p>
+                        
+                        {/* Stats/Features */}
+                        <div className="flex items-center gap-2 sm:gap-3 text-xs text-gray-500">
+                          <div className="flex items-center gap-1">
+                            <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div>
+                            <span>Quick Practice</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div>
+                            <span>Progress Track</span>
+                          </div>
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      {/* Gradient Visual - Featured at Top */}
+                      <div className={`relative h-28 sm:h-32 w-full overflow-hidden bg-gradient-to-br ${subject.gradient}`}>
+                        {/* Animated Background Pattern */}
+                        <div className="absolute inset-0 opacity-20">
+                          <div className="absolute top-4 left-4 w-16 h-16 bg-white rounded-full blur-2xl"></div>
+                          <div className="absolute bottom-4 right-4 w-20 h-20 bg-white rounded-full blur-2xl"></div>
+                        </div>
+
+                        {/* Icon Illustration */}
+                        <div className="absolute inset-0 flex items-center justify-center z-10">
+                          <div className="w-16 h-16 bg-white/90 backdrop-blur-sm rounded-full shadow-2xl flex items-center justify-center border-4 border-white/50">
+                            <div className="text-2xl">
+                              {subject.icon}
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Floating Badge */}
+                        <div className="absolute top-2 right-2 bg-white/90 backdrop-blur-sm text-gray-600 px-3 py-1 rounded-full text-xs font-semibold shadow-lg z-20">
+                          Practice
+                        </div>
+                      </div>
+                      
+                      {/* Content Section */}
+                      <div className="p-3 sm:p-4">
+                        <div className="flex items-center justify-between mb-2">
+                          <h3 className="text-sm sm:text-base font-bold text-gray-800 group-hover:text-emerald-600 transition-colors">
+                            {subject.name}
+                          </h3>
+                          <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center group-hover:bg-emerald-500 transition-colors">
+                            <svg className="w-4 h-4 text-emerald-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                          </div>
+                        </div>
+                        
+                        <p className="text-gray-600 text-xs leading-relaxed mb-2 sm:mb-3">
+                          Start practicing with interactive questions and track your progress
+                        </p>
+                        
+                        {/* Stats/Features */}
+                        <div className="flex items-center gap-2 sm:gap-3 text-xs text-gray-500">
+                          <div className="flex items-center gap-1">
+                            <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div>
+                            <span>Quick Practice</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div>
+                            <span>Progress Track</span>
+                          </div>
+                        </div>
+                      </div>
+                    </>
+                  )}
+                </Link>
+              ))}
+              </div>
+
+
+              {/* Mobile Dot Indicators */}
+              <div className="flex justify-center gap-2 mt-4 md:hidden">
+                {subjects.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => scrollToCard(index)}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      currentSubjectIndex === index 
+                        ? 'bg-emerald-500 w-6' 
+                        : 'bg-gray-300 hover:bg-gray-400'
+                    }`}
+                    aria-label={`Go to subject ${index + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Desktop: Grid Layout */}
+            <div className="hidden md:grid md:grid-cols-4 gap-6 max-w-6xl mx-auto">
               {subjects.map((subject) => (
                 <Link
                   key={subject.name}
