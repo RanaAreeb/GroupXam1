@@ -1081,8 +1081,8 @@ export default function HomePage() {
               <span className="bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient-x">
                 Ace Your Exams with GroupXam
               </span>
-              <br />
-              <span className="text-gray-800">Comprehensive Exam Preparation Platform</span>
+             
+              
             </h1>
             {/* Progress Bar Design */}
             <div className="mb-8 sm:mb-10 max-w-3xl mx-auto px-4">
