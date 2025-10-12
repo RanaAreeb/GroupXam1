@@ -218,7 +218,7 @@ function ContactForm() {
               <SelectContent>
                 <SelectItem value="general">General Inquiry</SelectItem>
                 <SelectItem value="subscription">Premium Subscription Inquiry</SelectItem>
-                <SelectItem value="package">IELTS Package Inquiry</SelectItem>
+                
                 <SelectItem value="proctorit">ProctorIT Package Inquiry</SelectItem>
                 <SelectItem value="support">Technical Support</SelectItem>
                 <SelectItem value="billing">Billing Question</SelectItem>
