@@ -8,13 +8,36 @@ Sitemap: https://groupxam.com/sitemap.xml
 Disallow: /api/
 Disallow: /admin/
 Disallow: /private/
+Disallow: /dashboard/
+Disallow: /profile/
 
-# Allow important pages
+# Allow important pages for GroupXam SEO
 Allow: /
 Allow: /exams/
 Allow: /quiz/
 Allow: /flashcards/
+Allow: /whiteboard/
+Allow: /discussions/
+Allow: /services/
+Allow: /subscription/
 Allow: /about/
 Allow: /contact/
 Allow: /login/
-Allow: /signup/ 
+Allow: /signup/
+Allow: /faq/
+Allow: /testimonials/
+Allow: /privacy-policy/
+Allow: /terms-of-use/
+
+# Specific search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2 

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Head from "next/head";
 import PageTransition from "@/components/PageTransition";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -802,6 +803,63 @@ export default function HomePage() {
 
   return (
     <PageTransition>
+      {/* Additional SEO Structured Data for Homepage */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            name: "GroupXam - Ace Your Exams with Confidence",
+            description: "Master WAEC, WASSCE, and JAMB exams with GroupXam's comprehensive study platform. Access 10,000+ practice questions, interactive flashcards, mock exams, and real-time progress tracking.",
+            url: "https://groupxam.com",
+            mainEntity: {
+              "@type": "EducationalApplication",
+              name: "GroupXam",
+              description: "Comprehensive exam preparation platform for WAEC, WASSCE, and JAMB exams",
+              applicationCategory: "EducationalApplication",
+              operatingSystem: "Web Browser",
+              offers: {
+                "@type": "Offer",
+                price: "0",
+                priceCurrency: "USD",
+                availability: "https://schema.org/InStock",
+              },
+              featureList: [
+                "WAEC Exam Preparation",
+                "WASSCE Exam Preparation", 
+                "JAMB Exam Preparation",
+                "IELTS Exam Preparation",
+                "Interactive Practice Tests",
+                "Real-time Progress Tracking",
+                "Study Groups and Discussions",
+                "AI-powered Tutoring",
+                "Mobile-friendly Platform"
+              ],
+              audience: {
+                "@type": "Audience",
+                audienceType: "Students preparing for WAEC, WASSCE, and JAMB exams worldwide"
+              }
+            },
+            breadcrumb: {
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: "https://groupxam.com"
+                }
+              ]
+            },
+            potentialAction: {
+              "@type": "SearchAction",
+              target: "https://groupxam.com/search?q={search_term_string}",
+              "query-input": "required name=search_term_string"
+            }
+          })
+        }}
+      />
       <div className="min-h-screen bg-white">
         <Header
           navLinks={
@@ -966,10 +1024,10 @@ export default function HomePage() {
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6 leading-tight px-2">
               <span className="bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient-x">
-                Ace Your Exams
+                Ace Your Exams with GroupXam
               </span>
               <br />
-              <span className="text-gray-800">with Confidence</span>
+              <span className="text-gray-800">Comprehensive Exam Preparation Platform</span>
             </h1>
             {/* Progress Bar Design */}
             <div className="mb-8 sm:mb-10 max-w-3xl mx-auto px-4">
@@ -1186,14 +1244,14 @@ export default function HomePage() {
                 <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent animate-pulse"></div>
               </div>
               
-              <div className="relative grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 mb-12 px-4">
+              <div className="relative grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 lg:gap-6 mb-12 px-4">
                 {/* AI Tutor Card */}
                 <div className="relative group">
                   {/* Holographic Effect */}
                   <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/20 to-green-400/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 scale-110"></div>
                   <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-green-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   
-                  <div className="relative bg-gradient-to-br from-emerald-50 to-green-100 rounded-2xl p-4 sm:p-6 text-center border border-white/20 backdrop-blur-sm hover:shadow-2xl hover:shadow-emerald-200/50 transition-all duration-500 transform group-hover:-translate-y-2">
+                  <div className="relative bg-gradient-to-br from-emerald-50 to-green-100 rounded-2xl p-3 sm:p-4 lg:p-6 text-center border border-white/20 backdrop-blur-sm hover:shadow-2xl hover:shadow-emerald-200/50 transition-all duration-500 transform group-hover:-translate-y-2">
                     {/* Floating Particles */}
                     <div className="absolute top-2 right-2 w-1 h-1 bg-emerald-400 rounded-full opacity-60 animate-bounce"></div>
                     <div className="absolute top-4 left-3 w-0.5 h-0.5 bg-green-400 rounded-full opacity-40 animate-ping"></div>
@@ -1203,7 +1261,7 @@ export default function HomePage() {
                       {/* Glow Effect */}
                       <div className="absolute inset-0 bg-emerald-400/30 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
-                    <h3 className="font-bold text-gray-800 text-xs sm:text-sm group-hover:text-emerald-700 transition-colors duration-300">AI Tutor</h3>
+                    <h3 className="font-bold text-gray-800 text-xs sm:text-sm lg:text-base group-hover:text-emerald-700 transition-colors duration-300">AI Tutor</h3>
                     
                     {/* Hover Description */}
                     <div className="absolute bottom-0 left-0 right-0 bg-emerald-600 text-white text-xs p-2 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-full group-hover:translate-y-0">
@@ -1216,14 +1274,14 @@ export default function HomePage() {
                 <div className="relative group">
                   <div className="absolute inset-0 bg-gradient-to-br from-orange-400/20 to-amber-400/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 scale-110"></div>
                   
-                  <div className="relative bg-gradient-to-br from-orange-50 to-amber-100 rounded-2xl p-4 sm:p-6 text-center border border-white/20 backdrop-blur-sm hover:shadow-2xl hover:shadow-orange-200/50 transition-all duration-500 transform group-hover:-translate-y-2">
+                  <div className="relative bg-gradient-to-br from-orange-50 to-amber-100 rounded-2xl p-3 sm:p-4 lg:p-6 text-center border border-white/20 backdrop-blur-sm hover:shadow-2xl hover:shadow-orange-200/50 transition-all duration-500 transform group-hover:-translate-y-2">
                     <div className="absolute top-1 right-1 w-1 h-1 bg-orange-400 rounded-full opacity-50 animate-pulse"></div>
                     
                     <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-orange-500 to-amber-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 group-hover:-rotate-6 transition-all duration-500 shadow-lg">
                       <FileText className="w-5 h-5 sm:w-6 sm:h-6 text-white drop-shadow-sm" />
                       <div className="absolute inset-0 bg-orange-400/30 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
-                    <h3 className="font-bold text-gray-800 text-xs sm:text-sm group-hover:text-orange-700 transition-colors duration-300">Whiteboard</h3>
+                    <h3 className="font-bold text-gray-800 text-xs sm:text-sm lg:text-base group-hover:text-orange-700 transition-colors duration-300">Whiteboard</h3>
                     
                     {/* Hover Description */}
                     <div className="absolute bottom-0 left-0 right-0 bg-orange-600 text-white text-xs p-2 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-full group-hover:translate-y-0">
@@ -1236,7 +1294,7 @@ export default function HomePage() {
                 <div className="relative group">
                   <div className="absolute inset-0 bg-gradient-to-br from-pink-400/20 to-rose-400/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 scale-110"></div>
                   
-                  <div className="relative bg-gradient-to-br from-pink-50 to-rose-100 rounded-2xl p-4 sm:p-6 text-center border border-white/20 backdrop-blur-sm hover:shadow-2xl hover:shadow-pink-200/50 transition-all duration-500 transform group-hover:-translate-y-2">
+                  <div className="relative bg-gradient-to-br from-pink-50 to-rose-100 rounded-2xl p-3 sm:p-4 lg:p-6 text-center border border-white/20 backdrop-blur-sm hover:shadow-2xl hover:shadow-pink-200/50 transition-all duration-500 transform group-hover:-translate-y-2">
                     <div className="absolute bottom-2 left-2 w-0.5 h-0.5 bg-pink-400 rounded-full opacity-60 animate-bounce"></div>
                     
                     <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-pink-500 to-rose-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-lg">
@@ -1245,7 +1303,7 @@ export default function HomePage() {
                       </svg>
                       <div className="absolute inset-0 bg-pink-400/30 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
-                    <h3 className="font-bold text-gray-800 text-xs sm:text-sm group-hover:text-pink-700 transition-colors duration-300">Math Help</h3>
+                    <h3 className="font-bold text-gray-800 text-xs sm:text-sm lg:text-base group-hover:text-pink-700 transition-colors duration-300">Math Help</h3>
                     
                     {/* Hover Description */}
                     <div className="absolute bottom-0 left-0 right-0 bg-pink-600 text-white text-xs p-2 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-full group-hover:translate-y-0">
@@ -1258,14 +1316,14 @@ export default function HomePage() {
                 <div className="relative group">
                   <div className="absolute inset-0 bg-gradient-to-br from-violet-400/20 to-purple-400/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 scale-110"></div>
                   
-                  <div className="relative bg-gradient-to-br from-violet-50 to-purple-100 rounded-2xl p-4 sm:p-6 text-center border border-white/20 backdrop-blur-sm hover:shadow-2xl hover:shadow-violet-200/50 transition-all duration-500 transform group-hover:-translate-y-2">
+                  <div className="relative bg-gradient-to-br from-violet-50 to-purple-100 rounded-2xl p-3 sm:p-4 lg:p-6 text-center border border-white/20 backdrop-blur-sm hover:shadow-2xl hover:shadow-violet-200/50 transition-all duration-500 transform group-hover:-translate-y-2">
                     <div className="absolute top-3 left-1 w-0.5 h-0.5 bg-violet-400 rounded-full opacity-40 animate-ping"></div>
                     
                     <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-violet-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 group-hover:-rotate-12 transition-all duration-500 shadow-lg">
                       <FileText className="w-5 h-5 sm:w-6 sm:h-6 text-white drop-shadow-sm" />
                       <div className="absolute inset-0 bg-violet-400/30 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
-                    <h3 className="font-bold text-gray-800 text-xs sm:text-sm group-hover:text-violet-700 transition-colors duration-300">Proofreading</h3>
+                    <h3 className="font-bold text-gray-800 text-xs sm:text-sm lg:text-base group-hover:text-violet-700 transition-colors duration-300">Proofreading</h3>
                     
                     {/* Hover Description */}
                     <div className="absolute bottom-0 left-0 right-0 bg-violet-600 text-white text-xs p-2 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-full group-hover:translate-y-0">
@@ -1278,7 +1336,7 @@ export default function HomePage() {
                 <div className="relative group col-span-2 sm:col-span-1">
                   <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/20 to-orange-400/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 scale-110"></div>
                   
-                  <div className="relative bg-gradient-to-br from-yellow-50 to-orange-100 rounded-2xl p-4 sm:p-6 text-center border border-white/20 backdrop-blur-sm hover:shadow-2xl hover:shadow-yellow-200/50 transition-all duration-500 transform group-hover:-translate-y-2">
+                  <div className="relative bg-gradient-to-br from-yellow-50 to-orange-100 rounded-2xl p-3 sm:p-4 lg:p-6 text-center border border-white/20 backdrop-blur-sm hover:shadow-2xl hover:shadow-yellow-200/50 transition-all duration-500 transform group-hover:-translate-y-2">
                     <div className="absolute bottom-1 right-3 w-1 h-1 bg-yellow-400 rounded-full opacity-50 animate-bounce"></div>
                     <div className="absolute top-1 left-1 w-0.5 h-0.5 bg-orange-400 rounded-full opacity-60 animate-pulse"></div>
                     
@@ -1286,7 +1344,7 @@ export default function HomePage() {
                       <BookOpen className="w-5 h-5 sm:w-6 sm:h-6 text-white drop-shadow-sm" />
                       <div className="absolute inset-0 bg-yellow-400/30 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
-                    <h3 className="font-bold text-gray-800 text-xs sm:text-sm group-hover:text-yellow-700 transition-colors duration-300">Homework Help</h3>
+                    <h3 className="font-bold text-gray-800 text-xs sm:text-sm lg:text-base group-hover:text-yellow-700 transition-colors duration-300">Homework Help</h3>
                     
                     {/* Hover Description */}
                     <div className="absolute bottom-0 left-0 right-0 bg-yellow-600 text-white text-xs p-2 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-full group-hover:translate-y-0">
@@ -1534,7 +1592,7 @@ export default function HomePage() {
                 subjects
               </p>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
               {subjects.map((subject) => (
                 <Link
                   key={subject.name}
@@ -1544,7 +1602,7 @@ export default function HomePage() {
                   {subject.hasSvg ? (
                     <>
                       {/* SVG Image Container - Featured at Top */}
-                      <div className="relative h-40 w-full overflow-hidden bg-gradient-to-br from-indigo-50 to-blue-50">
+                      <div className="relative h-32 sm:h-36 md:h-40 w-full overflow-hidden bg-gradient-to-br from-indigo-50 to-blue-50">
                         <div className="absolute inset-0 bg-gradient-to-t from-indigo-500/20 to-transparent z-10"></div>
                         <img 
                           src={subject.svgPath} 
@@ -1565,9 +1623,9 @@ export default function HomePage() {
                       </div>
                       
                       {/* Content Section */}
-                      <div className="p-4">
+                      <div className="p-3 sm:p-4">
                         <div className="flex items-center justify-between mb-2">
-                          <h3 className="text-lg font-bold text-gray-800 group-hover:text-indigo-600 transition-colors">
+                          <h3 className="text-sm sm:text-base md:text-lg font-bold text-gray-800 group-hover:text-indigo-600 transition-colors">
                             {subject.name}
                           </h3>
                           <div className="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center group-hover:bg-indigo-500 transition-colors">
@@ -1597,7 +1655,7 @@ export default function HomePage() {
                   ) : subject.hasImage ? (
                     <>
                       {/* Image Container - Featured at Top */}
-                      <div className="relative h-40 w-full overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
+                      <div className="relative h-32 sm:h-36 md:h-40 w-full overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
                         <div className="absolute inset-0 bg-gradient-to-t from-gray-500/10 to-transparent z-10"></div>
                         <img 
                           src={subject.imagePath} 
@@ -1619,9 +1677,9 @@ export default function HomePage() {
                       </div>
                       
                       {/* Content Section */}
-                      <div className="p-4">
+                      <div className="p-3 sm:p-4">
                         <div className="flex items-center justify-between mb-2">
-                          <h3 className="text-lg font-bold text-gray-800 group-hover:text-emerald-600 transition-colors">
+                          <h3 className="text-sm sm:text-base md:text-lg font-bold text-gray-800 group-hover:text-emerald-600 transition-colors">
                             {subject.name}
                           </h3>
                           <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center group-hover:bg-emerald-500 transition-colors">
@@ -1651,7 +1709,7 @@ export default function HomePage() {
                   ) : (
                     <>
                       {/* Gradient Visual - Featured at Top */}
-                      <div className={`relative h-32 w-full overflow-hidden bg-gradient-to-br ${subject.gradient}`}>
+                      <div className={`relative h-28 sm:h-32 md:h-36 w-full overflow-hidden bg-gradient-to-br ${subject.gradient}`}>
                         {/* Animated Background Pattern */}
                         <div className="absolute inset-0 opacity-20">
                           <div className="absolute top-4 left-4 w-16 h-16 bg-white rounded-full blur-2xl"></div>
@@ -1674,9 +1732,9 @@ export default function HomePage() {
                       </div>
                       
                       {/* Content Section */}
-                      <div className="p-4">
+                      <div className="p-3 sm:p-4">
                         <div className="flex items-center justify-between mb-2">
-                          <h3 className="text-lg font-bold text-gray-800 group-hover:text-emerald-600 transition-colors">
+                          <h3 className="text-sm sm:text-base md:text-lg font-bold text-gray-800 group-hover:text-emerald-600 transition-colors">
                             {subject.name}
                           </h3>
                           <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center group-hover:bg-emerald-500 transition-colors">
@@ -1716,11 +1774,11 @@ export default function HomePage() {
             <div className="text-center mb-12">
               <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-3">
                 Everything You Need to{" "}
-                <span className="text-emerald-600">Excel</span>
+                <span className="text-emerald-600">Excel with GroupXam</span>
               </h2>
               <p className="text-base sm:text-xl text-gray-600 max-w-2xl mx-auto">
-                Comprehensive tools designed to help you master every aspect of
-                your WAEC/WASSCE/JAMB/IELTS preparation
+                GroupXam's comprehensive tools designed to help you master every aspect of
+                your WAEC/WASSCE/JAMB/IELTS preparation. Join thousands of students who trust GroupXam for exam success.
               </p>
             </div>
 
@@ -2376,11 +2434,11 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-black/10"></div>
           <div className="container mx-auto text-center relative">
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6 px-4">
-              Ready to Ace Your Exams?
+              Ready to Ace Your Exams with GroupXam?
             </h2>
             <p className="text-base sm:text-xl text-emerald-100 mb-8 sm:mb-10 max-w-2xl mx-auto px-4">
               Join our community of learners who have transformed their grades with
-              groupXam. Start your journey to academic excellence today.
+              GroupXam. Start your journey to academic excellence with GroupXam's proven exam preparation platform today.
             </p>
             
             {/* Professional Animated Elements */}
