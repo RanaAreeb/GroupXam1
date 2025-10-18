@@ -165,7 +165,7 @@ export default function HomePage() {
   // Animated counters
   const [questionsCount, setQuestionsCount] = useState<number | null>(null);
   const [totalQuizzesCompleted, setTotalQuizzesCompleted] = useState<number | null>(null);
-  const [studentRetention, setStudentRetention] = useState<number | null>(null);
+  const [studentRetention, setStudentRetention] = useState<number | null>(95);
   const [totalUsers, setTotalUsers] = useState(0);
 
   // Live activity feed
@@ -180,7 +180,7 @@ export default function HomePage() {
   useEffect(() => {
     // Enable smooth scrolling for the entire page
     document.documentElement.style.scrollBehavior = 'smooth';
-    
+
     return () => {
       document.documentElement.style.scrollBehavior = 'auto';
     };
@@ -216,7 +216,7 @@ export default function HomePage() {
     try {
       const response = await fetch('/api/activity');
       const data = await response.json();
-      
+
       if (data.activities && data.activities.length > 0) {
         // Use only real activities from database
         const realActivities = data.activities.map((activity: any) => activity.message);
@@ -237,10 +237,10 @@ export default function HomePage() {
 
   useEffect(() => {
     fetchActivities();
-    
+
     // Poll for new activities every 30 seconds
     const interval = setInterval(fetchActivities, 30000);
-    
+
     // Cleanup function to clear interval
     return () => {
       clearInterval(interval);
@@ -252,7 +252,7 @@ export default function HomePage() {
       setActivityIndex(0);
       return;
     }
-    
+
     const interval = setInterval(() => {
       setActivityIndex((i) => (i + 1) % activities.length);
     }, 3000);
@@ -264,7 +264,7 @@ export default function HomePage() {
     try {
       const response = await fetch('/api/stats/users');
       const data = await response.json();
-      
+
       if (data.success) {
         setTotalUsers(data.totalUsers);
         console.log('Updated user count:', data.totalUsers);
@@ -279,7 +279,7 @@ export default function HomePage() {
     try {
       const response = await fetch(`/api/stats/questions?t=${Date.now()}`);
       const data = await response.json();
-      
+
       if (data.success) {
         setQuestionsCount(data.totalQuestions);
         console.log('Updated question count:', data.totalQuestions);
@@ -294,7 +294,7 @@ export default function HomePage() {
     try {
       const response = await fetch('/api/stats/quizzes-completed');
       const data = await response.json();
-      
+
       if (data.success) {
         setTotalQuizzesCompleted(data.totalQuizzesCompleted);
         console.log('Updated total quizzes completed:', data.totalQuizzesCompleted);
@@ -304,37 +304,37 @@ export default function HomePage() {
     }
   }, []);
 
-  // Fetch student retention rate
-  const fetchStudentRetention = useCallback(async () => {
-    try {
-      const response = await fetch('/api/stats/student-retention');
-      const data = await response.json();
-      
-      if (data.success) {
-        setStudentRetention(data.studentRetention);
-        console.log('Updated student retention:', data.studentRetention);
-      }
-    } catch (error) {
-      console.error('Failed to fetch student retention:', error);
-    }
-  }, []);
+  // Student retention is now fixed at 95%
+  // const fetchStudentRetention = useCallback(async () => {
+  //   try {
+  //     const response = await fetch('/api/stats/student-retention');
+  //     const data = await response.json();
+  //     
+  //     if (data.success) {
+  //       setStudentRetention(data.studentRetention);
+  //       console.log('Updated student retention:', data.studentRetention);
+  //     }
+  //   } catch (error) {
+  //     console.error('Failed to fetch student retention:', error);
+  //   }
+  // }, []);
 
   // Fetch all stats on mount and every 2 minutes
   useEffect(() => {
     fetchUserCount();
     fetchQuestionCount();
     fetchTotalQuizzesCompleted();
-    fetchStudentRetention();
-    
+    // fetchStudentRetention(); // Student retention is now fixed at 95%
+
     const interval = setInterval(() => {
       fetchUserCount();
       fetchQuestionCount();
       fetchTotalQuizzesCompleted();
-      fetchStudentRetention();
+      // fetchStudentRetention(); // Student retention is now fixed at 95%
     }, 120000); // 2 minutes instead of 30 seconds
-    
+
     return () => clearInterval(interval);
-  }, [fetchUserCount, fetchQuestionCount, fetchTotalQuizzesCompleted, fetchStudentRetention]);
+  }, [fetchUserCount, fetchQuestionCount, fetchTotalQuizzesCompleted]);
 
 
   // Subject tiles with category mapping
@@ -473,11 +473,11 @@ export default function HomePage() {
   // Reviews state for carousel
   const [reviews, setReviews] = useState<Review[]>([]);
   const [isLoadingReviews, setIsLoadingReviews] = useState(true);
-  
+
   // Subscription country selection
   const [selectedCountry, setSelectedCountry] = useState<keyof typeof countryPricing>("US");
   const [detectedCountry, setDetectedCountry] = useState<string | null>(null);
-  
+
   useEffect(() => {
     const fetchReviews = async (retryCount = 0) => {
       try {
@@ -486,7 +486,7 @@ export default function HomePage() {
             'Cache-Control': 'no-cache',
           }
         });
-        
+
         if (response.ok) {
           const data = await response.json();
           setReviews(Array.isArray(data) ? data : []);
@@ -545,12 +545,12 @@ export default function HomePage() {
   // Subject carousel scroll functions
   const scrollToCard = (direction: 'prev' | 'next' | number) => {
     if (!subjectScrollRef.current) return;
-    
+
     const container = subjectScrollRef.current;
     const cardWidth = 320; // w-80 = 320px
     const gap = 24; // gap-6 = 24px
     const totalCardWidth = cardWidth + gap;
-    
+
     if (direction === 'prev') {
       const newIndex = Math.max(0, currentSubjectIndex - 1);
       setCurrentSubjectIndex(newIndex);
@@ -635,14 +635,14 @@ export default function HomePage() {
       alt: "groupXam School Partnership"
     },
     {
-      src: "/gallery/image2.png", 
+      src: "/gallery/image2.png",
       alt: "groupXam Field Work"
     },
     {
       src: "/gallery/image3.png",
       alt: "groupXam Educational Impact"
     }
-    
+
   ];
 
   // Auto-play gallery slideshow
@@ -722,7 +722,7 @@ export default function HomePage() {
     setIsDragging(true);
     setIsUserInteracting(true);
     setDragOffset(0);
-    
+
     // Pause auto-play when user starts interacting
     if (isTestimonialAutoPlaying) {
       setIsTestimonialAutoPlaying(false);
@@ -731,11 +731,11 @@ export default function HomePage() {
 
   const onTouchMove = (e: React.TouchEvent) => {
     if (!touchStart) return;
-    
+
     setTouchEnd(e.targetTouches[0].clientX);
     const currentTouch = e.targetTouches[0].clientX;
     const diff = touchStart - currentTouch;
-    
+
     // Limit drag offset for visual feedback
     const limitedDiff = Math.max(-maxDragOffset, Math.min(maxDragOffset, diff));
     setDragOffset(limitedDiff);
@@ -747,7 +747,7 @@ export default function HomePage() {
       setDragOffset(0);
       return;
     }
-    
+
     const distance = touchStart - touchEnd;
     const isLeftSwipe = distance > minSwipeDistance;
     const isRightSwipe = distance < -minSwipeDistance;
@@ -757,13 +757,13 @@ export default function HomePage() {
     } else if (isRightSwipe && reviews.length > 0) {
       prevTestimonial();
     }
-    
+
     // Reset states
     setIsDragging(false);
     setDragOffset(0);
     setTouchStart(null);
     setTouchEnd(null);
-    
+
     // Resume auto-play after a delay
     setTimeout(() => {
       setIsUserInteracting(false);
@@ -779,7 +779,7 @@ export default function HomePage() {
     setIsDragging(true);
     setIsUserInteracting(true);
     setDragOffset(0);
-    
+
     if (isTestimonialAutoPlaying) {
       setIsTestimonialAutoPlaying(false);
     }
@@ -787,7 +787,7 @@ export default function HomePage() {
 
   const onMouseMove = (e: React.MouseEvent) => {
     if (!touchStart || !isDragging) return;
-    
+
     const diff = touchStart - e.clientX;
     const limitedDiff = Math.max(-maxDragOffset, Math.min(maxDragOffset, diff));
     setDragOffset(limitedDiff);
@@ -795,7 +795,7 @@ export default function HomePage() {
 
   const onMouseUp = () => {
     if (!touchStart || !isDragging) return;
-    
+
     const distance = touchStart - (touchEnd || 0);
     const isLeftSwipe = distance > minSwipeDistance;
     const isRightSwipe = distance < -minSwipeDistance;
@@ -805,12 +805,12 @@ export default function HomePage() {
     } else if (isRightSwipe && reviews.length > 0) {
       prevTestimonial();
     }
-    
+
     setIsDragging(false);
     setDragOffset(0);
     setTouchStart(null);
     setTouchEnd(null);
-    
+
     setTimeout(() => {
       setIsUserInteracting(false);
       if (reviews.length > 0) {
@@ -882,7 +882,7 @@ export default function HomePage() {
               },
               featureList: [
                 "WAEC Exam Preparation",
-                "WASSCE Exam Preparation", 
+                "WASSCE Exam Preparation",
                 "JAMB Exam Preparation",
                 "IELTS Exam Preparation",
                 "Interactive Practice Tests",
@@ -1065,8 +1065,8 @@ export default function HomePage() {
                   <span></span>
                   <div className="flex items-center space-x-1">
                     <div className="w-1 h-1 bg-emerald-600 rounded-full animate-pulse"></div>
-                    <div className="w-1 h-1 bg-emerald-600 rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
-                    <div className="w-1 h-1 bg-emerald-600 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
+                    <div className="w-1 h-1 bg-emerald-600 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
+                    <div className="w-1 h-1 bg-emerald-600 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }}></div>
                   </div>
                 </span>
               )}
@@ -1081,8 +1081,8 @@ export default function HomePage() {
               <span className="bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient-x">
                 Ace Your Exams with GroupXam
               </span>
-             
-              
+
+
             </h1>
             {/* Progress Bar Design */}
             <div className="mb-8 sm:mb-10 max-w-3xl mx-auto px-4">
@@ -1138,8 +1138,8 @@ export default function HomePage() {
                   ) : (
                     <div className="flex items-center justify-center space-x-1">
                       <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
-                      <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
-                      <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
+                      <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
+                      <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }}></div>
                     </div>
                   )}
                 </div>
@@ -1154,8 +1154,8 @@ export default function HomePage() {
                   ) : (
                     <div className="flex items-center justify-center space-x-1">
                       <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
-                      <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
-                      <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
+                      <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
+                      <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }}></div>
                     </div>
                   )}
                 </div>
@@ -1170,8 +1170,8 @@ export default function HomePage() {
                   ) : (
                     <div className="flex items-center justify-center space-x-1">
                       <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></div>
-                      <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
-                      <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
+                      <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
+                      <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }}></div>
                     </div>
                   )}
                 </div>
@@ -1236,8 +1236,8 @@ export default function HomePage() {
             )}
           </div>
         </section>
-{/* Subscription Plans Section */}
-<section className="py-12 sm:py-20 px-4 bg-white reveal-on-scroll">
+        {/* Subscription Plans Section */}
+        <section className="py-12 sm:py-20 px-4 bg-white reveal-on-scroll">
           <div className="container mx-auto">
             <div className="text-center mb-12">
               <Badge className="mb-4 bg-emerald-100 text-emerald-700 hover:bg-emerald-200 px-4 py-2 text-sm font-medium">
@@ -1249,41 +1249,41 @@ export default function HomePage() {
               <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-6">
                 Get unlimited access to IELTS prep, AI tutor, whiteboard, Math Help, proofreading, and Homework Help
               </p>
-              
-            {/* Country Selector */}
-            <div className="relative">
-              {/* Futuristic Background Effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/10 via-blue-400/10 to-purple-400/10 rounded-2xl blur-xl scale-110 opacity-50"></div>
-              <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/5 via-blue-400/5 to-purple-400/5 rounded-2xl scale-105"></div>
-              
-              <div className="relative flex flex-col sm:flex-row items-center justify-center gap-3 mb-8 px-4 py-6 bg-white/80 backdrop-blur-sm rounded-2xl border border-white/20 shadow-lg">
-                {/* Animated Globe Icon */}
-                <div className="flex items-center gap-2 mb-2 sm:mb-0 relative">
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-blue-400 rounded-full blur-sm opacity-60 animate-pulse"></div>
-                    <Globe className="relative w-4 h-4 sm:w-5 sm:h-5 text-gray-600 animate-spin-slow" />
+
+              {/* Country Selector */}
+              <div className="relative">
+                {/* Futuristic Background Effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/10 via-blue-400/10 to-purple-400/10 rounded-2xl blur-xl scale-110 opacity-50"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/5 via-blue-400/5 to-purple-400/5 rounded-2xl scale-105"></div>
+
+                <div className="relative flex flex-col sm:flex-row items-center justify-center gap-3 mb-8 px-4 py-6 bg-white/80 backdrop-blur-sm rounded-2xl border border-white/20 shadow-lg">
+                  {/* Animated Globe Icon */}
+                  <div className="flex items-center gap-2 mb-2 sm:mb-0 relative">
+                    <div className="relative">
+                      <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-blue-400 rounded-full blur-sm opacity-60 animate-pulse"></div>
+                      <Globe className="relative w-4 h-4 sm:w-5 sm:h-5 text-gray-600 animate-spin-slow" />
+                    </div>
+                    <span className="text-xs sm:text-sm text-gray-600 font-medium">Select your country:</span>
                   </div>
-                  <span className="text-xs sm:text-sm text-gray-600 font-medium">Select your country:</span>
-                </div>
-                
-                {/* Futuristic Select with Glow Effect */}
-                <div className="relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/20 to-blue-400/20 rounded-lg blur-sm scale-105 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <Select value={selectedCountry} onValueChange={(value) => setSelectedCountry(value as keyof typeof countryPricing)}>
-                    <SelectTrigger className="w-full sm:w-64 bg-white/90 backdrop-blur-sm border-2 border-gray-200/50 hover:border-emerald-400/50 transition-all duration-300 shadow-lg hover:shadow-emerald-200/50">
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent className="backdrop-blur-md bg-white/95 border border-white/20 shadow-2xl">
-                      {Object.entries(countryPricing).map(([code, data]) => (
-                        <SelectItem key={code} value={code} className="hover:bg-emerald-50/50 transition-colors duration-200">
-                          {data.name}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
+
+                  {/* Futuristic Select with Glow Effect */}
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/20 to-blue-400/20 rounded-lg blur-sm scale-105 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <Select value={selectedCountry} onValueChange={(value) => setSelectedCountry(value as keyof typeof countryPricing)}>
+                      <SelectTrigger className="w-full sm:w-64 bg-white/90 backdrop-blur-sm border-2 border-gray-200/50 hover:border-emerald-400/50 transition-all duration-300 shadow-lg hover:shadow-emerald-200/50">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent className="backdrop-blur-md bg-white/95 border border-white/20 shadow-2xl">
+                        {Object.entries(countryPricing).map(([code, data]) => (
+                          <SelectItem key={code} value={code} className="hover:bg-emerald-50/50 transition-colors duration-200">
+                            {data.name}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
                 </div>
               </div>
-            </div>
               {detectedCountry && (
                 <p className="text-sm text-emerald-600 mb-6">
                   ✓ Detected your location: {countryPricing[selectedCountry].name}
@@ -1298,60 +1298,60 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/10 via-blue-400/10 to-purple-400/10 rounded-3xl blur-3xl scale-110"></div>
                 <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent animate-pulse"></div>
               </div>
-              
+
               <div className="relative grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 lg:gap-6 mb-12 px-4">
                 {/* AI Tutor Card */}
                 <div className="relative group">
                   {/* Holographic Effect */}
                   <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/20 to-green-400/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 scale-110"></div>
                   <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-green-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  
+
                   <div className="relative bg-gradient-to-br from-emerald-50 to-green-100 rounded-2xl p-3 sm:p-4 lg:p-6 text-center border border-white/20 backdrop-blur-sm hover:shadow-2xl hover:shadow-emerald-200/50 transition-all duration-500 transform group-hover:-translate-y-2">
                     {/* Floating Particles */}
                     <div className="absolute top-2 right-2 w-1 h-1 bg-emerald-400 rounded-full opacity-60 animate-bounce"></div>
                     <div className="absolute top-4 left-3 w-0.5 h-0.5 bg-green-400 rounded-full opacity-40 animate-ping"></div>
-                    
+
                     <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-emerald-500 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg">
                       <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-white drop-shadow-sm" />
                       {/* Glow Effect */}
                       <div className="absolute inset-0 bg-emerald-400/30 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
                     <h3 className="font-bold text-gray-800 text-xs sm:text-sm lg:text-base group-hover:text-emerald-700 transition-colors duration-300">AI Tutor</h3>
-                    
+
                     {/* Hover Description */}
                     <div className="absolute bottom-0 left-0 right-0 bg-emerald-600 text-white text-xs p-2 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-full group-hover:translate-y-0">
                       Get instant help with any subject, 24/7
                     </div>
                   </div>
                 </div>
-                
+
                 {/* Whiteboard Card */}
                 <div className="relative group">
                   <div className="absolute inset-0 bg-gradient-to-br from-orange-400/20 to-amber-400/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 scale-110"></div>
-                  
+
                   <div className="relative bg-gradient-to-br from-orange-50 to-amber-100 rounded-2xl p-3 sm:p-4 lg:p-6 text-center border border-white/20 backdrop-blur-sm hover:shadow-2xl hover:shadow-orange-200/50 transition-all duration-500 transform group-hover:-translate-y-2">
                     <div className="absolute top-1 right-1 w-1 h-1 bg-orange-400 rounded-full opacity-50 animate-pulse"></div>
-                    
+
                     <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-orange-500 to-amber-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 group-hover:-rotate-6 transition-all duration-500 shadow-lg">
                       <FileText className="w-5 h-5 sm:w-6 sm:h-6 text-white drop-shadow-sm" />
                       <div className="absolute inset-0 bg-orange-400/30 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
                     <h3 className="font-bold text-gray-800 text-xs sm:text-sm lg:text-base group-hover:text-orange-700 transition-colors duration-300">Whiteboard</h3>
-                    
+
                     {/* Hover Description */}
                     <div className="absolute bottom-0 left-0 right-0 bg-orange-600 text-white text-xs p-2 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-full group-hover:translate-y-0">
                       Draw and solve problems.
                     </div>
                   </div>
                 </div>
-                
+
                 {/* Math Help Card */}
                 <div className="relative group">
                   <div className="absolute inset-0 bg-gradient-to-br from-pink-400/20 to-rose-400/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 scale-110"></div>
-                  
+
                   <div className="relative bg-gradient-to-br from-pink-50 to-rose-100 rounded-2xl p-3 sm:p-4 lg:p-6 text-center border border-white/20 backdrop-blur-sm hover:shadow-2xl hover:shadow-pink-200/50 transition-all duration-500 transform group-hover:-translate-y-2">
                     <div className="absolute bottom-2 left-2 w-0.5 h-0.5 bg-pink-400 rounded-full opacity-60 animate-bounce"></div>
-                    
+
                     <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-pink-500 to-rose-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-lg">
                       <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white drop-shadow-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
@@ -1359,48 +1359,48 @@ export default function HomePage() {
                       <div className="absolute inset-0 bg-pink-400/30 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
                     <h3 className="font-bold text-gray-800 text-xs sm:text-sm lg:text-base group-hover:text-pink-700 transition-colors duration-300">Math Help</h3>
-                    
+
                     {/* Hover Description */}
                     <div className="absolute bottom-0 left-0 right-0 bg-pink-600 text-white text-xs p-2 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-full group-hover:translate-y-0">
                       Step-by-step solutions for all math problems
                     </div>
                   </div>
                 </div>
-                
+
                 {/* Proofreading Card */}
                 <div className="relative group">
                   <div className="absolute inset-0 bg-gradient-to-br from-violet-400/20 to-purple-400/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 scale-110"></div>
-                  
+
                   <div className="relative bg-gradient-to-br from-violet-50 to-purple-100 rounded-2xl p-3 sm:p-4 lg:p-6 text-center border border-white/20 backdrop-blur-sm hover:shadow-2xl hover:shadow-violet-200/50 transition-all duration-500 transform group-hover:-translate-y-2">
                     <div className="absolute top-3 left-1 w-0.5 h-0.5 bg-violet-400 rounded-full opacity-40 animate-ping"></div>
-                    
+
                     <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-violet-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 group-hover:-rotate-12 transition-all duration-500 shadow-lg">
                       <FileText className="w-5 h-5 sm:w-6 sm:h-6 text-white drop-shadow-sm" />
                       <div className="absolute inset-0 bg-violet-400/30 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
                     <h3 className="font-bold text-gray-800 text-xs sm:text-sm lg:text-base group-hover:text-violet-700 transition-colors duration-300">Proofreading</h3>
-                    
+
                     {/* Hover Description */}
                     <div className="absolute bottom-0 left-0 right-0 bg-violet-600 text-white text-xs p-2 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-full group-hover:translate-y-0">
                       Grammar, spelling, and style improvements
                     </div>
                   </div>
                 </div>
-                
+
                 {/* Research Help Card */}
                 <div className="relative group col-span-2 sm:col-span-1">
                   <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/20 to-orange-400/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 scale-110"></div>
-                  
+
                   <div className="relative bg-gradient-to-br from-yellow-50 to-orange-100 rounded-2xl p-3 sm:p-4 lg:p-6 text-center border border-white/20 backdrop-blur-sm hover:shadow-2xl hover:shadow-yellow-200/50 transition-all duration-500 transform group-hover:-translate-y-2">
                     <div className="absolute bottom-1 right-3 w-1 h-1 bg-yellow-400 rounded-full opacity-50 animate-bounce"></div>
                     <div className="absolute top-1 left-1 w-0.5 h-0.5 bg-orange-400 rounded-full opacity-60 animate-pulse"></div>
-                    
+
                     <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg">
                       <BookOpen className="w-5 h-5 sm:w-6 sm:h-6 text-white drop-shadow-sm" />
                       <div className="absolute inset-0 bg-yellow-400/30 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
                     <h3 className="font-bold text-gray-800 text-xs sm:text-sm lg:text-base group-hover:text-yellow-700 transition-colors duration-300">Homework Help</h3>
-                    
+
                     {/* Hover Description */}
                     <div className="absolute bottom-0 left-0 right-0 bg-yellow-600 text-white text-xs p-2 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-full group-hover:translate-y-0">
                       Research assistance and academic support
@@ -1415,7 +1415,7 @@ export default function HomePage() {
               {/* Holographic Background */}
               <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/10 via-blue-400/10 to-purple-400/10 rounded-3xl blur-2xl scale-105"></div>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-pulse"></div>
-              
+
               <div className="relative bg-gradient-to-br from-emerald-50/80 to-blue-50/80 backdrop-blur-sm rounded-3xl p-8 sm:p-12 border border-white/20">
                 <h3 className="text-2xl sm:text-4xl font-bold text-gray-800 mb-6 relative">
                   Starting at just <span className="relative text-emerald-600">
@@ -1423,16 +1423,16 @@ export default function HomePage() {
                     <div className="absolute inset-0 bg-emerald-400/20 rounded-lg blur-sm -z-10"></div>
                   </span>
                 </h3>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 max-w-5xl mx-auto">
                   {/* 3 Month Plan */}
                   <div className="relative group">
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-cyan-400/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 scale-110"></div>
-                    
+
                     <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-white/30 hover:shadow-2xl hover:shadow-blue-200/50 transition-all duration-500 transform group-hover:-translate-y-2">
                       {/* Floating Particles */}
                       <div className="absolute top-2 right-2 w-1 h-1 bg-blue-400 rounded-full opacity-60 animate-bounce"></div>
-                      
+
                       <div className="text-sm text-gray-600 mb-2 font-medium">3 Months</div>
                       <div className="text-2xl font-bold text-blue-600 mb-1 relative">
                         {countryPricing[selectedCountry].symbol}{countryPricing[selectedCountry].rates["3month"].total.toLocaleString()}
@@ -1443,20 +1443,20 @@ export default function HomePage() {
                       </div>
                     </div>
                   </div>
-                  
+
                   {/* 6 Month Plan - Most Popular */}
                   <div className="relative group">
                     <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/30 to-green-400/30 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 scale-110"></div>
-                    
+
                     <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl p-6 border-2 border-emerald-500/50 hover:shadow-2xl hover:shadow-emerald-200/50 transition-all duration-500 transform group-hover:-translate-y-3">
                       <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-emerald-500 to-green-500 text-white px-4 py-1.5 rounded-full text-xs font-bold shadow-lg animate-pulse-glow">
                         Most Popular
                       </div>
-                      
+
                       {/* Enhanced Particles */}
                       <div className="absolute top-2 right-2 w-1 h-1 bg-emerald-400 rounded-full opacity-70 animate-bounce"></div>
                       <div className="absolute bottom-3 left-3 w-0.5 h-0.5 bg-green-400 rounded-full opacity-50 animate-ping"></div>
-                      
+
                       <div className="text-sm text-gray-600 mb-2 font-medium">6 Months</div>
                       <div className="text-2xl font-bold text-emerald-600 mb-1 relative">
                         {countryPricing[selectedCountry].symbol}{countryPricing[selectedCountry].rates["6month"].total.toLocaleString()}
@@ -1467,21 +1467,21 @@ export default function HomePage() {
                       </div>
                     </div>
                   </div>
-                  
+
                   {/* 12 Month Plan */}
                   <div className="relative group">
                     <div className="absolute inset-0 bg-gradient-to-br from-purple-400/20 to-fuchsia-400/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 scale-110"></div>
-                    
+
                     <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-white/30 hover:shadow-2xl hover:shadow-purple-200/50 transition-all duration-500 transform group-hover:-translate-y-2">
                       <div className="absolute -top-3 right-4 bg-gradient-to-r from-purple-500 to-fuchsia-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg z-20 animate-float">
                         36% OFF
                       </div>
-                      
+
                       {/* Premium Particles */}
                       <div className="absolute top-2 right-2 w-1 h-1 bg-purple-400 rounded-full opacity-60 animate-bounce"></div>
                       <div className="absolute top-4 left-2 w-0.5 h-0.5 bg-fuchsia-400 rounded-full opacity-40 animate-ping"></div>
                       <div className="absolute bottom-2 right-4 w-0.5 h-0.5 bg-purple-400 rounded-full opacity-50 animate-pulse"></div>
-                      
+
                       <div className="text-sm text-gray-600 mb-2 font-medium">12 Months</div>
                       <div className="text-2xl font-bold text-purple-600 mb-1 relative">
                         {countryPricing[selectedCountry].symbol}{countryPricing[selectedCountry].rates["12month"].total.toLocaleString()}
@@ -1493,26 +1493,26 @@ export default function HomePage() {
                     </div>
                   </div>
                 </div>
-                </div>
-                
-                <p className="text-gray-600 mb-8 mt-6">
-                  All plans include access to all premium features
-                </p>
-                
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Link href="/subscription">
-                    <Button size="lg" className="bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                      View All Plans
-                    </Button>
-                  </Link>
-                  <Link href="/contact?package=subscription">
-                    <Button size="lg" variant="outline" className="border-2 border-emerald-500 text-emerald-600 hover:bg-emerald-50 px-8 py-3 rounded-full hover:shadow-lg transition-all duration-300 transform hover:scale-105">
-                      Contact Us
-                    </Button>
-                  </Link>
-                </div>
+              </div>
+
+              <p className="text-gray-600 mb-8 mt-6">
+                All plans include access to all premium features
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link href="/subscription">
+                  <Button size="lg" className="bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                    View All Plans
+                  </Button>
+                </Link>
+                <Link href="/contact?package=subscription">
+                  <Button size="lg" variant="outline" className="border-2 border-emerald-500 text-emerald-600 hover:bg-emerald-50 px-8 py-3 rounded-full hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                    Contact Us
+                  </Button>
+                </Link>
               </div>
             </div>
+          </div>
         </section>
 
         {/* Modern Gallery Slideshow */}
@@ -1535,7 +1535,7 @@ export default function HomePage() {
             <div className="relative max-w-4xl mx-auto px-2 sm:px-4">
               {/* Main Slideshow */}
               <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl shadow-xl sm:shadow-2xl bg-white">
-                <div 
+                <div
                   className="flex transition-transform duration-700 ease-in-out"
                   style={{ transform: `translateX(-${currentSlide * 100}%)` }}
                 >
@@ -1594,11 +1594,10 @@ export default function HomePage() {
                   <button
                     key={index}
                     onClick={() => goToSlide(index)}
-                    className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
-                      index === currentSlide
-                        ? "bg-emerald-500 scale-125 shadow-lg pulse-indicator"
-                        : "bg-gray-300 hover:bg-gray-400 hover:scale-110"
-                    }`}
+                    className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${index === currentSlide
+                      ? "bg-emerald-500 scale-125 shadow-lg pulse-indicator"
+                      : "bg-gray-300 hover:bg-gray-400 hover:scale-110"
+                      }`}
                     aria-label={`Go to slide ${index + 1}`}
                   />
                 ))}
@@ -1610,11 +1609,10 @@ export default function HomePage() {
                   <button
                     key={index}
                     onClick={() => goToSlide(index)}
-                    className={`relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-lg sm:rounded-xl overflow-hidden transition-all duration-300 flex-shrink-0 transform-gpu ${
-                      index === currentSlide
-                        ? "ring-2 sm:ring-4 ring-emerald-500 scale-105 shadow-lg"
-                        : "hover:scale-105 shadow-md"
-                    }`}
+                    className={`relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-lg sm:rounded-xl overflow-hidden transition-all duration-300 flex-shrink-0 transform-gpu ${index === currentSlide
+                      ? "ring-2 sm:ring-4 ring-emerald-500 scale-105 shadow-lg"
+                      : "hover:scale-105 shadow-md"
+                      }`}
                     style={{ transformOrigin: 'center center' }}
                   >
                     <Image
@@ -1625,9 +1623,8 @@ export default function HomePage() {
                       quality={95}
                       sizes="(max-width: 640px) 64px, (max-width: 768px) 80px, 96px"
                     />
-                    <div className={`absolute inset-0 transition-opacity duration-300 ${
-                      index === currentSlide ? "bg-emerald-500/20" : "bg-black/0 hover:bg-black/10"
-                    }`}></div>
+                    <div className={`absolute inset-0 transition-opacity duration-300 ${index === currentSlide ? "bg-emerald-500/20" : "bg-black/0 hover:bg-black/10"
+                      }`}></div>
                   </button>
                 ))}
               </div>
@@ -1665,171 +1662,171 @@ export default function HomePage() {
                     href={isLoggedIn ? `/quiz?category=${subject.category}` : "/login"}
                     className="group flex-shrink-0 w-72 sm:w-80 bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer relative overflow-hidden border border-gray-100 hover:border-emerald-200 hover:-translate-y-2 snap-start"
                   >
-                  {subject.hasSvg ? (
-                    <>
-                      {/* SVG Image Container - Featured at Top */}
-                      <div className="relative h-32 sm:h-36 w-full overflow-hidden bg-gradient-to-br from-indigo-50 to-blue-50">
-                        <div className="absolute inset-0 bg-gradient-to-t from-indigo-500/20 to-transparent z-10"></div>
-                        <img
-                          src={subject.svgPath}
-                          alt={subject.name}
-                          className="w-full h-full object-contain object-center transform group-hover:scale-105 transition-transform duration-700"
-                          style={{
-                            imageRendering: 'crisp-edges',
-                            backfaceVisibility: 'hidden',
-                            transform: 'translateZ(0)'
-                          }}
-                          width="320"
-                          height="160"
-                        />
-                        {/* Floating Badge */}
-                        <div className="absolute top-2 right-2 bg-indigo-500 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg z-20">
-                          New
-                        </div>
-                      </div>
-                      
-                      {/* Content Section */}
-                      <div className="p-3 sm:p-4">
-                        <div className="flex items-center justify-between mb-2">
-                          <h3 className="text-sm sm:text-base font-bold text-gray-800 group-hover:text-indigo-600 transition-colors">
-                            {subject.name}
-                          </h3>
-                          <div className="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center group-hover:bg-indigo-500 transition-colors">
-                            <svg className="w-4 h-4 text-indigo-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                            </svg>
+                    {subject.hasSvg ? (
+                      <>
+                        {/* SVG Image Container - Featured at Top */}
+                        <div className="relative h-32 sm:h-36 w-full overflow-hidden bg-gradient-to-br from-indigo-50 to-blue-50">
+                          <div className="absolute inset-0 bg-gradient-to-t from-indigo-500/20 to-transparent z-10"></div>
+                          <img
+                            src={subject.svgPath}
+                            alt={subject.name}
+                            className="w-full h-full object-contain object-center transform group-hover:scale-105 transition-transform duration-700"
+                            style={{
+                              imageRendering: 'crisp-edges',
+                              backfaceVisibility: 'hidden',
+                              transform: 'translateZ(0)'
+                            }}
+                            width="320"
+                            height="160"
+                          />
+                          {/* Floating Badge */}
+                          <div className="absolute top-2 right-2 bg-indigo-500 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg z-20">
+                            New
                           </div>
-                        </div>
-                        
-                        <p className="text-gray-600 text-xs leading-relaxed mb-2 sm:mb-3">
-                          Practice questions and improve your skills
-                        </p>
-                        
-                        {/* Stats/Features */}
-                        <div className="flex items-center gap-2 sm:gap-3 text-xs text-gray-500">
-                          <div className="flex items-center gap-1">
-                            <div className="w-1.5 h-1.5 bg-indigo-500 rounded-full"></div>
-                            <span>Quick Practice</span>
-                          </div>
-                          <div className="flex items-center gap-1">
-                            <div className="w-1.5 h-1.5 bg-indigo-500 rounded-full"></div>
-                            <span>Progress Track</span>
-                          </div>
-                        </div>
-                      </div>
-                    </>
-                  ) : subject.hasImage ? (
-                    <>
-                      {/* Image Container - Featured at Top */}
-                      <div className="relative h-32 sm:h-36 w-full overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
-                        <div className="absolute inset-0 bg-gradient-to-t from-gray-500/10 to-transparent z-10"></div>
-                        <img
-                          src={subject.imagePath}
-                          alt={subject.name}
-                          className={`w-full h-full ${subject.name === 'Civic' ? 'object-contain' : 'object-cover'} object-center transform group-hover:scale-110 transition-transform duration-700`}
-                          style={{
-                            imageRendering: 'auto',
-                            backfaceVisibility: 'hidden',
-                            transform: 'translateZ(0)',
-                            willChange: 'transform'
-                          }}
-                          width="320"
-                          height="160"
-                        />
-                        {/* Floating Badge */}
-                        <div className="absolute top-2 right-2 bg-gray-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg z-20">
-                          Practice
-                        </div>
-                      </div>
-                      
-                      {/* Content Section */}
-                      <div className="p-3 sm:p-4">
-                        <div className="flex items-center justify-between mb-2">
-                          <h3 className="text-sm sm:text-base font-bold text-gray-800 group-hover:text-emerald-600 transition-colors">
-                            {subject.name}
-                          </h3>
-                          <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center group-hover:bg-emerald-500 transition-colors">
-                            <svg className="w-4 h-4 text-emerald-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                            </svg>
-                          </div>
-                        </div>
-                        
-                        <p className="text-gray-600 text-xs leading-relaxed mb-2 sm:mb-3">
-                          Start practicing with interactive questions and track your progress
-                        </p>
-                        
-                        {/* Stats/Features */}
-                        <div className="flex items-center gap-2 sm:gap-3 text-xs text-gray-500">
-                          <div className="flex items-center gap-1">
-                            <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div>
-                            <span>Quick Practice</span>
-                          </div>
-                          <div className="flex items-center gap-1">
-                            <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div>
-                            <span>Progress Track</span>
-                          </div>
-                        </div>
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      {/* Gradient Visual - Featured at Top */}
-                      <div className={`relative h-28 sm:h-32 w-full overflow-hidden bg-gradient-to-br ${subject.gradient}`}>
-                        {/* Animated Background Pattern */}
-                        <div className="absolute inset-0 opacity-20">
-                          <div className="absolute top-4 left-4 w-16 h-16 bg-white rounded-full blur-2xl"></div>
-                          <div className="absolute bottom-4 right-4 w-20 h-20 bg-white rounded-full blur-2xl"></div>
                         </div>
 
-                        {/* Icon Illustration */}
-                        <div className="absolute inset-0 flex items-center justify-center z-10">
-                          <div className="w-16 h-16 bg-white/90 backdrop-blur-sm rounded-full shadow-2xl flex items-center justify-center border-4 border-white/50">
-                            <div className="text-2xl">
-                              {subject.icon}
+                        {/* Content Section */}
+                        <div className="p-3 sm:p-4">
+                          <div className="flex items-center justify-between mb-2">
+                            <h3 className="text-sm sm:text-base font-bold text-gray-800 group-hover:text-indigo-600 transition-colors">
+                              {subject.name}
+                            </h3>
+                            <div className="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center group-hover:bg-indigo-500 transition-colors">
+                              <svg className="w-4 h-4 text-indigo-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                              </svg>
+                            </div>
+                          </div>
+
+                          <p className="text-gray-600 text-xs leading-relaxed mb-2 sm:mb-3">
+                            Practice questions and improve your skills
+                          </p>
+
+                          {/* Stats/Features */}
+                          <div className="flex items-center gap-2 sm:gap-3 text-xs text-gray-500">
+                            <div className="flex items-center gap-1">
+                              <div className="w-1.5 h-1.5 bg-indigo-500 rounded-full"></div>
+                              <span>Quick Practice</span>
+                            </div>
+                            <div className="flex items-center gap-1">
+                              <div className="w-1.5 h-1.5 bg-indigo-500 rounded-full"></div>
+                              <span>Progress Track</span>
                             </div>
                           </div>
                         </div>
+                      </>
+                    ) : subject.hasImage ? (
+                      <>
+                        {/* Image Container - Featured at Top */}
+                        <div className="relative h-32 sm:h-36 w-full overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
+                          <div className="absolute inset-0 bg-gradient-to-t from-gray-500/10 to-transparent z-10"></div>
+                          <img
+                            src={subject.imagePath}
+                            alt={subject.name}
+                            className={`w-full h-full ${subject.name === 'Civic' ? 'object-contain' : 'object-cover'} object-center transform group-hover:scale-110 transition-transform duration-700`}
+                            style={{
+                              imageRendering: 'auto',
+                              backfaceVisibility: 'hidden',
+                              transform: 'translateZ(0)',
+                              willChange: 'transform'
+                            }}
+                            width="320"
+                            height="160"
+                          />
+                          {/* Floating Badge */}
+                          <div className="absolute top-2 right-2 bg-gray-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg z-20">
+                            Practice
+                          </div>
+                        </div>
 
-                        {/* Floating Badge */}
-                        <div className="absolute top-2 right-2 bg-white/90 backdrop-blur-sm text-gray-600 px-3 py-1 rounded-full text-xs font-semibold shadow-lg z-20">
-                          Practice
-                        </div>
-                      </div>
-                      
-                      {/* Content Section */}
-                      <div className="p-3 sm:p-4">
-                        <div className="flex items-center justify-between mb-2">
-                          <h3 className="text-sm sm:text-base font-bold text-gray-800 group-hover:text-emerald-600 transition-colors">
-                            {subject.name}
-                          </h3>
-                          <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center group-hover:bg-emerald-500 transition-colors">
-                            <svg className="w-4 h-4 text-emerald-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                            </svg>
+                        {/* Content Section */}
+                        <div className="p-3 sm:p-4">
+                          <div className="flex items-center justify-between mb-2">
+                            <h3 className="text-sm sm:text-base font-bold text-gray-800 group-hover:text-emerald-600 transition-colors">
+                              {subject.name}
+                            </h3>
+                            <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center group-hover:bg-emerald-500 transition-colors">
+                              <svg className="w-4 h-4 text-emerald-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                              </svg>
+                            </div>
+                          </div>
+
+                          <p className="text-gray-600 text-xs leading-relaxed mb-2 sm:mb-3">
+                            Start practicing with interactive questions and track your progress
+                          </p>
+
+                          {/* Stats/Features */}
+                          <div className="flex items-center gap-2 sm:gap-3 text-xs text-gray-500">
+                            <div className="flex items-center gap-1">
+                              <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div>
+                              <span>Quick Practice</span>
+                            </div>
+                            <div className="flex items-center gap-1">
+                              <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div>
+                              <span>Progress Track</span>
+                            </div>
                           </div>
                         </div>
-                        
-                        <p className="text-gray-600 text-xs leading-relaxed mb-2 sm:mb-3">
-                          Start practicing with interactive questions and track your progress
-                        </p>
-                        
-                        {/* Stats/Features */}
-                        <div className="flex items-center gap-2 sm:gap-3 text-xs text-gray-500">
-                          <div className="flex items-center gap-1">
-                            <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div>
-                            <span>Quick Practice</span>
+                      </>
+                    ) : (
+                      <>
+                        {/* Gradient Visual - Featured at Top */}
+                        <div className={`relative h-28 sm:h-32 w-full overflow-hidden bg-gradient-to-br ${subject.gradient}`}>
+                          {/* Animated Background Pattern */}
+                          <div className="absolute inset-0 opacity-20">
+                            <div className="absolute top-4 left-4 w-16 h-16 bg-white rounded-full blur-2xl"></div>
+                            <div className="absolute bottom-4 right-4 w-20 h-20 bg-white rounded-full blur-2xl"></div>
                           </div>
-                          <div className="flex items-center gap-1">
-                            <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div>
-                            <span>Progress Track</span>
+
+                          {/* Icon Illustration */}
+                          <div className="absolute inset-0 flex items-center justify-center z-10">
+                            <div className="w-16 h-16 bg-white/90 backdrop-blur-sm rounded-full shadow-2xl flex items-center justify-center border-4 border-white/50">
+                              <div className="text-2xl">
+                                {subject.icon}
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Floating Badge */}
+                          <div className="absolute top-2 right-2 bg-white/90 backdrop-blur-sm text-gray-600 px-3 py-1 rounded-full text-xs font-semibold shadow-lg z-20">
+                            Practice
                           </div>
                         </div>
-                      </div>
-                    </>
-                  )}
-                </Link>
-              ))}
+
+                        {/* Content Section */}
+                        <div className="p-3 sm:p-4">
+                          <div className="flex items-center justify-between mb-2">
+                            <h3 className="text-sm sm:text-base font-bold text-gray-800 group-hover:text-emerald-600 transition-colors">
+                              {subject.name}
+                            </h3>
+                            <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center group-hover:bg-emerald-500 transition-colors">
+                              <svg className="w-4 h-4 text-emerald-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                              </svg>
+                            </div>
+                          </div>
+
+                          <p className="text-gray-600 text-xs leading-relaxed mb-2 sm:mb-3">
+                            Start practicing with interactive questions and track your progress
+                          </p>
+
+                          {/* Stats/Features */}
+                          <div className="flex items-center gap-2 sm:gap-3 text-xs text-gray-500">
+                            <div className="flex items-center gap-1">
+                              <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div>
+                              <span>Quick Practice</span>
+                            </div>
+                            <div className="flex items-center gap-1">
+                              <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div>
+                              <span>Progress Track</span>
+                            </div>
+                          </div>
+                        </div>
+                      </>
+                    )}
+                  </Link>
+                ))}
               </div>
 
 
@@ -1839,11 +1836,10 @@ export default function HomePage() {
                   <button
                     key={index}
                     onClick={() => scrollToCard(index)}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                      currentSubjectIndex === index 
-                        ? 'bg-emerald-500 w-6' 
-                        : 'bg-gray-300 hover:bg-gray-400'
-                    }`}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${currentSubjectIndex === index
+                      ? 'bg-emerald-500 w-6'
+                      : 'bg-gray-300 hover:bg-gray-400'
+                      }`}
                     aria-label={`Go to subject ${index + 1}`}
                   />
                 ))}
@@ -1863,11 +1859,11 @@ export default function HomePage() {
                       {/* SVG Image Container - Featured at Top */}
                       <div className="relative h-32 sm:h-36 md:h-40 w-full overflow-hidden bg-gradient-to-br from-indigo-50 to-blue-50">
                         <div className="absolute inset-0 bg-gradient-to-t from-indigo-500/20 to-transparent z-10"></div>
-                        <img 
-                          src={subject.svgPath} 
+                        <img
+                          src={subject.svgPath}
                           alt={subject.name}
                           className="w-full h-full object-contain object-center transform group-hover:scale-105 transition-transform duration-700"
-                          style={{ 
+                          style={{
                             imageRendering: 'crisp-edges',
                             backfaceVisibility: 'hidden',
                             transform: 'translateZ(0)'
@@ -1880,7 +1876,7 @@ export default function HomePage() {
                           New
                         </div>
                       </div>
-                      
+
                       {/* Content Section */}
                       <div className="p-3 sm:p-4">
                         <div className="flex items-center justify-between mb-2">
@@ -1893,11 +1889,11 @@ export default function HomePage() {
                             </svg>
                           </div>
                         </div>
-                        
+
                         <p className="text-gray-600 text-xs leading-relaxed mb-2 sm:mb-3">
                           Practice questions and improve your skills
                         </p>
-                        
+
                         {/* Stats/Features */}
                         <div className="flex items-center gap-2 sm:gap-3 text-xs text-gray-500">
                           <div className="flex items-center gap-1">
@@ -1916,11 +1912,11 @@ export default function HomePage() {
                       {/* Image Container - Featured at Top */}
                       <div className="relative h-32 sm:h-36 md:h-40 w-full overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
                         <div className="absolute inset-0 bg-gradient-to-t from-gray-500/10 to-transparent z-10"></div>
-                        <img 
-                          src={subject.imagePath} 
+                        <img
+                          src={subject.imagePath}
                           alt={subject.name}
                           className={`w-full h-full ${subject.name === 'Civic' ? 'object-contain' : 'object-cover'} object-center transform group-hover:scale-110 transition-transform duration-700`}
-                          style={{ 
+                          style={{
                             imageRendering: 'auto',
                             backfaceVisibility: 'hidden',
                             transform: 'translateZ(0)',
@@ -1934,7 +1930,7 @@ export default function HomePage() {
                           Practice
                         </div>
                       </div>
-                      
+
                       {/* Content Section */}
                       <div className="p-3 sm:p-4">
                         <div className="flex items-center justify-between mb-2">
@@ -1947,11 +1943,11 @@ export default function HomePage() {
                             </svg>
                           </div>
                         </div>
-                        
+
                         <p className="text-gray-600 text-xs leading-relaxed mb-2 sm:mb-3">
                           Start practicing with interactive questions and track your progress
                         </p>
-                        
+
                         {/* Stats/Features */}
                         <div className="flex items-center gap-2 sm:gap-3 text-xs text-gray-500">
                           <div className="flex items-center gap-1">
@@ -1974,7 +1970,7 @@ export default function HomePage() {
                           <div className="absolute top-4 left-4 w-16 h-16 bg-white rounded-full blur-2xl"></div>
                           <div className="absolute bottom-4 right-4 w-20 h-20 bg-white rounded-full blur-2xl"></div>
                         </div>
-                        
+
                         {/* Icon Illustration */}
                         <div className="absolute inset-0 flex items-center justify-center z-10">
                           <div className="w-16 h-16 bg-white/90 backdrop-blur-sm rounded-full shadow-2xl flex items-center justify-center border-4 border-white/50">
@@ -1983,13 +1979,13 @@ export default function HomePage() {
                             </div>
                           </div>
                         </div>
-                        
+
                         {/* Floating Badge */}
                         <div className="absolute top-2 right-2 bg-white/90 backdrop-blur-sm text-gray-600 px-3 py-1 rounded-full text-xs font-semibold shadow-lg z-20">
                           Practice
                         </div>
                       </div>
-                      
+
                       {/* Content Section */}
                       <div className="p-3 sm:p-4">
                         <div className="flex items-center justify-between mb-2">
@@ -2002,11 +1998,11 @@ export default function HomePage() {
                             </svg>
                           </div>
                         </div>
-                        
+
                         <p className="text-gray-600 text-xs leading-relaxed mb-2 sm:mb-3">
                           Start practicing with interactive questions and track your progress
                         </p>
-                        
+
                         {/* Stats/Features */}
                         <div className="flex items-center gap-2 sm:gap-3 text-xs text-gray-500">
                           <div className="flex items-center gap-1">
@@ -2046,7 +2042,7 @@ export default function HomePage() {
               <div
                 ref={scrollContainerRef}
                 className="flex gap-4 sm:gap-6 overflow-x-auto pb-4 px-2 sm:px-4"
-                style={{ 
+                style={{
                   scrollbarWidth: "none",
                   scrollSnapType: "x mandatory",
                   scrollPaddingLeft: "0.5rem",
@@ -2061,11 +2057,11 @@ export default function HomePage() {
                   {/* Image Container - Featured at Top */}
                   <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-emerald-50 to-green-50">
                     <div className="absolute inset-0 bg-gradient-to-t from-emerald-500/20 to-transparent z-10"></div>
-                    <img 
-                      src="/features/quiz.webp" 
+                    <img
+                      src="/features/quiz.webp"
                       alt="Interactive Quizzes"
                       className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700"
-                      style={{ 
+                      style={{
                         imageRendering: 'crisp-edges',
                         backfaceVisibility: 'hidden',
                         transform: 'translateZ(0)',
@@ -2080,24 +2076,24 @@ export default function HomePage() {
                       Popular
                     </div>
                   </div>
-                  
+
                   {/* Content Section */}
                   <div className="p-6">
                     <div className="flex items-center justify-between mb-3">
                       <h3 className="text-2xl font-bold text-gray-800 group-hover:text-emerald-600 transition-colors">
-                      Quizzes
-                    </h3>
+                        Quizzes
+                      </h3>
                       <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center group-hover:bg-emerald-500 transition-colors">
                         <svg className="w-5 h-5 text-emerald-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
-                  </div>
                       </div>
-                      
+                    </div>
+
                     <p className="text-gray-600 text-sm leading-relaxed mb-4">
                       Test your knowledge with interactive quizzes across all subjects. Track your progress and master every topic.
                     </p>
-                    
+
                     {/* Stats/Features */}
                     <div className="flex items-center gap-4 text-xs text-gray-500">
                       <div className="flex items-center gap-1">
@@ -2120,8 +2116,8 @@ export default function HomePage() {
                   {/* Image Container - Featured at Top */}
                   <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-blue-50 to-indigo-50">
                     <div className="absolute inset-0 bg-gradient-to-t from-blue-500/20 to-transparent z-10"></div>
-                    <img 
-                      src="/features/exam.webp" 
+                    <img
+                      src="/features/exam.webp"
                       alt="Exam Preparation"
                       className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                     />
@@ -2130,7 +2126,7 @@ export default function HomePage() {
                       Timed
                     </div>
                   </div>
-                  
+
                   {/* Content Section */}
                   <div className="p-6">
                     <div className="flex items-center justify-between mb-3">
@@ -2143,11 +2139,11 @@ export default function HomePage() {
                         </svg>
                       </div>
                     </div>
-                    
+
                     <p className="text-gray-600 text-sm leading-relaxed mb-4">
                       Practice with timed mock exams that simulate real test conditions. Get exam-ready with confidence.
                     </p>
-                    
+
                     {/* Stats/Features */}
                     <div className="flex items-center gap-4 text-xs text-gray-500">
                       <div className="flex items-center gap-1">
@@ -2168,36 +2164,36 @@ export default function HomePage() {
                   className="group flex-shrink-0 w-72 sm:w-80 md:w-96 bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer relative overflow-hidden snap-start border border-gray-100 hover:border-orange-200 hover:-translate-y-2"
                 >
                   {/* Image Container - Featured at Top */}
-                      <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-orange-50 to-amber-50">
-                        <div className="absolute inset-0 bg-gradient-to-t from-orange-500/20 to-transparent z-10"></div>
-                        <img 
-                          src="/features/whiteboard.webp" 
-                          alt="Interactive Whiteboard"
-                          className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700"
-                          style={{ 
-                            imageRendering: 'crisp-edges',
-                            backfaceVisibility: 'hidden',
-                            transform: 'translateZ(0)',
-                            willChange: 'transform',
-                            maxWidth: '100%',
-                            height: 'auto'
-                          }}
-                          width="384"
-                          height="256"
-                        />
-                        {/* Floating Badge - Optimized for sharpness */}
-                        <div className="absolute top-4 right-4 bg-orange-500 text-white px-4 py-1.5 rounded-full text-xs font-semibold shadow-lg z-20"
-                             style={{
-                               textRendering: 'optimizeLegibility',
-                               WebkitFontSmoothing: 'antialiased',
-                               MozOsxFontSmoothing: 'grayscale',
-                               backfaceVisibility: 'hidden',
-                               transform: 'translateZ(0)'
-                             }}>
-                          Interactive
-                        </div>
-                      </div>
-                  
+                  <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-orange-50 to-amber-50">
+                    <div className="absolute inset-0 bg-gradient-to-t from-orange-500/20 to-transparent z-10"></div>
+                    <img
+                      src="/features/whiteboard.webp"
+                      alt="Interactive Whiteboard"
+                      className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700"
+                      style={{
+                        imageRendering: 'crisp-edges',
+                        backfaceVisibility: 'hidden',
+                        transform: 'translateZ(0)',
+                        willChange: 'transform',
+                        maxWidth: '100%',
+                        height: 'auto'
+                      }}
+                      width="384"
+                      height="256"
+                    />
+                    {/* Floating Badge - Optimized for sharpness */}
+                    <div className="absolute top-4 right-4 bg-orange-500 text-white px-4 py-1.5 rounded-full text-xs font-semibold shadow-lg z-20"
+                      style={{
+                        textRendering: 'optimizeLegibility',
+                        WebkitFontSmoothing: 'antialiased',
+                        MozOsxFontSmoothing: 'grayscale',
+                        backfaceVisibility: 'hidden',
+                        transform: 'translateZ(0)'
+                      }}>
+                      Interactive
+                    </div>
+                  </div>
+
                   {/* Content Section - Optimized for sharpness */}
                   <div className="p-6" style={{
                     textRendering: 'optimizeLegibility',
@@ -2206,29 +2202,29 @@ export default function HomePage() {
                   }}>
                     <div className="flex items-center justify-between mb-3">
                       <h3 className="text-2xl font-bold text-gray-800 group-hover:text-orange-600 transition-colors"
-                          style={{
-                            textRendering: 'optimizeLegibility',
-                            WebkitFontSmoothing: 'antialiased',
-                            MozOsxFontSmoothing: 'grayscale'
-                          }}>
-                      Whiteboard
-                    </h3>
+                        style={{
+                          textRendering: 'optimizeLegibility',
+                          WebkitFontSmoothing: 'antialiased',
+                          MozOsxFontSmoothing: 'grayscale'
+                        }}>
+                        Whiteboard
+                      </h3>
                       <div className="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center group-hover:bg-orange-500 transition-colors">
                         <svg className="w-5 h-5 text-orange-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
-                        </div>
                       </div>
-                      
+                    </div>
+
                     <p className="text-gray-600 text-sm leading-relaxed mb-4"
-                       style={{
-                         textRendering: 'optimizeLegibility',
-                         WebkitFontSmoothing: 'antialiased',
-                         MozOsxFontSmoothing: 'grayscale'
-                       }}>
+                      style={{
+                        textRendering: 'optimizeLegibility',
+                        WebkitFontSmoothing: 'antialiased',
+                        MozOsxFontSmoothing: 'grayscale'
+                      }}>
                       Draw and solve problems digitally with our intuitive whiteboard. Perfect for visual learners.
                     </p>
-                    
+
                     {/* Stats/Features */}
                     <div className="flex items-center gap-4 text-xs text-gray-500">
                       <div className="flex items-center gap-1">
@@ -2259,11 +2255,11 @@ export default function HomePage() {
                   {/* Image Container - Featured at Top */}
                   <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-purple-50 to-fuchsia-50">
                     <div className="absolute inset-0 bg-gradient-to-t from-purple-500/20 to-transparent z-10"></div>
-                    <img 
-                      src="/features/flashcard.webp" 
+                    <img
+                      src="/features/flashcard.webp"
                       alt="Smart Flashcards"
                       className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700"
-                      style={{ 
+                      style={{
                         imageRendering: 'crisp-edges',
                         backfaceVisibility: 'hidden',
                         transform: 'translateZ(0)',
@@ -2278,24 +2274,24 @@ export default function HomePage() {
                       Smart Learning
                     </div>
                   </div>
-                  
+
                   {/* Content Section */}
                   <div className="p-6">
                     <div className="flex items-center justify-between mb-3">
                       <h3 className="text-2xl font-bold text-gray-800 group-hover:text-purple-600 transition-colors">
-                      Flashcards
-                    </h3>
+                        Flashcards
+                      </h3>
                       <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center group-hover:bg-purple-500 transition-colors">
                         <svg className="w-5 h-5 text-purple-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
-                        </div>
                       </div>
-                      
+                    </div>
+
                     <p className="text-gray-600 text-sm leading-relaxed mb-4">
                       Memorize concepts with smart flashcards. Master any subject using spaced repetition techniques.
                     </p>
-                    
+
                     {/* Stats/Features */}
                     <div className="flex items-center gap-4 text-xs text-gray-500">
                       <div className="flex items-center gap-1">
@@ -2318,8 +2314,8 @@ export default function HomePage() {
                   {/* Image Container - Featured at Top */}
                   <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-cyan-50 to-teal-50">
                     <div className="absolute inset-0 bg-gradient-to-t from-cyan-500/20 to-transparent z-10"></div>
-                    <img 
-                      src="/features/study.webp" 
+                    <img
+                      src="/features/study.webp"
                       alt="Study Groups"
                       className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                       width="384"
@@ -2330,7 +2326,7 @@ export default function HomePage() {
                       Collaborative
                     </div>
                   </div>
-                  
+
                   {/* Content Section */}
                   <div className="p-6">
                     <div className="flex items-center justify-between mb-3">
@@ -2343,11 +2339,11 @@ export default function HomePage() {
                         </svg>
                       </div>
                     </div>
-                    
+
                     <p className="text-gray-600 text-sm leading-relaxed mb-4">
                       Connect with peers for collaborative learning. Share knowledge and get help when you need it.
                     </p>
-                    
+
                     {/* Stats/Features */}
                     <div className="flex items-center gap-4 text-xs text-gray-500">
                       <div className="flex items-center gap-1">
@@ -2370,9 +2366,9 @@ export default function HomePage() {
                   {/* Image Container - Featured at Top */}
                   <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-red-50 to-pink-50">
                     <div className="absolute inset-0 bg-gradient-to-t from-red-500/20 to-transparent z-10"></div>
-                    <img 
+                    <img
                       src="/features/image.png
-                      " 
+                      "
                       alt="Professional Proctoring"
                       className="w-full h-full object-cover transform scale-105 group-hover:scale-110 transition-transform duration-700"
                       width="384"
@@ -2383,7 +2379,7 @@ export default function HomePage() {
                       Professional
                     </div>
                   </div>
-                  
+
                   {/* Content Section */}
                   <div className="p-6">
                     <div className="flex items-center justify-between mb-3">
@@ -2396,11 +2392,11 @@ export default function HomePage() {
                         </svg>
                       </div>
                     </div>
-                    
+
                     <p className="text-gray-600 text-sm leading-relaxed mb-4">
                       Professional exam proctoring services for secure and reliable test administration.
                     </p>
-                    
+
                     {/* Stats/Features */}
                     <div className="flex items-center gap-4 text-xs text-gray-500">
                       <div className="flex items-center gap-1">
@@ -2441,11 +2437,10 @@ export default function HomePage() {
                   {[0, 1, 2, 3, 4, 5].map((index) => (
                     <div
                       key={index}
-                      className={`w-2 h-2 rounded-full transition-colors duration-300 ${
-                        currentCardIndex === index
-                          ? "bg-emerald-500"
-                          : "bg-gray-300"
-                      }`}
+                      className={`w-2 h-2 rounded-full transition-colors duration-300 ${currentCardIndex === index
+                        ? "bg-emerald-500"
+                        : "bg-gray-300"
+                        }`}
                     ></div>
                   ))}
                 </div>
@@ -2546,7 +2541,7 @@ export default function HomePage() {
             ) : reviews.length > 0 ? (
               <div className="relative max-w-3xl mx-auto">
                 {/* Main Carousel */}
-                <div 
+                <div
                   ref={testimonialContainerRef}
                   className={`relative overflow-hidden rounded-2xl sm:rounded-3xl bg-white shadow-xl sm:shadow-2xl cursor-grab select-none ${isDragging ? 'cursor-grabbing' : ''}`}
                   onTouchStart={onTouchStart}
@@ -2557,9 +2552,9 @@ export default function HomePage() {
                   onMouseUp={onMouseUp}
                   onMouseLeave={onMouseLeave}
                 >
-                  <div 
+                  <div
                     className={`flex transition-transform duration-700 ease-in-out ${isDragging ? 'transition-none' : ''}`}
-                    style={{ 
+                    style={{
                       transform: `translateX(calc(-${currentTestimonial * 100}% + ${dragOffset}px))`,
                       filter: isDragging ? 'brightness(0.95)' : 'brightness(1)'
                     }}
@@ -2580,9 +2575,8 @@ export default function HomePage() {
                             {[...Array(5)].map((_, i) => (
                               <Star
                                 key={i}
-                                className={`w-5 h-5 sm:w-6 sm:h-6 mx-0.5 sm:mx-1 ${
-                                  i < review.rating ? "text-yellow-400" : "text-gray-200"
-                                } fill-current transition-colors duration-300`}
+                                className={`w-5 h-5 sm:w-6 sm:h-6 mx-0.5 sm:mx-1 ${i < review.rating ? "text-yellow-400" : "text-gray-200"
+                                  } fill-current transition-colors duration-300`}
                               />
                             ))}
                           </div>
@@ -2652,11 +2646,10 @@ export default function HomePage() {
                         setIsUserInteracting(true);
                         setTimeout(() => setIsUserInteracting(false), 3000);
                       }}
-                      className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
-                        index === currentTestimonial
-                          ? "bg-emerald-500 scale-125 shadow-lg pulse-indicator"
-                          : "bg-gray-300 hover:bg-emerald-400 hover:scale-110"
-                      }`}
+                      className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${index === currentTestimonial
+                        ? "bg-emerald-500 scale-125 shadow-lg pulse-indicator"
+                        : "bg-gray-300 hover:bg-emerald-400 hover:scale-110"
+                        }`}
                       aria-label={`Go to testimonial ${index + 1}`}
                     />
                   ))}
@@ -2687,7 +2680,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        
+
         {/* CTA Section */}
         <section className="py-12 sm:py-20 px-4 bg-gradient-to-r from-emerald-500 to-blue-500 relative overflow-hidden reveal-on-scroll">
           <div className="absolute inset-0 bg-black/10"></div>
@@ -2699,7 +2692,7 @@ export default function HomePage() {
               Join our community of learners who have transformed their grades with
               GroupXam. Start your journey to academic excellence with GroupXam's proven exam preparation platform today.
             </p>
-            
+
             {/* Professional Animated Elements */}
             <div className="flex justify-center space-x-8 mb-8">
               <div className="w-16 h-16 bg-white/10 rounded-xl backdrop-blur-sm flex items-center justify-center group hover:bg-white/20 transition-all duration-300">
@@ -2712,7 +2705,7 @@ export default function HomePage() {
                 <TrendingUp className="w-8 h-8 text-white group-hover:scale-110 transition-transform duration-300" />
               </div>
             </div>
-            
+
             {/* Subtle Background Elements */}
             <div className="absolute top-20 left-20 w-32 h-32 bg-white/5 rounded-full blur-2xl"></div>
             <div className="absolute bottom-20 right-20 w-24 h-24 bg-white/5 rounded-full blur-2xl"></div>
@@ -2819,6 +2812,14 @@ export default function HomePage() {
                       className="hover:text-white transition-colors"
                     >
                       Whiteboard
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/calculator"
+                      className="hover:text-white transition-colors"
+                    >
+                      Calculator
                     </Link>
                   </li>
 
