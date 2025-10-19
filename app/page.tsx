@@ -1299,21 +1299,6 @@ export default function HomePage() {
                 </Button>
               </div>
 
-              {/* Calculator Button - Centered */}
-              <div className="flex justify-center">
-                <Button
-                  asChild
-                  size="lg"
-                  className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white text-sm sm:text-lg px-6 sm:px-8 py-3 sm:py-4 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 rounded-xl font-semibold border-0 flex items-center gap-2"
-                  aria-label="Advanced Calculator - Scientific, Programming, Graphing, and Unit Conversion Tools"
-                  title="Access our comprehensive calculator with scientific functions, programming tools, graphing capabilities, and unit conversions"
-                >
-                  <Link href="/calculator" aria-describedby="calculator-description">
-                    <Calculator className="w-4 h-4 sm:w-5 sm:h-5" aria-hidden="true" />
-                    <span>Calculator</span>
-                  </Link>
-                </Button>
-              </div>
 
               {/* Hidden description for screen readers */}
               <div id="calculator-description" className="sr-only">
@@ -2432,65 +2417,133 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* How It Works */}
+        {/* How It Works - Redesigned */}
         <section
           id="how-it-works"
-          className="py-12 sm:py-20 px-4 bg-gradient-to-br from-gray-50 to-emerald-50 reveal-on-scroll"
+          className="relative py-16 sm:py-24 px-4 bg-white overflow-hidden reveal-on-scroll"
         >
-          <div className="container mx-auto">
-            <div className="text-center mb-8 sm:mb-12 md:mb-16 px-4">
-              <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-2 sm:mb-3 md:mb-4">
-                How <span className="text-emerald-600">groupXam</span> Works
+          {/* Background Elements */}
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50"></div>
+
+          {/* Floating Geometric Shapes */}
+          <div className="absolute top-20 left-10 w-20 h-20 bg-gradient-to-br from-emerald-200/30 to-blue-200/30 rounded-full blur-xl"></div>
+          <div className="absolute top-40 right-20 w-32 h-32 bg-gradient-to-br from-purple-200/20 to-pink-200/20 rounded-full blur-2xl"></div>
+          <div className="absolute bottom-20 left-1/4 w-24 h-24 bg-gradient-to-br from-blue-200/25 to-indigo-200/25 rounded-full blur-xl"></div>
+
+          <div className="container mx-auto relative z-10">
+            {/* Header Section */}
+            <div className="text-center mb-16 sm:mb-20 px-4">
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-blue-500 text-white px-4 py-2 rounded-full text-sm font-medium mb-6 shadow-lg">
+                <span className="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+                How It Works
+              </div>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                Transform Your Learning with{" "}
+                <span className="bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  groupXam
+                </span>
               </h2>
-              <p className="text-sm sm:text-base md:text-xl text-gray-600 max-w-2xl mx-auto">
-                Simple steps to transform your WAEC preparation
+              <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                Experience a revolutionary approach to exam preparation with our intelligent, personalized learning platform
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 px-4 sm:px-6">
-              <div className="text-center">
-                <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 md:mb-6 shadow-xl">
-                  <span className="text-lg sm:text-xl md:text-2xl font-bold text-white">
-                    1
-                  </span>
-                </div>
-                <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-800 mb-2 sm:mb-3 md:mb-4 px-2">
-                  Sign Up & Choose Subjects
-                </h3>
-                <p className="text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed px-2">
-                  Create your account and select the subjects you want to focus
-                  on for your WAEC preparation
-                </p>
-              </div>
+            {/* Steps Container */}
+            <div className="relative max-w-6xl mx-auto">
+              {/* Connecting Line */}
+              <div className="hidden lg:block absolute top-24 left-0 right-0 h-0.5 bg-gradient-to-r from-emerald-500 via-blue-500 to-purple-500 opacity-30"></div>
 
-              <div className="text-center">
-                <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 md:mb-6 shadow-xl">
-                  <span className="text-lg sm:text-xl md:text-2xl font-bold text-white">
-                    2
-                  </span>
-                </div>
-                <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-800 mb-2 sm:mb-3 md:mb-4 px-2">
-                  Practice & Learn
-                </h3>
-                <p className="text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed px-2">
-                  Take quizzes, study with flashcards, and participate in timed
-                  exams to build your knowledge
-                </p>
-              </div>
+              {/* Steps Grid */}
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+                {/* Step 1 */}
+                <div className="relative group">
+                  <div className="relative bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-emerald-200 group-hover:-translate-y-2">
+                    {/* Step Number Badge */}
+                    <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center shadow-lg">
+                      <span className="text-white font-bold text-lg">1</span>
+                    </div>
 
-              <div className="text-center">
-                <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-gradient-to-r from-purple-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 md:mb-6 shadow-xl">
-                  <span className="text-lg sm:text-xl md:text-2xl font-bold text-white">
-                    3
-                  </span>
+                    {/* Icon */}
+                    <div className="w-16 h-16 bg-gradient-to-br from-emerald-100 to-blue-100 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                      <svg className="w-8 h-8 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                      </svg>
+                    </div>
+
+                    <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-emerald-600 transition-colors duration-300">
+                      Quick Registration
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed mb-6">
+                      Create your personalized account and select your target subjects. Set up your profile and choose your exam preferences to get started.
+                    </p>
+
+                    {/* Feature Tags */}
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-3 py-1 bg-emerald-50 text-emerald-700 text-xs font-medium rounded-full">Quick Setup</span>
+                      <span className="px-3 py-1 bg-blue-50 text-blue-700 text-xs font-medium rounded-full">Personalized</span>
+                    </div>
+                  </div>
                 </div>
-                <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-800 mb-2 sm:mb-3 md:mb-4 px-2">
-                  Track Progress & Excel
-                </h3>
-                <p className="text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed px-2">
-                  Monitor your improvement, identify weak areas, and achieve
-                  your target grades
-                </p>
+
+                {/* Step 2 */}
+                <div className="relative group">
+                  <div className="relative bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-blue-200 group-hover:-translate-y-2">
+                    {/* Step Number Badge */}
+                    <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center shadow-lg">
+                      <span className="text-white font-bold text-lg">2</span>
+                    </div>
+
+                    {/* Icon */}
+                    <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                      <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                      </svg>
+                    </div>
+
+                    <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors duration-300">
+                      Intelligent Learning
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed mb-6">
+                      Engage with adaptive quizzes, interactive flashcards, and timed practice tests to build your knowledge and skills.
+                    </p>
+
+                    {/* Feature Tags */}
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-3 py-1 bg-blue-50 text-blue-700 text-xs font-medium rounded-full">Adaptive</span>
+                      <span className="px-3 py-1 bg-purple-50 text-purple-700 text-xs font-medium rounded-full">Interactive</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Step 3 */}
+                <div className="relative group">
+                  <div className="relative bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-purple-200 group-hover:-translate-y-2">
+                    {/* Step Number Badge */}
+                    <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg">
+                      <span className="text-white font-bold text-lg">3</span>
+                    </div>
+
+                    {/* Icon */}
+                    <div className="w-16 h-16 bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                      <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                      </svg>
+                    </div>
+
+                    <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-purple-600 transition-colors duration-300">
+                      Achieve Excellence
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed mb-6">
+                      Track your progress with detailed analytics, identify improvement areas, and achieve your target grades with confidence and precision.
+                    </p>
+
+                    {/* Feature Tags */}
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-3 py-1 bg-purple-50 text-purple-700 text-xs font-medium rounded-full">Analytics</span>
+                      <span className="px-3 py-1 bg-pink-50 text-pink-700 text-xs font-medium rounded-full">Success</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -2664,34 +2717,95 @@ export default function HomePage() {
         </section>
 
 
-        {/* CTA Section */}
-        <section className="py-12 sm:py-20 px-4 bg-gradient-to-r from-emerald-500 to-blue-500 relative overflow-hidden reveal-on-scroll">
-          <div className="absolute inset-0 bg-black/10"></div>
-          <div className="container mx-auto text-center relative">
-            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6 px-4">
-              Ready to Ace Your Exams with GroupXam?
-            </h2>
-            <p className="text-base sm:text-xl text-emerald-100 mb-8 sm:mb-10 max-w-2xl mx-auto px-4">
-              Join our community of learners who have transformed their grades with
-              GroupXam. Start your journey to academic excellence with GroupXam's proven exam preparation platform today.
-            </p>
+        {/* CTA Section - Redesigned */}
+        <section className="relative py-20 sm:py-28 px-4 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 overflow-hidden reveal-on-scroll">
+          {/* Advanced Background Elements */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(16,185,129,0.05),transparent_50%)]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(59,130,246,0.05),transparent_50%)]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(147,51,234,0.03),transparent_70%)]"></div>
 
-            {/* Professional Animated Elements */}
-            <div className="flex justify-center space-x-8 mb-8">
-              <div className="w-16 h-16 bg-white/10 rounded-xl backdrop-blur-sm flex items-center justify-center group hover:bg-white/20 transition-all duration-300">
-                <BookOpen className="w-8 h-8 text-white group-hover:scale-110 transition-transform duration-300" />
+          {/* Floating Geometric Shapes */}
+          <div className="absolute top-20 left-10 w-20 h-20 bg-gradient-to-br from-emerald-200/30 to-blue-200/30 rounded-full blur-xl"></div>
+          <div className="absolute top-40 right-20 w-32 h-32 bg-gradient-to-br from-purple-200/20 to-pink-200/20 rounded-full blur-2xl"></div>
+          <div className="absolute bottom-20 left-1/4 w-24 h-24 bg-gradient-to-br from-blue-200/25 to-indigo-200/25 rounded-full blur-xl"></div>
+
+          <div className="container mx-auto relative z-10">
+            {/* Main Content */}
+            <div className="text-center mb-16">
+
+              {/* Main Headline */}
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-8 leading-tight">
+                Ready to{" "}
+                <span className="bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  Transform
+                </span>{" "}
+                Your Future?
+              </h2>
+
+              {/* Subtitle */}
+              <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed">
+                Join thousands of successful students who have achieved their academic goals with GroupXam's comprehensive exam preparation platform.
+              </p>
+            </div>
+
+            {/* Action Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
+              {/* Study Card */}
+              <div className="group relative">
+                <div className="bg-white border border-gray-100 rounded-2xl p-8 hover:border-emerald-200 hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
+                  <div className="w-16 h-16 bg-gradient-to-br from-emerald-100 to-emerald-200 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <BookOpen className="w-8 h-8 text-emerald-600" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">Study Smart</h3>
+                  <p className="text-gray-600 leading-relaxed">Access comprehensive study materials and practice tests designed for your success.</p>
+                </div>
               </div>
-              <div className="w-16 h-16 bg-white/10 rounded-xl backdrop-blur-sm flex items-center justify-center group hover:bg-white/20 transition-all duration-300">
-                <Target className="w-8 h-8 text-white group-hover:scale-110 transition-transform duration-300" />
+
+              {/* Track Progress Card */}
+              <div className="group relative">
+                <div className="bg-white border border-gray-100 rounded-2xl p-8 hover:border-blue-200 hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <Target className="w-8 h-8 text-blue-600" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">Track Progress</h3>
+                  <p className="text-gray-600 leading-relaxed">Monitor your improvement with detailed analytics and personalized insights.</p>
+                </div>
               </div>
-              <div className="w-16 h-16 bg-white/10 rounded-xl backdrop-blur-sm flex items-center justify-center group hover:bg-white/20 transition-all duration-300">
-                <TrendingUp className="w-8 h-8 text-white group-hover:scale-110 transition-transform duration-300" />
+
+              {/* Achieve Goals Card */}
+              <div className="group relative">
+                <div className="bg-white border border-gray-100 rounded-2xl p-8 hover:border-purple-200 hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
+                  <div className="w-16 h-16 bg-gradient-to-br from-purple-100 to-purple-200 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <TrendingUp className="w-8 h-8 text-purple-600" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">Achieve Goals</h3>
+                  <p className="text-gray-600 leading-relaxed">Reach your target grades with confidence and unlock your full potential.</p>
+                </div>
               </div>
             </div>
 
-            {/* Subtle Background Elements */}
-            <div className="absolute top-20 left-20 w-32 h-32 bg-white/5 rounded-full blur-2xl"></div>
-            <div className="absolute bottom-20 right-20 w-24 h-24 bg-white/5 rounded-full blur-2xl"></div>
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Button
+                asChild
+                size="lg"
+                className="bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white text-lg px-8 py-4 rounded-xl font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 border-0"
+              >
+                <Link href="/signup">
+                  Get Started Free
+                </Link>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="bg-white border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 text-lg px-8 py-4 rounded-xl font-semibold transition-all duration-300"
+              >
+                <Link href="/login">
+                  Sign In
+                </Link>
+              </Button>
+            </div>
           </div>
         </section>
 
