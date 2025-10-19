@@ -24,6 +24,9 @@ module.exports = {
       'lg': '1024px',
       'xl': '1280px',
       '2xl': '1536px',
+      // iPhone specific breakpoints
+      'iphone-12': '428px',
+      'iphone-14': '430px',
     },
     extend: {
       colors: {

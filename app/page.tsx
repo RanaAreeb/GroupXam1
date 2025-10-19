@@ -24,6 +24,7 @@ import {
   Award,
   Users2,
   Sparkles,
+  Calculator,
 } from "lucide-react";
 import Header from "@/components/ui/header";
 import Image from "next/image";
@@ -866,12 +867,12 @@ export default function HomePage() {
             "@context": "https://schema.org",
             "@type": "WebPage",
             name: "GroupXam - Ace Your Exams with Confidence",
-            description: "Master WAEC, WASSCE, and JAMB exams with GroupXam's comprehensive study platform. Access 10,000+ practice questions, interactive flashcards, mock exams, and real-time progress tracking.",
+            description: "Master WAEC, WASSCE, and JAMB exams with GroupXam's comprehensive study platform. Access 10,000+ practice questions, interactive flashcards, mock exams, advanced calculator tools, and real-time progress tracking.",
             url: "https://groupxam.com",
             mainEntity: {
               "@type": "EducationalApplication",
               name: "GroupXam",
-              description: "Comprehensive exam preparation platform for WAEC, WASSCE, and JAMB exams",
+              description: "Comprehensive exam preparation platform for WAEC, WASSCE, and JAMB exams with advanced calculator tools",
               applicationCategory: "EducationalApplication",
               operatingSystem: "Web Browser",
               offers: {
@@ -885,6 +886,10 @@ export default function HomePage() {
                 "WASSCE Exam Preparation",
                 "JAMB Exam Preparation",
                 "IELTS Exam Preparation",
+                "Advanced Scientific Calculator",
+                "Programmer Calculator",
+                "Graphing Calculator",
+                "Unit Converter",
                 "Interactive Practice Tests",
                 "Real-time Progress Tracking",
                 "Study Groups and Discussions",
@@ -911,6 +916,56 @@ export default function HomePage() {
               "@type": "SearchAction",
               target: "https://groupxam.com/search?q={search_term_string}",
               "query-input": "required name=search_term_string"
+            }
+          })
+        }}
+      />
+
+      {/* Calculator Tool Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            name: "GroupXam Advanced Calculator",
+            description: "Multi-mode calculator with scientific functions, programming tools, graphing capabilities, and unit conversion. Perfect for students, engineers, and researchers.",
+            url: "https://groupxam.com/calculator",
+            applicationCategory: "UtilitiesApplication",
+            operatingSystem: "Web Browser",
+            offers: {
+              "@type": "Offer",
+              price: "0",
+              priceCurrency: "USD",
+              availability: "https://schema.org/InStock",
+            },
+            featureList: [
+              "Scientific Calculator",
+              "Basic Arithmetic Operations",
+              "Trigonometric Functions",
+              "Logarithmic Functions",
+              "Statistical Analysis",
+              "Programming Calculator",
+              "Base Conversions",
+              "Bitwise Operations",
+              "Graphing Calculator",
+              "Function Plotting",
+              "Unit Converter",
+              "Length, Weight, Temperature Conversions",
+              "Memory Functions",
+              "Variable Storage",
+              "Calculation History",
+              "Keyboard Shortcuts",
+              "Export/Import Data",
+              "High Precision Calculations"
+            ],
+            audience: {
+              "@type": "Audience",
+              audienceType: "Students, Engineers, Researchers, Programmers"
+            },
+            author: {
+              "@type": "Organization",
+              name: "GroupXam"
             }
           })
         }}
@@ -976,6 +1031,31 @@ export default function HomePage() {
           .slide-in-right { animation: slideInFromRight 0.7s ease-out; }
           .slide-in-left { animation: slideInFromLeft 0.7s ease-out; }
           .fade-in-up { animation: fadeInUp 0.6s ease-out; }
+          
+          /* iPhone-specific text optimizations */
+          @media (max-width: 428px) {
+            h1 span:first-child {
+              font-size: 1.875rem !important; /* text-3xl for "Ace Your Exams" - single line */
+              line-height: 2.25rem !important;
+              white-space: nowrap !important;
+            }
+            h1 span:last-child {
+              font-size: 1.5rem !important; /* text-2xl for "with Confidence" */
+              line-height: 2rem !important;
+            }
+          }
+          
+          @media (min-width: 429px) and (max-width: 430px) {
+            h1 span:first-child {
+              font-size: 2.25rem !important; /* text-4xl for "Ace Your Exams" - single line */
+              line-height: 2.5rem !important;
+              white-space: nowrap !important;
+            }
+            h1 span:last-child {
+              font-size: 1.875rem !important; /* text-3xl for "with Confidence" */
+              line-height: 2.25rem !important;
+            }
+          }
           
           /* Custom gradient animation */
           @keyframes gradient-x {
@@ -1077,12 +1157,15 @@ export default function HomePage() {
                 universities!
               </span>
             </div>
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6 leading-tight px-2">
-              <span className="bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient-x">
-                Ace Your Exams with Confidence
-              </span>
-
-
+            <h1 className="text-3xl iphone-12:text-3xl iphone-14:text-4xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-tight px-2">
+              <div className="bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient-x">
+                <span className="block text-3xl iphone-12:text-3xl iphone-14:text-4xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold whitespace-nowrap">
+                  Ace Your Exams
+                </span>
+                <span className="block text-2xl iphone-12:text-2xl iphone-14:text-3xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
+                  with Confidence
+                </span>
+              </div>
             </h1>
             {/* Progress Bar Design */}
             <div className="mb-8 sm:mb-10 max-w-3xl mx-auto px-4">
@@ -1098,35 +1181,59 @@ export default function HomePage() {
             </div>
 
             {/* Quick Start Widget */}
-            <div className="grid grid-cols-2 gap-3 sm:flex sm:flex-row sm:gap-4 justify-center mb-8 sm:mb-12 px-4 max-w-sm sm:max-w-none mx-auto">
-              <Button
-                asChild
-                size="lg"
-                className="bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white text-xs sm:text-lg px-4 sm:px-8 py-3 sm:py-4 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 rounded-xl font-semibold border-0"
-              >
-                <Link href={isLoggedIn ? "/exams/ielts" : "/login"}>IELTS</Link>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                className="bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white text-xs sm:text-lg px-4 sm:px-8 py-3 sm:py-4 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 rounded-xl font-semibold border-0"
-              >
-                <Link href={isLoggedIn ? "/exams/waec" : "/login"}>WAEC</Link>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white text-xs sm:text-lg px-4 sm:px-8 py-3 sm:py-4 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 rounded-xl font-semibold border-0"
-              >
-                <Link href={isLoggedIn ? "/exams/wassce" : "/login"}>WASSCE</Link>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                className="bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white text-xs sm:text-lg px-4 sm:px-8 py-3 sm:py-4 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 rounded-xl font-semibold border-0"
-              >
-                <Link href={isLoggedIn ? "/exams/jamb" : "/login"}>JAMB</Link>
-              </Button>
+            <div className="flex flex-col gap-4 sm:gap-6 mb-8 sm:mb-12 px-4 max-w-sm sm:max-w-4xl lg:max-w-none mx-auto">
+              {/* Exam Buttons Row */}
+              <div className="grid grid-cols-2 gap-3 sm:flex sm:flex-row sm:gap-4 justify-center">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white text-xs sm:text-lg px-4 sm:px-8 py-3 sm:py-4 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 rounded-xl font-semibold border-0"
+                >
+                  <Link href={isLoggedIn ? "/exams/ielts" : "/login"}>IELTS</Link>
+                </Button>
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white text-xs sm:text-lg px-4 sm:px-8 py-3 sm:py-4 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 rounded-xl font-semibold border-0"
+                >
+                  <Link href={isLoggedIn ? "/exams/waec" : "/login"}>WAEC</Link>
+                </Button>
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white text-xs sm:text-lg px-4 sm:px-8 py-3 sm:py-4 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 rounded-xl font-semibold border-0"
+                >
+                  <Link href={isLoggedIn ? "/exams/wassce" : "/login"}>WASSCE</Link>
+                </Button>
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white text-xs sm:text-lg px-4 sm:px-8 py-3 sm:py-4 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 rounded-xl font-semibold border-0"
+                >
+                  <Link href={isLoggedIn ? "/exams/jamb" : "/login"}>JAMB</Link>
+                </Button>
+              </div>
+
+              {/* Calculator Button - Centered */}
+              <div className="flex justify-center">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white text-sm sm:text-lg px-6 sm:px-8 py-3 sm:py-4 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 rounded-xl font-semibold border-0 flex items-center gap-2"
+                  aria-label="Advanced Calculator - Scientific, Programming, Graphing, and Unit Conversion Tools"
+                  title="Access our comprehensive calculator with scientific functions, programming tools, graphing capabilities, and unit conversions"
+                >
+                  <Link href="/calculator" aria-describedby="calculator-description">
+                    <Calculator className="w-4 h-4 sm:w-5 sm:h-5" aria-hidden="true" />
+                    <span>Calculator</span>
+                  </Link>
+                </Button>
+              </div>
+
+              {/* Hidden description for screen readers */}
+              <div id="calculator-description" className="sr-only">
+                Advanced multi-mode calculator featuring scientific functions, programming tools, graphing capabilities, unit conversions, and high-precision calculations. Perfect for students, engineers, and researchers.
+              </div>
             </div>
 
             {/* Animated Counters */}
