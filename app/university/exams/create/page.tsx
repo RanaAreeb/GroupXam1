@@ -75,7 +75,7 @@ export default function CreateExamPage() {
     if (currentQuestion.question.trim()) {
       const newQuestion = {
         ...currentQuestion,
-        id: Date.now().toString(),
+        id: Date.now().toString() + Math.random().toString(36).slice(2),
       };
       setQuestions([...questions, newQuestion]);
       setCurrentQuestion({
@@ -503,11 +503,10 @@ export default function CreateExamPage() {
                                   className="flex items-center space-x-2 text-sm"
                                 >
                                   <span
-                                    className={`w-4 h-4 rounded-full border flex items-center justify-center ${
-                                      optIndex === question.correctAnswer
+                                    className={`w-4 h-4 rounded-full border flex items-center justify-center ${optIndex === question.correctAnswer
                                         ? "bg-green-100 border-green-500"
                                         : "bg-gray-100"
-                                    }`}
+                                      }`}
                                   >
                                     {optIndex === question.correctAnswer && (
                                       <CheckCircle className="w-3 h-3 text-green-600" />

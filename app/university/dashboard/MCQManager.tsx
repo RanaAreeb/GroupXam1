@@ -46,7 +46,7 @@ export default function MCQManager({
       } else {
         const newMCQ = {
           ...currentMCQ,
-          id: Date.now().toString(),
+          id: Date.now().toString() + Math.random().toString(36).slice(2),
         };
         setMcqs([...mcqs, newMCQ]);
       }

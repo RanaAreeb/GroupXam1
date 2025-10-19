@@ -50,7 +50,7 @@ export async function POST(request) {
         const collection = db.collection("userFlashcards");
 
         const newFlashcardSet = {
-            id: `${subject.toLowerCase()}-user-${Date.now()}`,
+            id: `${subject.toLowerCase()}-user-${Date.now()}-${Math.random().toString(36).slice(2)}`,
             userId,
             title,
             subject,

@@ -1079,7 +1079,7 @@ export default function HomePage() {
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6 leading-tight px-2">
               <span className="bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient-x">
-                Ace Your Exams with GroupXam
+                Ace Your Exams with Confidence
               </span>
 
 
@@ -1345,24 +1345,25 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                {/* Math Help Card */}
+                {/* Calculator Card */}
                 <div className="relative group">
-                  <div className="absolute inset-0 bg-gradient-to-br from-pink-400/20 to-rose-400/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 scale-110"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 to-blue-400/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 scale-110"></div>
 
-                  <div className="relative bg-gradient-to-br from-pink-50 to-rose-100 rounded-2xl p-3 sm:p-4 lg:p-6 text-center border border-white/20 backdrop-blur-sm hover:shadow-2xl hover:shadow-pink-200/50 transition-all duration-500 transform group-hover:-translate-y-2">
-                    <div className="absolute bottom-2 left-2 w-0.5 h-0.5 bg-pink-400 rounded-full opacity-60 animate-bounce"></div>
+                  <div className="relative bg-gradient-to-br from-cyan-50 to-blue-100 rounded-2xl p-3 sm:p-4 lg:p-6 text-center border border-white/20 backdrop-blur-sm hover:shadow-2xl hover:shadow-cyan-200/50 transition-all duration-500 transform group-hover:-translate-y-2">
+                    <div className="absolute top-2 right-2 w-1 h-1 bg-cyan-400 rounded-full opacity-60 animate-bounce"></div>
+                    <div className="absolute bottom-3 left-2 w-0.5 h-0.5 bg-blue-400 rounded-full opacity-40 animate-ping"></div>
 
-                    <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-pink-500 to-rose-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-lg">
+                    <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg">
                       <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white drop-shadow-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                       </svg>
-                      <div className="absolute inset-0 bg-pink-400/30 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <div className="absolute inset-0 bg-cyan-400/30 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
-                    <h3 className="font-bold text-gray-800 text-xs sm:text-sm lg:text-base group-hover:text-pink-700 transition-colors duration-300">Math Help</h3>
+                    <h3 className="font-bold text-gray-800 text-xs sm:text-sm lg:text-base group-hover:text-cyan-700 transition-colors duration-300">Calculator</h3>
 
                     {/* Hover Description */}
-                    <div className="absolute bottom-0 left-0 right-0 bg-pink-600 text-white text-xs p-2 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-full group-hover:translate-y-0">
-                      Step-by-step solutions for all math problems
+                    <div className="absolute bottom-0 left-0 right-0 bg-cyan-600 text-white text-xs p-2 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-full group-hover:translate-y-0">
+                      Advanced scientific calculator
                     </div>
                   </div>
                 </div>
@@ -1407,6 +1408,8 @@ export default function HomePage() {
                     </div>
                   </div>
                 </div>
+
+
               </div>
             </div>
 
@@ -1540,7 +1543,7 @@ export default function HomePage() {
                   style={{ transform: `translateX(-${currentSlide * 100}%)` }}
                 >
                   {galleryImages.map((image, index) => (
-                    <div key={index} className="w-full flex-shrink-0 relative slideshow-slide">
+                    <div key={`gallery-slide-${index}-${image}`} className="w-full flex-shrink-0 relative slideshow-slide">
                       <div className={`relative h-64 sm:h-72 md:h-80 lg:h-96 xl:h-[500px] ${index === 3 ? 'bg-transparent' : 'bg-gray-100'}`}>
                         <Image
                           src={image.src}
@@ -1590,9 +1593,9 @@ export default function HomePage() {
 
               {/* Slide Indicators */}
               <div className="flex justify-center mt-4 sm:mt-6 space-x-2 sm:space-x-3">
-                {galleryImages.map((_, index) => (
+                {galleryImages.map((image, index) => (
                   <button
-                    key={index}
+                    key={`gallery-dot-${index}-${image}`}
                     onClick={() => goToSlide(index)}
                     className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${index === currentSlide
                       ? "bg-emerald-500 scale-125 shadow-lg pulse-indicator"
@@ -1607,7 +1610,7 @@ export default function HomePage() {
               <div className="flex justify-center mt-6 sm:mt-8 space-x-3 sm:space-x-5 overflow-x-auto pb-6 pt-2 px-4">
                 {galleryImages.map((image, index) => (
                   <button
-                    key={index}
+                    key={`gallery-thumb-${index}-${image}`}
                     onClick={() => goToSlide(index)}
                     className={`relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-lg sm:rounded-xl overflow-hidden transition-all duration-300 flex-shrink-0 transform-gpu ${index === currentSlide
                       ? "ring-2 sm:ring-4 ring-emerald-500 scale-105 shadow-lg"
@@ -1832,9 +1835,9 @@ export default function HomePage() {
 
               {/* Mobile Dot Indicators */}
               <div className="flex justify-center gap-2 mt-4 md:hidden">
-                {subjects.map((_, index) => (
+                {subjects.map((subject, index) => (
                   <button
-                    key={index}
+                    key={`subject-dot-${subject.name}-${index}`}
                     onClick={() => scrollToCard(index)}
                     className={`w-2 h-2 rounded-full transition-all duration-300 ${currentSubjectIndex === index
                       ? 'bg-emerald-500 w-6'
@@ -2158,6 +2161,65 @@ export default function HomePage() {
                   </div>
                 </Link>
 
+                {/* Calculator Card - THIRD POSITION */}
+                <Link
+                  href={isLoggedIn ? "/calculator" : "/login"}
+                  className="group flex-shrink-0 w-72 sm:w-80 md:w-96 bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer relative overflow-hidden snap-start border border-gray-100 hover:border-cyan-200 hover:-translate-y-2"
+                >
+                  {/* Image Container - Featured at Top */}
+                  <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-cyan-50 to-blue-50">
+                    <div className="absolute inset-0 bg-gradient-to-t from-cyan-500/20 to-transparent z-10"></div>
+                    <img
+                      src="/features/cal1.webp"
+                      alt="Advanced Calculator"
+                      className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700"
+                      style={{
+                        imageRendering: 'crisp-edges',
+                        backfaceVisibility: 'hidden',
+                        transform: 'translateZ(0)',
+                        maxWidth: '100%',
+                        height: 'auto'
+                      }}
+                      width="384"
+                      height="256"
+                    />
+                    {/* Floating Badge */}
+                    <div className="absolute top-4 right-4 bg-cyan-500 text-white px-4 py-1.5 rounded-full text-xs font-semibold shadow-lg z-20">
+                      New
+                    </div>
+                  </div>
+
+                  {/* Content Section */}
+                  <div className="p-6">
+                    <div className="flex items-center justify-between mb-3">
+                      <h3 className="text-2xl font-bold text-gray-800 group-hover:text-cyan-600 transition-colors">
+                        Calculator
+                      </h3>
+                      <div className="w-10 h-10 bg-cyan-100 rounded-full flex items-center justify-center group-hover:bg-cyan-500 transition-colors">
+                        <svg className="w-5 h-5 text-cyan-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                        </svg>
+                      </div>
+                    </div>
+
+                    <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                      Advanced scientific calculator with graphing capabilities. Solve complex equations and visualize mathematical concepts.
+                    </p>
+
+                    {/* Stats/Features */}
+                    <div className="flex items-center gap-4 text-xs text-gray-500">
+                      <div className="flex items-center gap-1">
+                        <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
+                        <span>Scientific Functions</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
+                        <span>Graphing Tools</span>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+
                 {/* Whiteboard Card */}
                 <Link
                   href={isLoggedIn ? "/whiteboard" : "/login"}
@@ -2436,7 +2498,7 @@ export default function HomePage() {
                 <div className="flex space-x-2">
                   {[0, 1, 2, 3, 4, 5].map((index) => (
                     <div
-                      key={index}
+                      key={`card-indicator-${index}`}
                       className={`w-2 h-2 rounded-full transition-colors duration-300 ${currentCardIndex === index
                         ? "bg-emerald-500"
                         : "bg-gray-300"
@@ -2560,7 +2622,7 @@ export default function HomePage() {
                     }}
                   >
                     {reviews.map((review, index) => (
-                      <div key={review._id || index} className="w-full flex-shrink-0">
+                      <div key={review._id || `review-${index}-${review.name || 'anonymous'}`} className="w-full flex-shrink-0">
                         <div className="p-6 sm:p-8 md:p-10 text-center">
                           {/* Quote Icon */}
                           <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
@@ -2638,9 +2700,9 @@ export default function HomePage() {
 
                 {/* Carousel Indicators */}
                 <div className="flex justify-center mt-6 space-x-2">
-                  {reviews.map((_, index) => (
+                  {reviews.map((review, index) => (
                     <button
-                      key={index}
+                      key={review._id || `review-dot-${index}-${review.name || 'anonymous'}`}
                       onClick={() => {
                         goToTestimonial(index);
                         setIsUserInteracting(true);
