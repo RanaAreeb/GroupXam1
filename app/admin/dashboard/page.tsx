@@ -443,7 +443,9 @@ export default function AdminDashboard() {
     subject: 'New Feature Update - GroupXam',
     message: '',
     template: 'feature_update',
-    selectedUsers: [] as string[]
+    selectedUsers: [] as string[],
+    productLink: '',
+    productName: ''
   });
   const [emailSearchQuery, setEmailSearchQuery] = useState('');
   const [emailUserRoleFilter, setEmailUserRoleFilter] = useState<string>('all');
@@ -1130,7 +1132,9 @@ export default function AdminDashboard() {
           subject: 'New Feature Update - GroupXam',
           message: '',
           template: 'feature_update',
-          selectedUsers: []
+          selectedUsers: [],
+          productLink: '',
+          productName: ''
         });
         toast({
           title: "Success",
@@ -3159,6 +3163,27 @@ export default function AdminDashboard() {
                                   rows={6}
                                   className="resize-none"
                                 />
+                              </div>
+
+                              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                  <Label htmlFor="productName">Product/Feature Name</Label>
+                                  <Input
+                                    id="productName"
+                                    value={emailFormData.productName}
+                                    onChange={(e) => setEmailFormData(prev => ({ ...prev, productName: e.target.value }))}
+                                    placeholder="e.g., Scientific Calculator, Exam Prep, Flashcards"
+                                  />
+                                </div>
+                                <div>
+                                  <Label htmlFor="productLink">Direct Link to Product</Label>
+                                  <Input
+                                    id="productLink"
+                                    value={emailFormData.productLink}
+                                    onChange={(e) => setEmailFormData(prev => ({ ...prev, productLink: e.target.value }))}
+                                    placeholder="e.g., https://groupxam.com/calculator"
+                                  />
+                                </div>
                               </div>
 
                               <div className="flex justify-end gap-2">

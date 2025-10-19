@@ -1,9 +1,10 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import { ObjectId } from 'mongodb';
 
 export async function POST(request) {
     try {
-        const { subject, message, template, selectedUsers } = await request.json();
+        const { subject, message, template, selectedUsers, productLink, productName } = await request.json();
 
         // Validate required fields
         if (!subject || !message || !selectedUsers || selectedUsers.length === 0) {
@@ -22,8 +23,8 @@ export async function POST(request) {
         }
 
         // Get user details from database
-        const { connectToDatabase } = await import('@/lib/db');
-        const { db } = await connectToDatabase();
+        const { getDatabase } = await import('@/lib/db');
+        const db = await getDatabase();
         const users = await db.collection('users').find({
             _id: { $in: selectedUsers.map(id => new ObjectId(id)) }
         }).toArray();
@@ -36,7 +37,7 @@ export async function POST(request) {
         }
 
         // Create email transporter
-        const transporter = nodemailer.createTransporter({
+        const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
                 user: process.env.GMAIL_ADDRESS,
@@ -45,7 +46,7 @@ export async function POST(request) {
         });
 
         // Create email templates
-        const getEmailTemplate = (template, user, subject, message) => {
+        const getEmailTemplate = (template, user, subject, message, productLink, productName) => {
             const baseTemplate = `
         <!DOCTYPE html>
         <html>
@@ -68,7 +69,7 @@ export async function POST(request) {
             </div>
             
             <div style="text-align: center; margin: 30px 0;">
-              <a href="${process.env.NEXT_PUBLIC_BASE_URL || 'https://groupxam.com'}" 
+              <a href="${productLink || (process.env.NEXT_PUBLIC_BASE_URL || 'https://groupxam.com')}" 
                  style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
                         color: white; 
                         padding: 12px 30px; 
@@ -76,7 +77,7 @@ export async function POST(request) {
                         border-radius: 25px; 
                         display: inline-block; 
                         font-weight: bold;">
-                Visit GroupXam
+                ${productName ? `Try ${productName}` : 'Visit GroupXam'}
               </a>
             </div>
             
@@ -100,7 +101,7 @@ export async function POST(request) {
         // Send emails to each user
         const emailPromises = users.map(async (user) => {
             try {
-                const emailHtml = getEmailTemplate(template, user, subject, message);
+                const emailHtml = getEmailTemplate(template, user, subject, message, productLink, productName);
 
                 const mailOptions = {
                     from: {
