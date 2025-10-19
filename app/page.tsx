@@ -177,6 +177,7 @@ export default function HomePage() {
   // Intersection Observer for smooth animations
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
 
+
   // Add smooth scrolling behavior
   useEffect(() => {
     // Enable smooth scrolling for the entire page
@@ -632,18 +633,38 @@ export default function HomePage() {
 
   const galleryImages = [
     {
-      src: "/gallery/image1.png",
-      alt: "groupXam School Partnership"
+      src: "/gallery/image1.webp",
+      alt: "GroupXam Educational Platform - Student Success Stories"
     },
     {
-      src: "/gallery/image2.png",
-      alt: "groupXam Field Work"
+      src: "/gallery/image2.webp",
+      alt: "GroupXam Learning Environment - Interactive Study Sessions"
     },
     {
-      src: "/gallery/image3.png",
-      alt: "groupXam Educational Impact"
-    }
+      src: "/gallery/image3.webp",
+      alt: "GroupXam Academic Excellence - Exam Preparation Tools"
+    },
 
+    {
+      src: "/gallery/image5.webp",
+      alt: "GroupXam Student Community - Collaborative Learning Experience"
+    },
+    {
+      src: "/gallery/image6.webp",
+      alt: "GroupXam Achievement Gallery - Academic Success Showcase"
+    },
+    {
+      src: "/gallery/image7.webp",
+      alt: "GroupXam Innovation Hub - Advanced Learning Solutions"
+    },
+    {
+      src: "/gallery/image8.webp",
+      alt: "GroupXam Global Impact - Worldwide Educational Reach"
+    },
+    {
+      src: "/gallery/image9.webp",
+      alt: "GroupXam Future Ready - Next-Generation Learning Platform"
+    }
   ];
 
   // Auto-play gallery slideshow
@@ -1063,14 +1084,78 @@ export default function HomePage() {
             50% { background-position: 100% 50%; }
           }
           
+          /* Beautiful typing cursor animations */
+          @keyframes blink {
+            0%, 45% { opacity: 1; }
+            50%, 95% { opacity: 0; }
+            100% { opacity: 1; }
+          }
+          
+          @keyframes glow {
+            0%, 100% { 
+              text-shadow: 0 0 5px #10b981, 0 0 10px #10b981, 0 0 15px #10b981;
+              filter: brightness(1.2);
+            }
+            50% { 
+              text-shadow: 0 0 10px #10b981, 0 0 20px #10b981, 0 0 30px #10b981;
+              filter: brightness(1.5);
+            }
+          }
+          
+          @keyframes pulse-glow {
+            0%, 100% { 
+              transform: scale(1);
+              opacity: 1;
+            }
+            50% { 
+              transform: scale(1.1);
+              opacity: 0.8;
+            }
+          }
+          
+          .typing-cursor {
+            animation: blink 1.2s ease-in-out infinite, glow 3s ease-in-out infinite, pulse-glow 2s ease-in-out infinite;
+            background: linear-gradient(45deg, #10b981, #059669, #047857);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            position: relative;
+            transition: all 0.2s ease-in-out;
+          }
+          
+          .typing-cursor::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, #10b981, #059669, #047857);
+            border-radius: 2px;
+            z-index: -1;
+            opacity: 0.3;
+            animation: pulse-glow 1.5s ease-in-out infinite;
+          }
+          
           .animate-gradient-x {
             background-size: 200% 200%;
             animation: gradient-x 3s ease infinite;
           }
           
+          
           /* Hover effects for slideshow */
           .slideshow-slide {
             transition: transform 0.3s ease, filter 0.3s ease;
+          }
+          
+          /* Hide scrollbar while keeping scroll functionality */
+          .scrollbar-hide {
+            -ms-overflow-style: none;  /* Internet Explorer 10+ */
+            scrollbar-width: none;  /* Firefox */
+          }
+          .scrollbar-hide::-webkit-scrollbar { 
+            display: none;  /* Safari and Chrome */
           }
           
           .slideshow-slide:hover {
@@ -1432,30 +1517,40 @@ export default function HomePage() {
                 ))}
               </div>
 
-              {/* Thumbnail Navigation */}
-              <div className="flex justify-center mt-6 sm:mt-8 space-x-3 sm:space-x-5 overflow-x-auto pb-6 pt-2 px-4">
-                {galleryImages.map((image, index) => (
-                  <button
-                    key={`gallery-thumb-${index}-${image}`}
-                    onClick={() => goToSlide(index)}
-                    className={`relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-lg sm:rounded-xl overflow-hidden transition-all duration-300 flex-shrink-0 transform-gpu ${index === currentSlide
-                      ? "ring-2 sm:ring-4 ring-emerald-500 scale-105 shadow-lg"
-                      : "hover:scale-105 shadow-md"
-                      }`}
-                    style={{ transformOrigin: 'center center' }}
-                  >
-                    <Image
-                      src={image.src}
-                      alt={image.alt}
-                      fill
-                      className={`${index === 3 ? 'object-contain' : 'object-cover'}`}
-                      quality={95}
-                      sizes="(max-width: 640px) 64px, (max-width: 768px) 80px, 96px"
-                    />
-                    <div className={`absolute inset-0 transition-opacity duration-300 ${index === currentSlide ? "bg-emerald-500/20" : "bg-black/0 hover:bg-black/10"
-                      }`}></div>
-                  </button>
-                ))}
+              {/* Thumbnail Navigation - Show only 3 with fade effect */}
+              <div className="flex justify-center mt-6 sm:mt-8 space-x-3 sm:space-x-5 overflow-x-auto pb-6 pt-2 px-4 scrollbar-hide">
+                {galleryImages.map((image, index) => {
+                  // Calculate which 3 thumbnails to show (current slide and 1 on each side)
+                  const startIndex = Math.max(0, Math.min(currentSlide - 1, galleryImages.length - 3));
+                  const endIndex = Math.min(startIndex + 3, galleryImages.length);
+                  const isVisible = index >= startIndex && index < endIndex;
+                  const isActive = index === currentSlide;
+
+                  return (
+                    <button
+                      key={`gallery-thumb-${index}-${image}`}
+                      onClick={() => goToSlide(index)}
+                      className={`relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-lg sm:rounded-xl overflow-hidden transition-all duration-300 flex-shrink-0 transform-gpu ${isVisible
+                        ? isActive
+                          ? "ring-2 sm:ring-4 ring-emerald-500 scale-105 shadow-lg opacity-100"
+                          : "hover:scale-105 shadow-md opacity-100"
+                        : "opacity-30 scale-95"
+                        }`}
+                      style={{ transformOrigin: 'center center' }}
+                    >
+                      <Image
+                        src={image.src}
+                        alt={image.alt}
+                        fill
+                        className={`${index === 3 ? 'object-contain' : 'object-cover'}`}
+                        quality={95}
+                        sizes="(max-width: 640px) 64px, (max-width: 768px) 80px, 96px"
+                      />
+                      <div className={`absolute inset-0 transition-opacity duration-300 ${isActive ? "bg-emerald-500/20" : isVisible ? "bg-black/0 hover:bg-black/10" : "bg-black/20"
+                        }`}></div>
+                    </button>
+                  );
+                })}
               </div>
             </div>
           </div>
