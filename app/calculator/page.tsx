@@ -243,6 +243,7 @@ export default function CalculatorPage() {
   });
 
   const [dataInput, setDataInput] = useState('');
+  const [calculationSteps, setCalculationSteps] = useState<string[]>([]);
 
   const [activeTab, setActiveTab] = useState<'calculator' | 'programmer' | 'graphing' | 'converter'>('calculator');
   const audioContextRef = useRef<AudioContext | null>(null);
@@ -379,6 +380,7 @@ export default function CalculatorPage() {
             waitingForOperand: false,
             expression: '',
           };
+          setCalculationSteps([]);
           break;
 
         case 'CE':
@@ -446,6 +448,9 @@ export default function CalculatorPage() {
 
               const expression = `${newState.previousValue} ${newState.operator} ${newState.display}`;
               addToHistory(expression, formatResult(result, newState.precision));
+
+              // Add calculation step
+              setCalculationSteps(prev => [...prev, `${expression} = ${formatResult(result, newState.precision)}`]);
 
               newState.display = formatResult(result, newState.precision);
               newState.previousValue = null;
@@ -957,8 +962,43 @@ export default function CalculatorPage() {
       {/* Display */}
       <div className="col-span-4 mb-4">
         <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 text-right">
+          {/* Operation Preview */}
+          {state.expression && (
+            <div className="text-lg font-mono text-gray-600 dark:text-gray-400 mb-2 min-h-[1.5rem]">
+              {state.expression}
+            </div>
+          )}
+          {/* Main Display */}
           <div className="text-3xl font-mono font-bold text-gray-900 dark:text-white overflow-hidden">
             {state.display}
+          </div>
+          {/* Status Indicators */}
+          <div className="flex justify-between items-center mt-2 text-xs text-gray-500">
+            <div className="flex gap-2">
+              {state.previousValue !== null && (
+                <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded animate-pulse">
+                  {state.previousValue}
+                </span>
+              )}
+              {state.operator && (
+                <span className="bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 px-2 py-1 rounded animate-bounce">
+                  {state.operator}
+                </span>
+              )}
+            </div>
+            <div className="text-gray-400 flex items-center gap-1">
+              {state.waitingForOperand ? (
+                <>
+                  <div className="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
+                  Enter number
+                </>
+              ) : (
+                <>
+                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                  Ready
+                </>
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -1029,6 +1069,30 @@ export default function CalculatorPage() {
       <Button variant="outline" onClick={() => handleInput('=')} className="h-16 text-lg bg-orange-500 text-white hover:bg-orange-600">
         =
       </Button>
+
+      {/* Calculation Steps Display */}
+      {calculationSteps.length > 0 && (
+        <div className="col-span-4 mt-4">
+          <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-3">
+            <div className="text-sm font-medium text-blue-800 dark:text-blue-200 mb-2">Calculation Steps:</div>
+            <div className="space-y-1 max-h-32 overflow-y-auto">
+              {calculationSteps.slice(-5).map((step, index) => (
+                <div key={index} className="text-sm font-mono text-blue-700 dark:text-blue-300 bg-white/50 dark:bg-blue-800/30 px-2 py-1 rounded">
+                  {step}
+                </div>
+              ))}
+            </div>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setCalculationSteps([])}
+              className="mt-2 text-xs"
+            >
+              Clear Steps
+            </Button>
+          </div>
+        </div>
+      )}
     </div>
   );
 
@@ -1075,8 +1139,34 @@ export default function CalculatorPage() {
             <div className="text-xs text-gray-500">BIN: {convertBase(state.display, state.baseMode, 'BIN')}</div>
           </div>
 
+          {/* Operation Preview */}
+          {state.expression && (
+            <div className="text-lg font-mono text-gray-600 dark:text-gray-400 mb-2 min-h-[1.5rem] border-b border-gray-200 dark:border-gray-700 pb-2">
+              {state.expression}
+            </div>
+          )}
+
           <div className="text-3xl font-mono font-bold text-gray-900 dark:text-white mt-2">
             {state.display}
+          </div>
+
+          {/* Status Indicators */}
+          <div className="flex justify-between items-center mt-2 text-xs text-gray-500">
+            <div className="flex gap-2">
+              {state.previousValue !== null && (
+                <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded">
+                  {state.previousValue}
+                </span>
+              )}
+              {state.operator && (
+                <span className="bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 px-2 py-1 rounded">
+                  {state.operator}
+                </span>
+              )}
+            </div>
+            <div className="text-gray-400">
+              {state.waitingForOperand ? 'Enter number' : 'Ready'}
+            </div>
           </div>
         </div>
       </div>
@@ -1292,8 +1382,34 @@ export default function CalculatorPage() {
     return (
       <div className="p-6 space-y-4">
         <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4">
+          {/* Operation Preview */}
+          {state.expression && (
+            <div className="text-lg font-mono text-gray-600 dark:text-gray-400 mb-2 min-h-[1.5rem] border-b border-gray-200 dark:border-gray-700 pb-2">
+              {state.expression}
+            </div>
+          )}
+
           <div className="text-3xl font-mono font-bold text-gray-900 dark:text-white">
             {state.display}
+          </div>
+
+          {/* Status Indicators */}
+          <div className="flex justify-between items-center mt-2 text-xs text-gray-500">
+            <div className="flex gap-2">
+              {state.previousValue !== null && (
+                <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded">
+                  {state.previousValue}
+                </span>
+              )}
+              {state.operator && (
+                <span className="bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 px-2 py-1 rounded">
+                  {state.operator}
+                </span>
+              )}
+            </div>
+            <div className="text-gray-400">
+              {state.waitingForOperand ? 'Enter number' : 'Ready'}
+            </div>
           </div>
         </div>
 
@@ -1374,8 +1490,36 @@ export default function CalculatorPage() {
               <Copy className="w-4 h-4" />
             </Button>
           </div>
+
+          {/* Operation Preview */}
+          {state.expression && (
+            <div className="text-lg font-mono text-gray-600 dark:text-gray-400 mb-2 min-h-[1.5rem] border-b border-gray-200 dark:border-gray-700 pb-2">
+              {state.expression}
+            </div>
+          )}
+
+          {/* Main Display */}
           <div className="text-3xl font-mono font-bold text-gray-900 dark:text-white overflow-hidden">
             {state.display}
+          </div>
+
+          {/* Status Indicators */}
+          <div className="flex justify-between items-center mt-2 text-xs text-gray-500">
+            <div className="flex gap-2">
+              {state.previousValue !== null && (
+                <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded">
+                  {state.previousValue}
+                </span>
+              )}
+              {state.operator && (
+                <span className="bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 px-2 py-1 rounded">
+                  {state.operator}
+                </span>
+              )}
+            </div>
+            <div className="text-gray-400">
+              {state.waitingForOperand ? 'Enter number' : 'Ready'}
+            </div>
           </div>
         </div>
       </div>
