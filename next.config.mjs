@@ -9,7 +9,6 @@ const nextConfig = {
   },
   // Performance optimizations
   experimental: {
-    optimizeCss: true,
     optimizePackageImports: ['@radix-ui/react-icons', 'lucide-react', 'react-icons'],
   },
   compiler: {
@@ -37,9 +36,6 @@ const nextConfig = {
     minimumCacheTTL: 60,
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-    // Enable image optimization
-    loader: 'default',
-    quality: 85,
   },
   // Enable compression
   compress: true,
