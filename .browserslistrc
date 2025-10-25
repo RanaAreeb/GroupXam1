@@ -1,0 +1,8 @@
+# Modern browsers only - reduces polyfill bundle size
+# This targets browsers with >1% market share and last 2 versions
+> 1%
+last 2 versions
+not dead
+not ie 11
+not ie_mob 11
+not op_mini all

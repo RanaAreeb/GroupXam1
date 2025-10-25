@@ -4,6 +4,8 @@ import CookieConsent from "@/components/CookieConsent";
 import SessionTracker from "@/components/SessionTracker";
 import AlertProvider from "@/components/AlertProvider";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import { ResourceHints } from "@/components/PerformanceOptimizer";
+import { PerformanceMonitor } from "@/components/PerformanceMonitor";
 
 export const metadata: Metadata = {
   title:
@@ -149,6 +151,21 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Preconnect to critical origins for faster loading */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
+        {/* DNS prefetch for external resources */}
+        <link rel="dns-prefetch" href="//www.google-analytics.com" />
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+
+        {/* Critical resource hints */}
+        <link rel="preload" href="/globals.css" as="style" onLoad="this.onload=null;this.rel='stylesheet'" />
+        <noscript><link rel="stylesheet" href="/globals.css" /></noscript>
+        <link rel="preload" href="/logo.png" as="image" />
+
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/logo.png" type="image/png" />
         <link rel="apple-touch-icon" href="/logo.png" />
@@ -156,7 +173,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#10b981" />
         <meta name="msapplication-TileColor" content="#10b981" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
-        
+
         {/* Additional SEO Meta Tags */}
         <meta name="author" content="GroupXam Team" />
         <meta name="copyright" content="GroupXam" />
@@ -174,15 +191,25 @@ export default function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="msapplication-tap-highlight" content="no" />
 
-        {/* Google Analytics */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-BL62C23G3E"></script>
+        {/* Google Analytics - Optimized for performance */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-BL62C23G3E');
+              // Load Google Analytics asynchronously to avoid blocking render
+              (function() {
+                var script = document.createElement('script');
+                script.async = true;
+                script.src = 'https://www.googletagmanager.com/gtag/js?id=G-BL62C23G3E';
+                script.onload = function() {
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', 'G-BL62C23G3E', {
+                    send_page_view: false
+                  });
+                };
+                document.head.appendChild(script);
+              })();
             `,
           }}
         />
@@ -281,6 +308,8 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <ResourceHints />
+        <PerformanceMonitor />
         <ErrorBoundary>
           <CookieConsent />
           <SessionTracker>
@@ -289,6 +318,25 @@ export default function RootLayout({
             </AlertProvider>
           </SessionTracker>
         </ErrorBoundary>
+
+        {/* Service Worker Registration */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function() {
+                  navigator.serviceWorker.register('/sw.js')
+                    .then(function(registration) {
+                      console.log('SW registered: ', registration);
+                    })
+                    .catch(function(registrationError) {
+                      console.log('SW registration failed: ', registrationError);
+                    });
+                });
+              }
+            `,
+          }}
+        />
       </body>
     </html>
   );
