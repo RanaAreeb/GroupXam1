@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Suspense } from "react";
 import "./globals.css";
 import CookieConsent from "@/components/CookieConsent";
 import SessionTracker from "@/components/SessionTracker";
@@ -310,14 +311,16 @@ export default function RootLayout({
         <ResourceHints />
         <PerformanceMonitor />
         <ErrorBoundary>
-          <MaintenanceProvider>
-            <CookieConsent />
-            <SessionTracker>
-              <AlertProvider>
-                {children}
-              </AlertProvider>
-            </SessionTracker>
-          </MaintenanceProvider>
+          <Suspense fallback={null}>
+            <MaintenanceProvider>
+              <CookieConsent />
+              <SessionTracker>
+                <AlertProvider>
+                  {children}
+                </AlertProvider>
+              </SessionTracker>
+            </MaintenanceProvider>
+          </Suspense>
         </ErrorBoundary>
 
         {/* Service Worker Registration */}
