@@ -169,7 +169,6 @@ export default function HomePage() {
   const router = useRouter();
   const { isLoggedIn, loading, logout, user } = useAuth();
   const { showNotification, latestDiscussion, handleCloseNotification } = useDiscussionNotification();
-  const { isMaintenanceActive } = useMaintenance();
 
   // Animated counters
   const [questionsCount, setQuestionsCount] = useState<number | null>(null);
