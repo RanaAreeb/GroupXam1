@@ -6,6 +6,7 @@ import AlertProvider from "@/components/AlertProvider";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import { ResourceHints } from "@/components/PerformanceOptimizer";
 import { PerformanceMonitor } from "@/components/PerformanceMonitor";
+import { MaintenanceProvider } from "@/components/MaintenanceProvider";
 
 export const metadata: Metadata = {
   title:
@@ -162,8 +163,6 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="//fonts.gstatic.com" />
 
         {/* Critical resource hints */}
-        <link rel="preload" href="/globals.css" as="style" onLoad="this.onload=null;this.rel='stylesheet'" />
-        <noscript><link rel="stylesheet" href="/globals.css" /></noscript>
         <link rel="preload" href="/logo.png" as="image" />
 
         <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -311,12 +310,14 @@ export default function RootLayout({
         <ResourceHints />
         <PerformanceMonitor />
         <ErrorBoundary>
-          <CookieConsent />
-          <SessionTracker>
-            <AlertProvider>
-              {children}
-            </AlertProvider>
-          </SessionTracker>
+          <MaintenanceProvider>
+            <CookieConsent />
+            <SessionTracker>
+              <AlertProvider>
+                {children}
+              </AlertProvider>
+            </SessionTracker>
+          </MaintenanceProvider>
         </ErrorBoundary>
 
         {/* Service Worker Registration */}

@@ -25,13 +25,27 @@ export async function POST(request) {
             return Response.json({ error: "Not authenticated" }, { status: 401 });
         }
 
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        let decoded;
+        try {
+            decoded = jwt.verify(token, process.env.JWT_SECRET);
+        } catch (jwtError) {
+            console.error("JWT verification error:", jwtError);
+            return Response.json({ error: "Invalid authentication token" }, { status: 401 });
+        }
+
         const formData = await request.formData();
         const file = formData.get("image");
 
         if (!file) {
+            console.error("No file provided in form data");
             return Response.json({ error: "No file provided" }, { status: 400 });
         }
+
+        console.log("File received:", {
+            name: file.name,
+            type: file.type,
+            size: file.size
+        });
 
         // Enhanced validation for profile images
         if (!file.type.startsWith("image/")) {
@@ -65,16 +79,40 @@ export async function POST(request) {
         const fileName = `profile-images/${userId}_${timestamp}.jpg`; // Always JPEG for consistency
 
         // Get current user to check for existing profile image
-        const db = await getDatabase();
-        const usersCollection = db.collection("users");
+        let db;
+        let usersCollection;
+        let currentUser;
+        try {
+            db = await getDatabase();
+            usersCollection = db.collection("users");
+            currentUser = await usersCollection.findOne({ email: decoded.email });
 
-        const currentUser = await usersCollection.findOne({ email: decoded.email });
+            if (!currentUser) {
+                console.error("User not found in database:", decoded.email);
+                return Response.json({ error: "User not found" }, { status: 404 });
+            }
+        } catch (dbError) {
+            console.error("Database error:", dbError);
+            return Response.json({
+                error: `Database connection failed: ${dbError.message}`
+            }, { status: 500 });
+        }
 
         // Upload new image to Cloudflare R2
-        const imageUrl = await uploadToCloudflareR2(buffer, fileName, file.type);
+        let imageUrl;
+        try {
+            imageUrl = await uploadToCloudflareR2(buffer, fileName, file.type);
+        } catch (uploadError) {
+            console.error("R2 upload error:", uploadError);
+            return Response.json({
+                error: `Failed to upload image to Cloudflare R2: ${uploadError.message}`
+            }, { status: 500 });
+        }
 
         if (!imageUrl) {
-            return Response.json({ error: "Failed to upload image to storage" }, { status: 500 });
+            return Response.json({
+                error: "Failed to upload image to storage. Please check Cloudflare R2 configuration."
+            }, { status: 500 });
         }
 
         // Update user profile with new image URL
@@ -109,7 +147,26 @@ export async function POST(request) {
 
     } catch (error) {
         console.error("Error uploading image:", error);
-        return Response.json({ error: "Failed to upload image" }, { status: 500 });
+        console.error("Error details:", {
+            message: error.message,
+            stack: error.stack,
+            name: error.name
+        });
+
+        // Return more specific error messages
+        if (error.message.includes("JWT") || error.message.includes("token")) {
+            return Response.json({ error: "Authentication failed" }, { status: 401 });
+        }
+
+        if (error.message.includes("image") || error.message.includes("processing")) {
+            return Response.json({
+                error: `Image processing error: ${error.message}`
+            }, { status: 400 });
+        }
+
+        return Response.json({
+            error: `Failed to upload image: ${error.message || "Unknown error"}`
+        }, { status: 500 });
     }
 }
 
@@ -118,8 +175,14 @@ async function uploadToCloudflareR2(buffer, fileName, mimeType) {
     try {
         // Validate environment variables
         if (!BUCKET_NAME || !PUBLIC_URL_BASE) {
-            console.error("Missing Cloudflare R2 configuration");
-            return null;
+            console.error("Missing Cloudflare R2 configuration:", {
+                hasBucket: !!BUCKET_NAME,
+                hasPublicUrl: !!PUBLIC_URL_BASE,
+                hasEndpoint: !!process.env.CLOUDFLARE_R2_ENDPOINT,
+                hasAccessKey: !!process.env.CLOUDFLARE_R2_ACCESS_KEY_ID,
+                hasSecretKey: !!process.env.CLOUDFLARE_R2_SECRET_ACCESS_KEY
+            });
+            throw new Error("Missing Cloudflare R2 configuration. Please check your environment variables.");
         }
 
         const command = new PutObjectCommand({
@@ -151,7 +214,14 @@ async function uploadToCloudflareR2(buffer, fileName, mimeType) {
 
     } catch (error) {
         console.error("Cloudflare R2 upload error:", error);
-        return null;
+        console.error("Upload error details:", {
+            message: error.message,
+            code: error.code,
+            name: error.name,
+            endpoint: process.env.CLOUDFLARE_R2_ENDPOINT,
+            bucket: BUCKET_NAME
+        });
+        throw error; // Re-throw to be caught by caller
     }
 }
 

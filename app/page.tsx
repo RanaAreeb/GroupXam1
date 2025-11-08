@@ -1,11 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import Head from "next/head";
 import PageTransition from "@/components/PageTransition";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
 import { formatTestimonialName } from "@/lib/utils";
 import {
   Target,
@@ -25,12 +25,16 @@ import {
   Users2,
   Sparkles,
   Calculator,
+  Paperclip,
+  XCircle,
+  Image as ImageIcon,
 } from "lucide-react";
 import Header from "@/components/ui/header";
 import Image from "next/image";
 import { useAuth } from "@/hooks/use-auth";
 import { useDiscussionNotification } from "@/hooks/use-discussion-notification";
 import { useEffect, useRef, useState, useCallback } from "react";
+import { useRouter } from "next/navigation";
 import { MdGroups } from "react-icons/md";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 import { ChevronLeft, ChevronRight, Play, Pause, Globe } from "lucide-react";
@@ -42,6 +46,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useMaintenance } from "@/hooks/use-maintenance";
+import { MAINTENANCE_SECTIONS } from "@/constants/maintenance";
 
 // Add type for Exam
 interface Exam {
@@ -160,8 +166,10 @@ const countryPricing = {
 };
 
 export default function HomePage() {
+  const router = useRouter();
   const { isLoggedIn, loading, logout, user } = useAuth();
   const { showNotification, latestDiscussion, handleCloseNotification } = useDiscussionNotification();
+  const { isMaintenanceActive } = useMaintenance();
 
   // Animated counters
   const [questionsCount, setQuestionsCount] = useState<number | null>(null);
@@ -413,6 +421,26 @@ export default function HomePage() {
   const [studentName, setStudentName] = useState(user?.name || "");
   const [registerStatus, setRegisterStatus] = useState("");
   const [registerError, setRegisterError] = useState("");
+  const [aiQuestion, setAiQuestion] = useState("");
+  const [aiDocument, setAiDocument] = useState<string | null>(null);
+  const [aiDocumentName, setAiDocumentName] = useState<string | null>(null);
+  const [aiDocumentType, setAiDocumentType] = useState<string | null>(null);
+  const [aiDocumentSize, setAiDocumentSize] = useState<number>(0);
+  const [aiUploadError, setAiUploadError] = useState<string | null>(null);
+  const [aiImages, setAiImages] = useState<string[]>([]);
+  const aiDocumentInputRef = useRef<HTMLInputElement>(null);
+  const aiImageInputRef = useRef<HTMLInputElement>(null);
+
+  const { maintenance: aiMaintenance } = useMaintenance("ai_chat");
+  const { maintenance: siteMaintenance } = useMaintenance("whole_site");
+  const aiSectionConfig = MAINTENANCE_SECTIONS.find((section) => section.id === "ai_chat");
+  const siteSectionConfig = MAINTENANCE_SECTIONS.find((section) => section.id === "whole_site");
+  const isAiDisabled = Boolean(siteMaintenance?.isActive || aiMaintenance?.isActive);
+  const aiDisabledMessage =
+    (siteMaintenance?.isActive
+      ? siteMaintenance?.message || siteSectionConfig?.defaultMessage
+      : aiMaintenance?.message || aiSectionConfig?.defaultMessage) ||
+    "sunu-I is currently undergoing maintenance. Please check back soon.";
 
   useEffect(() => {
     // Fetch upcoming exams
@@ -470,6 +498,106 @@ export default function HomePage() {
     } catch {
       setRegisterError("Network error. Please try again.");
     }
+  };
+
+  const handleAiDocumentSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (isAiDisabled) {
+      if (aiDocumentInputRef.current) {
+        aiDocumentInputRef.current.value = "";
+      }
+      return;
+    }
+
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    const supportedTypes = [
+      "application/pdf",
+      "application/msword",
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "text/plain",
+      "text/markdown",
+      "application/json",
+      "text/csv",
+    ];
+
+    if (!supportedTypes.includes(file.type)) {
+      setAiUploadError("Only PDF, DOC, DOCX, TXT, MD, JSON, and CSV files are supported.");
+      if (aiDocumentInputRef.current) {
+        aiDocumentInputRef.current.value = "";
+      }
+      return;
+    }
+
+    if (file.size > 8 * 1024 * 1024) {
+      setAiUploadError("Please upload a document smaller than 8MB.");
+      if (aiDocumentInputRef.current) {
+        aiDocumentInputRef.current.value = "";
+      }
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      const base64String = reader.result as string;
+      setAiDocument(base64String);
+      setAiDocumentName(file.name);
+      setAiDocumentType(file.type);
+      setAiDocumentSize(file.size);
+      setAiUploadError(null);
+    };
+
+    reader.readAsDataURL(file);
+
+    if (aiDocumentInputRef.current) {
+      aiDocumentInputRef.current.value = "";
+    }
+  };
+
+  const clearAiDocument = () => {
+    setAiDocument(null);
+    setAiDocumentName(null);
+    setAiDocumentType(null);
+    setAiDocumentSize(0);
+    setAiUploadError(null);
+    if (aiDocumentInputRef.current) {
+      aiDocumentInputRef.current.value = "";
+    }
+  };
+
+  const handleAiSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const trimmedQuestion = aiQuestion.trim();
+
+    if (isAiDisabled) {
+      return;
+    }
+
+    if (!trimmedQuestion && !aiDocument && aiImages.length === 0) {
+      setAiUploadError("Type a question or attach a document or image to continue.");
+      return;
+    }
+
+    if (typeof window !== "undefined") {
+      const payload = {
+        question: trimmedQuestion,
+        document: aiDocument,
+        documentName: aiDocumentName,
+        documentType: aiDocumentType,
+        documentSize: aiDocumentSize,
+        images: aiImages,
+        timestamp: Date.now(),
+      };
+
+      window.sessionStorage.setItem("groupxam_chat_prefill", JSON.stringify(payload));
+    }
+
+    setAiQuestion("");
+    clearAiDocument();
+    clearAiImages();
+    setAiUploadError(null);
+
+    router.push("/chatbot/chat");
   };
 
   // Reviews state for carousel
@@ -878,56 +1006,97 @@ export default function HomePage() {
     return () => observer.disconnect();
   }, []);
 
+  const formatDocumentSize = (bytes: number) => {
+    if (!bytes || Number.isNaN(bytes) || !Number.isFinite(bytes)) {
+      return "Unknown size";
+    }
+    if (bytes < 1024) {
+      return `${bytes} B`;
+    }
+    if (bytes < 1024 * 1024) {
+      return `${Math.round(bytes / 1024)} KB`;
+    }
+    return `${(bytes / (1024 * 1024)).toFixed(2)} MB`;
+  };
+
+  const handleAiImageSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (isAiDisabled) {
+      if (aiImageInputRef.current) {
+        aiImageInputRef.current.value = "";
+      }
+      return;
+    }
+
+    const files = event.target.files;
+    if (!files) return;
+
+    const maxImages = 3;
+
+    Array.from(files).forEach((file) => {
+      if (!file.type.startsWith("image/")) {
+        setAiUploadError("Only image files (JPG, PNG, WEBP, GIF) are supported.");
+        return;
+      }
+
+      if (file.size > 5 * 1024 * 1024) {
+        setAiUploadError("Images must be 5MB or smaller.");
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const base64String = reader.result as string;
+        setAiImages((prev) => {
+          if (prev.length >= maxImages) {
+            setAiUploadError(`You can attach up to ${maxImages} images.`);
+            return prev;
+          }
+          setAiUploadError(null);
+          return [...prev, base64String];
+        });
+      };
+      reader.readAsDataURL(file);
+    });
+
+    if (aiImageInputRef.current) {
+      aiImageInputRef.current.value = "";
+    }
+  };
+
+  const removeAiImage = (index: number) => {
+    setAiImages((prev) => prev.filter((_, i) => i !== index));
+  };
+
+  const clearAiImages = () => {
+    setAiImages([]);
+    setAiUploadError(null);
+    if (aiImageInputRef.current) {
+      aiImageInputRef.current.value = "";
+    }
+  };
+
   return (
     <>
-      {/* Floating Calculator Icon - Outside PageTransition for global positioning */}
+      {/* Floating AI Chat Icon - Outside PageTransition for global positioning */}
       <Link
-        href="/calculator"
+        href={isLoggedIn ? "/chatbot" : "/login"}
         className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 group"
-        aria-label="Open Calculator"
+        aria-label="Open AI Chat Assistant"
       >
         <div className="relative">
-          {/* Background circle with gradient */}
-          <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center">
-            {/* Clean Calculator Icon */}
-            <svg
-              className="w-6 h-6 sm:w-8 sm:h-8 text-white"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              {/* Calculator body */}
-              <rect x="4" y="3" width="16" height="18" rx="2" ry="2" />
-              {/* Display screen */}
-              <rect x="6" y="5" width="12" height="5" rx="1" fill="currentColor" opacity="0.2" />
-              {/* Simple button grid - much cleaner */}
-              <rect x="6" y="12" width="2" height="2" rx="0.5" fill="currentColor" opacity="0.6" />
-              <rect x="9" y="12" width="2" height="2" rx="0.5" fill="currentColor" opacity="0.6" />
-              <rect x="12" y="12" width="2" height="2" rx="0.5" fill="currentColor" opacity="0.6" />
-              <rect x="15" y="12" width="2" height="2" rx="0.5" fill="currentColor" opacity="0.6" />
-
-              <rect x="6" y="15" width="2" height="2" rx="0.5" fill="currentColor" opacity="0.6" />
-              <rect x="9" y="15" width="2" height="2" rx="0.5" fill="currentColor" opacity="0.6" />
-              <rect x="12" y="15" width="2" height="2" rx="0.5" fill="currentColor" opacity="0.6" />
-              <rect x="15" y="15" width="2" height="2" rx="0.5" fill="currentColor" opacity="0.6" />
-
-              <rect x="6" y="18" width="2" height="2" rx="0.5" fill="currentColor" opacity="0.6" />
-              <rect x="9" y="18" width="2" height="2" rx="0.5" fill="currentColor" opacity="0.6" />
-              <rect x="12" y="18" width="2" height="2" rx="0.5" fill="currentColor" opacity="0.6" />
-              <rect x="15" y="18" width="2" height="2" rx="0.5" fill="currentColor" opacity="0.6" />
-            </svg>
-          </div>
-
-          {/* Pulse animation ring */}
-          <div className="absolute inset-0 w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full animate-ping opacity-20"></div>
+          {/* sunu-I Icon without any background or shadow */}
+          <Image
+            src="/sunu_icon.png"
+            alt="sunu-I AI Assistant"
+            width={56}
+            height={56}
+            className="w-14 h-14 sm:w-16 sm:h-16 object-contain transition-all duration-300 transform hover:scale-110"
+          />
 
           {/* Tooltip */}
           <div className="absolute bottom-full right-0 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-            <div className="bg-gray-900 text-white text-xs sm:text-sm px-2 py-1 rounded shadow-lg whitespace-nowrap">
-              Advanced Calculator
+            <div className="bg-gray-900 text-white text-xs sm:text-sm px-3 py-2 rounded-lg shadow-lg whitespace-nowrap">
+              Chat with sunu-I
               <div className="absolute top-full right-2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
             </div>
           </div>
@@ -1139,6 +1308,26 @@ export default function HomePage() {
             50% { background-position: 100% 50%; }
           }
           
+          /* Blob animation */
+          @keyframes blob {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0px, 0px) scale(1); }
+          }
+          
+          .animate-blob {
+            animation: blob 7s infinite;
+          }
+          
+          .animation-delay-2000 {
+            animation-delay: 2s;
+          }
+          
+          .animation-delay-4000 {
+            animation-delay: 4s;
+          }
+          
           /* Beautiful typing cursor animations */
           @keyframes blink {
             0%, 45% { opacity: 1; }
@@ -1249,80 +1438,61 @@ export default function HomePage() {
           
         `}</style>
 
-          {/* Animated Hero Section */}
-          <section className="relative py-16 sm:py-24 px-4 bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50 overflow-hidden reveal-on-scroll">
-            {/* SVG Blobs */}
-            <svg
-              className="absolute -top-32 -left-32 w-[40vw] h-[40vw] opacity-30 blur-2xl"
-              viewBox="0 0 200 200"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill="#6ee7b7"
-                d="M44.8,-67.2C56.7,-59.2,63.7,-44.2,68.2,-29.2C72.7,-14.2,74.7,0.8,70.2,13.7C65.7,26.6,54.7,37.4,42.2,46.2C29.7,55,14.8,61.8,-0.7,62.7C-16.2,63.6,-32.4,58.6,-44.2,48.6C-56,38.6,-63.4,23.6,-66.2,7.6C-69,-8.4,-67.2,-25.4,-58.7,-36.7C-50.2,-48,-35,-53.7,-20.1,-60.2C-5.2,-66.7,9.4,-74.1,24.2,-74.2C39,-74.3,55,-67.2,44.8,-67.2Z"
-                transform="translate(100 100)"
-              />
-            </svg>
-            <svg
-              className="absolute -bottom-32 -right-32 w-[40vw] h-[40vw] opacity-20 blur-2xl"
-              viewBox="0 0 200 200"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill="#a5b4fc"
-                d="M38.2,-60.2C51.2,-54.2,63.2,-44.2,68.2,-31.2C73.2,-18.2,71.2,-2.2,66.2,12.8C61.2,27.8,53.2,41.8,41.2,50.8C29.2,59.8,14.2,63.8,-0.8,64.8C-15.8,65.8,-31.8,63.8,-44.8,55.8C-57.8,47.8,-67.8,33.8,-70.8,18.8C-73.8,3.8,-69.8,-12.2,-61.8,-25.2C-53.8,-38.2,-41.8,-48.2,-28.8,-54.2C-15.8,-60.2,-1.8,-62.2,12.2,-62.2C26.2,-62.2,52.2,-66.2,38.2,-60.2Z"
-                transform="translate(100 100)"
-              />
-            </svg>
+          {/* Redesigned Hero Section */}
+          <section className="relative py-16 sm:py-24 px-4 bg-gradient-to-br from-emerald-50 via-blue-50 to-blue-50 overflow-hidden reveal-on-scroll">
+            {/* Animated Background Elements */}
+            <div className="absolute inset-0 overflow-hidden">
+              <div className="absolute -top-40 -left-40 w-96 h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-emerald-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+            </div>
 
             <div className="container mx-auto text-center relative z-10">
-              <Badge className="mb-4 sm:mb-6 bg-emerald-100 text-emerald-700 hover:bg-emerald-200 px-3 sm:px-4 py-1 sm:py-2 text-xs sm:text-sm font-medium animate-pulse">
-                <GraduationCap className="w-4 h-4 mr-1 inline" />
-                Trusted by {totalUsers > 0 ? (
-                  totalUsers.toLocaleString() + '+ Students'
-                ) : (
-                  <span className="flex items-center gap-2">
-                    <span></span>
-                    <div className="flex items-center space-x-1">
-                      <div className="w-1 h-1 bg-emerald-600 rounded-full animate-pulse"></div>
-                      <div className="w-1 h-1 bg-emerald-600 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
-                      <div className="w-1 h-1 bg-emerald-600 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }}></div>
-                    </div>
-                  </span>
-                )}
-              </Badge>
-              <div className="mb-4">
-                <span className="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full font-medium text-sm">
-                  Now offering Institutional Testing Services for schools and
-                  universities!
-                </span>
-              </div>
-              <h1 className="text-3xl iphone-12:text-3xl iphone-14:text-4xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-tight px-2">
-                <div className="bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient-x">
-                  <span className="block text-3xl iphone-12:text-3xl iphone-14:text-4xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold whitespace-nowrap">
-                    Ace Your Exams
-                  </span>
-                  <span className="block text-2xl iphone-12:text-2xl iphone-14:text-3xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
-                    with Confidence
-                  </span>
-                </div>
-              </h1>
-              {/* Progress Bar Design */}
-              <div className="mb-8 sm:mb-10 max-w-3xl mx-auto px-4">
-                <div className="relative flex items-center justify-center space-x-2 sm:space-x-4 text-base sm:text-xl md:text-2xl font-bold text-gray-800">
-                  <span className="text-blue-600">Smarter</span>
-                  <div className="w-0 h-0 border-l-[4px] sm:border-l-[6px] border-l-green-500 border-t-[3px] sm:border-t-[4px] border-t-transparent border-b-[3px] sm:border-b-[4px] border-b-transparent"></div>
-                  <span className="text-blue-600">Prep</span>
-                  <div className="w-0 h-0 border-l-[4px] sm:border-l-[6px] border-l-green-500 border-t-[3px] sm:border-t-[4px] border-t-transparent border-b-[3px] sm:border-b-[4px] border-b-transparent"></div>
-                  <span className="text-blue-600">Stronger</span>
-                  <div className="w-0 h-0 border-l-[4px] sm:border-l-[6px] border-l-green-500 border-t-[3px] sm:border-t-[4px] border-t-transparent border-b-[3px] sm:border-b-[4px] border-b-transparent"></div>
-                  <span className="text-blue-600">Results</span>
-                </div>
+              {/* Top Badges */}
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-6">
+                <Badge className="bg-emerald-100 text-emerald-700 hover:bg-emerald-200 px-4 py-2 text-sm font-medium shadow-md">
+                  <GraduationCap className="w-4 h-4 mr-2 inline" />
+                  Trusted by {totalUsers > 0 ? (
+                    totalUsers.toLocaleString() + '+ Students'
+                  ) : (
+                    <span className="flex items-center gap-2">
+                      <div className="flex items-center space-x-1">
+                        <div className="w-1.5 h-1.5 bg-emerald-600 rounded-full animate-pulse"></div>
+                        <div className="w-1.5 h-1.5 bg-emerald-600 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
+                        <div className="w-1.5 h-1.5 bg-emerald-600 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }}></div>
+                      </div>
+                    </span>
+                  )}
+                </Badge>
+                <Badge className="bg-blue-100 text-blue-800 hover:bg-blue-200 px-4 py-2 text-sm font-medium shadow-md">
+                  Institutional Testing Services Available
+                </Badge>
               </div>
 
-              {/* Quick Start Widget */}
+              {/* Main Headline */}
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-tight px-2">
+                <span className="block text-gray-900">Ace Your Exams</span>
+                <span className="block bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  with Confidence
+                </span>
+              </h1>
+
+              {/* Tagline */}
+              <div className="mb-6 sm:mb-8">
+                <div className="flex items-center justify-center gap-2 sm:gap-3 text-base sm:text-xl md:text-2xl font-bold text-gray-800 mb-6">
+                  <span className="text-blue-600">Smarter</span>
+                  <div className="w-0 h-0 border-l-[4px] sm:border-l-[6px] border-l-emerald-500 border-t-[3px] sm:border-t-[4px] border-t-transparent border-b-[3px] sm:border-b-[4px] border-b-transparent"></div>
+                  <span className="text-blue-600">Prep</span>
+                  <div className="w-0 h-0 border-l-[4px] sm:border-l-[6px] border-l-emerald-500 border-t-[3px] sm:border-t-[4px] border-t-transparent border-b-[3px] sm:border-b-[4px] border-b-transparent"></div>
+                  <span className="text-blue-600">Stronger</span>
+                  <div className="w-0 h-0 border-l-[4px] sm:border-l-[6px] border-l-emerald-500 border-t-[3px] sm:border-t-[4px] border-t-transparent border-b-[3px] sm:border-b-[4px] border-b-transparent"></div>
+                  <span className="text-blue-600">Results</span>
+                </div>
+
+
+              </div>
+
+              {/* Exam Buttons */}
               <div className="flex flex-col gap-4 sm:gap-6 mb-8 sm:mb-12 px-4 max-w-sm sm:max-w-4xl lg:max-w-none mx-auto">
-                {/* Exam Buttons Row */}
                 <div className="grid grid-cols-2 gap-3 sm:flex sm:flex-row sm:gap-4 justify-center">
                   <Button
                     asChild
@@ -1353,18 +1523,12 @@ export default function HomePage() {
                     <Link href={isLoggedIn ? "/exams/jamb" : "/login"}>JAMB</Link>
                   </Button>
                 </div>
-
-
-                {/* Hidden description for screen readers */}
-                <div id="calculator-description" className="sr-only">
-                  Advanced multi-mode calculator featuring scientific functions, programming tools, graphing capabilities, unit conversions, and high-precision calculations. Perfect for students, engineers, and researchers.
-                </div>
               </div>
 
-              {/* Animated Counters */}
+              {/* Statistics */}
               <div className="grid grid-cols-3 gap-4 sm:gap-8 max-w-2xl mx-auto px-4 mb-6">
                 <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold text-emerald-600 mb-1 sm:mb-2 animate-bounce">
+                  <div className="text-2xl sm:text-3xl font-bold text-emerald-600 mb-1 sm:mb-2">
                     {questionsCount !== null ? (
                       questionsCount.toLocaleString() + '+'
                     ) : (
@@ -1380,7 +1544,7 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold text-blue-600 mb-1 sm:mb-2 animate-bounce">
+                  <div className="text-2xl sm:text-3xl font-bold text-blue-600 mb-1 sm:mb-2">
                     {totalQuizzesCompleted !== null ? (
                       totalQuizzesCompleted.toLocaleString() + '+'
                     ) : (
@@ -1396,7 +1560,7 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold text-purple-600 mb-1 sm:mb-2 animate-bounce">
+                  <div className="text-2xl sm:text-3xl font-bold text-purple-600 mb-1 sm:mb-2">
                     {studentRetention !== null ? (
                       studentRetention + '%'
                     ) : (
@@ -1434,9 +1598,9 @@ export default function HomePage() {
 
               {/* Exam Alert */}
               {upcomingExam && (
-                <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 flex items-center gap-4 mb-6">
-                  <AlertCircle className="w-6 h-6 text-yellow-500" />
-                  <div className="flex-1">
+                <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 flex items-center gap-4 mb-6 max-w-2xl mx-auto rounded-lg">
+                  <AlertCircle className="w-6 h-6 text-yellow-500 flex-shrink-0" />
+                  <div className="flex-1 text-left">
                     <div className="font-semibold text-yellow-800">
                       Upcoming Exam: {upcomingExam.title} ({upcomingExam.subject})
                     </div>
@@ -1447,7 +1611,7 @@ export default function HomePage() {
                       {upcomingExam.date} at {upcomingExam.time}
                     </div>
                     {isLoggedIn && user?.role === "student" && (
-                      <div className="mt-4 flex justify-center">
+                      <div className="mt-4">
                         <Link href="/services">
                           <Button className="bg-yellow-500 hover:bg-yellow-600 text-white">
                             Register
@@ -1466,6 +1630,210 @@ export default function HomePage() {
                   </div>
                 </div>
               )}
+            </div>
+          </section>
+
+          {/* sunu-I Quick Ask Section */}
+          <section className="py-16 sm:py-20 px-4 bg-gradient-to-b from-white via-blue-50/60 to-emerald-50 reveal-on-scroll">
+            <div className="container mx-auto">
+              <div className="relative overflow-hidden rounded-[32px] border border-emerald-100/60 bg-white shadow-[0_40px_80px_-60px_rgba(6,95,70,0.45)]">
+                <div className="pointer-events-none absolute inset-0">
+                  <div className="absolute -top-32 -left-24 h-64 w-64 rounded-full bg-emerald-300/25 blur-3xl"></div>
+                  <div className="absolute -bottom-32 -right-24 h-72 w-72 rounded-full bg-blue-400/20 blur-3xl"></div>
+                  <div className="absolute top-1/2 left-1/2 h-60 w-60 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/10 blur-2xl"></div>
+                </div>
+                <div className="relative z-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px] items-stretch">
+                  <div className="order-2 lg:order-1 p-6 sm:p-10 lg:p-12">
+                    <Badge className="mb-4 w-fit bg-emerald-100 text-emerald-700 hover:bg-emerald-200 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide">
+                      <Sparkles className="mr-1 h-3 w-3" /> AI-Powered Study Help
+                    </Badge>
+                    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
+                      Start a conversation with sunu-I
+                    </h2>
+                    <p className="mt-3 text-sm sm:text-base text-gray-600 max-w-2xl">
+                      Drop your question, attach supporting documents, or include problem images. We'll hand everything off to sunu-I and launch the full chat with your context ready to go.
+                    </p>
+
+                    <form onSubmit={handleAiSubmit} className="mt-8 space-y-5">
+                      <input
+                        ref={aiDocumentInputRef}
+                        type="file"
+                        accept=".pdf,.doc,.docx,.txt,.md,.json,.csv"
+                        onChange={handleAiDocumentSelect}
+                        className="hidden"
+                      />
+                      <input
+                        ref={aiImageInputRef}
+                        type="file"
+                        accept="image/*"
+                        multiple
+                        onChange={handleAiImageSelect}
+                        className="hidden"
+                      />
+
+                      {isAiDisabled && (
+                        <div className="flex items-start gap-3 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-left text-amber-700">
+                          <AlertCircle className="mt-1 h-5 w-5 flex-shrink-0" />
+                          <div>
+                            <p className="font-semibold">sunu-I is currently offline</p>
+                            <p className="text-sm leading-relaxed">{aiDisabledMessage}</p>
+                          </div>
+                        </div>
+                      )}
+
+                      <div className="flex flex-col xl:flex-row gap-3 items-stretch">
+                        <Input
+                          value={aiQuestion}
+                          onChange={(event) => {
+                            setAiQuestion(event.target.value);
+                            if (aiUploadError) {
+                              setAiUploadError(null);
+                            }
+                          }}
+                          placeholder="What would you like sunu-I to help you with today?"
+                          className="flex-1 h-14 rounded-xl border border-gray-200 bg-white/95 text-sm sm:text-base focus-visible:ring-2 focus-visible:ring-emerald-500"
+                          disabled={isAiDisabled}
+                        />
+                        <div className="flex flex-wrap gap-2">
+                          <Button
+                            type="button"
+                            variant="outline"
+                            onClick={() => aiDocumentInputRef.current?.click()}
+                            className="h-14 px-5 rounded-xl border-gray-200 bg-white text-gray-700 hover:bg-gray-50"
+                            disabled={isAiDisabled}
+                          >
+                            <Paperclip className="mr-2 h-5 w-5 text-emerald-600" />
+                            <span className="text-sm font-semibold">Add Document</span>
+                          </Button>
+                          <Button
+                            type="button"
+                            variant="outline"
+                            onClick={() => aiImageInputRef.current?.click()}
+                            className="h-14 px-5 rounded-xl border-gray-200 bg-white text-gray-700 hover:bg-gray-50"
+                            disabled={isAiDisabled}
+                          >
+                            <ImageIcon className="mr-2 h-5 w-5 text-emerald-600" />
+                            <span className="text-sm font-semibold">Add Images</span>
+                          </Button>
+                          <Button
+                            type="submit"
+                            disabled={
+                              isAiDisabled || (!aiQuestion.trim() && !aiDocument && aiImages.length === 0)
+                            }
+                            className="h-14 px-6 sm:px-8 rounded-xl bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-semibold shadow-lg hover:shadow-xl transition-transform duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
+                          >
+                            Ask sunu-I
+                            <ArrowRight className="ml-2 h-4 w-4" />
+                          </Button>
+                        </div>
+                      </div>
+
+                      {(aiDocument || aiImages.length > 0) && (
+                        <div className="grid gap-4 rounded-2xl border border-emerald-200/70 bg-white/90 p-4 shadow-sm">
+                          {aiDocument && (
+                            <div className="flex items-center justify-between gap-3 rounded-xl border border-emerald-100 bg-emerald-50/70 px-4 py-3">
+                              <div className="flex items-center gap-3 overflow-hidden">
+                                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-emerald-100 text-emerald-600">
+                                  <FileText className="h-4 w-4" />
+                                </div>
+                                <div className="min-w-0">
+                                  <p className="text-sm font-semibold text-gray-800 truncate">{aiDocumentName}</p>
+                                  <p className="text-xs text-gray-500 truncate">
+                                    {(aiDocumentType?.split("/").pop() || "Document").toUpperCase()} · {formatDocumentSize(aiDocumentSize)}
+                                  </p>
+                                </div>
+                              </div>
+                              <button
+                                type="button"
+                                onClick={clearAiDocument}
+                                className="rounded-full bg-white/80 p-1 text-gray-400 transition-colors hover:text-red-500"
+                                aria-label="Remove document"
+                              >
+                                <XCircle className="h-5 w-5" />
+                              </button>
+                            </div>
+                          )}
+
+                          {aiImages.length > 0 && (
+                            <div className="space-y-3">
+                              <div className="flex items-center justify-between">
+                                <span className="text-xs font-semibold uppercase tracking-wide text-gray-500">Images</span>
+                                <button
+                                  type="button"
+                                  onClick={clearAiImages}
+                                  className="text-xs font-medium text-emerald-600 hover:text-emerald-700"
+                                >
+                                  Remove all
+                                </button>
+                              </div>
+                              <div className="flex flex-wrap gap-3">
+                                {aiImages.map((imageSrc, index) => (
+                                  <div key={`ai-image-${index}`} className="group relative">
+                                    <img
+                                      src={imageSrc}
+                                      alt={`Selected image ${index + 1}`}
+                                      className="h-20 w-20 rounded-xl border border-emerald-100 object-cover shadow-sm"
+                                    />
+                                    <button
+                                      type="button"
+                                      onClick={() => removeAiImage(index)}
+                                      className="absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full bg-red-500 text-white opacity-0 transition-opacity group-hover:opacity-100"
+                                      aria-label="Remove image"
+                                    >
+                                      ×
+                                    </button>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      )}
+
+                      {aiUploadError && !isAiDisabled && (
+                        <div className="flex items-center gap-2 rounded-xl border border-red-100 bg-red-50 px-4 py-2 text-sm text-red-600">
+                          <AlertCircle className="h-4 w-4" />
+                          <span>{aiUploadError}</span>
+                        </div>
+                      )}
+
+                      <p className="text-xs leading-relaxed text-gray-500">
+                        Upload PDFs, Word docs, spreadsheets, or up to 3 images (max 5MB each). Press Enter to jump into sunu-I with everything preloaded.
+                      </p>
+                    </form>
+                  </div>
+
+                  <div className="order-1 lg:order-2 flex flex-col justify-between rounded-t-[32px] lg:rounded-[32px] lg:rounded-l-none bg-gradient-to-br from-emerald-600 via-teal-600 to-blue-600 p-8 sm:p-10 text-white">
+                    <div>
+                      <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-semibold tracking-wide">
+                        <Sparkles className="h-3.5 w-3.5" /> Instant prep boost
+                      </div>
+                      <h3 className="mt-6 text-2xl font-semibold leading-snug">
+                        Drop your study files and jump straight into the conversation.
+                      </h3>
+                      <ul className="mt-5 space-y-2 text-sm text-emerald-50/90">
+                        <li className="flex items-start gap-2">
+                          <span className="mt-1 h-1.5 w-1.5 rounded-full bg-white/80"></span>
+                          <span>Get contextual responses from sunu-I using your uploads.</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="mt-1 h-1.5 w-1.5 rounded-full bg-white/80"></span>
+                          <span>Auto-redirect to the chat with your question and files ready.</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="mt-1 h-1.5 w-1.5 rounded-full bg-white/80"></span>
+                          <span>Perfect for summarising notes, solving problem sets, or planning revision.</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="mt-8 flex items-center justify-end">
+                      <div className="relative">
+                        <div className="absolute inset-0 rounded-full bg-white/25 blur-xl"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </section>
 
@@ -2390,8 +2758,7 @@ export default function HomePage() {
                     <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-red-50 to-pink-50">
                       <div className="absolute inset-0 bg-gradient-to-t from-red-500/20 to-transparent z-10"></div>
                       <img
-                        src="/features/image.png
-                      "
+                        src="/features/image.png"
                         alt="Professional Proctoring"
                         className="w-full h-full object-cover transform scale-105 group-hover:scale-110 transition-transform duration-700"
                         width="384"
@@ -2959,7 +3326,7 @@ export default function HomePage() {
                     </li>
                     <li>
                       <Link
-                        href="/calculator"
+                        href={isLoggedIn ? "/calculator" : "/login"}
                         className="hover:text-white transition-colors"
                       >
                         Calculator

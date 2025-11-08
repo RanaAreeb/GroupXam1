@@ -4,6 +4,7 @@ A comprehensive study preparation platform for WAEC/WASSCE exams built with Next
 
 ## 🚀 Features
 
+- **sunu-I AI Chatbot**: Intelligent AI-powered study assistant that answers student queries 24/7
 - **Quiz System**: Interactive quizzes with instant feedback
 - **Flashcards**: Smart flashcard system for memorization
 - **Discussion Forums**: Community-driven learning
@@ -47,6 +48,10 @@ MONGODB_URI=mongodb://localhost:27017/groupxam
 
 # JWT Secret (generate a secure random string)
 JWT_SECRET=your-super-secret-jwt-key-here-make-it-long-and-random
+
+# OpenAI API Key (for sunu-I AI Chatbot)
+# Get your API key from: https://platform.openai.com/api-keys
+OPENAI_API_KEY=sk-your-openai-api-key-here
 \`\`\`
 
 #### MongoDB Setup Options:

@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useAuth } from "@/hooks/use-auth";
 import { useRouter } from "next/navigation";
+import { useMaintenance } from "@/hooks/use-maintenance";
 import PageTransition from "@/components/PageTransition";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -40,6 +41,8 @@ import {
   Clock,
   MapPin,
   Star,
+  Calculator,
+  AlertTriangle,
 } from "lucide-react";
 import {
   Table,
@@ -61,6 +64,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import type { MaintenanceSetting } from "@/lib/maintenance";
+import { MAINTENANCE_SECTIONS } from "@/constants/maintenance";
 
 // Add Manual Payment Form Component
 function AddManualPaymentForm({
@@ -369,6 +374,7 @@ interface AdminStats {
 
 export default function AdminDashboard() {
   const { isLoggedIn, user, loading } = useAuth();
+  const { maintenance: siteMaintenance } = useMaintenance("whole_site");
   const router = useRouter();
   const { toast } = useToast();
   const [stats, setStats] = useState<AdminStats | null>(null);
@@ -397,6 +403,8 @@ export default function AdminDashboard() {
   const [isLoadingPayments, setIsLoadingPayments] = useState(false);
   const [showPaymentModal, setShowPaymentModal] = useState(false);
   const [selectedPayment, setSelectedPayment] = useState<any>(null);
+  const [calculatorAnalytics, setCalculatorAnalytics] = useState<any>(null);
+  const [isLoadingCalculatorAnalytics, setIsLoadingCalculatorAnalytics] = useState(false);
   const [isProcessingPayment, setIsProcessingPayment] = useState<string | null>(null);
   const [isAddingPayment, setIsAddingPayment] = useState(false);
   const [users, setUsers] = useState<any[]>([]);
@@ -456,14 +464,19 @@ export default function AdminDashboard() {
     endRange: '',
     isRangeMode: false
   });
+  const [maintenanceSettings, setMaintenanceSettings] = useState<Record<string, MaintenanceSetting>>({});
+  const [maintenanceDrafts, setMaintenanceDrafts] = useState<Record<string, string>>({});
+  const [isLoadingMaintenance, setIsLoadingMaintenance] = useState(false);
+  const [savingMaintenance, setSavingMaintenance] = useState<string | null>(null);
 
   // Check if user is admin
   const isAdmin = user?.email === "ranaareeb1029@gmail.com" || user?.email === "cliftonmanneh6@gmail.com";
+  const isWholeSiteMaintenanceActive = Boolean(siteMaintenance?.isActive);
 
   useEffect(() => {
     if (!loading) {
       if (!isLoggedIn) {
-        router.push("/login");
+        router.push(isWholeSiteMaintenanceActive ? "/login?admin-access=1" : "/login");
         return;
       }
 
@@ -472,7 +485,44 @@ export default function AdminDashboard() {
         return;
       }
     }
-  }, [isLoggedIn, loading, isAdmin, router]);
+  }, [isLoggedIn, loading, isAdmin, router, isWholeSiteMaintenanceActive]);
+
+  const fetchMaintenanceSettings = useCallback(async () => {
+    try {
+      setIsLoadingMaintenance(true);
+      const response = await fetch('/api/admin/maintenance');
+      const data = await response.json();
+
+      if (data.success) {
+        const settingsRecord: Record<string, MaintenanceSetting> = {};
+        (data.settings || []).forEach((setting: MaintenanceSetting) => {
+          settingsRecord[setting.section] = setting;
+        });
+        setMaintenanceSettings(settingsRecord);
+
+        const drafts: Record<string, string> = {};
+        MAINTENANCE_SECTIONS.forEach((section) => {
+          drafts[section.id] = settingsRecord[section.id]?.message || section.defaultMessage;
+        });
+        setMaintenanceDrafts(drafts);
+      } else {
+        toast({
+          title: "Error",
+          description: data.error || 'Failed to load maintenance settings.',
+          variant: 'destructive',
+        });
+      }
+    } catch (error: any) {
+      console.error('Error fetching maintenance settings:', error);
+      toast({
+        title: "Error",
+        description: error?.message || 'Failed to load maintenance settings.',
+        variant: 'destructive',
+      });
+    } finally {
+      setIsLoadingMaintenance(false);
+    }
+  }, [toast]);
 
   useEffect(() => {
     if (isAdmin) {
@@ -481,8 +531,9 @@ export default function AdminDashboard() {
       fetchUsers();
       fetchAlerts();
       fetchEmailRecipients();
+      fetchMaintenanceSettings();
     }
-  }, [isAdmin, dateRange, selectedPeriod]);
+  }, [isAdmin, dateRange, selectedPeriod, fetchMaintenanceSettings]);
 
   // Auto-refresh when date range changes
   useEffect(() => {
@@ -495,6 +546,93 @@ export default function AdminDashboard() {
       return () => clearTimeout(timeoutId);
     }
   }, [dateRange, selectedPeriod]);
+
+  const fetchCalculatorAnalytics = async () => {
+    setIsLoadingCalculatorAnalytics(true);
+    try {
+      const params = new URLSearchParams();
+      if (dateRange?.from) {
+        params.append('startDate', dateRange.from.toISOString());
+      }
+      if (dateRange?.to) {
+        params.append('endDate', dateRange.to.toISOString());
+      }
+
+      const response = await fetch(`/api/calculator/usage?${params.toString()}`);
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setCalculatorAnalytics(data.analytics);
+      } else {
+        const errorMessage = data.error || "Failed to fetch calculator analytics";
+        console.error("Error fetching calculator analytics:", errorMessage);
+        toast({
+          title: "Error",
+          description: errorMessage,
+          variant: "destructive",
+        });
+        setCalculatorAnalytics(null);
+      }
+    } catch (error: any) {
+      console.error("Error fetching calculator analytics:", error);
+      toast({
+        title: "Error",
+        description: error.message || "Failed to fetch calculator analytics",
+        variant: "destructive",
+      });
+      setCalculatorAnalytics(null);
+    } finally {
+      setIsLoadingCalculatorAnalytics(false);
+    }
+  };
+
+  const handleMaintenanceUpdate = useCallback(
+    async (section: string, updates: { isActive?: boolean; message?: string } = {}) => {
+      if (!section) return;
+
+      try {
+        setSavingMaintenance(section);
+        const currentSetting = maintenanceSettings[section];
+        const sectionConfig = MAINTENANCE_SECTIONS.find((item) => item.id === section);
+        const payload = {
+          section,
+          isActive: updates.isActive ?? currentSetting?.isActive ?? false,
+          message:
+            (updates.message ?? maintenanceDrafts[section] ?? sectionConfig?.defaultMessage) ||
+            sectionConfig?.defaultMessage ||
+            '',
+        };
+
+        const response = await fetch('/api/admin/maintenance', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        const data = await response.json();
+        if (!data.success) {
+          throw new Error(data.error || 'Failed to update maintenance setting.');
+        }
+
+        await fetchMaintenanceSettings();
+        toast({
+          title: 'Maintenance updated',
+          description: `${sectionConfig?.label || section} is now ${payload.isActive ? 'in maintenance mode' : 'live'}.`,
+          variant: payload.isActive ? 'destructive' : 'default',
+        });
+      } catch (error: any) {
+        console.error('Failed to update maintenance setting:', error);
+        toast({
+          title: 'Error',
+          description: error?.message || 'Failed to update maintenance setting.',
+          variant: 'destructive',
+        });
+      } finally {
+        setSavingMaintenance(null);
+      }
+    },
+    [fetchMaintenanceSettings, maintenanceDrafts, maintenanceSettings, toast]
+  );
 
   const fetchAdminStats = async () => {
     try {
@@ -768,6 +906,8 @@ export default function AdminDashboard() {
     user.email.toLowerCase().includes(userSearchQuery.toLowerCase()) ||
     (user.name && user.name.toLowerCase().includes(userSearchQuery.toLowerCase()))
   );
+
+  const activeMaintenanceCount = Object.values(maintenanceSettings).filter((setting) => setting?.isActive).length;
 
   // Fix user access based on their payments
   const fixUserAccess = async () => {
@@ -1575,6 +1715,33 @@ export default function AdminDashboard() {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                           </svg>
                           <span>Emails</span>
+                        </div>
+                      </Button>
+                      <Button
+                        variant={activeTab === 'calculator' ? 'default' : 'ghost'}
+                        className="w-full justify-start text-left py-3 px-4 h-auto"
+                        onClick={() => {
+                          setActiveTab('calculator');
+                          setIsMobileMenuOpen(false);
+                          fetchCalculatorAnalytics();
+                        }}
+                      >
+                        <div className="flex items-center gap-3">
+                          <Calculator className="w-4 h-4" />
+                          <span>Calculator Analytics</span>
+                        </div>
+                      </Button>
+                      <Button
+                        variant={activeTab === 'maintenance' ? 'default' : 'ghost'}
+                        className="w-full justify-start text-left py-3 px-4 h-auto"
+                        onClick={() => {
+                          setActiveTab('maintenance');
+                          setIsMobileMenuOpen(false);
+                        }}
+                      >
+                        <div className="flex items-center gap-3">
+                          <AlertTriangle className="w-4 h-4" />
+                          <span>Maintenance</span>
                         </div>
                       </Button>
                     </div>
@@ -3086,6 +3253,182 @@ export default function AdminDashboard() {
                     </div>
                   )}
 
+                  {/* Calculator Analytics Tab */}
+                  {activeTab === 'calculator' && (
+                    <div className="space-y-6">
+                      <Card className="border-0 shadow-lg bg-gradient-to-br from-emerald-50 to-blue-50">
+                        <CardHeader>
+                          <div className="flex items-center justify-between">
+                            <CardTitle className="text-emerald-800 flex items-center gap-2">
+                              <Calculator className="w-5 h-5" />
+                              Calculator Analytics
+                            </CardTitle>
+                            <Button
+                              onClick={fetchCalculatorAnalytics}
+                              variant="outline"
+                              size="sm"
+                              disabled={isLoadingCalculatorAnalytics}
+                            >
+                              <RefreshCw className={`w-4 h-4 mr-2 ${isLoadingCalculatorAnalytics ? 'animate-spin' : ''}`} />
+                              Refresh
+                            </Button>
+                          </div>
+                        </CardHeader>
+                        <CardContent>
+                          {isLoadingCalculatorAnalytics ? (
+                            <div className="text-center py-8">
+                              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-emerald-600 mx-auto mb-4"></div>
+                              <p className="text-gray-600">Loading calculator analytics...</p>
+                            </div>
+                          ) : calculatorAnalytics !== null ? (
+                            <div className="space-y-6">
+                              {/* Overview Stats */}
+                              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <Card className="bg-white">
+                                  <CardContent className="pt-6">
+                                    <div className="flex items-center justify-between">
+                                      <div>
+                                        <p className="text-sm font-medium text-gray-600">Total Usage</p>
+                                        <p className="text-3xl font-bold text-gray-900 mt-2">
+                                          {calculatorAnalytics.totalUsage?.toLocaleString() || 0}
+                                        </p>
+                                      </div>
+                                      <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center">
+                                        <Calculator className="w-6 h-6 text-emerald-600" />
+                                      </div>
+                                    </div>
+                                  </CardContent>
+                                </Card>
+                                <Card className="bg-white">
+                                  <CardContent className="pt-6">
+                                    <div className="flex items-center justify-between">
+                                      <div>
+                                        <p className="text-sm font-medium text-gray-600">Unique Users</p>
+                                        <p className="text-3xl font-bold text-gray-900 mt-2">
+                                          {calculatorAnalytics.uniqueUsers?.toLocaleString() || 0}
+                                        </p>
+                                      </div>
+                                      <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                                        <Users className="w-6 h-6 text-blue-600" />
+                                      </div>
+                                    </div>
+                                  </CardContent>
+                                </Card>
+                              </div>
+
+                              {/* Usage by Calculator Type */}
+                              {calculatorAnalytics.usageByType && calculatorAnalytics.usageByType.length > 0 ? (
+                                <Card className="bg-white">
+                                  <CardHeader>
+                                    <CardTitle className="text-lg">Usage by Calculator Type</CardTitle>
+                                  </CardHeader>
+                                  <CardContent>
+                                    <div className="space-y-3">
+                                      {calculatorAnalytics.usageByType.map((type: any, index: number) => (
+                                        <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                          <div className="flex-1">
+                                            <p className="font-medium text-gray-900 capitalize">
+                                              {type.calculatorType || 'General'}
+                                            </p>
+                                            <p className="text-sm text-gray-600">
+                                              {type.uniqueUsers || 0} unique users
+                                            </p>
+                                          </div>
+                                          <Badge variant="secondary" className="text-lg font-semibold">
+                                            {type.count?.toLocaleString() || 0}
+                                          </Badge>
+                                        </div>
+                                      ))}
+                                    </div>
+                                  </CardContent>
+                                </Card>
+                              ) : null}
+
+                              {/* Most Active Users */}
+                              {calculatorAnalytics.mostActiveUsers && calculatorAnalytics.mostActiveUsers.length > 0 && (
+                                <Card className="bg-white">
+                                  <CardHeader>
+                                    <CardTitle className="text-lg">Most Active Users</CardTitle>
+                                  </CardHeader>
+                                  <CardContent>
+                                    <Table>
+                                      <TableHeader>
+                                        <TableRow>
+                                          <TableHead>User</TableHead>
+                                          <TableHead>Usage Count</TableHead>
+                                          <TableHead>Last Used</TableHead>
+                                        </TableRow>
+                                      </TableHeader>
+                                      <TableBody>
+                                        {calculatorAnalytics.mostActiveUsers.map((user: any, index: number) => (
+                                          <TableRow key={index}>
+                                            <TableCell>
+                                              <div>
+                                                <p className="font-medium">{user.userName || user.userEmail}</p>
+                                                <p className="text-sm text-gray-500">{user.userEmail}</p>
+                                              </div>
+                                            </TableCell>
+                                            <TableCell>
+                                              <Badge variant="secondary">{user.count}</Badge>
+                                            </TableCell>
+                                            <TableCell className="text-sm text-gray-600">
+                                              {user.lastUsed ? new Date(user.lastUsed).toLocaleDateString() : 'N/A'}
+                                            </TableCell>
+                                          </TableRow>
+                                        ))}
+                                      </TableBody>
+                                    </Table>
+                                  </CardContent>
+                                </Card>
+                              )}
+
+                              {/* Recent Usage */}
+                              {calculatorAnalytics.recentUsage && calculatorAnalytics.recentUsage.length > 0 && (
+                                <Card className="bg-white">
+                                  <CardHeader>
+                                    <CardTitle className="text-lg">Recent Usage</CardTitle>
+                                  </CardHeader>
+                                  <CardContent>
+                                    <div className="space-y-2 max-h-96 overflow-y-auto">
+                                      {calculatorAnalytics.recentUsage.map((usage: any, index: number) => (
+                                        <div key={index} className="flex items-center justify-between p-3 border rounded-lg">
+                                          <div className="flex-1">
+                                            <p className="font-medium text-gray-900">{usage.userName || usage.userEmail}</p>
+                                            <p className="text-sm text-gray-600 capitalize">
+                                              {usage.calculatorType || 'general'} calculator
+                                            </p>
+                                          </div>
+                                          <p className="text-sm text-gray-500">
+                                            {new Date(usage.timestamp).toLocaleString()}
+                                          </p>
+                                        </div>
+                                      ))}
+                                    </div>
+                                  </CardContent>
+                                </Card>
+                              )}
+
+                              {(!calculatorAnalytics.totalUsage || calculatorAnalytics.totalUsage === 0) && (
+                                <div className="text-center py-12 text-gray-500">
+                                  <Calculator className="w-12 h-12 mx-auto mb-4 text-gray-400" />
+                                  <p>No calculator usage data available yet.</p>
+                                  <p className="text-sm mt-2">Usage data will appear here once users start using the calculator.</p>
+                                </div>
+                              )}
+                            </div>
+                          ) : (
+                            <div className="text-center py-8 text-gray-500">
+                              <p>Failed to load calculator analytics.</p>
+                              <Button onClick={fetchCalculatorAnalytics} className="mt-4">
+                                Try Again
+                              </Button>
+                            </div>
+                          )}
+                        </CardContent>
+                      </Card>
+                    </div>
+                  )}
+
                   {/* Emails Tab */}
                   {activeTab === 'emails' && (
                     <div className="space-y-6">
@@ -3442,6 +3785,143 @@ export default function AdminDashboard() {
                           </div>
                         </CardContent>
                       </Card>
+                    </div>
+                  )}
+
+                  {activeTab === 'maintenance' && (
+                    <div className="space-y-6">
+                      <Card className="border-0 shadow-lg bg-gradient-to-br from-amber-50 to-amber-100">
+                        <CardHeader>
+                          <div className="flex items-center justify-between">
+                            <CardTitle className="text-amber-800">Maintenance Controls</CardTitle>
+                            <div className="flex items-center gap-2">
+                              <Badge variant="secondary" className="bg-amber-500/20 text-amber-700">
+                                {activeMaintenanceCount} active
+                              </Badge>
+                              <Button
+                                onClick={fetchMaintenanceSettings}
+                                variant="outline"
+                                size="sm"
+                                disabled={isLoadingMaintenance}
+                                className="border-amber-300 text-amber-700 hover:bg-amber-100"
+                              >
+                                <RefreshCw className={`w-4 h-4 mr-2 ${isLoadingMaintenance ? 'animate-spin' : ''}`} />
+                                Refresh
+                              </Button>
+                            </div>
+                          </div>
+                        </CardHeader>
+                        <CardContent>
+                          <p className="text-sm text-amber-700 leading-relaxed">
+                            Toggle maintenance mode for specific sections or the entire site. When enabled, visitors will see a courtesy message and access will be temporarily paused.
+                          </p>
+                        </CardContent>
+                      </Card>
+
+                      {isLoadingMaintenance ? (
+                        <div className="text-center py-12">
+                          <div className="mx-auto mb-4 h-12 w-12 animate-spin rounded-full border-b-2 border-amber-500"></div>
+                          <p className="text-amber-700">Loading maintenance settings...</p>
+                        </div>
+                      ) : (
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                          {MAINTENANCE_SECTIONS.map((section) => {
+                            const setting = maintenanceSettings[section.id];
+                            const isActive = setting?.isActive ?? false;
+                            const updatedAt = setting?.updatedAt ? new Date(setting.updatedAt) : null;
+                            const messageDraft = maintenanceDrafts[section.id] ?? section.defaultMessage;
+
+                            return (
+                              <Card
+                                key={section.id}
+                                className={`bg-white border ${isActive ? 'border-amber-300 shadow-[0_20px_40px_-25px_rgba(217,119,6,0.6)]' : 'border-gray-100 shadow-lg'}`}
+                              >
+                                <CardHeader>
+                                  <div className="flex items-start justify-between gap-3">
+                                    <div>
+                                      <CardTitle className="text-base font-semibold text-gray-900">{section.label}</CardTitle>
+                                      <p className="mt-1 text-sm text-gray-600 leading-relaxed">{section.description}</p>
+                                    </div>
+                                    <Badge
+                                      variant={isActive ? 'destructive' : 'outline'}
+                                      className={isActive ? 'bg-amber-100 text-amber-700 border-amber-200' : ''}
+                                    >
+                                      {isActive ? 'Maintenance On' : 'Live'}
+                                    </Badge>
+                                  </div>
+                                  {updatedAt && (
+                                    <p className="mt-2 text-xs text-gray-500">
+                                      Updated {updatedAt.toLocaleString()}
+                                      {setting?.updatedBy ? ` by ${setting.updatedBy}` : ''}
+                                    </p>
+                                  )}
+                                </CardHeader>
+                                <CardContent className="space-y-4">
+                                  <div className="space-y-2">
+                                    <Label className="text-sm font-medium text-gray-700">Maintenance Message</Label>
+                                    <Textarea
+                                      value={messageDraft}
+                                      onChange={(event) =>
+                                        setMaintenanceDrafts((prev) => ({ ...prev, [section.id]: event.target.value }))
+                                      }
+                                      rows={4}
+                                      disabled={savingMaintenance === section.id}
+                                      className="resize-none"
+                                      placeholder={section.defaultMessage}
+                                    />
+                                  </div>
+
+                                  <div className="flex flex-wrap justify-end gap-2">
+                                    <Button
+                                      type="button"
+                                      variant="outline"
+                                      size="sm"
+                                      disabled={savingMaintenance === section.id}
+                                      onClick={() => {
+                                        const defaultMessage = section.defaultMessage;
+                                        setMaintenanceDrafts((prev) => ({ ...prev, [section.id]: defaultMessage }));
+                                        handleMaintenanceUpdate(section.id, { message: defaultMessage });
+                                      }}
+                                    >
+                                      Reset to Default
+                                    </Button>
+                                    <Button
+                                      type="button"
+                                      variant="outline"
+                                      size="sm"
+                                      disabled={savingMaintenance === section.id}
+                                      onClick={() => handleMaintenanceUpdate(section.id, { message: messageDraft })}
+                                    >
+                                      {savingMaintenance === section.id ? (
+                                        <>
+                                          <RefreshCw className="mr-2 h-4 w-4 animate-spin" /> Saving...
+                                        </>
+                                      ) : (
+                                        <>
+                                          <RefreshCw className="mr-2 h-4 w-4" /> Save Message
+                                        </>
+                                      )}
+                                    </Button>
+                                    <Button
+                                      type="button"
+                                      className={isActive ? 'bg-emerald-600 hover:bg-emerald-700 text-white' : 'bg-amber-500 hover:bg-amber-600 text-white'}
+                                      disabled={savingMaintenance === section.id}
+                                      onClick={() =>
+                                        handleMaintenanceUpdate(section.id, {
+                                          isActive: !isActive,
+                                          message: messageDraft,
+                                        })
+                                      }
+                                    >
+                                      {isActive ? 'Disable Maintenance' : 'Enable Maintenance'}
+                                    </Button>
+                                  </div>
+                                </CardContent>
+                              </Card>
+                            );
+                          })}
+                        </div>
+                      )}
                     </div>
                   )}
                 </div>

@@ -43,6 +43,7 @@ import {
 import Header from "@/components/ui/header";
 import { useAuth } from "@/hooks/use-auth";
 import PageTransition from "@/components/PageTransition";
+import ProtectedRoute from "@/components/ProtectedRoute";
 
 interface CalculationHistory {
   id: string;
@@ -247,6 +248,37 @@ export default function CalculatorPage() {
 
   const [activeTab, setActiveTab] = useState<'calculator' | 'programmer' | 'graphing' | 'converter'>('calculator');
   const audioContextRef = useRef<AudioContext | null>(null);
+  const hasTrackedUsage = useRef(false);
+
+  // Track calculator usage
+  useEffect(() => {
+    if (isLoggedIn && user && !hasTrackedUsage.current) {
+      hasTrackedUsage.current = true;
+
+      const trackUsage = async () => {
+        try {
+          const calculatorType = activeTab === 'calculator' ? 'simple' :
+            activeTab === 'programmer' ? 'programmer' :
+              activeTab === 'graphing' ? 'graphing' : 'converter';
+
+          await fetch('/api/calculator/usage', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              calculatorType,
+              action: 'access'
+            })
+          });
+        } catch (error) {
+          console.error('Error tracking calculator usage:', error);
+        }
+      };
+
+      trackUsage();
+    }
+  }, [isLoggedIn, user, activeTab]);
 
   // Keyboard support
   useEffect(() => {
@@ -1906,444 +1938,446 @@ export default function CalculatorPage() {
   );
 
   return (
-    <PageTransition>
-      <div className="min-h-screen bg-background">
-        <Header />
+    <ProtectedRoute>
+      <PageTransition>
+        <div className="min-h-screen bg-background">
+          <Header />
 
-        {/* Hero Section */}
-        <section className="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 py-12">
-          <div className="container mx-auto px-4 text-center">
-            <div className="flex justify-center mb-6">
-              <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg">
-                <Calculator className="w-10 h-10 text-white" />
+          {/* Hero Section */}
+          <section className="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 py-12">
+            <div className="container mx-auto px-4 text-center">
+              <div className="flex justify-center mb-6">
+                <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg">
+                  <Calculator className="w-10 h-10 text-white" />
+                </div>
+              </div>
+              <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4">
+                Advanced Calculator
+              </h1>
+              <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
+                The ultimate multi-mode calculator suite. From basic arithmetic to advanced scientific functions,
+                programmer tools, statistical analysis, function graphing, and unit conversions.
+                Everything you need for mathematics, engineering, programming, and research.
+              </p>
+
+              {/* Features */}
+              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 max-w-6xl mx-auto">
+                <div className="flex items-center justify-center gap-2 p-3 bg-white/50 dark:bg-gray-800/50 rounded-lg">
+                  <Brain className="w-5 h-5 text-blue-600" />
+                  <span className="text-xs font-medium">Scientific</span>
+                </div>
+                <div className="flex items-center justify-center gap-2 p-3 bg-white/50 dark:bg-gray-800/50 rounded-lg">
+                  <Code className="w-5 h-5 text-green-600" />
+                  <span className="text-xs font-medium">Programmer</span>
+                </div>
+                <div className="flex items-center justify-center gap-2 p-3 bg-white/50 dark:bg-gray-800/50 rounded-lg">
+                  <TrendingUp className="w-5 h-5 text-purple-600" />
+                  <span className="text-xs font-medium">Graphing</span>
+                </div>
+                <div className="flex items-center justify-center gap-2 p-3 bg-white/50 dark:bg-gray-800/50 rounded-lg">
+                  <Grid3X3 className="w-5 h-5 text-red-600" />
+                  <span className="text-xs font-medium">Unit Convert</span>
+                </div>
+                <div className="flex items-center justify-center gap-2 p-3 bg-white/50 dark:bg-gray-800/50 rounded-lg">
+                  <X className="w-5 h-5 text-indigo-600" />
+                  <span className="text-xs font-medium">Variables</span>
+                </div>
+                <div className="flex items-center justify-center gap-2 p-3 bg-white/50 dark:bg-gray-800/50 rounded-lg">
+                  <History className="w-5 h-5 text-cyan-600" />
+                  <span className="text-xs font-medium">History</span>
+                </div>
+                <div className="flex items-center justify-center gap-2 p-3 bg-white/50 dark:bg-gray-800/50 rounded-lg">
+                  <Target className="w-5 h-5 text-orange-600" />
+                  <span className="text-xs font-medium">Multi-Memory</span>
+                </div>
+                <div className="flex items-center justify-center gap-2 p-3 bg-white/50 dark:bg-gray-800/50 rounded-lg">
+                  <Volume2 className="w-5 h-5 text-pink-600" />
+                  <span className="text-xs font-medium">Sound Effects</span>
+                </div>
+                <div className="flex items-center justify-center gap-2 p-3 bg-white/50 dark:bg-gray-800/50 rounded-lg">
+                  <Zap className="w-5 h-5 text-emerald-600" />
+                  <span className="text-xs font-medium">Keyboard</span>
+                </div>
+                <div className="flex items-center justify-center gap-2 p-3 bg-white/50 dark:bg-gray-800/50 rounded-lg">
+                  <Download className="w-5 h-5 text-teal-600" />
+                  <span className="text-xs font-medium">Export/Import</span>
+                </div>
+                <div className="flex items-center justify-center gap-2 p-3 bg-white/50 dark:bg-gray-800/50 rounded-lg">
+                  <Infinity className="w-5 h-5 text-violet-600" />
+                  <span className="text-xs font-medium">High Precision</span>
+                </div>
               </div>
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4">
-              Advanced Calculator
-            </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
-              The ultimate multi-mode calculator suite. From basic arithmetic to advanced scientific functions,
-              programmer tools, statistical analysis, function graphing, and unit conversions.
-              Everything you need for mathematics, engineering, programming, and research.
-            </p>
+          </section>
 
-            {/* Features */}
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 max-w-6xl mx-auto">
-              <div className="flex items-center justify-center gap-2 p-3 bg-white/50 dark:bg-gray-800/50 rounded-lg">
-                <Brain className="w-5 h-5 text-blue-600" />
-                <span className="text-xs font-medium">Scientific</span>
-              </div>
-              <div className="flex items-center justify-center gap-2 p-3 bg-white/50 dark:bg-gray-800/50 rounded-lg">
-                <Code className="w-5 h-5 text-green-600" />
-                <span className="text-xs font-medium">Programmer</span>
-              </div>
-              <div className="flex items-center justify-center gap-2 p-3 bg-white/50 dark:bg-gray-800/50 rounded-lg">
-                <TrendingUp className="w-5 h-5 text-purple-600" />
-                <span className="text-xs font-medium">Graphing</span>
-              </div>
-              <div className="flex items-center justify-center gap-2 p-3 bg-white/50 dark:bg-gray-800/50 rounded-lg">
-                <Grid3X3 className="w-5 h-5 text-red-600" />
-                <span className="text-xs font-medium">Unit Convert</span>
-              </div>
-              <div className="flex items-center justify-center gap-2 p-3 bg-white/50 dark:bg-gray-800/50 rounded-lg">
-                <X className="w-5 h-5 text-indigo-600" />
-                <span className="text-xs font-medium">Variables</span>
-              </div>
-              <div className="flex items-center justify-center gap-2 p-3 bg-white/50 dark:bg-gray-800/50 rounded-lg">
-                <History className="w-5 h-5 text-cyan-600" />
-                <span className="text-xs font-medium">History</span>
-              </div>
-              <div className="flex items-center justify-center gap-2 p-3 bg-white/50 dark:bg-gray-800/50 rounded-lg">
-                <Target className="w-5 h-5 text-orange-600" />
-                <span className="text-xs font-medium">Multi-Memory</span>
-              </div>
-              <div className="flex items-center justify-center gap-2 p-3 bg-white/50 dark:bg-gray-800/50 rounded-lg">
-                <Volume2 className="w-5 h-5 text-pink-600" />
-                <span className="text-xs font-medium">Sound Effects</span>
-              </div>
-              <div className="flex items-center justify-center gap-2 p-3 bg-white/50 dark:bg-gray-800/50 rounded-lg">
-                <Zap className="w-5 h-5 text-emerald-600" />
-                <span className="text-xs font-medium">Keyboard</span>
-              </div>
-              <div className="flex items-center justify-center gap-2 p-3 bg-white/50 dark:bg-gray-800/50 rounded-lg">
-                <Download className="w-5 h-5 text-teal-600" />
-                <span className="text-xs font-medium">Export/Import</span>
-              </div>
-              <div className="flex items-center justify-center gap-2 p-3 bg-white/50 dark:bg-gray-800/50 rounded-lg">
-                <Infinity className="w-5 h-5 text-violet-600" />
-                <span className="text-xs font-medium">High Precision</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Calculator Section */}
-        <section className="py-12">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <Card className="shadow-2xl border-0">
-                <CardHeader className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900">
-                  <div className="flex items-center justify-between">
-                    <CardTitle className="text-2xl font-bold text-gray-900 dark:text-white">
-                      Calculator
-                    </CardTitle>
-                    <div className="flex items-center gap-2">
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={() => setShowHistory(!showHistory)}
-                        className="flex items-center gap-2"
-                      >
-                        <History className="w-4 h-4" />
-                        History
-                      </Button>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={() => setShowSettings(!showSettings)}
-                        className="flex items-center gap-2"
-                      >
-                        <Settings className="w-4 h-4" />
-                        Settings
-                      </Button>
+          {/* Calculator Section */}
+          <section className="py-12">
+            <div className="container mx-auto px-4">
+              <div className="max-w-4xl mx-auto">
+                <Card className="shadow-2xl border-0">
+                  <CardHeader className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900">
+                    <div className="flex items-center justify-between">
+                      <CardTitle className="text-2xl font-bold text-gray-900 dark:text-white">
+                        Calculator
+                      </CardTitle>
+                      <div className="flex items-center gap-2">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => setShowHistory(!showHistory)}
+                          className="flex items-center gap-2"
+                        >
+                          <History className="w-4 h-4" />
+                          History
+                        </Button>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => setShowSettings(!showSettings)}
+                          className="flex items-center gap-2"
+                        >
+                          <Settings className="w-4 h-4" />
+                          Settings
+                        </Button>
+                      </div>
                     </div>
-                  </div>
 
-                  <Tabs value={activeTab} onValueChange={(value) => setActiveTab(value as any)}>
-                    <TabsList className="grid w-full grid-cols-5">
-                      <TabsTrigger value="calculator" className="flex items-center gap-1 text-xs">
-                        <Calculator className="w-3 h-3" />
-                        Calc
-                      </TabsTrigger>
-                      <TabsTrigger value="programmer" className="flex items-center gap-1 text-xs">
-                        <Code className="w-3 h-3" />
-                        Prog
-                      </TabsTrigger>
-                      <TabsTrigger value="graphing" className="flex items-center gap-1 text-xs">
-                        <TrendingUp className="w-3 h-3" />
-                        Graph
-                      </TabsTrigger>
-                      <TabsTrigger value="converter" className="flex items-center gap-1 text-xs">
-                        <Grid3X3 className="w-3 h-3" />
-                        Convert
-                      </TabsTrigger>
-                    </TabsList>
-                  </Tabs>
-
-                  {activeTab === 'calculator' && (
-                    <Tabs value={mode} onValueChange={(value) => setMode(value as 'simple' | 'scientific')}>
-                      <TabsList className="grid w-full grid-cols-2 mt-2">
-                        <TabsTrigger value="simple" className="flex items-center gap-2">
-                          <Calculator className="w-4 h-4" />
-                          Simple
+                    <Tabs value={activeTab} onValueChange={(value) => setActiveTab(value as any)}>
+                      <TabsList className="grid w-full grid-cols-5">
+                        <TabsTrigger value="calculator" className="flex items-center gap-1 text-xs">
+                          <Calculator className="w-3 h-3" />
+                          Calc
                         </TabsTrigger>
-                        <TabsTrigger value="scientific" className="flex items-center gap-2">
-                          <Brain className="w-4 h-4" />
-                          Scientific
+                        <TabsTrigger value="programmer" className="flex items-center gap-1 text-xs">
+                          <Code className="w-3 h-3" />
+                          Prog
+                        </TabsTrigger>
+                        <TabsTrigger value="graphing" className="flex items-center gap-1 text-xs">
+                          <TrendingUp className="w-3 h-3" />
+                          Graph
+                        </TabsTrigger>
+                        <TabsTrigger value="converter" className="flex items-center gap-1 text-xs">
+                          <Grid3X3 className="w-3 h-3" />
+                          Convert
                         </TabsTrigger>
                       </TabsList>
                     </Tabs>
-                  )}
-                </CardHeader>
 
-                <CardContent className="p-0">
-                  <Tabs value={activeTab} onValueChange={(value) => setActiveTab(value as any)}>
-                    <TabsContent value="calculator" className="m-0">
+                    {activeTab === 'calculator' && (
                       <Tabs value={mode} onValueChange={(value) => setMode(value as 'simple' | 'scientific')}>
-                        <TabsContent value="simple" className="m-0">
-                          <SimpleCalculator />
-                        </TabsContent>
-                        <TabsContent value="scientific" className="m-0">
-                          <ScientificCalculator />
-                        </TabsContent>
+                        <TabsList className="grid w-full grid-cols-2 mt-2">
+                          <TabsTrigger value="simple" className="flex items-center gap-2">
+                            <Calculator className="w-4 h-4" />
+                            Simple
+                          </TabsTrigger>
+                          <TabsTrigger value="scientific" className="flex items-center gap-2">
+                            <Brain className="w-4 h-4" />
+                            Scientific
+                          </TabsTrigger>
+                        </TabsList>
                       </Tabs>
-                    </TabsContent>
-                    <TabsContent value="programmer" className="m-0">
-                      <ProgrammerCalculator />
-                    </TabsContent>
-                    <TabsContent value="graphing" className="m-0">
-                      <GraphingCalculator />
-                    </TabsContent>
-                    <TabsContent value="converter" className="m-0">
-                      <UnitConverter />
-                    </TabsContent>
-                  </Tabs>
-                </CardContent>
-              </Card>
+                    )}
+                  </CardHeader>
 
-              {/* History Panel */}
-              {showHistory && (
+                  <CardContent className="p-0">
+                    <Tabs value={activeTab} onValueChange={(value) => setActiveTab(value as any)}>
+                      <TabsContent value="calculator" className="m-0">
+                        <Tabs value={mode} onValueChange={(value) => setMode(value as 'simple' | 'scientific')}>
+                          <TabsContent value="simple" className="m-0">
+                            <SimpleCalculator />
+                          </TabsContent>
+                          <TabsContent value="scientific" className="m-0">
+                            <ScientificCalculator />
+                          </TabsContent>
+                        </Tabs>
+                      </TabsContent>
+                      <TabsContent value="programmer" className="m-0">
+                        <ProgrammerCalculator />
+                      </TabsContent>
+                      <TabsContent value="graphing" className="m-0">
+                        <GraphingCalculator />
+                      </TabsContent>
+                      <TabsContent value="converter" className="m-0">
+                        <UnitConverter />
+                      </TabsContent>
+                    </Tabs>
+                  </CardContent>
+                </Card>
+
+                {/* History Panel */}
+                {showHistory && (
+                  <Card className="mt-6 shadow-xl border-0">
+                    <CardHeader>
+                      <div className="flex items-center justify-between">
+                        <CardTitle className="flex items-center gap-2">
+                          <History className="w-5 h-5" />
+                          Calculation History
+                        </CardTitle>
+                        <Button variant="outline" size="sm" onClick={clearHistory}>
+                          <Delete className="w-4 h-4 mr-2" />
+                          Clear
+                        </Button>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      {state.history.length === 0 ? (
+                        <div className="text-center py-8 text-gray-500">
+                          <History className="w-12 h-12 mx-auto mb-4 opacity-50" />
+                          <p>No calculations yet</p>
+                          <p className="text-sm">Start calculating to see your history here</p>
+                        </div>
+                      ) : (
+                        <div className="space-y-2 max-h-64 overflow-y-auto">
+                          {state.history.map((item) => (
+                            <div
+                              key={item.id}
+                              className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                            >
+                              <div>
+                                <div className="font-mono text-sm text-gray-600 dark:text-gray-400">
+                                  {item.expression}
+                                </div>
+                                <div className="font-bold text-lg text-gray-900 dark:text-white">
+                                  = {item.result}
+                                </div>
+                              </div>
+                              <div className="text-xs text-gray-500">
+                                {item.timestamp.toLocaleTimeString()}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </CardContent>
+                  </Card>
+                )}
+
+                {/* Settings Panel */}
+                {showSettings && (
+                  <Card className="mt-6 shadow-xl border-0">
+                    <CardHeader>
+                      <div className="flex items-center justify-between">
+                        <CardTitle className="flex items-center gap-2">
+                          <Settings className="w-5 h-5" />
+                          Advanced Settings
+                        </CardTitle>
+                        <div className="flex gap-2">
+                          <Button variant="outline" size="sm" onClick={exportData}>
+                            <Download className="w-4 h-4 mr-2" />
+                            Export
+                          </Button>
+                          <Button variant="outline" size="sm" asChild>
+                            <label htmlFor="import-file" className="cursor-pointer">
+                              <Upload className="w-4 h-4 mr-2" />
+                              Import
+                            </label>
+                          </Button>
+                          <input
+                            id="import-file"
+                            type="file"
+                            accept=".json"
+                            onChange={importData}
+                            className="hidden"
+                          />
+                        </div>
+                      </div>
+                    </CardHeader>
+                    <CardContent className="space-y-6">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="space-y-4">
+                          <div>
+                            <Label className="text-sm font-medium">Angle Mode</Label>
+                            <div className="flex gap-2 mt-2">
+                              <Button
+                                variant={state.angleMode === 'DEG' ? 'default' : 'outline'}
+                                size="sm"
+                                onClick={() => setState(prev => ({ ...prev, angleMode: 'DEG' }))}
+                              >
+                                Degrees
+                              </Button>
+                              <Button
+                                variant={state.angleMode === 'RAD' ? 'default' : 'outline'}
+                                size="sm"
+                                onClick={() => setState(prev => ({ ...prev, angleMode: 'RAD' }))}
+                              >
+                                Radians
+                              </Button>
+                              <Button
+                                variant={state.angleMode === 'GRAD' ? 'default' : 'outline'}
+                                size="sm"
+                                onClick={() => setState(prev => ({ ...prev, angleMode: 'GRAD' }))}
+                              >
+                                Gradians
+                              </Button>
+                            </div>
+                          </div>
+
+                          <div>
+                            <Label className="text-sm font-medium">Precision (Decimal Places)</Label>
+                            <div className="mt-2">
+                              <Slider
+                                value={[state.precision]}
+                                onValueChange={([value]) => setState(prev => ({ ...prev, precision: value }))}
+                                max={15}
+                                min={2}
+                                step={1}
+                                className="w-full"
+                              />
+                              <div className="text-sm text-gray-500 mt-1">
+                                Current: {state.precision} decimal places
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="flex items-center justify-between">
+                            <Label className="text-sm font-medium">Sound Effects</Label>
+                            <Switch
+                              checked={state.soundEnabled}
+                              onCheckedChange={(checked) => setState(prev => ({ ...prev, soundEnabled: checked }))}
+                            />
+                          </div>
+
+                          <div className="flex items-center justify-between">
+                            <Label className="text-sm font-medium">Complex Numbers</Label>
+                            <Switch
+                              checked={state.complexMode}
+                              onCheckedChange={(checked) => setState(prev => ({ ...prev, complexMode: checked }))}
+                            />
+                          </div>
+                        </div>
+
+                        <div className="space-y-4">
+                          <div>
+                            <Label className="text-sm font-medium">Theme</Label>
+                            <div className="flex gap-2 mt-2">
+                              <Button
+                                variant={state.theme === 'light' ? 'default' : 'outline'}
+                                size="sm"
+                                onClick={() => setState(prev => ({ ...prev, theme: 'light' }))}
+                                className="flex items-center gap-2"
+                              >
+                                <Sun className="w-4 h-4" />
+                                Light
+                              </Button>
+                              <Button
+                                variant={state.theme === 'dark' ? 'default' : 'outline'}
+                                size="sm"
+                                onClick={() => setState(prev => ({ ...prev, theme: 'dark' }))}
+                                className="flex items-center gap-2"
+                              >
+                                <Moon className="w-4 h-4" />
+                                Dark
+                              </Button>
+                              <Button
+                                variant={state.theme === 'auto' ? 'default' : 'outline'}
+                                size="sm"
+                                onClick={() => setState(prev => ({ ...prev, theme: 'auto' }))}
+                                className="flex items-center gap-2"
+                              >
+                                <Monitor className="w-4 h-4" />
+                                Auto
+                              </Button>
+                            </div>
+                          </div>
+
+                          <div>
+                            <Label className="text-sm font-medium">Memory Slots</Label>
+                            <div className="grid grid-cols-5 gap-1 mt-2">
+                              {state.memory.map((value, index) => (
+                                <div key={`memory-${index}-${value}`} className="text-center">
+                                  <div className="text-xs text-gray-500">M{index + 1}</div>
+                                  <div className="text-sm font-mono bg-gray-100 dark:bg-gray-800 rounded px-1">
+                                    {value.toFixed(2)}
+                                  </div>
+                                  <Button
+                                    variant="outline"
+                                    size="sm"
+                                    onClick={() => handleMemory('MC', index)}
+                                    className="text-xs mt-1 h-6"
+                                  >
+                                    Clear
+                                  </Button>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+
+                          <div>
+                            <Label className="text-sm font-medium">Variables</Label>
+                            <div className="space-y-2 mt-2 max-h-32 overflow-y-auto">
+                              {state.variables.map((variable, index) => (
+                                <div key={`variable-display-${variable.name}-${index}`} className="flex items-center justify-between bg-gray-100 dark:bg-gray-800 rounded px-2 py-1">
+                                  <span className="text-sm font-mono">{variable.name} = {variable.value}</span>
+                                  <Button
+                                    variant="ghost"
+                                    size="sm"
+                                    onClick={() => {
+                                      setState(prev => ({
+                                        ...prev,
+                                        variables: prev.variables.filter((_, i) => i !== index)
+                                      }));
+                                    }}
+                                  >
+                                    <Delete className="w-3 h-3" />
+                                  </Button>
+                                </div>
+                              ))}
+                              {state.variables.length === 0 && (
+                                <div className="text-sm text-gray-500 text-center py-2">
+                                  No variables stored
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                )}
+
+                {/* Keyboard Shortcuts Info */}
                 <Card className="mt-6 shadow-xl border-0">
                   <CardHeader>
-                    <div className="flex items-center justify-between">
-                      <CardTitle className="flex items-center gap-2">
-                        <History className="w-5 h-5" />
-                        Calculation History
-                      </CardTitle>
-                      <Button variant="outline" size="sm" onClick={clearHistory}>
-                        <Delete className="w-4 h-4 mr-2" />
-                        Clear
-                      </Button>
-                    </div>
+                    <CardTitle className="flex items-center gap-2">
+                      <Zap className="w-5 h-5" />
+                      Keyboard Shortcuts
+                    </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    {state.history.length === 0 ? (
-                      <div className="text-center py-8 text-gray-500">
-                        <History className="w-12 h-12 mx-auto mb-4 opacity-50" />
-                        <p>No calculations yet</p>
-                        <p className="text-sm">Start calculating to see your history here</p>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                      <div>
+                        <strong>Numbers:</strong> 0-9
                       </div>
-                    ) : (
-                      <div className="space-y-2 max-h-64 overflow-y-auto">
-                        {state.history.map((item) => (
-                          <div
-                            key={item.id}
-                            className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-                          >
-                            <div>
-                              <div className="font-mono text-sm text-gray-600 dark:text-gray-400">
-                                {item.expression}
-                              </div>
-                              <div className="font-bold text-lg text-gray-900 dark:text-white">
-                                = {item.result}
-                              </div>
-                            </div>
-                            <div className="text-xs text-gray-500">
-                              {item.timestamp.toLocaleTimeString()}
-                            </div>
-                          </div>
-                        ))}
+                      <div>
+                        <strong>Operators:</strong> +, -, *, /
                       </div>
-                    )}
-                  </CardContent>
-                </Card>
-              )}
-
-              {/* Settings Panel */}
-              {showSettings && (
-                <Card className="mt-6 shadow-xl border-0">
-                  <CardHeader>
-                    <div className="flex items-center justify-between">
-                      <CardTitle className="flex items-center gap-2">
-                        <Settings className="w-5 h-5" />
-                        Advanced Settings
-                      </CardTitle>
-                      <div className="flex gap-2">
-                        <Button variant="outline" size="sm" onClick={exportData}>
-                          <Download className="w-4 h-4 mr-2" />
-                          Export
-                        </Button>
-                        <Button variant="outline" size="sm" asChild>
-                          <label htmlFor="import-file" className="cursor-pointer">
-                            <Upload className="w-4 h-4 mr-2" />
-                            Import
-                          </label>
-                        </Button>
-                        <input
-                          id="import-file"
-                          type="file"
-                          accept=".json"
-                          onChange={importData}
-                          className="hidden"
-                        />
+                      <div>
+                        <strong>Clear:</strong> C, Escape
                       </div>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div className="space-y-4">
-                        <div>
-                          <Label className="text-sm font-medium">Angle Mode</Label>
-                          <div className="flex gap-2 mt-2">
-                            <Button
-                              variant={state.angleMode === 'DEG' ? 'default' : 'outline'}
-                              size="sm"
-                              onClick={() => setState(prev => ({ ...prev, angleMode: 'DEG' }))}
-                            >
-                              Degrees
-                            </Button>
-                            <Button
-                              variant={state.angleMode === 'RAD' ? 'default' : 'outline'}
-                              size="sm"
-                              onClick={() => setState(prev => ({ ...prev, angleMode: 'RAD' }))}
-                            >
-                              Radians
-                            </Button>
-                            <Button
-                              variant={state.angleMode === 'GRAD' ? 'default' : 'outline'}
-                              size="sm"
-                              onClick={() => setState(prev => ({ ...prev, angleMode: 'GRAD' }))}
-                            >
-                              Gradians
-                            </Button>
-                          </div>
-                        </div>
-
-                        <div>
-                          <Label className="text-sm font-medium">Precision (Decimal Places)</Label>
-                          <div className="mt-2">
-                            <Slider
-                              value={[state.precision]}
-                              onValueChange={([value]) => setState(prev => ({ ...prev, precision: value }))}
-                              max={15}
-                              min={2}
-                              step={1}
-                              className="w-full"
-                            />
-                            <div className="text-sm text-gray-500 mt-1">
-                              Current: {state.precision} decimal places
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="flex items-center justify-between">
-                          <Label className="text-sm font-medium">Sound Effects</Label>
-                          <Switch
-                            checked={state.soundEnabled}
-                            onCheckedChange={(checked) => setState(prev => ({ ...prev, soundEnabled: checked }))}
-                          />
-                        </div>
-
-                        <div className="flex items-center justify-between">
-                          <Label className="text-sm font-medium">Complex Numbers</Label>
-                          <Switch
-                            checked={state.complexMode}
-                            onCheckedChange={(checked) => setState(prev => ({ ...prev, complexMode: checked }))}
-                          />
-                        </div>
+                      <div>
+                        <strong>Backspace:</strong> Backspace, ⌫
                       </div>
-
-                      <div className="space-y-4">
-                        <div>
-                          <Label className="text-sm font-medium">Theme</Label>
-                          <div className="flex gap-2 mt-2">
-                            <Button
-                              variant={state.theme === 'light' ? 'default' : 'outline'}
-                              size="sm"
-                              onClick={() => setState(prev => ({ ...prev, theme: 'light' }))}
-                              className="flex items-center gap-2"
-                            >
-                              <Sun className="w-4 h-4" />
-                              Light
-                            </Button>
-                            <Button
-                              variant={state.theme === 'dark' ? 'default' : 'outline'}
-                              size="sm"
-                              onClick={() => setState(prev => ({ ...prev, theme: 'dark' }))}
-                              className="flex items-center gap-2"
-                            >
-                              <Moon className="w-4 h-4" />
-                              Dark
-                            </Button>
-                            <Button
-                              variant={state.theme === 'auto' ? 'default' : 'outline'}
-                              size="sm"
-                              onClick={() => setState(prev => ({ ...prev, theme: 'auto' }))}
-                              className="flex items-center gap-2"
-                            >
-                              <Monitor className="w-4 h-4" />
-                              Auto
-                            </Button>
-                          </div>
-                        </div>
-
-                        <div>
-                          <Label className="text-sm font-medium">Memory Slots</Label>
-                          <div className="grid grid-cols-5 gap-1 mt-2">
-                            {state.memory.map((value, index) => (
-                              <div key={`memory-${index}-${value}`} className="text-center">
-                                <div className="text-xs text-gray-500">M{index + 1}</div>
-                                <div className="text-sm font-mono bg-gray-100 dark:bg-gray-800 rounded px-1">
-                                  {value.toFixed(2)}
-                                </div>
-                                <Button
-                                  variant="outline"
-                                  size="sm"
-                                  onClick={() => handleMemory('MC', index)}
-                                  className="text-xs mt-1 h-6"
-                                >
-                                  Clear
-                                </Button>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-
-                        <div>
-                          <Label className="text-sm font-medium">Variables</Label>
-                          <div className="space-y-2 mt-2 max-h-32 overflow-y-auto">
-                            {state.variables.map((variable, index) => (
-                              <div key={`variable-display-${variable.name}-${index}`} className="flex items-center justify-between bg-gray-100 dark:bg-gray-800 rounded px-2 py-1">
-                                <span className="text-sm font-mono">{variable.name} = {variable.value}</span>
-                                <Button
-                                  variant="ghost"
-                                  size="sm"
-                                  onClick={() => {
-                                    setState(prev => ({
-                                      ...prev,
-                                      variables: prev.variables.filter((_, i) => i !== index)
-                                    }));
-                                  }}
-                                >
-                                  <Delete className="w-3 h-3" />
-                                </Button>
-                              </div>
-                            ))}
-                            {state.variables.length === 0 && (
-                              <div className="text-sm text-gray-500 text-center py-2">
-                                No variables stored
-                              </div>
-                            )}
-                          </div>
-                        </div>
+                      <div>
+                        <strong>Equals:</strong> Enter, =
+                      </div>
+                      <div>
+                        <strong>Decimal:</strong> ., ,
+                      </div>
+                      <div>
+                        <strong>Power:</strong> ^, **
+                      </div>
+                      <div>
+                        <strong>Constants:</strong> p (π), e
                       </div>
                     </div>
                   </CardContent>
                 </Card>
-              )}
-
-              {/* Keyboard Shortcuts Info */}
-              <Card className="mt-6 shadow-xl border-0">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Zap className="w-5 h-5" />
-                    Keyboard Shortcuts
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-                    <div>
-                      <strong>Numbers:</strong> 0-9
-                    </div>
-                    <div>
-                      <strong>Operators:</strong> +, -, *, /
-                    </div>
-                    <div>
-                      <strong>Clear:</strong> C, Escape
-                    </div>
-                    <div>
-                      <strong>Backspace:</strong> Backspace, ⌫
-                    </div>
-                    <div>
-                      <strong>Equals:</strong> Enter, =
-                    </div>
-                    <div>
-                      <strong>Decimal:</strong> ., ,
-                    </div>
-                    <div>
-                      <strong>Power:</strong> ^, **
-                    </div>
-                    <div>
-                      <strong>Constants:</strong> p (π), e
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+              </div>
             </div>
-          </div>
-        </section>
-      </div>
-    </PageTransition>
+          </section>
+        </div>
+      </PageTransition>
+    </ProtectedRoute>
   );
 }
 
