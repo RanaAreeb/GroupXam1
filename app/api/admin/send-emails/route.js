@@ -7,10 +7,10 @@ export async function POST(request) {
         const { subject, message, template, selectedUsers, productLink, productName, imageData, imageName } = await request.json();
 
         // Validate required fields
-        if (!subject || !message || !selectedUsers || selectedUsers.length === 0) {
+        if (!subject || !selectedUsers || selectedUsers.length === 0) {
             return NextResponse.json({
                 success: false,
-                error: 'Missing required fields: subject, message, and selectedUsers'
+                error: 'Missing required fields: subject and selectedUsers'
             }, { status: 400 });
         }
 
@@ -45,6 +45,9 @@ export async function POST(request) {
             }
         });
 
+        let heroAttachmentTemplate = null;
+        let heroImageSource = null;
+
         if (imageData) {
             if (typeof imageData !== 'string' || !imageData.startsWith('data:image/')) {
                 return NextResponse.json({
@@ -60,25 +63,58 @@ export async function POST(request) {
                     error: 'Image is too large. Please use an image under 1MB.'
                 }, { status: 400 });
             }
+
+            const matches = imageData.match(/^data:(image\/[a-zA-Z0-9+.-]+);base64,(.+)$/);
+            if (!matches) {
+                return NextResponse.json({
+                    success: false,
+                    error: 'Could not read the uploaded image. Please try a different file.'
+                }, { status: 400 });
+            }
+
+            const mimeType = matches[1];
+            const base64Content = matches[2];
+            const extension = mimeType.split('/')[1] || 'png';
+            const sanitizedName = (imageName || `groupxam-showcase.${extension}`).replace(/[^a-zA-Z0-9._-]/g, '_');
+            const cid = `hero-image-${Date.now()}@groupxam`;
+
+            heroAttachmentTemplate = {
+                filename: sanitizedName.endsWith(`.${extension}`) ? sanitizedName : `${sanitizedName}.${extension}`,
+                content: base64Content,
+                encoding: 'base64',
+                cid,
+                contentType: mimeType,
+            };
+            heroImageSource = `cid:${cid}`;
         }
 
         // Create email templates
-        const getEmailTemplate = (template, user, subject, message, productLink, productName, heroImage, heroImageName) => {
-            const paragraphs = (message || '')
+        const templateFallbackMessages = {
+            feature_update: `Sunu-I just got smarter for your learners.\n\nWhat's new:\n- Polished AI responses with clearer study guidance\n- Research-ready answers that surface citations on demand\n- A refreshed admin dashboard to track AI usage at a glance\n\nOpen the dashboard to explore the latest experience.`,
+            announcement: `We have an important update to share with you.\n\nHere's the overview:\n- Platform availability schedule\n- What's changing for students\n- How to get support if you have questions\n\nPlease review the full announcement in your dashboard.`,
+            promotion: `Boost your study plan with GroupXam Premium.\n\nWith Premium you'll get:\n- Scholarly research assistance with source summaries\n- Coding and writing mentors for every assignment\n- 30-day chat history and advanced study planners\n\nUpgrade now to keep your preparation on track.`,
+            custom: `Here's the latest update from the GroupXam team.`,
+        };
+
+        const getEmailTemplate = (template, user, subject, messageBody, productLink, productName, heroImage) => {
+            const resolvedMessage =
+                typeof messageBody === 'string' && messageBody.trim().length > 0
+                    ? messageBody
+                    : templateFallbackMessages[template] || templateFallbackMessages.feature_update;
+
+            const paragraphs = (resolvedMessage || '')
                 .split('\n')
                 .map((line) => line.trim())
                 .filter(Boolean)
                 .map((line) => `<p style="margin: 0 0 14px; color: #374151; font-size: 15px;">${line}</p>`)
                 .join('');
 
-            const heroAlt = (heroImageName || productName || 'GroupXam AI Preview').replace(/"/g, '&quot;');
-
             const heroSection = heroImage
                 ? `
             <div style="margin: 0 0 24px;">
               <img
                 src="${heroImage}"
-                alt="${heroAlt}"
+                alt="${(productName || 'GroupXam AI Preview').replace(/"/g, '&quot;')}"
                 style="width: 100%; max-width: 560px; display: block; margin: 0 auto; border-radius: 18px; box-shadow: 0 18px 40px rgba(79, 70, 229, 0.18);"
               />
             </div>
@@ -121,7 +157,7 @@ export async function POST(request) {
                 <p style="margin:0; color:#4b5563; font-size:14px;">
                   Need a hand getting started? Reply to this email or reach us at
                   <a href="mailto:${process.env.GMAIL_ADDRESS}" style="color:#2563eb; text-decoration:none;">${process.env.GMAIL_ADDRESS}</a>.
-                  We’re here to help your learners stay ahead.
+                  We're here to help your learners stay ahead.
                 </p>
               </div>
             </div>
@@ -140,7 +176,7 @@ export async function POST(request) {
         // Send emails to each user
         const emailPromises = users.map(async (user) => {
             try {
-                const emailHtml = getEmailTemplate(template, user, subject, message, productLink, productName, imageData, imageName);
+                const emailHtml = getEmailTemplate(template, user, subject, message, productLink, productName, heroImageSource);
 
                 const mailOptions = {
                     from: {
@@ -149,7 +185,8 @@ export async function POST(request) {
                     },
                     to: user.email,
                     subject: subject,
-                    html: emailHtml
+                    html: emailHtml,
+                    attachments: heroAttachmentTemplate ? [{ ...heroAttachmentTemplate }] : undefined,
                 };
 
                 await transporter.sendMail(mailOptions);

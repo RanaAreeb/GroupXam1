@@ -72,6 +72,49 @@ import { useToast } from "@/hooks/use-toast";
 import type { MaintenanceSetting } from "@/lib/maintenance";
 import { MAINTENANCE_SECTIONS } from "@/constants/maintenance";
 
+const emailTemplatePresets: Record<string, { subject: string; message: string }> = {
+  feature_update: {
+    subject: "New Feature Update - GroupXam",
+    message: `Sunu-I just got smarter for your learners.
+
+What's new:
+- Polished AI responses with clearer study guidance
+- Research-ready answers that surface citations on demand
+- A refreshed admin dashboard to track AI usage at a glance
+
+Open the dashboard to explore the latest experience.`,
+  },
+  announcement: {
+    subject: "Important Update from GroupXam",
+    message: `We have an important update to share with you.
+
+Here's the overview:
+- Platform availability schedule
+- What's changing for students
+- How to get support if you have questions
+
+Please review the full announcement in your dashboard.`,
+  },
+  promotion: {
+    subject: "Unlock GroupXam Premium Advantages",
+    message: `Boost your study plan with GroupXam Premium.
+
+With Premium you'll get:
+- Scholarly research assistance with source summaries
+- Coding and writing mentors for every assignment
+- 30-day chat history and advanced study planners
+
+Upgrade now to keep your preparation on track.`,
+  },
+  custom: {
+    subject: "Custom Message - GroupXam",
+    message: "",
+  },
+};
+
+const getEmailTemplatePreset = (template: string) =>
+  emailTemplatePresets[template] ?? emailTemplatePresets.feature_update;
+
 // Add Manual Payment Form Component
 function AddManualPaymentForm({
   onSubmit,
@@ -483,9 +526,10 @@ export default function AdminDashboard() {
   const [emailRecipients, setEmailRecipients] = useState<any[]>([]);
   const [isLoadingEmailRecipients, setIsLoadingEmailRecipients] = useState(false);
   const [isSendingEmails, setIsSendingEmails] = useState(false);
+  const initialEmailPreset = getEmailTemplatePreset('feature_update');
   const [emailFormData, setEmailFormData] = useState({
-    subject: 'New Feature Update - GroupXam',
-    message: '',
+    subject: initialEmailPreset.subject,
+    message: initialEmailPreset.message,
     template: 'feature_update',
     selectedUsers: [] as string[],
     productLink: '',
@@ -1334,9 +1378,10 @@ export default function AdminDashboard() {
       const data = await response.json();
 
       if (data.success) {
+        const resetPreset = getEmailTemplatePreset('feature_update');
         setEmailFormData({
-          subject: 'New Feature Update - GroupXam',
-          message: '',
+          subject: resetPreset.subject,
+          message: resetPreset.message,
           template: 'feature_update',
           selectedUsers: [],
           productLink: '',
@@ -1370,6 +1415,16 @@ export default function AdminDashboard() {
     } finally {
       setIsSendingEmails(false);
     }
+  };
+
+  const handleEmailTemplateChange = (value: string) => {
+    const preset = getEmailTemplatePreset(value);
+    setEmailFormData((prev) => ({
+      ...prev,
+      template: value,
+      subject: preset.subject || prev.subject,
+      message: preset.message,
+    }));
   };
 
   const handleEmailUserSelection = (userId: string, isSelected: boolean) => {
@@ -3918,7 +3973,7 @@ export default function AdminDashboard() {
                                 </div>
                                 <div>
                                   <Label htmlFor="emailTemplate">Template</Label>
-                                  <Select value={emailFormData.template} onValueChange={(value) => setEmailFormData(prev => ({ ...prev, template: value }))}>
+                                  <Select value={emailFormData.template} onValueChange={handleEmailTemplateChange}>
                                     <SelectTrigger>
                                       <SelectValue />
                                     </SelectTrigger>
