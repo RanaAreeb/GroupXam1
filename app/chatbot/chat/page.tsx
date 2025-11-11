@@ -1,12 +1,10 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { useRouter } from "next/navigation";
-import { useAuth } from "@/hooks/use-auth";
 import ProtectedRoute from "@/components/ProtectedRoute";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Send, User, Loader2, Image as ImageIcon, XCircle, ArrowLeft, AlertCircle, Sparkles, MoreVertical, Trash2, Copy, Check, Paperclip, FileText } from "lucide-react";
+import { Send, User, Loader2, Image as ImageIcon, XCircle, ArrowLeft, AlertCircle, Sparkles, Trash2, Copy, Check, Paperclip, FileText, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Card } from "@/components/ui/card";
@@ -282,16 +280,24 @@ const formatFileSize = (bytes: number) => {
   return `${(bytes / (1024 * 1024)).toFixed(2)} MB`;
 };
 
+const DEFAULT_ASSISTANT_GREETING =
+  "Hello! I'm sunu-I, your AI study assistant. I'm here to help you with exam preparation, study strategies, and answer any academic questions you have. How can I help you today?";
+
+const FREE_HISTORY_RETENTION_DAYS = 7;
+const PREMIUM_HISTORY_RETENTION_DAYS = 30;
+
+const buildGreetingMessage = (): Message => ({
+  role: "assistant",
+  content: DEFAULT_ASSISTANT_GREETING,
+  timestamp: new Date(),
+});
+
 export default function ChatPage() {
-  const { isLoggedIn, user } = useAuth();
-  const router = useRouter();
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [selectedImages, setSelectedImages] = useState<string[]>([]);
   const [selectedDocuments, setSelectedDocuments] = useState<DocumentAttachment[]>([]);
-  const [usageData, setUsageData] = useState<any>(null);
-  const [showLimitMessage, setShowLimitMessage] = useState(false);
   const [copiedMessageId, setCopiedMessageId] = useState<number | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -299,6 +305,12 @@ export default function ChatPage() {
   const documentInputRef = useRef<HTMLInputElement>(null);
   const prefillHandledRef = useRef(false);
   const [documentError, setDocumentError] = useState<string | null>(null);
+  const [assistantResponseCount, setAssistantResponseCount] = useState(0);
+  const [showPremiumReminder, setShowPremiumReminder] = useState(false);
+  const [hasSubscription, setHasSubscription] = useState<boolean | null>(null);
+  const [retentionDays, setRetentionDays] = useState<number | null>(null);
+  const [isHistoryLoading, setIsHistoryLoading] = useState(true);
+  const [historyError, setHistoryError] = useState<string | null>(null);
 
   const { maintenance: aiMaintenance } = useMaintenance("ai_chat");
   const { maintenance: siteMaintenance } = useMaintenance("whole_site");
@@ -312,14 +324,70 @@ export default function ChatPage() {
     "sunu-I is currently undergoing maintenance. Please check back soon.";
 
   useEffect(() => {
-    checkUsage();
-    setMessages([
-      {
-        role: "assistant",
-        content: "Hello! I'm sunu-I, your AI study assistant. I'm here to help you with exam preparation, study strategies, and answer any academic questions you have. How can I help you today?",
-        timestamp: new Date(),
-      },
-    ]);
+    const loadHistory = async () => {
+      setIsHistoryLoading(true);
+      setHistoryError(null);
+
+      try {
+        const response = await fetch("/api/chat/history");
+        if (!response.ok) {
+          throw new Error("Failed to load chat history");
+        }
+
+        const data = await response.json();
+
+        if (typeof data.hasSubscription === "boolean") {
+          setHasSubscription(data.hasSubscription);
+        } else {
+          setHasSubscription(null);
+        }
+
+        if (typeof data.retentionDays === "number") {
+          setRetentionDays(data.retentionDays);
+        } else {
+          setRetentionDays(null);
+        }
+
+        const historyMessages: Message[] = Array.isArray(data.history)
+          ? data.history
+            .map((entry: any) => {
+              if (!entry || (entry.role !== "user" && entry.role !== "assistant")) {
+                return null;
+              }
+
+              return {
+                role: entry.role as "user" | "assistant",
+                content: typeof entry.content === "string" ? entry.content : "",
+                timestamp: entry.createdAt ? new Date(entry.createdAt) : new Date(),
+              };
+            })
+            .filter((msg: Message | null): msg is Message => Boolean(msg))
+          : [];
+
+        if (historyMessages.length > 0) {
+          setMessages(historyMessages);
+          const assistantFromHistory = historyMessages.filter(
+            (msg) => msg.role === "assistant" && msg.content !== DEFAULT_ASSISTANT_GREETING
+          ).length;
+          setAssistantResponseCount(assistantFromHistory);
+          setShowPremiumReminder(assistantFromHistory >= 3);
+        } else {
+          setMessages([buildGreetingMessage()]);
+          setAssistantResponseCount(0);
+          setShowPremiumReminder(false);
+        }
+      } catch (error) {
+        console.error("Chat history load error:", error);
+        setHistoryError("We couldn't load your previous chat history. Starting a new chat.");
+        setMessages([buildGreetingMessage()]);
+        setAssistantResponseCount(0);
+        setShowPremiumReminder(false);
+      } finally {
+        setIsHistoryLoading(false);
+      }
+    };
+
+    loadHistory();
   }, []);
 
   useEffect(() => {
@@ -337,20 +405,6 @@ export default function ChatPage() {
       setDocumentError(null);
     }
   }, [isChatInMaintenance]);
-
-  const checkUsage = async () => {
-    try {
-      const response = await fetch("/api/chat/usage");
-      const data = await response.json();
-      setUsageData(data);
-
-      if (!data.canUseChat && !data.hasSubscription) {
-        setShowLimitMessage(true);
-      }
-    } catch (error) {
-      console.error("Error checking usage:", error);
-    }
-  };
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -457,16 +511,18 @@ export default function ChatPage() {
   };
 
   const clearChat = () => {
-    setMessages([
-      {
-        role: "assistant",
-        content: "Hello! I'm sunu-I, your AI study assistant. I'm here to help you with exam preparation, study strategies, and answer any academic questions you have. How can I help you today?",
-        timestamp: new Date(),
-      },
-    ]);
+    setMessages([buildGreetingMessage()]);
     setSelectedImages([]);
     setSelectedDocuments([]);
     setDocumentError(null);
+    setAssistantResponseCount(0);
+    setShowPremiumReminder(false);
+    setHistoryError(null);
+
+    // Fire-and-forget request to clear persisted history
+    fetch("/api/chat/history", { method: "DELETE" }).catch((error) => {
+      console.error("Failed to clear chat history on server:", error);
+    });
   };
 
   const sendChatRequest = async ({
@@ -491,12 +547,6 @@ export default function ChatPage() {
     }
 
     if (isLoading) {
-      return;
-    }
-
-    // Check usage before sending
-    if (usageData && !usageData.canUseChat && !usageData.hasSubscription) {
-      router.push("/subscription");
       return;
     }
 
@@ -525,12 +575,6 @@ export default function ChatPage() {
     setIsLoading(true);
 
     try {
-      // Increment usage count
-      await fetch("/api/chat/usage", { method: "POST" });
-
-      // Recheck usage after incrementing
-      await checkUsage();
-
       const historyBase = [...messages, userMessage];
 
       const conversationHistory = historyBase
@@ -584,12 +628,15 @@ export default function ChatPage() {
       const data = await response.json();
 
       if (!response.ok) {
-        // If subscription required, redirect to subscription page
-        if (data.requiresSubscription || response.status === 403) {
-          router.push("/subscription");
-          return;
-        }
         throw new Error(data.error || "Failed to get response");
+      }
+
+      if (typeof data.hasSubscription === "boolean") {
+        setHasSubscription(data.hasSubscription);
+      }
+
+      if (typeof data.retentionDays === "number") {
+        setRetentionDays(data.retentionDays);
       }
 
       const assistantMessage: Message = {
@@ -599,6 +646,13 @@ export default function ChatPage() {
       };
 
       setMessages((prev) => [...prev, assistantMessage]);
+      setAssistantResponseCount((prevCount) => {
+        const nextCount = prevCount + 1;
+        if (nextCount >= 3) {
+          setShowPremiumReminder(true);
+        }
+        return nextCount;
+      });
     } catch (error: any) {
       const errorMessage: Message = {
         role: "assistant",
@@ -623,11 +677,10 @@ export default function ChatPage() {
   useEffect(() => {
     if (prefillHandledRef.current) return;
     if (typeof window === "undefined") return;
+    if (isHistoryLoading) return;
 
     const stored = window.sessionStorage.getItem("groupxam_chat_prefill");
     if (!stored) return;
-
-    if (!usageData) return;
 
     if (isChatInMaintenance) {
       return;
@@ -669,7 +722,7 @@ export default function ChatPage() {
       console.error("Failed to process chat prefill payload:", error);
       window.sessionStorage.removeItem("groupxam_chat_prefill");
     }
-  }, [usageData, sendChatRequest, isChatInMaintenance]);
+  }, [sendChatRequest, isChatInMaintenance, isHistoryLoading]);
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && !e.shiftKey) {
@@ -677,6 +730,22 @@ export default function ChatPage() {
       sendMessage();
     }
   };
+
+  const resolvedRetentionDays =
+    typeof retentionDays === "number"
+      ? retentionDays
+      : hasSubscription === null
+        ? null
+        : hasSubscription
+          ? PREMIUM_HISTORY_RETENTION_DAYS
+          : FREE_HISTORY_RETENTION_DAYS;
+
+  const retentionMessage =
+    hasSubscription === null
+      ? "Loading history preferences..."
+      : hasSubscription
+        ? `Your chat history is saved for ${resolvedRetentionDays ?? PREMIUM_HISTORY_RETENTION_DAYS} days.`
+        : `Free plan saves chat history for ${resolvedRetentionDays ?? FREE_HISTORY_RETENTION_DAYS} days. Upgrade for 30 days.`;
 
   return (
     <ProtectedRoute>
@@ -707,26 +776,19 @@ export default function ChatPage() {
             </div>
           </div>
           <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
-            {usageData && (
-              <Card className="px-2 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-emerald-50 to-blue-50 border-emerald-200/50">
+            <Card className="px-2 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-emerald-50 to-blue-50 border-emerald-200/50">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:gap-3">
                 <div className="flex items-center gap-1 sm:gap-2">
-                  {usageData.hasSubscription ? (
-                    <>
-                      <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-emerald-600 flex-shrink-0" />
-                      <span className="text-xs sm:text-sm font-semibold text-emerald-700 whitespace-nowrap">Unlimited</span>
-                    </>
-                  ) : (
-                    <>
-                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-500 rounded-full animate-pulse flex-shrink-0"></div>
-                      <span className="text-xs sm:text-sm font-medium text-gray-700 whitespace-nowrap">
-                        <span className="hidden sm:inline">{usageData.remainingTries} {usageData.remainingTries === 1 ? 'try' : 'tries'} left</span>
-                        <span className="sm:hidden">{usageData.remainingTries}</span>
-                      </span>
-                    </>
-                  )}
+                  <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-emerald-600 flex-shrink-0" />
+                  <span className="text-xs sm:text-sm font-semibold text-emerald-700 whitespace-nowrap">
+                    Unlimited responses · auto-trimmed for clarity
+                  </span>
                 </div>
-              </Card>
-            )}
+                <span className="text-[10px] sm:text-xs text-emerald-700/90 sm:border-l sm:border-emerald-200/60 sm:pl-3">
+                  {retentionMessage}
+                </span>
+              </div>
+            </Card>
             <Button
               variant="ghost"
               size="sm"
@@ -737,26 +799,6 @@ export default function ChatPage() {
             </Button>
           </div>
         </div>
-
-        {/* Enhanced Limit Message */}
-        {showLimitMessage && !usageData?.hasSubscription && (
-          <div className="bg-gradient-to-r from-amber-50 to-orange-50 border-b border-amber-200/50 px-3 sm:px-6 py-3 sm:py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-md">
-            <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
-                <AlertCircle className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-              </div>
-              <div className="min-w-0">
-                <p className="text-xs sm:text-sm font-semibold text-amber-900">Free Tries Exhausted</p>
-                <p className="text-xs text-amber-700 hidden sm:block">Subscribe now for unlimited access to sunu-I</p>
-              </div>
-            </div>
-            <Link href="/subscription" className="w-full sm:w-auto">
-              <Button size="sm" className="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white shadow-lg w-full sm:w-auto">
-                <span className="text-xs sm:text-sm">Subscribe Now</span>
-              </Button>
-            </Link>
-          </div>
-        )}
 
         {isChatInMaintenance && (
           <div className="px-4 sm:px-6 mt-4">
@@ -770,127 +812,180 @@ export default function ChatPage() {
           </div>
         )}
 
+        {showPremiumReminder && (
+          <div className="px-4 sm:px-6 mt-4">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 rounded-xl border border-blue-200 bg-blue-50/80 px-4 py-4 shadow-md">
+              <div className="flex items-start gap-3">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                </div>
+                <div>
+                  <p className="text-sm sm:text-base font-semibold text-blue-900">
+                    Unlock sunu-I Premium for more powerful study features
+                  </p>
+                  <p className="text-xs sm:text-sm text-blue-700 mt-1">
+                    Get deeper explanations, saved conversations, and upcoming advanced tools designed to boost your exam prep.
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 self-stretch sm:self-center">
+                <Link href="/subscription" className="w-full sm:w-auto">
+                  <Button size="sm" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-md w-full sm:w-auto">
+                    Upgrade Now
+                  </Button>
+                </Link>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => setShowPremiumReminder(false)}
+                  className="text-blue-600 hover:text-blue-800 hover:bg-blue-100/70"
+                  aria-label="Dismiss premium reminder"
+                >
+                  <X className="w-4 h-4" />
+                </Button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {historyError && (
+          <div className="px-4 sm:px-6 mt-3">
+            <div className="flex items-start gap-3 rounded-xl border border-amber-200 bg-amber-50/80 px-4 py-3 text-amber-800">
+              <AlertCircle className="mt-0.5 h-5 w-5 flex-shrink-0" />
+              <p className="text-sm leading-relaxed">{historyError}</p>
+            </div>
+          </div>
+        )}
+
         {/* Enhanced Messages Area */}
         <div className="flex-1 overflow-y-auto px-4 py-8">
           <div className="max-w-4xl mx-auto space-y-8">
-            {messages.map((message, index) => (
-              <div
-                key={index}
-                className={`flex gap-4 group ${message.role === "user" ? "justify-end" : "justify-start"
-                  }`}
-              >
-                {message.role === "assistant" && (
-                  <div className="flex-shrink-0">
-                    <Image
-                      src="/sunu_icon.png"
-                      alt="sunu-I"
-                      width={40}
-                      height={40}
-                      className="object-contain w-10 h-10"
-                    />
-                  </div>
-                )}
-                <div className="flex flex-col gap-2 max-w-[75%]">
+            {isHistoryLoading ? (
+              <div className="flex justify-center py-16">
+                <Loader2 className="w-6 h-6 animate-spin text-blue-600" />
+              </div>
+            ) : (
+              <>
+                {messages.map((message, index) => (
                   <div
-                    className={`rounded-2xl px-5 py-4 shadow-lg transition-all duration-200 ${message.role === "user"
-                      ? "bg-gradient-to-br from-blue-600 to-indigo-600 text-white rounded-br-md"
-                      : "bg-white border border-gray-200/50 text-gray-800 rounded-bl-md shadow-md"
+                    key={index}
+                    className={`flex gap-4 group ${message.role === "user" ? "justify-end" : "justify-start"
                       }`}
                   >
-                    {message.images && message.images.length > 0 && (
-                      <div className={`grid grid-cols-2 gap-2 mb-3 ${message.role === "user" ? "opacity-90" : ""}`}>
-                        {message.images.map((img, imgIndex) => (
-                          <div key={imgIndex} className="relative rounded-lg overflow-hidden border-2 border-white/20">
-                            <img
-                              src={img}
-                              alt={`Upload ${imgIndex + 1}`}
-                              className="w-full h-32 object-cover"
-                            />
+                    {message.role === "assistant" && (
+                      <div className="flex-shrink-0">
+                        <Image
+                          src="/sunu_icon.png"
+                          alt="sunu-I"
+                          width={40}
+                          height={40}
+                          className="object-contain w-10 h-10"
+                        />
+                      </div>
+                    )}
+                    <div className="flex flex-col gap-2 max-w-[75%]">
+                      <div
+                        className={`rounded-2xl px-5 py-4 shadow-lg transition-all duration-200 ${message.role === "user"
+                          ? "bg-gradient-to-br from-blue-600 to-indigo-600 text-white rounded-br-md"
+                          : "bg-white border border-gray-200/50 text-gray-800 rounded-bl-md shadow-md"
+                          }`}
+                      >
+                        {message.images && message.images.length > 0 && (
+                          <div className={`grid grid-cols-2 gap-2 mb-3 ${message.role === "user" ? "opacity-90" : ""}`}>
+                            {message.images.map((img, imgIndex) => (
+                              <div key={imgIndex} className="relative rounded-lg overflow-hidden border-2 border-white/20">
+                                <img
+                                  src={img}
+                                  alt={`Upload ${imgIndex + 1}`}
+                                  className="w-full h-32 object-cover"
+                                />
+                              </div>
+                            ))}
                           </div>
-                        ))}
+                        )}
+                        {message.documents && message.documents.length > 0 && (
+                          <div className="flex flex-col gap-2 mb-3">
+                            {message.documents.map((doc, docIndex) => (
+                              <a
+                                key={`${doc.name}-${docIndex}`}
+                                href={doc.dataUrl}
+                                download={doc.name}
+                                className={`flex items-center justify-between rounded-lg border px-3 py-2 text-sm transition-colors ${message.role === "user"
+                                  ? "border-white/20 bg-white/10 text-white hover:bg-white/20"
+                                  : "border-gray-200 bg-gray-100 text-gray-700 hover:bg-gray-200"
+                                  }`}
+                              >
+                                <div className="flex items-center gap-2 overflow-hidden">
+                                  <FileText className="w-4 h-4 flex-shrink-0" />
+                                  <span className="truncate max-w-[160px] sm:max-w-[220px]">{doc.name}</span>
+                                </div>
+                                <span className="text-xs opacity-75 ml-2 flex-shrink-0">
+                                  {formatFileSize(doc.size)}
+                                </span>
+                              </a>
+                            ))}
+                          </div>
+                        )}
+                        <div className="leading-relaxed break-words">
+                          {renderMarkdown(message.content, message.role === "user")}
+                        </div>
                       </div>
-                    )}
-                    {message.documents && message.documents.length > 0 && (
-                      <div className="flex flex-col gap-2 mb-3">
-                        {message.documents.map((doc, docIndex) => (
-                          <a
-                            key={`${doc.name}-${docIndex}`}
-                            href={doc.dataUrl}
-                            download={doc.name}
-                            className={`flex items-center justify-between rounded-lg border px-3 py-2 text-sm transition-colors ${message.role === "user"
-                              ? "border-white/20 bg-white/10 text-white hover:bg-white/20"
-                              : "border-gray-200 bg-gray-100 text-gray-700 hover:bg-gray-200"
-                              }`}
-                          >
-                            <div className="flex items-center gap-2 overflow-hidden">
-                              <FileText className="w-4 h-4 flex-shrink-0" />
-                              <span className="truncate max-w-[160px] sm:max-w-[220px]">{doc.name}</span>
-                            </div>
-                            <span className="text-xs opacity-75 ml-2 flex-shrink-0">
-                              {formatFileSize(doc.size)}
-                            </span>
-                          </a>
-                        ))}
+                      <div className={`flex items-center gap-2 ${message.role === "user" ? "justify-end" : "justify-start"} opacity-0 group-hover:opacity-100 transition-opacity`}>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => copyToClipboard(message.content, index)}
+                          className="h-7 px-2 text-xs"
+                        >
+                          {copiedMessageId === index ? (
+                            <>
+                              <Check className="w-3 h-3 mr-1" />
+                              Copied
+                            </>
+                          ) : (
+                            <>
+                              <Copy className="w-3 h-3 mr-1" />
+                              Copy
+                            </>
+                          )}
+                        </Button>
+                        <span className="text-xs text-gray-400">
+                          {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                        </span>
                       </div>
-                    )}
-                    <div className="leading-relaxed break-words">
-                      {renderMarkdown(message.content, message.role === "user")}
                     </div>
+                    {message.role === "user" && (
+                      <div className="flex-shrink-0">
+                        <div className="relative">
+                          <div className="absolute inset-0 bg-gradient-to-br from-gray-400 to-gray-500 rounded-2xl blur-md opacity-20"></div>
+                          <div className="relative w-10 h-10 rounded-2xl bg-gradient-to-br from-gray-400 to-gray-500 flex items-center justify-center shadow-lg">
+                            <User className="w-5 h-5 text-white" />
+                          </div>
+                        </div>
+                      </div>
+                    )}
                   </div>
-                  <div className={`flex items-center gap-2 ${message.role === "user" ? "justify-end" : "justify-start"} opacity-0 group-hover:opacity-100 transition-opacity`}>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      onClick={() => copyToClipboard(message.content, index)}
-                      className="h-7 px-2 text-xs"
-                    >
-                      {copiedMessageId === index ? (
-                        <>
-                          <Check className="w-3 h-3 mr-1" />
-                          Copied
-                        </>
-                      ) : (
-                        <>
-                          <Copy className="w-3 h-3 mr-1" />
-                          Copy
-                        </>
-                      )}
-                    </Button>
-                    <span className="text-xs text-gray-400">
-                      {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                    </span>
-                  </div>
-                </div>
-                {message.role === "user" && (
-                  <div className="flex-shrink-0">
-                    <div className="relative">
-                      <div className="absolute inset-0 bg-gradient-to-br from-gray-400 to-gray-500 rounded-2xl blur-md opacity-20"></div>
-                      <div className="relative w-10 h-10 rounded-2xl bg-gradient-to-br from-gray-400 to-gray-500 flex items-center justify-center shadow-lg">
-                        <User className="w-5 h-5 text-white" />
+                ))}
+                {isLoading && (
+                  <div className="flex gap-4 justify-start">
+                    <div className="flex-shrink-0">
+                      <Image
+                        src="/sunu_icon.png"
+                        alt="sunu-I"
+                        width={40}
+                        height={40}
+                        className="object-contain w-10 h-10"
+                      />
+                    </div>
+                    <div className="bg-white border border-gray-200/50 rounded-2xl rounded-bl-md px-5 py-4 shadow-md">
+                      <div className="flex items-center gap-2">
+                        <Loader2 className="w-5 h-5 animate-spin text-blue-600" />
+                        <span className="text-sm text-gray-600">sunu-I is thinking...</span>
                       </div>
                     </div>
                   </div>
                 )}
-              </div>
-            ))}
-            {isLoading && (
-              <div className="flex gap-4 justify-start">
-                <div className="flex-shrink-0">
-                  <Image
-                    src="/sunu_icon.png"
-                    alt="sunu-I"
-                    width={40}
-                    height={40}
-                    className="object-contain w-10 h-10"
-                  />
-                </div>
-                <div className="bg-white border border-gray-200/50 rounded-2xl rounded-bl-md px-5 py-4 shadow-md">
-                  <div className="flex items-center gap-2">
-                    <Loader2 className="w-5 h-5 animate-spin text-blue-600" />
-                    <span className="text-sm text-gray-600">sunu-I is thinking...</span>
-                  </div>
-                </div>
-              </div>
+              </>
             )}
             <div ref={messagesEndRef} />
           </div>
@@ -978,11 +1073,7 @@ export default function ChatPage() {
                   size="sm"
                   onClick={() => fileInputRef.current?.click()}
                   className="flex-shrink-0 hover:bg-gray-100 rounded-lg transition-colors"
-                  disabled={
-                    isLoading ||
-                    isChatInMaintenance ||
-                    (usageData && !usageData.canUseChat && !usageData.hasSubscription)
-                  }
+                  disabled={isLoading || isChatInMaintenance || isHistoryLoading}
                 >
                   <ImageIcon className="w-5 h-5 text-gray-600" />
                 </Button>
@@ -991,11 +1082,7 @@ export default function ChatPage() {
                   size="sm"
                   onClick={() => documentInputRef.current?.click()}
                   className="flex-shrink-0 hover:bg-gray-100 rounded-lg transition-colors"
-                  disabled={
-                    isLoading ||
-                    isChatInMaintenance ||
-                    (usageData && !usageData.canUseChat && !usageData.hasSubscription)
-                  }
+                  disabled={isLoading || isChatInMaintenance || isHistoryLoading}
                 >
                   <Paperclip className="w-5 h-5 text-gray-600" />
                 </Button>
@@ -1005,11 +1092,7 @@ export default function ChatPage() {
                   onChange={(e) => setInput(e.target.value)}
                   onKeyPress={handleKeyPress}
                   placeholder="Ask sunu-I anything about your studies..."
-                  disabled={
-                    isLoading ||
-                    isChatInMaintenance ||
-                    (usageData && !usageData.canUseChat && !usageData.hasSubscription)
-                  }
+                  disabled={isLoading || isChatInMaintenance || isHistoryLoading}
                   className="flex-1 border-0 focus-visible:ring-0 focus-visible:ring-offset-0 text-base py-6"
                 />
                 <Button
@@ -1017,8 +1100,8 @@ export default function ChatPage() {
                   disabled={
                     isLoading ||
                     isChatInMaintenance ||
-                    (!input.trim() && selectedImages.length === 0 && selectedDocuments.length === 0) ||
-                    (usageData && !usageData.canUseChat && !usageData.hasSubscription)
+                    isHistoryLoading ||
+                    (!input.trim() && selectedImages.length === 0 && selectedDocuments.length === 0)
                   }
                   className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white flex-shrink-0 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 h-11 w-11 p-0"
                 >

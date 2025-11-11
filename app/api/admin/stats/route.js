@@ -157,6 +157,169 @@ export async function GET(request) {
             sessionData.activeUsers = sessionData.activeUsers.length;
         }
 
+        // AI assistant analytics
+        const aiMatchStage = {
+            createdAt: { $gte: startDateObj, $lte: endDateObj }
+        };
+
+        const aiUserSummary = await db.collection("chatMessages").aggregate([
+            { $match: aiMatchStage },
+            {
+                $group: {
+                    _id: "$email",
+                    totalMessages: { $sum: 1 },
+                    userMessages: {
+                        $sum: {
+                            $cond: [{ $eq: ["$role", "user"] }, 1, 0]
+                        }
+                    },
+                    assistantMessages: {
+                        $sum: {
+                            $cond: [{ $eq: ["$role", "assistant"] }, 1, 0]
+                        }
+                    },
+                    firstMessageAt: { $min: "$createdAt" },
+                    lastMessageAt: { $max: "$createdAt" }
+                }
+            }
+        ]).toArray();
+
+        const aiSessionsRaw = await db.collection("chatMessages").aggregate([
+            { $match: aiMatchStage },
+            {
+                $addFields: {
+                    sessionDate: {
+                        $dateToString: {
+                            format: "%Y-%m-%d",
+                            date: "$createdAt"
+                        }
+                    }
+                }
+            },
+            {
+                $group: {
+                    _id: { email: "$email", sessionDate: "$sessionDate" },
+                    email: { $first: "$email" },
+                    sessionDate: { $first: "$sessionDate" },
+                    firstMessageAt: { $min: "$createdAt" },
+                    lastMessageAt: { $max: "$createdAt" },
+                    totalMessages: { $sum: 1 },
+                    userMessages: {
+                        $sum: {
+                            $cond: [{ $eq: ["$role", "user"] }, 1, 0]
+                        }
+                    },
+                    assistantMessages: {
+                        $sum: {
+                            $cond: [{ $eq: ["$role", "assistant"] }, 1, 0]
+                        }
+                    }
+                }
+            }
+        ]).toArray();
+
+        const recentAiMessages = await db.collection("chatMessages")
+            .find(aiMatchStage)
+            .project({
+                email: 1,
+                role: 1,
+                content: 1,
+                createdAt: 1
+            })
+            .sort({ createdAt: -1 })
+            .limit(25)
+            .toArray();
+
+        let totalSessionMinutes = 0;
+        const sessionSummaryByUser = {};
+        const aiSessions = aiSessionsRaw.map((session) => {
+            const first = session.firstMessageAt ? new Date(session.firstMessageAt) : null;
+            const last = session.lastMessageAt ? new Date(session.lastMessageAt) : null;
+            const durationMinutes = first && last ? Math.max(0, (last.getTime() - first.getTime()) / (1000 * 60)) : 0;
+            totalSessionMinutes += durationMinutes;
+
+            if (!sessionSummaryByUser[session.email]) {
+                sessionSummaryByUser[session.email] = {
+                    totalSessions: 0,
+                    totalSessionMinutes: 0,
+                    totalAssistantMessages: 0,
+                    totalUserMessages: 0
+                };
+            }
+            sessionSummaryByUser[session.email].totalSessions += 1;
+            sessionSummaryByUser[session.email].totalSessionMinutes += durationMinutes;
+            sessionSummaryByUser[session.email].totalAssistantMessages += session.assistantMessages || 0;
+            sessionSummaryByUser[session.email].totalUserMessages += session.userMessages || 0;
+
+            return {
+                email: session.email,
+                sessionDate: session.sessionDate,
+                totalMessages: session.totalMessages || 0,
+                userMessages: session.userMessages || 0,
+                assistantMessages: session.assistantMessages || 0,
+                firstMessageAt: session.firstMessageAt,
+                lastMessageAt: session.lastMessageAt,
+                sessionDurationMinutes: durationMinutes
+            };
+        });
+
+        const totalSessions = aiSessions.length;
+        const totalAIUsers = aiUserSummary.length;
+        const totalUserPrompts = aiUserSummary.reduce((sum, user) => sum + (user.userMessages || 0), 0);
+        const totalAssistantResponses = aiUserSummary.reduce((sum, user) => sum + (user.assistantMessages || 0), 0);
+        const totalAimessages = aiUserSummary.reduce((sum, user) => sum + (user.totalMessages || 0), 0);
+        const averageSessionMinutes = totalSessions > 0 ? totalSessionMinutes / totalSessions : 0;
+        const averageResponsesPerSession = totalSessions > 0 ? totalAssistantResponses / totalSessions : 0;
+        const averagePromptsPerUser = totalAIUsers > 0 ? totalUserPrompts / totalAIUsers : 0;
+
+        const topUsers = aiUserSummary
+            .map((user) => {
+                const sessionInfo = sessionSummaryByUser[user._id] || {
+                    totalSessions: 0,
+                    totalSessionMinutes: 0
+                };
+                const averageSessionForUser =
+                    sessionInfo.totalSessions > 0
+                        ? sessionInfo.totalSessionMinutes / sessionInfo.totalSessions
+                        : 0;
+
+                return {
+                    email: user._id,
+                    totalMessages: user.totalMessages || 0,
+                    userMessages: user.userMessages || 0,
+                    assistantMessages: user.assistantMessages || 0,
+                    totalSessions: sessionInfo.totalSessions,
+                    totalSessionMinutes: Number(sessionInfo.totalSessionMinutes.toFixed(2)),
+                    averageSessionMinutes: Number(averageSessionForUser.toFixed(2)),
+                    firstMessageAt: user.firstMessageAt ? new Date(user.firstMessageAt).toISOString() : null,
+                    lastMessageAt: user.lastMessageAt ? new Date(user.lastMessageAt).toISOString() : null
+                };
+            })
+            .sort((a, b) => b.totalMessages - a.totalMessages)
+            .slice(0, 10);
+
+        const recentActivity = recentAiMessages.map((message) => ({
+            id: message._id ? message._id.toString() : undefined,
+            email: message.email,
+            role: message.role,
+            content: typeof message.content === "string" ? message.content.slice(0, 500) : "",
+            createdAt: message.createdAt ? new Date(message.createdAt).toISOString() : null
+        }));
+
+        const aiAnalytics = {
+            totalUsers: totalAIUsers,
+            totalMessages: totalAimessages,
+            totalUserPrompts,
+            totalAssistantResponses,
+            totalSessions,
+            totalSessionMinutes: Number(totalSessionMinutes.toFixed(2)),
+            averageSessionMinutes: Number(averageSessionMinutes.toFixed(2)),
+            averageResponsesPerSession: Number(averageResponsesPerSession.toFixed(2)),
+            averagePromptsPerUser: Number(averagePromptsPerUser.toFixed(2)),
+            topUsers,
+            recentActivity
+        };
+
         // Get country distribution with full names for the selected period
         const countryStats = await db.collection("users").aggregate([
             {
@@ -428,6 +591,7 @@ export async function GET(request) {
             users,
             userSessionStats,
             reviews,
+            aiAnalytics,
             paymentStats: {
                 totalPayments,
                 approvedPayments,

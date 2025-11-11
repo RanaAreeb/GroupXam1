@@ -1,42 +1,18 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 import PageTransition from "@/components/PageTransition";
 import Header from "@/components/ui/header";
 import { useAuth } from "@/hooks/use-auth";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Sparkles, Brain, Clock, MessageSquare, ArrowRight, Zap, Shield, Infinity } from "lucide-react";
+import { Sparkles, Brain, Clock, MessageSquare, ArrowRight } from "lucide-react";
 import Image from "next/image";
 
 export default function ChatbotPage() {
-  const { isLoggedIn, user, loading } = useAuth();
+  const { isLoggedIn } = useAuth();
   const router = useRouter();
-  const [usageData, setUsageData] = useState<any>(null);
-  const [loadingUsage, setLoadingUsage] = useState(true);
-
-  useEffect(() => {
-    if (isLoggedIn && !loading) {
-      checkUsage();
-    } else {
-      setLoadingUsage(false);
-    }
-  }, [isLoggedIn, loading]);
-
-  const checkUsage = async () => {
-    try {
-      const response = await fetch("/api/chat/usage");
-      const data = await response.json();
-      setUsageData(data);
-    } catch (error) {
-      console.error("Error checking usage:", error);
-    } finally {
-      setLoadingUsage(false);
-    }
-  };
 
   const handleStartChat = () => {
     if (!isLoggedIn) {
@@ -89,47 +65,20 @@ export default function ChatbotPage() {
               </p>
 
               {/* Usage Info */}
-              {isLoggedIn && usageData && (
-                <div className="mb-8">
-                  {usageData.hasSubscription ? (
-                    <Badge className="bg-gradient-to-r from-emerald-500 to-blue-500 text-white px-4 py-2 text-sm font-medium shadow-lg">
-                      <Infinity className="w-4 h-4 mr-1 inline" />
-                      Premium Member - Unlimited Access
-                    </Badge>
-                  ) : (
-                    <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
-                      <Shield className="w-4 h-4 text-blue-600" />
-                      <span className="text-sm font-medium text-gray-700">
-                        {usageData.remainingTries > 0 ? (
-                          <span>{usageData.remainingTries} free {usageData.remainingTries === 1 ? 'try' : 'tries'} remaining</span>
-                        ) : (
-                          <span className="text-red-600">No free tries remaining</span>
-                        )}
-                      </span>
-                    </div>
-                  )}
-                </div>
-              )}
+              <p className="text-sm text-gray-600 max-w-xl mx-auto mb-8">
+                Chat without limits—responses are automatically trimmed to stay focused and easy to review.
+              </p>
 
               {/* Start Chat Button */}
               <Button
                 onClick={handleStartChat}
                 size="lg"
                 className="bg-gradient-to-r from-emerald-600 to-blue-600 hover:from-emerald-700 hover:to-blue-700 text-white px-8 py-6 text-lg font-semibold shadow-2xl hover:shadow-emerald-500/25 transition-all duration-300 transform hover:-translate-y-1"
-                disabled={isLoggedIn && usageData && !usageData.canUseChat && !usageData.hasSubscription}
               >
                 <MessageSquare className="w-5 h-5 mr-3" />
-                {isLoggedIn && usageData && !usageData.canUseChat && !usageData.hasSubscription
-                  ? "Subscribe to Continue"
-                  : "Start Chatting"}
+                Start Chatting
                 <ArrowRight className="w-5 h-5 ml-3" />
               </Button>
-
-              {isLoggedIn && usageData && !usageData.canUseChat && !usageData.hasSubscription && (
-                <p className="mt-4 text-sm text-gray-600">
-                  You've used all 3 free tries. <Link href="/subscription" className="text-blue-600 hover:underline font-medium">Subscribe now</Link> for unlimited access.
-                </p>
-              )}
             </div>
 
             {/* Feature Highlights */}

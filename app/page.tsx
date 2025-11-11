@@ -1642,7 +1642,7 @@ export default function HomePage() {
                   <div className="absolute top-1/2 left-1/2 h-60 w-60 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/10 blur-2xl"></div>
                 </div>
                 <div className="relative z-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px] items-stretch">
-                  <div className="order-2 lg:order-1 p-6 sm:p-10 lg:p-12">
+                  <div className="p-6 sm:p-10 lg:p-12 order-1">
                     <Badge className="mb-4 w-fit bg-emerald-100 text-emerald-700 hover:bg-emerald-200 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide">
                       <Sparkles className="mr-1 h-3 w-3" /> AI-Powered Study Help
                     </Badge>
@@ -1693,12 +1693,12 @@ export default function HomePage() {
                           className="flex-1 h-14 rounded-xl border border-gray-200 bg-white/95 text-sm sm:text-base focus-visible:ring-2 focus-visible:ring-emerald-500"
                           disabled={isAiDisabled}
                         />
-                        <div className="flex flex-wrap gap-2">
+                        <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 w-full">
                           <Button
                             type="button"
                             variant="outline"
                             onClick={() => aiDocumentInputRef.current?.click()}
-                            className="h-14 px-5 rounded-xl border-gray-200 bg-white text-gray-700 hover:bg-gray-50"
+                            className="h-12 sm:h-14 w-full sm:w-auto px-5 rounded-xl border-gray-200 bg-white text-gray-700 hover:bg-gray-50"
                             disabled={isAiDisabled}
                           >
                             <Paperclip className="mr-2 h-5 w-5 text-emerald-600" />
@@ -1708,7 +1708,7 @@ export default function HomePage() {
                             type="button"
                             variant="outline"
                             onClick={() => aiImageInputRef.current?.click()}
-                            className="h-14 px-5 rounded-xl border-gray-200 bg-white text-gray-700 hover:bg-gray-50"
+                            className="h-12 sm:h-14 w-full sm:w-auto px-5 rounded-xl border-gray-200 bg-white text-gray-700 hover:bg-gray-50"
                             disabled={isAiDisabled}
                           >
                             <ImageIcon className="mr-2 h-5 w-5 text-emerald-600" />
@@ -1719,7 +1719,7 @@ export default function HomePage() {
                             disabled={
                               isAiDisabled || (!aiQuestion.trim() && !aiDocument && aiImages.length === 0)
                             }
-                            className="h-14 px-6 sm:px-8 rounded-xl bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-semibold shadow-lg hover:shadow-xl transition-transform duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
+                            className="h-12 sm:h-14 w-full sm:w-auto px-6 sm:px-8 rounded-xl bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-semibold shadow-lg hover:shadow-xl transition-transform duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
                           >
                             Ask sunu-I
                             <ArrowRight className="ml-2 h-4 w-4" />
@@ -1802,7 +1802,7 @@ export default function HomePage() {
                     </form>
                   </div>
 
-                  <div className="order-1 lg:order-2 flex flex-col justify-between rounded-t-[32px] lg:rounded-[32px] lg:rounded-l-none bg-gradient-to-br from-emerald-600 via-teal-600 to-blue-600 p-8 sm:p-10 text-white">
+                  <div className="order-2 lg:order-2 flex flex-col justify-between rounded-b-[32px] lg:rounded-[32px] lg:rounded-l-none bg-gradient-to-br from-emerald-600 via-teal-600 to-blue-600 p-8 sm:p-10 text-white">
                     <div>
                       <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-semibold tracking-wide">
                         <Sparkles className="h-3.5 w-3.5" /> Instant prep boost

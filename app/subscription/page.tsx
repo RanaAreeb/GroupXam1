@@ -21,6 +21,7 @@ import {
   Globe,
   ArrowLeft,
   Shield,
+  XCircle,
 } from "lucide-react";
 import Link from "next/link";
 import PageTransition from "@/components/PageTransition";
@@ -54,99 +55,187 @@ const useReducedMotion = () => {
   return shouldReduceMotion;
 };
 
-// Country currency data with competitive pricing
+// Country pricing with regional adjustments (Africa from $3.99, global from $6.99)
 const countryPricing = {
   US: {
     name: "🇺🇸 United States",
     currency: "USD",
     symbol: "$",
-    rates: {
-      "3month": { monthly: 2, total: 6 },
-      "6month": { monthly: 2, total: 12 },
-      "12month": { monthly: 2, total: 15.36, discount: 36 },
-    },
-  },
-  NG: {
-    name: "🇳🇬 Nigeria",
-    currency: "NGN",
-    symbol: "₦",
-    rates: {
-      "3month": { monthly: 3000, total: 9000 },
-      "6month": { monthly: 3000, total: 18000 },
-      "12month": { monthly: 3000, total: 23000, discount: 36 },
-    },
+    monthly: 6.99,
+    baseUsd: 6.99,
   },
   GB: {
     name: "🇬🇧 United Kingdom",
     currency: "GBP",
     symbol: "£",
-    rates: {
-      "3month": { monthly: 1.5, total: 4.5 },
-      "6month": { monthly: 1.5, total: 9 },
-      "12month": { monthly: 1.5, total: 11.52, discount: 36 },
-    },
+    monthly: 5.49,
+    baseUsd: 6.99,
   },
   CA: {
     name: "🇨🇦 Canada",
     currency: "CAD",
     symbol: "C$",
-    rates: {
-      "3month": { monthly: 2.5, total: 7.5 },
-      "6month": { monthly: 2.5, total: 15 },
-      "12month": { monthly: 2.5, total: 19.2, discount: 36 },
-    },
+    monthly: 9.49,
+    baseUsd: 6.99,
+  },
+  NG: {
+    name: "🇳🇬 Nigeria",
+    currency: "NGN",
+    symbol: "₦",
+    monthly: 6000,
+    baseUsd: 3.99,
   },
   GH: {
     name: "🇬🇭 Ghana",
     currency: "GHS",
     symbol: "GH₵",
-    rates: {
-      "3month": { monthly: 25, total: 75 },
-      "6month": { monthly: 25, total: 150 },
-      "12month": { monthly: 25, total: 192, discount: 36 },
-    },
+    monthly: 60,
+    baseUsd: 3.99,
   },
   SL: {
     name: "🇸🇱 Sierra Leone",
-    currency: "SLL",
+    currency: "SLE",
     symbol: "Le",
-    rates: {
-      "3month": { monthly: 40000, total: 120000 },
-      "6month": { monthly: 40000, total: 240000 },
-      "12month": { monthly: 40000, total: 307200, discount: 36 },
-    },
-  },
-  PK: {
-    name: "🇵🇰 Pakistan",
-    currency: "PKR",
-    symbol: "₨",
-    rates: {
-      "3month": { monthly: 500, total: 1500 },
-      "6month": { monthly: 500, total: 3000 },
-      "12month": { monthly: 500, total: 3840, discount: 36 },
-    },
-  },
-  IN: {
-    name: "🇮🇳 India",
-    currency: "INR",
-    symbol: "₹",
-    rates: {
-      "3month": { monthly: 150, total: 450 },
-      "6month": { monthly: 150, total: 900 },
-      "12month": { monthly: 150, total: 1152, discount: 36 },
-    },
+    monthly: 90,
+    baseUsd: 3.99,
   },
   LR: {
     name: "🇱🇷 Liberia",
     currency: "LRD",
     symbol: "L$",
-    rates: {
-      "3month": { monthly: 350, total: 1050 },
-      "6month": { monthly: 350, total: 2100 },
-      "12month": { monthly: 350, total: 2688, discount: 36 },
-    },
+    monthly: 760,
+    baseUsd: 3.99,
+  },
+  PK: {
+    name: "🇵🇰 Pakistan",
+    currency: "PKR",
+    symbol: "₨",
+    monthly: 1950,
+    baseUsd: 6.99,
+  },
+  IN: {
+    name: "🇮🇳 India",
+    currency: "INR",
+    symbol: "₹",
+    monthly: 580,
+    baseUsd: 6.99,
+  },
+  KE: {
+    name: "🇰🇪 Kenya",
+    currency: "KES",
+    symbol: "KSh",
+    monthly: 540,
+    baseUsd: 3.99,
+  },
+  ZA: {
+    name: "🇿🇦 South Africa",
+    currency: "ZAR",
+    symbol: "R",
+    monthly: 74,
+    baseUsd: 3.99,
   },
 };
+
+const ANNUAL_MONTHS_CHARGED = 10;
+
+const premiumFeatures = [
+  "AI-generated quizzes with instant marking",
+  "AI flashcards that adapt to your progress",
+  "Full AI research & writing assistant with 30-day chat history",
+  "IELTS prep plus international exam resources",
+  "Upgraded study groups & accountability tools (coming soon)",
+];
+
+const planComparison = [
+  {
+    feature: "Quizzes",
+    free: {
+      available: true,
+      description: "Topic-by-topic quizzes and practice drills",
+    },
+    premium: {
+      available: true,
+      description: "AI-generated quizzes with instant marking",
+    },
+  },
+  {
+    feature: "Flashcards",
+    free: {
+      available: true,
+      description: "Smart flashcards library for core subjects",
+    },
+    premium: {
+      available: true,
+      description: "AI flashcards that adapt to your progress",
+    },
+  },
+  {
+    feature: "AI assistance",
+    free: {
+      available: true,
+      description: "Limited AI answers (7-day chat history)",
+    },
+    premium: {
+      available: true,
+      description: "Full AI research & writing assistant with 30-day history",
+    },
+  },
+  {
+    feature: "Exam resources",
+    free: {
+      available: true,
+      description: "Free JAMB, WAEC & WASSCE exam packs",
+    },
+    premium: {
+      available: true,
+      description: "Includes IELTS prep plus international exam resources",
+    },
+  },
+  {
+    feature: "Study groups",
+    free: {
+      available: true,
+      description: "Community study groups",
+    },
+    premium: {
+      available: true,
+      description: "Upgraded accountability pods (coming soon)",
+    },
+  },
+  {
+    feature: "Tools",
+    free: {
+      available: true,
+      description: "Exam calculator,Whiteboard & working sheets",
+    },
+    premium: {
+      available: true,
+      description: "All free tools plus premium analytics & planners",
+    },
+  },
+  {
+    feature: "Upcoming releases",
+    free: {
+      available: false,
+      description: "Stick with essentials",
+    },
+    premium: {
+      available: true,
+      description: "Upgraded study pods, accountability reports, more",
+    },
+  },
+];
+
+const renderPlanCell = (plan: { available: boolean; description: string }) => (
+  <div className="flex items-start gap-2">
+    {plan.available ? (
+      <CheckCircle className="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" />
+    ) : (
+      <XCircle className="w-4 h-4 text-gray-300 mt-0.5 flex-shrink-0" />
+    )}
+    <span className={plan.available ? "text-gray-700" : "text-gray-400"}>{plan.description}</span>
+  </div>
+);
 
 export default function SubscriptionPage() {
   const { user } = useAuth();
@@ -170,59 +259,51 @@ export default function SubscriptionPage() {
 
   const features = [
     {
-      name: "AI Tutor",
-      icon: <Brain className="w-5 h-5" />,
-      description: "24/7 AI-powered tutoring and homework assistance",
+      name: "AI Practice Quizzes",
+      icon: <Target className="w-5 h-5" />,
+      description: "Exam-style questions generated instantly for any topic",
+      gradient: "from-blue-500 to-indigo-500",
+    },
+    {
+      name: "Adaptive AI Flashcards",
+      icon: <Sparkles className="w-5 h-5" />,
+      description: "Dynamic flashcards that track mastery and knowledge gaps",
       gradient: "from-emerald-500 to-green-500",
     },
     {
-      name: "Whiteboard",
-      icon: <FileText className="w-5 h-5" />,
-      description: "Collaborative online whiteboard for brainstorming and problem-solving",
+      name: "IELTS & Global Exams",
+      icon: <Globe className="w-5 h-5" />,
+      description: "Prep resources for IELTS and other international exams",
+      gradient: "from-purple-500 to-fuchsia-500",
+    },
+    {
+      name: "Research & Writing Assistant",
+      icon: <BookOpen className="w-5 h-5" />,
+      description: "Guided support for essays, projects, and deep research",
       gradient: "from-orange-500 to-amber-500",
     },
     {
-      name: "Math Help",
-      icon: <Calculator className="w-5 h-5" />,
-      description: "Step-by-step solutions and explanations for complex math problems",
+      name: "Enhanced Study Groups",
+      icon: <Users className="w-5 h-5" />,
+      description: "Organised accountability pods with upcoming upgrades",
       gradient: "from-pink-500 to-rose-500",
-    },
-    {
-      name: "Proofreading",
-      icon: <FileText className="w-5 h-5" />,
-      description: "Grammar, spelling, and style checks for essays and assignments",
-      gradient: "from-violet-500 to-purple-500",
-    },
-    {
-      name: "Research Help",
-      icon: <BookOpen className="w-5 h-5" />,
-      description: "Access to academic databases and research tools",
-      gradient: "from-yellow-500 to-orange-500",
     },
   ];
 
   const subscriptionPlans = [
     {
-      name: "3 Months",
-      period: "3month",
-      duration: "3 months",
+      name: "Monthly Access",
+      period: "monthly",
+      duration: "Billed monthly · cancel anytime",
       popular: false,
       color: "from-blue-500 to-indigo-500",
     },
     {
-      name: "6 Months",
-      period: "6month",
-      duration: "6 months",
+      name: "Annual Access",
+      period: "annual",
+      duration: "Best value · 2 months free",
       popular: true,
       color: "from-emerald-500 to-green-500",
-    },
-    {
-      name: "12 Months",
-      period: "12month",
-      duration: "12 months",
-      popular: false,
-      color: "from-purple-500 to-fuchsia-500",
-      badge: "36% OFF",
     },
   ];
 
@@ -230,7 +311,7 @@ export default function SubscriptionPage() {
     <PageTransition>
       <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50">
         <Header />
-        
+
         <div className="container mx-auto py-12 px-4">
           {/* Back Button */}
           <div className="mb-8">
@@ -251,7 +332,7 @@ export default function SubscriptionPage() {
                 <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-pulse"></div>
               </>
             )}
-            
+
             <div className="relative">
               <Badge className={`mb-6 bg-emerald-100 text-emerald-700 hover:bg-emerald-200 px-6 py-3 text-sm font-medium border border-emerald-200 shadow-lg ${!reduceMotion ? 'md:animate-float' : ''}`}>
                 🎓 Premium Subscription
@@ -301,7 +382,7 @@ export default function SubscriptionPage() {
             <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">
               Premium Features Included
             </h2>
-            
+
             <div className="relative">
               {/* Background - Desktop only */}
               {!reduceMotion && (
@@ -309,7 +390,7 @@ export default function SubscriptionPage() {
                   <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/10 via-blue-400/10 to-purple-400/10 rounded-3xl blur-3xl scale-110"></div>
                 </div>
               )}
-              
+
               <div className="relative grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 px-4">
                 {/* AI Tutor Card */}
                 <div className="relative group">
@@ -317,7 +398,7 @@ export default function SubscriptionPage() {
                   {!reduceMotion && (
                     <div className="hidden md:block absolute inset-0 bg-gradient-to-br from-emerald-400/20 to-green-400/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 scale-110"></div>
                   )}
-                  
+
                   <div className={`relative bg-gradient-to-br from-emerald-50 to-green-100 rounded-2xl p-4 sm:p-6 text-center border border-emerald-200 shadow-md hover:shadow-lg transition-shadow duration-300 ${!reduceMotion ? 'md:group-hover:-translate-y-2 md:transition-transform' : ''}`}>
                     <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-emerald-500 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-3 shadow-lg">
                       <Brain className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
@@ -325,13 +406,13 @@ export default function SubscriptionPage() {
                     <h3 className="font-bold text-gray-800 text-xs sm:text-sm">AI Tutor</h3>
                   </div>
                 </div>
-                
+
                 {/* Whiteboard Card */}
                 <div className="relative group">
                   {!reduceMotion && (
                     <div className="hidden md:block absolute inset-0 bg-gradient-to-br from-orange-400/20 to-amber-400/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 scale-110"></div>
                   )}
-                  
+
                   <div className={`relative bg-gradient-to-br from-orange-50 to-amber-100 rounded-2xl p-4 sm:p-6 text-center border border-orange-200 shadow-md hover:shadow-lg transition-shadow duration-300 ${!reduceMotion ? 'md:group-hover:-translate-y-2 md:transition-transform' : ''}`}>
                     <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-orange-500 to-amber-600 rounded-xl flex items-center justify-center mx-auto mb-3 shadow-lg">
                       <FileText className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
@@ -339,13 +420,13 @@ export default function SubscriptionPage() {
                     <h3 className="font-bold text-gray-800 text-xs sm:text-sm">Whiteboard</h3>
                   </div>
                 </div>
-                
+
                 {/* Math Help Card */}
                 <div className="relative group">
                   {!reduceMotion && (
                     <div className="hidden md:block absolute inset-0 bg-gradient-to-br from-pink-400/20 to-rose-400/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 scale-110"></div>
                   )}
-                  
+
                   <div className={`relative bg-gradient-to-br from-pink-50 to-rose-100 rounded-2xl p-4 sm:p-6 text-center border border-pink-200 shadow-md hover:shadow-lg transition-shadow duration-300 ${!reduceMotion ? 'md:group-hover:-translate-y-2 md:transition-transform' : ''}`}>
                     <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-pink-500 to-rose-600 rounded-xl flex items-center justify-center mx-auto mb-3 shadow-lg">
                       <Calculator className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
@@ -353,13 +434,13 @@ export default function SubscriptionPage() {
                     <h3 className="font-bold text-gray-800 text-xs sm:text-sm">Math Help</h3>
                   </div>
                 </div>
-                
+
                 {/* Proofreading Card */}
                 <div className="relative group">
                   {!reduceMotion && (
                     <div className="hidden md:block absolute inset-0 bg-gradient-to-br from-violet-400/20 to-purple-400/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 scale-110"></div>
                   )}
-                  
+
                   <div className={`relative bg-gradient-to-br from-violet-50 to-purple-100 rounded-2xl p-4 sm:p-6 text-center border border-violet-200 shadow-md hover:shadow-lg transition-shadow duration-300 ${!reduceMotion ? 'md:group-hover:-translate-y-2 md:transition-transform' : ''}`}>
                     <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-violet-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-3 shadow-lg">
                       <FileText className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
@@ -367,13 +448,13 @@ export default function SubscriptionPage() {
                     <h3 className="font-bold text-gray-800 text-xs sm:text-sm">Proofreading</h3>
                   </div>
                 </div>
-                
+
                 {/* Research Help Card */}
                 <div className="relative group col-span-2 sm:col-span-1">
                   {!reduceMotion && (
                     <div className="hidden md:block absolute inset-0 bg-gradient-to-br from-yellow-400/20 to-orange-400/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 scale-110"></div>
                   )}
-                  
+
                   <div className={`relative bg-gradient-to-br from-yellow-50 to-orange-100 rounded-2xl p-4 sm:p-6 text-center border border-yellow-200 shadow-md hover:shadow-lg transition-shadow duration-300 ${!reduceMotion ? 'md:group-hover:-translate-y-2 md:transition-transform' : ''}`}>
                     <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-xl flex items-center justify-center mx-auto mb-3 shadow-lg">
                       <BookOpen className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
@@ -390,8 +471,11 @@ export default function SubscriptionPage() {
             <h2 className="text-3xl font-bold text-center text-gray-800 mb-4">
               Choose Your Plan
             </h2>
-            <p className="text-center text-gray-600 mb-8">
+            <p className="text-center text-gray-600">
               Select the subscription duration that works best for you
+            </p>
+            <p className="text-center text-sm text-gray-500 mt-2 mb-8">
+              Regional pricing: Africa from $3.99/month, US/UK & others from $6.99/month — shown here in your selected currency.
             </p>
 
             <div className="relative">
@@ -399,101 +483,141 @@ export default function SubscriptionPage() {
               {!reduceMotion && (
                 <div className="hidden md:block absolute inset-0 bg-gradient-to-br from-emerald-400/5 via-blue-400/5 to-purple-400/5 rounded-3xl blur-2xl scale-110"></div>
               )}
-              
-              <div className="relative grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto px-4 pt-6">
+
+              <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto px-4 pt-6">
                 {subscriptionPlans.map((plan) => {
-                  const planPricing = pricing.rates[plan.period as keyof typeof pricing.rates];
+                  if (!pricing) {
+                    return null;
+                  }
+
+                  const monthlyPrice = pricing.monthly;
+                  const annualTotalRaw = monthlyPrice * ANNUAL_MONTHS_CHARGED;
+                  const annualMonthlyRaw = annualTotalRaw / 12;
+                  const annualMonthly = Number(annualMonthlyRaw.toFixed(2));
+                  const annualTotal = Number(annualTotalRaw.toFixed(2));
+                  const annualDiscount = monthlyPrice
+                    ? Math.max(0, Math.round((1 - annualMonthlyRaw / monthlyPrice) * 100))
+                    : 0;
+
+                  const planPricing =
+                    plan.period === "annual"
+                      ? {
+                        monthly: annualMonthly,
+                        total: annualTotal,
+                        discount: annualDiscount,
+                      }
+                      : {
+                        monthly: monthlyPrice,
+                        total: monthlyPrice,
+                        discount: 0,
+                      };
+
+                  const hasMonthlyDecimals = Math.abs(planPricing.monthly - Math.round(planPricing.monthly)) > 0.001;
+                  const monthlyFormatted = planPricing.monthly.toLocaleString(undefined, {
+                    minimumFractionDigits: hasMonthlyDecimals ? 2 : 0,
+                    maximumFractionDigits: hasMonthlyDecimals ? 2 : 0,
+                  });
+                  const hasTotalDecimals = Math.abs(planPricing.total - Math.round(planPricing.total)) > 0.001;
+                  const totalFormatted = planPricing.total.toLocaleString(undefined, {
+                    minimumFractionDigits: hasTotalDecimals ? 2 : 0,
+                    maximumFractionDigits: hasTotalDecimals ? 2 : 0,
+                  });
+
+                  const discountBadge =
+                    plan.period === "annual" && planPricing.discount
+                      ? `Save ${planPricing.discount}%`
+                      : undefined;
+
+                  const baseUsdNote = pricing.baseUsd
+                    ? `≈ $${pricing.baseUsd.toFixed(2)} USD / month`
+                    : null;
+
                   return (
-                    <div key={plan.period} className="relative group mt-6">
-                      {/* Hover effect - Desktop only */}
+                    <div key={plan.period} className="relative group">
                       {!reduceMotion && (
-                        <div className={`hidden md:block absolute inset-0 bg-gradient-to-br ${plan.color.includes('emerald') ? 'from-emerald-400/20 to-green-400/20' : plan.color.includes('blue') ? 'from-blue-400/20 to-indigo-400/20' : 'from-purple-400/20 to-fuchsia-400/20'} rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 scale-110`}></div>
+                        <div
+                          className="hidden md:block absolute inset-0 bg-gradient-to-br from-emerald-400/10 to-blue-400/10 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 scale-105"
+                          aria-hidden="true"
+                        />
                       )}
-                      
-                      <Card 
-                        className={`relative overflow-visible rounded-2xl bg-white transition-all duration-300 border min-h-[500px] ${
-                          plan.popular ? 'shadow-2xl md:scale-105 border-emerald-200' : 'shadow-lg border-gray-200'
-                        } ${!reduceMotion ? 'md:hover:shadow-2xl md:group-hover:-translate-y-3' : ''}`}
+
+                      <Card
+                        className={`relative overflow-hidden rounded-2xl bg-white transition-all duration-300 border ${plan.popular ? "shadow-2xl border-emerald-200" : "shadow-lg border-gray-200"
+                          } ${!reduceMotion ? "md:group-hover:-translate-y-3 md:group-hover:shadow-2xl" : ""}`}
                       >
                         {plan.popular && (
-                          <div className={`absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-emerald-500 to-green-500 text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg z-30 ${!reduceMotion ? 'md:animate-pulse-glow' : ''}`}>
+                          <div className="absolute top-4 left-4 bg-gradient-to-r from-emerald-500 to-green-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
                             Most Popular
                           </div>
                         )}
-                        {plan.badge && (
-                          <div className={`absolute -top-4 right-2 bg-gradient-to-r from-purple-500 to-fuchsia-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-xl z-30 ${!reduceMotion ? 'md:animate-float' : ''}`}>
-                            {plan.badge}
+                        {discountBadge && (
+                          <div className="absolute top-4 right-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
+                            {discountBadge}
                           </div>
                         )}
-                        
-                        <CardContent className="p-8 h-full flex flex-col justify-between">
-                          <div>
-                            <div className="text-center mb-6">
-                              <div className={`relative w-16 h-16 bg-gradient-to-br ${plan.color} rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg ${!reduceMotion ? 'md:group-hover:scale-110 md:group-hover:rotate-6 md:transition-all md:duration-500' : ''}`}>
-                                <Clock className="w-8 h-8 text-white" />
+
+                        <CardContent className="p-8 space-y-6 flex flex-col h-full">
+                          <div className="space-y-4">
+                            <div className="flex items-center justify-between">
+                              <div>
+                                <h3 className="text-2xl font-bold text-gray-800">{plan.name}</h3>
+                                <p className="text-sm text-gray-500">{plan.duration}</p>
                               </div>
-                              <h3 className="text-2xl font-bold text-gray-800 mb-2">{plan.name}</h3>
-                              <div className="text-4xl font-bold bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent mb-2">
-                                {pricing.symbol}{planPricing.total.toLocaleString()}
+                              <div
+                                className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${plan.color} flex items-center justify-center shadow-lg`}
+                              >
+                                <Clock className="w-6 h-6 text-white" />
                               </div>
-                              <p className="text-gray-600">
-                                {pricing.symbol}{planPricing.monthly.toLocaleString()}/month
-                              </p>
-                              {'discount' in planPricing && planPricing.discount && (
-                                <p className={`text-sm text-green-600 font-semibold mt-1 ${!reduceMotion ? 'md:animate-pulse' : ''}`}>
-                                  Save {planPricing.discount}%!
-                                </p>
-                              )}
                             </div>
 
-                            <ul className="space-y-3 mb-6">
-                            <li className="flex items-center gap-3">
-                              <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                              <span className="text-gray-700">All 5 premium features</span>
-                            </li>
-                            <li className="flex items-center gap-3">
-                              <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                              <span className="text-gray-700">Unlimited practice tests</span>
-                            </li>
-                            <li className="flex items-center gap-3">
-                              <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                              <span className="text-gray-700">24/7 AI tutor support</span>
-                            </li>
-                            <li className="flex items-center gap-3">
-                              <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                              <span className="text-gray-700">Priority support</span>
-                            </li>
-                           
-                            <li className="flex items-center gap-3">
-                              <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                              <span className="text-gray-700">Progress tracking</span>
-                            </li>
-                            <li className="flex items-center gap-3">
-                              {plan.period === "12month" ? (
-                                <>
-                                  <Star className="w-5 h-5 text-yellow-500 flex-shrink-0 animate-pulse" />
-                                  <span className="text-gray-700 font-semibold">Exclusive 36% discount</span>
-                                </>
-                              ) : (
-                                <>
-                                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                                  <span className="text-gray-700">Advanced analytics</span>
-                                </>
-                              )}
-                            </li>
-                          </ul>
+                            <div>
+                              <div className="flex items-baseline gap-2">
+                                <span className="text-4xl font-extrabold text-gray-900">
+                                  {pricing.symbol}
+                                  {monthlyFormatted}
+                                </span>
+                                <span className="text-gray-500">/month</span>
+                              </div>
+                              <p className="text-sm text-gray-500">
+                                {plan.period === "annual"
+                                  ? "Billed annually — 2 months free"
+                                  : "Billed monthly — cancel anytime"}
+                              </p>
+                              <p className="text-xs text-emerald-600 font-semibold mt-1">
+                                {pricing.symbol}
+                                {totalFormatted} {plan.period === "annual" ? "per year" : "per month"}
+                                {baseUsdNote ? ` · ${baseUsdNote}` : ""}
+                              </p>
+                            </div>
                           </div>
 
-                          <div>
+                          <div className="bg-emerald-50/70 border border-emerald-100 rounded-2xl p-5 space-y-3">
+                            <h4 className="text-sm font-semibold text-emerald-700">Everything in Premium:</h4>
+                            <ul className="space-y-2 text-sm text-gray-700">
+                              {premiumFeatures.map((feature) => (
+                                <li key={feature} className="flex items-start gap-2">
+                                  <CheckCircle className="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" />
+                                  <span>{feature}</span>
+                                </li>
+                              ))}
+                              {plan.period === "annual" && (
+                                <li className="flex items-start gap-2">
+                                  <Star className="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0" />
+                                  <span>Priority email support & quarterly premium workshops</span>
+                                </li>
+                              )}
+                            </ul>
+                          </div>
+
+                          <div className="pt-2">
                             <Link href={`/contact?package=subscription-${plan.period}&currency=${pricing.currency}`}>
-                            <Button 
-                              className={`w-full bg-gradient-to-r ${plan.color} hover:opacity-90 text-white font-semibold py-3 rounded-xl shadow-lg transition-all duration-300 ${
-                                !reduceMotion ? 'md:hover:shadow-xl md:hover:scale-105' : ''
-                              }`}
-                            >
-                              Get {plan.name} Plan
-                            </Button>
-                          </Link>
+                              <Button
+                                className={`w-full bg-gradient-to-r ${plan.color} hover:opacity-95 text-white font-semibold py-3 rounded-xl shadow-lg transition-all duration-300 ${!reduceMotion ? "md:hover:shadow-xl md:hover:scale-[1.02]" : ""
+                                  }`}
+                              >
+                                Get {plan.name}
+                              </Button>
+                            </Link>
                           </div>
                         </CardContent>
                       </Card>
@@ -504,67 +628,82 @@ export default function SubscriptionPage() {
             </div>
           </div>
 
-          {/* Comparison with Competitors */}
+          {/* What's Included */}
           <div className="mb-16">
-            <Card className="border-0 shadow-xl bg-white">
-              <CardHeader>
-                <CardTitle className="text-2xl text-center">Why Choose groupXam?</CardTitle>
-              </CardHeader>
-              <CardContent>
+            <h2 className="text-3xl font-bold text-center text-gray-800 mb-4">What’s Included</h2>
+            <p className="text-center text-gray-600 mb-10">
+              Compare the essentials in the free plan with the advanced support unlocked in Premium.
+            </p>
+
+            <div className="max-w-5xl mx-auto">
+              <div className="overflow-hidden rounded-3xl border border-gray-200 shadow-xl bg-white/95">
+                <div className="grid grid-cols-2 divide-x divide-gray-100 bg-gradient-to-r from-gray-50 via-white to-emerald-50">
+                  <div className="p-6">
+                    <div className="flex items-center gap-3">
+                      <Badge className="bg-gray-100 text-gray-700 border border-gray-200">Free plan</Badge>
+                      <div>
+                        <p className="text-lg font-semibold text-gray-800">Everything to get started</p>
+                        <p className="text-xs text-gray-500">Perfect for quick revision and group study.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <div className="flex items-center justify-between gap-3">
+                      <div className="flex items-center gap-3">
+                        <Badge className="bg-emerald-100 text-emerald-700 border border-emerald-200">Premium</Badge>
+                        <div>
+                          <p className="text-lg font-semibold text-gray-800">Unlock the full AI suite</p>
+                          <p className="text-xs text-emerald-700/80">
+                            Ideal for exam season, IELTS prep, research projects, and daily AI support.
+                          </p>
+                        </div>
+                      </div>
+                      {pricing && (
+                        <div className="text-right text-sm text-emerald-700 font-semibold">
+                          From{" "}
+                          {pricing.symbol}
+                          {pricing.monthly.toLocaleString(undefined, {
+                            minimumFractionDigits:
+                              Math.abs(pricing.monthly - Math.round(pricing.monthly)) > 0.001 ? 2 : 0,
+                            maximumFractionDigits:
+                              Math.abs(pricing.monthly - Math.round(pricing.monthly)) > 0.001 ? 2 : 0,
+                          })}
+                          /month
+                          {pricing.baseUsd ? (
+                            <span className="block text-[11px] text-emerald-600/80">
+                              (≈ ${pricing.baseUsd.toFixed(2)} USD monthly)
+                            </span>
+                          ) : null}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
                 <div className="overflow-x-auto">
-                  <table className="w-full">
-                    <thead>
-                      <tr className="border-b-2 border-gray-200">
-                        <th className="text-left py-4 px-4">Feature</th>
-                        <th className="text-center py-4 px-4">
-                          <div className="font-bold text-emerald-600">groupXam</div>
-                        </th>
-                        <th className="text-center py-4 px-4">
-                          <div className="font-semibold text-gray-600">uLesson</div>
-                        </th>
-                        <th className="text-center py-4 px-4">
-                          <div className="font-semibold text-gray-600">Examity</div>
-                        </th>
-                      </tr>
-                    </thead>
+                  <table className="w-full text-sm">
                     <tbody>
-                      <tr className="border-b border-gray-100">
-                        <td className="py-4 px-4">Monthly Price (6 months)</td>
-                        <td className="text-center py-4 px-4">
-                          <Badge className="bg-emerald-100 text-emerald-700">{pricing.symbol}{pricing.rates["6month"].monthly}</Badge>
-                        </td>
-                        <td className="text-center py-4 px-4 text-gray-600">{pricing.symbol}{pricing.rates["6month"].monthly * 4}</td>
-                        <td className="text-center py-4 px-4 text-gray-600">{pricing.symbol}{pricing.rates["6month"].monthly * 5}</td>
-                      </tr>
-                      <tr className="border-b border-gray-100">
-                        <td className="py-4 px-4">All Premium Features</td>
-                        <td className="text-center py-4 px-4"><CheckCircle className="w-5 h-5 text-green-500 mx-auto" /></td>
-                        <td className="text-center py-4 px-4"><CheckCircle className="w-5 h-5 text-green-500 mx-auto" /></td>
-                        <td className="text-center py-4 px-4"><CheckCircle className="w-5 h-5 text-green-500 mx-auto" /></td>
-                      </tr>
-                      <tr className="border-b border-gray-100">
-                        <td className="py-4 px-4">AI Tutor 24/7</td>
-                        <td className="text-center py-4 px-4"><CheckCircle className="w-5 h-5 text-green-500 mx-auto" /></td>
-                        <td className="text-center py-4 px-4"><span className="text-gray-400">Limited</span></td>
-                        <td className="text-center py-4 px-4"><span className="text-red-500">✗</span></td>
-                      </tr>
-                      <tr className="border-b border-gray-100">
-                        <td className="py-4 px-4">Study Groups</td>
-                        <td className="text-center py-4 px-4"><CheckCircle className="w-5 h-5 text-green-500 mx-auto" /></td>
-                        <td className="text-center py-4 px-4"><span className="text-red-500">✗</span></td>
-                        <td className="text-center py-4 px-4"><span className="text-red-500">✗</span></td>
-                      </tr>
-                      <tr className="border-b border-gray-100">
-                        <td className="py-4 px-4">Multi-Currency Support</td>
-                        <td className="text-center py-4 px-4"><CheckCircle className="w-5 h-5 text-green-500 mx-auto" /></td>
-                        <td className="text-center py-4 px-4"><CheckCircle className="w-5 h-5 text-green-500 mx-auto" /></td>
-                        <td className="text-center py-4 px-4"><span className="text-gray-400">Limited</span></td>
-                      </tr>
+                      {planComparison.map((row, index) => (
+                        <tr
+                          key={row.feature}
+                          className={index % 2 === 0 ? "bg-white" : "bg-gray-50/70"}
+                        >
+                          <th className="text-left align-top font-semibold text-gray-600 px-6 py-4 w-48">
+                            {row.feature}
+                          </th>
+                          <td className="px-6 py-4 align-top border-l border-gray-100">
+                            {renderPlanCell(row.free)}
+                          </td>
+                          <td className="px-6 py-4 align-top border-l border-gray-100 bg-emerald-50/60">
+                            {renderPlanCell(row.premium)}
+                          </td>
+                        </tr>
+                      ))}
                     </tbody>
                   </table>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </div>
 
           {/* FAQ Section */}

@@ -27,16 +27,14 @@ export async function GET(request) {
       user.accessExpiresAt &&
       new Date(user.accessExpiresAt) > new Date();
 
-    // Get chat usage count
     const chatUsageCount = user.chatUsageCount || 0;
-    const freeTriesLimit = 3;
-    const remainingTries = Math.max(0, freeTriesLimit - chatUsageCount);
 
     return NextResponse.json({
       hasSubscription,
       chatUsageCount,
-      remainingTries,
-      canUseChat: hasSubscription || remainingTries > 0
+      remainingTries: null,
+      canUseChat: true,
+      isUnlimited: true,
     });
   } catch (error) {
     console.error('Error checking chat usage:', error);
@@ -72,34 +70,13 @@ export async function POST(request) {
       user.accessExpiresAt &&
       new Date(user.accessExpiresAt) > new Date();
 
-    // If user has subscription, don't increment count
-    if (hasSubscription) {
-      return NextResponse.json({
-        success: true,
-        hasSubscription: true,
-        canUseChat: true
-      });
-    }
-
-    // Increment chat usage count
-    const currentCount = user.chatUsageCount || 0;
-    const newCount = currentCount + 1;
-
-    await usersCollection.updateOne(
-      { email: decoded.email },
-      { $set: { chatUsageCount: newCount } }
-    );
-
-    const freeTriesLimit = 3;
-    const remainingTries = Math.max(0, freeTriesLimit - newCount);
-    const canUseChat = remainingTries > 0;
-
     return NextResponse.json({
       success: true,
-      hasSubscription: false,
-      chatUsageCount: newCount,
-      remainingTries,
-      canUseChat
+      hasSubscription,
+      chatUsageCount: user.chatUsageCount || 0,
+      remainingTries: null,
+      canUseChat: true,
+      isUnlimited: true,
     });
   } catch (error) {
     console.error('Error incrementing chat usage:', error);

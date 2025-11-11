@@ -17,6 +17,8 @@ interface IncomingDocument {
 }
 
 const DOCUMENT_CHARACTER_LIMIT = 15000;
+const FREE_HISTORY_RETENTION_DAYS = 7;
+const PREMIUM_HISTORY_RETENTION_DAYS = 30;
 
 function truncateDocumentText(text: string): string {
   if (text.length <= DOCUMENT_CHARACTER_LIMIT) {
@@ -66,6 +68,13 @@ async function extractTextFromDocument(document: IncomingDocument): Promise<stri
   return null;
 }
 
+function isUserSubscribed(user: any): boolean {
+  if (!user) return false;
+  const { hasPaidAccess, accessExpiresAt } = user;
+  if (!hasPaidAccess || !accessExpiresAt) return false;
+  return new Date(accessExpiresAt) > new Date();
+}
+
 export async function POST(req: NextRequest) {
   try {
     // Check authentication
@@ -93,6 +102,9 @@ export async function POST(req: NextRequest) {
     if (!user) {
       return NextResponse.json({ error: 'User not found' }, { status: 404 });
     }
+
+    const hasSubscription = isUserSubscribed(user);
+    const retentionDays = hasSubscription ? PREMIUM_HISTORY_RETENTION_DAYS : FREE_HISTORY_RETENTION_DAYS;
 
     const siteMaintenance = await isMaintenanceActive("whole_site");
     if (siteMaintenance) {
@@ -126,31 +138,11 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Check if user has subscription
-    const hasSubscription = user.hasPaidAccess && 
-      user.accessExpiresAt && 
-      new Date(user.accessExpiresAt) > new Date();
-
-    // If no subscription, check free tries
-    if (!hasSubscription) {
-      const chatUsageCount = user.chatUsageCount || 0;
-      const freeTriesLimit = 3;
-      
-      if (chatUsageCount >= freeTriesLimit) {
-        return NextResponse.json(
-          { 
-            error: 'Free tries exhausted. Please subscribe to continue.',
-            requiresSubscription: true 
-          },
-          { status: 403 }
-        );
-      }
-    }
-
     const { message, images = [], documents = [], conversationHistory = [] } = await req.json();
+    const trimmedMessage = typeof message === "string" ? message.trim() : "";
 
     if (
-      (!message || typeof message !== "string" || message.trim().length === 0) &&
+      (typeof message !== "string" || trimmedMessage.length === 0) &&
       (!images || images.length === 0) &&
       (!documents || documents.length === 0)
     ) {
@@ -279,7 +271,7 @@ Always maintain a helpful, educational, and encouraging tone.`,
         model: "gpt-4o-mini", // gpt-4o-mini supports vision
         messages: messages,
         temperature: 0.7,
-        max_tokens: 4000, // Increased to allow for longer quiz content
+        max_tokens: 1200, // Trim responses to keep answers focused
         stream: false,
       }),
     });
@@ -307,10 +299,68 @@ Always maintain a helpful, educational, and encouraging tone.`,
 
     const aiResponse = data.choices[0].message.content;
 
+    try {
+      const chatMessagesCollection = db.collection("chatMessages");
+      const now = new Date();
+      const retentionExpiresAt = new Date(now.getTime() + retentionDays * 24 * 60 * 60 * 1000);
+
+      await chatMessagesCollection.deleteMany({
+        email: decoded.email,
+        retentionExpiresAt: { $lt: now },
+      });
+
+      const attachmentNotes: string[] = [];
+
+      if (Array.isArray(documents) && documents.length > 0) {
+        const docNotes = documents
+          .map((doc: IncomingDocument) => {
+            const name = doc?.name?.trim() || "Uploaded document";
+            const type = doc?.type ? ` (${doc.type})` : "";
+            return `Document uploaded: ${name}${type}`;
+          })
+          .join("\n");
+        attachmentNotes.push(docNotes);
+      }
+
+      if (Array.isArray(images) && images.length > 0) {
+        attachmentNotes.push(`Images attached: ${images.length}`);
+      }
+
+      const historyUserContent =
+        [trimmedMessage, ...attachmentNotes].filter((segment) => segment && segment.trim().length > 0).join("\n\n") ||
+        "Shared study materials with sunu-I.";
+
+      const assistantTimestamp = new Date();
+
+      await chatMessagesCollection.insertMany([
+        {
+          email: decoded.email,
+          role: "user",
+          content: historyUserContent,
+          createdAt: now,
+          retentionExpiresAt,
+          hasSubscriptionSnapshot: hasSubscription,
+        },
+        {
+          email: decoded.email,
+          role: "assistant",
+          content: aiResponse,
+          createdAt: assistantTimestamp,
+          retentionExpiresAt,
+          hasSubscriptionSnapshot: hasSubscription,
+          usage: data.usage ?? null,
+        },
+      ]);
+    } catch (historyError) {
+      console.error("Failed to persist chat history:", historyError);
+    }
+
     return NextResponse.json({
       success: true,
       message: aiResponse,
       usage: data.usage,
+      hasSubscription,
+      retentionDays,
     });
   } catch (error: any) {
     console.error("Chat API error:", error);
