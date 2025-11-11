@@ -1112,7 +1112,7 @@ export default function HomePage() {
               "@type": "WebPage",
               name: "GroupXam - Ace Your Exams with Confidence",
               description: "Master WAEC, WASSCE, and JAMB exams with GroupXam's comprehensive study platform. Access 10,000+ practice questions, interactive flashcards, mock exams, advanced calculator tools, and real-time progress tracking.",
-              url: "https://groupxam.com",
+              url: "https://www.groupxam.com",
               mainEntity: {
                 "@type": "EducationalApplication",
                 name: "GroupXam",
@@ -1152,13 +1152,13 @@ export default function HomePage() {
                     "@type": "ListItem",
                     position: 1,
                     name: "Home",
-                    item: "https://groupxam.com"
+                    item: "https://www.groupxam.com"
                   }
                 ]
               },
               potentialAction: {
                 "@type": "SearchAction",
-                target: "https://groupxam.com/search?q={search_term_string}",
+                target: "https://www.groupxam.com/search?q={search_term_string}",
                 "query-input": "required name=search_term_string"
               }
             })
@@ -1174,7 +1174,7 @@ export default function HomePage() {
               "@type": "SoftwareApplication",
               name: "GroupXam Advanced Calculator",
               description: "Multi-mode calculator with scientific functions, programming tools, graphing capabilities, and unit conversion. Perfect for students, engineers, and researchers.",
-              url: "https://groupxam.com/calculator",
+              url: "https://www.groupxam.com/calculator",
               applicationCategory: "UtilitiesApplication",
               operatingSystem: "Web Browser",
               offers: {

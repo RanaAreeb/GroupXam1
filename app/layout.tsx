@@ -9,6 +9,8 @@ import { ResourceHints } from "@/components/PerformanceOptimizer";
 import { PerformanceMonitor } from "@/components/PerformanceMonitor";
 import { MaintenanceProvider } from "@/components/MaintenanceProvider";
 
+const SITE_URL = "https://www.groupxam.com";
+
 export const metadata: Metadata = {
   title:
     "GroupXam - Ace Your Exams with Confidence | WAEC, WASSCE, JAMB Practice Tests",
@@ -57,7 +59,7 @@ export const metadata: Metadata = {
     "test practice",
     "educational platform",
   ],
-  authors: [{ name: "GroupXam Team", url: "https://groupxam.com" }],
+  authors: [{ name: "GroupXam Team", url: SITE_URL }],
   creator: "GroupXam",
   publisher: "GroupXam",
   formatDetection: {
@@ -65,7 +67,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://groupxam.com"),
+  metadataBase: new URL(SITE_URL),
   alternates: {
     canonical: "/",
   },
@@ -74,11 +76,11 @@ export const metadata: Metadata = {
       "GroupXam - Ace Your Exams with Confidence | WAEC, WASSCE, JAMB Practice Tests",
     description:
       "Master WAEC, WASSCE, and JAMB exams with GroupXam's comprehensive study platform. Access 10,000+ practice questions, interactive flashcards, mock exams, and real-time progress tracking. Free online exam preparation for students worldwide.",
-    url: "https://groupxam.com",
+    url: SITE_URL,
     siteName: "GroupXam",
     images: [
       {
-        url: "https://groupxam.com/logo.png",
+        url: `${SITE_URL}/logo.png`,
         width: 1200,
         height: 630,
         alt: "GroupXam - Comprehensive Exam Preparation Platform",
@@ -92,7 +94,7 @@ export const metadata: Metadata = {
     title: "GroupXam - Ace Your Exams with Confidence",
     description:
       "Master WAEC, WASSCE, and JAMB exams with GroupXam's comprehensive study platform. Free online exam preparation for students worldwide.",
-    images: ["https://groupxam.com/logo.png"],
+    images: [`${SITE_URL}/logo.png`],
     creator: "@groupxam",
     site: "@groupxam",
   },
@@ -224,7 +226,7 @@ export default function RootLayout({
               name: "GroupXam",
               description:
                 "Comprehensive exam preparation platform for WAEC, WASSCE, and JAMB exams",
-              url: "https://groupxam.com",
+              url: SITE_URL,
               applicationCategory: "EducationalApplication",
               operatingSystem: "Web Browser",
               offers: {
@@ -236,8 +238,8 @@ export default function RootLayout({
               provider: {
                 "@type": "Organization",
                 name: "GroupXam",
-                url: "https://groupxam.com",
-                logo: "https://groupxam.com/logo.png",
+                url: SITE_URL,
+                logo: `${SITE_URL}/logo.png`,
               },
               audience: {
                 "@type": "Audience",
@@ -264,8 +266,8 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "GroupXam",
-              url: "https://groupxam.com",
-              logo: "https://groupxam.com/logo.png",
+              url: SITE_URL,
+              logo: `${SITE_URL}/logo.png`,
               description:
                 "Leading educational technology platform for global exam preparation",
               foundingDate: "2024",
@@ -295,12 +297,12 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "WebSite",
               name: "GroupXam",
-              url: "https://groupxam.com",
+              url: SITE_URL,
               description:
                 "Comprehensive exam preparation platform for students worldwide",
               potentialAction: {
                 "@type": "SearchAction",
-                target: "https://groupxam.com/search?q={search_term_string}",
+                target: `${SITE_URL}/search?q={search_term_string}`,
                 "query-input": "required name=search_term_string",
               },
             }),

@@ -150,7 +150,7 @@ Run Lighthouse audits regularly to monitor performance:
 ```bash
 # Using Chrome DevTools
 # Or using Lighthouse CLI
-npx lighthouse https://groupxam.com --view
+npx lighthouse https://www.groupxam.com --view
 ```
 
 ### 2. Bundle Size Monitoring

@@ -69,7 +69,7 @@ export async function POST(request) {
             </div>
             
             <div style="text-align: center; margin: 30px 0;">
-              <a href="${productLink || (process.env.NEXT_PUBLIC_BASE_URL || 'https://groupxam.com')}" 
+              <a href="${productLink || (process.env.NEXT_PUBLIC_BASE_URL || 'https://www.groupxam.com')}" 
                  style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
                         color: white; 
                         padding: 12px 30px; 

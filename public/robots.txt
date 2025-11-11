@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://groupxam.com/sitemap.xml
+Sitemap: https://www.groupxam.com/sitemap.xml
 
 # Disallow admin and private areas
 Disallow: /api/

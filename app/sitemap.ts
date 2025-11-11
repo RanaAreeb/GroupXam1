@@ -1,185 +1,92 @@
 import { MetadataRoute } from 'next'
 
+const baseUrl = 'https://www.groupxam.com'
+
+const primaryPages = [
+  '',
+  '/about',
+  '/subscription',
+  '/services',
+  '/contact',
+  '/login',
+  '/signup',
+  '/faq',
+  '/privacy-policy',
+  '/terms-of-use',
+  '/testimonials',
+]
+
+const learningHubs = [
+  '/exams',
+  '/exams/jamb',
+  '/exams/waec',
+  '/exams/wassce',
+  '/quiz',
+  '/flashcards',
+  '/discussions',
+  '/whiteboard',
+  '/calculator',
+  '/calculator/scientific',
+  '/calculator/programming',
+  '/calculator/graphing',
+  '/calculator/converter',
+  '/calculator/finance',
+  '/calculator/physics',
+]
+
+const studyTools = [
+  '/quiz/mathematics',
+  '/quiz/english',
+  '/quiz/physics',
+  '/quiz/chemistry',
+  '/quiz/biology',
+  '/flashcards/mathematics',
+  '/flashcards/english',
+  '/flashcards/physics',
+  '/flashcards/chemistry',
+  '/flashcards/biology',
+]
+
+const retentionSensitivePages = ['/chatbot']
+
+const pagePriorities: Record<string, number> = {
+  '': 1,
+  '/subscription': 0.9,
+  '/exams': 0.9,
+  '/chatbot': 0.9,
+}
+
+const pageFrequencies: Record<string, MetadataRoute.Sitemap[0]['changeFrequency']> = {
+  '': 'daily',
+  '/discussions': 'daily',
+  '/subscription': 'weekly',
+  '/exams': 'weekly',
+  '/exams/jamb': 'weekly',
+  '/exams/waec': 'weekly',
+  '/exams/wassce': 'weekly',
+  '/quiz': 'weekly',
+  '/flashcards': 'weekly',
+  '/whiteboard': 'weekly',
+  '/calculator': 'weekly',
+  '/chatbot': 'weekly',
+}
+
+function buildEntry(path: string, lastModified: Date): MetadataRoute.Sitemap[0] {
+  const priority = pagePriorities[path] ?? (path.startsWith('/calculator') ? 0.7 : 0.6)
+  const changeFrequency = pageFrequencies[path] ?? (path ? 'monthly' : 'daily')
+
+  return {
+    url: `${baseUrl}${path}`,
+    lastModified,
+    changeFrequency,
+    priority,
+  }
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://groupxam.com'
   const now = new Date()
-  
-  return [
-    {
-      url: baseUrl,
-      lastModified: now,
-      changeFrequency: 'daily',
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/subscription`,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/about`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/login`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/signup`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/exams`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/exams/jamb`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/exams/waec`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/exams/wassce`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/quiz`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/flashcards`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/discussions`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/whiteboard`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/calculator`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    // Calculator-related pages for better SEO coverage
-    {
-      url: `${baseUrl}/calculator/scientific`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/calculator/programming`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/calculator/graphing`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/calculator/converter`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/services`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/faq`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/privacy-policy`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/terms-of-use`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/testimonials`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    // Individual exam subjects for better indexing
-    {
-      url: `${baseUrl}/quiz/mathematics`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/quiz/english`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/quiz/physics`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/quiz/chemistry`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/quiz/biology`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-  ]
-} 
+
+  const allPaths = new Set<string>([...primaryPages, ...learningHubs, ...studyTools, ...retentionSensitivePages])
+
+  return Array.from(allPaths).map((path) => buildEntry(path, now))
+}

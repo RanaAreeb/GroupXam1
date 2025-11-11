@@ -77,6 +77,21 @@ const nextConfig = {
   env: {
     CUSTOM_KEY: 'groupxam-study-app',
   },
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'groupxam.com',
+          },
+        ],
+        destination: 'https://www.groupxam.com/:path*',
+        permanent: true,
+      },
+    ]
+  },
   async rewrites() {
     return [
       {

@@ -3904,7 +3904,7 @@ export default function AdminDashboard() {
                                     id="productLink"
                                     value={emailFormData.productLink}
                                     onChange={(e) => setEmailFormData(prev => ({ ...prev, productLink: e.target.value }))}
-                                    placeholder="e.g., https://groupxam.com/calculator"
+                                    placeholder="e.g., https://www.groupxam.com/calculator"
                                   />
                                 </div>
                               </div>

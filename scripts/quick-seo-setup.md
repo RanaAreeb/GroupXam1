@@ -6,7 +6,7 @@
 Copy and paste this information for quick submissions:
 
 **Platform Name:** GroupXam
-**URL:** https://groupxam.com
+**URL:** https://www.groupxam.com
 **Category:** Educational Technology / Exam Preparation
 **Description:** 
 "GroupXam is a comprehensive online exam preparation platform designed for students taking WAEC, WASSCE, and JAMB exams. Our platform offers over 10,000+ practice questions, interactive flashcards, mock exams, and real-time progress tracking. Students worldwide can access free educational resources to boost their academic performance and exam confidence."
@@ -125,7 +125,7 @@ Start practicing with GroupXam's comprehensive JAMB preparation tools. Our platf
 - Progress tracking
 - Weak area identification
 
-[Start Your Free Practice Session](https://groupxam.com/exams/jamb)
+[Start Your Free Practice Session](https://www.groupxam.com/exams/jamb)
 
 ---
 *Join over 1,000 students who've improved their scores using GroupXam. Your success story starts here!*
@@ -157,13 +157,13 @@ Would this be a good fit for your audience? I'm happy to send a sample or outlin
 Best regards,
 [Your Name]
 GroupXam Team
-https://groupxam.com
+https://www.groupxam.com
 ```
 
 ### Educational Directory Submission Template
 ```
 Platform Name: GroupXam
-Website: https://groupxam.com
+Website: https://www.groupxam.com
 Category: Educational Technology / Exam Preparation
 
 Description: GroupXam is a leading online exam preparation platform specifically designed for students taking WAEC, WASSCE, and JAMB exams. Our comprehensive platform features over 10,000 practice questions, interactive flashcards, timed mock exams, and real-time progress tracking. Students worldwide access our free educational resources to improve their academic performance and build exam confidence. Our user-friendly interface, mobile responsiveness, and proven study methodologies have helped over 1,000 students achieve their target scores.
