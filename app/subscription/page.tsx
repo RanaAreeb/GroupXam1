@@ -22,6 +22,11 @@ import {
   ArrowLeft,
   Shield,
   XCircle,
+  Code2,
+  PenSquare,
+  BookOpenCheck,
+  GraduationCap,
+  Lightbulb,
 } from "lucide-react";
 import Link from "next/link";
 import PageTransition from "@/components/PageTransition";
@@ -92,6 +97,13 @@ const countryPricing = {
     monthly: 60,
     baseUsd: 3.99,
   },
+  RW: {
+    name: "🇷🇼 Rwanda",
+    currency: "RWF",
+    symbol: "FRw",
+    monthly: 5200,
+    baseUsd: 3.99,
+  },
   SL: {
     name: "🇸🇱 Sierra Leone",
     currency: "SLE",
@@ -127,6 +139,13 @@ const countryPricing = {
     monthly: 540,
     baseUsd: 3.99,
   },
+  GM: {
+    name: "🇬🇲 Gambia",
+    currency: "GMD",
+    symbol: "D",
+    monthly: 340,
+    baseUsd: 3.99,
+  },
   ZA: {
     name: "🇿🇦 South Africa",
     currency: "ZAR",
@@ -140,10 +159,44 @@ const ANNUAL_MONTHS_CHARGED = 10;
 
 const premiumFeatures = [
   "AI-generated quizzes with instant marking",
-  "AI flashcards that adapt to your progress",
-  "Full AI research & writing assistant with 30-day chat history",
+  "Adaptive AI flashcards that learn from every session",
+  "Scholarly research assistant with citations & source summaries",
+  "Coding assistant for Python, JavaScript, and algorithm walkthroughs",
+  "Writing mentor for essays, statements, and academic reviews",
+  "Reading development coach for comprehension and note-taking",
   "IELTS prep plus international exam resources",
   "Upgraded study groups & accountability tools (coming soon)",
+];
+
+const premiumHighlights = [
+  {
+    title: "Scholarly Research Assistance",
+    description:
+      "Plan literature reviews, collect credible citations, and summarise journal articles in minutes with AI that understands academic standards.",
+    icon: <GraduationCap className="w-6 h-6 text-indigo-500" />,
+    gradient: "from-indigo-50 to-indigo-100",
+  },
+  {
+    title: "Coding Assistant",
+    description:
+      "Debug code, generate practice exercises, and learn new concepts with guided explanations tailored to your syllabus.",
+    icon: <Code2 className="w-6 h-6 text-emerald-500" />,
+    gradient: "from-emerald-50 to-emerald-100",
+  },
+  {
+    title: "Writing Mentor",
+    description:
+      "Refine essays, scholarship applications, and research reports with AI that checks structure, tone, and clarity.",
+    icon: <PenSquare className="w-6 h-6 text-rose-500" />,
+    gradient: "from-rose-50 to-rose-100",
+  },
+  {
+    title: "Reading Development Coach",
+    description:
+      "Turn dense textbooks into digestible insights and build active-reading habits with personalised comprehension drills.",
+    icon: <BookOpenCheck className="w-6 h-6 text-amber-500" />,
+    gradient: "from-amber-50 to-amber-100",
+  },
 ];
 
 const planComparison = [
@@ -173,11 +226,22 @@ const planComparison = [
     feature: "AI assistance",
     free: {
       available: true,
-      description: "Limited AI answers (7-day chat history)",
+      description: "Guided answers with 7-day chat history",
     },
     premium: {
       available: true,
-      description: "Full AI research & writing assistant with 30-day history",
+      description: "Full research, coding, writing & reading assistants (30-day history)",
+    },
+  },
+  {
+    feature: "Expert AI mentors",
+    free: {
+      available: false,
+      description: "Not available on the free plan",
+    },
+    premium: {
+      available: true,
+      description: "Dedicated scholarly, coding, writing, and reading coaches",
     },
   },
   {
@@ -463,6 +527,40 @@ export default function SubscriptionPage() {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* Why Upgrade */}
+          <div className="mb-16">
+            <div className="text-center mb-8">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-100 text-indigo-700 font-semibold text-sm shadow-sm">
+                <Lightbulb className="w-4 h-4" />
+                Why students go Premium
+              </div>
+              <h2 className="text-3xl font-bold text-gray-800 mt-4">
+                Unlock AI partners that accelerate every part of study life
+              </h2>
+              <p className="text-gray-600 max-w-3xl mx-auto mt-3">
+                Premium isn’t just more responses — it gives you specialist AI assistants for deep research, coding help,
+                polished writing, and stronger reading comprehension.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {premiumHighlights.map((highlight) => (
+                <div
+                  key={highlight.title}
+                  className={`rounded-3xl border border-gray-100 shadow-lg p-6 bg-gradient-to-br ${highlight.gradient}`}
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 rounded-2xl bg-white shadow-md">{highlight.icon}</div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-800">{highlight.title}</h3>
+                      <p className="mt-2 text-sm text-gray-600 leading-relaxed">{highlight.description}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 

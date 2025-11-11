@@ -4,7 +4,7 @@ import { ObjectId } from 'mongodb';
 
 export async function POST(request) {
     try {
-        const { subject, message, template, selectedUsers, productLink, productName } = await request.json();
+        const { subject, message, template, selectedUsers, productLink, productName, imageData, imageName } = await request.json();
 
         // Validate required fields
         if (!subject || !message || !selectedUsers || selectedUsers.length === 0) {
@@ -45,8 +45,48 @@ export async function POST(request) {
             }
         });
 
+        if (imageData) {
+            if (typeof imageData !== 'string' || !imageData.startsWith('data:image/')) {
+                return NextResponse.json({
+                    success: false,
+                    error: 'Invalid image format. Please upload a valid image file.'
+                }, { status: 400 });
+            }
+
+            // Rough size check (~1.5MB limit)
+            if (imageData.length > 1_600_000) {
+                return NextResponse.json({
+                    success: false,
+                    error: 'Image is too large. Please use an image under 1MB.'
+                }, { status: 400 });
+            }
+        }
+
         // Create email templates
-        const getEmailTemplate = (template, user, subject, message, productLink, productName) => {
+        const getEmailTemplate = (template, user, subject, message, productLink, productName, heroImage, heroImageName) => {
+            const paragraphs = (message || '')
+                .split('\n')
+                .map((line) => line.trim())
+                .filter(Boolean)
+                .map((line) => `<p style="margin: 0 0 14px; color: #374151; font-size: 15px;">${line}</p>`)
+                .join('');
+
+            const heroAlt = (heroImageName || productName || 'GroupXam AI Preview').replace(/"/g, '&quot;');
+
+            const heroSection = heroImage
+                ? `
+            <div style="margin: 0 0 24px;">
+              <img
+                src="${heroImage}"
+                alt="${heroAlt}"
+                style="width: 100%; max-width: 560px; display: block; margin: 0 auto; border-radius: 18px; box-shadow: 0 18px 40px rgba(79, 70, 229, 0.18);"
+              />
+            </div>
+          `
+                : '';
+
+            const buttonText = productName ? `Explore ${productName}` : 'Visit GroupXam';
+
             const baseTemplate = `
         <!DOCTYPE html>
         <html>
@@ -55,41 +95,40 @@ export async function POST(request) {
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <title>${subject}</title>
         </head>
-        <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
-          <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; text-align: center; border-radius: 10px 10px 0 0;">
-            <h1 style="color: white; margin: 0; font-size: 28px;">GroupXam</h1>
-            <p style="color: #e0e0e0; margin: 10px 0 0 0; font-size: 16px;">Your Learning Platform</p>
+        <body style="font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.7; color: #1f2937; margin: 0; background: #f3f4f6; padding: 0;">
+          <div style="max-width: 640px; margin: 0 auto; padding: 32px 20px;">
+            <div style="background: linear-gradient(135deg, #312e81 0%, #2563eb 100%); padding: 32px 28px; border-radius: 24px 24px 0 0; text-align: center; position: relative; overflow: hidden;">
+              <div style="position:absolute; inset:0; background:linear-gradient(135deg, rgba(236,72,153,0.2), rgba(59,130,246,0.25)); mix-blend-mode: lighten;"></div>
+              <div style="position:relative; z-index:1;">
+                <p style="margin:0; text-transform:uppercase; letter-spacing:4px; font-size:12px; color:#bfdbfe;">GroupXam Premium</p>
+                <h1 style="color:#ffffff; margin:12px 0 0; font-size:28px; font-weight:700;">${productName || 'Discover what\'s new'}</h1>
+                <p style="color:#dbeafe; margin:16px auto 0; max-width:440px; font-size:15px;">Smarter study flows, polished AI responses, and an upgraded dashboard to keep every learner on track.</p>
+              </div>
           </div>
-          
-          <div style="background: #f8f9fa; padding: 30px; border-radius: 0 0 10px 10px; border: 1px solid #e9ecef;">
-            <h2 style="color: #2c3e50; margin-top: 0;">Hello ${user.name || 'there'}!</h2>
-            
-            <div style="background: white; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #667eea;">
-              ${message.replace(/\n/g, '<br>')}
-            </div>
-            
-            <div style="text-align: center; margin: 30px 0;">
-              <a href="${productLink || (process.env.NEXT_PUBLIC_BASE_URL || 'https://www.groupxam.com')}" 
-                 style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
-                        color: white; 
-                        padding: 12px 30px; 
-                        text-decoration: none; 
-                        border-radius: 25px; 
-                        display: inline-block; 
-                        font-weight: bold;">
-                ${productName ? `Try ${productName}` : 'Visit GroupXam'}
-              </a>
-            </div>
-            
-            <div style="border-top: 1px solid #e9ecef; padding-top: 20px; margin-top: 30px; font-size: 14px; color: #6c757d;">
-              <p>Thank you for being part of the GroupXam community!</p>
-              <p>If you have any questions, feel free to contact us at <a href="mailto:${process.env.GMAIL_ADDRESS}" style="color: #667eea;">${process.env.GMAIL_ADDRESS}</a></p>
+            <div style="background:#ffffff; padding: 32px 28px; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 24px 24px;">
+              <h2 style="color:#111827; margin-top: 0; font-size: 22px; font-weight: 700;">Hello ${user.name || 'there'},</h2>
+              ${heroSection}
+              <div style="background:linear-gradient(135deg, rgba(79,70,229,0.08), rgba(59,130,246,0.08)); padding: 22px; border-radius: 18px; border: 1px solid rgba(79,70,229,0.18); margin-bottom: 24px;">
+                ${paragraphs || '<p style="margin:0; color:#374151; font-size:15px;">We\'re excited to show you the latest AI experience inside GroupXam.</p>'}
+              </div>
+              <div style="text-align:center; margin: 28px 0;">
+                <a href="${productLink || (process.env.NEXT_PUBLIC_BASE_URL || 'https://www.groupxam.com')}"
+                   style="display:inline-block; padding: 14px 34px; border-radius: 999px; background: linear-gradient(135deg, #4f46e5 0%, #2563eb 100%); color: #ffffff; font-weight: 600; text-decoration: none; box-shadow: 0 16px 30px rgba(79, 70, 229, 0.35);">
+                  ${buttonText}
+                </a>
+              </div>
+              <div style="background:#f9fafb; border-radius:16px; padding:20px; border:1px solid #e5e7eb;">
+                <p style="margin:0; color:#4b5563; font-size:14px;">
+                  Need a hand getting started? Reply to this email or reach us at
+                  <a href="mailto:${process.env.GMAIL_ADDRESS}" style="color:#2563eb; text-decoration:none;">${process.env.GMAIL_ADDRESS}</a>.
+                  We’re here to help your learners stay ahead.
+                </p>
+              </div>
             </div>
           </div>
-          
-          <div style="text-align: center; margin-top: 20px; font-size: 12px; color: #6c757d;">
-            <p>© ${new Date().getFullYear()} GroupXam. All rights reserved.</p>
-            <p>You received this email because you are a registered user of GroupXam.</p>
+          <div style="text-align: center; margin: 24px 0 0; font-size: 12px; color: #6b7280;">
+            <p style="margin:0;">© ${new Date().getFullYear()} GroupXam. All rights reserved.</p>
+            <p style="margin:4px 0 0;">You’re receiving this because you’re part of the GroupXam community.</p>
           </div>
         </body>
         </html>
@@ -101,7 +140,7 @@ export async function POST(request) {
         // Send emails to each user
         const emailPromises = users.map(async (user) => {
             try {
-                const emailHtml = getEmailTemplate(template, user, subject, message, productLink, productName);
+                const emailHtml = getEmailTemplate(template, user, subject, message, productLink, productName, imageData, imageName);
 
                 const mailOptions = {
                     from: {

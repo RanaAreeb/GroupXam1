@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import { useAuth } from "@/hooks/use-auth";
 import { useRouter } from "next/navigation";
 import { useMaintenance } from "@/hooks/use-maintenance";
@@ -45,6 +45,9 @@ import {
   AlertTriangle,
   Sparkles,
   MessageSquare,
+  UploadCloud,
+  Trash2,
+  Image as ImageIcon,
 } from "lucide-react";
 import {
   Table,
@@ -486,8 +489,12 @@ export default function AdminDashboard() {
     template: 'feature_update',
     selectedUsers: [] as string[],
     productLink: '',
-    productName: ''
+    productName: '',
+    imageData: '',
+    imageName: ''
   });
+  const [emailImageError, setEmailImageError] = useState<string | null>(null);
+  const emailImageInputRef = useRef<HTMLInputElement | null>(null);
   const [emailSearchQuery, setEmailSearchQuery] = useState('');
   const [emailUserRoleFilter, setEmailUserRoleFilter] = useState<string>('all');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -1333,8 +1340,14 @@ export default function AdminDashboard() {
           template: 'feature_update',
           selectedUsers: [],
           productLink: '',
-          productName: ''
+          productName: '',
+          imageData: '',
+          imageName: ''
         });
+        if (emailImageInputRef.current) {
+          emailImageInputRef.current.value = "";
+        }
+        setEmailImageError(null);
         toast({
           title: "Success",
           description: `Emails sent successfully to ${data.sentCount} recipients`,
@@ -1397,6 +1410,50 @@ export default function AdminDashboard() {
       ...prev,
       selectedUsers: []
     }));
+  };
+
+  const handleEmailImageUpload = (file: File | null) => {
+    if (!file) {
+      setEmailImageError(null);
+      return;
+    }
+
+    if (!file.type.startsWith("image/")) {
+      setEmailImageError("Please upload a valid image file (PNG, JPG, GIF).");
+      return;
+    }
+
+    const maxBytes = 1024 * 1024; // 1 MB
+    if (file.size > maxBytes) {
+      setEmailImageError("Image is too large. Please choose a file under 1 MB.");
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      setEmailFormData((prev) => ({
+        ...prev,
+        imageData: typeof reader.result === "string" ? reader.result : "",
+        imageName: file.name,
+      }));
+      setEmailImageError(null);
+    };
+    reader.onerror = () => {
+      setEmailImageError("We couldn't read that file. Please try another image.");
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const clearEmailImage = () => {
+    setEmailFormData((prev) => ({
+      ...prev,
+      imageData: "",
+      imageName: "",
+    }));
+    setEmailImageError(null);
+    if (emailImageInputRef.current) {
+      emailImageInputRef.current.value = "";
+    }
   };
 
   const getFilteredEmailRecipients = () => {
@@ -3885,6 +3942,62 @@ export default function AdminDashboard() {
                                   placeholder="Enter your email message here..."
                                   rows={6}
                                   className="resize-none"
+                                />
+                              </div>
+
+                              <div>
+                                <Label>Showcase Image (optional)</Label>
+                                <div className="mt-2 flex flex-col md:flex-row gap-4 p-4 border border-dashed border-blue-200 rounded-xl bg-white">
+                                  <div className="flex-1 flex items-center justify-center bg-gray-50 border border-gray-200 rounded-lg min-h-[180px]">
+                                    {emailFormData.imageData ? (
+                                      <img
+                                        src={emailFormData.imageData}
+                                        alt={emailFormData.imageName || "AI preview"}
+                                        className="max-h-48 w-full object-contain rounded-lg shadow-sm"
+                                      />
+                                    ) : (
+                                      <div className="text-center text-gray-500 flex flex-col items-center gap-2 px-6">
+                                        <ImageIcon className="w-10 h-10 text-blue-400" />
+                                        <p className="text-sm font-medium">Highlight how the AI looks</p>
+                                        <p className="text-xs">Upload a quick preview to boost engagement.</p>
+                                      </div>
+                                    )}
+                                  </div>
+                                  <div className="flex flex-col gap-2 md:w-48">
+                                    <Button
+                                      type="button"
+                                      variant="outline"
+                                      onClick={() => emailImageInputRef.current?.click()}
+                                      className="justify-center"
+                                    >
+                                      <UploadCloud className="w-4 h-4 mr-2" />
+                                      {emailFormData.imageData ? "Change image" : "Upload image"}
+                                    </Button>
+                                    {emailFormData.imageData && (
+                                      <Button
+                                        type="button"
+                                        variant="ghost"
+                                        onClick={clearEmailImage}
+                                        className="justify-center text-red-600 hover:text-red-700 hover:bg-red-50"
+                                      >
+                                        <Trash2 className="w-4 h-4 mr-2" />
+                                        Remove image
+                                      </Button>
+                                    )}
+                                    {emailImageError && (
+                                      <p className="text-sm text-red-600">{emailImageError}</p>
+                                    )}
+                                    <p className="text-xs text-gray-500 leading-5">
+                                      Supports PNG, JPG, or GIF up to 1&nbsp;MB. We embed the image directly in the email.
+                                    </p>
+                                  </div>
+                                </div>
+                                <input
+                                  ref={emailImageInputRef}
+                                  type="file"
+                                  accept="image/*"
+                                  hidden
+                                  onChange={(event) => handleEmailImageUpload(event.target.files?.[0] || null)}
                                 />
                               </div>
 
