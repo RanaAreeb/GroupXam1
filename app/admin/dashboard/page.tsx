@@ -432,6 +432,8 @@ export default function AdminDashboard() {
   const [isRejectingReview, setIsRejectingReview] = useState<string | null>(null);
   const [payments, setPayments] = useState<any[]>([]);
   const [isLoadingPayments, setIsLoadingPayments] = useState(false);
+  const [paymentRequests, setPaymentRequests] = useState<any[]>([]);
+  const [isLoadingPaymentRequests, setIsLoadingPaymentRequests] = useState(false);
   const [showPaymentModal, setShowPaymentModal] = useState(false);
   const [selectedPayment, setSelectedPayment] = useState<any>(null);
   const [calculatorAnalytics, setCalculatorAnalytics] = useState<any>(null);
@@ -490,6 +492,7 @@ export default function AdminDashboard() {
   const [emailUserRoleFilter, setEmailUserRoleFilter] = useState<string>('all');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('overview');
+  const [activePaymentTab, setActivePaymentTab] = useState<'payments' | 'requests'>('payments');
   const [rangeSelection, setRangeSelection] = useState({
     startRange: '',
     endRange: '',
@@ -559,6 +562,7 @@ export default function AdminDashboard() {
     if (isAdmin) {
       fetchAdminStats();
       fetchPayments();
+      fetchPaymentRequests();
       fetchUsers();
       fetchAlerts();
       fetchEmailRecipients();
@@ -577,6 +581,12 @@ export default function AdminDashboard() {
       return () => clearTimeout(timeoutId);
     }
   }, [dateRange, selectedPeriod]);
+
+  useEffect(() => {
+    if (activePaymentTab === 'requests') {
+      fetchPaymentRequests();
+    }
+  }, [activePaymentTab]);
 
   const fetchCalculatorAnalytics = async () => {
     setIsLoadingCalculatorAnalytics(true);
@@ -893,6 +903,24 @@ export default function AdminDashboard() {
       console.error('Failed to fetch payments:', error);
     } finally {
       setIsLoadingPayments(false);
+    }
+  };
+
+  const fetchPaymentRequests = async () => {
+    try {
+      setIsLoadingPaymentRequests(true);
+      const response = await fetch('/api/admin/payments?mode=requests');
+      const data = await response.json();
+
+      if (data.success) {
+        setPaymentRequests(data.requests || []);
+      } else {
+        console.error('Failed to fetch payment requests:', data.error);
+      }
+    } catch (error) {
+      console.error('Failed to fetch payment requests:', error);
+    } finally {
+      setIsLoadingPaymentRequests(false);
     }
   };
 
@@ -3154,252 +3182,341 @@ export default function AdminDashboard() {
                     <div className="space-y-6">
                       <Card className="border-0 shadow-lg bg-gradient-to-br from-green-50 to-green-100">
                         <CardHeader>
-                          <div className="flex items-center justify-between">
-                            <CardTitle className="text-green-800">Payment Management</CardTitle>
-                            <div className="flex gap-2">
-                              <Button
-                                onClick={() => setShowPaymentModal(true)}
-                                className="bg-green-600 hover:bg-green-700 text-white"
-                                disabled={isAddingPayment}
-                              >
-                                {isAddingPayment ? (
-                                  <>
-                                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
-                                    Adding Payment...
-                                  </>
-                                ) : (
-                                  'Add Manual Payment'
-                                )}
-                              </Button>
-                              <Button
-                                onClick={fixUserAccess}
-                                variant="outline"
-                                size="sm"
-                                disabled={isFixingAccess}
-                                className="bg-orange-100 hover:bg-orange-200 text-orange-700 border-orange-300"
-                              >
-                                {isFixingAccess ? (
-                                  <>
-                                    <div className="w-4 h-4 border-2 border-orange-600 border-t-transparent rounded-full animate-spin mr-2" />
-                                    Fixing Access...
-                                  </>
-                                ) : (
-                                  <>
-                                    <UserCheck className="w-4 h-4 mr-2" />
-                                    Fix Access
-                                  </>
-                                )}
-                              </Button>
-                              <Button
-                                onClick={() => exportData('payments')}
-                                variant="outline"
-                                size="sm"
-                              >
-                                <Download className="w-4 h-4 mr-2" />
-                                Export
-                              </Button>
+                          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                            <div>
+                              <CardTitle className="text-green-800">Payment Management</CardTitle>
+                              {activePaymentTab === 'requests' && (
+                                <p className="text-xs text-green-700 mt-1">
+                                  Keep track of incoming subscription requests from the contact form.
+                                </p>
+                              )}
+                            </div>
+                            <div className="flex flex-wrap gap-2 justify-end">
+                              {activePaymentTab === 'payments' ? (
+                                <>
+                                  <Button
+                                    onClick={() => setShowPaymentModal(true)}
+                                    className="bg-green-600 hover:bg-green-700 text-white"
+                                    disabled={isAddingPayment}
+                                  >
+                                    {isAddingPayment ? (
+                                      <>
+                                        <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
+                                        Adding Payment...
+                                      </>
+                                    ) : (
+                                      'Add Manual Payment'
+                                    )}
+                                  </Button>
+                                  <Button
+                                    onClick={fixUserAccess}
+                                    variant="outline"
+                                    size="sm"
+                                    disabled={isFixingAccess}
+                                    className="bg-orange-100 hover:bg-orange-200 text-orange-700 border-orange-300"
+                                  >
+                                    {isFixingAccess ? (
+                                      <>
+                                        <div className="w-4 h-4 border-2 border-orange-600 border-t-transparent rounded-full animate-spin mr-2" />
+                                        Fixing Access...
+                                      </>
+                                    ) : (
+                                      <>
+                                        <UserCheck className="w-4 h-4 mr-2" />
+                                        Fix Access
+                                      </>
+                                    )}
+                                  </Button>
+                                  <Button
+                                    onClick={() => exportData('payments')}
+                                    variant="outline"
+                                    size="sm"
+                                  >
+                                    <Download className="w-4 h-4 mr-2" />
+                                    Export
+                                  </Button>
+                                </>
+                              ) : (
+                                <Button
+                                  onClick={fetchPaymentRequests}
+                                  variant="outline"
+                                  size="sm"
+                                  disabled={isLoadingPaymentRequests}
+                                  className="bg-green-100 hover:bg-green-200 text-green-700 border-green-300"
+                                >
+                                  <RefreshCw className={`w-4 h-4 mr-2 ${isLoadingPaymentRequests ? 'animate-spin' : ''}`} />
+                                  Refresh Requests
+                                </Button>
+                              )}
                             </div>
                           </div>
                         </CardHeader>
                         <CardContent>
-                          {/* Users List Section */}
-                          <div className="mb-8">
-                            <div className="flex items-center justify-between mb-4">
-                              <h3 className="text-lg font-semibold text-gray-800">All Users ({users.length})</h3>
-                              <Button
-                                onClick={() => setShowUserSelectionModal(true)}
-                                className="bg-blue-600 hover:bg-blue-700 text-white"
-                                size="sm"
-                                disabled={isAddingPayment}
-                              >
-                                <Users className="w-4 h-4 mr-2" />
-                                Add Payment for User
-                              </Button>
-                            </div>
+                          <Tabs
+                            value={activePaymentTab}
+                            onValueChange={(value) => setActivePaymentTab(value as 'payments' | 'requests')}
+                            className="w-full"
+                          >
+                            <TabsList className="grid w-full sm:w-auto sm:inline-grid sm:grid-cols-2 grid-cols-2 mb-6">
+                              <TabsTrigger value="payments">Payments</TabsTrigger>
+                              <TabsTrigger value="requests">
+                                {paymentRequests.length > 0 ? `Requests (${paymentRequests.length})` : 'Requests'}
+                              </TabsTrigger>
+                            </TabsList>
 
-                            {/* Search Bar */}
-                            <div className="mb-4">
-                              <div className="flex gap-2 items-center">
-                                <Input
-                                  type="text"
-                                  placeholder="Search users by email or name..."
-                                  value={userSearchQuery}
-                                  onChange={(e) => setUserSearchQuery(e.target.value)}
-                                  className="max-w-md"
-                                />
-                                {userSearchQuery && (
+                            <TabsContent value="payments" className="space-y-8">
+                              {/* Users List Section */}
+                              <div>
+                                <div className="flex items-center justify-between mb-4">
+                                  <h3 className="text-lg font-semibold text-gray-800">All Users ({users.length})</h3>
                                   <Button
-                                    variant="outline"
+                                    onClick={() => setShowUserSelectionModal(true)}
+                                    className="bg-blue-600 hover:bg-blue-700 text-white"
                                     size="sm"
-                                    onClick={() => setUserSearchQuery('')}
-                                    className="text-gray-500 hover:text-gray-700"
+                                    disabled={isAddingPayment}
                                   >
-                                    Clear
+                                    <Users className="w-4 h-4 mr-2" />
+                                    Add Payment for User
                                   </Button>
-                                )}
-                              </div>
-                              {userSearchQuery && (
-                                <p className="text-sm text-gray-600 mt-1">
-                                  Showing {filteredUsers.length} of {users.length} users
-                                </p>
-                              )}
-                            </div>
+                                </div>
 
-                            {isLoadingUsers ? (
-                              <div className="text-center py-4">
-                                <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-600 mx-auto mb-2"></div>
-                                <p className="text-gray-600 text-sm">Loading users...</p>
-                              </div>
-                            ) : (
-                              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                                {filteredUsers && filteredUsers.length > 0 ? (
-                                  filteredUsers.map((user) => (
-                                    <div key={user._id} className="p-4 border rounded-lg bg-white/70 shadow-sm hover:shadow-md transition-shadow cursor-pointer"
-                                      onClick={() => handleUserSelection(user)}>
-                                      <div className="flex items-center gap-3">
-                                        <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-                                          <span className="text-blue-600 font-bold text-sm">
-                                            {user.name ? user.name.charAt(0).toUpperCase() : user.email.charAt(0).toUpperCase()}
-                                          </span>
-                                        </div>
-                                        <div className="flex-1 min-w-0">
-                                          <h4 className="font-medium text-gray-900 truncate">
-                                            {user.name || 'No Name'}
-                                          </h4>
-                                          <p className="text-sm text-gray-600 truncate">{user.email}</p>
-                                          <div className="flex items-center gap-2 mt-1 flex-wrap">
-                                            {user.access?.premium && (
-                                              <Badge className="text-xs bg-gradient-to-r from-emerald-500 to-blue-500 text-white">
-                                                ⭐ Premium
-                                              </Badge>
-                                            )}
-                                            <Badge variant="outline" className="text-xs">
-                                              {user.access?.ielts ? 'IELTS' : 'No IELTS'}
-                                            </Badge>
-                                            {user.access?.flashcards && (
-                                              <Badge variant="outline" className="text-xs text-purple-600">
-                                                Flashcards
-                                              </Badge>
-                                            )}
-                                            {user.access?.aiTutor && (
-                                              <Badge variant="outline" className="text-xs text-green-600">
-                                                AI Tutor
-                                              </Badge>
-                                            )}
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  ))
-                                ) : (
-                                  <div className="col-span-full text-center py-8 text-gray-500">
-                                    {userSearchQuery ? 'No users found matching your search' : 'No users found'}
+                                {/* Search Bar */}
+                                <div className="mb-4">
+                                  <div className="flex gap-2 items-center">
+                                    <Input
+                                      type="text"
+                                      placeholder="Search users by email or name..."
+                                      value={userSearchQuery}
+                                      onChange={(e) => setUserSearchQuery(e.target.value)}
+                                      className="max-w-md"
+                                    />
+                                    {userSearchQuery && (
+                                      <Button
+                                        variant="outline"
+                                        size="sm"
+                                        onClick={() => setUserSearchQuery('')}
+                                        className="text-gray-500 hover:text-gray-700"
+                                      >
+                                        Clear
+                                      </Button>
+                                    )}
                                   </div>
-                                )}
-                              </div>
-                            )}
-                          </div>
+                                  {userSearchQuery && (
+                                    <p className="text-sm text-gray-600 mt-1">
+                                      Showing {filteredUsers.length} of {users.length} users
+                                    </p>
+                                  )}
+                                </div>
 
-                          {/* Payments List Section */}
-                          <div className="border-t pt-6">
-                            <h3 className="text-lg font-semibold text-gray-800 mb-4">Payment Records</h3>
-                            {isLoadingPayments ? (
-                              <div className="text-center py-8">
-                                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-green-600 mx-auto mb-4"></div>
-                                <p className="text-gray-600">Loading payments...</p>
-                              </div>
-                            ) : (
-                              <div className="space-y-4">
-                                {payments && payments.length > 0 ? (
-                                  payments.map((payment) => (
-                                    <div key={payment._id} className="p-4 border rounded-lg bg-white/70 shadow-sm hover:shadow-md transition-shadow">
-                                      <div className="flex items-center justify-between">
-                                        <div className="flex-1">
-                                          <div className="flex items-center gap-3 mb-2">
-                                            <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                                              <span className="text-green-600 font-bold">$</span>
+                                {isLoadingUsers ? (
+                                  <div className="text-center py-4">
+                                    <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-600 mx-auto mb-2"></div>
+                                    <p className="text-gray-600 text-sm">Loading users...</p>
+                                  </div>
+                                ) : (
+                                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                    {filteredUsers && filteredUsers.length > 0 ? (
+                                      filteredUsers.map((user) => (
+                                        <div key={user._id} className="p-4 border rounded-lg bg-white/70 shadow-sm hover:shadow-md transition-shadow cursor-pointer"
+                                          onClick={() => handleUserSelection(user)}>
+                                          <div className="flex items-center gap-3">
+                                            <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                                              <span className="text-blue-600 font-bold text-sm">
+                                                {user.name ? user.name.charAt(0).toUpperCase() : user.email.charAt(0).toUpperCase()}
+                                              </span>
                                             </div>
-                                            <div>
-                                              <h3 className="font-semibold text-gray-900">{payment.userName || payment.userEmail}</h3>
-                                              <div className="flex items-center gap-2">
+                                            <div className="flex-1 min-w-0">
+                                              <h4 className="font-medium text-gray-900 truncate">
+                                                {user.name || 'No Name'}
+                                              </h4>
+                                              <p className="text-sm text-gray-600 truncate">{user.email}</p>
+                                              <div className="flex items-center gap-2 mt-1 flex-wrap">
+                                                {user.access?.premium && (
+                                                  <Badge className="text-xs bg-gradient-to-r from-emerald-500 to-blue-500 text-white">
+                                                    ⭐ Premium
+                                                  </Badge>
+                                                )}
                                                 <Badge variant="outline" className="text-xs">
-                                                  {payment.package}
+                                                  {user.access?.ielts ? 'IELTS' : 'No IELTS'}
                                                 </Badge>
-                                                <Badge variant={payment.status === 'approved' ? 'default' : payment.status === 'pending' ? 'secondary' : 'destructive'} className="text-xs">
-                                                  {payment.status}
-                                                </Badge>
-                                                <Badge variant="outline" className="text-xs">
-                                                  {payment.paymentMethod}
-                                                </Badge>
+                                                {user.access?.flashcards && (
+                                                  <Badge variant="outline" className="text-xs text-purple-600">
+                                                    Flashcards
+                                                  </Badge>
+                                                )}
+                                                {user.access?.aiTutor && (
+                                                  <Badge variant="outline" className="text-xs text-green-600">
+                                                    AI Tutor
+                                                  </Badge>
+                                                )}
                                               </div>
                                             </div>
                                           </div>
-                                          <div className="text-sm text-gray-600">
-                                            <p><strong>Amount:</strong> ${payment.amount?.toLocaleString()}</p>
-                                            <p><strong>Package:</strong> {payment.package} - {payment.duration} days</p>
-                                            <p><strong>Payment Date:</strong> {new Date(payment.paymentDate).toLocaleDateString()}</p>
-                                            <p><strong>Expires:</strong> {payment.expiresAt ? new Date(payment.expiresAt).toLocaleDateString() : 'N/A'}</p>
-                                            {payment.transactionId && <p><strong>Transaction ID:</strong> {payment.transactionId}</p>}
-                                            {payment.notes && <p><strong>Notes:</strong> {payment.notes}</p>}
-                                          </div>
                                         </div>
-                                        <div className="flex flex-col gap-2 ml-4">
-                                          {payment.status === 'pending' && (
-                                            <>
-                                              <Button
-                                                size="sm"
-                                                variant="default"
-                                                onClick={() => processPayment(payment._id, 'approve')}
-                                                disabled={isProcessingPayment === payment._id}
-                                                className="bg-green-600 hover:bg-green-700 text-white"
-                                              >
-                                                {isProcessingPayment === payment._id ? (
-                                                  <div className="w-3 h-3 border border-current border-t-transparent rounded-full animate-spin mr-1" />
-                                                ) : (
-                                                  <UserCheck className="w-3 h-3 mr-1" />
-                                                )}
-                                                Approve
-                                              </Button>
-                                              <Button
-                                                size="sm"
-                                                variant="destructive"
-                                                onClick={() => processPayment(payment._id, 'reject')}
-                                                disabled={isProcessingPayment === payment._id}
-                                              >
-                                                {isProcessingPayment === payment._id ? (
-                                                  <div className="w-3 h-3 border border-current border-t-transparent rounded-full animate-spin mr-1" />
-                                                ) : (
-                                                  <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                                                  </svg>
-                                                )}
-                                                Reject
-                                              </Button>
-                                            </>
-                                          )}
-                                          {payment.status === 'approved' && (
-                                            <Badge variant="default" className="bg-green-600 text-white">
-                                              ✓ Approved
-                                            </Badge>
-                                          )}
-                                          {payment.status === 'rejected' && (
-                                            <Badge variant="destructive">
-                                              ✗ Rejected
-                                            </Badge>
-                                          )}
-                                        </div>
+                                      ))
+                                    ) : (
+                                      <div className="col-span-full text-center py-8 text-gray-500">
+                                        {userSearchQuery ? 'No users found matching your search' : 'No users found'}
                                       </div>
-                                    </div>
-                                  ))
-                                ) : (
-                                  <div className="text-center py-8 text-gray-500">
-                                    <p>No payments found.</p>
-                                    <p className="text-sm mt-2">Payments will appear here when users make payments or you add them manually.</p>
+                                    )}
                                   </div>
                                 )}
                               </div>
-                            )}
-                          </div>
+
+                              {/* Payments List Section */}
+                              <div className="border-t pt-6">
+                                <h3 className="text-lg font-semibold text-gray-800 mb-4">Payment Records</h3>
+                                {isLoadingPayments ? (
+                                  <div className="text-center py-8">
+                                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-green-600 mx-auto mb-4"></div>
+                                    <p className="text-gray-600">Loading payments...</p>
+                                  </div>
+                                ) : (
+                                  <div className="space-y-4">
+                                    {payments && payments.length > 0 ? (
+                                      payments.map((payment) => (
+                                        <div key={payment._id} className="p-4 border rounded-lg bg-white/70 shadow-sm hover:shadow-md transition-shadow">
+                                          <div className="flex items-center justify-between">
+                                            <div className="flex-1">
+                                              <div className="flex items-center gap-3 mb-2">
+                                                <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                                                  <span className="text-green-600 font-bold">$</span>
+                                                </div>
+                                                <div>
+                                                  <h3 className="font-semibold text-gray-900">{payment.userName || payment.userEmail}</h3>
+                                                  <div className="flex items-center gap-2">
+                                                    <Badge variant="outline" className="text-xs">
+                                                      {payment.package}
+                                                    </Badge>
+                                                    <Badge variant={payment.status === 'approved' ? 'default' : payment.status === 'pending' ? 'secondary' : 'destructive'} className="text-xs">
+                                                      {payment.status}
+                                                    </Badge>
+                                                    <Badge variant="outline" className="text-xs">
+                                                      {payment.paymentMethod}
+                                                    </Badge>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <div className="text-sm text-gray-600">
+                                                <p><strong>Amount:</strong> ${payment.amount?.toLocaleString()}</p>
+                                                <p><strong>Package:</strong> {payment.package} - {payment.duration} days</p>
+                                                <p><strong>Payment Date:</strong> {new Date(payment.paymentDate).toLocaleDateString()}</p>
+                                                <p><strong>Expires:</strong> {payment.expiresAt ? new Date(payment.expiresAt).toLocaleDateString() : 'N/A'}</p>
+                                                {payment.transactionId && <p><strong>Transaction ID:</strong> {payment.transactionId}</p>}
+                                                {payment.notes && <p><strong>Notes:</strong> {payment.notes}</p>}
+                                              </div>
+                                            </div>
+                                            <div className="flex flex-col gap-2 ml-4">
+                                              {payment.status === 'pending' && (
+                                                <>
+                                                  <Button
+                                                    size="sm"
+                                                    variant="default"
+                                                    onClick={() => processPayment(payment._id, 'approve')}
+                                                    disabled={isProcessingPayment === payment._id}
+                                                    className="bg-green-600 hover:bg-green-700 text-white"
+                                                  >
+                                                    {isProcessingPayment === payment._id ? (
+                                                      <div className="w-3 h-3 border border-current border-t-transparent rounded-full animate-spin mr-1" />
+                                                    ) : (
+                                                      <UserCheck className="w-3 h-3 mr-1" />
+                                                    )}
+                                                    Approve
+                                                  </Button>
+                                                  <Button
+                                                    size="sm"
+                                                    variant="destructive"
+                                                    onClick={() => processPayment(payment._id, 'reject')}
+                                                    disabled={isProcessingPayment === payment._id}
+                                                  >
+                                                    {isProcessingPayment === payment._id ? (
+                                                      <div className="w-3 h-3 border border-current border-t-transparent rounded-full animate-spin mr-1" />
+                                                    ) : (
+                                                      <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                                      </svg>
+                                                    )}
+                                                    Reject
+                                                  </Button>
+                                                </>
+                                              )}
+                                              {payment.status === 'approved' && (
+                                                <Badge variant="default" className="bg-green-600 text-white">
+                                                  ✓ Approved
+                                                </Badge>
+                                              )}
+                                              {payment.status === 'rejected' && (
+                                                <Badge variant="destructive">
+                                                  ✗ Rejected
+                                                </Badge>
+                                              )}
+                                            </div>
+                                          </div>
+                                        </div>
+                                      ))
+                                    ) : (
+                                      <div className="text-center py-8 text-gray-500">
+                                        <p>No payments found.</p>
+                                        <p className="text-sm mt-2">Payments will appear here when users make payments or you add them manually.</p>
+                                      </div>
+                                    )}
+                                  </div>
+                                )}
+                              </div>
+                            </TabsContent>
+
+                            <TabsContent value="requests" className="space-y-6">
+                              {isLoadingPaymentRequests ? (
+                                <div className="text-center py-12">
+                                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-green-600 mx-auto mb-4"></div>
+                                  <p className="text-gray-600">Loading subscription requests...</p>
+                                </div>
+                              ) : paymentRequests.length > 0 ? (
+                                <div className="space-y-4">
+                                  {paymentRequests.map((request) => (
+                                    <div key={request._id?.toString?.() || `${request.email}-${request.createdAt}`} className="p-4 border rounded-lg bg-white/80 shadow-sm">
+                                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                                        <div>
+                                          <h3 className="font-semibold text-gray-900">{request.name || request.email}</h3>
+                                          <p className="text-sm text-gray-600">{request.email}</p>
+                                        </div>
+                                        <Badge variant={request.status === 'new' ? 'default' : 'secondary'} className="w-fit">
+                                          {request.status || 'new'}
+                                        </Badge>
+                                      </div>
+                                      <div className="mt-3 grid gap-3 text-sm text-gray-700 sm:grid-cols-2">
+                                        <div>
+                                          <span className="font-semibold text-gray-800 block text-xs uppercase tracking-wide">Request Type</span>
+                                          <span>{request.inquiryType || 'subscription'}</span>
+                                        </div>
+                                        <div>
+                                          <span className="font-semibold text-gray-800 block text-xs uppercase tracking-wide">Package</span>
+                                          <span>{request.packageType || 'Not specified'}</span>
+                                        </div>
+                                        <div>
+                                          <span className="font-semibold text-gray-800 block text-xs uppercase tracking-wide">Submitted</span>
+                                          <span>{request.createdAt ? new Date(request.createdAt).toLocaleString() : '—'}</span>
+                                        </div>
+                                      </div>
+                                      {request.message && (
+                                        <div className="mt-3 rounded-lg bg-gray-50 p-3 text-sm text-gray-600">
+                                          <span className="block text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1">Message</span>
+                                          <p className="whitespace-pre-wrap">{request.message}</p>
+                                        </div>
+                                      )}
+                                    </div>
+                                  ))}
+                                </div>
+                              ) : (
+                                <div className="text-center py-12 text-gray-500">
+                                  <p>No subscription requests yet.</p>
+                                  <p className="text-sm mt-2">
+                                    When students request premium access via the contact form, the requests will appear here for follow-up.
+                                  </p>
+                                </div>
+                              )}
+                            </TabsContent>
+                          </Tabs>
                         </CardContent>
                       </Card>
                     </div>

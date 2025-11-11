@@ -6,8 +6,27 @@ export async function GET(request) {
     try {
         const { searchParams } = new URL(request.url);
         const userEmail = searchParams.get('userEmail');
+        const mode = searchParams.get('mode');
+        const status = searchParams.get('status');
 
         const db = await getDatabase();
+
+        if (mode === 'requests') {
+            const requestQuery = {};
+            if (userEmail) {
+                requestQuery.email = userEmail;
+            }
+            if (status) {
+                requestQuery.status = status;
+            }
+
+            const requests = await db.collection('paymentRequests')
+                .find(requestQuery)
+                .sort({ createdAt: -1 })
+                .toArray();
+
+            return NextResponse.json({ success: true, requests });
+        }
 
         const query = userEmail ? { userEmail } : {};
         const payments = await db.collection('payments')

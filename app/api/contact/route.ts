@@ -1,5 +1,6 @@
 import { NextRequest } from "next/server";
 import nodemailer from "nodemailer";
+import { getDatabase } from "@/lib/db";
 
 // Force dynamic rendering for this route
 export const dynamic = "force-dynamic";
@@ -89,6 +90,25 @@ export async function POST(req: NextRequest) {
       `,
       replyTo: email, // Allow replies to go to the original sender
     });
+
+    if (inquiryType === 'subscription') {
+      try {
+        const db = await getDatabase();
+        await db.collection('paymentRequests').insertOne({
+          name,
+          email,
+          subject,
+          message,
+          inquiryType,
+          packageType: packageType || null,
+          status: 'new',
+          createdAt: new Date(),
+        });
+      } catch (dbError) {
+        console.error('Failed to record subscription request:', dbError);
+      }
+    }
+
     return new Response(JSON.stringify({ success: true }), { status: 200 });
   } catch (error) {
     return new Response(JSON.stringify({ error: "Failed to send email." }), {
