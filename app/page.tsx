@@ -1223,14 +1223,16 @@ export default function HomePage() {
                 ) : isLoggedIn ? (
                   <>
                     {/* Admin Dashboard Link - Only visible to specified admin emails */}
-                    {(user?.email === "ranaareeb1029@gmail.com" || user?.email === "cliftonmanneh6@gmail.com") && (
-                      <Link
-                        href="/admin/dashboard"
-                        className="text-gray-600 hover:text-emerald-600 transition-colors font-medium mr-2"
-                      >
-                        Admin Dashboard
-                      </Link>
-                    )}
+                    {(user?.email === "ranaareeb1029@gmail.com" || user?.email === "cliftonmanneh6@gmail.com" ||
+                      user?.email === " jtdavis@konductcoachlearning.com"
+                    ) && (
+                        <Link
+                          href="/admin/dashboard"
+                          className="text-gray-600 hover:text-emerald-600 transition-colors font-medium mr-2"
+                        >
+                          Admin Dashboard
+                        </Link>
+                      )}
                     {user?.role === "university" && (
                       <Link
                         href="/university/dashboard"
