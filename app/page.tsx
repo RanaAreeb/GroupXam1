@@ -1005,6 +1005,48 @@ export default function HomePage() {
     return () => observer.disconnect();
   }, []);
 
+  // Premium footer scroll-to-reveal animation with staggered effects
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const footer = document.querySelector('.footer-container');
+    if (!footer) return;
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+      const items = footer.querySelectorAll('.footer-item');
+      items.forEach((item) => item.classList.add('footer-visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const container = entry.target as HTMLElement;
+            const items = container.querySelectorAll('.footer-item');
+
+            items.forEach((item, index) => {
+              setTimeout(() => {
+                item.classList.add('footer-visible');
+              }, index * 100); // Stagger each item by 100ms
+            });
+
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.15,
+        rootMargin: '0px 0px 0px 0px'
+      }
+    );
+
+    observer.observe(footer);
+    return () => observer.disconnect();
+  }, []);
+
   const formatDocumentSize = (bytes: number) => {
     if (!bytes || Number.isNaN(bytes) || !Number.isFinite(bytes)) {
       return "Unknown size";
@@ -1253,9 +1295,24 @@ export default function HomePage() {
           html { scroll-behavior: smooth; }
           .reveal-on-scroll { opacity: 0; transform: translateY(24px); transition: opacity 600ms ease, transform 600ms ease; will-change: opacity, transform; }
           .reveal-on-scroll.reveal-visible { opacity: 1; transform: none; }
+          
+          /* Premium footer scroll-to-reveal animations */
+          .footer-item {
+            opacity: 0;
+            transform: translateY(32px) scale(0.96);
+            transition: opacity 900ms cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+          }
+          .footer-item.footer-visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
+          
           @media (prefers-reduced-motion: reduce) {
             html { scroll-behavior: auto; }
             .reveal-on-scroll { opacity: 1 !important; transform: none !important; transition: none !important; }
+            .footer-item { opacity: 1 !important; transform: none !important; transition: none !important; }
           }
           
           /* Slideshow animations */
@@ -1692,10 +1749,10 @@ export default function HomePage() {
                             }
                           }}
                           placeholder="What would you like sunu-I to help you with today?"
-                          className="flex-1 h-14 rounded-xl border border-gray-200 bg-white/95 text-sm sm:text-base focus-visible:ring-2 focus-visible:ring-emerald-500"
+                          className="flex-1 min-w-0 h-14 rounded-xl border border-gray-200 bg-white/95 text-sm sm:text-base focus-visible:ring-2 focus-visible:ring-emerald-500"
                           disabled={isAiDisabled}
                         />
-                        <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 w-full">
+                        <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 w-full xl:w-auto xl:flex-shrink-0">
                           <Button
                             type="button"
                             variant="outline"
@@ -3224,32 +3281,37 @@ export default function HomePage() {
           </section>
 
           {/* Footer */}
-          <footer className="bg-gray-900 text-white py-12 sm:py-16 px-4 reveal-on-scroll">
-            <div className="container mx-auto">
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-8 text-center sm:text-left">
-                <div>
+          <footer className="relative bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 text-white overflow-hidden">
+            {/* Subtle background pattern */}
+            <div className="absolute inset-0 opacity-[0.03]">
+              <div className="absolute inset-0" style={{
+                backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
+                backgroundSize: '40px 40px'
+              }}></div>
+            </div>
+
+            {/* Gradient accents */}
+            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent"></div>
+
+            <div className="relative z-10 container mx-auto py-16 sm:py-20 px-4 footer-container">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 mb-12">
+                <div className="col-span-2 lg:col-span-1 footer-item">
                   {/* groupXam Social Section */}
-                  <div className="mb-6">
-                    <h3
-                      className="text-xl font-bold text-white mb-4 tracking-wide"
-                      style={{ textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}
-                    >
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-6 tracking-tight">
                       groupXam Social
                     </h3>
-                    <div className="space-y-3">
+                    <div className="space-y-4">
                       <a
                         href="https://www.facebook.com/share/16vS1ui8oA/?mibextid=wwXIfr"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-3 text-white hover:text-gray-300 transition-colors group"
+                        className="group flex items-center gap-3 text-gray-300 hover:text-white transition-all duration-200"
                       >
-                        <div className="w-8 h-8 bg-white rounded flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
-                          <FaFacebook className="w-4 h-4 text-gray-800" />
+                        <div className="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center shadow-sm group-hover:bg-white/20 group-hover:scale-105 transition-all duration-200">
+                          <FaFacebook className="w-5 h-5 text-white" />
                         </div>
-                        <span
-                          className="font-semibold underline"
-                          style={{ textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}
-                        >
+                        <span className="font-medium text-sm">
                           Facebook
                         </span>
                       </a>
@@ -3257,30 +3319,28 @@ export default function HomePage() {
                         href="https://www.instagram.com/group_xam?igsh=MW45dHZqbnNrMTk1MQ%3D%3D&utm_source=qr"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-3 text-white hover:text-gray-300 transition-colors group"
+                        className="group flex items-center gap-3 text-gray-300 hover:text-white transition-all duration-200"
                       >
-                        <div className="w-8 h-8 bg-white rounded flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
-                          <FaInstagram className="w-4 h-4 text-gray-800" />
+                        <div className="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center shadow-sm group-hover:bg-white/20 group-hover:scale-105 transition-all duration-200">
+                          <FaInstagram className="w-5 h-5 text-white" />
                         </div>
-                        <span
-                          className="font-semibold underline"
-                          style={{ textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}
-                        >
+                        <span className="font-medium text-sm">
                           Instagram
                         </span>
                       </a>
                     </div>
                   </div>
                 </div>
-                <div>
-                  <h3 className="font-semibold mb-3 sm:mb-4 text-base sm:text-lg">
+
+                <div className="footer-item">
+                  <h3 className="font-semibold mb-5 text-base text-white">
                     Learning Tools & Products
                   </h3>
-                  <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-gray-400">
+                  <ul className="space-y-3.5 text-sm text-gray-400">
                     <li>
                       <Link
                         href={isLoggedIn ? "/quiz" : "/login"}
-                        className="hover:text-white transition-colors"
+                        className="hover:text-white transition-colors duration-200 inline-block hover:translate-x-1 transform"
                       >
                         Quizzes
                       </Link>
@@ -3288,7 +3348,7 @@ export default function HomePage() {
                     <li>
                       <Link
                         href={isLoggedIn ? "/exams" : "/login"}
-                        className="hover:text-white transition-colors"
+                        className="hover:text-white transition-colors duration-200 inline-block hover:translate-x-1 transform"
                       >
                         Exam prep
                       </Link>
@@ -3296,7 +3356,7 @@ export default function HomePage() {
                     <li>
                       <Link
                         href={isLoggedIn ? "/flashcards" : "/login"}
-                        className="hover:text-white transition-colors"
+                        className="hover:text-white transition-colors duration-200 inline-block hover:translate-x-1 transform"
                       >
                         Flashcards
                       </Link>
@@ -3304,7 +3364,7 @@ export default function HomePage() {
                     <li>
                       <Link
                         href={isLoggedIn ? "/discussions" : "/login"}
-                        className="hover:text-white transition-colors"
+                        className="hover:text-white transition-colors duration-200 inline-block hover:translate-x-1 transform"
                       >
                         Study Groups
                       </Link>
@@ -3312,7 +3372,7 @@ export default function HomePage() {
                     <li>
                       <Link
                         href={isLoggedIn ? "/services" : "/login"}
-                        className="hover:text-white transition-colors"
+                        className="hover:text-white transition-colors duration-200 inline-block hover:translate-x-1 transform"
                       >
                         proctorIT
                       </Link>
@@ -3320,7 +3380,7 @@ export default function HomePage() {
                     <li>
                       <Link
                         href={isLoggedIn ? "/whiteboard" : "/login"}
-                        className="hover:text-white transition-colors"
+                        className="hover:text-white transition-colors duration-200 inline-block hover:translate-x-1 transform"
                       >
                         Whiteboard
                       </Link>
@@ -3328,33 +3388,33 @@ export default function HomePage() {
                     <li>
                       <Link
                         href={isLoggedIn ? "/calculator" : "/login"}
-                        className="hover:text-white transition-colors"
+                        className="hover:text-white transition-colors duration-200 inline-block hover:translate-x-1 transform"
                       >
                         Calculator
                       </Link>
                     </li>
-
                     <li>
                       <Link
                         href="https://efggames.com"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:text-white transition-colors"
+                        className="hover:text-white transition-colors duration-200 inline-block hover:translate-x-1 transform"
                       >
                         EFG Games
                       </Link>
                     </li>
                   </ul>
                 </div>
-                <div>
-                  <h3 className="font-semibold mb-3 sm:mb-4 text-base sm:text-lg">
+
+                <div className="footer-item">
+                  <h3 className="font-semibold mb-5 text-base text-white">
                     Support
                   </h3>
-                  <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-gray-400">
+                  <ul className="space-y-3.5 text-sm text-gray-400">
                     <li>
                       <Link
                         href="/contact"
-                        className="hover:text-white transition-colors"
+                        className="hover:text-white transition-colors duration-200 inline-block hover:translate-x-1 transform"
                       >
                         Contact Us
                       </Link>
@@ -3362,22 +3422,23 @@ export default function HomePage() {
                     <li>
                       <Link
                         href="/faq"
-                        className="hover:text-white transition-colors"
+                        className="hover:text-white transition-colors duration-200 inline-block hover:translate-x-1 transform"
                       >
                         FAQ
                       </Link>
                     </li>
                   </ul>
                 </div>
-                <div>
-                  <h3 className="font-semibold mb-3 sm:mb-4 text-base sm:text-lg">
+
+                <div className="footer-item">
+                  <h3 className="font-semibold mb-5 text-base text-white">
                     Company
                   </h3>
-                  <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-gray-400">
+                  <ul className="space-y-3.5 text-sm text-gray-400">
                     <li>
                       <Link
                         href="/about"
-                        className="hover:text-white transition-colors"
+                        className="hover:text-white transition-colors duration-200 inline-block hover:translate-x-1 transform"
                       >
                         About Us
                       </Link>
@@ -3385,7 +3446,7 @@ export default function HomePage() {
                     <li>
                       <Link
                         href="/privacy-policy"
-                        className="hover:text-white transition-colors"
+                        className="hover:text-white transition-colors duration-200 inline-block hover:translate-x-1 transform"
                       >
                         Privacy Policy
                       </Link>
@@ -3393,7 +3454,7 @@ export default function HomePage() {
                     <li>
                       <Link
                         href="/terms-of-use"
-                        className="hover:text-white transition-colors"
+                        className="hover:text-white transition-colors duration-200 inline-block hover:translate-x-1 transform"
                       >
                         Terms of Use
                       </Link>
@@ -3401,10 +3462,10 @@ export default function HomePage() {
                   </ul>
                 </div>
               </div>
-              <div className="border-t border-gray-800 pt-6 sm:pt-8 text-center text-sm sm:text-base text-gray-400">
-                <p>
-                  &copy; 2025 groupXam. All rights reserved. Made with ❤️ for
-                  students.
+
+              <div className="border-t border-gray-800/50 pt-8 text-center footer-item">
+                <p className="text-sm text-gray-400">
+                  &copy; 2025 groupXam. All rights reserved. Made with <span className="text-emerald-400">❤️</span> for students.
                 </p>
               </div>
             </div>
