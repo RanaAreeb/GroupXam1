@@ -555,7 +555,7 @@ export default function AdminDashboard() {
   const [savingMaintenance, setSavingMaintenance] = useState<string | null>(null);
 
   // Check if user is admin
-  const isAdmin = user?.email === "ranaareeb1029@gmail.com" || user?.email === "cliftonmanneh6@gmail.com";
+  const isAdmin = user?.email === "ranaareeb1029@gmail.com" || user?.email === "cliftonmanneh6@gmail.com" || user?.email === " jtdavis@konductcoachlearning.com";
   const isWholeSiteMaintenanceActive = Boolean(siteMaintenance?.isActive);
 
   useEffect(() => {

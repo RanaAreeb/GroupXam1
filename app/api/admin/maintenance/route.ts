@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 import { getMaintenanceSettings, upsertMaintenanceSetting } from "@/lib/maintenance";
 import { MAINTENANCE_SECTIONS } from "@/constants/maintenance";
 
-const ADMIN_EMAILS = ["ranaareeb1029@gmail.com", "cliftonmanneh6@gmail.com"];
+const ADMIN_EMAILS = ["ranaareeb1029@gmail.com", "cliftonmanneh6@gmail.com", " jtdavis@konductcoachlearning.com"];
 
 async function requireAdmin(request: NextRequest) {
   const token = request.cookies.get("token")?.value;

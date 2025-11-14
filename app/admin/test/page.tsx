@@ -19,11 +19,11 @@ export default function AdminTestPage() {
         router.push("/login");
         return;
       }
-      
-      const adminEmails = ["ranaareeb1029@gmail.com", "cliftonmanneh6@gmail.com"];
+
+      const adminEmails = ["ranaareeb1029@gmail.com", "cliftonmanneh6@gmail.com", " jtdavis@konductcoachlearning.com"];
       const isAdminUser = adminEmails.includes(user?.email || "");
       setIsAdmin(isAdminUser);
-      
+
       if (!isAdminUser) {
         router.push("/");
         return;
@@ -67,7 +67,7 @@ export default function AdminTestPage() {
                     Email: {user?.email}
                   </p>
                 </div>
-                
+
                 <div>
                   <h3 className="text-lg font-semibold mb-2">Admin Dashboard Features</h3>
                   <ul className="list-disc list-inside space-y-2 text-gray-600">
