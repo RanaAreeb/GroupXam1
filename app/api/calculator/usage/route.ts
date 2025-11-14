@@ -93,7 +93,7 @@ export async function GET(req: NextRequest) {
 
     // Check admin access - match the logic from admin dashboard
     // Allow both 'admin' role, isAdmin flag, or specific admin emails
-    const adminEmails = ["ranaareeb1029@gmail.com", "cliftonmanneh6@gmail.com", " jtdavis@konductcoachlearning.com"];
+    const adminEmails = ["ranaareeb1029@gmail.com", "cliftonmanneh6@gmail.com", "jtdavis@konductcoachlearning.com"];
     const isAdmin = 
       user.role === 'admin' || 
       user.isAdmin === true || 

@@ -1224,7 +1224,7 @@ export default function HomePage() {
                   <>
                     {/* Admin Dashboard Link - Only visible to specified admin emails */}
                     {(user?.email === "ranaareeb1029@gmail.com" || user?.email === "cliftonmanneh6@gmail.com" ||
-                      user?.email === " jtdavis@konductcoachlearning.com"
+                      user?.email === "jtdavis@konductcoachlearning.com"
                     ) && (
                         <Link
                           href="/admin/dashboard"

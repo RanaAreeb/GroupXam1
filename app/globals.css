@@ -696,7 +696,7 @@ section {
   .animate-pulse-glow,
   .card-hover,
   .hover-lift,
-  [class*="animate-"]:not([data-state]):not([role="dialog"]):not([data-radix-popper-content-wrapper]):not(.animate-spin):not([class*="spin"]) {
+  [class*="animate-"]:not([data-state]):not([role="dialog"]):not([data-radix-popper-content-wrapper]):not([data-radix-popover-content]):not(.animate-spin):not([class*="spin"]) {
     will-change: transform;
     transform: translateZ(0);
     backface-visibility: hidden;
@@ -707,6 +707,14 @@ section {
   .hover-lift {
     contain: layout style paint;
   }
+}
+
+/* Ensure Radix Popover content is not affected by transform optimizations */
+[data-radix-popover-content],
+[data-radix-popper-content-wrapper] {
+  will-change: auto !important;
+  transform: none !important;
+  backface-visibility: visible !important;
 }
 
 /* Optimize scroll performance */

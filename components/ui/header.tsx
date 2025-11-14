@@ -225,7 +225,7 @@ export default function Header({
                     My Profile
                   </Link>
                   {/* Admin Dashboard - Only visible to admin users */}
-                  {(user?.email === "ranaareeb1029@gmail.com" || user?.email === "cliftonmanneh6@gmail.com" || user?.email === " jtdavis@konductcoachlearning.com") && (
+                  {(user?.email === "ranaareeb1029@gmail.com" || user?.email === "cliftonmanneh6@gmail.com" || user?.email === "jtdavis@konductcoachlearning.com") && (
                     <Link
                       href="/admin/dashboard"
                       className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors"
@@ -411,7 +411,7 @@ export default function Header({
                     <span className="font-medium">My Profile</span>
                   </Link>
                   {/* Admin Dashboard - Only visible to admin users */}
-                  {(user?.email === "ranaareeb1029@gmail.com" || user?.email === "cliftonmanneh6@gmail.com" || user?.email === " jtdavis@konductcoachlearning.com") && (
+                  {(user?.email === "ranaareeb1029@gmail.com" || user?.email === "cliftonmanneh6@gmail.com" || user?.email === "jtdavis@konductcoachlearning.com") && (
                     <Link
                       href="/admin/dashboard"
                       className="flex items-center px-2 py-3 text-gray-700 hover:bg-gray-50 transition-colors rounded-lg"

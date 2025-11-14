@@ -20,7 +20,7 @@ export default function AdminTestPage() {
         return;
       }
 
-      const adminEmails = ["ranaareeb1029@gmail.com", "cliftonmanneh6@gmail.com", " jtdavis@konductcoachlearning.com"];
+      const adminEmails = ["ranaareeb1029@gmail.com", "cliftonmanneh6@gmail.com", "jtdavis@konductcoachlearning.com"];
       const isAdminUser = adminEmails.includes(user?.email || "");
       setIsAdmin(isAdminUser);
 
