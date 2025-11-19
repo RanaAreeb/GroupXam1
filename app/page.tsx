@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Head from "next/head";
 import PageTransition from "@/components/PageTransition";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -1118,6 +1119,14 @@ export default function HomePage() {
 
   return (
     <>
+      <Head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Roboto+Slab:wght@100..900&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
       {/* Floating AI Chat Icon - Outside PageTransition for global positioning */}
       <Link
         href={isLoggedIn ? "/chatbot" : "/login"}
@@ -1366,6 +1375,68 @@ export default function HomePage() {
             50% { background-position: 100% 50%; }
           }
           
+          /* Enhanced Hero Typography */
+          .inter-font {
+            font-family: "Inter", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+          }
+          
+          .hero-headline {
+            font-family: "Inter", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            line-height: 1.1;
+          }
+          
+          .hero-gradient-text {
+            background-size: 200% auto;
+            animation: gradient-x 3s ease infinite;
+          }
+          
+          .hero-tagline {
+            font-family: "Inter", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+          }
+          
+          .hero-stat-value {
+            font-family: "Inter", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+          }
+          
+          .hero-stat-label {
+            font-family: "Inter", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+            letter-spacing: 0.025em;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+          }
+          
+          @media (min-width: 1280px) {
+            .hero-headline {
+              letter-spacing: -0.03em;
+            }
+          }
+          
           /* Blob animation */
           @keyframes blob {
             0% { transform: translate(0px, 0px) scale(1); }
@@ -1527,23 +1598,25 @@ export default function HomePage() {
               </div>
 
               {/* Main Headline */}
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-tight px-2">
-                <span className="block text-gray-900">Ace Your Exams</span>
-                <span className="block bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-4 sm:mb-6 leading-[1.1] px-2 tracking-tight hero-headline inter-font">
+                <span className="block text-gray-900 drop-shadow-sm">
+                  Ace Your Exams
+                </span>
+                <span className="block bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 bg-clip-text text-transparent drop-shadow-sm hero-gradient-text">
                   with Confidence
                 </span>
               </h1>
 
               {/* Tagline */}
               <div className="mb-6 sm:mb-8">
-                <div className="flex items-center justify-center gap-2 sm:gap-3 text-base sm:text-xl md:text-2xl font-bold text-gray-800 mb-6">
-                  <span className="text-blue-600">Smarter</span>
+                <div className="flex items-center justify-center gap-2 sm:gap-3 text-base sm:text-xl md:text-2xl text-gray-800 mb-6 tracking-wide hero-tagline inter-font">
+                  <span className="text-blue-600 font-bold">Smarter</span>
                   <div className="w-0 h-0 border-l-[4px] sm:border-l-[6px] border-l-emerald-500 border-t-[3px] sm:border-t-[4px] border-t-transparent border-b-[3px] sm:border-b-[4px] border-b-transparent"></div>
-                  <span className="text-blue-600">Prep</span>
+                  <span className="text-blue-600 font-bold">Prep</span>
                   <div className="w-0 h-0 border-l-[4px] sm:border-l-[6px] border-l-emerald-500 border-t-[3px] sm:border-t-[4px] border-t-transparent border-b-[3px] sm:border-b-[4px] border-b-transparent"></div>
-                  <span className="text-blue-600">Stronger</span>
+                  <span className="text-blue-600 font-bold">Stronger</span>
                   <div className="w-0 h-0 border-l-[4px] sm:border-l-[6px] border-l-emerald-500 border-t-[3px] sm:border-t-[4px] border-t-transparent border-b-[3px] sm:border-b-[4px] border-b-transparent"></div>
-                  <span className="text-blue-600">Results</span>
+                  <span className="text-blue-600 font-bold">Results</span>
                 </div>
 
 
@@ -1586,7 +1659,7 @@ export default function HomePage() {
               {/* Statistics */}
               <div className="grid grid-cols-3 gap-4 sm:gap-8 max-w-2xl mx-auto px-4 mb-6">
                 <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold text-emerald-600 mb-1 sm:mb-2">
+                  <div className="text-2xl sm:text-3xl md:text-4xl text-emerald-600 mb-1 sm:mb-2 tracking-tight hero-stat-value">
                     {questionsCount !== null ? (
                       questionsCount.toLocaleString() + '+'
                     ) : (
@@ -1597,12 +1670,12 @@ export default function HomePage() {
                       </div>
                     )}
                   </div>
-                  <div className="text-xs sm:text-sm text-gray-600">
+                  <div className="text-xs sm:text-sm text-gray-600 font-medium hero-stat-label">
                     Practice Questions
                   </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold text-blue-600 mb-1 sm:mb-2">
+                  <div className="text-2xl sm:text-3xl md:text-4xl text-blue-600 mb-1 sm:mb-2 tracking-tight hero-stat-value">
                     {totalQuizzesCompleted !== null ? (
                       totalQuizzesCompleted.toLocaleString() + '+'
                     ) : (
@@ -1613,12 +1686,12 @@ export default function HomePage() {
                       </div>
                     )}
                   </div>
-                  <div className="text-xs sm:text-sm text-gray-600">
+                  <div className="text-xs sm:text-sm text-gray-600 font-medium hero-stat-label">
                     Total Quizzes and Tests Completed
                   </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold text-purple-600 mb-1 sm:mb-2">
+                  <div className="text-2xl sm:text-3xl md:text-4xl text-purple-600 mb-1 sm:mb-2 tracking-tight hero-stat-value">
                     {studentRetention !== null ? (
                       studentRetention + '%'
                     ) : (
@@ -1629,7 +1702,7 @@ export default function HomePage() {
                       </div>
                     )}
                   </div>
-                  <div className="text-xs sm:text-sm text-gray-600">
+                  <div className="text-xs sm:text-sm text-gray-600 font-medium hero-stat-label">
                     Total Student Retention
                   </div>
                 </div>
@@ -3332,7 +3405,7 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div className="footer-item">
+                <div className="footer-item col-span-1 col-start-1 lg:col-start-auto order-1 lg:order-none">
                   <h3 className="font-semibold mb-5 text-base text-white">
                     Learning Tools & Products
                   </h3>
@@ -3406,60 +3479,62 @@ export default function HomePage() {
                   </ul>
                 </div>
 
-                <div className="footer-item">
-                  <h3 className="font-semibold mb-5 text-base text-white">
-                    Support
-                  </h3>
-                  <ul className="space-y-3.5 text-sm text-gray-400">
-                    <li>
-                      <Link
-                        href="/contact"
-                        className="hover:text-white transition-colors duration-200 inline-block hover:translate-x-1 transform"
-                      >
-                        Contact Us
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/faq"
-                        className="hover:text-white transition-colors duration-200 inline-block hover:translate-x-1 transform"
-                      >
-                        FAQ
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
+                <div className="col-span-1 col-start-2 lg:col-span-2 lg:col-start-auto order-2 lg:order-none flex flex-col gap-10 lg:grid lg:grid-cols-2 lg:gap-12">
+                  <div className="footer-item">
+                    <h3 className="font-semibold mb-5 text-base text-white">
+                      Support
+                    </h3>
+                    <ul className="space-y-3.5 text-sm text-gray-400">
+                      <li>
+                        <Link
+                          href="/contact"
+                          className="hover:text-white transition-colors duration-200 inline-block hover:translate-x-1 transform"
+                        >
+                          Contact Us
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          href="/faq"
+                          className="hover:text-white transition-colors duration-200 inline-block hover:translate-x-1 transform"
+                        >
+                          FAQ
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
 
-                <div className="footer-item">
-                  <h3 className="font-semibold mb-5 text-base text-white">
-                    Company
-                  </h3>
-                  <ul className="space-y-3.5 text-sm text-gray-400">
-                    <li>
-                      <Link
-                        href="/about"
-                        className="hover:text-white transition-colors duration-200 inline-block hover:translate-x-1 transform"
-                      >
-                        About Us
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/privacy-policy"
-                        className="hover:text-white transition-colors duration-200 inline-block hover:translate-x-1 transform"
-                      >
-                        Privacy Policy
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/terms-of-use"
-                        className="hover:text-white transition-colors duration-200 inline-block hover:translate-x-1 transform"
-                      >
-                        Terms of Use
-                      </Link>
-                    </li>
-                  </ul>
+                  <div className="footer-item">
+                    <h3 className="font-semibold mb-5 text-base text-white">
+                      Company
+                    </h3>
+                    <ul className="space-y-3.5 text-sm text-gray-400">
+                      <li>
+                        <Link
+                          href="/about"
+                          className="hover:text-white transition-colors duration-200 inline-block hover:translate-x-1 transform"
+                        >
+                          About Us
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          href="/privacy-policy"
+                          className="hover:text-white transition-colors duration-200 inline-block hover:translate-x-1 transform"
+                        >
+                          Privacy Policy
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          href="/terms-of-use"
+                          className="hover:text-white transition-colors duration-200 inline-block hover:translate-x-1 transform"
+                        >
+                          Terms of Use
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
 

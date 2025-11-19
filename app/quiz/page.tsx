@@ -2,12 +2,14 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Lock, Sparkles } from "lucide-react";
 import AppHeader from "@/components/ui/app-header";
 import ProtectedRoute from "@/components/ProtectedRoute";
+import { useAuth } from "@/hooks/use-auth";
 import {
   Target,
   MessageSquare,
@@ -565,6 +567,68 @@ const subjectCategories = [
   },
 ];
 
+const aiSubjectOptions = Array.from(
+  new Set(
+    subjectCategories.flatMap((category) =>
+      category.subjects.map((subject) => subject.name)
+    )
+  )
+).sort();
+
+type AIDifficulty = "Beginner" | "Intermediate" | "Advanced";
+
+type AIQuizQuestion = {
+  id: string;
+  prompt: string;
+  options: { id: string; text: string }[];
+  answerId: string;
+  explanation: string;
+};
+
+type AIQuiz = {
+  id: string;
+  subject: string;
+  topic: string;
+  difficulty: AIDifficulty;
+  questions: AIQuizQuestion[];
+  timeLimit: number;
+  createdAt: number;
+};
+
+const evaluateAIQuiz = (
+  quiz: AIQuiz,
+  answers: Record<string, string>
+) => {
+  const details = quiz.questions.map((question) => {
+    const userAnswerId = answers[question.id];
+    const isCorrect = userAnswerId === question.answerId;
+    const correctOption =
+      question.options.find((option) => option.id === question.answerId)
+        ?.text || "N/A";
+    const userOption =
+      question.options.find((option) => option.id === userAnswerId)?.text ||
+      "Not answered";
+
+    return {
+      questionId: question.id,
+      prompt: question.prompt,
+      isCorrect,
+      correctOption,
+      userOption,
+      explanation: question.explanation,
+    };
+  });
+
+  const totalCorrect = details.filter((detail) => detail.isCorrect).length;
+
+  return {
+    totalCorrect,
+    totalQuestions: quiz.questions.length,
+    accuracy: Math.round((totalCorrect / quiz.questions.length) * 100),
+    details,
+  };
+};
+
 // Quiz data - this would normally come from an API or dynamic import
 const quizData: Record<
   string,
@@ -957,7 +1021,7 @@ const getQuizzesForSubject = async (subjectName: string) => {
       } else if (subjectName.toLowerCase() === "engineering science") {
         folderName = "engineering-science";
       }
-      
+
       const response = await fetch(
         `/api/quiz-data/science/${folderName}`
       );
@@ -1264,6 +1328,9 @@ const getQuizzesForSubject = async (subjectName: string) => {
 };
 
 export default function QuizPage() {
+  const router = useRouter();
+  const { user } = useAuth();
+  const [activeMode, setActiveMode] = useState<"library" | "ai">("library");
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedSubject, setSelectedSubject] = useState<string | null>(null);
   const [quizData, setQuizData] = useState<any[]>([]);
@@ -1271,12 +1338,85 @@ export default function QuizPage() {
   const [subjectQuizCounts, setSubjectQuizCounts] = useState<{
     [key: string]: number;
   }>({});
+  const [isPremium, setIsPremium] = useState<boolean | null>(null);
+  const [isCheckingPremium, setIsCheckingPremium] = useState(true);
+  const [aiForm, setAiForm] = useState({
+    subject: aiSubjectOptions[0] || "General Studies",
+    topic: "",
+    difficulty: "Intermediate" as AIDifficulty,
+    numQuestions: 5,
+    timePerQuestion: 2,
+  });
+  const [isGeneratingAiQuiz, setIsGeneratingAiQuiz] = useState(false);
+  const [aiQuiz, setAiQuiz] = useState<AIQuiz | null>(null);
+  const [aiQuizAnswers, setAiQuizAnswers] = useState<Record<string, string>>({});
+  const [aiQuizResult, setAiQuizResult] = useState<ReturnType<
+    typeof evaluateAIQuiz
+  > | null>(null);
+  const [aiError, setAiError] = useState<string | null>(null);
+
+  // Check premium status
+  useEffect(() => {
+    const checkPremiumStatus = async () => {
+      setIsCheckingPremium(true);
+      try {
+        const response = await fetch("/api/user/payment-status", {
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          // Check if user has premium subscription (subscription-3month, subscription-6month, subscription-12month)
+          const hasPremiumPackage =
+            data.packageType === "subscription-3month" ||
+            data.packageType === "subscription-6month" ||
+            data.packageType === "subscription-12month";
+
+          const isSubscriptionValid =
+            data.hasAccess &&
+            data.expiryDate &&
+            new Date(data.expiryDate) > new Date();
+
+          // Also check user.access directly as fallback (in case API doesn't return correct packageType)
+          const userAccessPackageType = (user?.access as any)?.packageType;
+          const hasDirectPremiumPackage =
+            userAccessPackageType === "subscription-3month" ||
+            userAccessPackageType === "subscription-6month" ||
+            userAccessPackageType === "subscription-12month";
+
+          const userAccessExpiry = (user?.access as any)?.accessExpiresAt;
+          const isDirectAccessValid = hasDirectPremiumPackage &&
+            (user?.access as any)?.hasPaidAccess === true &&
+            userAccessExpiry &&
+            new Date(userAccessExpiry) > new Date();
+
+          // Also check user.access?.premium as fallback
+          const hasPremiumAccess = (user?.access as any)?.premium === true;
+
+          setIsPremium((hasPremiumPackage && isSubscriptionValid) || isDirectAccessValid || hasPremiumAccess);
+        } else {
+          setIsPremium(false);
+        }
+      } catch (error) {
+        console.error("Error checking premium status:", error);
+        setIsPremium(false);
+      } finally {
+        setIsCheckingPremium(false);
+      }
+    };
+
+    checkPremiumStatus();
+  }, [user]);
 
   // Handle URL parameters for category selection
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const categoryParam = urlParams.get("category");
     const subjectParam = urlParams.get("subject");
+    const modeParam = urlParams.get("mode");
 
     if (
       categoryParam &&
@@ -1288,7 +1428,22 @@ export default function QuizPage() {
     if (subjectParam) {
       setSelectedSubject(subjectParam);
     }
-  }, []);
+
+    // Check if user is trying to access AI mode via URL
+    if (modeParam === "ai") {
+      if (isPremium && !isCheckingPremium) {
+        setActiveMode("ai");
+      } else if (!isPremium && !isCheckingPremium) {
+        setActiveMode("library");
+        const upgrade = window.confirm(
+          "AI Quiz Studio is a premium feature. Upgrade to Premium to access AI-generated quizzes. Would you like to visit the subscription page?"
+        );
+        if (upgrade) {
+          router.push("/subscription");
+        }
+      }
+    }
+  }, [isPremium, isCheckingPremium, router]);
 
   // Load quiz data when subject changes
   useEffect(() => {
@@ -1312,7 +1467,7 @@ export default function QuizPage() {
       pharmacology: 1,
       ecology: 1,
       psychology: 1,
-      
+
       // Coding
       javascript: 2,
       python: 2,
@@ -1320,7 +1475,7 @@ export default function QuizPage() {
       react: 2,
       "node.js": 2,
       database: 2,
-      
+
       // Economics
       economics: 1,
       "micro economics": 1,
@@ -1328,7 +1483,7 @@ export default function QuizPage() {
       accounting: 1,
       finance: 1,
       "political science": 1,
-      
+
       // Mathematics
       statistics: 1,
       calculus: 2,
@@ -1337,7 +1492,7 @@ export default function QuizPage() {
       geometry: 2,
       trigonometry: 2,
       "pythagorean theorem": 1,
-      
+
       // Arts & Humanities
       english: 1,
       literature: 1,
@@ -1351,14 +1506,14 @@ export default function QuizPage() {
       "foreign languages": 1,
       "religious studies": 1,
       "cultural studies": 1,
-      
+
       // Medicine
       pathology: 1,
       immunology: 1,
       cardiology: 1,
       neurology: 1,
       pediatrics: 1,
-      
+
       // Business
       "business management": 1,
       marketing: 1,
@@ -1370,7 +1525,7 @@ export default function QuizPage() {
       "supply chain management": 1,
       "project management": 1,
       "business ethics": 1,
-      
+
       // Law
       "constitutional law": 1,
       "criminal law": 1,
@@ -1382,7 +1537,7 @@ export default function QuizPage() {
       "international law": 1,
       "environmental law": 1,
       "human rights law": 1,
-      
+
       // Additional Subjects
       "agricultural science": 1,
       "government": 1,
@@ -1405,7 +1560,7 @@ export default function QuizPage() {
       "further mathematics (elective)": 1,
       "christian religious knowledge": 1,
     };
-    
+
     setSubjectQuizCounts(defaultCounts);
   }, []);
 
@@ -1458,11 +1613,104 @@ export default function QuizPage() {
     window.history.pushState({}, "", url.toString());
   };
 
+  const handleModeChange = (mode: "library" | "ai") => {
+    if (mode === "ai") {
+      // Check if user has premium access
+      if (!isPremium) {
+        // Show upgrade prompt or redirect to subscription page
+        const upgrade = window.confirm(
+          "AI Quiz Studio is a premium feature. Upgrade to Premium to access AI-generated quizzes. Would you like to visit the subscription page?"
+        );
+        if (upgrade) {
+          router.push("/subscription");
+        }
+        return;
+      }
+      setSelectedCategory(null);
+      setSelectedSubject(null);
+    }
+    setActiveMode(mode);
+    setAiError(null);
+  };
+
+  const handleGenerateAiQuiz = async () => {
+    if (!aiForm.subject) return;
+
+    // Double-check premium status before generating
+    if (!isPremium) {
+      setAiError("AI Quiz Studio is a premium feature. Please upgrade to Premium to access this feature.");
+      const upgrade = window.confirm(
+        "AI Quiz Studio is a premium feature. Upgrade to Premium to access AI-generated quizzes. Would you like to visit the subscription page?"
+      );
+      if (upgrade) {
+        router.push("/subscription");
+      }
+      return;
+    }
+
+    setAiError(null);
+    setIsGeneratingAiQuiz(true);
+    try {
+      const response = await fetch("/api/ai-quizzes", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          subject: aiForm.subject,
+          topic: aiForm.topic,
+          difficulty: aiForm.difficulty,
+          numQuestions: aiForm.numQuestions,
+          timePerQuestion: aiForm.timePerQuestion,
+        }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.error || "Failed to generate quiz. Please try again.");
+      }
+
+      const data = await response.json();
+      if (!data.quiz) {
+        throw new Error("AI response was missing quiz content. Please try again.");
+      }
+
+      setAiQuiz(data.quiz);
+      setAiQuizAnswers({});
+      setAiQuizResult(null);
+    } catch (error: any) {
+      console.error("AI quiz generation failed:", error);
+      setAiError(error?.message || "Failed to generate quiz. Please try again.");
+      setAiQuiz(null);
+    } finally {
+      setIsGeneratingAiQuiz(false);
+    }
+  };
+
+  const handleAiAnswerChange = (questionId: string, optionId: string) => {
+    setAiQuizAnswers((prev) => ({
+      ...prev,
+      [questionId]: optionId,
+    }));
+  };
+
+  const handleSubmitAiQuiz = () => {
+    if (!aiQuiz) return;
+    const result = evaluateAIQuiz(aiQuiz, aiQuizAnswers);
+    setAiQuizResult(result);
+  };
+
+  const handleResetAiQuiz = () => {
+    setAiQuiz(null);
+    setAiQuizAnswers({});
+    setAiQuizResult(null);
+    setAiError(null);
+  };
+
   const handleStartQuiz = (quiz: any) => {
     // Navigate to quiz page with quiz info
-    const quizUrl = `/quiz/${encodeURIComponent(quiz.subject.toLowerCase())}/${
-      quiz.id
-    }`;
+    const quizUrl = `/quiz/${encodeURIComponent(quiz.subject.toLowerCase())}/${quiz.id
+      }`;
     window.location.href = quizUrl;
   };
 
@@ -1481,345 +1729,815 @@ export default function QuizPage() {
 
         {/* Hero Section */}
         <section className="relative py-16 sm:py-24 px-4 bg-gradient-to-r from-emerald-500 via-blue-500 to-purple-500 text-white shadow-lg rounded-b-3xl mb-12">
-        <div className="container mx-auto text-center relative z-10">
-          <nav className="mb-4 text-sm text-emerald-100/80">
-            <Link href="/" className="hover:underline">
-              Home
-            </Link>{" "}
-            &gt; <span>Quizzes</span>
-            {selectedCategoryData && (
-              <>
-                {" "}
-                &gt; <span>{selectedCategoryData.title}</span>
-              </>
-            )}
-            {selectedSubjectData && (
-              <>
-                {" "}
-                &gt; <span>{selectedSubjectData.name}</span>
-              </>
-            )}
-          </nav>
+          <div className="container mx-auto text-center relative z-10">
+            <nav className="mb-4 text-sm text-emerald-100/80">
+              <Link href="/" className="hover:underline">
+                Home
+              </Link>{" "}
+              &gt; <span>Quizzes</span>
+              {activeMode === "library" && selectedCategoryData && (
+                <>
+                  {" "}
+                  &gt; <span>{selectedCategoryData.title}</span>
+                </>
+              )}
+              {activeMode === "library" && selectedSubjectData && (
+                <>
+                  {" "}
+                  &gt; <span>{selectedSubjectData.name}</span>
+                </>
+              )}
+              {activeMode === "ai" && (
+                <>
+                  {" "}
+                  &gt; <span>AI Quiz Studio</span>
+                  {aiQuiz && (
+                    <>
+                      {" "}
+                      &gt; <span>Custom Quiz</span>
+                    </>
+                  )}
+                </>
+              )}
+            </nav>
 
-          <div className="flex justify-center gap-4 mb-6 flex-wrap">
-            {subjectCategories.slice(0, 4).map((cat, i) => {
-              const Icon = cat.icon;
-              return (
-                <span
-                  key={cat.id}
-                  className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/20 text-white text-2xl shadow-lg"
-                >
-                  <Icon className="w-7 h-7" />
+            <div className="flex justify-center gap-4 mb-6 flex-wrap">
+              {subjectCategories.slice(0, 4).map((cat) => {
+                const Icon = cat.icon;
+                return (
+                  <span
+                    key={cat.id}
+                    className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/20 text-white text-2xl shadow-lg"
+                  >
+                    <Icon className="w-7 h-7" />
+                  </span>
+                );
+              })}
+            </div>
+
+            <h1 className="text-4xl sm:text-5xl font-extrabold mb-4 drop-shadow-lg">
+              {activeMode === "ai"
+                ? "AI Quiz Studio"
+                : selectedSubjectData
+                  ? `${selectedSubjectData.name} Quizzes`
+                  : selectedCategoryData
+                    ? selectedCategoryData.title
+                    : "Exam Preparation Quizzes"}
+            </h1>
+            <p className="text-lg sm:text-xl text-emerald-100/90 max-w-3xl mx-auto mb-6">
+              {activeMode === "ai"
+                ? "Generate tailored quizzes on any subject with AI-crafted questions, review instant explanations, and keep practice lightweight without new API costs."
+                : selectedSubjectData
+                  ? `Choose a quiz to test your ${selectedSubjectData.name.toLowerCase()} knowledge`
+                  : selectedCategoryData
+                    ? `Practice and master ${selectedCategoryData.title.toLowerCase()} subjects. Choose a subject to get started!`
+                    : "Practice quizzes for every subject and exam type. Select a category to get started!"}
+            </p>
+
+            <div className="inline-flex bg-white/20 rounded-full p-1 mb-4">
+              <button
+                className={`px-6 py-2 rounded-full text-sm font-semibold transition ${activeMode === "library"
+                  ? "bg-white text-emerald-600 shadow"
+                  : "text-white/90 hover:text-white"
+                  }`}
+                onClick={() => handleModeChange("library")}
+              >
+                Browse Quiz Library
+              </button>
+              <button
+                className={`px-6 py-2 rounded-full text-sm font-semibold transition relative ${activeMode === "ai"
+                  ? "bg-white text-emerald-600 shadow"
+                  : "text-white/90 hover:text-white"
+                  } ${!isPremium ? "opacity-75" : ""}`}
+                onClick={() => handleModeChange("ai")}
+                disabled={isCheckingPremium}
+              >
+                <span className="flex items-center gap-2">
+                  AI Quiz Studio
+                  {!isPremium && (
+                    <Lock className="w-3 h-3" />
+                  )}
+                  {isPremium && (
+                    <Sparkles className="w-3 h-3" />
+                  )}
                 </span>
-              );
-            })}
+              </button>
+            </div>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl font-extrabold mb-4 drop-shadow-lg">
-            {selectedSubjectData
-              ? `${selectedSubjectData.name} Quizzes`
-              : selectedCategoryData
-              ? selectedCategoryData.title
-              : "Exam Preparation Quizzes"}
-          </h1>
-          <p className="text-lg sm:text-xl text-emerald-100/90 max-w-2xl mx-auto mb-2">
-            {selectedSubjectData
-              ? `Choose a quiz to test your ${selectedSubjectData.name.toLowerCase()} knowledge`
-              : selectedCategoryData
-              ? `Practice and master ${selectedCategoryData.title.toLowerCase()} subjects. Choose a subject to get started!`
-              : "Practice quizzes for every subject and exam type. Select a category to get started! "}
-          </p>
-        </div>
+          {/* Decorative SVG blobs */}
+          <svg
+            className="absolute -top-24 -left-24 w-96 h-96 opacity-20 blur-2xl"
+            viewBox="0 0 200 200"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill="#a5b4fc"
+              d="M44.8,-67.2C56.7,-59.2,63.7,-44.2,68.2,-29.2C72.7,-14.2,74.7,0.8,70.2,13.7C65.7,26.6,54.7,37.4,42.2,46.2C29.7,55,14.8,61.8,-0.7,62.7C-16.2,63.6,-32.4,58.6,-44.2,48.6C-56,38.6,-63.4,23.6,-66.2,7.6C-69,-8.4,-67.2,-25.4,-58.7,-36.7C-50.2,-48,-35,-53.7,-20.1,-60.2C-5.2,-66.7,9.4,-74.1,24.2,-74.2C39,-74.3,55,-67.2,44.8,-67.2Z"
+              transform="translate(100 100)"
+            />
+          </svg>
+          <svg
+            className="absolute -bottom-24 -right-24 w-96 h-96 opacity-10 blur-2xl"
+            viewBox="0 0 200 200"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill="#6ee7b7"
+              d="M38.2,-60.2C51.2,-54.2,63.2,-44.2,68.2,-31.2C73.2,-18.2,71.2,-2.2,66.2,12.8C61.2,27.8,53.2,41.8,41.2,50.8C29.2,59.8,14.2,63.8,-0.8,64.8C-15.8,65.8,-31.8,63.8,-44.8,55.8C-57.8,47.8,-67.8,33.8,-70.8,18.8C-73.8,3.8,-69.8,-12.2,-61.8,-25.2C-53.8,-38.2,-41.8,-48.2,-28.8,-54.2C-15.8,-60.2,-1.8,-62.2,12.2,-62.2C26.2,-62.2,52.2,-66.2,38.2,-60.2Z"
+              transform="translate(100 100)"
+            />
+          </svg>
+        </section>
 
-        {/* Decorative SVG blobs */}
-        <svg
-          className="absolute -top-24 -left-24 w-96 h-96 opacity-20 blur-2xl"
-          viewBox="0 0 200 200"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            fill="#a5b4fc"
-            d="M44.8,-67.2C56.7,-59.2,63.7,-44.2,68.2,-29.2C72.7,-14.2,74.7,0.8,70.2,13.7C65.7,26.6,54.7,37.4,42.2,46.2C29.7,55,14.8,61.8,-0.7,62.7C-16.2,63.6,-32.4,58.6,-44.2,48.6C-56,38.6,-63.4,23.6,-66.2,7.6C-69,-8.4,-67.2,-25.4,-58.7,-36.7C-50.2,-48,-35,-53.7,-20.1,-60.2C-5.2,-66.7,9.4,-74.1,24.2,-74.2C39,-74.3,55,-67.2,44.8,-67.2Z"
-            transform="translate(100 100)"
-          />
-        </svg>
-        <svg
-          className="absolute -bottom-24 -right-24 w-96 h-96 opacity-10 blur-2xl"
-          viewBox="0 0 200 200"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            fill="#6ee7b7"
-            d="M38.2,-60.2C51.2,-54.2,63.2,-44.2,68.2,-31.2C73.2,-18.2,71.2,-2.2,66.2,12.8C61.2,27.8,53.2,41.8,41.2,50.8C29.2,59.8,14.2,63.8,-0.8,64.8C-15.8,65.8,-31.8,63.8,-44.8,55.8C-57.8,47.8,-67.8,33.8,-70.8,18.8C-73.8,3.8,-69.8,-12.2,-61.8,-25.2C-53.8,-38.2,-41.8,-48.2,-28.8,-54.2C-15.8,-60.2,-1.8,-62.2,12.2,-62.2C26.2,-62.2,52.2,-66.2,38.2,-60.2Z"
-            transform="translate(100 100)"
-          />
-        </svg>
-      </section>
+        <div className="container mx-auto pb-16 px-4">
+          {activeMode === "library" ? (
+            <>
+              {/* Back Buttons */}
+              {selectedSubjectData && (
+                <div className="mb-8">
+                  <Button
+                    variant="outline"
+                    onClick={handleBackToSubjects}
+                    className="flex items-center gap-2"
+                  >
+                    <ArrowLeft className="w-4 h-4" />
+                    Back to Subjects
+                  </Button>
+                </div>
+              )}
 
-      <div className="container mx-auto pb-16 px-4">
-        {/* Back Buttons */}
-        {selectedSubjectData && (
-          <div className="mb-8">
-            <Button
-              variant="outline"
-              onClick={handleBackToSubjects}
-              className="flex items-center gap-2"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              Back to Subjects
-            </Button>
-          </div>
-        )}
+              {selectedCategoryData && !selectedSubjectData && (
+                <div className="mb-8">
+                  <Button
+                    variant="outline"
+                    onClick={handleBackToCategories}
+                    className="flex items-center gap-2"
+                  >
+                    <ArrowLeft className="w-4 h-4" />
+                    Back to Categories
+                  </Button>
+                </div>
+              )}
 
-        {selectedCategoryData && !selectedSubjectData && (
-          <div className="mb-8">
-            <Button
-              variant="outline"
-              onClick={handleBackToCategories}
-              className="flex items-center gap-2"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              Back to Categories
-            </Button>
-          </div>
-        )}
+              {/* Content */}
+              {!selectedCategoryData ? (
+                /* Categories Grid */
+                /* Categories Grid */
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-10">
+                  {subjectCategories.map((category) => {
+                    const Icon = category.icon;
+                    return (
+                      <Card
+                        key={category.id}
+                        className="shadow-xl border-0 rounded-2xl bg-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer"
+                        onClick={() => handleCategoryClick(category.id)}
+                      >
+                        <CardContent className="p-8 flex flex-col items-center text-center h-full">
+                          <div className="mb-5">
+                            <span className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-emerald-500 to-blue-500 text-white text-3xl shadow-lg group-hover:scale-110 transition-transform">
+                              <Icon className="w-8 h-8" />
+                            </span>
+                          </div>
+                          <div className="font-bold text-xl text-gray-800 mb-2">
+                            {category.title}
+                          </div>
+                          <div className="text-sm text-gray-500 mb-6">
+                            {category.description}
+                          </div>
+                          <div className="text-xs text-gray-400 mb-4">
+                            {category.subjects.length} subjects available
+                          </div>
+                          <Button className="w-full bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow group-hover:shadow-lg transition-all">
+                            Explore Subjects
+                          </Button>
+                        </CardContent>
+                      </Card>
+                    );
+                  })}
+                </div>
+              ) : !selectedSubjectData ? (
+                /* Subjects Grid */
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                  {selectedCategoryData.subjects.map((subject) => {
+                    const SubjIcon = subject.icon;
+                    // Use dynamic quiz count for science subjects, fallback to static count
+                    const isScienceSubject = [
+                      "physics",
+                      "chemistry",
+                      "biology",
+                      "anatomy",
+                      "physiology",
+                      "microbiology",
+                      "biochemistry",
+                      "pharmacology",
+                      "ecology",
+                      "psychology",
+                    ].includes(subject.name.toLowerCase());
 
-        {/* Content */}
-        {!selectedCategoryData ? (
-          /* Categories Grid */
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-10">
-            {subjectCategories.map((category) => {
-              const Icon = category.icon;
-              return (
-                <Card
-                  key={category.id}
-                  className="shadow-xl border-0 rounded-2xl bg-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer"
-                  onClick={() => handleCategoryClick(category.id)}
-                >
-                  <CardContent className="p-8 flex flex-col items-center text-center h-full">
-                    <div className="mb-5">
-                      <span className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-emerald-500 to-blue-500 text-white text-3xl shadow-lg group-hover:scale-110 transition-transform">
-                        <Icon className="w-8 h-8" />
-                      </span>
+                    const isCodingSubject = [
+                      "javascript",
+                      "python",
+                      "html/css",
+                      "react",
+                      "node.js",
+                      "database",
+                    ].includes(subject.name.toLowerCase());
+
+                    const isEconomicsSubject = [
+                      "economics",
+                      "micro economics",
+                      "macro economics",
+                      "accounting",
+                      "finance",
+                      "political science",
+                    ].includes(subject.name.toLowerCase());
+
+                    const isMathematicsSubject = [
+                      "statistics",
+                      "calculus",
+                      "algebra",
+                      "arithmetic",
+                      "geometry",
+                      "trigonometry",
+                      "pythagorean theorem",
+                    ].includes(subject.name.toLowerCase());
+
+                    const isArtsHumanitiesSubject = [
+                      "english",
+                      "literature",
+                      "history",
+                      "geography",
+                      "philosophy",
+                      "sociology",
+                      "art history",
+                      "music theory",
+                      "creative writing",
+                      "foreign languages",
+                      "religious studies",
+                      "cultural studies",
+                    ].includes(subject.name.toLowerCase());
+
+                    const isMedicineSubject = [
+                      "anatomy",
+                      "physiology",
+                      "pathology",
+                      "pharmacology",
+                      "microbiology",
+                      "biochemistry",
+                      "immunology",
+                      "cardiology",
+                      "neurology",
+                      "pediatrics",
+                    ].includes(subject.name.toLowerCase());
+
+                    const isBusinessSubject = [
+                      "business management",
+                      "marketing",
+                      "human resources",
+                      "operations management",
+                      "strategic management",
+                      "entrepreneurship",
+                      "international business",
+                      "supply chain management",
+                      "project management",
+                      "business ethics",
+                    ].includes(subject.name.toLowerCase());
+
+                    const isLawSubject = [
+                      "constitutional law",
+                      "criminal law",
+                      "civil law",
+                      "contract law",
+                      "tort law",
+                      "property law",
+                      "corporate law",
+                      "international law",
+                      "environmental law",
+                      "human rights law",
+                    ].includes(subject.name.toLowerCase());
+
+                    const quizCount =
+                      isScienceSubject ||
+                        isCodingSubject ||
+                        isEconomicsSubject ||
+                        isMathematicsSubject ||
+                        isArtsHumanitiesSubject ||
+                        isMedicineSubject ||
+                        isBusinessSubject ||
+                        isLawSubject
+                        ? subjectQuizCounts[subject.name.toLowerCase()] ||
+                        subject.quizzes?.length ||
+                        0
+                        : subject.quizzes?.length || 0;
+
+                    // Debug logging
+                    if (subject.name.toLowerCase() === 'algebra') {
+                      console.log(`Subject: ${subject.name}, Quiz count: ${quizCount}, SubjectQuizCounts:`, subjectQuizCounts);
+                    }
+
+                    return (
+                      <Card
+                        key={subject.name}
+                        className="shadow-xl border-0 rounded-2xl bg-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer"
+                        onClick={() => handleSubjectClick(subject.name)}
+                      >
+                        <CardContent className="p-6 flex flex-col items-center text-center h-full">
+                          <div className="mb-4">
+                            <span className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-emerald-500 to-blue-500 text-white text-2xl shadow-lg group-hover:scale-110 transition-transform">
+                              <SubjIcon className="w-7 h-7" />
+                            </span>
+                          </div>
+                          <div className="font-bold text-lg text-gray-800 mb-2">
+                            {subject.name}
+                          </div>
+                          <div className="text-sm text-gray-500 mb-4">
+                            {quizCount || 0} {quizCount === 1 ? 'quiz' : 'quizzes'} available
+                          </div>
+
+                          <Button className="w-full bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow group-hover:shadow-lg transition-all">
+                            View Quizzes
+                          </Button>
+                        </CardContent>
+                      </Card>
+                    );
+                  })}
+                </div>
+              ) : (
+                <>
+                  {/* Quizzes Grid */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    {loading ? (
+                      <p>Loading quizzes...</p>
+                    ) : quizData.length === 0 ? (
+                      <p>No quizzes available for this subject.</p>
+                    ) : (
+                      quizData.map((quiz) => (
+                        <Card
+                          key={quiz.id}
+                          className="shadow-xl border-0 rounded-2xl bg-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group"
+                        >
+                          <CardContent className="p-6 flex flex-col items-center text-center h-full">
+                            <div className="mb-4">
+                              <span className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-emerald-500 to-blue-500 text-white text-2xl shadow-lg group-hover:scale-110 transition-transform">
+                                <Target className="w-7 h-7" />
+                              </span>
+                            </div>
+                            <div className="font-bold text-lg text-gray-800 mb-2">
+                              {quiz.title}
+                            </div>
+                            <div className="text-xs text-gray-500 mb-2">
+                              {Array.isArray(quiz.questions)
+                                ? quiz.questions.length
+                                : 0}{" "}
+                              questions •{" "}
+                              {quiz.timeLimit ? Math.floor(quiz.timeLimit / 60) : 0} min
+                            </div>
+                            <Badge
+                              className={`mb-4 ${quiz.difficulty === "Beginner"
+                                ? "bg-green-100 text-green-700"
+                                : quiz.difficulty === "Intermediate"
+                                  ? "bg-yellow-100 text-yellow-700"
+                                  : "bg-red-100 text-red-700"
+                                }`}
+                            >
+                              {quiz.difficulty}
+                            </Badge>
+                            <Button
+                              className="w-full bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow group-hover:shadow-lg transition-all"
+                              onClick={() => handleStartQuiz(quiz)}
+                            >
+                              Start Quiz
+                            </Button>
+                          </CardContent>
+                        </Card>
+                      ))
+                    )}
+                  </div>
+                </>
+              )}
+            </>
+          ) : (
+            <>
+              {!isPremium ? (
+                <Card className="shadow-xl border-0 rounded-2xl bg-white">
+                  <CardContent className="p-10 text-center">
+                    <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-r from-emerald-100 to-blue-100 text-emerald-600 flex items-center justify-center">
+                      <Lock className="w-10 h-10" />
                     </div>
-                    <div className="font-bold text-xl text-gray-800 mb-2">
-                      {category.title}
+                    <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                      AI Quiz Studio is a Premium Feature
+                    </h3>
+                    <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+                      Unlock AI-powered quiz generation with instant explanations and personalized practice.
+                      Upgrade to Premium to access this powerful feature and accelerate your learning.
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                      <Button
+                        className="bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-semibold px-8 py-3 rounded-lg shadow-lg transition-all"
+                        onClick={() => router.push("/subscription")}
+                      >
+                        Upgrade to Premium
+                      </Button>
+                      <Button
+                        variant="outline"
+                        onClick={() => handleModeChange("library")}
+                        className="px-8 py-3"
+                      >
+                        Browse Quiz Library
+                      </Button>
                     </div>
-                    <div className="text-sm text-gray-500 mb-6">
-                      {category.description}
+                    <div className="mt-8 p-6 bg-gradient-to-r from-emerald-50 to-blue-50 rounded-xl border border-emerald-100">
+                      <h4 className="font-semibold text-gray-900 mb-3">Premium Features Include:</h4>
+                      <ul className="text-sm text-gray-600 space-y-2 text-left max-w-md mx-auto">
+                        <li className="flex items-center gap-2">
+                          <Sparkles className="w-4 h-4 text-emerald-600" />
+                          AI-generated quizzes on any subject
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <Sparkles className="w-4 h-4 text-emerald-600" />
+                          Instant explanations and feedback
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <Sparkles className="w-4 h-4 text-emerald-600" />
+                          Customizable difficulty and topics
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <Sparkles className="w-4 h-4 text-emerald-600" />
+                          Unlimited quiz generation
+                        </li>
+                      </ul>
                     </div>
-                    <div className="text-xs text-gray-400 mb-4">
-                      {category.subjects.length} subjects available
-                    </div>
-                    <Button className="w-full bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow group-hover:shadow-lg transition-all">
-                      Explore Subjects
-                    </Button>
                   </CardContent>
                 </Card>
-              );
-            })}
-          </div>
-        ) : !selectedSubjectData ? (
-          /* Subjects Grid */
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {selectedCategoryData.subjects.map((subject) => {
-              const SubjIcon = subject.icon;
-              // Use dynamic quiz count for science subjects, fallback to static count
-              const isScienceSubject = [
-                "physics",
-                "chemistry",
-                "biology",
-                "anatomy",
-                "physiology",
-                "microbiology",
-                "biochemistry",
-                "pharmacology",
-                "ecology",
-                "psychology",
-              ].includes(subject.name.toLowerCase());
-
-              const isCodingSubject = [
-                "javascript",
-                "python",
-                "html/css",
-                "react",
-                "node.js",
-                "database",
-              ].includes(subject.name.toLowerCase());
-
-              const isEconomicsSubject = [
-                "economics",
-                "micro economics",
-                "macro economics",
-                "accounting",
-                "finance",
-                "political science",
-              ].includes(subject.name.toLowerCase());
-
-              const isMathematicsSubject = [
-                "statistics",
-                "calculus",
-                "algebra",
-                "arithmetic",
-                "geometry",
-                "trigonometry",
-                "pythagorean theorem",
-              ].includes(subject.name.toLowerCase());
-
-              const isArtsHumanitiesSubject = [
-                "english",
-                "literature",
-                "history",
-                "geography",
-                "philosophy",
-                "sociology",
-                "art history",
-                "music theory",
-                "creative writing",
-                "foreign languages",
-                "religious studies",
-                "cultural studies",
-              ].includes(subject.name.toLowerCase());
-
-              const isMedicineSubject = [
-                "anatomy",
-                "physiology",
-                "pathology",
-                "pharmacology",
-                "microbiology",
-                "biochemistry",
-                "immunology",
-                "cardiology",
-                "neurology",
-                "pediatrics",
-              ].includes(subject.name.toLowerCase());
-
-              const isBusinessSubject = [
-                "business management",
-                "marketing",
-                "human resources",
-                "operations management",
-                "strategic management",
-                "entrepreneurship",
-                "international business",
-                "supply chain management",
-                "project management",
-                "business ethics",
-              ].includes(subject.name.toLowerCase());
-
-              const isLawSubject = [
-                "constitutional law",
-                "criminal law",
-                "civil law",
-                "contract law",
-                "tort law",
-                "property law",
-                "corporate law",
-                "international law",
-                "environmental law",
-                "human rights law",
-              ].includes(subject.name.toLowerCase());
-
-              const quizCount =
-                isScienceSubject ||
-                isCodingSubject ||
-                isEconomicsSubject ||
-                isMathematicsSubject ||
-                isArtsHumanitiesSubject ||
-                isMedicineSubject ||
-                isBusinessSubject ||
-                isLawSubject
-                  ? subjectQuizCounts[subject.name.toLowerCase()] ||
-                    subject.quizzes?.length ||
-                    0
-                  : subject.quizzes?.length || 0;
-
-              // Debug logging
-              if (subject.name.toLowerCase() === 'algebra') {
-                console.log(`Subject: ${subject.name}, Quiz count: ${quizCount}, SubjectQuizCounts:`, subjectQuizCounts);
-              }
-
-              return (
-                <Card
-                  key={subject.name}
-                  className="shadow-xl border-0 rounded-2xl bg-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer"
-                  onClick={() => handleSubjectClick(subject.name)}
-                >
-                  <CardContent className="p-6 flex flex-col items-center text-center h-full">
-                    <div className="mb-4">
-                      <span className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-emerald-500 to-blue-500 text-white text-2xl shadow-lg group-hover:scale-110 transition-transform">
-                        <SubjIcon className="w-7 h-7" />
-                      </span>
-                    </div>
-                    <div className="font-bold text-lg text-gray-800 mb-2">
-                      {subject.name}
-                    </div>
-                      <div className="text-sm text-gray-500 mb-4">
-                        {quizCount || 0} {quizCount === 1 ? 'quiz' : 'quizzes'} available
+              ) : (
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+                  <Card className="lg:col-span-1 shadow-xl border-0 rounded-2xl bg-white">
+                    <CardContent className="p-6">
+                      <div className="flex items-center gap-2 mb-2">
+                        <p className="text-sm font-semibold text-emerald-600">
+                          Create AI Quiz
+                        </p>
+                        <Badge className="bg-emerald-100 text-emerald-700 border border-emerald-200 text-xs">
+                          Premium
+                        </Badge>
                       </div>
-                    
-                    <Button className="w-full bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow group-hover:shadow-lg transition-all">
-                      View Quizzes
-                    </Button>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-        ) : (
-          /* Quizzes Grid */
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {loading ? (
-              <p>Loading quizzes...</p>
-            ) : quizData.length === 0 ? (
-              <p>No quizzes available for this subject.</p>
-            ) : (
-              quizData.map((quiz) => (
-                <Card
-                  key={quiz.id}
-                  className="shadow-xl border-0 rounded-2xl bg-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group"
-                >
-                  <CardContent className="p-6 flex flex-col items-center text-center h-full">
-                    <div className="mb-4">
-                      <span className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-emerald-500 to-blue-500 text-white text-2xl shadow-lg group-hover:scale-110 transition-transform">
-                        <Target className="w-7 h-7" />
-                      </span>
-                    </div>
-                    <div className="font-bold text-lg text-gray-800 mb-2">
-                      {quiz.title}
-                    </div>
-                    <div className="text-xs text-gray-500 mb-2">
-                      {Array.isArray(quiz.questions)
-                        ? quiz.questions.length
-                        : 0}{" "}
-                      questions •{" "}
-                      {quiz.timeLimit ? Math.floor(quiz.timeLimit / 60) : 0} min
-                    </div>
-                    <Badge
-                      className={`mb-4 ${
-                        quiz.difficulty === "Beginner"
-                          ? "bg-green-100 text-green-700"
-                          : quiz.difficulty === "Intermediate"
-                          ? "bg-yellow-100 text-yellow-700"
-                          : "bg-red-100 text-red-700"
-                      }`}
-                    >
-                      {quiz.difficulty}
-                    </Badge>
-                    <Button
-                      className="w-full bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow group-hover:shadow-lg transition-all"
-                      onClick={() => handleStartQuiz(quiz)}
-                    >
-                      Start Quiz
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))
-            )}
-          </div>
-        )}
+                      <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                        Customize your practice
+                      </h2>
+                      <p className="text-sm text-gray-500 mb-6">
+                        Select a subject, describe the topic you want to focus on,
+                        and let our lightweight AI generate instant practice without
+                        additional API costs.
+                      </p>
+                      <div className="space-y-4">
+                        <div>
+                          <label className="text-sm font-medium text-gray-700 block mb-2">
+                            Subject
+                          </label>
+                          <select
+                            value={aiForm.subject}
+                            onChange={(event) =>
+                              setAiForm((prev) => ({
+                                ...prev,
+                                subject: event.target.value,
+                              }))
+                            }
+                            className="w-full rounded-xl border border-gray-200 px-3 py-2 text-sm focus:ring-2 focus:ring-emerald-500"
+                          >
+                            {aiSubjectOptions.map((subject) => (
+                              <option key={subject} value={subject}>
+                                {subject}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+                        <div>
+                          <label className="text-sm font-medium text-gray-700 block mb-2">
+                            Topic / Focus Area
+                          </label>
+                          <input
+                            type="text"
+                            value={aiForm.topic}
+                            onChange={(event) =>
+                              setAiForm((prev) => ({
+                                ...prev,
+                                topic: event.target.value,
+                              }))
+                            }
+                            placeholder="e.g., Photosynthesis basics"
+                            className="w-full rounded-xl border border-gray-200 px-3 py-2 text-sm focus:ring-2 focus:ring-emerald-500"
+                          />
+                          <p className="text-xs text-gray-400 mt-1">
+                            Leave blank to let AI pick a core concept.
+                          </p>
+                        </div>
+                        <div className="grid grid-cols-2 gap-4">
+                          <div>
+                            <label className="text-sm font-medium text-gray-700 block mb-2">
+                              Difficulty
+                            </label>
+                            <select
+                              value={aiForm.difficulty}
+                              onChange={(event) =>
+                                setAiForm((prev) => ({
+                                  ...prev,
+                                  difficulty: event.target.value as AIDifficulty,
+                                }))
+                              }
+                              className="w-full rounded-xl border border-gray-200 px-3 py-2 text-sm focus:ring-2 focus:ring-emerald-500"
+                            >
+                              <option value="Beginner">Beginner</option>
+                              <option value="Intermediate">Intermediate</option>
+                              <option value="Advanced">Advanced</option>
+                            </select>
+                          </div>
+                          <div>
+                            <label className="text-sm font-medium text-gray-700 block mb-2">
+                              Questions
+                            </label>
+                            <input
+                              type="number"
+                              min={3}
+                              max={15}
+                              value={aiForm.numQuestions}
+                              onChange={(event) =>
+                                setAiForm((prev) => ({
+                                  ...prev,
+                                  numQuestions: Math.max(
+                                    3,
+                                    Math.min(15, Number(event.target.value))
+                                  ),
+                                }))
+                              }
+                              className="w-full rounded-xl border border-gray-200 px-3 py-2 text-sm focus:ring-2 focus:ring-emerald-500"
+                            />
+                          </div>
+                        </div>
+                        <div>
+                          <label className="text-sm font-medium text-gray-700 block mb-2">
+                            Time per question (minutes)
+                          </label>
+                          <input
+                            type="number"
+                            min={1}
+                            max={5}
+                            value={aiForm.timePerQuestion}
+                            onChange={(event) =>
+                              setAiForm((prev) => ({
+                                ...prev,
+                                timePerQuestion: Math.max(
+                                  1,
+                                  Math.min(5, Number(event.target.value))
+                                ),
+                              }))
+                            }
+                            className="w-full rounded-xl border border-gray-200 px-3 py-2 text-sm focus:ring-2 focus:ring-emerald-500"
+                          />
+                        </div>
+                        <Button
+                          className="w-full bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow transition-all"
+                          onClick={handleGenerateAiQuiz}
+                          disabled={isGeneratingAiQuiz}
+                        >
+                          {isGeneratingAiQuiz ? "Crafting Quiz..." : "Generate Quiz"}
+                        </Button>
+                        {aiError && (
+                          <p className="text-sm text-red-600 text-center">
+                            {aiError}
+                          </p>
+                        )}
+                        {aiQuiz && (
+                          <Button
+                            variant="outline"
+                            className="w-full"
+                            onClick={handleResetAiQuiz}
+                          >
+                            Start New Quiz
+                          </Button>
+                        )}
+                      </div>
+                    </CardContent>
+                  </Card>
+                  <div className="lg:col-span-2 space-y-6">
+                    {!aiQuiz ? (
+                      <Card className="shadow-xl border-0 rounded-2xl bg-white">
+                        <CardContent className="p-10 text-center text-gray-500">
+                          <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-emerald-50 text-emerald-500 flex items-center justify-center">
+                            <Brain className="w-8 h-8" />
+                          </div>
+                          <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                            Ready to practice anything
+                          </h3>
+                          <p className="text-sm max-w-2xl mx-auto">
+                            Describe the topic you want to master and we will build a
+                            fresh quiz with AI-written options, explanations, and
+                            automatic scoring—all generated on-device to stay
+                            lightweight.
+                          </p>
+                        </CardContent>
+                      </Card>
+                    ) : (
+                      <>
+                        <Card className="shadow-xl border-0 rounded-2xl bg-white">
+                          <CardContent className="p-6">
+                            <div className="flex flex-wrap items-center gap-3 mb-4">
+                              <Badge variant="outline" className="text-emerald-600">
+                                {aiQuiz.subject}
+                              </Badge>
+                              <Badge variant="outline">{aiQuiz.difficulty}</Badge>
+                              <Badge variant="outline">
+                                {aiQuiz.questions.length} questions ·{" "}
+                                {Math.round(aiQuiz.timeLimit / aiQuiz.questions.length)}{" "}
+                                min/question
+                              </Badge>
+                            </div>
+                            <h3 className="text-2xl font-bold text-gray-900 mb-1">
+                              {aiQuiz.topic} Quiz
+                            </h3>
+                            <p className="text-sm text-gray-500 mb-4">
+                              Generated{" "}
+                              {new Date(aiQuiz.createdAt).toLocaleTimeString(undefined, {
+                                hour: "2-digit",
+                                minute: "2-digit",
+                              })}
+                              . Answer each question and submit to receive AI feedback.
+                            </p>
+                            <div className="space-y-6">
+                              {aiQuiz.questions.map((question, index) => (
+                                <div
+                                  key={question.id}
+                                  className="border border-gray-100 rounded-2xl p-5 bg-gray-50"
+                                >
+                                  <div className="flex items-start gap-3">
+                                    <span className="w-8 h-8 rounded-full bg-white text-emerald-600 font-semibold flex items-center justify-center shadow">
+                                      {index + 1}
+                                    </span>
+                                    <div>
+                                      <p className="font-semibold text-gray-800 mb-3">
+                                        {question.prompt}
+                                      </p>
+                                      <div className="space-y-2">
+                                        {question.options.map((option) => (
+                                          <label
+                                            key={option.id}
+                                            className={`flex items-center gap-3 border rounded-xl px-4 py-3 text-sm cursor-pointer transition ${aiQuizAnswers[question.id] === option.id
+                                              ? "border-emerald-500 bg-white"
+                                              : "border-transparent bg-white/70 hover:bg-white"
+                                              }`}
+                                          >
+                                            <input
+                                              type="radio"
+                                              name={question.id}
+                                              value={option.id}
+                                              checked={aiQuizAnswers[question.id] === option.id}
+                                              onChange={() =>
+                                                handleAiAnswerChange(
+                                                  question.id,
+                                                  option.id
+                                                )
+                                              }
+                                              className="text-emerald-500 focus:ring-emerald-500"
+                                            />
+                                            <span className="text-gray-700">
+                                              {option.text}
+                                            </span>
+                                          </label>
+                                        ))}
+                                      </div>
+                                      {aiQuizResult && (
+                                        <div
+                                          className={`mt-3 rounded-xl px-4 py-3 text-sm ${aiQuizResult.details.find(
+                                            (detail) =>
+                                              detail.questionId === question.id
+                                          )?.isCorrect
+                                            ? "bg-emerald-50 text-emerald-800"
+                                            : "bg-red-50 text-red-700"
+                                            }`}
+                                        >
+                                          <p className="font-medium">
+                                            {aiQuizResult.details.find(
+                                              (detail) =>
+                                                detail.questionId === question.id
+                                            )?.isCorrect
+                                              ? "Great work! That’s correct."
+                                              : "Review the explanation below and try again."}
+                                          </p>
+                                          <p>
+                                            Explanation:{" "}
+                                            {
+                                              aiQuizResult.details.find(
+                                                (detail) =>
+                                                  detail.questionId === question.id
+                                              )?.explanation
+                                            }
+                                          </p>
+                                        </div>
+                                      )}
+                                    </div>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                            <div className="mt-6 flex flex-wrap gap-3">
+                              <Button
+                                className="bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-semibold px-6 py-2 rounded-lg shadow transition-all"
+                                onClick={handleSubmitAiQuiz}
+                                disabled={
+                                  !aiQuiz ||
+                                  Object.keys(aiQuizAnswers).length !==
+                                  aiQuiz.questions.length
+                                }
+                              >
+                                Get Feedback
+                              </Button>
+                              <Button variant="outline" onClick={handleResetAiQuiz}>
+                                Clear Quiz
+                              </Button>
+                            </div>
+                          </CardContent>
+                        </Card>
+                        {aiQuizResult && (
+                          <Card className="shadow-xl border-0 rounded-2xl bg-white">
+                            <CardContent className="p-6 space-y-6">
+                              <h3 className="text-xl font-bold text-gray-900">
+                                Feedback Summary
+                              </h3>
+                              <div className="flex flex-wrap gap-6">
+                                <div>
+                                  <p className="text-sm text-gray-500">Score</p>
+                                  <p className="text-3xl font-bold text-emerald-600">
+                                    {aiQuizResult.totalCorrect}/
+                                    {aiQuizResult.totalQuestions}
+                                  </p>
+                                </div>
+                                <div>
+                                  <p className="text-sm text-gray-500">Accuracy</p>
+                                  <p className="text-3xl font-bold text-blue-600">
+                                    {aiQuizResult.accuracy}%
+                                  </p>
+                                </div>
+                                <div>
+                                  <p className="text-sm text-gray-500">Next step</p>
+                                  <p className="text-base font-semibold text-gray-800">
+                                    {aiQuizResult.accuracy > 80
+                                      ? "Level up to harder drills"
+                                      : aiQuizResult.accuracy > 50
+                                        ? "Review explanations, retry soon"
+                                        : "Revisit fundamentals first"}
+                                  </p>
+                                </div>
+                              </div>
+                              <div className="space-y-4">
+                                {aiQuizResult.details.map((detail, index) => (
+                                  <div
+                                    key={detail.questionId}
+                                    className="border border-gray-100 rounded-2xl p-4"
+                                  >
+                                    <p className="text-sm font-semibold text-gray-800 mb-1">
+                                      Question {index + 1}
+                                    </p>
+                                    <p className="text-sm text-gray-500 mb-2">
+                                      {detail.prompt}
+                                    </p>
+                                    <div className="flex flex-wrap gap-3 text-xs">
+                                      <Badge
+                                        variant="outline"
+                                        className={
+                                          detail.isCorrect
+                                            ? "border-emerald-200 text-emerald-700"
+                                            : "border-red-200 text-red-700"
+                                        }
+                                      >
+                                        {detail.isCorrect ? "Correct" : "Incorrect"}
+                                      </Badge>
+                                      {!detail.isCorrect && (
+                                        <Badge variant="outline">
+                                          You chose: {detail.userOption}
+                                        </Badge>
+                                      )}
+                                      <Badge variant="outline" className="text-gray-600">
+                                        Correct: {detail.correctOption}
+                                      </Badge>
+                                    </div>
+                                    <p className="text-xs text-gray-500 mt-2">
+                                      {detail.explanation}
+                                    </p>
+                                  </div>
+                                ))}
+                              </div>
+                            </CardContent>
+                          </Card>
+                        )}
+                      </>
+                    )}
+                  </div>
+                </div>
+              )}
+            </>
+          )}
+        </div>
       </div>
-    </div>
     </ProtectedRoute>
   );
 }

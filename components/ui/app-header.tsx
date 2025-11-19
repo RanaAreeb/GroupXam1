@@ -26,6 +26,7 @@ export default function AppHeader({
     { href: "/discussions", label: "Study Groups" },
     { href: "/whiteboard", label: "Whiteboard" },
     { href: "/services", label: "ProctorIT" },
+    { href: "/subscription", label: "Pricing" },
   ];
 
   return (

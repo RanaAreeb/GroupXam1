@@ -203,25 +203,6 @@ export async function POST(request) {
         const successful = results.filter(r => r.success);
         const failed = results.filter(r => !r.success);
 
-        // Log the email sending activity
-        try {
-            await db.collection('activities').insertOne({
-                message: `Admin sent email notification to ${successful.length} users`,
-                timestamp: new Date(),
-                type: 'email_notification',
-                details: {
-                    subject,
-                    template,
-                    totalRecipients: users.length,
-                    successful: successful.length,
-                    failed: failed.length,
-                    failedEmails: failed.map(f => f.email)
-                }
-            });
-        } catch (logError) {
-            console.error('Failed to log email activity:', logError);
-        }
-
         return NextResponse.json({
             success: true,
             sentCount: successful.length,
