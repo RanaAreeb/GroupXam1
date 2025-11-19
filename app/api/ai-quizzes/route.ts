@@ -53,8 +53,8 @@ const normalizeQuiz = (
   }
 
   const normalizedQuestions = (raw.questions || []).map((question, index) => {
-    const defaultOptionIds = ["A", "B", "C", "D", "E"];
-    const options = (question.options || [])
+    const defaultOptionIds = ["a", "b", "c", "d"];
+    let options = (question.options || [])
       .slice(0, 4)
       .map((option, optIndex) => ({
         id: ensureOptionId(option.id, defaultOptionIds[optIndex] || `opt-${optIndex}`),
@@ -64,16 +64,17 @@ const normalizeQuiz = (
         ),
       }));
 
-    if (options.length === 0) {
+    // Ensure exactly 4 options - add missing ones if needed
+    while (options.length < 4) {
+      const missingIndex = options.length;
       options.push({
-        id: "A",
-        text: `Optimistic insight 1 about ${defaults.topic}`,
-      });
-      options.push({
-        id: "B",
-        text: `Optimistic insight 2 about ${defaults.topic}`,
+        id: defaultOptionIds[missingIndex] || `opt-${missingIndex}`,
+        text: `Option ${String.fromCharCode(65 + missingIndex)} - Please review this option`,
       });
     }
+
+    // Ensure we have exactly 4 options (remove extras if any)
+    options = options.slice(0, 4);
 
     const fallbackAnswerId = options[0].id;
     const cleanedAnswerId = ensureOptionId(question.answerId, fallbackAnswerId);
@@ -174,11 +175,14 @@ Create a quiz for the following request:
 - Subject: "${subject}"
 - Focus topic: "${topic || subject}"
 - Difficulty: "${safeDifficulty}"
-- Number of questions: ${questionCount}
-- Answer options: 4 per question (use cheerful, academically accurate reasoning)
+- Number of questions: ${questionCount} (YOU MUST GENERATE EXACTLY ${questionCount} QUESTIONS, NO MORE, NO LESS)
+- Answer options: EXACTLY 4 options per question (ALL questions must have exactly 4 options: A, B, C, D)
 - Provide an optimistic explanation that motivates the learner after each question
 
-IMPORTANT: Return ONLY valid JSON. Each option object MUST have the structure: {"id": "a", "text": "option text here"}
+CRITICAL REQUIREMENTS:
+1. Generate EXACTLY ${questionCount} questions - count them carefully
+2. EVERY question MUST have EXACTLY 4 options with ids: "a", "b", "c", "d"
+3. Return ONLY valid JSON. Each option object MUST have the structure: {"id": "a", "text": "option text here"}
 
 Return a JSON object that matches this exact schema:
 {
@@ -204,7 +208,10 @@ Return a JSON object that matches this exact schema:
   }
 }
 
-CRITICAL: Ensure all option objects use "text" as the key name, not the option content itself.
+VERY IMPORTANT: 
+- Generate exactly ${questionCount} questions in the "questions" array
+- Every single question must have exactly 4 options (a, b, c, d)
+- Ensure all option objects use "text" as the key name, not the option content itself.
 `;
 
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
@@ -213,16 +220,16 @@ CRITICAL: Ensure all option objects use "text" as the key name, not the option c
         "Content-Type": "application/json",
         Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
       },
-      body: JSON.stringify({
-        model: "gpt-4o-mini",
-        temperature: 0.7,
-        response_format: { type: "json_object" },
-        messages: [
-          { role: "system", content: optimisticSystemMessage.trim() },
-          { role: "user", content: optimisticUserMessage.trim() },
-        ],
-        max_tokens: 1800,
-      }),
+        body: JSON.stringify({
+          model: "gpt-4o-mini",
+          temperature: 0.7,
+          response_format: { type: "json_object" },
+          messages: [
+            { role: "system", content: optimisticSystemMessage.trim() },
+            { role: "user", content: optimisticUserMessage.trim() },
+          ],
+          max_tokens: Math.max(3000, questionCount * 200), // Increase tokens based on question count (200 tokens per question minimum)
+        }),
     });
 
     if (!response.ok) {
@@ -276,11 +283,37 @@ CRITICAL: Ensure all option objects use "text" as the key name, not the option c
       );
     }
 
-    // Ensure each question has at most 4 options
-    normalizedQuiz.questions = normalizedQuiz.questions.map((question) => ({
-      ...question,
-      options: question.options.slice(0, 4),
-    }));
+    // Validate and ensure correct number of questions
+    if (normalizedQuiz.questions.length !== questionCount) {
+      console.warn(`AI generated ${normalizedQuiz.questions.length} questions but ${questionCount} were requested.`);
+      // If we got fewer questions, we can't generate more, so return what we have
+      // If we got more, trim to requested amount
+      if (normalizedQuiz.questions.length > questionCount) {
+        normalizedQuiz.questions = normalizedQuiz.questions.slice(0, questionCount);
+      }
+    }
+
+    // Ensure each question has exactly 4 options
+    normalizedQuiz.questions = normalizedQuiz.questions.map((question) => {
+      let options = question.options || [];
+      
+      // Ensure exactly 4 options
+      while (options.length < 4) {
+        const missingIndex = options.length;
+        options.push({
+          id: ["a", "b", "c", "d"][missingIndex] || `opt-${missingIndex}`,
+          text: `Option ${String.fromCharCode(65 + missingIndex)} - Please review`,
+        });
+      }
+      
+      // Trim to exactly 4 if more than 4
+      options = options.slice(0, 4);
+      
+      return {
+        ...question,
+        options,
+      };
+    });
 
     // Track AI quiz generation for analytics
     try {

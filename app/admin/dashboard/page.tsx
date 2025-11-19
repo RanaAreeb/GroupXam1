@@ -2769,350 +2769,526 @@ export default function AdminDashboard() {
                   {/* AI Analytics Tab */}
                   {activeTab === 'ai-analytics' && (
                     <div className="space-y-6">
-                      {stats.aiAnalytics && stats.aiAnalytics.totalUsers > 0 ? (
+                      {stats.aiAnalytics ? (
                         <>
-                          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                            <Card className="border-0 shadow-lg bg-gradient-to-br from-emerald-50 to-emerald-100">
-                              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                                <CardTitle className="text-sm font-medium text-emerald-800">AI Users</CardTitle>
-                                <Sparkles className="h-4 w-4 text-emerald-600" />
-                              </CardHeader>
-                              <CardContent>
-                                <div className="text-2xl font-bold text-emerald-700">
-                                  {stats.aiAnalytics.totalUsers.toLocaleString()}
-                                </div>
-                                <p className="text-xs text-emerald-600">
-                                  Unique users who chatted with the AI
-                                </p>
-                              </CardContent>
-                            </Card>
-
-                            <Card className="border-0 shadow-lg bg-gradient-to-br from-blue-50 to-blue-100">
-                              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                                <CardTitle className="text-sm font-medium text-blue-800">User Prompts</CardTitle>
-                                <Users className="h-4 w-4 text-blue-600" />
-                              </CardHeader>
-                              <CardContent>
-                                <div className="text-2xl font-bold text-blue-700">
-                                  {stats.aiAnalytics.totalUserPrompts.toLocaleString()}
-                                </div>
-                                <p className="text-xs text-blue-600">
-                                  Questions submitted to the assistant
-                                </p>
-                              </CardContent>
-                            </Card>
-
-                            <Card className="border-0 shadow-lg bg-gradient-to-br from-purple-50 to-purple-100">
-                              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                                <CardTitle className="text-sm font-medium text-purple-800">AI Responses</CardTitle>
-                                <MessageSquare className="h-4 w-4 text-purple-600" />
-                              </CardHeader>
-                              <CardContent>
-                                <div className="text-2xl font-bold text-purple-700">
-                                  {stats.aiAnalytics.totalAssistantResponses.toLocaleString()}
-                                </div>
-                                <p className="text-xs text-purple-600">
-                                  Answers delivered by the assistant
-                                </p>
-                              </CardContent>
-                            </Card>
-
-                            <Card className="border-0 shadow-lg bg-gradient-to-br from-orange-50 to-orange-100">
-                              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                                <CardTitle className="text-sm font-medium text-orange-800">Total Messages</CardTitle>
-                                <BarChart3 className="h-4 w-4 text-orange-600" />
-                              </CardHeader>
-                              <CardContent>
-                                <div className="text-2xl font-bold text-orange-700">
-                                  {stats.aiAnalytics.totalMessages.toLocaleString()}
-                                </div>
-                                <p className="text-xs text-orange-600">
-                                  Combined prompts and responses
-                                </p>
-                              </CardContent>
-                            </Card>
-                          </div>
-
-                          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            <Card className="border-0 shadow-lg bg-gradient-to-br from-teal-50 to-teal-100">
-                              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                                <CardTitle className="text-sm font-medium text-teal-800">Total Sessions</CardTitle>
-                                <Clock className="h-4 w-4 text-teal-600" />
-                              </CardHeader>
-                              <CardContent>
-                                <div className="text-2xl font-bold text-teal-700">
-                                  {stats.aiAnalytics.totalSessions.toLocaleString()}
-                                </div>
-                                <p className="text-xs text-teal-600">
-                                  Distinct daily chat sessions
-                                </p>
-                              </CardContent>
-                            </Card>
-
-                            <Card className="border-0 shadow-lg bg-gradient-to-br from-amber-50 to-amber-100">
-                              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                                <CardTitle className="text-sm font-medium text-amber-800">Time with AI</CardTitle>
-                                <TrendingUp className="h-4 w-4 text-amber-600" />
-                              </CardHeader>
-                              <CardContent>
-                                <div className="text-2xl font-bold text-amber-700">
-                                  {stats.aiAnalytics.totalSessionMinutes.toLocaleString(undefined, { maximumFractionDigits: 1 })}
-                                </div>
-                                <p className="text-xs text-amber-600">
-                                  Total minutes spent chatting
-                                </p>
-                              </CardContent>
-                            </Card>
-
-                            <Card className="border-0 shadow-lg bg-gradient-to-br from-slate-50 to-slate-100">
-                              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                                <CardTitle className="text-sm font-medium text-slate-800">Session Quality</CardTitle>
-                                <LineChart className="h-4 w-4 text-slate-600" />
-                              </CardHeader>
-                              <CardContent>
-                                <div className="text-lg font-semibold text-slate-700">
-                                  Avg duration: {stats.aiAnalytics.averageSessionMinutes.toFixed(1)} min
-                                </div>
-                                <p className="text-xs text-slate-600">
-                                  Avg responses/session: {stats.aiAnalytics.averageResponsesPerSession.toFixed(1)} ·
-                                  Avg prompts/user: {stats.aiAnalytics.averagePromptsPerUser.toFixed(1)}
-                                </p>
-                              </CardContent>
-                            </Card>
-                          </div>
-
-                          <Card>
-                            <CardHeader>
-                              <CardTitle>Top AI Users</CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                              <div className="overflow-x-auto">
-                                <Table>
-                                  <TableHeader>
-                                    <TableRow>
-                                      <TableHead>User</TableHead>
-                                      <TableHead>Prompts</TableHead>
-                                      <TableHead>Responses</TableHead>
-                                      <TableHead>Total Messages</TableHead>
-                                      <TableHead>Sessions</TableHead>
-                                      <TableHead>Avg Session</TableHead>
-                                      <TableHead>Last Active</TableHead>
-                                    </TableRow>
-                                  </TableHeader>
-                                  <TableBody>
-                                    {stats.aiAnalytics.topUsers.length > 0 ? (
-                                      stats.aiAnalytics.topUsers.map((user) => (
-                                        <TableRow key={user.email}>
-                                          <TableCell className="text-sm font-medium">{user.email}</TableCell>
-                                          <TableCell className="text-sm">{user.userMessages}</TableCell>
-                                          <TableCell className="text-sm">{user.assistantMessages}</TableCell>
-                                          <TableCell className="text-sm">{user.totalMessages}</TableCell>
-                                          <TableCell className="text-sm">{user.totalSessions}</TableCell>
-                                          <TableCell className="text-sm">
-                                            {user.averageSessionMinutes.toFixed(1)} min
-                                          </TableCell>
-                                          <TableCell className="text-sm">
-                                            {user.lastMessageAt ? new Date(user.lastMessageAt).toLocaleString() : '—'}
-                                          </TableCell>
-                                        </TableRow>
-                                      ))
-                                    ) : (
-                                      <TableRow>
-                                        <TableCell colSpan={7} className="text-center py-6 text-gray-500">
-                                          Not enough data yet to highlight top users.
-                                        </TableCell>
-                                      </TableRow>
-                                    )}
-                                  </TableBody>
-                                </Table>
-                              </div>
-                            </CardContent>
-                          </Card>
-
-                          <Card>
-                            <CardHeader>
-                              <CardTitle>Recent AI Activity</CardTitle>
-                              <p className="text-sm text-gray-500">
-                                Latest prompts and responses handled by the assistant
-                              </p>
-                            </CardHeader>
-                            <CardContent>
-                              {stats.aiAnalytics.recentActivity.length > 0 ? (
-                                <div className="space-y-4 max-h-96 overflow-y-auto">
-                                  {stats.aiAnalytics.recentActivity.map((item) => (
-                                    <div key={item.id || `${item.email}-${item.createdAt}`} className="flex gap-3 p-3 border rounded-lg bg-gray-50">
-                                      <div className={`w-8 h-8 rounded-full flex items-center justify-center ${item.role === 'assistant' ? 'bg-purple-100 text-purple-600' : 'bg-blue-100 text-blue-600'}`}>
-                                        {item.role === 'assistant' ? <Sparkles className="w-4 h-4" /> : <Users className="w-4 h-4" />}
-                                      </div>
-                                      <div className="flex-1">
-                                        <div className="flex items-center justify-between mb-1">
-                                          <span className="text-sm font-semibold text-gray-800">
-                                            {item.email}
-                                          </span>
-                                          <span className="text-xs text-gray-500">
-                                            {item.createdAt ? new Date(item.createdAt).toLocaleString() : '—'}
-                                          </span>
+                          {/* Main Feature Cards */}
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            {/* AI Chat Bot Card */}
+                            <Dialog>
+                              <DialogTrigger asChild>
+                                <Card className="border-0 shadow-lg bg-gradient-to-br from-emerald-50 to-emerald-100 cursor-pointer hover:shadow-xl transition-all hover:scale-[1.02]">
+                                  <CardHeader>
+                                    <div className="flex items-center justify-between">
+                                      <CardTitle className="text-emerald-800 flex items-center gap-3">
+                                        <MessageSquare className="h-8 w-8" />
+                                        AI Chat Bot
+                                      </CardTitle>
+                                      <Sparkles className="h-6 w-6 text-emerald-600" />
+                                    </div>
+                                    <p className="text-sm text-emerald-600 mt-2">
+                                      Analytics for AI chat conversations
+                                    </p>
+                                  </CardHeader>
+                                  <CardContent>
+                                    <div className="space-y-4">
+                                      <div className="grid grid-cols-2 gap-4">
+                                        <div className="p-3 bg-white/70 rounded-lg">
+                                          <div className="text-2xl font-bold text-emerald-700">
+                                            {stats.aiAnalytics.totalUsers.toLocaleString()}
+                                          </div>
+                                          <div className="text-xs text-gray-600">Total Users</div>
                                         </div>
-                                        <p className="text-sm text-gray-700 whitespace-pre-wrap">
-                                          {item.content?.length > 260 ? `${item.content.slice(0, 260)}…` : item.content || '(no content)'}
-                                        </p>
-                                        <Badge variant={item.role === 'assistant' ? 'default' : 'outline'} className="mt-2 text-xs">
-                                          {item.role === 'assistant' ? 'Assistant response' : item.content?.includes('Generated AI quiz') ? 'AI Quiz' : 'User prompt'}
-                                        </Badge>
+                                        <div className="p-3 bg-white/70 rounded-lg">
+                                          <div className="text-2xl font-bold text-emerald-700">
+                                            {stats.aiAnalytics.totalMessages.toLocaleString()}
+                                          </div>
+                                          <div className="text-xs text-gray-600">Total Messages</div>
+                                        </div>
+                                      </div>
+                                      <div className="grid grid-cols-2 gap-4">
+                                        <div className="p-3 bg-white/70 rounded-lg">
+                                          <div className="text-xl font-bold text-emerald-700">
+                                            {stats.aiAnalytics.totalUserPrompts.toLocaleString()}
+                                          </div>
+                                          <div className="text-xs text-gray-600">User Prompts</div>
+                                        </div>
+                                        <div className="p-3 bg-white/70 rounded-lg">
+                                          <div className="text-xl font-bold text-emerald-700">
+                                            {stats.aiAnalytics.totalSessions.toLocaleString()}
+                                          </div>
+                                          <div className="text-xs text-gray-600">Sessions</div>
+                                        </div>
+                                      </div>
+                                      <div className="pt-2 text-center">
+                                        <span className="text-xs text-emerald-600 font-medium">Click to view detailed analytics →</span>
                                       </div>
                                     </div>
-                                  ))}
-                                </div>
-                              ) : (
-                                <div className="text-center py-8 text-gray-500">
-                                  No AI messages recorded during this period.
-                                </div>
-                              )}
-                            </CardContent>
-                          </Card>
-
-                          {/* AI Quiz Analytics Section */}
-                          {stats.aiAnalytics.aiQuiz && stats.aiAnalytics.aiQuiz.totalQuizzes > 0 && (
-                            <>
-                              <Card className="border-0 shadow-lg bg-gradient-to-br from-indigo-50 to-indigo-100">
-                                <CardHeader>
-                                  <CardTitle className="text-indigo-800 flex items-center gap-2">
-                                    <Sparkles className="w-5 h-5" />
-                                    AI Quiz Studio Analytics
-                                  </CardTitle>
-                                  <p className="text-sm text-indigo-600">
-                                    Analytics for AI-generated quizzes
-                                  </p>
-                                </CardHeader>
-                                <CardContent>
+                                  </CardContent>
+                                </Card>
+                              </DialogTrigger>
+                              <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto">
+                                <DialogHeader>
+                                  <DialogTitle className="flex items-center gap-2">
+                                    <MessageSquare className="h-6 w-6" />
+                                    AI Chat Bot Analytics
+                                  </DialogTitle>
+                                  <DialogDescription>
+                                    Detailed analytics for AI chat conversations
+                                  </DialogDescription>
+                                </DialogHeader>
+                                <div className="space-y-6">
+                                  {/* Overview Metrics */}
                                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                                    <div className="text-center p-4 bg-white/70 rounded-lg">
-                                      <div className="text-2xl font-bold text-indigo-700">
-                                        {stats.aiAnalytics.aiQuiz.totalQuizzes.toLocaleString()}
-                                      </div>
-                                      <div className="text-sm text-gray-600">Total Quizzes Generated</div>
-                                    </div>
-                                    <div className="text-center p-4 bg-white/70 rounded-lg">
-                                      <div className="text-2xl font-bold text-indigo-700">
-                                        {stats.aiAnalytics.aiQuiz.totalQuestions.toLocaleString()}
-                                      </div>
-                                      <div className="text-sm text-gray-600">Total Questions</div>
-                                    </div>
-                                    <div className="text-center p-4 bg-white/70 rounded-lg">
-                                      <div className="text-2xl font-bold text-indigo-700">
-                                        {stats.aiAnalytics.aiQuiz.uniqueUsers.toLocaleString()}
-                                      </div>
-                                      <div className="text-sm text-gray-600">Unique Users</div>
-                                    </div>
-                                    <div className="text-center p-4 bg-white/70 rounded-lg">
-                                      <div className="text-2xl font-bold text-indigo-700">
-                                        {stats.aiAnalytics.aiQuiz.averageQuestionsPerQuiz.toFixed(1)}
-                                      </div>
-                                      <div className="text-sm text-gray-600">Avg Questions/Quiz</div>
-                                    </div>
-                                  </div>
-                                </CardContent>
-                              </Card>
-
-                              <Card>
-                                <CardHeader>
-                                  <CardTitle>Top AI Quiz Users</CardTitle>
-                                  <p className="text-sm text-gray-500">
-                                    Users who have generated the most AI quizzes
-                                  </p>
-                                </CardHeader>
-                                <CardContent>
-                                  <div className="overflow-x-auto">
-                                    <Table>
-                                      <TableHeader>
-                                        <TableRow>
-                                          <TableHead>User</TableHead>
-                                          <TableHead>Total Quizzes</TableHead>
-                                          <TableHead>Total Questions</TableHead>
-                                          <TableHead>First Quiz</TableHead>
-                                          <TableHead>Last Quiz</TableHead>
-                                        </TableRow>
-                                      </TableHeader>
-                                      <TableBody>
-                                        {stats.aiAnalytics.aiQuiz.topUsers.length > 0 ? (
-                                          stats.aiAnalytics.aiQuiz.topUsers.map((user) => (
-                                            <TableRow key={user.email}>
-                                              <TableCell className="text-sm font-medium">{user.email}</TableCell>
-                                              <TableCell className="text-sm">{user.totalQuizzes}</TableCell>
-                                              <TableCell className="text-sm">{user.totalQuestions}</TableCell>
-                                              <TableCell className="text-sm">
-                                                {user.firstQuizAt ? new Date(user.firstQuizAt).toLocaleDateString() : '—'}
-                                              </TableCell>
-                                              <TableCell className="text-sm">
-                                                {user.lastQuizAt ? new Date(user.lastQuizAt).toLocaleDateString() : '—'}
-                                              </TableCell>
-                                            </TableRow>
-                                          ))
-                                        ) : (
-                                          <TableRow>
-                                            <TableCell colSpan={5} className="text-center py-6 text-gray-500">
-                                              No AI quiz data available yet.
-                                            </TableCell>
-                                          </TableRow>
-                                        )}
-                                      </TableBody>
-                                    </Table>
-                                  </div>
-                                </CardContent>
-                              </Card>
-
-                              <Card>
-                                <CardHeader>
-                                  <CardTitle>Recent AI Quiz Generations</CardTitle>
-                                  <p className="text-sm text-gray-500">
-                                    Latest AI quizzes generated by users
-                                  </p>
-                                </CardHeader>
-                                <CardContent>
-                                  {stats.aiAnalytics.aiQuiz.recentQuizzes.length > 0 ? (
-                                    <div className="space-y-4 max-h-96 overflow-y-auto">
-                                      {stats.aiAnalytics.aiQuiz.recentQuizzes.map((quiz) => (
-                                        <div key={quiz.id || `${quiz.email}-${quiz.createdAt}`} className="flex gap-3 p-3 border rounded-lg bg-gray-50">
-                                          <div className="w-8 h-8 rounded-full flex items-center justify-center bg-indigo-100 text-indigo-600">
-                                            <Sparkles className="w-4 h-4" />
-                                          </div>
-                                          <div className="flex-1">
-                                            <div className="flex items-center justify-between mb-1">
-                                              <span className="text-sm font-semibold text-gray-800">
-                                                {quiz.userName || quiz.email}
-                                              </span>
-                                              <span className="text-xs text-gray-500">
-                                                {quiz.createdAt ? new Date(quiz.createdAt).toLocaleString() : '—'}
-                                              </span>
-                                            </div>
-                                            <p className="text-sm text-gray-700">
-                                              Generated AI quiz: <strong>{quiz.subject}</strong>
-                                              {quiz.topic && quiz.topic !== quiz.subject && ` - ${quiz.topic}`}
-                                            </p>
-                                            <div className="flex items-center gap-2 mt-2">
-                                              <Badge variant="outline" className="text-xs">
-                                                {quiz.difficulty}
-                                              </Badge>
-                                              <Badge variant="outline" className="text-xs">
-                                                {quiz.numQuestions} questions
-                                              </Badge>
-                                              <Badge className="text-xs bg-indigo-600 text-white">
-                                                AI Quiz
-                                              </Badge>
-                                            </div>
-                                          </div>
+                                    <Card className="border-0 shadow-lg bg-gradient-to-br from-emerald-50 to-emerald-100">
+                                      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                                        <CardTitle className="text-sm font-medium text-emerald-800">AI Users</CardTitle>
+                                        <Sparkles className="h-4 w-4 text-emerald-600" />
+                                      </CardHeader>
+                                      <CardContent>
+                                        <div className="text-2xl font-bold text-emerald-700">
+                                          {stats.aiAnalytics.totalUsers.toLocaleString()}
                                         </div>
-                                      ))}
+                                        <p className="text-xs text-emerald-600">
+                                          Unique users who chatted with the AI
+                                        </p>
+                                      </CardContent>
+                                    </Card>
+
+                                    <Card className="border-0 shadow-lg bg-gradient-to-br from-blue-50 to-blue-100">
+                                      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                                        <CardTitle className="text-sm font-medium text-blue-800">User Prompts</CardTitle>
+                                        <Users className="h-4 w-4 text-blue-600" />
+                                      </CardHeader>
+                                      <CardContent>
+                                        <div className="text-2xl font-bold text-blue-700">
+                                          {stats.aiAnalytics.totalUserPrompts.toLocaleString()}
+                                        </div>
+                                        <p className="text-xs text-blue-600">
+                                          Questions submitted to the assistant
+                                        </p>
+                                      </CardContent>
+                                    </Card>
+
+                                    <Card className="border-0 shadow-lg bg-gradient-to-br from-purple-50 to-purple-100">
+                                      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                                        <CardTitle className="text-sm font-medium text-purple-800">AI Responses</CardTitle>
+                                        <MessageSquare className="h-4 w-4 text-purple-600" />
+                                      </CardHeader>
+                                      <CardContent>
+                                        <div className="text-2xl font-bold text-purple-700">
+                                          {stats.aiAnalytics.totalAssistantResponses.toLocaleString()}
+                                        </div>
+                                        <p className="text-xs text-purple-600">
+                                          Answers delivered by the assistant
+                                        </p>
+                                      </CardContent>
+                                    </Card>
+
+                                    <Card className="border-0 shadow-lg bg-gradient-to-br from-orange-50 to-orange-100">
+                                      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                                        <CardTitle className="text-sm font-medium text-orange-800">Total Messages</CardTitle>
+                                        <BarChart3 className="h-4 w-4 text-orange-600" />
+                                      </CardHeader>
+                                      <CardContent>
+                                        <div className="text-2xl font-bold text-orange-700">
+                                          {stats.aiAnalytics.totalMessages.toLocaleString()}
+                                        </div>
+                                        <p className="text-xs text-orange-600">
+                                          Combined prompts and responses
+                                        </p>
+                                      </CardContent>
+                                    </Card>
+                                  </div>
+
+                                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                    <Card className="border-0 shadow-lg bg-gradient-to-br from-teal-50 to-teal-100">
+                                      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                                        <CardTitle className="text-sm font-medium text-teal-800">Total Sessions</CardTitle>
+                                        <Clock className="h-4 w-4 text-teal-600" />
+                                      </CardHeader>
+                                      <CardContent>
+                                        <div className="text-2xl font-bold text-teal-700">
+                                          {stats.aiAnalytics.totalSessions.toLocaleString()}
+                                        </div>
+                                        <p className="text-xs text-teal-600">
+                                          Distinct daily chat sessions
+                                        </p>
+                                      </CardContent>
+                                    </Card>
+
+                                    <Card className="border-0 shadow-lg bg-gradient-to-br from-amber-50 to-amber-100">
+                                      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                                        <CardTitle className="text-sm font-medium text-amber-800">Time with AI</CardTitle>
+                                        <TrendingUp className="h-4 w-4 text-amber-600" />
+                                      </CardHeader>
+                                      <CardContent>
+                                        <div className="text-2xl font-bold text-amber-700">
+                                          {stats.aiAnalytics.totalSessionMinutes.toLocaleString(undefined, { maximumFractionDigits: 1 })}
+                                        </div>
+                                        <p className="text-xs text-amber-600">
+                                          Total minutes spent chatting
+                                        </p>
+                                      </CardContent>
+                                    </Card>
+
+                                    <Card className="border-0 shadow-lg bg-gradient-to-br from-slate-50 to-slate-100">
+                                      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                                        <CardTitle className="text-sm font-medium text-slate-800">Session Quality</CardTitle>
+                                        <LineChart className="h-4 w-4 text-slate-600" />
+                                      </CardHeader>
+                                      <CardContent>
+                                        <div className="text-lg font-semibold text-slate-700">
+                                          Avg duration: {stats.aiAnalytics.averageSessionMinutes.toFixed(1)} min
+                                        </div>
+                                        <p className="text-xs text-slate-600">
+                                          Avg responses/session: {stats.aiAnalytics.averageResponsesPerSession.toFixed(1)} ·
+                                          Avg prompts/user: {stats.aiAnalytics.averagePromptsPerUser.toFixed(1)}
+                                        </p>
+                                      </CardContent>
+                                    </Card>
+                                  </div>
+
+                                  <Card>
+                                    <CardHeader>
+                                      <CardTitle>Top AI Users</CardTitle>
+                                    </CardHeader>
+                                    <CardContent>
+                                      <div className="overflow-x-auto">
+                                        <Table>
+                                          <TableHeader>
+                                            <TableRow>
+                                              <TableHead>User</TableHead>
+                                              <TableHead>Prompts</TableHead>
+                                              <TableHead>Responses</TableHead>
+                                              <TableHead>Total Messages</TableHead>
+                                              <TableHead>Sessions</TableHead>
+                                              <TableHead>Avg Session</TableHead>
+                                              <TableHead>Last Active</TableHead>
+                                            </TableRow>
+                                          </TableHeader>
+                                          <TableBody>
+                                            {stats.aiAnalytics.topUsers && stats.aiAnalytics.topUsers.length > 0 ? (
+                                              stats.aiAnalytics.topUsers.map((user) => (
+                                                <TableRow key={user.email}>
+                                                  <TableCell className="text-sm font-medium">{user.email}</TableCell>
+                                                  <TableCell className="text-sm">{user.userMessages}</TableCell>
+                                                  <TableCell className="text-sm">{user.assistantMessages}</TableCell>
+                                                  <TableCell className="text-sm">{user.totalMessages}</TableCell>
+                                                  <TableCell className="text-sm">{user.totalSessions}</TableCell>
+                                                  <TableCell className="text-sm">
+                                                    {user.averageSessionMinutes.toFixed(1)} min
+                                                  </TableCell>
+                                                  <TableCell className="text-sm">
+                                                    {user.lastMessageAt ? new Date(user.lastMessageAt).toLocaleString() : '—'}
+                                                  </TableCell>
+                                                </TableRow>
+                                              ))
+                                            ) : (
+                                              <TableRow>
+                                                <TableCell colSpan={7} className="text-center py-6 text-gray-500">
+                                                  Not enough data yet to highlight top users.
+                                                </TableCell>
+                                              </TableRow>
+                                            )}
+                                          </TableBody>
+                                        </Table>
+                                      </div>
+                                    </CardContent>
+                                  </Card>
+
+                                  <Card>
+                                    <CardHeader>
+                                      <CardTitle>Recent AI Activity</CardTitle>
+                                      <p className="text-sm text-gray-500">
+                                        Latest prompts and responses handled by the assistant
+                                      </p>
+                                    </CardHeader>
+                                    <CardContent>
+                                      {stats.aiAnalytics.recentActivity && stats.aiAnalytics.recentActivity.length > 0 ? (
+                                        <div className="space-y-4 max-h-96 overflow-y-auto">
+                                          {stats.aiAnalytics.recentActivity
+                                            .filter(item => !item.content?.includes('Generated AI quiz'))
+                                            .map((item) => (
+                                              <div key={item.id || `${item.email}-${item.createdAt}`} className="flex gap-3 p-3 border rounded-lg bg-gray-50">
+                                                <div className={`w-8 h-8 rounded-full flex items-center justify-center ${item.role === 'assistant' ? 'bg-purple-100 text-purple-600' : 'bg-blue-100 text-blue-600'}`}>
+                                                  {item.role === 'assistant' ? <Sparkles className="w-4 h-4" /> : <Users className="w-4 h-4" />}
+                                                </div>
+                                                <div className="flex-1">
+                                                  <div className="flex items-center justify-between mb-1">
+                                                    <span className="text-sm font-semibold text-gray-800">
+                                                      {item.email}
+                                                    </span>
+                                                    <span className="text-xs text-gray-500">
+                                                      {item.createdAt ? new Date(item.createdAt).toLocaleString() : '—'}
+                                                    </span>
+                                                  </div>
+                                                  <p className="text-sm text-gray-700 whitespace-pre-wrap break-words">
+                                                    {item.content?.length > 200 ? `${item.content.slice(0, 200)}…` : item.content || '(no content)'}
+                                                  </p>
+                                                  <Badge variant={item.role === 'assistant' ? 'default' : 'outline'} className="mt-2 text-xs">
+                                                    {item.role === 'assistant' ? 'Assistant response' : 'User prompt'}
+                                                  </Badge>
+                                                </div>
+                                              </div>
+                                            ))}
+                                        </div>
+                                      ) : (
+                                        <div className="text-center py-8 text-gray-500">
+                                          No AI messages recorded during this period.
+                                        </div>
+                                      )}
+                                    </CardContent>
+                                  </Card>
+                                </div>
+                              </DialogContent>
+                            </Dialog>
+
+                            {/* AI Quiz Card */}
+                            <Dialog>
+                              <DialogTrigger asChild>
+                                <Card className="border-0 shadow-lg bg-gradient-to-br from-indigo-50 to-indigo-100 cursor-pointer hover:shadow-xl transition-all hover:scale-[1.02]">
+                                  <CardHeader>
+                                    <div className="flex items-center justify-between">
+                                      <CardTitle className="text-indigo-800 flex items-center gap-3">
+                                        <Sparkles className="h-8 w-8" />
+                                        AI Quiz Studio
+                                      </CardTitle>
+                                      <Sparkles className="h-6 w-6 text-indigo-600" />
                                     </div>
+                                    <p className="text-sm text-indigo-600 mt-2">
+                                      Analytics for AI-generated quizzes
+                                    </p>
+                                  </CardHeader>
+                                  <CardContent>
+                                    <div className="space-y-4">
+                                      {stats.aiAnalytics?.aiQuiz ? (
+                                        <>
+                                          <div className="grid grid-cols-2 gap-4">
+                                            <div className="p-3 bg-white/70 rounded-lg">
+                                              <div className="text-2xl font-bold text-indigo-700">
+                                                {(stats.aiAnalytics.aiQuiz.totalQuizzes || 0).toLocaleString()}
+                                              </div>
+                                              <div className="text-xs text-gray-600">Total Quizzes</div>
+                                            </div>
+                                            <div className="p-3 bg-white/70 rounded-lg">
+                                              <div className="text-2xl font-bold text-indigo-700">
+                                                {(stats.aiAnalytics.aiQuiz.totalQuestions || 0).toLocaleString()}
+                                              </div>
+                                              <div className="text-xs text-gray-600">Total Questions</div>
+                                            </div>
+                                          </div>
+                                          <div className="grid grid-cols-2 gap-4">
+                                            <div className="p-3 bg-white/70 rounded-lg">
+                                              <div className="text-xl font-bold text-indigo-700">
+                                                {(stats.aiAnalytics.aiQuiz.uniqueUsers || 0).toLocaleString()}
+                                              </div>
+                                              <div className="text-xs text-gray-600">Unique Users</div>
+                                            </div>
+                                            <div className="p-3 bg-white/70 rounded-lg">
+                                              <div className="text-xl font-bold text-indigo-700">
+                                                {stats.aiAnalytics.aiQuiz.averageQuestionsPerQuiz ? stats.aiAnalytics.aiQuiz.averageQuestionsPerQuiz.toFixed(1) : '0.0'}
+                                              </div>
+                                              <div className="text-xs text-gray-600">Avg Questions/Quiz</div>
+                                            </div>
+                                          </div>
+                                        </>
+                                      ) : (
+                                        <div className="text-center py-4 text-gray-500">
+                                          <p className="text-sm">No AI quiz data available yet.</p>
+                                        </div>
+                                      )}
+                                      <div className="pt-2 text-center">
+                                        <span className="text-xs text-indigo-600 font-medium">Click to view detailed analytics →</span>
+                                      </div>
+                                    </div>
+                                  </CardContent>
+                                </Card>
+                              </DialogTrigger>
+                              <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto">
+                                <DialogHeader>
+                                  <DialogTitle className="flex items-center gap-2">
+                                    <Sparkles className="h-6 w-6" />
+                                    AI Quiz Studio Analytics
+                                  </DialogTitle>
+                                  <DialogDescription>
+                                    Detailed analytics for AI-generated quizzes
+                                  </DialogDescription>
+                                </DialogHeader>
+                                <div className="space-y-6">
+                                  {stats.aiAnalytics?.aiQuiz ? (
+                                    <>
+                                      {/* Overview Metrics */}
+                                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                                        <Card className="border-0 shadow-lg bg-gradient-to-br from-indigo-50 to-indigo-100">
+                                          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                                            <CardTitle className="text-sm font-medium text-indigo-800">Total Quizzes</CardTitle>
+                                            <Sparkles className="h-4 w-4 text-indigo-600" />
+                                          </CardHeader>
+                                          <CardContent>
+                                            <div className="text-2xl font-bold text-indigo-700">
+                                              {(stats.aiAnalytics.aiQuiz.totalQuizzes || 0).toLocaleString()}
+                                            </div>
+                                            <p className="text-xs text-indigo-600">
+                                              Quizzes generated
+                                            </p>
+                                          </CardContent>
+                                        </Card>
+
+                                        <Card className="border-0 shadow-lg bg-gradient-to-br from-indigo-50 to-indigo-100">
+                                          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                                            <CardTitle className="text-sm font-medium text-indigo-800">Total Questions</CardTitle>
+                                            <BarChart3 className="h-4 w-4 text-indigo-600" />
+                                          </CardHeader>
+                                          <CardContent>
+                                            <div className="text-2xl font-bold text-indigo-700">
+                                              {(stats.aiAnalytics.aiQuiz.totalQuestions || 0).toLocaleString()}
+                                            </div>
+                                            <p className="text-xs text-indigo-600">
+                                              Questions generated
+                                            </p>
+                                          </CardContent>
+                                        </Card>
+
+                                        <Card className="border-0 shadow-lg bg-gradient-to-br from-indigo-50 to-indigo-100">
+                                          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                                            <CardTitle className="text-sm font-medium text-indigo-800">Unique Users</CardTitle>
+                                            <Users className="h-4 w-4 text-indigo-600" />
+                                          </CardHeader>
+                                          <CardContent>
+                                            <div className="text-2xl font-bold text-indigo-700">
+                                              {(stats.aiAnalytics.aiQuiz.uniqueUsers || 0).toLocaleString()}
+                                            </div>
+                                            <p className="text-xs text-indigo-600">
+                                              Users who generated quizzes
+                                            </p>
+                                          </CardContent>
+                                        </Card>
+
+                                        <Card className="border-0 shadow-lg bg-gradient-to-br from-indigo-50 to-indigo-100">
+                                          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                                            <CardTitle className="text-sm font-medium text-indigo-800">Avg Questions/Quiz</CardTitle>
+                                            <LineChart className="h-4 w-4 text-indigo-600" />
+                                          </CardHeader>
+                                          <CardContent>
+                                            <div className="text-2xl font-bold text-indigo-700">
+                                              {stats.aiAnalytics.aiQuiz.averageQuestionsPerQuiz ? stats.aiAnalytics.aiQuiz.averageQuestionsPerQuiz.toFixed(1) : '0.0'}
+                                            </div>
+                                            <p className="text-xs text-indigo-600">
+                                              Average per quiz
+                                            </p>
+                                          </CardContent>
+                                        </Card>
+                                      </div>
+
+                                      <Card>
+                                        <CardHeader>
+                                          <CardTitle>Top AI Quiz Users</CardTitle>
+                                          <p className="text-sm text-gray-500">
+                                            Users who have generated the most AI quizzes
+                                          </p>
+                                        </CardHeader>
+                                        <CardContent>
+                                          <div className="overflow-x-auto">
+                                            <Table>
+                                              <TableHeader>
+                                                <TableRow>
+                                                  <TableHead>User</TableHead>
+                                                  <TableHead>Total Quizzes</TableHead>
+                                                  <TableHead>Total Questions</TableHead>
+                                                  <TableHead>First Quiz</TableHead>
+                                                  <TableHead>Last Quiz</TableHead>
+                                                </TableRow>
+                                              </TableHeader>
+                                              <TableBody>
+                                                {stats.aiAnalytics.aiQuiz.topUsers && stats.aiAnalytics.aiQuiz.topUsers.length > 0 ? (
+                                                  stats.aiAnalytics.aiQuiz.topUsers.map((user) => (
+                                                    <TableRow key={user.email}>
+                                                      <TableCell className="text-sm font-medium">{user.email}</TableCell>
+                                                      <TableCell className="text-sm">{user.totalQuizzes}</TableCell>
+                                                      <TableCell className="text-sm">{user.totalQuestions}</TableCell>
+                                                      <TableCell className="text-sm">
+                                                        {user.firstQuizAt ? new Date(user.firstQuizAt).toLocaleDateString() : '—'}
+                                                      </TableCell>
+                                                      <TableCell className="text-sm">
+                                                        {user.lastQuizAt ? new Date(user.lastQuizAt).toLocaleDateString() : '—'}
+                                                      </TableCell>
+                                                    </TableRow>
+                                                  ))
+                                                ) : (
+                                                  <TableRow>
+                                                    <TableCell colSpan={5} className="text-center py-6 text-gray-500">
+                                                      No AI quiz data available yet.
+                                                    </TableCell>
+                                                  </TableRow>
+                                                )}
+                                              </TableBody>
+                                            </Table>
+                                          </div>
+                                        </CardContent>
+                                      </Card>
+
+                                      <Card>
+                                        <CardHeader>
+                                          <CardTitle>Recent AI Quiz Generations</CardTitle>
+                                          <p className="text-sm text-gray-500">
+                                            Latest AI quizzes generated by users
+                                          </p>
+                                        </CardHeader>
+                                        <CardContent>
+                                          {stats.aiAnalytics.aiQuiz.recentQuizzes && stats.aiAnalytics.aiQuiz.recentQuizzes.length > 0 ? (
+                                            <div className="space-y-4 max-h-96 overflow-y-auto">
+                                              {stats.aiAnalytics.aiQuiz.recentQuizzes.map((quiz) => (
+                                                <div key={quiz.id || `${quiz.email}-${quiz.createdAt}`} className="flex gap-3 p-3 border rounded-lg bg-gray-50">
+                                                  <div className="w-8 h-8 flex-shrink-0 rounded-full flex items-center justify-center bg-indigo-100 text-indigo-600">
+                                                    <Sparkles className="w-4 h-4" />
+                                                  </div>
+                                                  <div className="flex-1 min-w-0">
+                                                    <div className="flex items-center justify-between mb-1 gap-2">
+                                                      <span className="text-sm font-semibold text-gray-800 truncate">
+                                                        {quiz.userName || quiz.email}
+                                                      </span>
+                                                      <span className="text-xs text-gray-500 flex-shrink-0">
+                                                        {quiz.createdAt ? new Date(quiz.createdAt).toLocaleString() : '—'}
+                                                      </span>
+                                                    </div>
+                                                    <p className="text-sm text-gray-700 break-words">
+                                                      Generated AI quiz: <strong>{quiz.subject}</strong>
+                                                      {quiz.topic && quiz.topic !== quiz.subject && ` - ${quiz.topic}`}
+                                                    </p>
+                                                    <div className="flex items-center gap-2 mt-2 flex-wrap">
+                                                      <Badge variant="outline" className="text-xs">
+                                                        {quiz.difficulty}
+                                                      </Badge>
+                                                      <Badge variant="outline" className="text-xs">
+                                                        {quiz.numQuestions} {quiz.numQuestions === 1 ? 'question' : 'questions'}
+                                                      </Badge>
+                                                      <Badge className="text-xs bg-indigo-600 text-white">
+                                                        AI Quiz
+                                                      </Badge>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              ))}
+                                            </div>
+                                          ) : (
+                                            <div className="text-center py-8 text-gray-500">
+                                              No AI quizzes generated during this period.
+                                            </div>
+                                          )}
+                                        </CardContent>
+                                      </Card>
+                                    </>
                                   ) : (
-                                    <div className="text-center py-8 text-gray-500">
-                                      No AI quizzes generated during this period.
+                                    <div className="text-center py-12 text-gray-500">
+                                      <Sparkles className="h-12 w-12 mx-auto mb-4 text-indigo-400" />
+                                      <p className="text-lg font-semibold">No AI quiz data available yet.</p>
+                                      <p className="text-sm mt-2">AI quiz analytics will appear here once users start generating quizzes.</p>
                                     </div>
                                   )}
-                                </CardContent>
-                              </Card>
-                            </>
-                          )}
+                                </div>
+                              </DialogContent>
+                            </Dialog>
+                          </div>
                         </>
                       ) : (
                         <div className="text-center py-16">

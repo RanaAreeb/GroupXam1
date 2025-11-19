@@ -2296,11 +2296,21 @@ export default function QuizPage() {
                           />
                         </div>
                         <Button
-                          className="w-full bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow transition-all"
+                          className="w-full bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow transition-all disabled:opacity-70 disabled:cursor-not-allowed"
                           onClick={handleGenerateAiQuiz}
                           disabled={isGeneratingAiQuiz}
                         >
-                          {isGeneratingAiQuiz ? "Crafting Quiz..." : "Generate Quiz"}
+                          {isGeneratingAiQuiz ? (
+                            <span className="flex items-center gap-2">
+                              <svg className="animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                              </svg>
+                              Crafting Quiz...
+                            </span>
+                          ) : (
+                            "Generate Quiz"
+                          )}
                         </Button>
                         {aiError && (
                           <p className="text-sm text-red-600 text-center">
@@ -2320,7 +2330,57 @@ export default function QuizPage() {
                     </CardContent>
                   </Card>
                   <div className="lg:col-span-2 space-y-6">
-                    {!aiQuiz ? (
+                    {isGeneratingAiQuiz ? (
+                      <Card className="shadow-xl border-0 rounded-2xl bg-white">
+                        <CardContent className="p-10 text-center">
+                          <div className="relative w-24 h-24 mx-auto mb-6">
+                            {/* Animated gradient background */}
+                            <div 
+                              className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-400 via-blue-500 to-emerald-400"
+                              style={{
+                                backgroundSize: '200% 100%',
+                                animation: 'gradient-x 3s ease infinite',
+                              }}
+                            ></div>
+                            {/* Pulsing ring */}
+                            <div className="absolute inset-0 rounded-full border-4 border-emerald-200 animate-pulse"></div>
+                            {/* Brain icon */}
+                            <div className="absolute inset-0 flex items-center justify-center">
+                              <Brain className="w-12 h-12 text-white animate-pulse" />
+                            </div>
+                          </div>
+                          <h3 className="text-2xl font-bold text-gray-800 mb-2 animate-pulse">
+                            Crafting Your Quiz...
+                          </h3>
+                          <p className="text-sm text-gray-600 mb-6 max-w-md mx-auto">
+                            Our AI is generating {aiForm.numQuestions} carefully crafted questions for you
+                          </p>
+                          
+                          {/* Animated progress dots */}
+                          <div className="flex items-center justify-center gap-2 mb-6">
+                            <div className="w-2 h-2 rounded-full bg-emerald-500 animate-bounce" style={{ animationDelay: '0ms' }}></div>
+                            <div className="w-2 h-2 rounded-full bg-blue-500 animate-bounce" style={{ animationDelay: '150ms' }}></div>
+                            <div className="w-2 h-2 rounded-full bg-emerald-500 animate-bounce" style={{ animationDelay: '300ms' }}></div>
+                          </div>
+
+                          {/* Progress steps */}
+                          <div className="space-y-2 text-xs text-gray-500">
+                            <div className="flex items-center justify-center gap-2">
+                              <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+                              <span>Analyzing your requirements...</span>
+                            </div>
+                            <div className="flex items-center justify-center gap-2">
+                              <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" style={{ animationDelay: '200ms' }}></div>
+                              <span>Generating questions and options...</span>
+                            </div>
+                            <div className="flex items-center justify-center gap-2">
+                              <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" style={{ animationDelay: '400ms' }}></div>
+                              <span>Finalizing your quiz...</span>
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    ) : !aiQuiz ? (
                       <Card className="shadow-xl border-0 rounded-2xl bg-white">
                         <CardContent className="p-10 text-center text-gray-500">
                           <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-emerald-50 text-emerald-500 flex items-center justify-center">
@@ -2370,7 +2430,7 @@ export default function QuizPage() {
                                   className="border border-gray-100 rounded-2xl p-5 bg-gray-50"
                                 >
                                   <div className="flex items-start gap-3">
-                                    <span className="w-8 h-8 rounded-full bg-white text-emerald-600 font-semibold flex items-center justify-center shadow">
+                                    <span className="w-8 h-8 min-w-[2rem] flex-shrink-0 rounded-full bg-white text-emerald-600 font-semibold flex items-center justify-center shadow text-sm">
                                       {index + 1}
                                     </span>
                                     <div>

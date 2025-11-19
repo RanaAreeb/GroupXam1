@@ -374,13 +374,19 @@ export async function GET(request) {
             .sort((a, b) => b.totalQuizzes - a.totalQuizzes)
             .slice(0, 10);
 
-        const recentAiQuizActivity = recentAiQuizzes.map((quiz) => ({
-            id: quiz._id ? quiz._id.toString() : undefined,
-            email: quiz.userEmail,
-            role: "user",
-            content: `Generated AI quiz: ${quiz.subject}${quiz.topic ? ` - ${quiz.topic}` : ''} (${quiz.numQuestions} questions, ${quiz.difficulty})`,
-            createdAt: quiz.createdAt ? new Date(quiz.createdAt).toISOString() : null
-        }));
+        const recentAiQuizActivity = recentAiQuizzes.map((quiz) => {
+            const questionText = quiz.numQuestions === 1 ? 'question' : 'questions';
+            const topicText = quiz.topic && quiz.topic !== quiz.subject ? ` - ${quiz.topic}` : '';
+            // Truncate content if too long for large question counts
+            const content = `Generated AI quiz: ${quiz.subject}${topicText} (${quiz.numQuestions} ${questionText}, ${quiz.difficulty})`;
+            return {
+                id: quiz._id ? quiz._id.toString() : undefined,
+                email: quiz.userEmail,
+                role: "user",
+                content: content.length > 150 ? content.substring(0, 147) + '...' : content,
+                createdAt: quiz.createdAt ? new Date(quiz.createdAt).toISOString() : null
+            };
+        });
 
         // Combine chat and quiz analytics
         const combinedTotalUsers = new Set([
