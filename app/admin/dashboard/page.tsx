@@ -446,6 +446,30 @@ interface AdminStats {
       content: string;
       createdAt: string | null;
     }>;
+    aiQuiz?: {
+      totalQuizzes: number;
+      totalQuestions: number;
+      uniqueUsers: number;
+      averageQuestionsPerQuiz: number;
+      averageQuizzesPerUser: number;
+      topUsers: Array<{
+        email: string;
+        totalQuizzes: number;
+        totalQuestions: number;
+        firstQuizAt: string | null;
+        lastQuizAt: string | null;
+      }>;
+      recentQuizzes: Array<{
+        id?: string;
+        email: string;
+        userName: string;
+        subject: string;
+        topic: string;
+        difficulty: string;
+        numQuestions: number;
+        createdAt: string | null;
+      }>;
+    };
   };
 }
 
@@ -2933,7 +2957,7 @@ export default function AdminDashboard() {
                                           {item.content?.length > 260 ? `${item.content.slice(0, 260)}…` : item.content || '(no content)'}
                                         </p>
                                         <Badge variant={item.role === 'assistant' ? 'default' : 'outline'} className="mt-2 text-xs">
-                                          {item.role === 'assistant' ? 'Assistant response' : 'User prompt'}
+                                          {item.role === 'assistant' ? 'Assistant response' : item.content?.includes('Generated AI quiz') ? 'AI Quiz' : 'User prompt'}
                                         </Badge>
                                       </div>
                                     </div>
@@ -2946,6 +2970,149 @@ export default function AdminDashboard() {
                               )}
                             </CardContent>
                           </Card>
+
+                          {/* AI Quiz Analytics Section */}
+                          {stats.aiAnalytics.aiQuiz && stats.aiAnalytics.aiQuiz.totalQuizzes > 0 && (
+                            <>
+                              <Card className="border-0 shadow-lg bg-gradient-to-br from-indigo-50 to-indigo-100">
+                                <CardHeader>
+                                  <CardTitle className="text-indigo-800 flex items-center gap-2">
+                                    <Sparkles className="w-5 h-5" />
+                                    AI Quiz Studio Analytics
+                                  </CardTitle>
+                                  <p className="text-sm text-indigo-600">
+                                    Analytics for AI-generated quizzes
+                                  </p>
+                                </CardHeader>
+                                <CardContent>
+                                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                                    <div className="text-center p-4 bg-white/70 rounded-lg">
+                                      <div className="text-2xl font-bold text-indigo-700">
+                                        {stats.aiAnalytics.aiQuiz.totalQuizzes.toLocaleString()}
+                                      </div>
+                                      <div className="text-sm text-gray-600">Total Quizzes Generated</div>
+                                    </div>
+                                    <div className="text-center p-4 bg-white/70 rounded-lg">
+                                      <div className="text-2xl font-bold text-indigo-700">
+                                        {stats.aiAnalytics.aiQuiz.totalQuestions.toLocaleString()}
+                                      </div>
+                                      <div className="text-sm text-gray-600">Total Questions</div>
+                                    </div>
+                                    <div className="text-center p-4 bg-white/70 rounded-lg">
+                                      <div className="text-2xl font-bold text-indigo-700">
+                                        {stats.aiAnalytics.aiQuiz.uniqueUsers.toLocaleString()}
+                                      </div>
+                                      <div className="text-sm text-gray-600">Unique Users</div>
+                                    </div>
+                                    <div className="text-center p-4 bg-white/70 rounded-lg">
+                                      <div className="text-2xl font-bold text-indigo-700">
+                                        {stats.aiAnalytics.aiQuiz.averageQuestionsPerQuiz.toFixed(1)}
+                                      </div>
+                                      <div className="text-sm text-gray-600">Avg Questions/Quiz</div>
+                                    </div>
+                                  </div>
+                                </CardContent>
+                              </Card>
+
+                              <Card>
+                                <CardHeader>
+                                  <CardTitle>Top AI Quiz Users</CardTitle>
+                                  <p className="text-sm text-gray-500">
+                                    Users who have generated the most AI quizzes
+                                  </p>
+                                </CardHeader>
+                                <CardContent>
+                                  <div className="overflow-x-auto">
+                                    <Table>
+                                      <TableHeader>
+                                        <TableRow>
+                                          <TableHead>User</TableHead>
+                                          <TableHead>Total Quizzes</TableHead>
+                                          <TableHead>Total Questions</TableHead>
+                                          <TableHead>First Quiz</TableHead>
+                                          <TableHead>Last Quiz</TableHead>
+                                        </TableRow>
+                                      </TableHeader>
+                                      <TableBody>
+                                        {stats.aiAnalytics.aiQuiz.topUsers.length > 0 ? (
+                                          stats.aiAnalytics.aiQuiz.topUsers.map((user) => (
+                                            <TableRow key={user.email}>
+                                              <TableCell className="text-sm font-medium">{user.email}</TableCell>
+                                              <TableCell className="text-sm">{user.totalQuizzes}</TableCell>
+                                              <TableCell className="text-sm">{user.totalQuestions}</TableCell>
+                                              <TableCell className="text-sm">
+                                                {user.firstQuizAt ? new Date(user.firstQuizAt).toLocaleDateString() : '—'}
+                                              </TableCell>
+                                              <TableCell className="text-sm">
+                                                {user.lastQuizAt ? new Date(user.lastQuizAt).toLocaleDateString() : '—'}
+                                              </TableCell>
+                                            </TableRow>
+                                          ))
+                                        ) : (
+                                          <TableRow>
+                                            <TableCell colSpan={5} className="text-center py-6 text-gray-500">
+                                              No AI quiz data available yet.
+                                            </TableCell>
+                                          </TableRow>
+                                        )}
+                                      </TableBody>
+                                    </Table>
+                                  </div>
+                                </CardContent>
+                              </Card>
+
+                              <Card>
+                                <CardHeader>
+                                  <CardTitle>Recent AI Quiz Generations</CardTitle>
+                                  <p className="text-sm text-gray-500">
+                                    Latest AI quizzes generated by users
+                                  </p>
+                                </CardHeader>
+                                <CardContent>
+                                  {stats.aiAnalytics.aiQuiz.recentQuizzes.length > 0 ? (
+                                    <div className="space-y-4 max-h-96 overflow-y-auto">
+                                      {stats.aiAnalytics.aiQuiz.recentQuizzes.map((quiz) => (
+                                        <div key={quiz.id || `${quiz.email}-${quiz.createdAt}`} className="flex gap-3 p-3 border rounded-lg bg-gray-50">
+                                          <div className="w-8 h-8 rounded-full flex items-center justify-center bg-indigo-100 text-indigo-600">
+                                            <Sparkles className="w-4 h-4" />
+                                          </div>
+                                          <div className="flex-1">
+                                            <div className="flex items-center justify-between mb-1">
+                                              <span className="text-sm font-semibold text-gray-800">
+                                                {quiz.userName || quiz.email}
+                                              </span>
+                                              <span className="text-xs text-gray-500">
+                                                {quiz.createdAt ? new Date(quiz.createdAt).toLocaleString() : '—'}
+                                              </span>
+                                            </div>
+                                            <p className="text-sm text-gray-700">
+                                              Generated AI quiz: <strong>{quiz.subject}</strong>
+                                              {quiz.topic && quiz.topic !== quiz.subject && ` - ${quiz.topic}`}
+                                            </p>
+                                            <div className="flex items-center gap-2 mt-2">
+                                              <Badge variant="outline" className="text-xs">
+                                                {quiz.difficulty}
+                                              </Badge>
+                                              <Badge variant="outline" className="text-xs">
+                                                {quiz.numQuestions} questions
+                                              </Badge>
+                                              <Badge className="text-xs bg-indigo-600 text-white">
+                                                AI Quiz
+                                              </Badge>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      ))}
+                                    </div>
+                                  ) : (
+                                    <div className="text-center py-8 text-gray-500">
+                                      No AI quizzes generated during this period.
+                                    </div>
+                                  )}
+                                </CardContent>
+                              </Card>
+                            </>
+                          )}
                         </>
                       ) : (
                         <div className="text-center py-16">

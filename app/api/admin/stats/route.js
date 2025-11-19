@@ -306,8 +306,97 @@ export async function GET(request) {
             createdAt: message.createdAt ? new Date(message.createdAt).toISOString() : null
         }));
 
+        // AI Quiz analytics
+        const aiQuizMatchStage = {
+            createdAt: { $gte: startDateObj, $lte: endDateObj }
+        };
+
+        const aiQuizStats = await db.collection("aiQuizUsage").aggregate([
+            { $match: aiQuizMatchStage },
+            {
+                $group: {
+                    _id: null,
+                    totalQuizzes: { $sum: 1 },
+                    totalQuestions: { $sum: "$numQuestions" },
+                    uniqueUsers: { $addToSet: "$userEmail" }
+                }
+            }
+        ]).toArray();
+
+        const aiQuizUserSummary = await db.collection("aiQuizUsage").aggregate([
+            { $match: aiQuizMatchStage },
+            {
+                $group: {
+                    _id: "$userEmail",
+                    totalQuizzes: { $sum: 1 },
+                    totalQuestions: { $sum: "$numQuestions" },
+                    firstQuizAt: { $min: "$createdAt" },
+                    lastQuizAt: { $max: "$createdAt" }
+                }
+            }
+        ]).toArray();
+
+        const recentAiQuizzes = await db.collection("aiQuizUsage")
+            .find(aiQuizMatchStage)
+            .project({
+                userEmail: 1,
+                userName: 1,
+                subject: 1,
+                topic: 1,
+                difficulty: 1,
+                numQuestions: 1,
+                createdAt: 1
+            })
+            .sort({ createdAt: -1 })
+            .limit(25)
+            .toArray();
+
+        const aiQuizData = aiQuizStats[0] || {
+            totalQuizzes: 0,
+            totalQuestions: 0,
+            uniqueUsers: []
+        };
+
+        const totalAiQuizUsers = Array.isArray(aiQuizData.uniqueUsers) ? aiQuizData.uniqueUsers.length : 0;
+        const totalAiQuizzes = aiQuizData.totalQuizzes || 0;
+        const totalAiQuizQuestions = aiQuizData.totalQuestions || 0;
+        const averageQuestionsPerQuiz = totalAiQuizzes > 0 ? totalAiQuizQuestions / totalAiQuizzes : 0;
+        const averageQuizzesPerUser = totalAiQuizUsers > 0 ? totalAiQuizzes / totalAiQuizUsers : 0;
+
+        const topAiQuizUsers = aiQuizUserSummary
+            .map((user) => ({
+                email: user._id,
+                totalQuizzes: user.totalQuizzes || 0,
+                totalQuestions: user.totalQuestions || 0,
+                firstQuizAt: user.firstQuizAt ? new Date(user.firstQuizAt).toISOString() : null,
+                lastQuizAt: user.lastQuizAt ? new Date(user.lastQuizAt).toISOString() : null
+            }))
+            .sort((a, b) => b.totalQuizzes - a.totalQuizzes)
+            .slice(0, 10);
+
+        const recentAiQuizActivity = recentAiQuizzes.map((quiz) => ({
+            id: quiz._id ? quiz._id.toString() : undefined,
+            email: quiz.userEmail,
+            role: "user",
+            content: `Generated AI quiz: ${quiz.subject}${quiz.topic ? ` - ${quiz.topic}` : ''} (${quiz.numQuestions} questions, ${quiz.difficulty})`,
+            createdAt: quiz.createdAt ? new Date(quiz.createdAt).toISOString() : null
+        }));
+
+        // Combine chat and quiz analytics
+        const combinedTotalUsers = new Set([
+            ...aiUserSummary.map(u => u._id),
+            ...aiQuizUserSummary.map(u => u._id)
+        ]).size;
+
+        const combinedRecentActivity = [
+            ...recentActivity,
+            ...recentAiQuizActivity
+        ]
+            .sort((a, b) => new Date(b.createdAt || 0).getTime() - new Date(a.createdAt || 0).getTime())
+            .slice(0, 25);
+
         const aiAnalytics = {
-            totalUsers: totalAIUsers,
+            totalUsers: combinedTotalUsers,
             totalMessages: totalAimessages,
             totalUserPrompts,
             totalAssistantResponses,
@@ -317,7 +406,26 @@ export async function GET(request) {
             averageResponsesPerSession: Number(averageResponsesPerSession.toFixed(2)),
             averagePromptsPerUser: Number(averagePromptsPerUser.toFixed(2)),
             topUsers,
-            recentActivity
+            recentActivity: combinedRecentActivity,
+            // AI Quiz specific metrics
+            aiQuiz: {
+                totalQuizzes: totalAiQuizzes,
+                totalQuestions: totalAiQuizQuestions,
+                uniqueUsers: totalAiQuizUsers,
+                averageQuestionsPerQuiz: Number(averageQuestionsPerQuiz.toFixed(2)),
+                averageQuizzesPerUser: Number(averageQuizzesPerUser.toFixed(2)),
+                topUsers: topAiQuizUsers,
+                recentQuizzes: recentAiQuizzes.map((quiz) => ({
+                    id: quiz._id ? quiz._id.toString() : undefined,
+                    email: quiz.userEmail,
+                    userName: quiz.userName,
+                    subject: quiz.subject,
+                    topic: quiz.topic,
+                    difficulty: quiz.difficulty,
+                    numQuestions: quiz.numQuestions,
+                    createdAt: quiz.createdAt ? new Date(quiz.createdAt).toISOString() : null
+                }))
+            }
         };
 
         // Get country distribution with full names for the selected period

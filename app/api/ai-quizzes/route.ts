@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
 import { jsonrepair } from "jsonrepair";
+import { getDatabase } from "@/lib/db";
 
 const MIN_QUESTIONS = 3;
 const MAX_QUESTIONS = 15;
@@ -118,8 +119,9 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
+  let decoded: any;
   try {
-    jwt.verify(token, process.env.JWT_SECRET || "");
+    decoded = jwt.verify(token, process.env.JWT_SECRET || "");
   } catch {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
@@ -279,6 +281,34 @@ CRITICAL: Ensure all option objects use "text" as the key name, not the option c
       ...question,
       options: question.options.slice(0, 4),
     }));
+
+    // Track AI quiz generation for analytics
+    try {
+      const db = await getDatabase();
+      const aiQuizUsageCollection = db.collection("aiQuizUsage");
+      const usersCollection = db.collection("users");
+      
+      const user = await usersCollection.findOne({ email: decoded.email });
+      
+      if (user) {
+        await aiQuizUsageCollection.insertOne({
+          userId: user._id,
+          userEmail: decoded.email,
+          userName: user.name || user.email,
+          subject: normalizedQuiz.subject,
+          topic: normalizedQuiz.topic || normalizedQuiz.subject,
+          difficulty: normalizedQuiz.difficulty,
+          numQuestions: normalizedQuiz.questions.length,
+          timeLimit: normalizedQuiz.timeLimit,
+          quizId: normalizedQuiz.id,
+          createdAt: new Date(),
+          timestamp: new Date(),
+        });
+      }
+    } catch (trackingError) {
+      // Don't fail the request if tracking fails
+      console.error("Failed to track AI quiz usage:", trackingError);
+    }
 
     return NextResponse.json({ quiz: normalizedQuiz });
   } catch (error) {
