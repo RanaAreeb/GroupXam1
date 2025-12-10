@@ -10,7 +10,7 @@ async function addAdminTestData() {
                 name: "John Doe",
                 email: "john@example.com",
                 role: "student",
-                country: "NG",
+                country: "NGI",
                 createdAt: new Date(Date.now() - 24 * 60 * 60 * 1000), // 1 day ago
             },
             {
