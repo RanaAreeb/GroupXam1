@@ -30,10 +30,10 @@ export async function GET(request) {
         return NextResponse.json({
             loggedIn: true,
             user: {
-                name: user.name,
+                name: user.name || user.adminName,
                 email: user.email,
                 role: user.role,
-                universityName: user.universityName,
+                universityName: user.universityName || user.institutionName,
                 country: user.country,
                 profilePicture: user.profilePicture,
                 phone: user.phone,

@@ -98,9 +98,18 @@ export async function POST(request) {
     }
 
     // Validate required fields
-    if (!requestData.name || requestData.name.trim().length < 2) {
+    // Institution signup sends adminName (not name); student signup sends name
+    const displayName =
+      requestData.role === "university"
+        ? requestData.adminName
+        : requestData.name
+
+    if (!displayName || displayName.trim().length < 2) {
       return NextResponse.json({
-        error: "Please enter a valid name (at least 2 characters)"
+        error:
+          requestData.role === "university"
+            ? "Please enter a valid admin name (at least 2 characters)"
+            : "Please enter a valid name (at least 2 characters)",
       }, { status: 400 })
     }
 
@@ -135,12 +144,6 @@ export async function POST(request) {
           error: "Please select your institution subcategory"
         }, { status: 400 })
       }
-
-      if (!requestData.adminName || requestData.adminName.trim().length < 2) {
-        return NextResponse.json({
-          error: "Please enter a valid admin name (at least 2 characters)"
-        }, { status: 400 })
-      }
     }
 
     // Connect to MongoDB
@@ -168,6 +171,7 @@ export async function POST(request) {
         role: "university",
         // Basic institution info
         institutionName: requestData.institutionName,
+        universityName: requestData.institutionName, // kept for login/dashboard compatibility
         institutionType: requestData.institutionType,
         subcategory: requestData.subcategory,
         adminName: requestData.adminName,

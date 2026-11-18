@@ -719,11 +719,16 @@ section {
   }
 }
 
-/* Ensure Radix Popover content is not affected by transform optimizations */
+/*
+  Radix Select/Popover/Dropdown position via transform on
+  [data-radix-popper-content-wrapper]. Never force transform:none —
+  that pins menus at the top-left of the viewport.
+*/
 [data-radix-popover-content],
+[data-radix-select-content],
+[data-radix-dropdown-menu-content],
 [data-radix-popper-content-wrapper] {
   will-change: auto !important;
-  transform: none !important;
   backface-visibility: visible !important;
 }
 

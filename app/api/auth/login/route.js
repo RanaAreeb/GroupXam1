@@ -37,6 +37,7 @@ export async function POST(request) {
           name: 1,
           role: 1,
           universityName: 1,
+          institutionName: 1,
           adminName: 1,
           isVerified: 1
         }
@@ -101,14 +102,20 @@ export async function POST(request) {
       // Don't fail the login if activity creation fails
     }
 
+    const displayName = user.name || user.adminName || ""
+    const institutionDisplayName =
+      user.universityName || user.institutionName || ""
+
     // Generate JWT token with role information
     const token = jwt.sign(
       {
         userId: user._id,
         email: user.email,
-        name: user.name,
+        name: displayName,
         role: user.role || "student", // Default to student for legacy accounts
-        ...(user.role === "university" && { universityName: user.universityName })
+        ...(user.role === "university" && {
+          universityName: institutionDisplayName,
+        }),
       },
       JWT_SECRET,
       { expiresIn: "7d" }
@@ -122,10 +129,12 @@ export async function POST(request) {
         message: "Login successful",
         user: {
           id: user._id,
-          name: user.name,
+          name: displayName,
           email: user.email,
           role: user.role || "student",
-          ...(user.role === "university" && { universityName: user.universityName })
+          ...(user.role === "university" && {
+            universityName: institutionDisplayName,
+          }),
         },
         responseTime: `${responseTime}ms`
       },
