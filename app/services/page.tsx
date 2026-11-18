@@ -34,7 +34,6 @@ import {
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 import Header from "@/components/ui/header";
 import { useAuth } from "@/hooks/use-auth";
-import { usePaymentProtection } from "@/hooks/use-payment-protection";
 
 // Services page - simplified without exam functionality
 
@@ -53,19 +52,11 @@ export default function ServicesPage() {
     </>
   );
 
-  // Function to handle exam access with payment check
+  // Browse packages without auth; only paid users skip to exam tools
   const handleExamAccess = (packageType: "students" | "k12" | "universities") => {
-    if (!isLoggedIn) {
-      // Redirect to login if not logged in
-      window.location.href = "/login";
-      return;
-    }
-    
-    // Check if user has access to the required package
-    if (user?.access) {
-      // Check specific access based on package type
+    if (isLoggedIn && user?.access) {
       let hasAccess = false;
-      
+
       if (packageType === "students") {
         hasAccess = !!(user.access.ielts || user.access.proctor);
       } else if (packageType === "k12") {
@@ -73,15 +64,14 @@ export default function ServicesPage() {
       } else if (packageType === "universities") {
         hasAccess = !!(user.access.university || user.access.proctor);
       }
-      
+
       if (hasAccess) {
-        // User has access, redirect to services exam page
         window.location.href = "/services/exam";
         return;
       }
     }
-    
-    // User doesn't have access, show payment modal
+
+    // Guests and unpaid users: show package / contact flow (no login wall)
     setSelectedPackage(packageType);
     setShowPaymentModal(true);
   };
@@ -1056,7 +1046,7 @@ export default function ServicesPage() {
                 </li>
                 <li>
                   <Link
-                    href={isLoggedIn ? "/services" : "/login"}
+                    href="/services"
                     className="hover:text-white transition-colors"
                   >
                     proctorIT

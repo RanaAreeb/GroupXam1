@@ -1072,7 +1072,7 @@ export default function SignupPage() {
                   </div>
 
                   <div className="space-y-4">
-                    <div>
+                    <div className="relative">
                       <Label htmlFor="institutionType">
                         Institution Category
                       </Label>
@@ -1086,10 +1086,16 @@ export default function SignupPage() {
                           })
                         }
                       >
-                        <SelectTrigger>
+                        <SelectTrigger className="w-full">
                           <SelectValue placeholder="Select institution category" />
                         </SelectTrigger>
-                        <SelectContent>
+                        <SelectContent
+                          position="popper"
+                          side="bottom"
+                          align="start"
+                          sideOffset={4}
+                          className="w-[var(--radix-select-trigger-width)]"
+                        >
                           {Object.keys(institutionSubcategories).map((type) => (
                             <SelectItem key={type} value={type}>
                               {type}
@@ -1100,7 +1106,7 @@ export default function SignupPage() {
                     </div>
 
                     {institutionData.institutionType && (
-                      <div>
+                      <div className="relative">
                         <Label htmlFor="subcategory">Institution Type</Label>
                         <Select
                           value={institutionData.subcategory}
@@ -1111,10 +1117,16 @@ export default function SignupPage() {
                             })
                           }
                         >
-                          <SelectTrigger>
+                          <SelectTrigger className="w-full">
                             <SelectValue placeholder="Select institution type" />
                           </SelectTrigger>
-                          <SelectContent>
+                          <SelectContent
+                            position="popper"
+                            side="bottom"
+                            align="start"
+                            sideOffset={4}
+                            className="w-[var(--radix-select-trigger-width)]"
+                          >
                             {institutionSubcategories[
                               institutionData.institutionType as keyof typeof institutionSubcategories
                             ]?.map((sub) => (

@@ -2880,9 +2880,9 @@ export default function HomePage() {
                     </div>
                   </Link>
 
-                  {/* ProctorIT Card */}
+                  {/* ProctorIT Card — public, no login required */}
                   <Link
-                    href={isLoggedIn ? "/services" : "/login"}
+                    href="/services"
                     className="group flex-shrink-0 w-72 sm:w-80 md:w-96 bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer relative overflow-hidden snap-start border border-gray-100 hover:border-red-200 hover:-translate-y-2"
                   >
                     {/* Image Container - Featured at Top */}
@@ -3444,7 +3444,7 @@ export default function HomePage() {
                     </li>
                     <li>
                       <Link
-                        href={isLoggedIn ? "/services" : "/login"}
+                        href="/services"
                         className="hover:text-white transition-colors duration-200 inline-block hover:translate-x-1 transform"
                       >
                         proctorIT

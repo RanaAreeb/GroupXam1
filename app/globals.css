@@ -700,13 +700,13 @@ section {
   }
 }
 
-/* GPU acceleration hints for smooth animations on desktop */
+/* GPU acceleration — only named decorative classes (never [class*="animate-"],
+   which also matches Radix/tailwind animate-in and breaks dropdown position). */
 @media (min-width: 769px) {
   .animate-float,
   .animate-pulse-glow,
   .card-hover,
-  .hover-lift,
-  [class*="animate-"]:not([data-state]):not([role="dialog"]):not([data-radix-popper-content-wrapper]):not([data-radix-popover-content]):not(.animate-spin):not([class*="spin"]) {
+  .hover-lift {
     will-change: transform;
     transform: translateZ(0);
     backface-visibility: hidden;
@@ -720,14 +720,19 @@ section {
 }
 
 /*
-  Radix Select/Popover/Dropdown position via transform on
-  [data-radix-popper-content-wrapper]. Never force transform:none —
-  that pins menus at the top-left of the viewport.
+  Radix Select/Popover/Dropdown position via inline transform on
+  [data-radix-popper-content-wrapper]. Never set transform/left/top here —
+  transform:none pins menus at the top-left of the viewport.
 */
-[data-radix-popover-content],
-[data-radix-select-content],
-[data-radix-dropdown-menu-content],
 [data-radix-popper-content-wrapper] {
+  will-change: auto !important;
+  backface-visibility: visible !important;
+  z-index: 100 !important;
+}
+
+[data-radix-select-content],
+[data-radix-popover-content],
+[data-radix-dropdown-menu-content] {
   will-change: auto !important;
   backface-visibility: visible !important;
 }
