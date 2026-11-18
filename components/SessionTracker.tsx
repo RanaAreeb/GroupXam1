@@ -12,76 +12,77 @@ export default function SessionTracker({ children }: SessionTrackerProps) {
   const sessionStartTime = useRef<number>(Date.now());
   const pageViews = useRef<number>(0);
   const actions = useRef<string[]>([]);
-  const isTracking = useRef<boolean>(false);
-  const lastSessionTime = useRef<number>(0);
+  const isSending = useRef<boolean>(false);
+  const lastSendTime = useRef<number>(0);
   const pageVisits = useRef<any[]>([]);
   const currentPageStartTime = useRef<number>(Date.now());
   const currentPage = useRef<string>('');
   const lastActiveTime = useRef<number>(Date.now());
-  const isPageVisible = useRef<boolean>(true);
+  const hasActiveServerSession = useRef<boolean>(false);
+  const finalized = useRef<boolean>(false);
 
-  console.log('SessionTracker mounted:', { isLoggedIn, user: user?.email, loading });
+  const resetLocalSession = () => {
+    const now = Date.now();
+    sessionStartTime.current = now;
+    lastActiveTime.current = now;
+    pageViews.current = 1;
+    actions.current = [];
+    pageVisits.current = [];
+    currentPageStartTime.current = now;
+    currentPage.current = typeof window !== 'undefined' ? window.location.pathname : '';
+    finalized.current = false;
+  };
 
-  // Reset session tracking when user logs in or out
+  const sendSessionStart = async () => {
+    if (!isLoggedIn || !user || loading) return;
+
+    try {
+      const response = await fetch('/api/activity/session/start', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          startTime: new Date().toISOString(),
+          userAgent: navigator.userAgent,
+          referrer: document.referrer,
+        }),
+      });
+
+      if (response.ok) {
+        hasActiveServerSession.current = true;
+        finalized.current = false;
+      }
+    } catch (error) {
+      console.error('Failed to record session start:', error);
+    }
+  };
+
+  const ensureSessionStarted = async () => {
+    if (!hasActiveServerSession.current || finalized.current) {
+      resetLocalSession();
+      await sendSessionStart();
+    }
+  };
+
+  // Start / reset when auth becomes ready
   useEffect(() => {
     if (isLoggedIn && user && !loading) {
-      console.log('User logged in, starting new session');
-      
-      // Always reset session start time to prevent long sessions
-      const now = Date.now();
-      sessionStartTime.current = now;
-      lastActiveTime.current = now;
-      pageViews.current = 0;
-      actions.current = [];
-      isTracking.current = false;
-      lastSessionTime.current = 0;
-      pageVisits.current = [];
-      currentPageStartTime.current = now;
-      currentPage.current = typeof window !== 'undefined' ? window.location.pathname : '';
-      
-      // Send session start immediately
+      resetLocalSession();
       sendSessionStart();
     } else if (!isLoggedIn && !loading) {
-      console.log('User logged out, cleaning up session tracking');
-      // Clean up session tracking when user logs out
-      isTracking.current = false;
-      sessionStartTime.current = Date.now();
+      hasActiveServerSession.current = false;
+      finalized.current = true;
       pageViews.current = 0;
       actions.current = [];
-      lastSessionTime.current = 0;
       pageVisits.current = [];
     }
   }, [isLoggedIn, user, loading]);
 
-  // Reset session on page load/refresh to prevent long sessions
-  useEffect(() => {
-    if (isLoggedIn && user && !loading) {
-      const now = Date.now();
-      
-      // Check if session has been idle for more than 30 minutes (1800 seconds)
-      const maxIdleTime = 30 * 60 * 1000; // 30 minutes in milliseconds
-      const currentSessionDuration = now - sessionStartTime.current;
-      
-      if (currentSessionDuration > maxIdleTime) {
-        console.log('Long session detected, resetting session start time');
-        sessionStartTime.current = now;
-        lastActiveTime.current = now;
-        pageViews.current = 0;
-        actions.current = [];
-        pageVisits.current = [];
-        currentPageStartTime.current = now;
-      }
-    }
-  }, []);
-
-  // Track page visibility and user activity
+  // Activity + visibility listeners
   useEffect(() => {
     if (!isLoggedIn || !user || loading) return;
 
     const handleVisibilityChange = () => {
-      isPageVisible.current = !document.hidden;
       if (!document.hidden) {
-        // Page became visible, update last active time
         lastActiveTime.current = Date.now();
       }
     };
@@ -90,244 +91,163 @@ export default function SessionTracker({ children }: SessionTrackerProps) {
       lastActiveTime.current = Date.now();
     };
 
-    // Listen for page visibility changes
     document.addEventListener('visibilitychange', handleVisibilityChange);
-    
-    // Listen for user activity
-    const activityEvents = ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart'];
-    activityEvents.forEach(event => {
+    const activityEvents = ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart'] as const;
+    activityEvents.forEach((event) => {
       document.addEventListener(event, handleUserActivity, true);
     });
 
     return () => {
       document.removeEventListener('visibilitychange', handleVisibilityChange);
-      activityEvents.forEach(event => {
+      activityEvents.forEach((event) => {
         document.removeEventListener(event, handleUserActivity, true);
       });
     };
   }, [isLoggedIn, user, loading]);
 
-  // Send session start notification
-  const sendSessionStart = async () => {
-    if (!isLoggedIn || !user || loading) return;
-    
-    try {
-      const response = await fetch('/api/activity/session/start', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          startTime: new Date().toISOString(),
-          userAgent: navigator.userAgent,
-          referrer: document.referrer
-        }),
-      });
-      
-      if (response.ok) {
-        console.log('Session start recorded successfully');
-      } else {
-        console.error('Failed to record session start:', response.status);
-      }
-    } catch (error) {
-      console.error('Failed to record session start:', error);
-    }
-  };
-
-  // Track page views and page visits
+  // Page views
   useEffect(() => {
     if (isLoggedIn && user && !loading && typeof window !== 'undefined') {
       pageViews.current += 1;
-      
-      // Record the previous page visit if it exists
-      if (currentPage.current !== window.location.pathname) {
+
+      if (currentPage.current && currentPage.current !== window.location.pathname) {
         const pageDuration = Date.now() - currentPageStartTime.current;
-        if (pageDuration > 1000) { // Only record if spent more than 1 second
+        if (pageDuration > 1000) {
           pageVisits.current.push({
             page: currentPage.current,
             url: window.location.href,
             duration: pageDuration,
             entryTime: new Date(currentPageStartTime.current).toISOString(),
-            actions: actions.current.filter(action => action.includes('page:'))
+            actions: actions.current.filter((action) => action.includes('page:')),
           });
         }
-        
-        // Reset for new page
+
         currentPage.current = window.location.pathname;
         currentPageStartTime.current = Date.now();
-        actions.current = actions.current.filter(action => !action.includes('page:'));
+        actions.current = actions.current.filter((action) => !action.includes('page:'));
+      } else if (!currentPage.current) {
+        currentPage.current = window.location.pathname;
+        currentPageStartTime.current = Date.now();
       }
     }
   }, [isLoggedIn, user, loading]);
 
-  // Track user actions
   const trackAction = (action: string) => {
     if (isLoggedIn && user && !loading) {
       actions.current.push(action);
     }
   };
 
-  // Track page-specific actions
-  const trackPageAction = (action: string) => {
-    if (isLoggedIn && user && !loading) {
-      actions.current.push(`page:${action}`);
+  const buildDurationSeconds = () => {
+    const now = Date.now();
+    const raw = now - sessionStartTime.current;
+    const timeSinceLastActivity = now - lastActiveTime.current;
+    const maxInactiveTime = 10 * 60 * 1000;
+    let active = raw;
+    if (timeSinceLastActivity > maxInactiveTime) {
+      active = raw - (timeSinceLastActivity - maxInactiveTime);
     }
+    const maxSessionDuration = 4 * 60 * 60 * 1000;
+    return Math.floor(Math.min(Math.max(active, 0), maxSessionDuration) / 1000);
   };
 
-  // Send session data when user leaves or component unmounts
-  const sendSessionData = async () => {
-    if (!isLoggedIn || !user || isTracking.current || loading) {
-      console.log('Session tracking skipped - user not logged in or tracking disabled');
-      return;
-    }
+  const sendSessionData = async (finalize: boolean) => {
+    if (!isLoggedIn || !user || loading || isSending.current) return;
+    if (finalize && finalized.current) return;
 
-    isTracking.current = true;
-    const sessionDuration = Date.now() - sessionStartTime.current;
+    const sessionDuration = buildDurationSeconds();
+    if (sessionDuration < 10 && finalize) return;
+    if (sessionDuration < 10 && !finalize) return;
 
-    // Only track sessions longer than 10 seconds
-    if (sessionDuration < 10000) {
-      console.log('Session too short, not tracking:', sessionDuration);
-      isTracking.current = false;
-      return;
-    }
-
-    // Calculate actual active time by accounting for periods of inactivity
+    // Throttle heartbeats
     const now = Date.now();
-    const timeSinceLastActivity = now - lastActiveTime.current;
-    const maxInactiveTime = 10 * 60 * 1000; // 10 minutes max inactive time
-    
-    // If user has been inactive for more than 10 minutes, subtract that inactive time
-    let activeSessionDuration = sessionDuration;
-    if (timeSinceLastActivity > maxInactiveTime) {
-      activeSessionDuration = sessionDuration - (timeSinceLastActivity - maxInactiveTime);
-    }
-    
-    // Cap maximum session duration at 4 hours (14400 seconds)
-    const maxSessionDuration = 4 * 60 * 60 * 1000; // 4 hours in milliseconds
-    const cappedSessionDuration = Math.min(Math.max(activeSessionDuration, 0), maxSessionDuration);
+    if (!finalize && now - lastSendTime.current < 30 * 1000) return;
 
-    console.log('Session duration calculation:', {
-      raw: sessionDuration,
-      active: activeSessionDuration,
-      capped: cappedSessionDuration,
-      rawSeconds: Math.floor(sessionDuration / 1000),
-      activeSeconds: Math.floor(activeSessionDuration / 1000),
-      cappedSeconds: Math.floor(cappedSessionDuration / 1000),
-      timeSinceLastActivity: Math.floor(timeSinceLastActivity / 1000)
-    });
+    isSending.current = true;
 
-    // Only track if we have some activity
-    if (pageViews.current === 0 && actions.current.length === 0) {
-      console.log('No activity detected, not tracking session');
-      isTracking.current = false;
-      return;
-    }
-
-    // Prevent multiple rapid submissions (minimum 30 seconds between sessions)
-    const currentTime = Date.now();
-    if (currentTime - lastSessionTime.current < 30000) {
-      console.log('Session submitted too recently, skipping');
-      isTracking.current = false;
-      return;
-    }
-
-    // Record current page visit before sending
     if (typeof window !== 'undefined') {
       const currentPageDuration = Date.now() - currentPageStartTime.current;
       if (currentPageDuration > 1000) {
-        pageVisits.current.push({
-          page: currentPage.current,
-          url: window.location.href,
-          duration: currentPageDuration,
-          entryTime: new Date(currentPageStartTime.current).toISOString(),
-          actions: actions.current.filter(action => action.includes('page:'))
-        });
+        const last = pageVisits.current[pageVisits.current.length - 1];
+        if (!last || last.page !== currentPage.current || last.entryTime !== new Date(currentPageStartTime.current).toISOString()) {
+          pageVisits.current.push({
+            page: currentPage.current,
+            url: window.location.href,
+            duration: currentPageDuration,
+            entryTime: new Date(currentPageStartTime.current).toISOString(),
+            actions: actions.current.filter((action) => action.includes('page:')),
+          });
+        }
       }
     }
 
-    // Validate session data before sending
-    const sessionData = {
-      sessionDuration: Math.floor(cappedSessionDuration / 1000), // Convert to seconds and use capped duration
-      pageViews: pageViews.current,
+    const payload = {
+      sessionDuration,
+      pageViews: Math.max(pageViews.current, 1),
       actions: actions.current || [],
-      pageVisits: pageVisits.current || []
+      pageVisits: pageVisits.current || [],
+      finalize,
     };
 
-    console.log('Sending session data:', sessionData);
-
     try {
-      // Use keepalive to ensure request completes even if page is closing
+      if (!hasActiveServerSession.current && !finalize) {
+        await ensureSessionStarted();
+      }
+
       const response = await fetch('/api/activity/session', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(sessionData),
-        keepalive: true, // Ensures request completes even during page unload
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+        keepalive: finalize,
       });
 
-      if (!response.ok) {
-        if (response.status === 401) {
-          console.log('Session tracking stopped - user logged out');
-          isTracking.current = false;
-          return;
+      if (response.ok) {
+        lastSendTime.current = now;
+        if (finalize) {
+          finalized.current = true;
+          hasActiveServerSession.current = false;
         }
-        console.error('Session API error:', response.status, response.statusText);
-        try {
-          const errorText = await response.text();
-          console.error('Error response:', errorText);
-        } catch (e) {
-          console.error('Could not read error response');
-        }
-        isTracking.current = false;
-      } else {
-        console.log('Session data sent successfully');
-        lastSessionTime.current = currentTime;
-        isTracking.current = false;
       }
     } catch (error) {
       console.error('Failed to send session data:', error);
-      isTracking.current = false;
+    } finally {
+      isSending.current = false;
     }
   };
 
-  // Set up event listeners for tracking
   useEffect(() => {
-    console.log('Setting up session tracking:', { isLoggedIn, user: user?.email, loading });
     if (!isLoggedIn || !user || loading) return;
 
-    // Track various user actions
     const trackClick = () => trackAction('click');
     const trackScroll = () => trackAction('scroll');
     const trackKeyPress = () => trackAction('keypress');
 
-    // Add event listeners
     document.addEventListener('click', trackClick);
     document.addEventListener('scroll', trackScroll);
     document.addEventListener('keypress', trackKeyPress);
 
-    // Send session data when user leaves
     const handleBeforeUnload = () => {
-      if (isLoggedIn && user) {
-        sendSessionData();
-      }
+      void sendSessionData(true);
     };
 
     const handleVisibilityChange = () => {
-      if (document.visibilityState === 'hidden' && isLoggedIn && user) {
-        sendSessionData();
+      if (document.visibilityState === 'hidden') {
+        void sendSessionData(true);
+      } else if (document.visibilityState === 'visible') {
+        // New visit segment after tab return
+        void ensureSessionStarted();
       }
     };
 
     window.addEventListener('beforeunload', handleBeforeUnload);
     document.addEventListener('visibilitychange', handleVisibilityChange);
 
-    // Send session data every 2 minutes while active (more frequent for real-time tracking)
+    // Heartbeat only — does not create a new "spent X minutes" row each time
     const interval = setInterval(() => {
-      if (document.visibilityState === 'visible' && isLoggedIn && user) {
-        sendSessionData();
+      if (document.visibilityState === 'visible') {
+        void sendSessionData(false);
       }
-    }, 2 * 60 * 1000); // 2 minutes
+    }, 2 * 60 * 1000);
 
     return () => {
       document.removeEventListener('click', trackClick);
@@ -336,9 +256,7 @@ export default function SessionTracker({ children }: SessionTrackerProps) {
       window.removeEventListener('beforeunload', handleBeforeUnload);
       document.removeEventListener('visibilitychange', handleVisibilityChange);
       clearInterval(interval);
-      if (isLoggedIn && user) {
-        sendSessionData();
-      }
+      void sendSessionData(true);
     };
   }, [isLoggedIn, user, loading]);
 

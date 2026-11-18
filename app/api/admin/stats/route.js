@@ -585,15 +585,24 @@ export async function GET(request) {
             .limit(50)
             .toArray();
 
-        // Get recent sessions
+        // Completed sessions only, skip sub-minute noise / active heartbeats
         const sessions = await db.collection("sessions")
-            .find({})
+            .find({
+                status: "completed",
+                sessionDuration: { $gte: 60 },
+            })
             .sort({ endTime: -1 })
             .limit(50)
             .toArray();
 
         // Get user session statistics (users with their total sessions)
         const userSessionStats = await db.collection("sessions").aggregate([
+            {
+                $match: {
+                    status: "completed",
+                    sessionDuration: { $gte: 60 },
+                },
+            },
             {
                 $group: {
                     _id: "$userId",
@@ -620,21 +629,24 @@ export async function GET(request) {
             type: activity.type || 'activity'
         }));
 
-        // Format sessions as activities
-        const formattedSessions = sessions.map(session => ({
-            _id: session._id,
-            type: 'session',
-            message: `${session.userName} spent ${Math.round(session.sessionDuration / 60)} minutes on the platform`,
-            userId: session.userId,
-            userName: session.userName,
-            userEmail: session.userEmail,
-            sessionDuration: session.sessionDuration,
-            pageViews: session.pageViews,
-            actions: session.actions,
-            timestamp: session.endTime,
-            createdAt: session.createdAt,
-            updatedAt: session.updatedAt
-        }));
+        // Format sessions as activities (minutes rounded, never show 0)
+        const formattedSessions = sessions.map(session => {
+            const minutes = Math.max(1, Math.round((session.sessionDuration || 0) / 60));
+            return {
+                _id: session._id,
+                type: 'session',
+                message: `${session.userName} spent ${minutes} minute${minutes === 1 ? '' : 's'} on the platform`,
+                userId: session.userId,
+                userName: session.userName,
+                userEmail: session.userEmail,
+                sessionDuration: session.sessionDuration,
+                pageViews: session.pageViews,
+                actions: session.actions,
+                timestamp: session.endTime,
+                createdAt: session.createdAt,
+                updatedAt: session.updatedAt
+            };
+        });
 
         // Combine and sort all activities
         const allActivities = [...formattedActivities, ...formattedSessions]
